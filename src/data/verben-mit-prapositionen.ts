@@ -1,0 +1,61 @@
+export type VerbPrepEntry = {
+  verb: string;
+  preposition: string;
+  meaning: string;
+  example: string;
+  exampleEn: string;
+  arabic: string;
+};
+
+export const VERB_PREPOSITIONS: VerbPrepEntry[] = [
+  { verb: "look", preposition: "at", meaning: "to direct eyes toward", example: "Look at the board.", exampleEn: "Look at the board.", arabic: "ينظر إلى" },
+  { verb: "listen", preposition: "to", meaning: "to pay attention to sound", example: "Listen to the teacher.", exampleEn: "Listen to the teacher.", arabic: "يستمع إلى" },
+  { verb: "wait", preposition: "for", meaning: "to stay until something happens", example: "I am waiting for the bus.", exampleEn: "I am waiting for the bus.", arabic: "ينتظر" },
+  { verb: "depend", preposition: "on", meaning: "to rely on", example: "It depends on the weather.", exampleEn: "It depends on the weather.", arabic: "يعتمد على" },
+  { verb: "belong", preposition: "to", meaning: "to be owned by", example: "This book belongs to me.", exampleEn: "This book belongs to me.", arabic: "ينتمي إلى" },
+  { verb: "apologize", preposition: "for", meaning: "to say sorry", example: "She apologized for being late.", exampleEn: "She apologized for being late.", arabic: "يعتذر عن" },
+  { verb: "ask", preposition: "for", meaning: "to request", example: "He asked for a glass of water.", exampleEn: "He asked for a glass of water.", arabic: "يطلب" },
+  { verb: "pay", preposition: "for", meaning: "to give money", example: "I paid for the tickets.", exampleEn: "I paid for the tickets.", arabic: "يدفع ثمن" },
+  { verb: "care", preposition: "about", meaning: "to be concerned", example: "She cares about the environment.", exampleEn: "She cares about the environment.", arabic: "يهتم بـ" },
+  { verb: "worry", preposition: "about", meaning: "to feel anxious", example: "Don't worry about the exam.", exampleEn: "Don't worry about the exam.", arabic: "يقلق بشأن" },
+  { verb: "talk", preposition: "about", meaning: "to discuss", example: "They talked about the movie.", exampleEn: "They talked about the movie.", arabic: "يتحدث عن" },
+  { verb: "think", preposition: "about", meaning: "to consider", example: "I am thinking about your offer.", exampleEn: "I am thinking about your offer.", arabic: "يفكر في" },
+  { verb: "think", preposition: "of", meaning: "to have an opinion", example: "What do you think of this song?", exampleEn: "What do you think of this song?", arabic: "يرى رأيه في" },
+  { verb: "dream", preposition: "of/about", meaning: "to imagine", example: "She dreams of becoming a doctor.", exampleEn: "She dreams of becoming a doctor.", arabic: "يحلم بـ" },
+  { verb: "succeed", preposition: "in", meaning: "to achieve", example: "He succeeded in passing the test.", exampleEn: "He succeeded in passing the test.", arabic: "ينجح في" },
+  { verb: "believe", preposition: "in", meaning: "to have faith", example: "I believe in you.", exampleEn: "I believe in you.", arabic: "يؤمن بـ" },
+  { verb: "specialize", preposition: "in", meaning: "to focus on", example: "She specializes in cardiology.", exampleEn: "She specializes in cardiology.", arabic: "يتخصص في" },
+  { verb: "result", preposition: "in", meaning: "to cause", example: "The accident resulted in injuries.", exampleEn: "The accident resulted in injuries.", arabic: "يؤدي إلى" },
+  { verb: "suffer", preposition: "from", meaning: "to experience pain", example: "He suffers from allergies.", exampleEn: "He suffers from allergies.", arabic: "يعاني من" },
+  { verb: "benefit", preposition: "from", meaning: "to gain advantage", example: "We benefited from her experience.", exampleEn: "We benefited from her experience.", arabic: "يستفيد من" },
+  { verb: "differ", preposition: "from", meaning: "to be different", example: "This differs from the original.", exampleEn: "This differs from the original.", arabic: "يختلف عن" },
+  { verb: "protect", preposition: "from", meaning: "to keep safe", example: "Sunscreen protects you from the sun.", exampleEn: "Sunscreen protects you from the sun.", arabic: "يحمي من" },
+  { verb: "prevent", preposition: "from", meaning: "to stop", example: "The rain prevented us from going out.", exampleEn: "The rain prevented us from going out.", arabic: "يمنع من" },
+  { verb: "insist", preposition: "on", meaning: "to demand firmly", example: "He insisted on paying the bill.", exampleEn: "He insisted on paying the bill.", arabic: "يصر على" },
+  { verb: "congratulate", preposition: "on", meaning: "to praise for", example: "I congratulated her on her success.", exampleEn: "I congratulated her on her success.", arabic: "يهنئ على" },
+  { verb: "rely", preposition: "on", meaning: "to depend on", example: "You can rely on me.", exampleEn: "You can rely on me.", arabic: "يعتمد على" },
+  { verb: "comment", preposition: "on", meaning: "to give an opinion", example: "She commented on the article.", exampleEn: "She commented on the article.", arabic: "يعلق على" },
+  { verb: "decide", preposition: "on", meaning: "to choose", example: "We decided on a restaurant.", exampleEn: "We decided on a restaurant.", arabic: "يقرر" },
+  { verb: "agree", preposition: "to", meaning: "to accept", example: "They agreed to the terms.", exampleEn: "They agreed to the terms.", arabic: "يوافق على" },
+  { verb: "respond", preposition: "to", meaning: "to reply", example: "Please respond to my email.", exampleEn: "Please respond to my email.", arabic: "يرد على" },
+  { verb: "apologize", preposition: "to", meaning: "to say sorry to", example: "He apologized to his colleague.", exampleEn: "He apologized to his colleague.", arabic: "يعتذر لـ" },
+  { verb: "explain", preposition: "to", meaning: "to make clear", example: "Explain it to me please.", exampleEn: "Explain it to me please.", arabic: "يشرح لـ" },
+  { verb: "apply", preposition: "for", meaning: "to make a formal request", example: "She applied for the job.", exampleEn: "She applied for the job.", arabic: "يتقدم بـ" },
+  { verb: "search", preposition: "for", meaning: "to look for", example: "I am searching for my keys.", exampleEn: "I am searching for my keys.", arabic: "يبحث عن" },
+  { verb: "hope", preposition: "for", meaning: "to wish", example: "We hope for good weather.", exampleEn: "We hope for good weather.", arabic: "يأمل في" },
+  { verb: "blame", preposition: "for", meaning: "to hold responsible", example: "They blamed him for the mistake.", exampleEn: "They blamed him for the mistake.", arabic: "يلوم على" },
+  { verb: "thank", preposition: "for", meaning: "to express gratitude", example: "I thanked her for the gift.", exampleEn: "I thanked her for the gift.", arabic: "يشكر على" },
+  { verb: "forgive", preposition: "for", meaning: "to pardon", example: "Please forgive me for the delay.", exampleEn: "Please forgive me for the delay.", arabic: "يسامح على" },
+  { verb: "prepare", preposition: "for", meaning: "to get ready", example: "He prepared for the interview.", exampleEn: "He prepared for the interview.", arabic: "يستعد لـ" },
+  { verb: "account", preposition: "for", meaning: "to explain", example: "How do you account for this?", exampleEn: "How do you account for this?", arabic: "يفسر" },
+  { verb: "compete", preposition: "with/against", meaning: "to try to win", example: "We competed against other teams.", exampleEn: "We competed against other teams.", arabic: "يتنافس مع" },
+  { verb: "compare", preposition: "with/to", meaning: "to examine similarities", example: "Compare this with the original.", exampleEn: "Compare this with the original.", arabic: "يقارن بـ" },
+  { verb: "provide", preposition: "with", meaning: "to supply", example: "The school provides students with books.", exampleEn: "The school provides students with books.", arabic: "يزود بـ" },
+  { verb: "deal", preposition: "with", meaning: "to handle", example: "I need to deal with this problem.", exampleEn: "I need to deal with this problem.", arabic: "يتعامل مع" },
+  { verb: "agree", preposition: "with", meaning: "to share an opinion", example: "I agree with you completely.", exampleEn: "I agree with you completely.", arabic: "يتفق مع" },
+  { verb: "associate", preposition: "with", meaning: "to connect", example: "I associate this smell with childhood.", exampleEn: "I associate this smell with childhood.", arabic: "يربط بـ" },
+  { verb: "help", preposition: "with", meaning: "to assist", example: "Can you help me with this?", exampleEn: "Can you help me with this?", arabic: "يساعد في" },
+  { verb: "fill", preposition: "with", meaning: "to make full", example: "Fill the glass with water.", exampleEn: "Fill the glass with water.", arabic: "يملأ بـ" },
+  { verb: "charge", preposition: "with", meaning: "to accuse", example: "He was charged with theft.", exampleEn: "He was charged with theft.", arabic: "يتهم بـ" },
+  { verb: "confuse", preposition: "with", meaning: "to mistake", example: "I confused her with her sister.", exampleEn: "I confused her with her sister.", arabic: "يخلط بين" },
+];

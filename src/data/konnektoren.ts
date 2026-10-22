@@ -1,0 +1,117 @@
+export type KonnektorCategory =
+  | "causal" | "concessive" | "conditional" | "temporal"
+  | "modal" | "final" | "consecutive" | "adversative"
+  | "enumerating" | "restrictive" | "addition";
+
+export type SatzPosition = "0" | "1" | "verb-last";
+
+export type Konnektor = {
+  word: string;
+  english: string;
+  arabic?: string;
+  category: KonnektorCategory;
+  position: SatzPosition;
+  example: string;
+  exampleEn: string;
+  exampleAr?: string;
+  level: "A2" | "B1" | "B2" | "C1";
+};
+
+export const CATEGORY_META: Record<KonnektorCategory, { label: string; icon: string; color: string; desc: string }> = {
+  causal:        { label: "Causal",        icon: "🔗", color: "text-blue-600",     desc: "Reason / cause (because, since, therefore)" },
+  concessive:    { label: "Concessive",    icon: "🔄", color: "text-purple-600",   desc: "Despite / although (although, however, despite)" },
+  conditional:   { label: "Conditional",   icon: "🎲", color: "text-amber-600",    desc: "If / unless (if, unless, otherwise)" },
+  temporal:      { label: "Temporal",      icon: "⏰", color: "text-emerald-600",   desc: "Time (when, while, after, before, until)" },
+  modal:         { label: "Modal",         icon: "⚙️", color: "text-slate-600",    desc: "Manner / method (by, as if, without)" },
+  final:         { label: "Final",         icon: "🎯", color: "text-red-600",      desc: "Purpose (so that, in order to)" },
+  consecutive:   { label: "Consecutive",   icon: "➡️", color: "text-orange-600",   desc: "Result (so...that, consequently, as a result)" },
+  adversative:   { label: "Adversative",   icon: "⚡", color: "text-rose-600",     desc: "Contrast (but, however, whereas, on the other hand)" },
+  enumerating:   { label: "Enumerating",   icon: "📋", color: "text-cyan-600",     desc: "Ordering (first, then, finally, firstly)" },
+  restrictive:   { label: "Restrictive",   icon: "🎯", color: "text-indigo-600",   desc: "Limitation (admittedly, however, even though)" },
+  addition:      { label: "Addition",      icon: "➕", color: "text-lime-600",      desc: "Adding info (also, furthermore, moreover, and)" },
+};
+
+export const KONNEKTOREN: Konnektor[] = [
+  // ── Causal ──
+  { word: "because", english: "because", arabic: "لأن", category: "causal", position: "0", example: "I learn English because I want to work abroad.", exampleEn: "I learn English because I want to work abroad.", exampleAr: "أتعلم الإنجليزية لأنني أريد العمل في الخارج", level: "A2" },
+  { word: "since", english: "since / as", arabic: "بما أن", category: "causal", position: "0", example: "Since it is raining, we are staying at home.", exampleEn: "Since it is raining, we are staying at home.", exampleAr: "بما أنها تمطر، نحن نبقى في المنزل", level: "B1" },
+  { word: "as", english: "as (reason)", arabic: "لأن / بما أن", category: "causal", position: "0", example: "As I was tired, I went to bed early.", exampleEn: "As I was tired, I went to bed early.", exampleAr: "لأنني كنت متعباً، ذهبت إلى الفراش مبكراً", level: "B1" },
+  { word: "therefore", english: "therefore", arabic: "لذلك", category: "causal", position: "0", example: "I studied a lot, therefore I passed the exam.", exampleEn: "I studied a lot, therefore I passed the exam.", exampleAr: "لقد درست كثيراً، لذلك نجحت في الامتحان", level: "B1" },
+  { word: "so", english: "so (result)", arabic: "لذلك / لذا", category: "causal", position: "0", example: "I was tired, so I went to bed.", exampleEn: "I was tired, so I went to bed.", exampleAr: "كنت متعباً، لذا ذهبت إلى الفراش", level: "A2" },
+  { word: "that's why", english: "that's why", arabic: "لهذا السبب", category: "causal", position: "0", example: "The train was late, that's why I arrived late.", exampleEn: "The train was late, that's why I arrived late.", exampleAr: "تأخر القطار، ولهذا السبب وصلت متأخراً", level: "B1" },
+  { word: "hence", english: "hence", arabic: "وبالتالي", category: "causal", position: "0", example: "He has a lot of experience, hence he got the job.", exampleEn: "He has a lot of experience, hence he got the job.", exampleAr: "لديه خبرة كبيرة، وبالتالي حصل على الوظيفة", level: "B2" },
+  { word: "due to", english: "due to", arabic: "بسبب / نظراً لـ", category: "causal", position: "0", example: "Due to the rain, the event was cancelled.", exampleEn: "Due to the rain, the event was cancelled.", exampleAr: "بسبب المطر، تم إلغاء الفعالية", level: "B2" },
+  { word: "because of", english: "because of", arabic: "بسبب", category: "causal", position: "0", example: "Because of the traffic, I was late.", exampleEn: "Because of the traffic, I was late.", exampleAr: "بسبب الزحام، تأخرت", level: "B1" },
+  { word: "for this reason", english: "for this reason", arabic: "لهذا السبب", category: "causal", position: "0", example: "For this reason, we must act now.", exampleEn: "For this reason, we must act now.", exampleAr: "لهذا السبب، يجب أن نتصرف الآن", level: "B2" },
+
+  // ── Concessive ──
+  { word: "although", english: "although", arabic: "على الرغم من أن", category: "concessive", position: "0", example: "Although it rained, we went for a walk.", exampleEn: "Although it rained, we went for a walk.", exampleAr: "على الرغم من أنها أمطرت، ذهبنا في نزهة", level: "B1" },
+  { word: "even though", english: "even though", arabic: "على الرغم من أن (تأكيد)", category: "concessive", position: "0", example: "Even though it was difficult, we succeeded.", exampleEn: "Even though it was difficult, we succeeded.", exampleAr: "على الرغم من صعوبته، نجحنا", level: "B1" },
+  { word: "though", english: "though", arabic: "لكن / مع ذلك", category: "concessive", position: "0", example: "He was tired, though he continued working.", exampleEn: "He was tired, though he continued working.", exampleAr: "كان متعباً، لكنه استمر في العمل", level: "B1" },
+  { word: "nevertheless", english: "nevertheless", arabic: "مع ذلك", category: "concessive", position: "0", example: "The task was hard, nevertheless we solved it.", exampleEn: "The task was hard, nevertheless we solved it.", exampleAr: "كانت المهمة صعبة، ومع ذلك قمنا بحلها", level: "B2" },
+  { word: "despite", english: "despite", arabic: "على الرغم من", category: "concessive", position: "0", example: "Despite the rain, we enjoyed the trip.", exampleEn: "Despite the rain, we enjoyed the trip.", exampleAr: "على الرغم من المطر، استمتعنا بالرحلة", level: "B2" },
+  { word: "in spite of", english: "in spite of", arabic: "رغم", category: "concessive", position: "0", example: "In spite of the difficulties, they finished the project.", exampleEn: "In spite of the difficulties, they finished the project.", exampleAr: "رغم الصعوبات، أنهوا المشروع", level: "B2" },
+
+  // ── Conditional ──
+  { word: "if", english: "if", arabic: "إذا", category: "conditional", position: "0", example: "If I have time, I will come by.", exampleEn: "If I have time, I will come by.", exampleAr: "إذا كان لدي وقت، سأمر", level: "A2" },
+  { word: "unless", english: "unless", arabic: "إلا إذا", category: "conditional", position: "0", example: "Unless it rains, the event will be outdoors.", exampleEn: "Unless it rains, the event will be outdoors.", exampleAr: "ما لم تمطر، ستكون الفعالية في الهواء الطلق", level: "B1" },
+  { word: "otherwise", english: "otherwise", arabic: "وإلا", category: "conditional", position: "0", example: "Hurry up, otherwise we will miss the bus.", exampleEn: "Hurry up, otherwise we will miss the bus.", exampleAr: "أسرع، وإلا سنفوت الحافلة", level: "B1" },
+  { word: "as long as", english: "as long as", arabic: "طالما", category: "conditional", position: "0", example: "As long as you study, you will make progress.", exampleEn: "As long as you study, you will make progress.", exampleAr: "طالما تدرس، ستتقدم", level: "B1" },
+  { word: "provided that", english: "provided that", arabic: "بشرط أن", category: "conditional", position: "0", example: "You can join provided that you follow the rules.", exampleEn: "You can join provided that you follow the rules.", exampleAr: "يمكنك الانضمام بشرط أن تتبع القواعد", level: "B2" },
+  { word: "in case", english: "in case", arabic: "في حال", category: "conditional", position: "0", example: "Take an umbrella in case it rains.", exampleEn: "Take an umbrella in case it rains.", exampleAr: "خذ مظلة في حال هطول المطر", level: "B1" },
+
+  // ── Temporal ──
+  { word: "when", english: "when", arabic: "عندما", category: "temporal", position: "0", example: "When I was young, I traveled a lot.", exampleEn: "When I was young, I traveled a lot.", exampleAr: "عندما كنت صغيراً، سافرت كثيراً", level: "A2" },
+  { word: "while", english: "while", arabic: "بينما / أثناء", category: "temporal", position: "0", example: "While I cook, I listen to music.", exampleEn: "While I cook, I listen to music.", exampleAr: "بينما أطبخ، أستمع إلى الموسيقى", level: "A2" },
+  { word: "before", english: "before", arabic: "قبل أن", category: "temporal", position: "0", example: "Before we eat, we wash our hands.", exampleEn: "Before we eat, we wash our hands.", exampleAr: "قبل أن نأكل، نغسل أيدينا", level: "A2" },
+  { word: "after", english: "after", arabic: "بعد أن", category: "temporal", position: "0", example: "After he finished work, he went home.", exampleEn: "After he finished work, he went home.", exampleAr: "بعد أن أنهى العمل، ذهب إلى المنزل", level: "A2" },
+  { word: "until", english: "until", arabic: "حتى", category: "temporal", position: "0", example: "I will wait until the rain stops.", exampleEn: "I will wait until the rain stops.", exampleAr: "سأنتظر حتى يتوقف المطر", level: "A2" },
+  { word: "as soon as", english: "as soon as", arabic: "بمجرد أن", category: "temporal", position: "0", example: "As soon as I am done, I will call you.", exampleEn: "As soon as I am done, I will call you.", exampleAr: "بمجرد أن أنتهي، سأتصل بك", level: "B1" },
+  { word: "since", english: "since (time)", arabic: "منذ", category: "temporal", position: "0", example: "Since she moved to Cairo, she has been happy.", exampleEn: "Since she moved to Cairo, she has been happy.", exampleAr: "منذ أن انتقلت إلى القاهرة، وهي سعيدة", level: "B1" },
+  { word: "whenever", english: "whenever", arabic: "كلما", category: "temporal", position: "0", example: "Whenever I see him, I say hello.", exampleEn: "Whenever I see him, I say hello.", exampleAr: "كلما أراه، ألقي التحية", level: "B1" },
+
+  // ── Modal ──
+  { word: "by", english: "by (doing)", arabic: "عن طريق", category: "modal", position: "0", example: "You save time by shopping online.", exampleEn: "You save time by shopping online.", exampleAr: "يمكن توفير الوقت عن طريق التسوق عبر الإنترنت", level: "B2" },
+  { word: "as if", english: "as if", arabic: "كما لو", category: "modal", position: "0", example: "He acts as if he knew nothing.", exampleEn: "He acts as if he knew nothing.", exampleAr: "يتصرف كما لو أنه لا يعرف شيئاً", level: "B2" },
+  { word: "without", english: "without", arabic: "دون", category: "modal", position: "0", example: "He left without saying goodbye.", exampleEn: "He left without saying goodbye.", exampleAr: "ذهب دون أن يودع", level: "B2" },
+  { word: "like", english: "like / as", arabic: "كما / مثل", category: "modal", position: "0", example: "He does as he pleases.", exampleEn: "He does as he pleases.", exampleAr: "هو يفعل كما يشاء", level: "A2" },
+
+  // ── Final (Purpose) ──
+  { word: "so that", english: "so that", arabic: "لكي / حتى", category: "final", position: "0", example: "I explain it to you so that you understand.", exampleEn: "I explain it to you so that you understand.", exampleAr: "أشرحه لك لكي تفهمه", level: "B1" },
+  { word: "in order to", english: "in order to", arabic: "لكي / من أجل", category: "final", position: "0", example: "She saves money in order to buy a car.", exampleEn: "She saves money in order to buy a car.", exampleAr: "هي تدخر المال من أجل شراء سيارة", level: "B1" },
+  { word: "to", english: "to (purpose)", arabic: "لـ", category: "final", position: "0", example: "I went to the store to buy milk.", exampleEn: "I went to the store to buy milk.", exampleAr: "ذهبت إلى المتجر لشراء الحليب", level: "A2" },
+
+  // ── Consecutive ──
+  { word: "so...that", english: "so...that", arabic: "لدرجة أن", category: "consecutive", position: "0", example: "It was so cold that we shivered.", exampleEn: "It was so cold that we shivered.", exampleAr: "كان الجو بارداً لدرجة أننا كنا نرتعد", level: "B1" },
+  { word: "such...that", english: "such...that", arabic: "بدرجة أن", category: "consecutive", position: "0", example: "It was such a good movie that we watched it twice.", exampleEn: "It was such a good movie that we watched it twice.", exampleAr: "كان فيلماً رائعاً لدرجة أننا شاهدناه مرتين", level: "B2" },
+  { word: "consequently", english: "consequently", arabic: "وبالتالي", category: "consecutive", position: "0", example: "He did not study, consequently he failed.", exampleEn: "He did not study, consequently he failed.", exampleAr: "لم يدرس، وبالتالي رسب", level: "B2" },
+  { word: "as a result", english: "as a result", arabic: "نتيجة لذلك", category: "consecutive", position: "0", example: "The company expanded, as a result new jobs were created.", exampleEn: "The company expanded, as a result new jobs were created.", exampleAr: "توسعت الشركة، ونتيجة لذلك تم إنشاء وظائف جديدة", level: "B2" },
+
+  // ── Adversative ──
+  { word: "but", english: "but", arabic: "لكن", category: "adversative", position: "0", example: "I wanted to come, but I had no time.", exampleEn: "I wanted to come, but I had no time.", exampleAr: "أردت المجيء، لكن لم يكن لدي وقت", level: "A2" },
+  { word: "however", english: "however", arabic: "مع ذلك / غير أن", category: "adversative", position: "0", example: "The hotel was cheap, however not very clean.", exampleEn: "The hotel was cheap, however not very clean.", exampleAr: "كان الفندق رخيصاً، غير أنه لم يكن نظيفاً جداً", level: "B1" },
+  { word: "whereas", english: "whereas", arabic: "بينما", category: "adversative", position: "0", example: "She works quickly, whereas he is very slow.", exampleEn: "She works quickly, whereas he is very slow.", exampleAr: "هي تعمل بسرعة، بينما هو بطيء جداً", level: "C1" },
+  { word: "on the other hand", english: "on the other hand", arabic: "من ناحية أخرى", category: "adversative", position: "0", example: "It is cheap, on the other hand the quality is poor.", exampleEn: "It is cheap, on the other hand the quality is poor.", exampleAr: "إنه رخيص، من ناحية أخرى الجودة رديئة", level: "B2" },
+  { word: "in contrast", english: "in contrast", arabic: "بالمقابل", category: "adversative", position: "0", example: "The north is flat, the south in contrast is mountainous.", exampleEn: "The north is flat, the south in contrast is mountainous.", exampleAr: "الشمال مسطح، الجنوب بالمقابل جبلي", level: "B2" },
+
+  // ── Enumerating ──
+  { word: "first / firstly", english: "first(ly)", arabic: "أولاً", category: "enumerating", position: "0", example: "First, we wash the vegetables, then we cut them.", exampleEn: "First, we wash the vegetables, then we cut them.", exampleAr: "أولاً نغسل الخضار، ثم نقطعها", level: "A2" },
+  { word: "then", english: "then", arabic: "ثم", category: "enumerating", position: "0", example: "First I shower, then I have breakfast.", exampleEn: "First I shower, then I have breakfast.", exampleAr: "أولاً أستحم، ثم أتناول الفطور", level: "A2" },
+  { word: "next", english: "next", arabic: "بعد ذلك", category: "enumerating", position: "0", example: "Next, we add the sugar and stir.", exampleEn: "Next, we add the sugar and stir.", exampleAr: "بعد ذلك، نضيف السكر ونخلط", level: "A2" },
+  { word: "finally", english: "finally", arabic: "أخيراً", category: "enumerating", position: "0", example: "Finally, we found the key.", exampleEn: "Finally, we found the key.", exampleAr: "أخيراً، وجدنا المفتاح", level: "B1" },
+  { word: "in conclusion", english: "in conclusion", arabic: "ختاماً", category: "enumerating", position: "0", example: "In conclusion, I would like to thank everyone.", exampleEn: "In conclusion, I would like to thank everyone.", exampleAr: "ختاماً، أود أن أشكر الجميع", level: "B2" },
+  { word: "furthermore", english: "furthermore", arabic: "علاوة على ذلك", category: "enumerating", position: "0", example: "He is friendly, furthermore very helpful.", exampleEn: "He is friendly, furthermore very helpful.", exampleAr: "هو لطيف، علاوة على ذلك مفيد جداً", level: "B1" },
+  { word: "on the one hand...on the other", english: "on the one hand...on the other", arabic: "من ناحية...من ناحية أخرى", category: "enumerating", position: "0", example: "On the one hand the job is interesting, on the other hand it is poorly paid.", exampleEn: "On the one hand the job is interesting, on the other hand it is poorly paid.", exampleAr: "من ناحية الوظيفة مثيرة للاهتمام، من ناحية أخرى أجرها سيء", level: "B2" },
+
+  // ── Restrictive ──
+  { word: "admittedly", english: "admittedly", arabic: "صحيح أن / مما لا شك فيه", category: "restrictive", position: "0", example: "Admittedly the weather was bad, but the vacation was still nice.", exampleEn: "Admittedly the weather was bad, but the vacation was still nice.", exampleAr: "صحيح أن الطقس كان سيئاً، لكن العطلة كانت جميلة رغم ذلك", level: "B1" },
+  { word: "however", english: "however (restrictive)", arabic: "لكن / مع ذلك", category: "restrictive", position: "0", example: "The apartment is nice, however very small.", exampleEn: "The apartment is nice, however very small.", exampleAr: "الشقة جميلة، لكنها صغيرة جداً", level: "B1" },
+
+  // ── Addition ──
+  { word: "and", english: "and", arabic: "و", category: "addition", position: "0", example: "I buy bread and milk.", exampleEn: "I buy bread and milk.", exampleAr: "أشتري خبزاً وحليباً", level: "A2" },
+  { word: "also", english: "also / too", arabic: "أيضاً", category: "addition", position: "0", example: "I like pizza, and I also like pasta.", exampleEn: "I like pizza, and I also like pasta.", exampleAr: "أحب البيتزا، وأحب أيضاً المعكرونة", level: "A2" },
+  { word: "in addition", english: "in addition", arabic: "بالإضافة إلى ذلك", category: "addition", position: "0", example: "The restaurant is cheap, in addition it is centrally located.", exampleEn: "The restaurant is cheap, in addition it is centrally located.", exampleAr: "المطعم رخيص، بالإضافة إلى ذلك يقع في المركز", level: "B1" },
+  { word: "moreover", english: "moreover", arabic: "علاوة على ذلك", category: "addition", position: "0", example: "The company is growing, moreover profits are rising.", exampleEn: "The company is growing, moreover profits are rising.", exampleAr: "الشركة تنمو، علاوة على ذلك الأرباح في ازدياد", level: "B2" },
+  { word: "both...and", english: "both...and", arabic: "كل من...و", category: "addition", position: "0", example: "Both my brother and my sister are studying.", exampleEn: "Both my brother and my sister are studying.", exampleAr: "كل من أخي وأختي يدرسان", level: "B1" },
+  { word: "not only...but also", english: "not only...but also", arabic: "ليس فقط...بل أيضاً", category: "addition", position: "0", example: "He speaks not only English but also French.", exampleEn: "He speaks not only English but also French.", exampleAr: "هو لا يتحدث الإنجليزية فقط، بل أيضاً الفرنسية", level: "B1" },
+];
