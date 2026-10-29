@@ -11,7 +11,7 @@ const variants = {
   success: "bg-[var(--color-success-bg)] text-[var(--color-text-success)] border-[var(--color-success)]",
   warning: "bg-[var(--color-warning-bg)] text-[var(--color-text-warning)] border-[var(--color-warning)]",
   danger:  "bg-[var(--color-error-bg)] text-[var(--color-text-error)] border-[var(--color-error)]",
-  info:    "bg-[var(--color-primary-subtle)] text-[var(--color-primary-dark)] border-[var(--color-primary)]",
+  info:    "bg-[var(--color-primary-subtle)] text-[var(--color-text-link)] border-[var(--color-primary)]",
 };
 
 export function Badge({ children, variant = "default", className }: Props) {

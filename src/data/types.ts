@@ -20,7 +20,8 @@ export type ExerciseType =
   | "multiple-choice"
   | "matching"
   | "reorder"
-  | "translation";
+  | "translation"
+  | "course-activity";
 
 export type Exercise = {
   id:       string;
@@ -113,4 +114,49 @@ export type ProgressStore = {
   quizResults:     Record<BandId, QuizResult[]>;
   flashcardSeen:   Record<string, number>;
   exercisesDone:   Record<string, boolean>;
+};
+
+/** Original local course tasks; completion is practice evidence, never an official score. */
+export type ActivityQuestion = {
+  id: string;
+  reviewId?: string;
+  prompt: string;
+  options?: string[];
+  answers: string[];
+  explanation: string;
+  evidence: string;
+  maxWords?: number;
+  selectCount?: number;
+  /** Only authored short answers may ignore a final full stop; internal punctuation stays significant. */
+  punctuation?: "terminal" | "exact";
+};
+export type ActivityTask = {
+  id: string;
+  contentVersion?: number;
+  /** Only key widening/editorial feedback with unchanged prompts; retain compatible saved attempts. */
+  compatibleWithSignature?: string;
+  taskFamily?: "email" | "discussion";
+  kind: "reading" | "language" | "listening" | "writing" | "speaking";
+  title: string;
+  instructions: string;
+  source?: string;
+  audio?: { src: string; transcript: string; label: string };
+  visual?: { src: string; alt: string; description: string };
+  questions?: ActivityQuestion[];
+  model?: string;
+  modelAudio?: { src: string; label: string };
+  analysis?: string;
+  rubric?: string[];
+  minWords?: number;
+  maxWords?: number;
+  seconds?: number;
+  preparationSeconds?: number;
+  spokenItems?: { audioSrc: string; transcript: string; model: string }[];
+};
+export type CourseActivityData = {
+  objective: string;
+  learn: string;
+  worked: { example: string; reasoning: string };
+  tasks: [ActivityTask, ActivityTask, ActivityTask];
+  exam: "B2 First" | "IELTS Academic" | "TOEFL iBT 2026" | "IELTS General Training";
 };

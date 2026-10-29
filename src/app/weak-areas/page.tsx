@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
 import { useErrors } from "@/store/useErrors";
@@ -19,6 +20,7 @@ export default function WeakAreasPage() {
   const counts = useMemo(() => ({
     total: errors.length,
     unreviewed: errors.filter((e) => !e.reviewed).length,
+    course: errors.filter(e => e.source === "course-activity").length,
     quiz: errors.filter((e) => e.source === "quiz").length,
     gender: errors.filter((e) => e.source === "gender").length,
     conjugation: errors.filter((e) => e.source === "conjugation").length,
@@ -32,6 +34,7 @@ export default function WeakAreasPage() {
   const sources = [
     { id: "all", label: "All", count: counts.total },
     { id: "unreviewed", label: "Unreviewed", count: counts.unreviewed },
+    { id: "course-activity", label: "Course practice", count: counts.course },
     { id: "quiz", label: "Quizzes", count: counts.quiz },
     { id: "gender", label: "Gender", count: counts.gender },
     { id: "conjugation", label: "Conjugation", count: counts.conjugation },
@@ -61,6 +64,7 @@ export default function WeakAreasPage() {
         {sources.map((s) => (
           <button
             key={s.id}
+            aria-pressed={filter === s.id}
             onClick={() => setFilter(s.id)}
             className={`inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1.5 rounded-[var(--radius-pill)] border transition-all ${
               filter === s.id
@@ -111,6 +115,7 @@ export default function WeakAreasPage() {
                     <span className="text-[var(--color-success)] font-medium">Correct: {err.correctAnswer}</span>
                   </div>
                   <p className="text-xs text-[var(--color-text-secondary)] mt-1">{err.explanation}</p>
+                  {err.source === "course-activity" && <Link className="text-xs text-[var(--color-text-link)] underline inline-block mt-2" href={`/exercises/${err.sourceId}`}>Revise this course activity</Link>}
                   <div className="flex items-center gap-2 mt-2 text-[10px] text-[var(--color-text-disabled)]">
                     <span className="bg-[var(--color-surface-alt)] px-2 py-0.5 rounded-full capitalize">{err.source}</span>
                     <span>{new Date(err.timestamp).toLocaleDateString()}</span>

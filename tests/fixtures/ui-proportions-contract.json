@@ -1,0 +1,14 @@
+{
+  "src/components/course/CourseOverview.tsx": {
+    "before": "30d8477abbf63a17b3fa544e535ab06a4b913a75a0938c803dc3adf58cd7e7ab",
+    "after": "f93f31070255d778e6442d5975ec3c5881d02eee79eb9f283c786e2dd1afac00"
+  },
+  "src/components/course/ModuleExperience.tsx": {
+    "before": "279fd9aa20c79950669ca4fa98248e787fb4596fdc5774b7c271a00832053f51",
+    "after": "41b9075653ccd30073a4e46c9df6147a5d4348f425502e5ec3227dfcdf0472c0"
+  },
+  "src/app/vocabulary/page.tsx": {
+    "before": "1a70d43f8e57d9826d3a1ba2e6a4bea63b930578944b4de08b9cc789350ec906",
+    "after": "c7ca2dca66e9ed312d5440691f2afbaf8d78710107eff6494be158e04b29ed5d"
+  }
+}

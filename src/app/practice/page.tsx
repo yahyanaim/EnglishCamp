@@ -333,17 +333,17 @@ export default function PracticePage() {
     const cat = CATEGORIES.flatMap((c) => c.trainers).find((t) => t.id === activeTrainer);
     return (
       <PageWrapper>
-        <div className="flex items-center gap-3 mb-6">
+        <div className="flex flex-wrap items-center gap-3 mb-6">
           <button
             onClick={() => setActiveTrainer(null)}
-            className="inline-flex items-center gap-1.5 font-display font-extrabold text-sm px-4 py-2 rounded-[var(--radius-md)] border-2 border-[var(--color-border-default)] text-[var(--color-text-primary)] bg-[var(--color-surface)] transition-all duration-150 hover:border-[var(--color-border-strong)] active:translate-y-0.5"
+            className="inline-flex shrink-0 min-h-11 items-center gap-1.5 font-display font-extrabold text-sm px-4 py-2 rounded-[var(--radius-md)] border-2 border-[var(--color-border-default)] text-[var(--color-text-primary)] bg-[var(--color-surface)] transition-all duration-150 hover:border-[var(--color-border-strong)] active:translate-y-0.5"
             style={{ boxShadow: "0 2px 0 var(--color-border-default)" }}
           >
             <ArrowLeft className="w-4 h-4" />
             Practice Hub
           </button>
           {cat && (
-            <span className="font-body text-sm text-[var(--color-text-secondary)]">
+            <span className="basis-full sm:basis-auto min-w-0 font-body text-sm text-[var(--color-text-secondary)]">
               / {cat.icon} {cat.label}
             </span>
           )}
@@ -375,7 +375,7 @@ export default function PracticePage() {
             <p className="font-body text-sm text-[var(--color-text-secondary)]">
               {totalTrainers} trainers and games to practice your English
             </p>
-            <span className="inline-flex items-center gap-1 font-display font-extrabold text-[10px] px-2.5 py-1 rounded-[var(--radius-pill)] border-[1.5px] text-[var(--color-warning-dark)] bg-[var(--color-warning-bg)] border-[var(--color-warning)]">
+            <span className="inline-flex items-center gap-1 font-display font-extrabold text-[10px] px-2.5 py-1 rounded-[var(--radius-pill)] border-[1.5px] text-[var(--color-text-warning)] bg-[var(--color-warning-bg)] border-[var(--color-warning)]">
               <Sparkles className="w-3 h-3 text-[var(--color-warning)]" />
               {CATEGORIES.length} categories
             </span>

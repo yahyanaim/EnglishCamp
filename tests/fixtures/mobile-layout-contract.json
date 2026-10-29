@@ -1,0 +1,46 @@
+{
+  "src/components/learn/SpeedMatch.tsx": {
+    "before": "2facd04a863d165946988e2c2d6447aa4f3c3e3f3ebf60a3167c3b035df96e2f",
+    "after": "4d20d7f40077b5fe6e4f238f31d7db3baca54549ff8b73aaa676d9b135ef126b"
+  },
+  "src/components/learn/WordSearch.tsx": {
+    "before": "b184785165e708d3744ff25aa88fe1d899407f7e0e381bb30250493508ce1b67",
+    "after": "46c200c0a6e92d7fbe5edcc5659b608bd1b8a04188641728cd1a4a98dd236a84"
+  },
+  "src/components/layout/TopBar.tsx": {
+    "before": "c3204f8f8c4af18ffa4aa80e07e6f32d7504fc6f9550e5a0737423eb0746727a",
+    "after": "20771c2e624a39a9f0325c11bd890c2e41ea272d715a265baae47abe37a9e7c0"
+  },
+  "src/components/layout/MobileBottomNav.tsx": {
+    "before": "071d0ed40ad8f2b534e69fc736576a21c8d04eca43ea5c1483a42472a358ab32",
+    "after": "1913f4ed1b2c44c3d4ae07efd7d3cd1f5c6d1a83445ef3c388f238757ee9431e"
+  },
+  "src/components/layout/Sidebar.tsx": {
+    "before": "0a4e9efc4fb85ab3c56f485bbc1c8daecd5ccedb3493aba5429698424dac1843",
+    "after": "58bd070b5501639e739be9d964cb6c22c58eaa241b4d88da72400c28027f3732"
+  },
+  "src/components/layout/LayoutShell.tsx": {
+    "before": "bbf242698cde865296b335357725f15ed7700e40746d6042a75a30702aa308b8",
+    "after": "d3bddd8d745c633cb9282d089d68edad845915daa09f8a1f918ce6ef15d0e3e0"
+  },
+  "src/components/dashboard/XPBar.tsx": {
+    "before": "efc9d27348453f023af07db7df3e1bd30103bbe17d8d3c25a1e1199c9bcea62d",
+    "after": "c619e8fb69dc48651199c017e33628a4474f2cd05b4f4bd20a27f45d2f677b0c"
+  },
+  "src/app/mock-exam/page.tsx": {
+    "before": "57394eb300a2baa2b3f04048ee7940a083521cf576becc0f42643d5acf7d36d3",
+    "after": "2c960e751cfbaa1e2a5cae514b1132c1672bdc9d5efd4a94f5659c3395fa42ad"
+  },
+  "src/app/dashboard/page.tsx": {
+    "before": "50940709d3c9d730c52c60a69ebee28bff914f271fb572bc35857d41605b1dfb",
+    "after": "9daa5dff0e50d4d0a024fee6dad45c9db0bc627b71754c796ab1949c499b378f"
+  },
+  "src/app/practice/page.tsx": {
+    "before": "819f730499c60682f734ac2d0624e5d49c5f8b949fc7e315f7861ce5f5f39967",
+    "after": "7a715fac1580227ac759a5bbbab425a750a8619f4937e1a0d2d0ee72c2eff47f"
+  },
+  "src/app/writing/page.tsx": {
+    "before": "b837af83d8bc227552100e5bb71b10aa0f6df75320c97e20af4049fd6ac5df08",
+    "after": "5ff7f33c7f894331cc09b32dbb7c68b9eb7fe497d909b4cb0a27e0a1af176086"
+  }
+}

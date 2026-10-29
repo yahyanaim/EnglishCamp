@@ -23,15 +23,16 @@ function shuffle<T>(a: T[]): T[] {
 }
 
 function buildQuestions(count: number): Question[] {
-  const withExamples = FLASHCARDS.filter((c) => c.example?.de);
-  const pool = shuffle(withExamples).slice(0, count + 10);
-  return pool.slice(0, count).map((c) => {
-    const sentence = c.example!.de.replace(c.de, "___");
-    const correctAnswer = c.de;
-    const wrong = shuffle(FLASHCARDS.filter((x) => x.de !== c.de)).slice(0, 3).map((x) => x.de);
-    const options = shuffle([c.de, ...wrong]);
-    return { id: c.id, sentence, correctAnswer, options };
+  const pool = shuffle(FLASHCARDS).flatMap(c => {
+    if (!c.example) return [];
+    const escaped = c.de.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    const pattern = new RegExp(`\\b${escaped}\\b`, "i");
+    if (!pattern.test(c.example.de)) return [];
+    const sentence = c.example.de.replace(pattern, "___");
+    const wrong = shuffle(Array.from(new Set(FLASHCARDS.map(x => x.de))).filter(x => x.toLowerCase() !== c.de.toLowerCase())).slice(0, 3);
+    return [{ id: c.id, sentence, correctAnswer: c.de, options: shuffle([c.de, ...wrong]) }];
   });
+  return pool.slice(0, count);
 }
 
 const STORAGE_KEY = "englishcamp-sprint-best";
@@ -49,6 +50,10 @@ export function Sprint() {
   const [bestScore, setBestScore] = useState(0);
   const [showAnswer, setShowAnswer] = useState(false);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
+  const nextRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const finishedRef = useRef(false);
+  const scoreRef = useRef({ correct: 0, wrong: 0 });
+  useEffect(() => () => { if (nextRef.current) clearTimeout(nextRef.current); }, []);
 
   useEffect(() => {
     try {
@@ -58,6 +63,9 @@ export function Sprint() {
   }, []);
 
   function startGame() {
+    if (nextRef.current) clearTimeout(nextRef.current);
+    finishedRef.current = false;
+    scoreRef.current = { correct: 0, wrong: 0 };
     const qs = buildQuestions(80);
     setQuestions(qs);
     setIndex(0);
@@ -83,39 +91,45 @@ export function Sprint() {
     return () => { if (timerRef.current) clearInterval(timerRef.current); };
   }, [phase]);
 
-  useEffect(() => {
-    if (timeLeft === 0 && phase === "playing") {
-      finishGame();
-    }
-  }, [timeLeft]);
 
   const totalAnswered = correct + wrong;
   const accuracy = totalAnswered > 0 ? Math.round((correct / totalAnswered) * 100) : 0;
   const current = questions[index];
 
-  function finishGame() {
+  const finishGame = useCallback(() => {
+    if (finishedRef.current) return;
+    finishedRef.current = true;
     if (timerRef.current) clearInterval(timerRef.current);
+    if (nextRef.current) clearTimeout(nextRef.current);
     setPhase("done");
-    const xp = correct * 5 + (totalAnswered >= 20 ? 20 : totalAnswered >= 10 ? 10 : 0);
-    addXP(xp);
+    const points = scoreRef.current.correct;
+    const answered = points + scoreRef.current.wrong;
+    addXP(points * 5 + (answered >= 20 ? 20 : answered >= 10 ? 10 : 0));
     playXP();
-    const newBest = Math.max(bestScore, correct);
+    const newBest = Math.max(bestScore, points);
     setBestScore(newBest);
     try { localStorage.setItem(STORAGE_KEY, String(newBest)); } catch {}
-  }
+  }, [addXP, bestScore]);
+
+  useEffect(() => {
+    if (timeLeft === 0 && phase === "playing") finishGame();
+  }, [timeLeft, phase, finishGame]);
 
   function handleSelect(opt: string) {
-    if (selected !== null || !current) return;
+    if (selected !== null || !current || finishedRef.current) return;
     setSelected(opt);
     if (opt === current.correctAnswer) {
+      scoreRef.current.correct += 1;
       setCorrect((c) => c + 1);
       playCorrect();
     } else {
+      scoreRef.current.wrong += 1;
       setWrong((w) => w + 1);
       playWrong();
       setShowAnswer(true);
     }
-    setTimeout(() => {
+    nextRef.current = setTimeout(() => {
+      if (finishedRef.current) return;
       setSelected(null);
       setShowAnswer(false);
       if (index + 1 >= questions.length) {
@@ -133,12 +147,12 @@ export function Sprint() {
         <h2 className="text-xl font-display font-extrabold text-[var(--color-text-primary)]">Sprint</h2>
         <p className="text-sm text-[var(--color-text-secondary)] mt-2">Answer as many questions as you can in 60 seconds!</p>
         {bestScore > 0 && (
-          <p className="mt-3 text-sm bg-amber-500 text-white font-extrabold shadow-sm rounded-[10px] px-4 py-2 inline-flex items-center gap-1.5">
+          <p className="mt-3 text-sm bg-amber-500 text-[var(--color-on-brand)] font-extrabold shadow-sm rounded-[10px] px-4 py-2 inline-flex items-center gap-1.5">
             <Trophy className="w-4 h-4" /> Best: {bestScore} correct
           </p>
         )}
         <button onClick={startGame}
-          className="mt-6 px-8 py-3 rounded-[14px] bg-[var(--color-primary)] text-white font-bold text-sm hover:bg-brand-600 transition-all inline-flex items-center gap-2 shadow-[0_4px_0_rgba(28,176,246,0.3)]"
+          className="mt-6 px-8 py-3 rounded-[14px] bg-[var(--color-primary)] text-[var(--color-on-brand)] font-bold text-sm hover:bg-brand-600 transition-all inline-flex items-center gap-2 shadow-[0_4px_0_rgba(28,176,246,0.3)]"
         >
           <Zap className="w-4 h-4" /> Start Sprint
         </button>
@@ -163,22 +177,22 @@ export function Sprint() {
           </div>
           <div className="w-px h-10 bg-[var(--color-border-default)]" />
           <div>
-            <p className="text-3xl font-display font-extrabold text-[var(--color-primary-dark)]">{accuracy}%</p>
+            <p className="text-3xl font-display font-extrabold text-[var(--color-text-link)]">{accuracy}%</p>
             <p className="text-xs text-[var(--color-text-secondary)]">Accuracy</p>
           </div>
         </div>
         <div className="flex items-center justify-center gap-4 mt-4">
-          <p className="text-sm font-bold bg-amber-500 text-white font-extrabold shadow-sm px-4 py-2 rounded-[10px] inline-flex items-center gap-1.5">
+          <p className="text-sm font-bold bg-amber-500 text-[var(--color-on-brand)] font-extrabold shadow-sm px-4 py-2 rounded-[10px] inline-flex items-center gap-1.5">
             <Sparkles className="w-4 h-4" /> +{correct * 5 + (totalAnswered >= 20 ? 20 : totalAnswered >= 10 ? 10 : 0)} XP
           </p>
           {correct >= bestScore && correct > 0 && (
-            <p className="text-xs font-bold bg-emerald-500 text-white font-bold px-3 py-2 rounded-[10px] inline-flex items-center gap-1">
+            <p className="text-xs font-bold bg-emerald-500 text-[var(--color-on-brand)] font-bold px-3 py-2 rounded-[10px] inline-flex items-center gap-1">
               <Trophy className="w-3.5 h-3.5" /> New Best!
             </p>
           )}
         </div>
         <button onClick={startGame}
-          className="mt-6 px-8 py-3 rounded-[14px] bg-[var(--color-primary)] text-white font-bold text-sm hover:bg-brand-600 transition-all inline-flex items-center gap-2"
+          className="mt-6 px-8 py-3 rounded-[14px] bg-[var(--color-primary)] text-[var(--color-on-brand)] font-bold text-sm hover:bg-brand-600 transition-all inline-flex items-center gap-2"
         >
           <RotateCcw className="w-4 h-4" /> Try Again
         </button>
@@ -193,11 +207,11 @@ export function Sprint() {
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
           <span className={`inline-flex items-center gap-1.5 rounded-[10px] px-3 py-1 text-xs font-bold ${
-            timeLeft <= 10 ? "bg-[var(--color-error)] text-white " : "bg-[var(--color-primary-subtle)] text-[var(--color-primary-dark)]"
+            timeLeft <= 10 ? "bg-[var(--color-error)] text-[var(--color-on-brand)] " : "bg-[var(--color-primary-subtle)] text-[var(--color-text-link)]"
           }`}>
             <Clock className="w-3 h-3" /> {timeLeft}s
           </span>
-          <span className="inline-flex items-center gap-1.5 rounded-[10px] bg-[var(--color-success)] text-white px-3 py-1 text-xs font-semibold">
+          <span className="inline-flex items-center gap-1.5 rounded-[10px] bg-[var(--color-success)] text-[var(--color-on-brand)] px-3 py-1 text-xs font-semibold">
             <Target className="w-3 h-3" /> {correct}/{totalAnswered}
           </span>
         </div>
@@ -227,7 +241,7 @@ export function Sprint() {
             <span key={i}>
               {part}
               {i < arr.length - 1 && (
-                <span className="inline-block mx-1 px-3 py-0.5 rounded bg-[var(--color-warning)] text-white border-2 border-dashed border-[var(--color-warning)] font-bold">
+                <span className="inline-block mx-1 px-3 py-0.5 rounded bg-[var(--color-warning)] text-[var(--color-on-brand)] border-2 border-dashed border-[var(--color-warning)] font-bold">
                   ?
                 </span>
               )}
@@ -238,9 +252,9 @@ export function Sprint() {
         <div className="space-y-2 mt-5">
           {current.options.map((opt) => {
             let cls = "bg-[var(--color-surface)] border-2 border-[var(--color-border-default)] text-[var(--color-text-primary)] hover:ring-[var(--color-primary)] hover:bg-[var(--color-primary-subtle)]";
-            if (selected === opt && opt === current.correctAnswer) cls = "bg-[var(--color-success)] text-white ring-2 ring-emerald-400";
-            else if (selected === opt && opt !== current.correctAnswer) cls = "bg-[var(--color-error)] text-white ring-2 ring-red-300";
-            else if (selected !== null && opt === current.correctAnswer) cls = "bg-emerald-50/50 ring-1 ring-[var(--color-success)] text-[var(--color-success)]";
+            if (selected === opt && opt === current.correctAnswer) cls = "bg-[var(--color-success)] text-[var(--color-on-brand)] ring-2 ring-emerald-400";
+            else if (selected === opt && opt !== current.correctAnswer) cls = "bg-[var(--color-error)] text-[var(--color-on-brand)] ring-2 ring-red-300";
+            else if (selected !== null && opt === current.correctAnswer) cls = "bg-[var(--color-success-bg)] ring-1 ring-[var(--color-success)] text-[var(--color-text-success)]";
 
             return (
               <motion.button key={opt} layout initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }}

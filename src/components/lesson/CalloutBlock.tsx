@@ -3,10 +3,10 @@ import { Lightbulb, BookOpen, Info, AlertTriangle } from "lucide-react";
 interface Props { tone?: "tip" | "rule" | "note" | "warning"; title?: string; text: string }
 
 const styles = {
-  tip:     { bg: "var(--color-success-bg)", border: "var(--color-success)", icon: Lightbulb, color: "var(--color-success-dark)" },
-  rule:    { bg: "var(--color-warning-bg)", border: "var(--color-warning)", icon: BookOpen,   color: "var(--color-warning-dark)" },
-  note:    { bg: "var(--color-info-bg)",     border: "var(--color-info)", icon: Info,         color: "var(--color-info-dark)" },
-  warning: { bg: "var(--color-error-bg)",    border: "var(--color-error)", icon: AlertTriangle, color: "var(--color-error)" },
+  tip:     { bg: "var(--color-success-bg)", border: "var(--color-success)", icon: Lightbulb, color: "var(--color-text-success)" },
+  rule:    { bg: "var(--color-warning-bg)", border: "var(--color-warning)", icon: BookOpen,   color: "var(--color-text-warning)" },
+  note:    { bg: "var(--color-info-bg)",     border: "var(--color-info)", icon: Info,         color: "var(--color-text-info)" },
+  warning: { bg: "var(--color-error-bg)",    border: "var(--color-error)", icon: AlertTriangle, color: "var(--color-text-error)" },
 };
 
 export function CalloutBlock({ tone = "note", title, text }: Props) {

@@ -1,304 +1,603 @@
+import { courseActivities } from "./course-activities";
 import type { Exercise } from "./types";
 
-export const exercises: Exercise[] = [
+const shortDrills: Exercise[] = [
   // ═══════════════════════════════════════════════════════════════════════════
   // Band 4–5 (Foundation)
   // ═══════════════════════════════════════════════════════════════════════════
 
   // ── Cambridge B2 First: Use of English & Transformations ────────────────────
   {
-    id: "ex-band1-ielts-intro-1", lessonId: "band1-ielts-intro", type: "fill-blank",
-    prompt: "Complete the B2 Key Word Transformation (2 to 5 words): 'It's too cold to go swimming today.' (ENOUGH) -> 'It is ___ swimming today.'",
-    data: { sentence: "It is ___ swimming today.", answer: "not warm enough to go", hint: "Opposite of cold + enough + infinitive" },
-    xpReward: 20,
+  "id": "ex-band1-ielts-intro-1",
+  "lessonId": "band1-ielts-intro",
+  "type": "multiple-choice",
+  "prompt": "Preparatory reading/language drill. The full interactive activity below practises the complete skill.\n\nA college repair café\nOur college decided to (1) ___ a repair café. We hoped to (2) ___ awareness of waste, but first we had to (3) ___ permission to use a classroom. Volunteers (4) ___ responsibility for different tasks. At the first event, we (5) ___ advice to people with broken lamps. Most visitors (6) ___ attention when we explained basic safety. The project has (7) ___ a difference, although we still (8) ___ difficulties finding spare parts.",
+  "data": {
+    "question": "Gap 1",
+    "options": [
+      "set up",
+      "put out",
+      "take after",
+      "break in"
+    ],
+    "correct": 0,
+    "explanation": "The source supports this answer: Set up means establish an organisation or event. Evidence: Set up means establish an organisation or event."
   },
+  "xpReward": 20
+},
   {
-    id: "ex-band1-ielts-intro-2", lessonId: "band1-ielts-intro", type: "multiple-choice",
-    prompt: "Cambridge Use of English Part 1: Which preposition correctly completes the collocation?",
-    data: { question: "The committee was impressed by her dedication and congratulated her ___ winning the scholarship.", options: ["for", "on", "at", "with"], correct: 1 },
-    xpReward: 20,
+  "id": "ex-band1-ielts-intro-2",
+  "lessonId": "band1-ielts-intro",
+  "type": "multiple-choice",
+  "prompt": "Preparatory reading/language drill. The full interactive activity below practises the complete skill.\n\nA college repair café\nOur college decided to (1) ___ a repair café. We hoped to (2) ___ awareness of waste, but first we had to (3) ___ permission to use a classroom. Volunteers (4) ___ responsibility for different tasks. At the first event, we (5) ___ advice to people with broken lamps. Most visitors (6) ___ attention when we explained basic safety. The project has (7) ___ a difference, although we still (8) ___ difficulties finding spare parts.",
+  "data": {
+    "question": "Gap 2",
+    "options": [
+      "rise",
+      "raise",
+      "lift up",
+      "grow up"
+    ],
+    "correct": 1,
+    "explanation": "The source supports this answer: The collocation is raise awareness. Evidence: The collocation is raise awareness."
   },
+  "xpReward": 20
+},
   {
-    id: "ex-band1-ielts-intro-3", lessonId: "band1-ielts-intro", type: "reorder",
-    prompt: "Reorder to form an authentic B2 Key Word Transformation for 'I haven't seen Daniel for two years' using TIME:",
-    data: { words: ["The", "last", "time", "I", "saw", "Daniel", "was", "two", "years", "ago"], sentence: "The last time I saw Daniel was two years ago." },
-    xpReward: 20,
+  "id": "ex-band1-ielts-intro-3",
+  "lessonId": "band1-ielts-intro",
+  "type": "multiple-choice",
+  "prompt": "Preparatory reading/language drill. The full interactive activity below practises the complete skill.\n\nA college repair café\nOur college decided to (1) ___ a repair café. We hoped to (2) ___ awareness of waste, but first we had to (3) ___ permission to use a classroom. Volunteers (4) ___ responsibility for different tasks. At the first event, we (5) ___ advice to people with broken lamps. Most visitors (6) ___ attention when we explained basic safety. The project has (7) ___ a difference, although we still (8) ___ difficulties finding spare parts.",
+  "data": {
+    "question": "Gap 3",
+    "options": [
+      "obtain",
+      "attend",
+      "invent",
+      "perform"
+    ],
+    "correct": 0,
+    "explanation": "The source supports this answer: Obtain permission means receive authorisation. Evidence: Obtain permission means receive authorisation."
   },
+  "xpReward": 20
+},
   {
-    id: "ex-band1-ielts-intro-4", lessonId: "band1-ielts-intro", type: "matching",
-    prompt: "Match each Cambridge B2 Use of English part to its tested skill.",
-    data: { pairs: [["Part 1: Multiple-Choice Cloze", "Collocations & dependent prepositions"], ["Part 2: Open Cloze", "Grammatical connectives & pronouns"], ["Part 3: Word Formation", "Affixes & morphological changes"], ["Part 4: Key Word Transformation", "Syntactic paraphrasing & grammar rules"]] },
-    xpReward: 20,
+  "id": "ex-band1-ielts-intro-4",
+  "lessonId": "band1-ielts-intro",
+  "type": "multiple-choice",
+  "prompt": "Preparatory reading/language drill. The full interactive activity below practises the complete skill.\n\nA college repair café\nOur college decided to (1) ___ a repair café. We hoped to (2) ___ awareness of waste, but first we had to (3) ___ permission to use a classroom. Volunteers (4) ___ responsibility for different tasks. At the first event, we (5) ___ advice to people with broken lamps. Most visitors (6) ___ attention when we explained basic safety. The project has (7) ___ a difference, although we still (8) ___ difficulties finding spare parts.",
+  "data": {
+    "question": "Gap 4",
+    "options": [
+      "made",
+      "did",
+      "took",
+      "held"
+    ],
+    "correct": 2,
+    "explanation": "The source supports this answer: The collocation is take responsibility. Evidence: The collocation is take responsibility."
   },
+  "xpReward": 20
+},
 
   // ── Cambridge B2 First: Word Formation ──────────────────────────────────────
   {
-    id: "ex-band1-toefl-intro-1", lessonId: "band1-toefl-intro", type: "fill-blank",
-    prompt: "Transform DECIDE into the correct adjective: 'The CEO's ___ action prevented a disastrous company bankruptcy.'",
-    data: { sentence: "The CEO's ___ action prevented a disastrous company bankruptcy.", answer: "decisive", hint: "Adjective form of decide" },
-    xpReward: 20,
+  "id": "ex-band1-toefl-intro-1",
+  "lessonId": "band1-toefl-intro",
+  "type": "fill-blank",
+  "prompt": "Preparatory reading/language drill. The full interactive activity below practises the complete skill.\n\nResidents turned an unused yard into a garden. A shared project required careful planning, patient communication and decisions about who would do each job.",
+  "data": {
+    "sentence": "The garden is open to all local … (RESIDE). Answer: ____",
+    "answer": "residents",
+    "acceptedAnswers": [
+      "residents"
+    ],
+    "explanation": "The source supports this answer: A plural noun names the people who live locally. Evidence: A plural noun names the people who live locally."
   },
+  "xpReward": 20
+},
   {
-    id: "ex-band1-toefl-intro-2", lessonId: "band1-toefl-intro", type: "fill-blank",
-    prompt: "Transform ABLE into a verb: 'Cloud computing systems ___ employees to collaborate in real time.'",
-    data: { sentence: "Cloud computing systems ___ employees to collaborate in real time.", answer: "enable", hint: "Prefix + able (verb)" },
-    xpReward: 20,
+  "id": "ex-band1-toefl-intro-2",
+  "lessonId": "band1-toefl-intro",
+  "type": "fill-blank",
+  "prompt": "Preparatory reading/language drill. The full interactive activity below practises the complete skill.\n\nResidents turned an unused yard into a garden. A shared project required careful planning, patient communication and decisions about who would do each job.",
+  "data": {
+    "sentence": "Its … (CREATE) required months of work. Answer: ____",
+    "answer": "creation",
+    "acceptedAnswers": [
+      "creation"
+    ],
+    "explanation": "The source supports this answer: Its is followed by a noun; creation names the process. Evidence: Its is followed by a noun; creation names the process."
   },
+  "xpReward": 20
+},
   {
-    id: "ex-band1-toefl-intro-3", lessonId: "band1-toefl-intro", type: "multiple-choice",
-    prompt: "Context: 'His complete ___ to understand basic instructions infuriated his manager.' What is the correct negative noun from ABLE?",
-    data: { question: "Choose the correct negative noun form of 'ABLE':", options: ["unability", "inability", "disability", "nonability"], correct: 1 },
-    xpReward: 20,
+  "id": "ex-band1-toefl-intro-3",
+  "lessonId": "band1-toefl-intro",
+  "type": "fill-blank",
+  "prompt": "Preparatory reading/language drill. The full interactive activity below practises the complete skill.\n\nResidents turned an unused yard into a garden. A shared project required careful planning, patient communication and decisions about who would do each job.",
+  "data": {
+    "sentence": "A detailed plan made the work more … (MANAGE). Answer: ____",
+    "answer": "manageable",
+    "acceptedAnswers": [
+      "manageable"
+    ],
+    "explanation": "The source supports this answer: More modifies the adjective manageable. Evidence: More modifies the adjective manageable."
   },
+  "xpReward": 20
+},
   {
-    id: "ex-band1-toefl-intro-4", lessonId: "band1-toefl-intro", type: "matching",
-    prompt: "Match the base root with its correct academic noun suffix.",
-    data: { pairs: [["APPLY", "APPLICATION"], ["SUCCEED", "SUCCESS"], ["APPROVE", "APPROVAL"], ["TOLERATE", "TOLERANCE"]] },
-    xpReward: 20,
+  "id": "ex-band1-toefl-intro-4",
+  "lessonId": "band1-toefl-intro",
+  "type": "fill-blank",
+  "prompt": "Preparatory reading/language drill. The full interactive activity below practises the complete skill.\n\nResidents turned an unused yard into a garden. A shared project required careful planning, patient communication and decisions about who would do each job.",
+  "data": {
+    "sentence": "Volunteers receive … (PRACTICE) training. Answer: ____",
+    "answer": "practical",
+    "acceptedAnswers": [
+      "practical"
+    ],
+    "explanation": "The source supports this answer: The adjective practical modifies training. Evidence: The adjective practical modifies training."
   },
+  "xpReward": 20
+},
 
   // ── EnglishPage Verb Tenses & Aspect (Band 4–5) ───────────────────────────
   {
-    id: "ex-band1-ielts-vs-toefl-1", lessonId: "band1-ielts-vs-toefl", type: "fill-blank",
-    prompt: "Complete with the correct tense of DISCOVER: 'Archaeologists ___ the royal burial chamber last month.'",
-    data: { sentence: "Archaeologists ___ the royal burial chamber last month.", answer: "discovered", hint: "Past Simple (specific past time marker: 'last month')" },
-    xpReward: 20,
+  "id": "ex-band1-ielts-vs-toefl-1",
+  "lessonId": "band1-ielts-vs-toefl",
+  "type": "fill-blank",
+  "prompt": "Preparatory reading/language drill. The full interactive activity below practises the complete skill.\n\nComplete each verb phrase. Context establishes the timeline; use the form of the verb in brackets.",
+  "data": {
+    "sentence": "The exhibition … yesterday at noon. (OPEN) Answer: ____",
+    "answer": "opened",
+    "acceptedAnswers": [
+      "opened"
+    ],
+    "explanation": "The source supports this answer: Yesterday locates a finished event. Evidence: Yesterday locates a finished event."
   },
+  "xpReward": 20
+},
   {
-    id: "ex-band1-ielts-vs-toefl-2", lessonId: "band1-ielts-vs-toefl", type: "multiple-choice",
-    prompt: "Choose the correct past sequence: 'When Dr. Evans arrived at the laboratory, the researchers ___ the experiment.'",
-    data: { question: "Which tense shows that the experiment was already completed prior to Dr. Evans's arrival?", options: ["had already concluded", "have already concluded", "are already concluding", "concluded already"], correct: 0 },
-    xpReward: 20,
+  "id": "ex-band1-ielts-vs-toefl-2",
+  "lessonId": "band1-ielts-vs-toefl",
+  "type": "fill-blank",
+  "prompt": "Preparatory reading/language drill. The full interactive activity below practises the complete skill.\n\nComplete each verb phrase. Context establishes the timeline; use the form of the verb in brackets.",
+  "data": {
+    "sentence": "We … the posters when the lights went out. (PRINT) Answer: ____",
+    "answer": "were printing",
+    "acceptedAnswers": [
+      "were printing"
+    ],
+    "explanation": "The source supports this answer: The printing was in progress when interrupted. Evidence: The printing was in progress when interrupted."
   },
+  "xpReward": 20
+},
   {
-    id: "ex-band1-ielts-vs-toefl-3", lessonId: "band1-ielts-vs-toefl", type: "fill-blank",
-    prompt: "Complete the Future Perfect form of FINISH: 'By 2030, scientists ___ developing the synthetic vaccine.'",
-    data: { sentence: "By 2030, scientists ___ developing the synthetic vaccine.", answer: "will have finished", hint: "Future Perfect (will have + past participle)" },
-    xpReward: 20,
+  "id": "ex-band1-ielts-vs-toefl-3",
+  "lessonId": "band1-ielts-vs-toefl",
+  "type": "fill-blank",
+  "prompt": "Preparatory reading/language drill. The full interactive activity below practises the complete skill.\n\nComplete each verb phrase. Context establishes the timeline; use the form of the verb in brackets.",
+  "data": {
+    "sentence": "By the time visitors arrived, we … every display. (CHECK) Answer: ____",
+    "answer": "had checked",
+    "acceptedAnswers": [
+      "had checked"
+    ],
+    "explanation": "The source supports this answer: The check was complete before the past arrival. Evidence: The check was complete before the past arrival."
   },
+  "xpReward": 20
+},
   {
-    id: "ex-band1-ielts-vs-toefl-4", lessonId: "band1-ielts-vs-toefl", type: "matching",
-    prompt: "Match each timeline marker to its correct grammatical tense.",
-    data: { pairs: [["'yesterday / in 2018'", "Past Simple (V2)"], ["'since 2015 / for 6 hours'", "Present Perfect Continuous"], ["'by the time + past action'", "Past Perfect (had + V3)"], ["'so far / already (present link)'", "Present Perfect Simple"]] },
-    xpReward: 20,
+  "id": "ex-band1-ielts-vs-toefl-4",
+  "lessonId": "band1-ielts-vs-toefl",
+  "type": "fill-blank",
+  "prompt": "Preparatory reading/language drill. The full interactive activity below practises the complete skill.\n\nSupply the verb phrase; preserve the time reference.",
+  "data": {
+    "sentence": "I … three emails to the organiser so far today. (SEND) Answer: ____",
+    "answer": "have sent",
+    "acceptedAnswers": [
+      "have sent"
+    ],
+    "explanation": "The source supports this answer: So far today is an unfinished period with a present result. Evidence: So far today is an unfinished period with a present result."
   },
+  "xpReward": 20
+},
 
   // ── Randall's ESL Lab: Auditory Distractor Traps ─────────────────────────
   {
-    id: "ex-band1-listening-format-1", lessonId: "band1-listening-format", type: "multiple-choice",
-    prompt: "A receptionist says: 'The lecture starts at 9:00 AM... oh wait, the professor rescheduled it for 10:30.' What is the answer?",
-    data: { question: "What is the correct lecture start time?", options: ["9:00 AM", "10:30 AM", "9:30 AM", "10:00 AM"], correct: 1 },
-    xpReward: 20,
+  "id": "ex-band1-listening-format-1",
+  "lessonId": "band1-listening-format",
+  "type": "multiple-choice",
+  "prompt": "Worked-example analysis only. The audio activity uses a different source and requires actual listening.",
+  "data": {
+    "question": "Worked example: “I wanted to book Friday, but it was full, so I chose Saturday.” → The booking is for Saturday.\n\nWhich interpretation is supported?",
+    "options": [
+      "Friday is a distractor because it was the first preference, not the final booking.",
+      "Every number or suggestion mentioned must be the final answer.",
+      "The example establishes an official examination score."
+    ],
+    "correct": 0,
+    "explanation": "Friday is a distractor because it was the first preference, not the final booking."
   },
+  "xpReward": 20
+},
   {
-    id: "ex-band1-listening-format-2", lessonId: "band1-listening-format", type: "fill-blank",
-    prompt: "A speaker spells out their name: 'That's B-A-R-R-E-double T.' What is the correctly spelled surname?",
-    data: { sentence: "The student's surname is ___.", answer: "Barrett", hint: "Note the double letter: B-A-R-R-E-T-T" },
-    xpReward: 20,
+  "id": "ex-band1-listening-format-2",
+  "lessonId": "band1-listening-format",
+  "type": "multiple-choice",
+  "prompt": "Worked-example analysis only. The audio activity uses a different source and requires actual listening.",
+  "data": {
+    "question": "Worked example: “I wanted to book Friday, but it was full, so I chose Saturday.” → The booking is for Saturday.\n\nWhich interpretation is supported?",
+    "options": [
+      "Friday is a distractor because it was the first preference, not the final booking.",
+      "Every number or suggestion mentioned must be the final answer.",
+      "The example establishes an official examination score."
+    ],
+    "correct": 0,
+    "explanation": "Friday is a distractor because it was the first preference, not the final booking."
   },
+  "xpReward": 20
+},
   {
-    id: "ex-band1-listening-format-3", lessonId: "band1-listening-format", type: "matching",
-    prompt: "Match each auditory distractor trigger to what candidates must do:",
-    data: { pairs: [["'Actually, let me check that...'", "Wait for the corrected detail before writing"], ["'-teen vs -ty' stress", "Listen for high pitch/stress on the final syllable"], ["'0' pronounced as 'oh'", "Transcribe as digit 0 in phone/ID numbers"], ["Double letters (e.g. 'double L')", "Write the consonant twice in proper nouns"]] },
-    xpReward: 20,
+  "id": "ex-band1-listening-format-3",
+  "lessonId": "band1-listening-format",
+  "type": "multiple-choice",
+  "prompt": "Worked-example analysis only. The audio activity uses a different source and requires actual listening.",
+  "data": {
+    "question": "Worked example: “I wanted to book Friday, but it was full, so I chose Saturday.” → The booking is for Saturday.\n\nWhich interpretation is supported?",
+    "options": [
+      "Friday is a distractor because it was the first preference, not the final booking.",
+      "Every number or suggestion mentioned must be the final answer.",
+      "The example establishes an official examination score."
+    ],
+    "correct": 0,
+    "explanation": "Friday is a distractor because it was the first preference, not the final booking."
   },
+  "xpReward": 20
+},
 
   // ── BBC 6-Minute English: Connected Speech & Catenation ───────────────────
   {
-    id: "ex-band1-listening-gist-1", lessonId: "band1-listening-gist", type: "multiple-choice",
-    prompt: "In natural spoken British English, 'hold on' sounds like /həʊl.dɒn/. What phonetic process is this?",
-    data: { question: "What phonetic process causes the final consonant to bridge into the starting vowel?", options: ["Consonant-to-vowel catenation (linking)", "Glottal stop replacement", "Vowel neutralization to schwa", "Rhotic lengthening"], correct: 0 },
-    xpReward: 20,
+  "id": "ex-band1-listening-gist-1",
+  "lessonId": "band1-listening-gist",
+  "type": "multiple-choice",
+  "prompt": "Worked-example analysis only. The audio activity uses a different source and requires actual listening.",
+  "data": {
+    "question": "Worked example: “The first session is free; later sessions cost eight pounds.” → The introductory session costs nothing.\n\nWhich interpretation is supported?",
+    "options": [
+      "The contrast separates the initial offer from the regular price. Writing eight pounds for the first session would ignore that contrast.",
+      "Every number or suggestion mentioned must be the final answer.",
+      "The example establishes an official examination score."
+    ],
+    "correct": 0,
+    "explanation": "The contrast separates the initial offer from the regular price. Writing eight pounds for the first session would ignore that contrast."
   },
+  "xpReward": 20
+},
   {
-    id: "ex-band1-listening-gist-2", lessonId: "band1-listening-gist", type: "fill-blank",
-    prompt: "In fast speech, which intrusive sound links the vowels in 'law and order' (/lɔː ___ ənd ɔːdə/)?",
-    data: { sentence: "The intrusive sound inserted is /___/.", answer: "r", hint: "Intrusive consonant between open vowels in British RP: r" },
-    xpReward: 20,
+  "id": "ex-band1-listening-gist-2",
+  "lessonId": "band1-listening-gist",
+  "type": "multiple-choice",
+  "prompt": "Worked-example analysis only. The audio activity uses a different source and requires actual listening.",
+  "data": {
+    "question": "Worked example: “The first session is free; later sessions cost eight pounds.” → The introductory session costs nothing.\n\nWhich interpretation is supported?",
+    "options": [
+      "The contrast separates the initial offer from the regular price. Writing eight pounds for the first session would ignore that contrast.",
+      "Every number or suggestion mentioned must be the final answer.",
+      "The example establishes an official examination score."
+    ],
+    "correct": 0,
+    "explanation": "The contrast separates the initial offer from the regular price. Writing eight pounds for the first session would ignore that contrast."
   },
+  "xpReward": 20
+},
   {
-    id: "ex-band1-listening-gist-3", lessonId: "band1-listening-gist", type: "matching",
-    prompt: "Match each connected speech term to its authentic BBC example:",
-    data: { pairs: [["Catenation", "'hold on' -> /həʊl.dɒn/"], ["Intrusive /w/", "'go out' -> /ɡəʊ.waʊt/"], ["Intrusive /j/", "'I agree' -> /aɪ.jəɡriː/"], ["Elision", "'next week' -> /neks wiːk/"]] },
-    xpReward: 20,
+  "id": "ex-band1-listening-gist-3",
+  "lessonId": "band1-listening-gist",
+  "type": "multiple-choice",
+  "prompt": "Worked-example analysis only. The audio activity uses a different source and requires actual listening.",
+  "data": {
+    "question": "Worked example: “The first session is free; later sessions cost eight pounds.” → The introductory session costs nothing.\n\nWhich interpretation is supported?",
+    "options": [
+      "The contrast separates the initial offer from the regular price. Writing eight pounds for the first session would ignore that contrast.",
+      "Every number or suggestion mentioned must be the final answer.",
+      "The example establishes an official examination score."
+    ],
+    "correct": 0,
+    "explanation": "The contrast separates the initial offer from the regular price. Writing eight pounds for the first session would ignore that contrast."
   },
+  "xpReward": 20
+},
 
   // ── Reading Skimming (UVic Study Zone) ──────────────────────────────────────────
   {
-    id: "ex-band1-reading-skimming-1", lessonId: "band1-reading-skimming", type: "multiple-choice",
-    prompt: "Based on the UVic skimming passage, which heading best matches Paragraph C?",
-    data: {
-      question: "Which IELTS-style heading accurately synthesizes the main idea of Paragraph C?",
-      options: [
-        "Cost-effective alternatives for municipal energy conservation",
-        "Economic obstacles impeding the implementation of green rooftops",
-        "Chemical breakdown of asphalt and root-barrier tar membranes",
-        "The technological failure of Sedum vegetative insulation"
-      ],
-      correct: 1
-    },
-    xpReward: 15,
+  "id": "ex-band1-reading-skimming-1",
+  "lessonId": "band1-reading-skimming",
+  "type": "fill-blank",
+  "prompt": "Preparatory reading/language drill. The full interactive activity below practises the complete skill.\n\nA library without walls\n\nWhen Hillford Library began lending books from a converted bus, staff expected most visitors to be older residents who could not reach the town centre. Several did use it, but young families soon became its largest group. The bus stopped beside a playground after school, allowing parents to borrow books while children chose stories together.\n\nThe service did not replace the main library. Its small shelves held only a limited selection, so readers ordered specialist titles in advance. Staff brought these on the next visit. This arrangement made the collection feel much larger than the vehicle itself.\n\nThe trial also revealed a difficulty: a popular stopping place was beside a busy road. After residents raised safety concerns, the route was changed to use a nearby community centre. Attendance dipped during the first week, then recovered. The librarian argues that a mobile service should be judged by access as well as borrowing totals. A bus cannot offer quiet study space, but it can help people begin a reading habit. Expansion would depend on whether enough staff could maintain a reliable timetable.",
+  "data": {
+    "sentence": "Where was the popular but unsafe stopping place? Answer: ____",
+    "answer": "busy road",
+    "acceptedAnswers": [
+      "busy road"
+    ],
+    "explanation": "The source supports this answer: A popular stopping place was beside a busy road. Evidence: A popular stopping place was beside a busy road."
   },
+  "xpReward": 15
+},
   {
-    id: "ex-band1-reading-skimming-2", lessonId: "band1-reading-skimming", type: "multiple-choice",
-    prompt: "Why is 'Sedum plant cultivation' an INCORRECT heading for Paragraph B?",
-    data: {
-      question: "In heading matching questions, why is 'Sedum plant cultivation' a distractor trap for Paragraph B?",
-      options: [
-        "The passage explicitly states that Sedum plants are unsuitable for cities",
-        "It is merely a minor supporting example, not the governing macro-idea of ecological cooling",
-        "Sedum plants were actually mentioned in Paragraph A, not Paragraph B",
-        "The author concludes that urban agriculture is entirely unprofitable"
-      ],
-      correct: 1
-    },
-    xpReward: 15,
+  "id": "ex-band1-reading-skimming-2",
+  "lessonId": "band1-reading-skimming",
+  "type": "multiple-choice",
+  "prompt": "Preparatory reading/language drill. The full interactive activity below practises the complete skill.\n\nA library without walls\n\nWhen Hillford Library began lending books from a converted bus, staff expected most visitors to be older residents who could not reach the town centre. Several did use it, but young families soon became its largest group. The bus stopped beside a playground after school, allowing parents to borrow books while children chose stories together.\n\nThe service did not replace the main library. Its small shelves held only a limited selection, so readers ordered specialist titles in advance. Staff brought these on the next visit. This arrangement made the collection feel much larger than the vehicle itself.\n\nThe trial also revealed a difficulty: a popular stopping place was beside a busy road. After residents raised safety concerns, the route was changed to use a nearby community centre. Attendance dipped during the first week, then recovered. The librarian argues that a mobile service should be judged by access as well as borrowing totals. A bus cannot offer quiet study space, but it can help people begin a reading habit. Expansion would depend on whether enough staff could maintain a reliable timetable.",
+  "data": {
+    "question": "Which statement best represents the writer’s position?",
+    "options": [
+      "The service improves access but cannot replace every library function.",
+      "The scheme is guaranteed to succeed everywhere.",
+      "The scheme has no potential value.",
+      "No further evidence is needed."
+    ],
+    "correct": 0,
+    "explanation": "The source supports this answer: The service improves access but cannot replace every library function. Evidence: The service improves access but cannot replace every library function."
   },
+  "xpReward": 15
+},
   {
-    id: "ex-band1-reading-skimming-3", lessonId: "band1-reading-skimming", type: "fill-blank",
-    prompt: "In the UVic reading methodology, 80% of an academic paragraph's core meaning resides in its ___ sentence.",
-    data: {
-      sentence: "In the UVic reading methodology, 80% of an academic paragraph's core meaning resides in its ___ sentence.",
-      answer: "topic",
-      hint: "The opening sentence stating the main argument"
-    },
-    xpReward: 10,
+  "id": "ex-band1-reading-skimming-3",
+  "lessonId": "band1-reading-skimming",
+  "type": "fill-blank",
+  "prompt": "Preparatory reading/language drill. The full interactive activity below practises the complete skill.\n\nLearning to repair\n\nAt nineteen, Mara bought a broken radio from a market because she liked its wooden case. She intended to use it as a decoration, but a neighbour offered to help her repair it. The radio eventually worked, and the experience changed what she noticed when she went shopping. A low price no longer seemed attractive if a product could not be opened without breaking it.\n\nMara later joined a repair group at college. The sessions were informal, yet safety was taken seriously: volunteers checked plugs before touching any electrical part. Members were encouraged to explain their reasoning rather than take a tool out of a beginner’s hands. This sometimes made a repair slower, but the aim was learning rather than simply increasing the number of fixed objects.\n\nNot everything could be saved. Replacement parts for one printer cost more than a new machine, and another device had been sealed with glue. These failures became useful discussions about product design. Mara does not claim that people should repair every item indefinitely. Some equipment uses so much energy that replacement may be sensible. She believes, however, that buyers should have enough information to make that decision rather than being forced into it by an inaccessible screw or unavailable part.\n\nThe group’s approach also changed how Mara responded to mistakes. During her first attempt to mend a lamp, she replaced a part before checking whether it was actually responsible for the fault. A volunteer asked her to explain the evidence for the decision. She realised that she had chosen the most visible component rather than tested the simpler possibilities. The lamp eventually needed only a loose connection secured.\n\nInstead of feeling that the failed attempt had been wasted, Mara began keeping a brief record of what she had checked and why. The notes helped when a similar problem appeared later. They also made it easier to ask for useful advice, because she could explain what had already been tried. She now sees diagnosis as a skill in its own right, rather than a delay before the more satisfying moment of using a tool.\n\nThe repair group has considered charging for its work, but members are cautious. A service expected to fix objects quickly might leave less time for explanations. They would prefer a small contribution toward materials while keeping the sessions focused on shared learning. This would not make the group a replacement for a professional repair business. It would give beginners a place to understand ordinary problems and recognise the limits of their knowledge.",
+  "data": {
+    "sentence": "What did Mara originally want to use as a decoration? Answer: ____",
+    "answer": "radio",
+    "acceptedAnswers": [
+      "radio"
+    ],
+    "explanation": "The source supports this answer: She intended to use the radio as a decoration. Evidence: She intended to use the radio as a decoration."
   },
+  "xpReward": 10
+},
 
   // ── Reading Scanning (UVic & British Council) ──────────────────────────────────
   {
-    id: "ex-band1-reading-scanning-1", lessonId: "band1-reading-scanning", type: "fill-blank",
-    prompt: "Scan the Lake Vostok passage: Under how many atmospheres of hydrostatic pressure do the bacteria survive? (Number only)",
-    data: {
-      sentence: "The bacteria survive under crushing hydrostatic pressure equivalent to ___ atmospheres.",
-      answer: "350",
-      hint: "Locate the numeric measurement in the final sentence"
-    },
-    xpReward: 10,
+  "id": "ex-band1-reading-scanning-1",
+  "lessonId": "band1-reading-scanning",
+  "type": "multiple-choice",
+  "prompt": "Preparatory reading/language drill. The full interactive activity below practises the complete skill.\n\nA · Photography: Bring a camera with manual controls. Sessions take place outdoors, and the tutor lends tripods.\nB · Pottery: Tools and clay are supplied. Work is fired after the final class and collected the following week.\nC · Cooking: Participants work in pairs. Tell the organiser about food allergies before booking.\nD · Drama: No previous experience is needed. The final class includes a short performance for invited guests.",
+  "data": {
+    "question": "Which course needs equipment brought from home?",
+    "options": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "correct": 0,
+    "explanation": "The source supports this answer: A asks participants to bring a camera. Evidence: A asks participants to bring a camera."
   },
+  "xpReward": 10
+},
   {
-    id: "ex-band1-reading-scanning-2", lessonId: "band1-reading-scanning", type: "multiple-choice",
-    prompt: "Which visual anchor should you search for first to locate the lead scientist's name?",
-    data: {
-      question: "To quickly locate who led the 2012 drilling expedition without reading the whole paragraph, scan for:",
-      options: [
-        "Numeric dates (2012) and capitalized titles/names (Dr. Viktor Lukin)",
-        "The word 'kerosene' in lower-case",
-        "The conclusion sentence at the bottom of the page",
-        "A footnote or bibliography at the end of the text"
-      ],
-      correct: 0
-    },
-    xpReward: 15,
+  "id": "ex-band1-reading-scanning-2",
+  "lessonId": "band1-reading-scanning",
+  "type": "multiple-choice",
+  "prompt": "Preparatory reading/language drill. The full interactive activity below practises the complete skill.\n\nA · Photography: Bring a camera with manual controls. Sessions take place outdoors, and the tutor lends tripods.\nB · Pottery: Tools and clay are supplied. Work is fired after the final class and collected the following week.\nC · Cooking: Participants work in pairs. Tell the organiser about food allergies before booking.\nD · Drama: No previous experience is needed. The final class includes a short performance for invited guests.",
+  "data": {
+    "question": "Which course has a delayed collection?",
+    "options": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "correct": 1,
+    "explanation": "The source supports this answer: Pottery is collected the following week. Evidence: Pottery is collected the following week."
   },
+  "xpReward": 15
+},
   {
-    id: "ex-band1-reading-scanning-3", lessonId: "band1-reading-scanning", type: "multiple-choice",
-    prompt: "What is the metabolic energy source of the Lake Vostok extremophiles?",
-    data: {
-      question: "According to the subglacial passage, how do the Lake Vostok bacteria obtain metabolic fuel?",
-      options: [
-        "Through photosynthesis driven by diffused surface sunlight",
-        "By oxidizing dissolved sulfur and methane compounds",
-        "From kerosene lubrication leaked by drilling rigs",
-        "By decomposing prehistoric plant matter trapped in the ice"
-      ],
-      correct: 1
-    },
-    xpReward: 15,
+  "id": "ex-band1-reading-scanning-3",
+  "lessonId": "band1-reading-scanning",
+  "type": "multiple-choice",
+  "prompt": "Preparatory reading/language drill. The full interactive activity below practises the complete skill.\n\nA · Photography: Bring a camera with manual controls. Sessions take place outdoors, and the tutor lends tripods.\nB · Pottery: Tools and clay are supplied. Work is fired after the final class and collected the following week.\nC · Cooking: Participants work in pairs. Tell the organiser about food allergies before booking.\nD · Drama: No previous experience is needed. The final class includes a short performance for invited guests.",
+  "data": {
+    "question": "Which course needs dietary information?",
+    "options": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "correct": 2,
+    "explanation": "The source supports this answer: Cooking asks about food allergies. Evidence: Cooking asks about food allergies."
   },
+  "xpReward": 15
+},
 
   // ── Writing Trends ──────────────────────────────────────────────────────────
   {
-    id: "ex-band1-writing-trends-1", lessonId: "band1-writing-trends", type: "fill-blank",
-    prompt: "A line graph shows changes ___ time.",
-    data: { sentence: "A line graph shows changes ___ time.", answer: "over", hint: "Preposition used with time periods" },
-    xpReward: 10,
+  "id": "ex-band1-writing-trends-1",
+  "lessonId": "band1-writing-trends",
+  "type": "multiple-choice",
+  "prompt": "Preparatory response analysis. Complete the written or recorded activity below for production practice.",
+  "data": {
+    "question": "Worked example: “My town is very nice” → “On Saturday mornings the old market becomes a place to hear local musicians and try food from nearby farms.”\n\nWhich observation is supported?",
+    "options": [
+      "The model is an original practice response to compare with the task requirements.",
+      "This response has received an official guaranteed examination score.",
+      "The model replaces the need to produce your own response."
+    ],
+    "correct": 0,
+    "explanation": "The revision replaces a vague evaluation with concrete detail that explains the attraction. Compare the message and reasoning, not just the vocabulary. Identify where the model addresses each instruction, how each paragraph develops its point, and one sentence you can improve in your own draft. This is an original teaching model, not an examiner-rated script."
   },
+  "xpReward": 10
+},
   {
-    id: "ex-band1-writing-trends-2", lessonId: "band1-writing-trends", type: "multiple-choice",
-    prompt: "Which word describes a downward trend?",
-    data: { question: "Choose the word that means a decrease:", options: ["rise", "increase", "decline", "fluctuate"], correct: 2 },
-    xpReward: 10,
+  "id": "ex-band1-writing-trends-2",
+  "lessonId": "band1-writing-trends",
+  "type": "multiple-choice",
+  "prompt": "Preparatory response analysis. Complete the written or recorded activity below for production practice.",
+  "data": {
+    "question": "Worked example: “My town is very nice” → “On Saturday mornings the old market becomes a place to hear local musicians and try food from nearby farms.”\n\nWhich observation is supported?",
+    "options": [
+      "The model is an original practice response to compare with the task requirements.",
+      "This response has received an official guaranteed examination score.",
+      "The model replaces the need to produce your own response."
+    ],
+    "correct": 0,
+    "explanation": "The revision replaces a vague evaluation with concrete detail that explains the attraction. Compare the message and reasoning, not just the vocabulary. Identify where the model addresses each instruction, how each paragraph develops its point, and one sentence you can improve in your own draft. This is an original teaching model, not an examiner-rated script."
   },
+  "xpReward": 10
+},
 
   // ── Speaking Part 1 ─────────────────────────────────────────────────────────
   {
-    id: "ex-band1-speaking-part1-1", lessonId: "band1-speaking-part1", type: "fill-blank",
-    prompt: "IELTS Speaking Part 1 lasts ___ minutes.",
-    data: { sentence: "IELTS Speaking Part 1 lasts ___ minutes.", answer: "four", hint: "Duration of Part 1" },
-    xpReward: 10,
+  "id": "ex-band1-speaking-part1-1",
+  "lessonId": "band1-speaking-part1-intro",
+  "type": "multiple-choice",
+  "prompt": "Preparatory response analysis. Complete the written or recorded activity below for production practice.",
+  "data": {
+    "question": "Worked example: I enjoy studying in the morning because the house is quiet. Last week I finished a difficult report before anyone else got up.\n\nWhich observation is supported?",
+    "options": [
+      "The model is an original practice response to compare with the task requirements.",
+      "This response has received an official guaranteed examination score.",
+      "The model replaces the need to produce your own response."
+    ],
+    "correct": 0,
+    "explanation": "The reason and example develop the answer naturally without changing the topic. Replay your answer before comparing it with this possible response. Different relevant answers are valid. Record a second attempt to improve the specific issue you identified. A human partner or teacher is needed to evaluate live interaction reliably."
   },
+  "xpReward": 10
+},
   {
-    id: "ex-band1-speaking-part1-2", lessonId: "band1-speaking-part1", type: "multiple-choice",
-    prompt: "What type of questions are asked in Part 1?",
-    data: { question: "Part 1 questions are about:", options: ["abstract topics", "familiar everyday topics", "academic lectures", "future plans"], correct: 1 },
-    xpReward: 10,
+  "id": "ex-band1-speaking-part1-2",
+  "lessonId": "band1-speaking-part1-intro",
+  "type": "multiple-choice",
+  "prompt": "Preparatory response analysis. Complete the written or recorded activity below for production practice.",
+  "data": {
+    "question": "Worked example: I enjoy studying in the morning because the house is quiet. Last week I finished a difficult report before anyone else got up.\n\nWhich observation is supported?",
+    "options": [
+      "The model is an original practice response to compare with the task requirements.",
+      "This response has received an official guaranteed examination score.",
+      "The model replaces the need to produce your own response."
+    ],
+    "correct": 0,
+    "explanation": "The reason and example develop the answer naturally without changing the topic. Replay your answer before comparing it with this possible response. Different relevant answers are valid. Record a second attempt to improve the specific issue you identified. A human partner or teacher is needed to evaluate live interaction reliably."
   },
+  "xpReward": 10
+},
   // ── Grammar: Articles ───────────────────────────────────────────────────────
   // ── Grammar: Articles (EnglishPage Masterclass) ───────────────────────────────
   {
-    id: "ex-band1-grammar-articles-1", lessonId: "band1-grammar-articles", type: "fill-blank",
-    prompt: "Geopolitical rules: Complete the sentence with 'the' or write '-' for zero article.",
-    data: {
-      sentence: "The research delegation visited ___ United Kingdom before traveling to France.",
-      answer: "the",
-      hint: "Political unions, federations, and kingdoms take 'the', whereas singular nations take zero article"
-    },
-    xpReward: 15,
+  "id": "ex-band1-grammar-articles-1",
+  "lessonId": "band1-grammar-articles",
+  "type": "fill-blank",
+  "prompt": "Preparatory reading/language drill. The full interactive activity below practises the complete skill.\n\nWrite a, an, the or — for no article.",
+  "data": {
+    "sentence": "We interviewed … engineer who designs bridges. Answer: ____",
+    "answer": "an",
+    "acceptedAnswers": [
+      "an"
+    ],
+    "explanation": "The source supports this answer: Engineer begins with a vowel sound. Evidence: Engineer begins with a vowel sound."
   },
+  "xpReward": 15
+},
   {
-    id: "ex-band1-grammar-articles-2", lessonId: "band1-grammar-articles", type: "multiple-choice",
-    prompt: "Which sentence correctly follows the EnglishPage rule for generic uncountable nouns in academic writing?",
-    data: {
-      question: "Identify the sentence that correctly avoids overusing 'the' with generic abstract concepts:",
-      options: [
-        "The pollution severely threatens the marine biodiversity in coastal zones.",
-        "Pollution severely threatens marine biodiversity in coastal zones.",
-        "A pollution severely threatens a marine biodiversity in the coastal zones.",
-        "The most pollution threatens the most marine biodiversity."
-      ],
-      correct: 1
-    },
-    xpReward: 15,
+  "id": "ex-band1-grammar-articles-2",
+  "lessonId": "band1-grammar-articles",
+  "type": "fill-blank",
+  "prompt": "Preparatory reading/language drill. The full interactive activity below practises the complete skill.\n\nWrite a, an, the or — for no article.",
+  "data": {
+    "sentence": "… engineer showed us her latest model. Answer: ____",
+    "answer": "the",
+    "acceptedAnswers": [
+      "the"
+    ],
+    "explanation": "The source supports this answer: The engineer has already been introduced. Evidence: The engineer has already been introduced."
   },
+  "xpReward": 15
+},
   {
-    id: "ex-band1-grammar-articles-3", lessonId: "band1-grammar-articles", type: "fill-blank",
-    prompt: "Water bodies rule: Complete the sentence with the appropriate article.",
-    data: {
-      sentence: "___ Amazon River discharges more water than any other river system on earth.",
-      answer: "The",
-      hint: "Rivers, oceans, and seas always require 'The'"
-    },
-    xpReward: 15,
+  "id": "ex-band1-grammar-articles-3",
+  "lessonId": "band1-grammar-articles",
+  "type": "fill-blank",
+  "prompt": "Preparatory reading/language drill. The full interactive activity below practises the complete skill.\n\nWrite a, an, the or — for no article.",
+  "data": {
+    "sentence": "She believes … teamwork is essential. Answer: ____",
+    "answer": "—",
+    "acceptedAnswers": [
+      "—"
+    ],
+    "explanation": "The source supports this answer: Teamwork is uncountable and general here. Evidence: Teamwork is uncountable and general here."
   },
+  "xpReward": 15
+},
 
   // ── Grammar: Subject-Verb Agreement ─────────────────────────────────────────
   {
-    id: "ex-band1-grammar-agreement-1", lessonId: "band1-grammar-agreement", type: "fill-blank",
-    prompt: "The team ___ (play/plays) well together.",
-    data: { sentence: "The team ___ well together.", answer: "plays", hint: "Collective noun takes singular verb" },
-    xpReward: 10,
+  "id": "ex-band1-grammar-agreement-1",
+  "lessonId": "band1-grammar-agreement",
+  "type": "fill-blank",
+  "prompt": "Preparatory reading/language drill. The full interactive activity below practises the complete skill.\n\nUse the bracketed verb in present simple.",
+  "data": {
+    "sentence": "The number of applicants … each year. (RISE) Answer: ____",
+    "answer": "rises",
+    "acceptedAnswers": [
+      "rises"
+    ],
+    "explanation": "The source supports this answer: The number is the singular head. Evidence: The number is the singular head."
   },
+  "xpReward": 10
+},
   {
-    id: "ex-band1-grammar-agreement-2", lessonId: "band1-grammar-agreement", type: "multiple-choice",
-    prompt: "Choose the correct verb: 'Neither the teacher nor the students ___ ready.'",
-    data: { question: "Neither the teacher nor the students ___ ready.", options: ["is", "are", "was", "has been"], correct: 1 },
-    xpReward: 10,
+  "id": "ex-band1-grammar-agreement-2",
+  "lessonId": "band1-grammar-agreement",
+  "type": "fill-blank",
+  "prompt": "Preparatory reading/language drill. The full interactive activity below practises the complete skill.\n\nUse the bracketed verb in present simple.",
+  "data": {
+    "sentence": "Each of the rooms … a window. (HAVE) Answer: ____",
+    "answer": "has",
+    "acceptedAnswers": [
+      "has"
+    ],
+    "explanation": "The source supports this answer: Each takes singular agreement. Evidence: Each takes singular agreement."
   },
+  "xpReward": 10
+},
 
   // ── AWL Vocabulary 1 ────────────────────────────────────────────────────────
   {
-    id: "ex-band1-vocab-awl1-1", lessonId: "band1-vocab-awl1", type: "fill-blank",
-    prompt: "The study will ___ (look at/analyse) the effects of pollution.",
-    data: { sentence: "The study will ___ the effects of pollution.", answer: "analyse", hint: "To examine in detail" },
-    xpReward: 10,
+  "id": "ex-band1-vocab-awl1-1",
+  "lessonId": "band1-vocab-awl1",
+  "type": "fill-blank",
+  "prompt": "Preparatory reading/language drill. The full interactive activity below practises the complete skill.\n\nComplete the expression using the bracketed base form or its correct derivative.",
+  "data": {
+    "sentence": "The tutor gave us useful … (ADVISE). Answer: ____",
+    "answer": "advice",
+    "acceptedAnswers": [
+      "advice"
+    ],
+    "explanation": "The source supports this answer: Advice is the uncountable noun. Evidence: Advice is the uncountable noun."
   },
+  "xpReward": 10
+},
   {
-    id: "ex-band1-vocab-awl1-2", lessonId: "band1-vocab-awl1", type: "matching",
-    prompt: "Match the academic word to its simpler synonym.",
-    data: { pairs: [["benefit", "advantage"], ["factor", "element"], ["method", "way"], ["process", "procedure"]] },
-    xpReward: 10,
+  "id": "ex-band1-vocab-awl1-2",
+  "lessonId": "band1-vocab-awl1",
+  "type": "fill-blank",
+  "prompt": "Preparatory reading/language drill. The full interactive activity below practises the complete skill.\n\nComplete the expression using the bracketed base form or its correct derivative.",
+  "data": {
+    "sentence": "We must … responsibility for our mistakes. (TAKE) Answer: ____",
+    "answer": "take",
+    "acceptedAnswers": [
+      "take"
+    ],
+    "explanation": "The source supports this answer: Take responsibility is the collocation. Evidence: Take responsibility is the collocation."
   },
+  "xpReward": 10
+},
 
   // ═══════════════════════════════════════════════════════════════════════════
   // Band 5–6 (Intermediate)
@@ -306,23 +605,45 @@ export const exercises: Exercise[] = [
 
   // ── Listening: Multiple Choice ──────────────────────────────────────────────
   {
-    id: "ex-band2-listening-mc-1", lessonId: "band2-listening-mc", type: "multiple-choice",
-    prompt: "In IELTS Listening MCQs, you should read the questions ___.",
-    data: { question: "You should read the questions ___ the recording plays.", options: ["before", "while", "after", "never"], correct: 0 },
-    xpReward: 15,
+  "id": "ex-band2-listening-mc-1",
+  "lessonId": "band2-listening-mcq",
+  "type": "multiple-choice",
+  "prompt": "Worked-example analysis only. The audio activity uses a different source and requires actual listening.",
+  "data": {
+    "question": "Worked example: “It used to cost twenty; the new price is twenty-five.” → current price: twenty-five.\n\nWhich interpretation is supported?",
+    "options": [
+      "Used to marks an earlier state; the final price is the current answer.",
+      "Every number or suggestion mentioned must be the final answer.",
+      "The example establishes an official examination score."
+    ],
+    "correct": 0,
+    "explanation": "Used to marks an earlier state; the final price is the current answer."
   },
+  "xpReward": 15
+},
   {
-    id: "ex-band2-listening-mc-2", lessonId: "band2-listening-mc", type: "fill-blank",
-    prompt: "Listen for ___ words that match the meaning of the options.",
-    data: { sentence: "Listen for ___ words that match the meaning of the options.", answer: "synonym", hint: "Words with similar meaning" },
-    xpReward: 15,
+  "id": "ex-band2-listening-mc-2",
+  "lessonId": "band2-listening-mcq",
+  "type": "multiple-choice",
+  "prompt": "Worked-example analysis only. The audio activity uses a different source and requires actual listening.",
+  "data": {
+    "question": "Worked example: “It used to cost twenty; the new price is twenty-five.” → current price: twenty-five.\n\nWhich interpretation is supported?",
+    "options": [
+      "Used to marks an earlier state; the final price is the current answer.",
+      "Every number or suggestion mentioned must be the final answer.",
+      "The example establishes an official examination score."
+    ],
+    "correct": 0,
+    "explanation": "Used to marks an earlier state; the final price is the current answer."
   },
+  "xpReward": 15
+},
   // ── IELTS Listening: Section 3 Multiple Choice (Marine Biology Thesis) ─────────
   {
   "id": "ex-band2-listening-mcq-1",
   "lessonId": "band2-listening-mcq",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory transcript analysis — no audio is assessed.",
   "data": {
     "question": "Original transcript study: A caller books a museum workshop. Clerk: 'The pottery class is on Thursday, not Tuesday. It begins at 10.15. The ticket is twelve pounds, but students pay nine. Bring an apron; we supply clay. Your surname is Mason?' Caller: 'No, Mayson: M-A-Y-S-O-N.'\n\nWhich day is confirmed?",
     "options": [
@@ -339,7 +660,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band2-listening-mcq-2",
   "lessonId": "band2-listening-mcq",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory transcript analysis — no audio is assessed.",
   "data": {
     "question": "Original transcript study: A caller books a museum workshop. Clerk: 'The pottery class is on Thursday, not Tuesday. It begins at 10.15. The ticket is twelve pounds, but students pay nine. Bring an apron; we supply clay. Your surname is Mason?' Caller: 'No, Mayson: M-A-Y-S-O-N.'\n\nHow much does a student pay?",
     "options": [
@@ -356,13 +677,13 @@ export const exercises: Exercise[] = [
   "id": "ex-band2-listening-mcq-3",
   "lessonId": "band2-listening-mcq",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory transcript analysis — no audio is assessed.",
   "data": {
     "question": "Original transcript study: A caller books a museum workshop. Clerk: 'The pottery class is on Thursday, not Tuesday. It begins at 10.15. The ticket is twelve pounds, but students pay nine. Bring an apron; we supply clay. Your surname is Mason?' Caller: 'No, Mayson: M-A-Y-S-O-N.'\n\nWhat must the participant bring?",
     "options": [
       "An apron",
       "A ticket printer",
-      "Clay"
+      "A student identity card"
     ],
     "correct": 0,
     "explanation": "The clerk asks the caller to bring an apron and says clay is supplied."
@@ -375,7 +696,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band2-listening-maps-1",
   "lessonId": "band2-listening-maps",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory transcript analysis — no audio is assessed.",
   "data": {
     "question": "Original plan description: North is at the top. The south entrance leads into a central hall. The café is west of the hall, the studio east, and the garden north. Guide: 'Turn right after entering, so the studio is on your right. The temporary exhibition used to occupy that room; it now uses the gallery beyond the garden.'\n\nOn entering from the south and turning right, which facility is reached?",
     "options": [
@@ -392,7 +713,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band2-listening-maps-2",
   "lessonId": "band2-listening-maps",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory transcript analysis — no audio is assessed.",
   "data": {
     "question": "Original plan description: North is at the top. The south entrance leads into a central hall. The café is west of the hall, the studio east, and the garden north. Guide: 'Turn right after entering, so the studio is on your right. The temporary exhibition used to occupy that room; it now uses the gallery beyond the garden.'\n\nWhere is the temporary exhibition now?",
     "options": [
@@ -409,7 +730,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band2-listening-maps-3",
   "lessonId": "band2-listening-maps",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory transcript analysis — no audio is assessed.",
   "data": {
     "question": "Original plan description: North is at the top. The south entrance leads into a central hall. The café is west of the hall, the studio east, and the garden north. Guide: 'Turn right after entering, so the studio is on your right. The temporary exhibition used to occupy that room; it now uses the gallery beyond the garden.'\n\nWhich facility lies west of the central hall?",
     "options": [
@@ -498,7 +819,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band2-writing-line-graphs-1",
   "lessonId": "band2-writing-line-graphs",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory writing and language analysis — no full written response is assessed.",
   "data": {
     "question": "Original illustrative dataset: Electricity generation in Linden, in GWh. 2000: coal 120, gas 40, solar 5. 2010: coal 100, gas 75, solar 20. 2020: coal 35, gas 90, solar 60. The figures describe these three sources only, not all electricity generation.\n\nWhich overview is supported?",
     "options": [
@@ -515,7 +836,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band2-writing-line-graphs-2",
   "lessonId": "band2-writing-line-graphs",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory writing and language analysis — no full written response is assessed.",
   "data": {
     "question": "Original illustrative dataset: Electricity generation in Linden, in GWh. 2000: coal 120, gas 40, solar 5. 2010: coal 100, gas 75, solar 20. 2020: coal 35, gas 90, solar 60. The figures describe these three sources only, not all electricity generation.\n\nHow much did solar generation increase from 2000 to 2020?",
     "options": [
@@ -532,7 +853,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band2-writing-line-graphs-3",
   "lessonId": "band2-writing-line-graphs",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory writing and language analysis — no full written response is assessed.",
   "data": {
     "question": "Original illustrative dataset: Electricity generation in Linden, in GWh. 2000: coal 120, gas 40, solar 5. 2010: coal 100, gas 75, solar 20. 2020: coal 35, gas 90, solar 60. The figures describe these three sources only, not all electricity generation.\n\nWhich sentence respects the coverage?",
     "options": [
@@ -549,7 +870,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band2-writing-line-graphs-4",
   "lessonId": "band2-writing-line-graphs",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory writing and language analysis — no full written response is assessed.",
   "data": {
     "question": "Original illustrative dataset: Electricity generation in Linden, in GWh. 2000: coal 120, gas 40, solar 5. 2010: coal 100, gas 75, solar 20. 2020: coal 35, gas 90, solar 60. The figures describe these three sources only, not all electricity generation.\n\nWhich claim adds unsupported information?",
     "options": [
@@ -568,7 +889,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band2-speaking-cue-card-1",
   "lessonId": "band2-speaking-cue-card",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory speaking analysis — no speech is assessed.",
   "data": {
     "question": "Original Speaking prompts: Part 1—What do you enjoy about the place where you live? Part 2—Describe a place where you learned something useful. Say where it was, what you learned, who helped you, and explain why the experience mattered.\n\nWhich Part 1 answer is best developed?",
     "options": [
@@ -585,7 +906,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band2-speaking-cue-card-2",
   "lessonId": "band2-speaking-cue-card",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory speaking analysis — no speech is assessed.",
   "data": {
     "question": "Original Speaking prompts: Part 1—What do you enjoy about the place where you live? Part 2—Describe a place where you learned something useful. Say where it was, what you learned, who helped you, and explain why the experience mattered.\n\nWhich Part 2 preparation note best supports development?",
     "options": [
@@ -602,13 +923,13 @@ export const exercises: Exercise[] = [
   "id": "ex-band2-speaking-cue-card-3",
   "lessonId": "band2-speaking-cue-card",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory speaking analysis — no speech is assessed.",
   "data": {
     "question": "Original Speaking prompts: Part 1—What do you enjoy about the place where you live? Part 2—Describe a place where you learned something useful. Say where it was, what you learned, who helped you, and explain why the experience mattered.\n\nWhich detail answers why the experience mattered?",
     "options": [
       "The skill helped with later repairs",
-      "The workshop had a door",
-      "The speaker can name many countries"
+      "The workshop was held last spring",
+      "A neighbour demonstrated the repair"
     ],
     "correct": 0,
     "explanation": "Using the skill later explains its personal significance."
@@ -619,7 +940,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band2-speaking-cue-card-4",
   "lessonId": "band2-speaking-cue-card",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory speaking analysis — no speech is assessed.",
   "data": {
     "question": "Original Speaking prompts: Part 1—What do you enjoy about the place where you live? Part 2—Describe a place where you learned something useful. Say where it was, what you learned, who helped you, and explain why the experience mattered.\n\nWhat can these text-choice drills evaluate?",
     "options": [
@@ -638,7 +959,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band2-grammar-tenses-1",
   "lessonId": "band2-grammar-tenses",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory writing and language analysis — no full written response is assessed.",
   "data": {
     "question": "Original Task 1 data: In 2015 museum visits totalled 80,000; in 2020 they totalled 60,000. A 2025 plan projected 90,000 visits by 2030. The projection is an estimate, not an observed 2030 result.\n\nWhich sentence accurately reports the observed change?",
     "options": [
@@ -655,7 +976,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band2-grammar-tenses-2",
   "lessonId": "band2-grammar-tenses",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory writing and language analysis — no full written response is assessed.",
   "data": {
     "question": "Original Task 1 data: In 2015 museum visits totalled 80,000; in 2020 they totalled 60,000. A 2025 plan projected 90,000 visits by 2030. The projection is an estimate, not an observed 2030 result.\n\nWhich sentence correctly labels 2030?",
     "options": [
@@ -672,7 +993,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band2-grammar-tenses-3",
   "lessonId": "band2-grammar-tenses",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory writing and language analysis — no full written response is assessed.",
   "data": {
     "question": "Original Task 1 data: In 2015 museum visits totalled 80,000; in 2020 they totalled 60,000. A 2025 plan projected 90,000 visits by 2030. The projection is an estimate, not an observed 2030 result.\n\nWhy can a report begin “The table shows”?",
     "options": [
@@ -689,7 +1010,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band2-grammar-tenses-4",
   "lessonId": "band2-grammar-tenses",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory writing and language analysis — no full written response is assessed.",
   "data": {
     "question": "Original Task 1 data: In 2015 museum visits totalled 80,000; in 2020 they totalled 60,000. A 2025 plan projected 90,000 visits by 2030. The projection is an estimate, not an observed 2030 result.\n\nWhich claim should be removed?",
     "options": [
@@ -754,8 +1075,8 @@ export const exercises: Exercise[] = [
     "question": "Original passage: The first trial measured heat loss through glass. The researchers then installed removable shutters and repeated the measurements under the same indoor temperature. Heat loss decreased, but the study did not estimate the cost of fitting shutters to other buildings.\n\nWhich aspect was kept the same for repeat measurements?",
     "options": [
       "Indoor temperature",
-      "The number of all city residents",
-      "Installation cost in every building"
+      "The presence of shutters in both measurements",
+      "The installation cost in each building"
     ],
     "correct": 0,
     "explanation": "The passage explicitly states “the same indoor temperature”."
@@ -789,7 +1110,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band3-listening-lecture-1",
   "lessonId": "band3-listening-lecture",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory transcript analysis — no audio is assessed.",
   "data": {
     "question": "Original academic-talk transcript: 'Some insects use colour to avoid predators, but colour can serve different functions. A leaf insect blends with its surroundings, making detection harder. A brightly patterned insect may instead be conspicuous: its pattern can warn a predator that attacking it is unpleasant. These strategies are different, even though both may reduce attacks. Colour alone is not enough to classify every species; behaviour and habitat also matter.'\n\nWhat contrast organises the talk?",
     "options": [
@@ -806,13 +1127,13 @@ export const exercises: Exercise[] = [
   "id": "ex-band3-listening-lecture-2",
   "lessonId": "band3-listening-lecture",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory transcript analysis — no audio is assessed.",
   "data": {
     "question": "Original academic-talk transcript: 'Some insects use colour to avoid predators, but colour can serve different functions. A leaf insect blends with its surroundings, making detection harder. A brightly patterned insect may instead be conspicuous: its pattern can warn a predator that attacking it is unpleasant. These strategies are different, even though both may reduce attacks. Colour alone is not enough to classify every species; behaviour and habitat also matter.'\n\nWhy is the leaf insect mentioned?",
     "options": [
       "To illustrate reduced detection through blending",
-      "To describe a predator’s migration",
-      "To prove all insects are brightly patterned"
+      "To illustrate a conspicuous warning pattern",
+      "To show why habitat never affects protection"
     ],
     "correct": 0,
     "explanation": "Its resemblance to surroundings illustrates the camouflage mechanism described."
@@ -823,7 +1144,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band3-listening-lecture-3",
   "lessonId": "band3-listening-lecture",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory transcript analysis — no audio is assessed.",
   "data": {
     "question": "Original academic-talk transcript: 'Some insects use colour to avoid predators, but colour can serve different functions. A leaf insect blends with its surroundings, making detection harder. A brightly patterned insect may instead be conspicuous: its pattern can warn a predator that attacking it is unpleasant. These strategies are different, even though both may reduce attacks. Colour alone is not enough to classify every species; behaviour and habitat also matter.'\n\nWhat does the final sentence qualify?",
     "options": [
@@ -840,7 +1161,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band3-listening-lecture-4",
   "lessonId": "band3-listening-lecture",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory transcript analysis — no audio is assessed.",
   "data": {
     "question": "Original academic-talk transcript: 'Some insects use colour to avoid predators, but colour can serve different functions. A leaf insect blends with its surroundings, making detection harder. A brightly patterned insect may instead be conspicuous: its pattern can warn a predator that attacking it is unpleasant. These strategies are different, even though both may reduce attacks. Colour alone is not enough to classify every species; behaviour and habitat also matter.'\n\nWhich paraphrase preserves “may reduce attacks”?",
     "options": [
@@ -856,62 +1177,142 @@ export const exercises: Exercise[] = [
 
   // ── Reading: Summary Completion ─────────────────────────────────────────────
   {
-    id: "ex-band3-reading-summary-1", lessonId: "band3-reading-summary", type: "fill-blank",
-    prompt: "In summary completion, the words must fit ___ (grammar/meaning) in the gap.",
-    data: { sentence: "In summary completion, the words must fit ___ in the gap.", answer: "grammatically", hint: "Correct part of speech is important" },
-    xpReward: 20,
+  "id": "ex-band3-reading-summary-1",
+  "lessonId": "band3-reading-summary-completion",
+  "type": "fill-blank",
+  "prompt": "Preparatory reading/language drill. The full interactive activity below practises the complete skill.\n\nThe campus garden offers a practical oppor______ for students to observe plant growth. Volunteers record changes and comp___ their notes each week. Their observations help them under_____ how weather affects the garden.",
+  "data": {
+    "sentence": "Restore the complete word: oppor… Answer: ____",
+    "answer": "opportunity",
+    "acceptedAnswers": [
+      "opportunity"
+    ],
+    "explanation": "The source supports this answer: The restored word is opportunity; read it back in the passage for grammar and meaning. Evidence: The restored word is opportunity; read it back in the passage for grammar and meaning."
   },
+  "xpReward": 20
+},
   {
-    id: "ex-band3-reading-summary-2", lessonId: "band3-reading-summary", type: "multiple-choice",
-    prompt: "What is the first step for summary completion?",
-    data: { question: "The first step is to:", options: ["write any word", "read the summary carefully", "guess the answer", "count the words"], correct: 1 },
-    xpReward: 20,
+  "id": "ex-band3-reading-summary-2",
+  "lessonId": "band3-reading-summary-completion",
+  "type": "fill-blank",
+  "prompt": "Preparatory reading/language drill. The full interactive activity below practises the complete skill.\n\nThe campus garden offers a practical oppor______ for students to observe plant growth. Volunteers record changes and comp___ their notes each week. Their observations help them under_____ how weather affects the garden.",
+  "data": {
+    "sentence": "Restore the complete word: comp… Answer: ____",
+    "answer": "compare",
+    "acceptedAnswers": [
+      "compare"
+    ],
+    "explanation": "The source supports this answer: The restored word is compare; read it back in the passage for grammar and meaning. Evidence: The restored word is compare; read it back in the passage for grammar and meaning."
   },
+  "xpReward": 20
+},
   {
-    id: "ex-band3-reading-summary-3", lessonId: "band3-reading-summary", type: "fill-blank",
-    prompt: "The words in the summary are often ___ (paraphrased/copied) from the passage.",
-    data: { sentence: "The words in the summary are often ___ from the passage.", answer: "paraphrased", hint: "Reworded using synonyms" },
-    xpReward: 20,
+  "id": "ex-band3-reading-summary-3",
+  "lessonId": "band3-reading-summary-completion",
+  "type": "fill-blank",
+  "prompt": "Preparatory reading/language drill. The full interactive activity below practises the complete skill.\n\nThe campus garden offers a practical oppor______ for students to observe plant growth. Volunteers record changes and comp___ their notes each week. Their observations help them under_____ how weather affects the garden.",
+  "data": {
+    "sentence": "Restore the complete word: under… Answer: ____",
+    "answer": "understand",
+    "acceptedAnswers": [
+      "understand"
+    ],
+    "explanation": "The source supports this answer: The restored word is understand; read it back in the passage for grammar and meaning. Evidence: The restored word is understand; read it back in the passage for grammar and meaning."
   },
+  "xpReward": 20
+},
   {
-    id: "ex-band3-reading-summary-4", lessonId: "band3-reading-summary", type: "reorder",
-    prompt: "Reorder the summary completion strategy steps.",
-    data: { words: ["Read summary", "Predict word type", "Find passage section", "Select correct words"], sentence: "Read summary, Predict word type, Find passage section, Select correct words." },
-    xpReward: 20,
+  "id": "ex-band3-reading-summary-4",
+  "lessonId": "band3-reading-summary-completion",
+  "type": "fill-blank",
+  "prompt": "Preparatory reading/language drill. The full interactive activity below practises the complete skill.\n\nA university library introduced a new system for reserving study rooms. The aim was to make access more equi_____ while keeping the process simple. Students could book one session at a time and received a confir______ by email. Staff monitored demand to iden____ periods when extra rooms were needed. The first report suggested an impro______ in availability, although the team noted that examination schedules could influ____ the results. A longer evaluation would provide a more reli____ basis for deciding whether to expand the system.",
+  "data": {
+    "sentence": "Restore the complete word: equi… Answer: ____",
+    "answer": "equitable",
+    "acceptedAnswers": [
+      "equitable"
+    ],
+    "explanation": "The source supports this answer: The restored word is equitable; read it back in the passage for grammar and meaning. Evidence: The restored word is equitable; read it back in the passage for grammar and meaning."
   },
+  "xpReward": 20
+},
 
   // ── Writing: Complex Data ──────────────────────────────────────────────────
   {
-    id: "ex-band3-writing-complex-data-1", lessonId: "band3-writing-complex-data", type: "fill-blank",
-    prompt: "When describing a map, use ___ language to explain changes.",
-    data: { sentence: "When describing a map, use ___ language to explain changes.", answer: "comparative", hint: "Language of comparison" },
-    xpReward: 20,
+  "id": "ex-band3-writing-complex-data-1",
+  "lessonId": "band3-writing-multiple-charts",
+  "type": "multiple-choice",
+  "prompt": "Preparatory response analysis. Complete the written or recorded activity below for production practice.",
+  "data": {
+    "question": "Worked example: A request should explain the issue, provide actionable details and say what response is needed.\n\nWhich observation is supported?",
+    "options": [
+      "The model is an original practice response to compare with the task requirements.",
+      "This response has received an official guaranteed examination score.",
+      "The model replaces the need to produce your own response."
+    ],
+    "correct": 0,
+    "explanation": "A polite opening cannot compensate for an unclear purpose or omitted task point. Compare the message and reasoning, not just the vocabulary. Identify where the model addresses each instruction, how each paragraph develops its point, and one sentence you can improve in your own draft. This is an original teaching model, not an examiner-rated script."
   },
+  "xpReward": 20
+},
   {
-    id: "ex-band3-writing-complex-data-2", lessonId: "band3-writing-complex-data", type: "multiple-choice",
-    prompt: "Which phrase compares two data points?",
-    data: { question: "Choose the comparative phrase:", options: ["In contrast to", "In addition", "Furthermore", "Firstly"], correct: 0 },
-    xpReward: 20,
+  "id": "ex-band3-writing-complex-data-2",
+  "lessonId": "band3-writing-multiple-charts",
+  "type": "multiple-choice",
+  "prompt": "Preparatory response analysis. Complete the written or recorded activity below for production practice.",
+  "data": {
+    "question": "Worked example: A request should explain the issue, provide actionable details and say what response is needed.\n\nWhich observation is supported?",
+    "options": [
+      "The model is an original practice response to compare with the task requirements.",
+      "This response has received an official guaranteed examination score.",
+      "The model replaces the need to produce your own response."
+    ],
+    "correct": 0,
+    "explanation": "A polite opening cannot compensate for an unclear purpose or omitted task point. Compare the message and reasoning, not just the vocabulary. Identify where the model addresses each instruction, how each paragraph develops its point, and one sentence you can improve in your own draft. This is an original teaching model, not an examiner-rated script."
   },
+  "xpReward": 20
+},
   {
-    id: "ex-band3-writing-complex-data-3", lessonId: "band3-writing-complex-data", type: "fill-blank",
-    prompt: "The figure for exports ___ (rose/increased) steadily from 2010 to 2015.",
-    data: { sentence: "The figure for exports ___ steadily from 2010 to 2015.", answer: "rose", hint: "Past tense of 'rise'" },
-    xpReward: 20,
+  "id": "ex-band3-writing-complex-data-3",
+  "lessonId": "band3-writing-multiple-charts",
+  "type": "multiple-choice",
+  "prompt": "Preparatory response analysis. Complete the written or recorded activity below for production practice.",
+  "data": {
+    "question": "Worked example: A request should explain the issue, provide actionable details and say what response is needed.\n\nWhich observation is supported?",
+    "options": [
+      "The model is an original practice response to compare with the task requirements.",
+      "This response has received an official guaranteed examination score.",
+      "The model replaces the need to produce your own response."
+    ],
+    "correct": 0,
+    "explanation": "A polite opening cannot compensate for an unclear purpose or omitted task point. Compare the message and reasoning, not just the vocabulary. Identify where the model addresses each instruction, how each paragraph develops its point, and one sentence you can improve in your own draft. This is an original teaching model, not an examiner-rated script."
   },
+  "xpReward": 20
+},
   {
-    id: "ex-band3-writing-complex-data-4", lessonId: "band3-writing-complex-data", type: "matching",
-    prompt: "Match each preposition to its correct use in data description.",
-    data: { pairs: [["at", "specific point"], ["by", "difference amount"], ["to", "end point"], ["from", "starting point"]] },
-    xpReward: 20,
+  "id": "ex-band3-writing-complex-data-4",
+  "lessonId": "band3-writing-multiple-charts",
+  "type": "multiple-choice",
+  "prompt": "Preparatory response analysis. Complete the written or recorded activity below for production practice.",
+  "data": {
+    "question": "Worked example: A request should explain the issue, provide actionable details and say what response is needed.\n\nWhich observation is supported?",
+    "options": [
+      "The model is an original practice response to compare with the task requirements.",
+      "This response has received an official guaranteed examination score.",
+      "The model replaces the need to produce your own response."
+    ],
+    "correct": 0,
+    "explanation": "A polite opening cannot compensate for an unclear purpose or omitted task point. Compare the message and reasoning, not just the vocabulary. Identify where the model addresses each instruction, how each paragraph develops its point, and one sentence you can improve in your own draft. This is an original teaching model, not an examiner-rated script."
   },
+  "xpReward": 20
+},
 
   // ── Speaking Part 3 ─────────────────────────────────────────────────────────
   {
   "id": "ex-band3-speaking-part3-1",
   "lessonId": "band3-speaking-part3",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory speaking analysis — no speech is assessed.",
   "data": {
     "question": "Original repetition preparation script: “The museum opens at nine.” “Please leave your bags beside the entrance.” “The guide will meet visitors near the information desk.” The intended activity is to hear each sentence and repeat it accurately, not paraphrase it.\n\nWhich text preserves the first sentence exactly?",
     "options": [
@@ -928,7 +1329,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band3-speaking-part3-2",
   "lessonId": "band3-speaking-part3",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory speaking analysis — no speech is assessed.",
   "data": {
     "question": "Original repetition preparation script: “The museum opens at nine.” “Please leave your bags beside the entrance.” “The guide will meet visitors near the information desk.” The intended activity is to hear each sentence and repeat it accurately, not paraphrase it.\n\nWhich phrase is omitted from “The guide will meet visitors” compared with the source?",
     "options": [
@@ -945,7 +1346,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band3-speaking-part3-3",
   "lessonId": "band3-speaking-part3",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory speaking analysis — no speech is assessed.",
   "data": {
     "question": "Original repetition preparation script: “The museum opens at nine.” “Please leave your bags beside the entrance.” “The guide will meet visitors near the information desk.” The intended activity is to hear each sentence and repeat it accurately, not paraphrase it.\n\nWhy is a related paraphrase insufficient for repetition practice?",
     "options": [
@@ -962,7 +1363,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band3-speaking-part3-4",
   "lessonId": "band3-speaking-part3",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory speaking analysis — no speech is assessed.",
   "data": {
     "question": "Original repetition preparation script: “The museum opens at nine.” “Please leave your bags beside the entrance.” “The guide will meet visitors near the information desk.” The intended activity is to hear each sentence and repeat it accurately, not paraphrase it.\n\nWhat is needed to review intelligibility?",
     "options": [
@@ -1015,7 +1416,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band3-grammar-conditionals-3",
   "lessonId": "band3-grammar-conditionals",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory writing and language analysis — no full written response is assessed.",
   "data": {
     "question": "Original writing context: A student asks about joining a workshop. Intended direct question: “When does registration close?” Intended embedded question: “Please explain whether registration remains open.” Conditional statement: “If places remain, students may register online.”\n\nWhich direct question is grammatical?",
     "options": [
@@ -1032,7 +1433,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band3-grammar-conditionals-4",
   "lessonId": "band3-grammar-conditionals",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory writing and language analysis — no full written response is assessed.",
   "data": {
     "question": "Original writing context: A student asks about joining a workshop. Intended direct question: “When does registration close?” Intended embedded question: “Please explain whether registration remains open.” Conditional statement: “If places remain, students may register online.”\n\nWhat does the if-clause establish?",
     "options": [
@@ -1073,8 +1474,8 @@ export const exercises: Exercise[] = [
     "question": "Original academic context: A small trial suggests that spaced practice may improve recall. The result is consistent with an earlier classroom observation, but the researchers do not claim that the method guarantees success for every learner. Further work will examine whether the effect persists over longer intervals.\n\nWhat does “persists” most nearly mean?",
     "options": [
       "Continues over time",
-      "Becomes a classroom",
-      "Disappears immediately by definition"
+      "Becomes more certain",
+      "Ends before the next interval"
     ],
     "correct": 0,
     "explanation": "Further work examines whether the effect continues across longer intervals."
@@ -1119,7 +1520,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band3-vocab-awl3-5",
   "lessonId": "band3-vocab-awl3",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory writing and language analysis — no full written response is assessed.",
   "data": {
     "question": "Original academic context: A small trial suggests that spaced practice may improve recall. The result is consistent with an earlier classroom observation, but the researchers do not claim that the method guarantees success for every learner. Further work will examine whether the effect persists over longer intervals.\n\nWhich noun fits “an earlier classroom ____” in this context?",
     "options": [
@@ -1139,165 +1540,427 @@ export const exercises: Exercise[] = [
 
   // ── Listening: Accents & Distractors ────────────────────────────────────────
   {
-    id: "ex-band4-listening-accents-1", lessonId: "band4-listening-accents", type: "multiple-choice",
-    prompt: "In rapid IELTS Section 3/4 speech, a speaker says 'the las' month of excavations'. What phonetic process caused the /t/ sound to be omitted?",
-    data: { question: "Why is the /t/ sound omitted in 'the last month' during natural connected speech?", options: ["Elision of alveolar stops /t/ and /d/ between consonants", "Rhotic vowel lengthening", "Intrusive /r/ linking", "Weak form schwa reduction"], correct: 0 },
-    xpReward: 25,
+  "id": "ex-band4-listening-accents-1",
+  "lessonId": "band4-listening-accents",
+  "type": "multiple-choice",
+  "prompt": "Worked-example analysis only. The audio activity uses a different source and requires actual listening.",
+  "data": {
+    "question": "Worked example: “The shop stays open until six, but the collection desk closes at four.” → collection deadline: four.\n\nWhich interpretation is supported?",
+    "options": [
+      "The two times refer to different services, so choosing the later one would ignore the restriction.",
+      "Every number or suggestion mentioned must be the final answer.",
+      "The example establishes an official examination score."
+    ],
+    "correct": 0,
+    "explanation": "The two times refer to different services, so choosing the later one would ignore the restriction."
   },
+  "xpReward": 25
+},
   {
-    id: "ex-band4-listening-accents-2", lessonId: "band4-listening-accents", type: "fill-blank",
-    prompt: "In IELTS Section 1 phone/booking forms, listeners often confuse numbers like 15 and 50. Complete the syllable stress rule:",
-    data: { sentence: "Numbers ending in '-teen' place primary stress on the ___ syllable, whereas numbers ending in '-ty' stress the first syllable.", answer: "second", hint: "Which syllable receives the stress in fif-TEEN: first or second?" },
-    xpReward: 25,
+  "id": "ex-band4-listening-accents-2",
+  "lessonId": "band4-listening-accents",
+  "type": "multiple-choice",
+  "prompt": "Worked-example analysis only. The audio activity uses a different source and requires actual listening.",
+  "data": {
+    "question": "Worked example: “The shop stays open until six, but the collection desk closes at four.” → collection deadline: four.\n\nWhich interpretation is supported?",
+    "options": [
+      "The two times refer to different services, so choosing the later one would ignore the restriction.",
+      "Every number or suggestion mentioned must be the final answer.",
+      "The example establishes an official examination score."
+    ],
+    "correct": 0,
+    "explanation": "The two times refer to different services, so choosing the later one would ignore the restriction."
   },
+  "xpReward": 25
+},
   {
-    id: "ex-band4-listening-accents-3", lessonId: "band4-listening-accents", type: "multiple-choice",
-    prompt: "In non-rhotic British and Australian accents, what sound is inserted between two consecutive vowels as in 'law and order' (/lɔː r ənd ɔːdə/)?",
-    data: { question: "What linking sound connects 'media interest' (/ˈmiːdiə r ˈɪntrəst/) in British RP?", options: ["Intrusive /r/", "Glottal stop /ʔ/", "Aspirated /h/", "Nasal /ŋ/"], correct: 0 },
-    xpReward: 25,
+  "id": "ex-band4-listening-accents-3",
+  "lessonId": "band4-listening-accents",
+  "type": "multiple-choice",
+  "prompt": "Worked-example analysis only. The audio activity uses a different source and requires actual listening.",
+  "data": {
+    "question": "Worked example: “The shop stays open until six, but the collection desk closes at four.” → collection deadline: four.\n\nWhich interpretation is supported?",
+    "options": [
+      "The two times refer to different services, so choosing the later one would ignore the restriction.",
+      "Every number or suggestion mentioned must be the final answer.",
+      "The example establishes an official examination score."
+    ],
+    "correct": 0,
+    "explanation": "The two times refer to different services, so choosing the later one would ignore the restriction."
   },
+  "xpReward": 25
+},
   {
-    id: "ex-band4-listening-accents-4", lessonId: "band4-listening-accents", type: "matching",
-    prompt: "Match each connected speech phenomenon to its authentic listening example:",
-    data: { pairs: [["Elision (/t/, /d/ deletion)", "'nex' Friday' instead of 'next Friday'"], ["Weak form reduction to /ə/", "'a cup of tea' pronounced /ə kʌp əv tiː/"], ["Assimilation", "'ten cars' pronounced /teŋ kɑːz/"], ["Stress distraction trap", "'We planned for 50, but only 15 attended'"]] },
-    xpReward: 25,
+  "id": "ex-band4-listening-accents-4",
+  "lessonId": "band4-listening-accents",
+  "type": "multiple-choice",
+  "prompt": "Worked-example analysis only. The audio activity uses a different source and requires actual listening.",
+  "data": {
+    "question": "Worked example: “The shop stays open until six, but the collection desk closes at four.” → collection deadline: four.\n\nWhich interpretation is supported?",
+    "options": [
+      "The two times refer to different services, so choosing the later one would ignore the restriction.",
+      "Every number or suggestion mentioned must be the final answer.",
+      "The example establishes an official examination score."
+    ],
+    "correct": 0,
+    "explanation": "The two times refer to different services, so choosing the later one would ignore the restriction."
   },
+  "xpReward": 25
+},
 
   // ── Reading: Identifying Views ─────────────────────────────────────────────
   {
-    id: "ex-band4-reading-views-1", lessonId: "band4-reading-views", type: "fill-blank",
-    prompt: "In 'Yes/No/Not Given' questions, ___ means the writer explicitly agrees.",
-    data: { sentence: "In 'Yes/No/Not Given' questions, ___ means the writer explicitly agrees.", answer: "Yes", hint: "Writer's stated agreement" },
-    xpReward: 25,
+  "id": "ex-band4-reading-views-1",
+  "lessonId": "band4-reading-writers-views",
+  "type": "fill-blank",
+  "prompt": "Preparatory reading/language drill. The full interactive activity below practises the complete skill.\n\nA proposal worth testing\n\nThe council’s plan for a repair centre deserves a trial, but its value should not be assumed from the number of donated tools. Skilled supervision and convenient opening hours will determine whether residents can use it. I would support a small pilot with published costs rather than an immediate large investment.",
+  "data": {
+    "sentence": "What does the writer support first? Answer: ____",
+    "answer": "small pilot",
+    "acceptedAnswers": [
+      "small pilot"
+    ],
+    "explanation": "The source supports this answer: I would support a small pilot. Evidence: I would support a small pilot."
   },
+  "xpReward": 25
+},
   {
-    id: "ex-band4-reading-views-2", lessonId: "band4-reading-views", type: "multiple-choice",
-    prompt: "The statement 'The author argues that...' indicates:",
-    data: { question: "'The author argues that...' indicates:", options: ["the author disagrees", "the author's position", "a fact", "an example"], correct: 1 },
-    xpReward: 25,
+  "id": "ex-band4-reading-views-2",
+  "lessonId": "band4-reading-writers-views",
+  "type": "multiple-choice",
+  "prompt": "Preparatory reading/language drill. The full interactive activity below practises the complete skill.\n\nA proposal worth testing\n\nThe council’s plan for a repair centre deserves a trial, but its value should not be assumed from the number of donated tools. Skilled supervision and convenient opening hours will determine whether residents can use it. I would support a small pilot with published costs rather than an immediate large investment.",
+  "data": {
+    "question": "Which statement best represents the writer’s position?",
+    "options": [
+      "A repair centre is worth testing before a large commitment.",
+      "The scheme is guaranteed to succeed everywhere.",
+      "The scheme has no potential value.",
+      "No further evidence is needed."
+    ],
+    "correct": 0,
+    "explanation": "The source supports this answer: A repair centre is worth testing before a large commitment. Evidence: A repair centre is worth testing before a large commitment."
   },
+  "xpReward": 25
+},
   {
-    id: "ex-band4-reading-views-3", lessonId: "band4-reading-views", type: "fill-blank",
-    prompt: "___ (hedging/boosting) language weakens the strength of a claim.",
-    data: { sentence: "___ language weakens the strength of a claim.", answer: "Hedging", hint: "Cautious language (e.g., 'may', 'suggest')" },
-    xpReward: 25,
+  "id": "ex-band4-reading-views-3",
+  "lessonId": "band4-reading-writers-views",
+  "type": "multiple-choice",
+  "prompt": "Preparatory reading/language drill. The full interactive activity below practises the complete skill.\n\nA proposal worth testing\n\nThe council’s plan for a repair centre deserves a trial, but its value should not be assumed from the number of donated tools. Skilled supervision and convenient opening hours will determine whether residents can use it. I would support a small pilot with published costs rather than an immediate large investment.",
+  "data": {
+    "question": "The writer supports an immediate large investment before a trial.",
+    "options": [
+      "YES",
+      "NO",
+      "NOT GIVEN"
+    ],
+    "correct": 1,
+    "explanation": "The passage supports this answer: The writer favours a small pilot rather than immediate large investment. Evidence: The writer favours a small pilot rather than immediate large investment."
   },
+  "xpReward": 25
+},
   {
-    id: "ex-band4-reading-views-4", lessonId: "band4-reading-views", type: "multiple-choice",
-    prompt: "Which phrase indicates the writer's opinion?",
-    data: { question: "Choose the opinion phrase:", options: ["It is well known that", "The data shows that", "It could be argued that", "According to the table"], correct: 2 },
-    xpReward: 25,
+  "id": "ex-band4-reading-views-4",
+  "lessonId": "band4-reading-writers-views",
+  "type": "multiple-choice",
+  "prompt": "Preparatory reading/language drill. The full interactive activity below practises the complete skill.\n\nA proposal worth testing\n\nThe council’s plan for a repair centre deserves a trial, but its value should not be assumed from the number of donated tools. Skilled supervision and convenient opening hours will determine whether residents can use it. I would support a small pilot with published costs rather than an immediate large investment.",
+  "data": {
+    "question": "The writer states that the plan will cost exactly twenty thousand pounds.",
+    "options": [
+      "YES",
+      "NO",
+      "NOT GIVEN"
+    ],
+    "correct": 2,
+    "explanation": "The passage supports this answer: The precise figure is not supplied or contradicted. Evidence: The precise figure is not supplied or contradicted."
   },
+  "xpReward": 25
+},
 
   // ── Writing: Sophisticated Structures ───────────────────────────────────────
   {
-    id: "ex-band4-writing-sophisticated-1", lessonId: "band4-writing-sophisticated", type: "fill-blank",
-    prompt: "A ___ (complex/simple) sentence contains a main clause and at least one subordinate clause.",
-    data: { sentence: "A ___ sentence contains a main clause and at least one subordinate clause.", answer: "complex", hint: "Multiple clauses sentence type" },
-    xpReward: 25,
+  "id": "ex-band4-writing-sophisticated-1",
+  "lessonId": "band4-writing-sophisticated",
+  "type": "multiple-choice",
+  "prompt": "Preparatory response analysis. Complete the written or recorded activity below for production practice.",
+  "data": {
+    "question": "Worked example: Formal: Could you arrange an inspection? Informal: Let me know when you arrive.\n\nWhich observation is supported?",
+    "options": [
+      "The model is an original practice response to compare with the task requirements.",
+      "This response has received an official guaranteed examination score.",
+      "The model replaces the need to produce your own response."
+    ],
+    "correct": 0,
+    "explanation": "Both are direct and appropriate to their relationships. A formal letter need not sound hostile or excessively elaborate. Compare the message and reasoning, not just the vocabulary. Identify where the model addresses each instruction, how each paragraph develops its point, and one sentence you can improve in your own draft. This is an original teaching model, not an examiner-rated script."
   },
+  "xpReward": 25
+},
   {
-    id: "ex-band4-writing-sophisticated-2", lessonId: "band4-writing-sophisticated", type: "multiple-choice",
-    prompt: "Which sentence uses inversion for emphasis?",
-    data: { question: "Identify the sentence with inversion:", options: ["Never have I seen such beauty.", "I have never seen such beauty.", "I never saw such beauty.", "I did never see such beauty."], correct: 0 },
-    xpReward: 25,
+  "id": "ex-band4-writing-sophisticated-2",
+  "lessonId": "band4-writing-sophisticated",
+  "type": "multiple-choice",
+  "prompt": "Preparatory response analysis. Complete the written or recorded activity below for production practice.",
+  "data": {
+    "question": "Worked example: Formal: Could you arrange an inspection? Informal: Let me know when you arrive.\n\nWhich observation is supported?",
+    "options": [
+      "The model is an original practice response to compare with the task requirements.",
+      "This response has received an official guaranteed examination score.",
+      "The model replaces the need to produce your own response."
+    ],
+    "correct": 0,
+    "explanation": "Both are direct and appropriate to their relationships. A formal letter need not sound hostile or excessively elaborate. Compare the message and reasoning, not just the vocabulary. Identify where the model addresses each instruction, how each paragraph develops its point, and one sentence you can improve in your own draft. This is an original teaching model, not an examiner-rated script."
   },
+  "xpReward": 25
+},
   {
-    id: "ex-band4-writing-sophisticated-3", lessonId: "band4-writing-sophisticated", type: "fill-blank",
-    prompt: "___ (Despite/Although) the heavy rain, the match continued.",
-    data: { sentence: "___ the heavy rain, the match continued.", answer: "Despite", hint: "Preposition followed by noun phrase" },
-    xpReward: 25,
+  "id": "ex-band4-writing-sophisticated-3",
+  "lessonId": "band4-writing-sophisticated",
+  "type": "multiple-choice",
+  "prompt": "Preparatory response analysis. Complete the written or recorded activity below for production practice.",
+  "data": {
+    "question": "Worked example: Formal: Could you arrange an inspection? Informal: Let me know when you arrive.\n\nWhich observation is supported?",
+    "options": [
+      "The model is an original practice response to compare with the task requirements.",
+      "This response has received an official guaranteed examination score.",
+      "The model replaces the need to produce your own response."
+    ],
+    "correct": 0,
+    "explanation": "Both are direct and appropriate to their relationships. A formal letter need not sound hostile or excessively elaborate. Compare the message and reasoning, not just the vocabulary. Identify where the model addresses each instruction, how each paragraph develops its point, and one sentence you can improve in your own draft. This is an original teaching model, not an examiner-rated script."
   },
+  "xpReward": 25
+},
   {
-    id: "ex-band4-writing-sophisticated-4", lessonId: "band4-writing-sophisticated", type: "reorder",
-    prompt: "Reorder to form a cleft sentence for emphasis.",
-    data: { words: ["It", "was", "the", "government", "that", "introduced", "the", "reform"], sentence: "It was the government that introduced the reform." },
-    xpReward: 25,
+  "id": "ex-band4-writing-sophisticated-4",
+  "lessonId": "band4-writing-sophisticated",
+  "type": "multiple-choice",
+  "prompt": "Preparatory response analysis. Complete the written or recorded activity below for production practice.",
+  "data": {
+    "question": "Worked example: Formal: Could you arrange an inspection? Informal: Let me know when you arrive.\n\nWhich observation is supported?",
+    "options": [
+      "The model is an original practice response to compare with the task requirements.",
+      "This response has received an official guaranteed examination score.",
+      "The model replaces the need to produce your own response."
+    ],
+    "correct": 0,
+    "explanation": "Both are direct and appropriate to their relationships. A formal letter need not sound hostile or excessively elaborate. Compare the message and reasoning, not just the vocabulary. Identify where the model addresses each instruction, how each paragraph develops its point, and one sentence you can improve in your own draft. This is an original teaching model, not an examiner-rated script."
   },
+  "xpReward": 25
+},
 
   // ── Speaking: Storytelling & Fluency ────────────────────────────────────────
   {
-    id: "ex-band4-speaking-storytelling-1", lessonId: "band4-speaking-storytelling", type: "fill-blank",
-    prompt: "To extend your answer, use ___ (narrative/direct) discourse markers like 'so then'.",
-    data: { sentence: "To extend your answer, use ___ discourse markers like 'so then'.", answer: "narrative", hint: "Storytelling language" },
-    xpReward: 25,
+  "id": "ex-band4-speaking-storytelling-1",
+  "lessonId": "band4-speaking-storytelling",
+  "type": "multiple-choice",
+  "prompt": "Preparatory response analysis. Complete the written or recorded activity below for production practice.",
+  "data": {
+    "question": "Worked example: When our meeting room was locked, I first checked whether reception had a spare key. It did not, so I asked the group to wait in the café while I contacted the organiser. We moved to another room, and I learned to confirm access before an event.\n\nWhich observation is supported?",
+    "options": [
+      "The model is an original practice response to compare with the task requirements.",
+      "This response has received an official guaranteed examination score.",
+      "The model replaces the need to produce your own response."
+    ],
+    "correct": 0,
+    "explanation": "The response stays relevant and connects ideas clearly. Stress and phrasing should make meaning easier to follow rather than display complexity. Replay your answer before comparing it with this possible response. Different relevant answers are valid. Record a second attempt to improve the specific issue you identified. A human partner or teacher is needed to evaluate live interaction reliably."
   },
+  "xpReward": 25
+},
   {
-    id: "ex-band4-speaking-storytelling-2", lessonId: "band4-speaking-storytelling", type: "multiple-choice",
-    prompt: "Which phrase helps buy thinking time?",
-    data: { question: "Choose the phrase that buys you thinking time:", options: ["Let me see", "I think", "The reason is", "In my opinion"], correct: 0 },
-    xpReward: 25,
+  "id": "ex-band4-speaking-storytelling-2",
+  "lessonId": "band4-speaking-storytelling",
+  "type": "multiple-choice",
+  "prompt": "Preparatory response analysis. Complete the written or recorded activity below for production practice.",
+  "data": {
+    "question": "Worked example: When our meeting room was locked, I first checked whether reception had a spare key. It did not, so I asked the group to wait in the café while I contacted the organiser. We moved to another room, and I learned to confirm access before an event.\n\nWhich observation is supported?",
+    "options": [
+      "The model is an original practice response to compare with the task requirements.",
+      "This response has received an official guaranteed examination score.",
+      "The model replaces the need to produce your own response."
+    ],
+    "correct": 0,
+    "explanation": "The response stays relevant and connects ideas clearly. Stress and phrasing should make meaning easier to follow rather than display complexity. Replay your answer before comparing it with this possible response. Different relevant answers are valid. Record a second attempt to improve the specific issue you identified. A human partner or teacher is needed to evaluate live interaction reliably."
   },
+  "xpReward": 25
+},
   {
-    id: "ex-band4-speaking-storytelling-3", lessonId: "band4-speaking-storytelling", type: "fill-blank",
-    prompt: "Using ___ (vague/precise) language like 'sort of' can make you sound more natural.",
-    data: { sentence: "Using ___ language like 'sort of' can make you sound more natural.", answer: "vague", hint: "Imprecise but natural expressions" },
-    xpReward: 25,
+  "id": "ex-band4-speaking-storytelling-3",
+  "lessonId": "band4-speaking-storytelling",
+  "type": "multiple-choice",
+  "prompt": "Preparatory response analysis. Complete the written or recorded activity below for production practice.",
+  "data": {
+    "question": "Worked example: When our meeting room was locked, I first checked whether reception had a spare key. It did not, so I asked the group to wait in the café while I contacted the organiser. We moved to another room, and I learned to confirm access before an event.\n\nWhich observation is supported?",
+    "options": [
+      "The model is an original practice response to compare with the task requirements.",
+      "This response has received an official guaranteed examination score.",
+      "The model replaces the need to produce your own response."
+    ],
+    "correct": 0,
+    "explanation": "The response stays relevant and connects ideas clearly. Stress and phrasing should make meaning easier to follow rather than display complexity. Replay your answer before comparing it with this possible response. Different relevant answers are valid. Record a second attempt to improve the specific issue you identified. A human partner or teacher is needed to evaluate live interaction reliably."
   },
+  "xpReward": 25
+},
   {
-    id: "ex-band4-speaking-storytelling-4", lessonId: "band4-speaking-storytelling", type: "translation",
-    prompt: "Translate to English: 'هل يمكنك أن تسرد لي قصة لا تنسى من طفولتك؟'",
-    data: { en: "Can you tell me an unforgettable story from your childhood?", ar: "هل يمكنك أن تسرد لي قصة لا تنسى من طفولتك؟" },
-    xpReward: 25,
+  "id": "ex-band4-speaking-storytelling-4",
+  "lessonId": "band4-speaking-storytelling",
+  "type": "multiple-choice",
+  "prompt": "Preparatory response analysis. Complete the written or recorded activity below for production practice.",
+  "data": {
+    "question": "Worked example: When our meeting room was locked, I first checked whether reception had a spare key. It did not, so I asked the group to wait in the café while I contacted the organiser. We moved to another room, and I learned to confirm access before an event.\n\nWhich observation is supported?",
+    "options": [
+      "The model is an original practice response to compare with the task requirements.",
+      "This response has received an official guaranteed examination score.",
+      "The model replaces the need to produce your own response."
+    ],
+    "correct": 0,
+    "explanation": "The response stays relevant and connects ideas clearly. Stress and phrasing should make meaning easier to follow rather than display complexity. Replay your answer before comparing it with this possible response. Different relevant answers are valid. Record a second attempt to improve the specific issue you identified. A human partner or teacher is needed to evaluate live interaction reliably."
   },
+  "xpReward": 25
+},
 
   // ── Grammar: Inversion & Emphasis ───────────────────────────────────────────
   {
-    id: "ex-band4-grammar-inversion-1", lessonId: "band4-grammar-inversion", type: "fill-blank",
-    prompt: "___ (Not only/Hardly) did she finish the project, but she also presented it.",
-    data: { sentence: "___ did she finish the project, but she also presented it.", answer: "Not only", hint: "Negative inversion for 'not only... but also'" },
-    xpReward: 25,
+  "id": "ex-band4-grammar-inversion-1",
+  "lessonId": "band4-grammar-inversion",
+  "type": "fill-blank",
+  "prompt": "Preparatory reading/language drill. The full interactive activity below practises the complete skill.\n\nUse every supplied word once. Type the complete sentence or question. Read the context in each explanation after submission. Sentence punctuation is part of these local editing tasks.",
+  "data": {
+    "sentence": "Arrange these words into the intended sentence or question, including final punctuation: when / had / the / I / Hardly / arrived / began / meeting Answer: ____",
+    "answer": "Hardly had I arrived when the meeting began.",
+    "acceptedAnswers": [
+      "Hardly had I arrived when the meeting began."
+    ],
+    "explanation": "The source supports this answer: Hardly + past perfect inversion establishes the earlier event. Evidence: Hardly + past perfect inversion establishes the earlier event."
   },
+  "xpReward": 25
+},
   {
-    id: "ex-band4-grammar-inversion-2", lessonId: "band4-grammar-inversion", type: "fill-blank",
-    prompt: "___ (Rarely/Often) has there been such a remarkable discovery.",
-    data: { sentence: "___ has there been such a remarkable discovery.", answer: "Rarely", hint: "Negative adverb triggering inversion" },
-    xpReward: 25,
+  "id": "ex-band4-grammar-inversion-2",
+  "lessonId": "band4-grammar-inversion",
+  "type": "fill-blank",
+  "prompt": "Preparatory reading/language drill. The full interactive activity below practises the complete skill.\n\nUse every supplied word once. Type the complete sentence or question. Read the context in each explanation after submission. Sentence punctuation is part of these local editing tasks.",
+  "data": {
+    "sentence": "Arrange these words into the intended sentence or question, including final punctuation: we / problem / the / did / Only / understand / then Answer: ____",
+    "answer": "Only then did we understand the problem.",
+    "acceptedAnswers": [
+      "Only then did we understand the problem."
+    ],
+    "explanation": "The source supports this answer: Only then triggers auxiliary inversion. Evidence: Only then triggers auxiliary inversion."
   },
+  "xpReward": 25
+},
   {
-    id: "ex-band4-grammar-inversion-3", lessonId: "band4-grammar-inversion", type: "multiple-choice",
-    prompt: "Choose the correct inverted sentence: 'Hardly ___ the train when it started moving.'",
-    data: { question: "Hardly ___ the train when it started moving.", options: ["I boarded", "did I board", "I did board", "boarded I"], correct: 1 },
-    xpReward: 25,
+  "id": "ex-band4-grammar-inversion-3",
+  "lessonId": "band4-grammar-inversion",
+  "type": "fill-blank",
+  "prompt": "Preparatory reading/language drill. The full interactive activity below practises the complete skill.\n\nUse every supplied word once. Type the complete sentence or question. Read the context in each explanation after submission. Sentence punctuation is part of these local editing tasks.",
+  "data": {
+    "sentence": "Arrange these words into the intended sentence or question, including final punctuation: caused / timing / that / was / the / the / difficulty / It Answer: ____",
+    "answer": "It was the timing that caused the difficulty.",
+    "acceptedAnswers": [
+      "It was the timing that caused the difficulty."
+    ],
+    "explanation": "The source supports this answer: The cleft focuses on timing. Evidence: The cleft focuses on timing."
   },
+  "xpReward": 25
+},
   {
-    id: "ex-band4-grammar-inversion-4", lessonId: "band4-grammar-inversion", type: "reorder",
-    prompt: "Reorder to form an inverted sentence.",
-    data: { words: ["Under", "no", "circumstances", "should", "you", "reveal", "the", "password"], sentence: "Under no circumstances should you reveal the password." },
-    xpReward: 25,
+  "id": "ex-band4-grammar-inversion-4",
+  "lessonId": "band4-grammar-inversion",
+  "type": "fill-blank",
+  "prompt": "Preparatory reading/language drill. The full interactive activity below practises the complete skill.\n\nUse every supplied word once. Type the complete sentence or question. Read the context in each explanation after submission. Sentence punctuation is part of these local editing tasks.",
+  "data": {
+    "sentence": "Arrange these words into the intended sentence or question, including final punctuation: did / reduce / Not / costs, / improved / plan / only / the / also / access / it / but Answer: ____",
+    "answer": "Not only did the plan reduce costs, but it also improved access.",
+    "acceptedAnswers": [
+      "Not only did the plan reduce costs, but it also improved access."
+    ],
+    "explanation": "The source supports this answer: Not only triggers inversion in the first clause. Evidence: Not only triggers inversion in the first clause."
   },
+  "xpReward": 25
+},
   {
-    id: "ex-band4-grammar-inversion-5", lessonId: "band4-grammar-inversion", type: "fill-blank",
-    prompt: "___ (So/Such) was the impact of the speech that the audience stood up.",
-    data: { sentence: "___ was the impact of the speech that the audience stood up.", answer: "Such", hint: "Inversion with 'such' for emphasis" },
-    xpReward: 25,
+  "id": "ex-band4-grammar-inversion-5",
+  "lessonId": "band4-grammar-inversion",
+  "type": "fill-blank",
+  "prompt": "Preparatory reading/language drill. The full interactive activity below practises the complete skill.\n\nUse every supplied word once. Type the complete sentence or question. Read the context in each explanation after submission. Sentence punctuation is part of these local editing tasks.",
+  "data": {
+    "sentence": "Arrange these words into the intended sentence or question, including final punctuation: instructions / have / Rarely / clear / such / we / received Answer: ____",
+    "answer": "Rarely have we received such clear instructions.",
+    "acceptedAnswers": [
+      "Rarely have we received such clear instructions."
+    ],
+    "explanation": "The source supports this answer: Rarely triggers auxiliary–subject inversion. Evidence: Rarely triggers auxiliary–subject inversion."
   },
+  "xpReward": 25
+},
 
   // ── AWL Vocabulary 4 ────────────────────────────────────────────────────────
   {
-    id: "ex-band4-vocab-awl4-1", lessonId: "band4-vocab-awl4", type: "fill-blank",
-    prompt: "The findings ___ (confirm/validate) the hypothesis proposed earlier.",
-    data: { sentence: "The findings ___ the hypothesis proposed earlier.", answer: "validate", hint: "Formal word for 'confirm as true'" },
-    xpReward: 25,
+  "id": "ex-band4-vocab-awl4-1",
+  "lessonId": "band4-vocab-awl4",
+  "type": "fill-blank",
+  "prompt": "Preparatory reading/language drill. The full interactive activity below practises the complete skill.\n\nPrecise word choice\n\nA workplace report may say that a trial indicates a possible improvement. Replacing indicates with proves changes the strength of the claim. A sophisticated vocabulary choice is useful only when it preserves meaning. Writers should prefer a familiar accurate word to a rare one that exaggerates the evidence.",
+  "data": {
+    "sentence": "Which replacement overstates the claim? Answer: ____",
+    "answer": "proves",
+    "acceptedAnswers": [
+      "proves"
+    ],
+    "explanation": "The source supports this answer: Proves is stronger than indicates a possible improvement. Evidence: Proves is stronger than indicates a possible improvement."
   },
+  "xpReward": 25
+},
   {
-    id: "ex-band4-vocab-awl4-2", lessonId: "band4-vocab-awl4", type: "multiple-choice",
-    prompt: "What does 'paradigm' mean in academic context?",
-    data: { question: "'Paradigm' in academic context means:", options: ["a model or framework", "a simple example", "a mistake", "a question"], correct: 0 },
-    xpReward: 25,
+  "id": "ex-band4-vocab-awl4-2",
+  "lessonId": "band4-vocab-awl4",
+  "type": "multiple-choice",
+  "prompt": "Preparatory reading/language drill. The full interactive activity below practises the complete skill.\n\nPrecise word choice\n\nA workplace report may say that a trial indicates a possible improvement. Replacing indicates with proves changes the strength of the claim. A sophisticated vocabulary choice is useful only when it preserves meaning. Writers should prefer a familiar accurate word to a rare one that exaggerates the evidence.",
+  "data": {
+    "question": "Which statement best represents the writer’s position?",
+    "options": [
+      "Lexical precision matters more than rarity.",
+      "The scheme is guaranteed to succeed everywhere.",
+      "The scheme has no potential value.",
+      "No further evidence is needed."
+    ],
+    "correct": 0,
+    "explanation": "The source supports this answer: Lexical precision matters more than rarity. Evidence: Lexical precision matters more than rarity."
   },
+  "xpReward": 25
+},
   {
-    id: "ex-band4-vocab-awl4-3", lessonId: "band4-vocab-awl4", type: "fill-blank",
-    prompt: "The results ___ (indicate/show) a strong correlation between the variables.",
-    data: { sentence: "The results ___ a strong correlation between the variables.", answer: "demonstrate", hint: "Formal synonym for 'show'" },
-    xpReward: 25,
+  "id": "ex-band4-vocab-awl4-3",
+  "lessonId": "band4-vocab-awl4",
+  "type": "fill-blank",
+  "prompt": "Preparatory reading/language drill. The full interactive activity below practises the complete skill.\n\nTraining that transfers to work\n\nA retailer introduced short customer-service workshops after staff reported uncertainty about handling unusual requests. The sessions used examples drawn from the shop rather than a list of memorised phrases. Participants discussed what the customer needed, which rules applied and when a supervisor should be involved.\n\nAn initial survey found that staff felt more confident. The training team welcomed this response but recognised that confidence did not establish better performance. Supervisors therefore observed a sample of interactions and recorded whether staff identified the issue, explained options clearly and followed the relevant procedure.\n\nSome employees improved quickly, while others needed practice with specific situations. The team used these differences to plan follow-up sessions rather than ranking staff from a single observation. It also revised a rule that had caused confusion even among experienced employees.\n\nThe account suggests that effective training connects explanation, realistic practice and feedback. It does not claim that one workshop can solve every service problem. Some difficulties arise from unclear procedures or inadequate staffing, and asking employees to speak more confidently would not address those causes.",
+  "data": {
+    "sentence": "What did supervisors observe? Answer: ____",
+    "answer": "interactions",
+    "acceptedAnswers": [
+      "interactions"
+    ],
+    "explanation": "The source supports this answer: Supervisors observed a sample of interactions. Evidence: Supervisors observed a sample of interactions."
   },
+  "xpReward": 25
+},
   {
-    id: "ex-band4-vocab-awl4-4", lessonId: "band4-vocab-awl4", type: "matching",
-    prompt: "Match each advanced academic word to its definition.",
-    data: { pairs: [["ambiguous", "open to interpretation"], ["comprehensive", "covering all aspects"], ["contemporary", "modern or current"], ["phenomenon", "observable fact"]] },
-    xpReward: 25,
+  "id": "ex-band4-vocab-awl4-4",
+  "lessonId": "band4-vocab-awl4",
+  "type": "multiple-choice",
+  "prompt": "Preparatory reading/language drill. The full interactive activity below practises the complete skill.\n\nTraining that transfers to work\n\nA retailer introduced short customer-service workshops after staff reported uncertainty about handling unusual requests. The sessions used examples drawn from the shop rather than a list of memorised phrases. Participants discussed what the customer needed, which rules applied and when a supervisor should be involved.\n\nAn initial survey found that staff felt more confident. The training team welcomed this response but recognised that confidence did not establish better performance. Supervisors therefore observed a sample of interactions and recorded whether staff identified the issue, explained options clearly and followed the relevant procedure.\n\nSome employees improved quickly, while others needed practice with specific situations. The team used these differences to plan follow-up sessions rather than ranking staff from a single observation. It also revised a rule that had caused confusion even among experienced employees.\n\nThe account suggests that effective training connects explanation, realistic practice and feedback. It does not claim that one workshop can solve every service problem. Some difficulties arise from unclear procedures or inadequate staffing, and asking employees to speak more confidently would not address those causes.",
+  "data": {
+    "question": "Which statement best represents the writer’s position?",
+    "options": [
+      "Training evaluation should examine actual performance and the surrounding system.",
+      "The scheme is guaranteed to succeed everywhere.",
+      "The scheme has no potential value.",
+      "No further evidence is needed."
+    ],
+    "correct": 0,
+    "explanation": "The source supports this answer: Training evaluation should examine actual performance and the surrounding system. Evidence: Training evaluation should examine actual performance and the surrounding system."
   },
+  "xpReward": 25
+},
 
   // ═══════════════════════════════════════════════════════════════════════════
   // Test Practice Course Materials (IELTS Academic, General, TOEFL & Cambridge)
@@ -1305,23 +1968,56 @@ export const exercises: Exercise[] = [
 
   // ── IELTS Academic Writing Task 1: Trends & Movements ──────────────────────
   {
-    id: "ex-practice-trends-1", lessonId: "band1-writing-trends", type: "multiple-choice",
-    prompt: "Which adverb best describes a steep, sudden rise in a line graph?",
-    data: { question: "The number of international applicants rose ___ from 2,000 to 14,000 in just two months.", options: ["steadily", "dramatically", "marginally", "negligibly"], correct: 1 },
-    xpReward: 20,
+  "id": "ex-practice-trends-1",
+  "lessonId": "band1-writing-trends",
+  "type": "multiple-choice",
+  "prompt": "Preparatory response analysis. Complete the written or recorded activity below for production practice.",
+  "data": {
+    "question": "Worked example: “My town is very nice” → “On Saturday mornings the old market becomes a place to hear local musicians and try food from nearby farms.”\n\nWhich observation is supported?",
+    "options": [
+      "The model is an original practice response to compare with the task requirements.",
+      "This response has received an official guaranteed examination score.",
+      "The model replaces the need to produce your own response."
+    ],
+    "correct": 0,
+    "explanation": "The revision replaces a vague evaluation with concrete detail that explains the attraction. Compare the message and reasoning, not just the vocabulary. Identify where the model addresses each instruction, how each paragraph develops its point, and one sentence you can improve in your own draft. This is an original teaching model, not an examiner-rated script."
   },
+  "xpReward": 20
+},
   {
-    id: "ex-practice-trends-2", lessonId: "band1-writing-trends", type: "matching",
-    prompt: "Match each IELTS Task 1 trend term with its definition.",
-    data: { pairs: [["peaked at", "reached the highest point"], ["plateaued", "remained flat after a rise"], ["plummeted", "dropped rapidly and steeply"], ["fluctuated", "moved up and down irregularly"]] },
-    xpReward: 20,
+  "id": "ex-practice-trends-2",
+  "lessonId": "band1-writing-trends",
+  "type": "multiple-choice",
+  "prompt": "Preparatory response analysis. Complete the written or recorded activity below for production practice.",
+  "data": {
+    "question": "Worked example: “My town is very nice” → “On Saturday mornings the old market becomes a place to hear local musicians and try food from nearby farms.”\n\nWhich observation is supported?",
+    "options": [
+      "The model is an original practice response to compare with the task requirements.",
+      "This response has received an official guaranteed examination score.",
+      "The model replaces the need to produce your own response."
+    ],
+    "correct": 0,
+    "explanation": "The revision replaces a vague evaluation with concrete detail that explains the attraction. Compare the message and reasoning, not just the vocabulary. Identify where the model addresses each instruction, how each paragraph develops its point, and one sentence you can improve in your own draft. This is an original teaching model, not an examiner-rated script."
   },
+  "xpReward": 20
+},
   {
-    id: "ex-practice-trends-3", lessonId: "band1-writing-trends", type: "fill-blank",
-    prompt: "Complete the overview sentence: 'Overall, it is evident that mobile usage experienced a substantial ___ over the period.'",
-    data: { sentence: "Overall, it is evident that mobile usage experienced a substantial ___ over the period.", answer: "increase", hint: "Noun meaning upward trend" },
-    xpReward: 20,
+  "id": "ex-practice-trends-3",
+  "lessonId": "band1-writing-trends",
+  "type": "multiple-choice",
+  "prompt": "Preparatory response analysis. Complete the written or recorded activity below for production practice.",
+  "data": {
+    "question": "Worked example: “My town is very nice” → “On Saturday mornings the old market becomes a place to hear local musicians and try food from nearby farms.”\n\nWhich observation is supported?",
+    "options": [
+      "The model is an original practice response to compare with the task requirements.",
+      "This response has received an official guaranteed examination score.",
+      "The model replaces the need to produce your own response."
+    ],
+    "correct": 0,
+    "explanation": "The revision replaces a vague evaluation with concrete detail that explains the attraction. Compare the message and reasoning, not just the vocabulary. Identify where the model addresses each instruction, how each paragraph develops its point, and one sentence you can improve in your own draft. This is an original teaching model, not an examiner-rated script."
   },
+  "xpReward": 20
+},
 
   // ── IELTS Reading: True / False / Not Given Logic ───────────────────────────
   {
@@ -1364,7 +2060,7 @@ export const exercises: Exercise[] = [
   "id": "ex-practice-bar-pie-1",
   "lessonId": "band2-writing-bar-pie",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory writing and language analysis — no full written response is assessed.",
   "data": {
     "question": "Original fictional data: Travel to Northbank College in 2025. Bus:45% of students and 30% of staff. Bicycle:25% of students and 15% of staff. Walking:20% of students and 10% of staff. Car:10% of students and 45% of staff. Each group's shares total 100%; group sizes are not given.\n\nWhat is the staff–student gap in the car share?",
     "options": [
@@ -1381,7 +2077,7 @@ export const exercises: Exercise[] = [
   "id": "ex-practice-bar-pie-2",
   "lessonId": "band2-writing-bar-pie",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory writing and language analysis — no full written response is assessed.",
   "data": {
     "question": "Original fictional data: Travel to Northbank College in 2025. Bus:45% of students and 30% of staff. Bicycle:25% of students and 15% of staff. Walking:20% of students and 10% of staff. Car:10% of students and 45% of staff. Each group's shares total 100%; group sizes are not given.\n\nWhich statement is accurate?",
     "options": [
@@ -1398,7 +2094,7 @@ export const exercises: Exercise[] = [
   "id": "ex-practice-bar-pie-3",
   "lessonId": "band2-writing-bar-pie",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory writing and language analysis — no full written response is assessed.",
   "data": {
     "question": "Original fictional data: Travel to Northbank College in 2025. Bus:45% of students and 30% of staff. Bicycle:25% of students and 15% of staff. Walking:20% of students and 10% of staff. Car:10% of students and 45% of staff. Each group's shares total 100%; group sizes are not given.\n\nWhat proportion of students use non-car modes?",
     "options": [
@@ -1417,12 +2113,12 @@ export const exercises: Exercise[] = [
   "id": "ex-practice-opinion-1",
   "lessonId": "band2-writing-opinion",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory writing and language analysis — no full written response is assessed.",
   "data": {
     "question": "Original Task 2 prompt: Some people think universities should require every student to complete a community project. Others believe students should choose whether to participate. Discuss both views and give your own opinion.\n\nWhat must a complete answer include?",
     "options": [
-      "A description of university architecture",
-      "Only a list of volunteering benefits",
+      "A supported opinion without discussing the opposing view",
+      "Both views without the writer’s own judgement",
       "Both views and a supported opinion"
     ],
     "correct": 2,
@@ -1434,13 +2130,13 @@ export const exercises: Exercise[] = [
   "id": "ex-practice-opinion-2",
   "lessonId": "band2-writing-opinion",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory writing and language analysis — no full written response is assessed.",
   "data": {
     "question": "Original Task 2 prompt: Some people think universities should require every student to complete a community project. Others believe students should choose whether to participate. Discuss both views and give your own opinion.\n\nWhich thesis directly answers the debate?",
     "options": [
       "Participation should remain voluntary, with accessible opportunities",
-      "University life has many topics",
-      "All students attend lectures"
+      "Community projects are useful, so compulsory participation needs no discussion",
+      "Universities should offer projects, but whether to require them is irrelevant"
     ],
     "correct": 0,
     "explanation": "It states a position on whether participation should be compulsory."
@@ -1453,13 +2149,13 @@ export const exercises: Exercise[] = [
   "id": "ex-practice-discussion-1",
   "lessonId": "band3-writing-multiple-charts",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory writing and language analysis — no full written response is assessed.",
   "data": {
     "question": "Original discussion prompt: Professor Lane asks whether first-year students should choose one broad elective outside their main subject. Mina supports it because it may reveal new interests. Leo worries that it reduces time for core modules. Contribute your own view and develop it with reasons.\n\nWhich contribution adds a developed position?",
     "options": [
-      "Discuss a holiday unrelated to electives",
+      "Support electives by repeating Mina’s interest claim with no further reason",
       "Support an elective with workload advice and a concrete cross-subject example",
-      "Copy Mina’s wording without any addition"
+      "Reject the proposal by dismissing workload without considering benefits"
     ],
     "correct": 1,
     "explanation": "It responds to the debate while adding a reasoned condition and example."
@@ -1470,7 +2166,7 @@ export const exercises: Exercise[] = [
   "id": "ex-practice-discussion-2",
   "lessonId": "band3-writing-multiple-charts",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory writing and language analysis — no full written response is assessed.",
   "data": {
     "question": "Original discussion prompt: Professor Lane asks whether first-year students should choose one broad elective outside their main subject. Mina supports it because it may reveal new interests. Leo worries that it reduces time for core modules. Contribute your own view and develop it with reasons.\n\nWhich response meaningfully addresses Leo’s concern?",
     "options": [
@@ -1489,13 +2185,13 @@ export const exercises: Exercise[] = [
   "id": "ex-practice-integrated-1",
   "lessonId": "band3-writing-maps-processes",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory writing and language analysis — no full written response is assessed.",
   "data": {
     "question": "Original email situation: You organised a student exhibition and booked a projector from the media office. It stopped working during rehearsal. Write to the coordinator, Ms. Rivera: explain what happened, describe the event’s needs, and propose a practical solution.\n\nWhich opening communicates the purpose most clearly?",
     "options": [
       "I am writing about the projector that failed during rehearsal",
-      "My childhood was interesting",
-      "You always ruin events"
+      "I am writing to ask about an exhibition, without identifying the equipment problem",
+      "You must replace the projector; I do not need to explain what happened"
     ],
     "correct": 0,
     "explanation": "It identifies the relevant equipment and problem without irrelevant material or accusation."
@@ -1506,13 +2202,13 @@ export const exercises: Exercise[] = [
   "id": "ex-practice-integrated-2",
   "lessonId": "band3-writing-maps-processes",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory writing and language analysis — no full written response is assessed.",
   "data": {
     "question": "Original email situation: You organised a student exhibition and booked a projector from the media office. It stopped working during rehearsal. Write to the coordinator, Ms. Rivera: explain what happened, describe the event’s needs, and propose a practical solution.\n\nWhich detail develops the event’s practical needs?",
     "options": [
-      "The coordinator has a nice name",
+      "The sender can deliver the unit after a morning class",
       "Students must show short films to about forty visitors",
-      "The sender likes blue stationery"
+      "The coordinator may suggest another department"
     ],
     "correct": 1,
     "explanation": "Audience size and film display explain why reliable projection matters."
@@ -1525,7 +2221,7 @@ export const exercises: Exercise[] = [
   "id": "ex-practice-speaking-toefl-1",
   "lessonId": "band3-speaking-toefl4",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory speaking analysis — no speech is assessed.",
   "data": {
     "question": "Original longer repetition preparation: “Visitors who arrive after the tour begins should wait near reception.” “Although the main gallery is closed, the exhibition on the upper floor remains open.” “Please return the audio guide before you leave through the eastern exit.”\n\nWho should wait near reception in the first sentence?",
     "options": [
@@ -1544,7 +2240,7 @@ export const exercises: Exercise[] = [
   "id": "ex-practice-lecture-1",
   "lessonId": "band3-listening-lecture",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory transcript analysis — no audio is assessed.",
   "data": {
     "question": "Original academic-talk transcript: 'Some insects use colour to avoid predators, but colour can serve different functions. A leaf insect blends with its surroundings, making detection harder. A brightly patterned insect may instead be conspicuous: its pattern can warn a predator that attacking it is unpleasant. These strategies are different, even though both may reduce attacks. Colour alone is not enough to classify every species; behaviour and habitat also matter.'\n\nWhich note correctly links an example to its mechanism?",
     "options": [
@@ -1561,7 +2257,7 @@ export const exercises: Exercise[] = [
   "id": "ex-practice-section3-1",
   "lessonId": "band3-listening-section3",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory transcript analysis — no audio is assessed.",
   "data": {
     "question": "Original transcript study: A student asks, 'Could you tell me where to collect the fieldwork forms?' A staff member replies, 'At the science office, just opposite the stairs. It closes at four today.' A second student asks, 'Would you mind checking this application before I submit it?' The tutor says, 'Of course—send me the final draft this afternoon.'\n\nWhich reply answers where to collect the forms?",
     "options": [
@@ -1570,79 +2266,171 @@ export const exercises: Exercise[] = [
       "At the science office opposite the stairs"
     ],
     "correct": 2,
-    "explanation": "The question requests a location, and only the first option supplies it."
+    "explanation": "The question requests a location; the science office opposite the stairs supplies it. The other replies give neither the collection location nor a relevant instruction."
   },
   "xpReward": 25
 },
 
   // ── IELTS General Task 1: Three Letter Registers ────────────────────────────
   {
-    id: "ex-practice-letters-1", lessonId: "band4-writing-sophisticated", type: "matching",
-    prompt: "Match each letter context to its mandatory opening salutation and sign-off:",
-    data: { pairs: [["Formal (Unknown official / City council)", "Dear Sir or Madam, ... Yours faithfully,"], ["Semi-Formal (Named landlord / Employer)", "Dear Mr. Henderson, ... Yours sincerely,"], ["Informal (Close friend / Peer)", "Dear Liam, ... Warm regards,"]] },
-    xpReward: 25,
+  "id": "ex-practice-letters-1",
+  "lessonId": "band4-writing-sophisticated",
+  "type": "multiple-choice",
+  "prompt": "Preparatory response analysis. Complete the written or recorded activity below for production practice.",
+  "data": {
+    "question": "Worked example: Formal: Could you arrange an inspection? Informal: Let me know when you arrive.\n\nWhich observation is supported?",
+    "options": [
+      "The model is an original practice response to compare with the task requirements.",
+      "This response has received an official guaranteed examination score.",
+      "The model replaces the need to produce your own response."
+    ],
+    "correct": 0,
+    "explanation": "Both are direct and appropriate to their relationships. A formal letter need not sound hostile or excessively elaborate. Compare the message and reasoning, not just the vocabulary. Identify where the model addresses each instruction, how each paragraph develops its point, and one sentence you can improve in your own draft. This is an original teaching model, not an examiner-rated script."
   },
+  "xpReward": 25
+},
   {
-    id: "ex-practice-letters-2", lessonId: "band4-writing-sophisticated", type: "multiple-choice",
-    prompt: "Which sentence is strictly FORBIDDEN in a formal IELTS General letter to a municipal council?",
-    data: { question: "Identify the inappropriate informal sentence for a formal council letter:", options: ["I am writing to draw your attention to a traffic hazard.", "I would be grateful if the council could inspect the intersection.", "I'm writing 'cause the road outside my place is totally crazy!", "I trust the council will implement preventive safeguards promptly."], correct: 2 },
-    xpReward: 25,
+  "id": "ex-practice-letters-2",
+  "lessonId": "band4-writing-sophisticated",
+  "type": "multiple-choice",
+  "prompt": "Preparatory response analysis. Complete the written or recorded activity below for production practice.",
+  "data": {
+    "question": "Worked example: Formal: Could you arrange an inspection? Informal: Let me know when you arrive.\n\nWhich observation is supported?",
+    "options": [
+      "The model is an original practice response to compare with the task requirements.",
+      "This response has received an official guaranteed examination score.",
+      "The model replaces the need to produce your own response."
+    ],
+    "correct": 0,
+    "explanation": "Both are direct and appropriate to their relationships. A formal letter need not sound hostile or excessively elaborate. Compare the message and reasoning, not just the vocabulary. Identify where the model addresses each instruction, how each paragraph develops its point, and one sentence you can improve in your own draft. This is an original teaching model, not an examiner-rated script."
   },
+  "xpReward": 25
+},
 
   // ── IELTS General Workplace Reading: Corporate Notices ─────────────────────
   {
-    id: "ex-practice-notices-1", lessonId: "band4-writing-complex-comparisons", type: "multiple-choice",
-    prompt: "Notice: 'TOIL cannot be claimed for voluntary weekend work or routine email monitoring.' Statement: 'Employees are permitted to claim compensatory time off for checking weekend emails.'",
-    data: { question: "Is the statement True, False, or Not Given?", options: ["TRUE", "FALSE (Directly prohibited by policy)", "NOT GIVEN"], correct: 1 },
-    xpReward: 25,
+  "id": "ex-practice-notices-1",
+  "lessonId": "band4-writing-complex-comparisons",
+  "type": "fill-blank",
+  "prompt": "Preparatory reading/language drill. The full interactive activity below practises the complete skill.\n\nPassage\n\nBefore using the shared workshop, members must complete an induction and sign the safety agreement. A booking confirms access to the space but does not permit use of every machine. Equipment-specific training is recorded separately. The rules are intended to support safe independent work, not to remove the need to ask for help when uncertain.",
+  "data": {
+    "sentence": "What training is recorded separately? Answer: ____",
+    "answer": "equipment-specific training",
+    "acceptedAnswers": [
+      "equipment-specific training"
+    ],
+    "explanation": "The source supports this answer: Equipment-specific training is recorded separately. Evidence: Equipment-specific training is recorded separately."
   },
+  "xpReward": 25
+},
   {
-    id: "ex-practice-notices-2", lessonId: "band4-writing-complex-comparisons", type: "fill-blank",
-    prompt: "According to the TOIL notice: 'Accrued hours must be redeemed within ___ calendar days.'",
-    data: { sentence: "Accrued hours must be redeemed within ___ calendar days.", answer: "60", hint: "Number of calendar days" },
-    xpReward: 25,
+  "id": "ex-practice-notices-2",
+  "lessonId": "band4-writing-complex-comparisons",
+  "type": "multiple-choice",
+  "prompt": "Preparatory reading/language drill. The full interactive activity below practises the complete skill.\n\nPassage\n\nBefore using the shared workshop, members must complete an induction and sign the safety agreement. A booking confirms access to the space but does not permit use of every machine. Equipment-specific training is recorded separately. The rules are intended to support safe independent work, not to remove the need to ask for help when uncertain.",
+  "data": {
+    "question": "Which statement best represents the writer’s position?",
+    "options": [
+      "Space access and machine permission are separate.",
+      "The scheme is guaranteed to succeed everywhere.",
+      "The scheme has no potential value.",
+      "No further evidence is needed."
+    ],
+    "correct": 0,
+    "explanation": "The source supports this answer: Space access and machine permission are separate. Evidence: Space access and machine permission are separate."
   },
+  "xpReward": 25
+},
 
   // ── Band 8.5+ Syntactic Inversion & Clefting ────────────────────────────────
   {
-    id: "ex-practice-inversion-1", lessonId: "band4-grammar-inversion", type: "reorder",
-    prompt: "Reorder this sentence into advanced negative inversion starting with 'Seldom':",
-    data: { words: ["Seldom", "has", "a", "policy", "reform", "yielded", "such", "instantaneous", "economic", "dividends."], sentence: "Seldom has a policy reform yielded such instantaneous economic dividends." },
-    xpReward: 25,
+  "id": "ex-practice-inversion-1",
+  "lessonId": "band4-grammar-inversion",
+  "type": "fill-blank",
+  "prompt": "Preparatory reading/language drill. The full interactive activity below practises the complete skill.\n\nUse every supplied word once. Type the complete sentence or question. Read the context in each explanation after submission. Sentence punctuation is part of these local editing tasks.",
+  "data": {
+    "sentence": "Arrange these words into the intended sentence or question, including final punctuation: lack / It / the / concerns / is / that / support / us / of Answer: ____",
+    "answer": "It is the lack of support that concerns us.",
+    "acceptedAnswers": [
+      "It is the lack of support that concerns us."
+    ],
+    "explanation": "The source supports this answer: The cleft identifies the concern. Evidence: The cleft identifies the concern."
   },
+  "xpReward": 25
+},
   {
-    id: "ex-practice-inversion-2", lessonId: "band4-grammar-inversion", type: "fill-blank",
-    prompt: "Complete the inverted clause: 'Not only ___ the initiative curb vehicle emissions, but it also raised substantial revenue.' (Auxiliary past verb)",
-    data: { sentence: "Not only ___ the initiative curb vehicle emissions, but it also raised substantial revenue.", answer: "did", hint: "Past auxiliary of do" },
-    xpReward: 25,
+  "id": "ex-practice-inversion-2",
+  "lessonId": "band4-grammar-inversion",
+  "type": "fill-blank",
+  "prompt": "Preparatory reading/language drill. The full interactive activity below practises the complete skill.\n\nUse every supplied word once. Type the complete sentence or question. Read the context in each explanation after submission. Sentence punctuation is part of these local editing tasks.",
+  "data": {
+    "sentence": "Arrange these words into the intended sentence or question, including final punctuation: Never / the / team / before / problem / this / faced / had Answer: ____",
+    "answer": "Never had the team faced this problem before.",
+    "acceptedAnswers": [
+      "Never had the team faced this problem before."
+    ],
+    "explanation": "The source supports this answer: Past perfect inversion follows never. Evidence: Past perfect inversion follows never."
   },
+  "xpReward": 25
+},
   {
-    id: "ex-practice-inversion-3", lessonId: "band4-grammar-inversion", type: "multiple-choice",
-    prompt: "Which sentence demonstrates a grammatically flawless pseudo-cleft (Wh-cleft) construction?",
-    data: { question: "Choose the correct cleft sentence for emphasis:", options: ["What this longitudinal study confirms is the profound efficacy of early interventions.", "What confirms this study is early interventions.", "This study confirms what is early interventions.", "Early interventions what this study confirms."], correct: 0 },
-    xpReward: 25,
+  "id": "ex-practice-inversion-3",
+  "lessonId": "band4-grammar-inversion",
+  "type": "fill-blank",
+  "prompt": "Preparatory reading/language drill. The full interactive activity below practises the complete skill.\n\nUse every supplied word once. Type the complete sentence or question. Read the context in each explanation after submission. Sentence punctuation is part of these local editing tasks.",
+  "data": {
+    "sentence": "Arrange these words into the intended sentence or question, including final punctuation: the / policy / the / did / change / council / after / its / Only / review Answer: ____",
+    "answer": "Only after the review did the council change its policy.",
+    "acceptedAnswers": [
+      "Only after the review did the council change its policy."
+    ],
+    "explanation": "The source supports this answer: Only after introduces the restrictive adverbial. Evidence: Only after introduces the restrictive adverbial."
   },
+  "xpReward": 25
+},
 
   // ── Advanced Inference & Register (Band 7–8+) ──────────────────────────────
   {
-    id: "ex-practice-accents-1", lessonId: "band4-listening-accents", type: "matching",
-    prompt: "Match the British vs American academic term:",
-    data: { pairs: [["university campus (hall of residence)", "dormitory / dorm"], ["marks / grades", "grades / GPA"], ["full stop", "period"], ["autumn term", "fall semester"]] },
-    xpReward: 25,
+  "id": "ex-practice-accents-1",
+  "lessonId": "band4-listening-accents",
+  "type": "multiple-choice",
+  "prompt": "Worked-example analysis only. The audio activity uses a different source and requires actual listening.",
+  "data": {
+    "question": "Worked example: “The shop stays open until six, but the collection desk closes at four.” → collection deadline: four.\n\nWhich interpretation is supported?",
+    "options": [
+      "The two times refer to different services, so choosing the later one would ignore the restriction.",
+      "Every number or suggestion mentioned must be the final answer.",
+      "The example establishes an official examination score."
+    ],
+    "correct": 0,
+    "explanation": "The two times refer to different services, so choosing the later one would ignore the restriction."
   },
+  "xpReward": 25
+},
   {
-    id: "ex-practice-inference-1", lessonId: "band4-listening-inference", type: "multiple-choice",
-    prompt: "A supervisor comments on an essay draft: 'The conclusion is rather ambitious given the limited data set.' What is the supervisor implying?",
-    data: { question: "What does the supervisor imply?", options: ["The data is extraordinarily thorough and proves the conclusion", "The claims in the conclusion go beyond what the data actually supports", "The essay should be published immediately in a top journal", "More ambitious words should be incorporated"], correct: 1 },
-    xpReward: 25,
+  "id": "ex-practice-inference-1",
+  "lessonId": "band4-listening-inference",
+  "type": "multiple-choice",
+  "prompt": "Worked-example analysis only. The audio activity uses a different source and requires actual listening.",
+  "data": {
+    "question": "Worked example: “The shop stays open until six, but the collection desk closes at four.” → collection deadline: four.\n\nWhich interpretation is supported?",
+    "options": [
+      "The two times refer to different services, so choosing the later one would ignore the restriction.",
+      "Every number or suggestion mentioned must be the final answer.",
+      "The example establishes an official examination score."
+    ],
+    "correct": 0,
+    "explanation": "The two times refer to different services, so choosing the later one would ignore the restriction."
   },
+  "xpReward": 25
+},
 
   // Original targeted IELTS Academic and TOEFL 2026 practice.
 {
   "id": "ex-band2-listening-mcq-content-04",
   "lessonId": "band2-listening-mcq",
   "type": "fill-blank",
-  "prompt": "Transcript-based spelling practice. Clerk: “No, Mayson: M-A-Y-S-O-N.” Copy the surname.",
+  "prompt": "Preparatory transcript analysis — no audio is assessed. Transcript-based spelling practice. Clerk: “No, Mayson: M-A-Y-S-O-N.” Copy the surname.",
   "data": {
     "sentence": "The surname is ____.",
     "answer": "Mayson",
@@ -1654,7 +2442,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band2-listening-maps-content-04",
   "lessonId": "band2-listening-maps",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory transcript analysis — no audio is assessed.",
   "data": {
     "question": "Original plan description: North is at the top. The south entrance leads into a central hall. The café is west of the hall, the studio east, and the garden north. Guide: 'Turn right after entering, so the studio is on your right. The temporary exhibition used to occupy that room; it now uses the gallery beyond the garden.'\n\nWhy would “temporary exhibition” be a wrong current label for the studio?",
     "options": [
@@ -1671,7 +2459,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band2-listening-form-completion-content-01",
   "lessonId": "band2-listening-form-completion",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory transcript analysis — no audio is assessed.",
   "data": {
     "question": "Original educational transcript: Tutor: 'How will you investigate evening bus use?' Ada: 'An online survey would be quick.' Ben: 'But it excludes passengers without reliable internet.' Ada: 'Then we should interview people at two stops.' Tutor: 'That gives useful detail, although two stops may not represent the whole route.' Later lecture: 'Counts record frequency; interviews explain motives. Combining methods can reveal why demand changes, but collecting both requires more staff time.'\n\nWhy does Ben question the online survey?",
     "options": [
@@ -1688,7 +2476,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band2-listening-form-completion-content-02",
   "lessonId": "band2-listening-form-completion",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory transcript analysis — no audio is assessed.",
   "data": {
     "question": "Original educational transcript: Tutor: 'How will you investigate evening bus use?' Ada: 'An online survey would be quick.' Ben: 'But it excludes passengers without reliable internet.' Ada: 'Then we should interview people at two stops.' Tutor: 'That gives useful detail, although two stops may not represent the whole route.' Later lecture: 'Counts record frequency; interviews explain motives. Combining methods can reveal why demand changes, but collecting both requires more staff time.'\n\nWhat is the tutor’s attitude to interviews at two stops?",
     "options": [
@@ -1705,7 +2493,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band2-listening-form-completion-content-03",
   "lessonId": "band2-listening-form-completion",
   "type": "fill-blank",
-  "prompt": "Transcript study: “Counts record frequency; interviews explain motives.” Complete the note with ONE WORD.",
+  "prompt": "Preparatory transcript analysis — no audio is assessed. Transcript study: “Counts record frequency; interviews explain motives.” Complete the note with ONE WORD.",
   "data": {
     "sentence": "Interviews explain passengers’ ____.",
     "answer": "motives",
@@ -1717,7 +2505,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band2-listening-form-completion-content-04",
   "lessonId": "band2-listening-form-completion",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory transcript analysis — no audio is assessed.",
   "data": {
     "question": "Original educational transcript: Tutor: 'How will you investigate evening bus use?' Ada: 'An online survey would be quick.' Ben: 'But it excludes passengers without reliable internet.' Ada: 'Then we should interview people at two stops.' Tutor: 'That gives useful detail, although two stops may not represent the whole route.' Later lecture: 'Counts record frequency; interviews explain motives. Combining methods can reveal why demand changes, but collecting both requires more staff time.'\n\nWhat limitation applies to combining both methods?",
     "options": [
@@ -1739,8 +2527,8 @@ export const exercises: Exercise[] = [
     "question": "Original reading: [A] Many seed libraries began as informal exchanges between neighbours. As participation increased, volunteers introduced catalogues and collection dates, turning small swaps into organised services. [B] Botanist Mira Cole recommends storing seeds in cool, dry conditions. Researcher Joel Reed instead studies how shared gardens help new residents meet people. [C] Coordinators report that donated seeds sometimes arrive without labels. They now ask donors to record the crop, harvest year and growing conditions.\n\nWhich heading best summarises paragraph A?",
     "options": [
       "From informal exchanges to organised services",
-      "Why all seeds need chemical treatment",
-      "The end of neighbourhood gardening"
+      "Why small exchanges need no records",
+      "Storage advice for gardeners"
     ],
     "correct": 0,
     "explanation": "A traces growth from small swaps to organised catalogued services."
@@ -1806,8 +2594,8 @@ export const exercises: Exercise[] = [
   "data": {
     "question": "Original passage: The city tested quiet delivery vehicles on four streets for a month. Complaints fell on three streets, but rose on the fourth, where night deliveries became more frequent. The report suggests that scheduling matters alongside vehicle noise. Because the trial covered a small area, its authors recommend a larger study before a citywide rule is introduced.\n\nWhat is the report’s main conclusion?",
     "options": [
-      "All night deliveries should end immediately",
-      "Vehicle type alone guarantees silence",
+      "The trial justifies applying one delivery schedule citywide",
+      "Vehicle noise explains the results on every street",
       "Scheduling matters as well as vehicle noise"
     ],
     "correct": 2,
@@ -1824,8 +2612,8 @@ export const exercises: Exercise[] = [
     "question": "Original passage: The city tested quiet delivery vehicles on four streets for a month. Complaints fell on three streets, but rose on the fourth, where night deliveries became more frequent. The report suggests that scheduling matters alongside vehicle noise. Because the trial covered a small area, its authors recommend a larger study before a citywide rule is introduced.\n\nWhy is a larger study recommended?",
     "options": [
       "The first trial covered a small area",
-      "No residents submitted complaints",
-      "The trial vehicles were all destroyed"
+      "The fourth street used a different vehicle model",
+      "The trial did not collect complaints from all four streets"
     ],
     "correct": 0,
     "explanation": "The authors connect their recommendation to the limited area covered."
@@ -1857,12 +2645,12 @@ export const exercises: Exercise[] = [
   "data": {
     "question": "Original passage: The city tested quiet delivery vehicles on four streets for a month. Complaints fell on three streets, but rose on the fourth, where night deliveries became more frequent. The report suggests that scheduling matters alongside vehicle noise. Because the trial covered a small area, its authors recommend a larger study before a citywide rule is introduced.\n\nWhich inference is most defensible?",
     "options": [
-      "Quiet vehicles always fail",
-      "Vehicle colour caused complaints",
+      "A small trial is enough to set a citywide vehicle rule",
+      "More frequent night deliveries reduced complaints on the fourth street",
       "Citywide conclusions need more evidence"
     ],
     "correct": 2,
-    "explanation": "The authors recommend more research before a citywide rule; the alternatives overreach or invent a cause."
+    "explanation": "The authors recommend more research before a citywide rule. The alternatives generalise prematurely or reverse the result on the fourth street."
   },
   "xpReward": 15
 },
@@ -1870,7 +2658,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band2-writing-bar-pie-content-04",
   "lessonId": "band2-writing-bar-pie",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory writing and language analysis — no full written response is assessed.",
   "data": {
     "question": "Original fictional data: Travel to Northbank College in 2025. Bus:45% of students and 30% of staff. Bicycle:25% of students and 15% of staff. Walking:20% of students and 10% of staff. Car:10% of students and 45% of staff. Each group's shares total 100%; group sizes are not given.\n\nWhy can the number of student cyclists not be compared with staff cyclists?",
     "options": [
@@ -1887,7 +2675,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band2-writing-letter-content-01",
   "lessonId": "band2-writing-letter",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory writing and language analysis — no full written response is assessed.",
   "data": {
     "question": "Original schematic: A park in 2010 had a pond in the north, a lawn in the centre, a car park in the east and an entrance in the south. In 2025 the pond and entrance remained. A playground replaced the central lawn, and bicycle parking replaced the eastern car park. Original process: used paper → sorting → pulping with water → filtering → pressing → drying → new paper.\n\nWhich change took place in the centre of the park?",
     "options": [
@@ -1904,7 +2692,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band2-writing-letter-content-02",
   "lessonId": "band2-writing-letter",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory writing and language analysis — no full written response is assessed.",
   "data": {
     "question": "Original schematic: A park in 2010 had a pond in the north, a lawn in the centre, a car park in the east and an entrance in the south. In 2025 the pond and entrance remained. A playground replaced the central lawn, and bicycle parking replaced the eastern car park. Original process: used paper → sorting → pulping with water → filtering → pressing → drying → new paper.\n\nWhich sentence describes the eastern change correctly?",
     "options": [
@@ -1921,7 +2709,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band2-writing-letter-content-03",
   "lessonId": "band2-writing-letter",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory writing and language analysis — no full written response is assessed.",
   "data": {
     "question": "Original schematic: A park in 2010 had a pond in the north, a lawn in the centre, a car park in the east and an entrance in the south. In 2025 the pond and entrance remained. A playground replaced the central lawn, and bicycle parking replaced the eastern car park. Original process: used paper → sorting → pulping with water → filtering → pressing → drying → new paper.\n\nWhich stage follows pulping and precedes pressing?",
     "options": [
@@ -1938,7 +2726,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band2-writing-letter-content-04",
   "lessonId": "band2-writing-letter",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory writing and language analysis — no full written response is assessed.",
   "data": {
     "question": "Original schematic: A park in 2010 had a pond in the north, a lawn in the centre, a car park in the east and an entrance in the south. In 2025 the pond and entrance remained. A playground replaced the central lawn, and bicycle parking replaced the eastern car park. Original process: used paper → sorting → pulping with water → filtering → pressing → drying → new paper.\n\nWhich process statement invents information?",
     "options": [
@@ -1955,13 +2743,13 @@ export const exercises: Exercise[] = [
   "id": "ex-band2-writing-opinion-content-03",
   "lessonId": "band2-writing-opinion",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory writing and language analysis — no full written response is assessed.",
   "data": {
     "question": "Original Task 2 prompt: Some people think universities should require every student to complete a community project. Others believe students should choose whether to participate. Discuss both views and give your own opinion.\n\nWhich example best develops an objection to a universal requirement?",
     "options": [
-      "The campus has three buildings",
+      "A project lets students apply classroom knowledge",
       "A working student cannot attend a fixed project session",
-      "Some textbooks are expensive"
+      "A student gains contacts through a community project"
     ],
     "correct": 1,
     "explanation": "The work schedule shows how compulsory fixed attendance could burden a student."
@@ -1972,7 +2760,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band2-writing-opinion-content-04",
   "lessonId": "band2-writing-opinion",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory writing and language analysis — no full written response is assessed.",
   "data": {
     "question": "Original Task 2 prompt: Some people think universities should require every student to complete a community project. Others believe students should choose whether to participate. Discuss both views and give your own opinion.\n\nWhich development would rely on unsupported evidence?",
     "options": [
@@ -1989,13 +2777,13 @@ export const exercises: Exercise[] = [
   "id": "ex-band2-writing-problem-solution-content-01",
   "lessonId": "band2-writing-problem-solution",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory writing and language analysis — no full written response is assessed.",
   "data": {
     "question": "Original prompts: [A] Many city residents struggle with expensive housing. What causes this problem, and what solutions could reduce it? [B] More employees work from home. Do the advantages outweigh the disadvantages? [C] Some museums offer free entry. Why do they do this, and is this a positive development?\n\nWhich solution matches a housing-supply cause in A?",
     "options": [
       "Adding homes near transport with infrastructure planning",
-      "Changing museum opening hours",
-      "Requiring everyone to work longer"
+      "Offer travel discounts without increasing the number of suitable homes",
+      "Promote the city to more incoming residents"
     ],
     "correct": 0,
     "explanation": "The proposal directly increases relevant housing supply; the alternatives do not address that cause."
@@ -2006,7 +2794,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band2-writing-problem-solution-content-02",
   "lessonId": "band2-writing-problem-solution",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory writing and language analysis — no full written response is assessed.",
   "data": {
     "question": "Original prompts: [A] Many city residents struggle with expensive housing. What causes this problem, and what solutions could reduce it? [B] More employees work from home. Do the advantages outweigh the disadvantages? [C] Some museums offer free entry. Why do they do this, and is this a positive development?\n\nWhat extra step does “outweigh” in B require?",
     "options": [
@@ -2023,7 +2811,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band2-writing-problem-solution-content-03",
   "lessonId": "band2-writing-problem-solution",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory writing and language analysis — no full written response is assessed.",
   "data": {
     "question": "Original prompts: [A] Many city residents struggle with expensive housing. What causes this problem, and what solutions could reduce it? [B] More employees work from home. Do the advantages outweigh the disadvantages? [C] Some museums offer free entry. Why do they do this, and is this a positive development?\n\nWhich plan covers both demands in C?",
     "options": [
@@ -2040,7 +2828,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band2-writing-problem-solution-content-04",
   "lessonId": "band2-writing-problem-solution",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory writing and language analysis — no full written response is assessed.",
   "data": {
     "question": "Original prompts: [A] Many city residents struggle with expensive housing. What causes this problem, and what solutions could reduce it? [B] More employees work from home. Do the advantages outweigh the disadvantages? [C] Some museums offer free entry. Why do they do this, and is this a positive development?\n\nWhich claim is suitably qualified?",
     "options": [
@@ -2057,13 +2845,13 @@ export const exercises: Exercise[] = [
   "id": "ex-band2-writing-cohesion-content-01",
   "lessonId": "band2-writing-cohesion",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory writing and language analysis — no full written response is assessed.",
   "data": {
     "question": "Original draft: “Many students live far from campus. This travel reduces time for study. However, a reliable bus service can shorten the journey. This improvement may therefore help students attend early classes.”\n\nWhat does “This improvement” refer to?",
     "options": [
       "A shorter journey from reliable bus service",
-      "Higher tuition fees",
-      "A new examination"
+      "The long commute before the bus service improved",
+      "The reduction in time available for study"
     ],
     "correct": 0,
     "explanation": "The immediately preceding sentence describes shortening the journey with reliable buses."
@@ -2074,7 +2862,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band2-writing-cohesion-content-02",
   "lessonId": "band2-writing-cohesion",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory writing and language analysis — no full written response is assessed.",
   "data": {
     "question": "Original draft: “Many students live far from campus. This travel reduces time for study. However, a reliable bus service can shorten the journey. This improvement may therefore help students attend early classes.”\n\nWhat relationship does “therefore” express?",
     "options": [
@@ -2091,7 +2879,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band2-writing-cohesion-content-03",
   "lessonId": "band2-writing-cohesion",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory writing and language analysis — no full written response is assessed.",
   "data": {
     "question": "Original draft: “Many students live far from campus. This travel reduces time for study. However, a reliable bus service can shorten the journey. This improvement may therefore help students attend early classes.”\n\nWhich revision keeps the meaning cautious?",
     "options": [
@@ -2108,7 +2896,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band2-writing-cohesion-content-04",
   "lessonId": "band2-writing-cohesion",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory writing and language analysis — no full written response is assessed.",
   "data": {
     "question": "A paragraph is fluent but discusses tourism when the essay asks about student transport.\n\nWhich issue remains?",
     "options": [
@@ -2125,7 +2913,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band2-speaking-describe-content-01",
   "lessonId": "band2-speaking-describe",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory speaking analysis — no speech is assessed.",
   "data": {
     "question": "Original practice response: “The old library is a place I remember clearly. Although it was small, the reading room felt spacious because the windows faced a garden. I went there when I was preparing for an exam. The librarian helped me find a quiet desk, and I gradually learned to work without checking my phone.”\n\nWhich addition develops the experience rather than listing adjectives?",
     "options": [
@@ -2142,7 +2930,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band2-speaking-describe-content-02",
   "lessonId": "band2-speaking-describe",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory speaking analysis — no speech is assessed.",
   "data": {
     "question": "Original practice response: “The old library is a place I remember clearly. Although it was small, the reading room felt spacious because the windows faced a garden. I went there when I was preparing for an exam. The librarian helped me find a quiet desk, and I gradually learned to work without checking my phone.”\n\nWhy is “although” useful in the first description?",
     "options": [
@@ -2159,7 +2947,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band2-speaking-describe-content-03",
   "lessonId": "band2-speaking-describe",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory speaking analysis — no speech is assessed.",
   "data": {
     "question": "Original practice response: “The old library is a place I remember clearly. Although it was small, the reading room felt spacious because the windows faced a garden. I went there when I was preparing for an exam. The librarian helped me find a quiet desk, and I gradually learned to work without checking my phone.”\n\nWhat evidence is needed to review pronunciation?",
     "options": [
@@ -2176,7 +2964,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band2-speaking-describe-content-04",
   "lessonId": "band2-speaking-describe",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory speaking analysis — no speech is assessed.",
   "data": {
     "question": "Original practice response: “The old library is a place I remember clearly. Although it was small, the reading room felt spacious because the windows faced a garden. I went there when I was preparing for an exam. The librarian helped me find a quiet desk, and I gradually learned to work without checking my phone.”\n\nWhich self-repair preserves communication?",
     "options": [
@@ -2193,7 +2981,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band2-speaking-integrated-content-01",
   "lessonId": "band2-speaking-integrated",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory speaking analysis — no speech is assessed.",
   "data": {
     "question": "Original Part 3 question: Why might local libraries still be useful when so much information is online? Model: “They can provide a reliable place to study, especially for people whose homes are crowded. For example, a student sharing a small flat may need somewhere quiet in the evening. Online resources are valuable, but they do not replace that physical space. The importance of libraries may therefore vary with local housing and access to other facilities.”\n\nWhat is the model’s central reason libraries can remain useful?",
     "options": [
@@ -2210,7 +2998,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band2-speaking-integrated-content-02",
   "lessonId": "band2-speaking-integrated",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory speaking analysis — no speech is assessed.",
   "data": {
     "question": "Original Part 3 question: Why might local libraries still be useful when so much information is online? Model: “They can provide a reliable place to study, especially for people whose homes are crowded. For example, a student sharing a small flat may need somewhere quiet in the evening. Online resources are valuable, but they do not replace that physical space. The importance of libraries may therefore vary with local housing and access to other facilities.”\n\nWhat does the shared-flat example do?",
     "options": [
@@ -2227,7 +3015,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band2-speaking-integrated-content-03",
   "lessonId": "band2-speaking-integrated",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory speaking analysis — no speech is assessed.",
   "data": {
     "question": "Original Part 3 question: Why might local libraries still be useful when so much information is online? Model: “They can provide a reliable place to study, especially for people whose homes are crowded. For example, a student sharing a small flat may need somewhere quiet in the evening. Online resources are valuable, but they do not replace that physical space. The importance of libraries may therefore vary with local housing and access to other facilities.”\n\nWhich qualification is relevant?",
     "options": [
@@ -2244,7 +3032,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band2-speaking-integrated-content-04",
   "lessonId": "band2-speaking-integrated",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory speaking analysis — no speech is assessed.",
   "data": {
     "question": "Original Part 3 question: Why might local libraries still be useful when so much information is online? Model: “They can provide a reliable place to study, especially for people whose homes are crowded. For example, a student sharing a small flat may need somewhere quiet in the evening. Online resources are valuable, but they do not replace that physical space. The importance of libraries may therefore vary with local housing and access to other facilities.”\n\nWhich follow-up best compares online services and libraries?",
     "options": [
@@ -2261,7 +3049,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band2-grammar-complex-content-01",
   "lessonId": "band2-grammar-complex",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory writing and language analysis — no full written response is assessed.",
   "data": {
     "question": "Original Task 2 idea: Evening classes can widen access to education. Some adults cannot attend daytime sessions because they work. Flexible schedules help only when transport and childcare arrangements also make attendance possible.\n\nWhich sentence expresses a valid concession?",
     "options": [
@@ -2278,7 +3066,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band2-grammar-complex-content-02",
   "lessonId": "band2-grammar-complex",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory writing and language analysis — no full written response is assessed.",
   "data": {
     "question": "Original Task 2 idea: Evening classes can widen access to education. Some adults cannot attend daytime sessions because they work. Flexible schedules help only when transport and childcare arrangements also make attendance possible.\n\nWhich addition supplies the missing main clause: “Because some adults work during the day...” ?",
     "options": [
@@ -2295,7 +3083,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band2-grammar-complex-content-03",
   "lessonId": "band2-grammar-complex",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory writing and language analysis — no full written response is assessed.",
   "data": {
     "question": "Original Task 2 idea: Evening classes can widen access to education. Some adults cannot attend daytime sessions because they work. Flexible schedules help only when transport and childcare arrangements also make attendance possible.\n\nIn “Adults who work during the day may benefit”, what does the relative clause identify?",
     "options": [
@@ -2312,16 +3100,16 @@ export const exercises: Exercise[] = [
   "id": "ex-band2-grammar-complex-content-04",
   "lessonId": "band2-grammar-complex",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory writing and language analysis — no full written response is assessed.",
   "data": {
     "question": "Original Task 2 idea: Evening classes can widen access to education. Some adults cannot attend daytime sessions because they work. Flexible schedules help only when transport and childcare arrangements also make attendance possible.\n\nWhich condition follows from the source?",
     "options": [
-      "Flexible schedules help when other attendance barriers are manageable",
+      "Other attendance conditions must also make attendance possible",
       "Childcare is never relevant",
       "Flexible schedules remove every barrier"
     ],
     "correct": 0,
-    "explanation": "The source explicitly makes transport and childcare relevant to attendance."
+    "explanation": "The source says flexible schedules help only when transport and childcare permit attendance. This makes those conditions necessary; it does not guarantee that managing them is sufficient."
   },
   "xpReward": 15
 },
@@ -2329,7 +3117,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band2-vocab-collocations-content-01",
   "lessonId": "band2-vocab-collocations",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory writing and language analysis — no full written response is assessed.",
   "data": {
     "question": "Original data: Attendance rose from 200 in 2022 to 260 in 2023, then fell to 250 in 2024. The initial increase was 60 people; the final total remained 50 above the starting value.\n\nWhich sentence distinguishes change from endpoint?",
     "options": [
@@ -2346,7 +3134,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band2-vocab-collocations-content-02",
   "lessonId": "band2-vocab-collocations",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory writing and language analysis — no full written response is assessed.",
   "data": {
     "question": "Original data: Attendance rose from 200 in 2022 to 260 in 2023, then fell to 250 in 2024. The initial increase was 60 people; the final total remained 50 above the starting value.\n\nWhich noun construction is grammatical?",
     "options": [
@@ -2363,7 +3151,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band2-vocab-collocations-content-03",
   "lessonId": "band2-vocab-collocations",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory writing and language analysis — no full written response is assessed.",
   "data": {
     "question": "Original data: Attendance rose from 200 in 2022 to 260 in 2023, then fell to 250 in 2024. The initial increase was 60 people; the final total remained 50 above the starting value.\n\nCompared with 2022, the 2024 figure was:",
     "options": [
@@ -2380,7 +3168,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band2-vocab-collocations-content-04",
   "lessonId": "band2-vocab-collocations",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory writing and language analysis — no full written response is assessed.",
   "data": {
     "question": "Original data: Attendance rose from 200 in 2022 to 260 in 2023, then fell to 250 in 2024. The initial increase was 60 people; the final total remained 50 above the starting value.\n\nWhich description exaggerates the 2023→2024 change?",
     "options": [
@@ -2397,7 +3185,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band2-vocab-environment-content-01",
   "lessonId": "band2-vocab-environment",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory transcript analysis — no audio is assessed.",
   "data": {
     "question": "Original Part 4-style transcript study: 'Urban trees can cool streets through shade and evaporation. Shade reduces direct sunlight reaching pavements. Evaporation transfers water from leaves into the air and uses energy. However, young trees need watering, and narrow streets may not have enough root space. Cooling therefore depends partly on species, maturity and local design.'\n\nWhich process uses energy according to the script?",
     "options": [
@@ -2414,7 +3202,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band2-vocab-environment-content-02",
   "lessonId": "band2-vocab-environment",
   "type": "fill-blank",
-  "prompt": "Transcript completion; ONE WORD: “Shade reduces direct sunlight reaching pavements.”",
+  "prompt": "Preparatory transcript analysis — no audio is assessed. Transcript completion; ONE WORD: “Shade reduces direct sunlight reaching pavements.”",
   "data": {
     "sentence": "Shade reduces direct ____.",
     "answer": "sunlight",
@@ -2426,7 +3214,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band2-vocab-environment-content-03",
   "lessonId": "band2-vocab-environment",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory transcript analysis — no audio is assessed.",
   "data": {
     "question": "Original Part 4-style transcript study: 'Urban trees can cool streets through shade and evaporation. Shade reduces direct sunlight reaching pavements. Evaporation transfers water from leaves into the air and uses energy. However, young trees need watering, and narrow streets may not have enough root space. Cooling therefore depends partly on species, maturity and local design.'\n\nWhich practical constraint is mentioned?",
     "options": [
@@ -2443,7 +3231,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band2-vocab-environment-content-04",
   "lessonId": "band2-vocab-environment",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory transcript analysis — no audio is assessed.",
   "data": {
     "question": "Original Part 4-style transcript study: 'Urban trees can cool streets through shade and evaporation. Shade reduces direct sunlight reaching pavements. Evaporation transfers water from leaves into the air and uses energy. However, young trees need watering, and narrow streets may not have enough root space. Cooling therefore depends partly on species, maturity and local design.'\n\nWhich summary preserves the qualification?",
     "options": [
@@ -2460,7 +3248,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band2-vocab-technology-content-01",
   "lessonId": "band2-vocab-technology",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory writing and language analysis — no full written response is assessed.",
   "data": {
     "question": "Original two-part Task 2 prompt: Digital services are increasingly used for public appointments. Why is this happening, and what can be done to avoid excluding people who struggle to use them?\n\nWhich plan covers the whole question?",
     "options": [
@@ -2477,7 +3265,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band2-vocab-technology-content-02",
   "lessonId": "band2-vocab-technology",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory writing and language analysis — no full written response is assessed.",
   "data": {
     "question": "Original two-part Task 2 prompt: Digital services are increasingly used for public appointments. Why is this happening, and what can be done to avoid excluding people who struggle to use them?\n\nWhich measure directly helps someone without reliable internet?",
     "options": [
@@ -2494,7 +3282,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band2-vocab-technology-content-03",
   "lessonId": "band2-vocab-technology",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory writing and language analysis — no full written response is assessed.",
   "data": {
     "question": "Original two-part Task 2 prompt: Digital services are increasingly used for public appointments. Why is this happening, and what can be done to avoid excluding people who struggle to use them?\n\nWhich claim is appropriately precise?",
     "options": [
@@ -2511,7 +3299,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band2-vocab-technology-content-04",
   "lessonId": "band2-vocab-technology",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory writing and language analysis — no full written response is assessed.",
   "data": {
     "question": "Original two-part Task 2 prompt: Digital services are increasingly used for public appointments. Why is this happening, and what can be done to avoid excluding people who struggle to use them?\n\nWhich reason explains adoption rather than merely praising it?",
     "options": [
@@ -2528,7 +3316,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band2-mistakes-prepositions-content-01",
   "lessonId": "band2-mistakes-prepositions",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory writing and language analysis — no full written response is assessed.",
   "data": {
     "question": "Original Task 1 data: The participation rate rose from 30% to 45% between 2010 and 2020. The number of participants rose from 600 to 900. The survey concerned a training programme, not all residents.\n\nWhat is the rate increase in percentage points?",
     "options": [
@@ -2545,7 +3333,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band2-mistakes-prepositions-content-02",
   "lessonId": "band2-mistakes-prepositions",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory writing and language analysis — no full written response is assessed.",
   "data": {
     "question": "Original Task 1 data: The participation rate rose from 30% to 45% between 2010 and 2020. The number of participants rose from 600 to 900. The survey concerned a training programme, not all residents.\n\nWhat is the increase in participant numbers?",
     "options": [
@@ -2562,7 +3350,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band2-mistakes-prepositions-content-03",
   "lessonId": "band2-mistakes-prepositions",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory writing and language analysis — no full written response is assessed.",
   "data": {
     "question": "Original Task 1 data: The participation rate rose from 30% to 45% between 2010 and 2020. The number of participants rose from 600 to 900. The survey concerned a training programme, not all residents.\n\nWhich report is accurate?",
     "options": [
@@ -2579,7 +3367,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band2-mistakes-prepositions-content-04",
   "lessonId": "band2-mistakes-prepositions",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory writing and language analysis — no full written response is assessed.",
   "data": {
     "question": "Sentence: “According to the study’s results, participation increased.”\n\nWhich editing judgement is justified?",
     "options": [
@@ -2596,7 +3384,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band2-mistakes-countable-content-01",
   "lessonId": "band2-mistakes-countable",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory writing and language analysis — no full written response is assessed.",
   "data": {
     "question": "Original programme notes: The team bought three microscopes and several chairs. The equipment arrived on Monday. Researchers collected information from 120 participants and conducted two studies. An adviser offered three practical suggestions about recruitment.\n\nWhich sentence uses equipment appropriately?",
     "options": [
@@ -2613,7 +3401,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band2-mistakes-countable-content-02",
   "lessonId": "band2-mistakes-countable",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory writing and language analysis — no full written response is assessed.",
   "data": {
     "question": "Original programme notes: The team bought three microscopes and several chairs. The equipment arrived on Monday. Researchers collected information from 120 participants and conducted two studies. An adviser offered three practical suggestions about recruitment.\n\nWhich phrase accurately counts investigations?",
     "options": [
@@ -2630,7 +3418,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band2-mistakes-countable-content-03",
   "lessonId": "band2-mistakes-countable",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory writing and language analysis — no full written response is assessed.",
   "data": {
     "question": "Original programme notes: The team bought three microscopes and several chairs. The equipment arrived on Monday. Researchers collected information from 120 participants and conducted two studies. An adviser offered three practical suggestions about recruitment.\n\nWhich revision preserves three pieces of advice?",
     "options": [
@@ -2647,7 +3435,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band2-mistakes-countable-content-04",
   "lessonId": "band2-mistakes-countable",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory writing and language analysis — no full written response is assessed.",
   "data": {
     "question": "Original programme notes: The team bought three microscopes and several chairs. The equipment arrived on Monday. Researchers collected information from 120 participants and conducted two studies. An adviser offered three practical suggestions about recruitment.\n\nWhich quantifier fits microscopes in standard edited English?",
     "options": [
@@ -2870,7 +3658,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band2-review-content-01",
   "lessonId": "band2-review",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory writing and language analysis — no full written response is assessed.",
   "data": {
     "question": "Original review scenario: A learner writes 160 words for Task 1 and 265 for Task 2, answers eight of ten reading drill questions correctly, and chooses strong speaking plans in text quizzes. No spoken recording or teacher review is available.\n\nWhat does the reading result directly establish?",
     "options": [
@@ -2887,7 +3675,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band2-review-content-02",
   "lessonId": "band2-review",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory writing and language analysis — no full written response is assessed.",
   "data": {
     "question": "Original review scenario: A learner writes 160 words for Task 1 and 265 for Task 2, answers eight of ten reading drill questions correctly, and chooses strong speaking plans in text quizzes. No spoken recording or teacher review is available.\n\nWhat do the written word counts establish?",
     "options": [
@@ -2904,7 +3692,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band2-review-content-03",
   "lessonId": "band2-review",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory writing and language analysis — no full written response is assessed.",
   "data": {
     "question": "Original review scenario: A learner writes 160 words for Task 1 and 265 for Task 2, answers eight of ten reading drill questions correctly, and chooses strong speaking plans in text quizzes. No spoken recording or teacher review is available.\n\nWhat is needed to review pronunciation?",
     "options": [
@@ -2921,7 +3709,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band2-review-content-04",
   "lessonId": "band2-review",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory writing and language analysis — no full written response is assessed.",
   "data": {
     "question": "Original review scenario: A learner writes 160 words for Task 1 and 265 for Task 2, answers eight of ten reading drill questions correctly, and chooses strong speaking plans in text quizzes. No spoken recording or teacher review is available.\n\nWhich next step produces useful improvement evidence?",
     "options": [
@@ -2938,7 +3726,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band3-listening-section3-content-02",
   "lessonId": "band3-listening-section3",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory transcript analysis — no audio is assessed.",
   "data": {
     "question": "Original transcript study: A student asks, 'Could you tell me where to collect the fieldwork forms?' A staff member replies, 'At the science office, just opposite the stairs. It closes at four today.' A second student asks, 'Would you mind checking this application before I submit it?' The tutor says, 'Of course—send me the final draft this afternoon.'\n\nWhat does “Would you mind checking this application?” do?",
     "options": [
@@ -2955,7 +3743,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band3-listening-section3-content-03",
   "lessonId": "band3-listening-section3",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory transcript analysis — no audio is assessed.",
   "data": {
     "question": "Original transcript study: A student asks, 'Could you tell me where to collect the fieldwork forms?' A staff member replies, 'At the science office, just opposite the stairs. It closes at four today.' A second student asks, 'Would you mind checking this application before I submit it?' The tutor says, 'Of course—send me the final draft this afternoon.'\n\nWhat should the second student send?",
     "options": [
@@ -2972,7 +3760,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band3-listening-section3-content-04",
   "lessonId": "band3-listening-section3",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory transcript analysis — no audio is assessed.",
   "data": {
     "question": "Original transcript study: A student asks, 'Could you tell me where to collect the fieldwork forms?' A staff member replies, 'At the science office, just opposite the stairs. It closes at four today.' A second student asks, 'Would you mind checking this application before I submit it?' The tutor says, 'Of course—send me the final draft this afternoon.'\n\nWhich reply fits “When does the office close today?”",
     "options": [
@@ -2989,7 +3777,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band3-listening-multiple-speakers-content-01",
   "lessonId": "band3-listening-multiple-speakers",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory transcript analysis — no audio is assessed.",
   "data": {
     "question": "Original conversation transcript: Student: 'I booked a quiet room for our project interview, but the booking system now shows maintenance.' Assistant: 'The room is unavailable on Wednesday. There is a smaller room on Thursday afternoon.' Student: 'Our guest is only free on Wednesday.' Assistant: 'Then use the media booth. It has sound insulation, but you will need to borrow a portable recorder.' Student: 'That should work. How do I reserve it?'\n\nWhy is Thursday’s room unsuitable?",
     "options": [
@@ -3006,7 +3794,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band3-listening-multiple-speakers-content-02",
   "lessonId": "band3-listening-multiple-speakers",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory transcript analysis — no audio is assessed.",
   "data": {
     "question": "Original conversation transcript: Student: 'I booked a quiet room for our project interview, but the booking system now shows maintenance.' Assistant: 'The room is unavailable on Wednesday. There is a smaller room on Thursday afternoon.' Student: 'Our guest is only free on Wednesday.' Assistant: 'Then use the media booth. It has sound insulation, but you will need to borrow a portable recorder.' Student: 'That should work. How do I reserve it?'\n\nWhich solution does the student appear to accept?",
     "options": [
@@ -3023,7 +3811,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band3-listening-multiple-speakers-content-03",
   "lessonId": "band3-listening-multiple-speakers",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory transcript analysis — no audio is assessed.",
   "data": {
     "question": "Original conversation transcript: Student: 'I booked a quiet room for our project interview, but the booking system now shows maintenance.' Assistant: 'The room is unavailable on Wednesday. There is a smaller room on Thursday afternoon.' Student: 'Our guest is only free on Wednesday.' Assistant: 'Then use the media booth. It has sound insulation, but you will need to borrow a portable recorder.' Student: 'That should work. How do I reserve it?'\n\nWhat additional equipment is needed?",
     "options": [
@@ -3040,7 +3828,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band3-listening-multiple-speakers-content-04",
   "lessonId": "band3-listening-multiple-speakers",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory transcript analysis — no audio is assessed.",
   "data": {
     "question": "Original conversation transcript: Student: 'I booked a quiet room for our project interview, but the booking system now shows maintenance.' Assistant: 'The room is unavailable on Wednesday. There is a smaller room on Thursday afternoon.' Student: 'Our guest is only free on Wednesday.' Assistant: 'Then use the media booth. It has sound insulation, but you will need to borrow a portable recorder.' Student: 'That should work. How do I reserve it?'\n\nWhich inference is supported by the final question?",
     "options": [
@@ -3057,11 +3845,11 @@ export const exercises: Exercise[] = [
   "id": "ex-band3-reading-summary-completion-content-01",
   "lessonId": "band3-reading-summary-completion",
   "type": "fill-blank",
-  "prompt": "Original Complete the Words practice passage: A campus garden provides space for small experiments. Students comp____ observations before they draw conclu____. They record changes at reg____ intervals so that results from different weeks can be compared. The teacher checks each record for accu____ before the group discusses its findings.\nMissing letters only after the stem comp:",
+  "prompt": "Original Complete the Words practice passage: A campus garden provides space for small experiments. Students compar____ observations before they draw conclu____. They record changes at reg____ intervals so that results from different weeks can be compared. The teacher checks each record for accu____ before the group discusses its findings.\nMissing letters only after the stem compar:",
   "data": {
-    "sentence": "Students comp____ observations.",
-    "answer": "are",
-    "hint": "Identify the present-tense verb describing what students do with observations. Enter only the missing ending after the supplied stem."
+    "sentence": "Students compar____ observations.",
+    "answer": "e",
+    "hint": "Use the visible stem and sentence: the students examine similarities and differences between observations before drawing conclusions. Supply only the missing letters, keeping the printed stem unchanged."
   },
   "xpReward": 15
 },
@@ -3069,7 +3857,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band3-reading-summary-completion-content-02",
   "lessonId": "band3-reading-summary-completion",
   "type": "fill-blank",
-  "prompt": "Original Complete the Words practice passage: A campus garden provides space for small experiments. Students comp____ observations before they draw conclu____. They record changes at reg____ intervals so that results from different weeks can be compared. The teacher checks each record for accu____ before the group discusses its findings.\nMissing letters only after the stem conclu:",
+  "prompt": "Original Complete the Words practice passage: A campus garden provides space for small experiments. Students compar____ observations before they draw conclu____. They record changes at reg____ intervals so that results from different weeks can be compared. The teacher checks each record for accu____ before the group discusses its findings.\nMissing letters only after the stem conclu:",
   "data": {
     "sentence": "They draw conclu____.",
     "answer": "sions",
@@ -3081,7 +3869,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band3-reading-summary-completion-content-03",
   "lessonId": "band3-reading-summary-completion",
   "type": "fill-blank",
-  "prompt": "Original Complete the Words practice passage: A campus garden provides space for small experiments. Students comp____ observations before they draw conclu____. They record changes at reg____ intervals so that results from different weeks can be compared. The teacher checks each record for accu____ before the group discusses its findings.\nMissing letters only after the stem reg:",
+  "prompt": "Original Complete the Words practice passage: A campus garden provides space for small experiments. Students compar____ observations before they draw conclu____. They record changes at reg____ intervals so that results from different weeks can be compared. The teacher checks each record for accu____ before the group discusses its findings.\nMissing letters only after the stem reg:",
   "data": {
     "sentence": "Measurements occur at reg____ intervals.",
     "answer": "ular",
@@ -3093,7 +3881,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band3-reading-summary-completion-content-04",
   "lessonId": "band3-reading-summary-completion",
   "type": "fill-blank",
-  "prompt": "Original Complete the Words practice passage: A campus garden provides space for small experiments. Students comp____ observations before they draw conclu____. They record changes at reg____ intervals so that results from different weeks can be compared. The teacher checks each record for accu____ before the group discusses its findings.\nMissing letters only after the stem accu:",
+  "prompt": "Original Complete the Words practice passage: A campus garden provides space for small experiments. Students compar____ observations before they draw conclu____. They record changes at reg____ intervals so that results from different weeks can be compared. The teacher checks each record for accu____ before the group discusses its findings.\nMissing letters only after the stem accu:",
   "data": {
     "sentence": "Records are checked for accu____.",
     "answer": "racy",
@@ -3178,8 +3966,8 @@ export const exercises: Exercise[] = [
     "question": "Original academic passage: A team studying urban rainfall compared sensors on rooftops with sensors in nearby open spaces. Rooftop readings varied more during strong winds. The researchers suggest that turbulence around buildings can alter the amount of water entering a sensor. They do not conclude that rooftop data are worthless. Instead, they recommend recording each sensor's surroundings so comparisons can account for local conditions.\n\nWhat action do the authors recommend?",
     "options": [
       "Recording sensor surroundings",
-      "Discarding all rooftop data",
-      "Stopping every rainfall measurement"
+      "Use rooftop readings without documenting local conditions",
+      "Replace all open-space sensors with rooftop ones"
     ],
     "correct": 0,
     "explanation": "The recommendation is to record surroundings so comparisons can account for local conditions."
@@ -3194,8 +3982,8 @@ export const exercises: Exercise[] = [
   "data": {
     "question": "Original academic passage: A team studying urban rainfall compared sensors on rooftops with sensors in nearby open spaces. Rooftop readings varied more during strong winds. The researchers suggest that turbulence around buildings can alter the amount of water entering a sensor. They do not conclude that rooftop data are worthless. Instead, they recommend recording each sensor's surroundings so comparisons can account for local conditions.\n\nWhy are strong winds mentioned?",
     "options": [
-      "They prove every reading is too low",
-      "They explain why no sensors were used",
+      "They show rooftop readings were consistently lower",
+      "They establish that open-space sensors had greater variation",
       "They identify a condition linked to greater rooftop variation"
     ],
     "correct": 2,
@@ -3211,9 +3999,9 @@ export const exercises: Exercise[] = [
   "data": {
     "question": "Original academic passage: A team studying urban rainfall compared sensors on rooftops with sensors in nearby open spaces. Rooftop readings varied more during strong winds. The researchers suggest that turbulence around buildings can alter the amount of water entering a sensor. They do not conclude that rooftop data are worthless. Instead, they recommend recording each sensor's surroundings so comparisons can account for local conditions.\n\nWhat does turbulence most nearly mean here?",
     "options": [
-      "A standard payment",
+      "A constant amount of collected water",
       "Disturbed air movement",
-      "A period without rainfall"
+      "A method of documenting sensor surroundings"
     ],
     "correct": 1,
     "explanation": "Its context is wind around buildings altering water entering sensors."
@@ -3241,13 +4029,13 @@ export const exercises: Exercise[] = [
   "id": "ex-band3-writing-multiple-charts-content-03",
   "lessonId": "band3-writing-multiple-charts",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory writing and language analysis — no full written response is assessed.",
   "data": {
     "question": "Original discussion prompt: Professor Lane asks whether first-year students should choose one broad elective outside their main subject. Mina supports it because it may reveal new interests. Leo worries that it reduces time for core modules. Contribute your own view and develop it with reasons.\n\nWhich example develops a cross-subject benefit?",
     "options": [
       "A biology student using statistics to interpret laboratory results",
-      "A campus building being old",
-      "A student buying a blue bag"
+      "A biology student choosing a class without checking prerequisites",
+      "A statistics class adding hours to an already full timetable"
     ],
     "correct": 0,
     "explanation": "The example explains how knowledge from another subject can support the main field."
@@ -3258,7 +4046,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band3-writing-multiple-charts-content-04",
   "lessonId": "band3-writing-multiple-charts",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory writing and language analysis — no full written response is assessed.",
   "data": {
     "question": "Original discussion prompt: Professor Lane asks whether first-year students should choose one broad elective outside their main subject. Mina supports it because it may reveal new interests. Leo worries that it reduces time for core modules. Contribute your own view and develop it with reasons.\n\nWhich claim about the text drill is accurate?",
     "options": [
@@ -3275,7 +4063,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band3-writing-maps-processes-content-03",
   "lessonId": "band3-writing-maps-processes",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory writing and language analysis — no full written response is assessed.",
   "data": {
     "question": "Original email situation: You organised a student exhibition and booked a projector from the media office. It stopped working during rehearsal. Write to the coordinator, Ms. Rivera: explain what happened, describe the event’s needs, and propose a practical solution.\n\nWhich proposal gives an actionable next step?",
     "options": [
@@ -3292,7 +4080,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band3-writing-maps-processes-content-04",
   "lessonId": "band3-writing-maps-processes",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory writing and language analysis — no full written response is assessed.",
   "data": {
     "question": "Original email situation: You organised a student exhibition and booked a projector from the media office. It stopped working during rehearsal. Write to the coordinator, Ms. Rivera: explain what happened, describe the event’s needs, and propose a practical solution.\n\nWhich response would omit an explicit task demand?",
     "options": [
@@ -3327,7 +4115,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band3-writing-discussion-content-02",
   "lessonId": "band3-writing-discussion",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory writing and language analysis — no full written response is assessed.",
   "data": {
     "question": "Original sentence-building context: A research assistant describes a revised laboratory procedure. Intended statements: 'The revised procedure reduces unnecessary delays.' 'Each record includes a clear description.' 'Additional evidence becomes available after testing.'\n\nWhich form completes “Each record includes a clear ...”?",
     "options": [
@@ -3344,7 +4132,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band3-writing-discussion-content-03",
   "lessonId": "band3-writing-discussion",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory writing and language analysis — no full written response is assessed.",
   "data": {
     "question": "Original sentence-building context: A research assistant describes a revised laboratory procedure. Intended statements: 'The revised procedure reduces unnecessary delays.' 'Each record includes a clear description.' 'Additional evidence becomes available after testing.'\n\nWhich form agrees with “Each record” in a present statement?",
     "options": [
@@ -3361,7 +4149,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band3-writing-discussion-content-04",
   "lessonId": "band3-writing-discussion",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory writing and language analysis — no full written response is assessed.",
   "data": {
     "question": "Original sentence-building context: A research assistant describes a revised laboratory procedure. Intended statements: 'The revised procedure reduces unnecessary delays.' 'Each record includes a clear description.' 'Additional evidence becomes available after testing.'\n\nWhich complement fits “Evidence becomes ... after testing”?",
     "options": [
@@ -3378,10 +4166,10 @@ export const exercises: Exercise[] = [
   "id": "ex-band3-writing-advantages-content-01",
   "lessonId": "band3-writing-advantages",
   "type": "reorder",
-  "prompt": "Build the intended polite question using every supplied word once. Punctuation belongs to its token.",
+  "prompt": "Build the intended polite question using every supplied word once. Punctuation belongs to its token. Main request: Can you explain…? Embed why + these results + differ in statement order.",
   "data": {
     "words": [
-      "Could",
+      "Can",
       "you",
       "explain",
       "why",
@@ -3389,7 +4177,7 @@ export const exercises: Exercise[] = [
       "results",
       "differ?"
     ],
-    "sentence": "Could you explain why these results differ?"
+    "sentence": "Can you explain why these results differ?"
   },
   "xpReward": 15
 },
@@ -3415,7 +4203,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band3-writing-advantages-content-03",
   "lessonId": "band3-writing-advantages",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory writing and language analysis — no full written response is assessed.",
   "data": {
     "question": "Original sentence-building situation: A student asks a tutor for advice about a presentation. Intended question: “Could you explain why these results differ?” A separate statement is: “The slides include several useful examples.”\n\nWhich embedded question has correct word order?",
     "options": [
@@ -3432,7 +4220,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band3-writing-advantages-content-04",
   "lessonId": "band3-writing-advantages",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory writing and language analysis — no full written response is assessed.",
   "data": {
     "question": "Original sentence-building situation: A student asks a tutor for advice about a presentation. Intended question: “Could you explain why these results differ?” A separate statement is: “The slides include several useful examples.”\n\nWhy is “include” correct in the statement?",
     "options": [
@@ -3449,7 +4237,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band3-writing-task-response-content-01",
   "lessonId": "band3-writing-task-response",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory writing and language analysis — no full written response is assessed.",
   "data": {
     "question": "Original email task: A professor has invited you to a meeting about a student research project. You cannot attend the proposed Friday 10 am meeting because of a compulsory lab. Explain the conflict, suggest another time, and ask whether you should send any material in advance.\n\nWhich detail explains the conflict?",
     "options": [
@@ -3466,7 +4254,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band3-writing-task-response-content-02",
   "lessonId": "band3-writing-task-response",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory writing and language analysis — no full written response is assessed.",
   "data": {
     "question": "Original email task: A professor has invited you to a meeting about a student research project. You cannot attend the proposed Friday 10 am meeting because of a compulsory lab. Explain the conflict, suggest another time, and ask whether you should send any material in advance.\n\nWhich wording proposes rather than assumes agreement?",
     "options": [
@@ -3483,7 +4271,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band3-writing-task-response-content-03",
   "lessonId": "band3-writing-task-response",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory writing and language analysis — no full written response is assessed.",
   "data": {
     "question": "Original email task: A professor has invited you to a meeting about a student research project. You cannot attend the proposed Friday 10 am meeting because of a compulsory lab. Explain the conflict, suggest another time, and ask whether you should send any material in advance.\n\nWhich required action is missing from an email that only explains the lab and offers Monday?",
     "options": [
@@ -3500,7 +4288,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band3-writing-task-response-content-04",
   "lessonId": "band3-writing-task-response",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory writing and language analysis — no full written response is assessed.",
   "data": {
     "question": "Original email task: A professor has invited you to a meeting about a student research project. You cannot attend the proposed Friday 10 am meeting because of a compulsory lab. Explain the conflict, suggest another time, and ask whether you should send any material in advance.\n\nWhich addition develops the preparation request?",
     "options": [
@@ -3517,7 +4305,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band3-writing-formality-content-01",
   "lessonId": "band3-writing-formality",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory writing and language analysis — no full written response is assessed.",
   "data": {
     "question": "Original classroom thread: Professor Kim asks whether group projects should include an individual reflection. Rosa says reflections reveal what each person learned. Dilan worries that students may repeat what they think the teacher wants to hear.\n\nWhich contribution adds a mechanism?",
     "options": [
@@ -3534,7 +4322,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band3-writing-formality-content-02",
   "lessonId": "band3-writing-formality",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory writing and language analysis — no full written response is assessed.",
   "data": {
     "question": "Original classroom thread: Professor Kim asks whether group projects should include an individual reflection. Rosa says reflections reveal what each person learned. Dilan worries that students may repeat what they think the teacher wants to hear.\n\nWhich response addresses Dilan’s concern?",
     "options": [
@@ -3551,7 +4339,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band3-writing-formality-content-03",
   "lessonId": "band3-writing-formality",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory writing and language analysis — no full written response is assessed.",
   "data": {
     "question": "Original classroom thread: Professor Kim asks whether group projects should include an individual reflection. Rosa says reflections reveal what each person learned. Dilan worries that students may repeat what they think the teacher wants to hear.\n\nWhich sentence uses suitable precise register?",
     "options": [
@@ -3560,7 +4348,7 @@ export const exercises: Exercise[] = [
       "A short reflection can help students explain a decision"
     ],
     "correct": 2,
-    "explanation": "The first is clear and appropriately qualified; the alternatives assert a false rule or use inflated language."
+    "explanation": "“A short reflection can help students explain a decision” is clear and appropriately qualified. The other options assert a false language rule or use inflated wording."
   },
   "xpReward": 15
 },
@@ -3568,7 +4356,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band3-writing-formality-content-04",
   "lessonId": "band3-writing-formality",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory writing and language analysis — no full written response is assessed.",
   "data": {
     "question": "Original classroom thread: Professor Kim asks whether group projects should include an individual reflection. Rosa says reflections reveal what each person learned. Dilan worries that students may repeat what they think the teacher wants to hear.\n\nWhat should a new post contribute?",
     "options": [
@@ -3585,7 +4373,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band3-speaking-opinions-content-01",
   "lessonId": "band3-speaking-opinions",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory speaking analysis — no speech is assessed.",
   "data": {
     "question": "Original interview prompt: Tell us about a way you organise your study time. Explain why it helps you. Model: “I divide a large assignment into small tasks and put the first deadline two days before submission. That gives me time to notice gaps. For example, when I prepared a history presentation, the early deadline showed that one section lacked evidence, so I could find another source before rehearsing.”\n\nWhat is the speaker’s study method?",
     "options": [
@@ -3602,7 +4390,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band3-speaking-opinions-content-02",
   "lessonId": "band3-speaking-opinions",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory speaking analysis — no speech is assessed.",
   "data": {
     "question": "Original interview prompt: Tell us about a way you organise your study time. Explain why it helps you. Model: “I divide a large assignment into small tasks and put the first deadline two days before submission. That gives me time to notice gaps. For example, when I prepared a history presentation, the early deadline showed that one section lacked evidence, so I could find another source before rehearsing.”\n\nWhat does the history example demonstrate?",
     "options": [
@@ -3619,7 +4407,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band3-speaking-opinions-content-03",
   "lessonId": "band3-speaking-opinions",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory speaking analysis — no speech is assessed.",
   "data": {
     "question": "Original interview prompt: Tell us about a way you organise your study time. Explain why it helps you. Model: “I divide a large assignment into small tasks and put the first deadline two days before submission. That gives me time to notice gaps. For example, when I prepared a history presentation, the early deadline showed that one section lacked evidence, so I could find another source before rehearsing.”\n\nWhich addition develops a relevant limitation?",
     "options": [
@@ -3636,7 +4424,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band3-speaking-opinions-content-04",
   "lessonId": "band3-speaking-opinions",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory speaking analysis — no speech is assessed.",
   "data": {
     "question": "Original interview prompt: Tell us about a way you organise your study time. Explain why it helps you. Model: “I divide a large assignment into small tasks and put the first deadline two days before submission. That gives me time to notice gaps. For example, when I prepared a history presentation, the early deadline showed that one section lacked evidence, so I could find another source before rehearsing.”\n\nWhich response would underdevelop the prompt?",
     "options": [
@@ -3653,7 +4441,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band3-speaking-toefl4-content-02",
   "lessonId": "band3-speaking-toefl4",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory speaking analysis — no speech is assessed.",
   "data": {
     "question": "Original longer repetition preparation: “Visitors who arrive after the tour begins should wait near reception.” “Although the main gallery is closed, the exhibition on the upper floor remains open.” “Please return the audio guide before you leave through the eastern exit.”\n\nWhich repetition preserves the contrast in the second sentence?",
     "options": [
@@ -3670,7 +4458,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band3-speaking-toefl4-content-03",
   "lessonId": "band3-speaking-toefl4",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory speaking analysis — no speech is assessed.",
   "data": {
     "question": "Original longer repetition preparation: “Visitors who arrive after the tour begins should wait near reception.” “Although the main gallery is closed, the exhibition on the upper floor remains open.” “Please return the audio guide before you leave through the eastern exit.”\n\nWhat must happen before leaving through the eastern exit?",
     "options": [
@@ -3687,7 +4475,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band3-speaking-toefl4-content-04",
   "lessonId": "band3-speaking-toefl4",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory speaking analysis — no speech is assessed.",
   "data": {
     "question": "Original longer repetition preparation: “Visitors who arrive after the tour begins should wait near reception.” “Although the main gallery is closed, the exhibition on the upper floor remains open.” “Please return the audio guide before you leave through the eastern exit.”\n\nWhich substitution changes the timing of the first instruction?",
     "options": [
@@ -3722,7 +4510,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band3-grammar-passive-content-02",
   "lessonId": "band3-grammar-passive",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory writing and language analysis — no full written response is assessed.",
   "data": {
     "question": "Original lab message: Staff checked the safety equipment on Monday. The equipment was checked before the practical class. Students who have completed induction may use the room. Students without induction must arrange training first.\n\nWhich transformation preserves a completed Monday event?",
     "options": [
@@ -3739,7 +4527,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band3-grammar-passive-content-03",
   "lessonId": "band3-grammar-passive",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory writing and language analysis — no full written response is assessed.",
   "data": {
     "question": "Original lab message: Staff checked the safety equipment on Monday. The equipment was checked before the practical class. Students who have completed induction may use the room. Students without induction must arrange training first.\n\nWho may use the room?",
     "options": [
@@ -3756,7 +4544,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band3-grammar-passive-content-04",
   "lessonId": "band3-grammar-passive",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory writing and language analysis — no full written response is assessed.",
   "data": {
     "question": "Original lab message: Staff checked the safety equipment on Monday. The equipment was checked before the practical class. Students who have completed induction may use the room. Students without induction must arrange training first.\n\nWhen should the actor be retained?",
     "options": [
@@ -3778,8 +4566,8 @@ export const exercises: Exercise[] = [
     "question": "Original fictional academic passage: Researchers compared two reminder messages for voluntary campus health appointments. One gave only the appointment date; the other included the date and a link to change the booking. More recipients of the second message attended or rescheduled. Because participants were not randomly assigned, the report cautions that other differences between the groups may have affected the result. It recommends a randomised follow-up rather than claiming that the link alone caused the improvement.\n\nWhat distinguished the second message?",
     "options": [
       "It included a link to change the booking",
-      "It removed the appointment date",
-      "It gave a different medicine"
+      "It included only the appointment date",
+      "It assigned participants randomly to reminder groups"
     ],
     "correct": 0,
     "explanation": "The two messages differed by the change-booking link."
@@ -3828,8 +4616,8 @@ export const exercises: Exercise[] = [
   "data": {
     "question": "Original fictional academic passage: Researchers compared two reminder messages for voluntary campus health appointments. One gave only the appointment date; the other included the date and a link to change the booking. More recipients of the second message attended or rescheduled. Because participants were not randomly assigned, the report cautions that other differences between the groups may have affected the result. It recommends a randomised follow-up rather than claiming that the link alone caused the improvement.\n\nWhat is the purpose of the proposed follow-up?",
     "options": [
-      "Prove an unrelated treatment works",
-      "Replace every campus appointment",
+      "Establish that rescheduling alone measures improved health",
+      "Confirm the original groups were already identical",
       "Investigate the association with stronger control of group differences"
     ],
     "correct": 2,
@@ -3841,16 +4629,16 @@ export const exercises: Exercise[] = [
   "id": "ex-band3-vocab-education-content-01",
   "lessonId": "band3-vocab-education",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory transcript analysis — no audio is assessed.",
   "data": {
     "question": "Original announcement transcript: 'The study-skills workshop planned for Tuesday in Room 6 has moved to Thursday in Room 9 because the trainer is unavailable. It will still begin at 2 pm. Existing registrations remain valid. If you cannot attend on Thursday, email the learning centre by Wednesday noon; we can offer materials but cannot promise a place at the next workshop.'\n\nWhen and where is the workshop now?",
     "options": [
       "Thursday in Room 9",
       "Tuesday in Room 6",
-      "Wednesday at noonin Room 9"
+      "Wednesday at noon in Room 9"
     ],
     "correct": 0,
-    "explanation": "The opening announces Thursday and Room 9 as replacements;Wednesday noonis a response deadline."
+    "explanation": "The opening announces Thursday and Room 9 as replacements; Wednesday noon is a response deadline."
   },
   "xpReward": 15
 },
@@ -3858,7 +4646,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band3-vocab-education-content-02",
   "lessonId": "band3-vocab-education",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory transcript analysis — no audio is assessed.",
   "data": {
     "question": "Original announcement transcript: 'The study-skills workshop planned for Tuesday in Room 6 has moved to Thursday in Room 9 because the trainer is unavailable. It will still begin at 2 pm. Existing registrations remain valid. If you cannot attend on Thursday, email the learning centre by Wednesday noon; we can offer materials but cannot promise a place at the next workshop.'\n\nWhich detail remains unchanged?",
     "options": [
@@ -3875,7 +4663,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band3-vocab-education-content-03",
   "lessonId": "band3-vocab-education",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory transcript analysis — no audio is assessed.",
   "data": {
     "question": "Original announcement transcript: 'The study-skills workshop planned for Tuesday in Room 6 has moved to Thursday in Room 9 because the trainer is unavailable. It will still begin at 2 pm. Existing registrations remain valid. If you cannot attend on Thursday, email the learning centre by Wednesday noon; we can offer materials but cannot promise a place at the next workshop.'\n\nWho should email by Wednesday noon?",
     "options": [
@@ -3892,7 +4680,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band3-vocab-education-content-04",
   "lessonId": "band3-vocab-education",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory transcript analysis — no audio is assessed.",
   "data": {
     "question": "Original announcement transcript: 'The study-skills workshop planned for Tuesday in Room 6 has moved to Thursday in Room 9 because the trainer is unavailable. It will still begin at 2 pm. Existing registrations remain valid. If you cannot attend on Thursday, email the learning centre by Wednesday noon; we can offer materials but cannot promise a place at the next workshop.'\n\nWhat is not guaranteed?",
     "options": [
@@ -3931,8 +4719,8 @@ export const exercises: Exercise[] = [
     "question": "Original workplace message: 'Your training shift is scheduled for Monday from 9 am to 1 pm. Please arrive fifteen minutes early to collect a visitor badge. Bring identification, but do not bring safety clothing; a jacket will be provided. If you need to change the shift, contact the coordinator before Friday at 3 pm. A change depends on supervisor availability.'\n\nWhat should the trainee bring?",
     "options": [
       "Identification",
-      "Safety clothing that must be purchased",
-      "A supervisor’s calendar"
+      "A safety jacket from home",
+      "A visitor badge collected before arrival"
     ],
     "correct": 0,
     "explanation": "Identification is required, while the jacket is supplied and safety clothing should not be brought."
@@ -3977,7 +4765,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band3-paraphrasing-content-01",
   "lessonId": "band3-paraphrasing",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory speaking analysis — no speech is assessed.",
   "data": {
     "question": "Original interview prompt: Do you prefer learning a new skill alone or with other people? Explain your choice and describe a situation that helped you decide. Model idea: Learning basic photography with a small group provided immediate feedback, but practising alone afterwards allowed experimentation without slowing others down.\n\nWhich opening gives a clear qualified preference?",
     "options": [
@@ -3994,13 +4782,13 @@ export const exercises: Exercise[] = [
   "id": "ex-band3-paraphrasing-content-02",
   "lessonId": "band3-paraphrasing",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory speaking analysis — no speech is assessed.",
   "data": {
     "question": "Original interview prompt: Do you prefer learning a new skill alone or with other people? Explain your choice and describe a situation that helped you decide. Model idea: Learning basic photography with a small group provided immediate feedback, but practising alone afterwards allowed experimentation without slowing others down.\n\nWhich experience develops the feedback reason?",
     "options": [
       "A classmate noticed an incorrect focus setting",
-      "The camera was bought on a Tuesday",
-      "The learner’s bag was green"
+      "The group met before the learner practised alone",
+      "Solo practice allowed experimentation at an individual pace"
     ],
     "correct": 0,
     "explanation": "The example shows an error being noticed by another person."
@@ -4011,7 +4799,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band3-paraphrasing-content-03",
   "lessonId": "band3-paraphrasing",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory speaking analysis — no speech is assessed.",
   "data": {
     "question": "Original interview prompt: Do you prefer learning a new skill alone or with other people? Explain your choice and describe a situation that helped you decide. Model idea: Learning basic photography with a small group provided immediate feedback, but practising alone afterwards allowed experimentation without slowing others down.\n\nWhich paraphrase preserves the prompt?",
     "options": [
@@ -4028,7 +4816,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band3-paraphrasing-content-04",
   "lessonId": "band3-paraphrasing",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory speaking analysis — no speech is assessed.",
   "data": {
     "question": "Original interview prompt: Do you prefer learning a new skill alone or with other people? Explain your choice and describe a situation that helped you decide. Model idea: Learning basic photography with a small group provided immediate feedback, but practising alone afterwards allowed experimentation without slowing others down.\n\nWhy does later solo practice not necessarily contradict the preference?",
     "options": [
@@ -4045,7 +4833,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band3-error-analysis-content-01",
   "lessonId": "band3-error-analysis",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory writing and language analysis — no full written response is assessed.",
   "data": {
     "question": "Original email draft: “Dear Coordinator, I am agree with the workshop plan. There is several students who needs a later session. We have discussed this yesterday. Could you tell me when does the second session begin? We would appreciate an afternoon option because our labs end at noon.”\n\nWhich correction repairs the first sentence?",
     "options": [
@@ -4062,7 +4850,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band3-error-analysis-content-02",
   "lessonId": "band3-error-analysis",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory writing and language analysis — no full written response is assessed.",
   "data": {
     "question": "Original email draft: “Dear Coordinator, I am agree with the workshop plan. There is several students who needs a later session. We have discussed this yesterday. Could you tell me when does the second session begin? We would appreciate an afternoon option because our labs end at noon.”\n\nWhich version matches plural students?",
     "options": [
@@ -4079,7 +4867,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band3-error-analysis-content-03",
   "lessonId": "band3-error-analysis",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory writing and language analysis — no full written response is assessed.",
   "data": {
     "question": "Original email draft: “Dear Coordinator, I am agree with the workshop plan. There is several students who needs a later session. We have discussed this yesterday. Could you tell me when does the second session begin? We would appreciate an afternoon option because our labs end at noon.”\n\nWhich revision fits yesterday?",
     "options": [
@@ -4096,7 +4884,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band3-error-analysis-content-04",
   "lessonId": "band3-error-analysis",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory writing and language analysis — no full written response is assessed.",
   "data": {
     "question": "Original email draft: “Dear Coordinator, I am agree with the workshop plan. There is several students who needs a later session. We have discussed this yesterday. Could you tell me when does the second session begin? We would appreciate an afternoon option because our labs end at noon.”\n\nWhich embedded question is grammatical?",
     "options": [
@@ -4113,7 +4901,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band3-practice-essay-content-01",
   "lessonId": "band3-practice-essay",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory writing and language analysis — no full written response is assessed.",
   "data": {
     "question": "Original timed writing pair: Email—A university garden group promised to lend tools for a public event, but several are missing. Write to the organiser: explain the shortage, describe what the event needs, and propose a solution. Discussion—Professor Hale asks whether practical skills workshops should be free. Bea favours free access; Arun worries about covering materials and instructor costs. Contribute your view.\n\nWhich email plan covers all three demands?",
     "options": [
@@ -4130,7 +4918,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band3-practice-essay-content-02",
   "lessonId": "band3-practice-essay",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory writing and language analysis — no full written response is assessed.",
   "data": {
     "question": "Original timed writing pair: Email—A university garden group promised to lend tools for a public event, but several are missing. Write to the organiser: explain the shortage, describe what the event needs, and propose a solution. Discussion—Professor Hale asks whether practical skills workshops should be free. Bea favours free access; Arun worries about covering materials and instructor costs. Contribute your view.\n\nWhich discussion idea addresses both access and costs?",
     "options": [
@@ -4147,7 +4935,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band3-practice-essay-content-03",
   "lessonId": "band3-practice-essay",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory writing and language analysis — no full written response is assessed.",
   "data": {
     "question": "Original timed writing pair: Email—A university garden group promised to lend tools for a public event, but several are missing. Write to the organiser: explain the shortage, describe what the event needs, and propose a solution. Discussion—Professor Hale asks whether practical skills workshops should be free. Bea favours free access; Arun worries about covering materials and instructor costs. Contribute your view.\n\nWhat is missing if the writer merely copies Bea’s preference?",
     "options": [
@@ -4164,7 +4952,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band3-practice-essay-content-04",
   "lessonId": "band3-practice-essay",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory writing and language analysis — no full written response is assessed.",
   "data": {
     "question": "Original timed writing pair: Email—A university garden group promised to lend tools for a public event, but several are missing. Write to the organiser: explain the shortage, describe what the event needs, and propose a solution. Discussion—Professor Hale asks whether practical skills workshops should be free. Bea favours free access; Arun worries about covering materials and instructor costs. Contribute your view.\n\nWhat evidence is required for useful extended-writing feedback?",
     "options": [
@@ -4181,7 +4969,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band3-review-content-01",
   "lessonId": "band3-review",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory writing and language analysis — no full written response is assessed.",
   "data": {
     "question": "Current TOEFL review: Reading—Complete the Words, Read in Daily Life, Read an Academic Passage. Listening—Listen and Choose a Response, Listen to a Conversation, Listen to an Announcement, Listen to an Academic Talk. Writing—Build a Sentence, Write an Email, Write for an Academic Discussion. Speaking—Listen and Repeat, Take an Interview.\n\nWhich is a current Speaking task family?",
     "options": [
@@ -4198,7 +4986,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band3-review-content-02",
   "lessonId": "band3-review",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory writing and language analysis — no full written response is assessed.",
   "data": {
     "question": "Current TOEFL review: Reading—Complete the Words, Read in Daily Life, Read an Academic Passage. Listening—Listen and Choose a Response, Listen to a Conversation, Listen to an Announcement, Listen to an Academic Talk. Writing—Build a Sentence, Write an Email, Write for an Academic Discussion. Speaking—Listen and Repeat, Take an Interview.\n\nWhich writing sequence matches the current families?",
     "options": [
@@ -4215,7 +5003,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band3-review-content-03",
   "lessonId": "band3-review",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory writing and language analysis — no full written response is assessed.",
   "data": {
     "question": "A learner scores 18/20 in an original text-based drill.\n\nWhat result can be reported directly?",
     "options": [
@@ -4232,7 +5020,7 @@ export const exercises: Exercise[] = [
   "id": "ex-band3-review-content-04",
   "lessonId": "band3-review",
   "type": "multiple-choice",
-  "prompt": "Evidence and strategy practice",
+  "prompt": "Preparatory writing and language analysis — no full written response is assessed.",
   "data": {
     "question": "ETS current reporting describes four section scores and an overall 1–6 score, plus a comparable overall 0–120 score during the transition.\n\nWhich statement is accurate?",
     "options": [
@@ -4246,3 +5034,6 @@ export const exercises: Exercise[] = [
   "xpReward": 15
 },
 ];
+
+// New activities use the same bank, lesson references and completion contract.
+export const exercises: Exercise[] = [...courseActivities, ...shortDrills];

@@ -13,7 +13,7 @@ import {
   Quote, BookText, BarChart4, Zap, RotateCcw, Trophy, Target, Calendar,
   GraduationCap, Sparkles, Lightbulb, Library, ChevronRight, Brain, Ear, Shuffle, Globe, MessageCircle,
 } from "lucide-react";
-import { levels } from "@/data/content";
+import { courseCatalogue as levels } from "@/data/course-catalogue";
 import type { LucideIcon } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 

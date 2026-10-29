@@ -36,13 +36,21 @@
   --color-neutral-900:      #111111;
 
   --color-text-primary:     #3C3C3C;
-  --color-text-secondary:   #777777;
+  --color-text-secondary:   #5C5C5C;
   --color-text-disabled:    #AFAFAF;
   --color-text-inverse:     #FFFFFF;
-  --color-text-link:        #1CB0F6;
-  --color-text-success:     #46A302;
-  --color-text-error:       #EA2B2B;
-  --color-text-warning:     #CC9C00;
+  --color-text-link:        #0369A1;
+  --color-text-success:     #166534;
+  --color-text-error:       #991B1B;
+  --color-text-warning:     #854D0E;
+
+  /* Text roles keep the existing brand fills and typefaces legible. */
+  --color-on-brand:         #0F172A;
+  --color-text-info:        #3730A3;
+  --color-course-band4-5:   #7E22CE;
+  --color-course-band5-6:   #9A3412;
+  --color-course-band6-7:   #0369A1;
+  --color-course-band7-8:   #047857;
 
   --color-surface:          #FFFFFF;
   --color-surface-alt:      #F7F7F7;
@@ -113,13 +121,19 @@
   --color-neutral-900:      #FFFFFF;
 
   --color-text-primary:     #F8FAFC;
-  --color-text-secondary:   #94A3B8;
+  --color-text-secondary:   #CBD5E1;
   --color-text-disabled:    #64748B;
   --color-text-inverse:     #0F172A;
   --color-text-link:        #38BDF8;
   --color-text-success:     #34D399;
   --color-text-error:       #F87171;
   --color-text-warning:     #FBBF24;
+
+  --color-text-info:        #C7D2FE;
+  --color-course-band4-5:   #D8B4FE;
+  --color-course-band5-6:   #FDBA74;
+  --color-course-band6-7:   #7DD3FC;
+  --color-course-band7-8:   #6EE7B7;
 
   --color-surface:          #0F172A;
   --color-surface-alt:      #1E293B;
@@ -165,7 +179,7 @@
 @layer components {
   .de-word {
     @apply font-mono font-semibold px-1.5 py-0.5 rounded-md text-sm border;
-    color: var(--color-primary-dark);
+    color: var(--color-text-link);
     background: var(--color-primary-subtle);
     border-color: var(--color-success);
   }

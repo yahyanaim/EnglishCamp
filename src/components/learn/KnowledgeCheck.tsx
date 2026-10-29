@@ -40,7 +40,7 @@ function buildQuestions(): Question[] {
 
   // Flashcard DE→EN
   for (const c of pickN(FLASHCARDS, 30)) {
-    const wrong = pickN(FLASHCARDS.filter((x) => x.id !== c.id), 3).map((x) => x.en);
+    const wrong = pickN(Array.from(new Set(FLASHCARDS.map(x => x.en))).filter(x => x !== c.en), 3);
     questions.push({
       id: `fc-de-${c.id}`, source: "flashcard-de",
       prompt: c.de, correct: c.en,
@@ -50,7 +50,7 @@ function buildQuestions(): Question[] {
 
   // Flashcard EN→DE
   for (const c of pickN(FLASHCARDS, 30)) {
-    const wrong = pickN(FLASHCARDS.filter((x) => x.id !== c.id), 3).map((x) => x.de);
+    const wrong = pickN(Array.from(new Set(FLASHCARDS.map(x => x.de))).filter(x => x !== c.de), 3);
     questions.push({
       id: `fc-en-${c.id}`, source: "flashcard-en",
       prompt: c.en, correct: c.de,
@@ -60,9 +60,9 @@ function buildQuestions(): Question[] {
 
   // NVV: match verb to collocation
   for (const nvv of NOUN_VERB_COLLOCATIONS) {
-    const expression = `${nvv.noun} ${nvv.verb}`;
+    const expression = `___ ${nvv.noun}`;
     const wrongVerbs = pickN(
-      NOUN_VERB_COLLOCATIONS.filter((x) => x.verb !== nvv.verb).map((x) => x.verb),
+      ["sleep", "arrive", "vanish", "exist"],
       3
     );
     if (wrongVerbs.length < 3) continue;
@@ -77,17 +77,15 @@ function buildQuestions(): Question[] {
 
   // Verb+Preposition
   for (const vp of VERB_PREPOSITIONS) {
-    const wrong = pickN(
-      VERB_PREPOSITIONS.filter((x) => x.preposition !== vp.preposition).map((x) => x.preposition),
-      3
-    );
+    const pattern = `${vp.verb} ${vp.preposition}`;
+    const wrong = pickN(Array.from(new Set(VERB_PREPOSITIONS.map(x => `${x.verb} ${x.preposition}`))).filter(x => x !== pattern && !x.startsWith(`${vp.verb} `)), 3);
     if (wrong.length < 3) continue;
     questions.push({
       id: `vp-${vp.verb}`, source: "verb-prep",
-      prompt: `Which preposition follows "${vp.verb}"?`,
-      correct: vp.preposition,
-      options: shuffle([vp.preposition, ...wrong]),
-      explanation: vp.meaning,
+      prompt: `Which verb pattern means "${vp.meaning}"?`,
+      correct: pattern,
+      options: shuffle([pattern, ...wrong]),
+      explanation: `${vp.meaning}. Example: ${vp.example}`,
     });
   }
 
@@ -99,7 +97,7 @@ function buildQuestions(): Question[] {
     const idx = PRONOUN_INDEX[pronoun] ?? 0;
     const correct = verb.present[idx];
     const wrong = shuffle(
-      verb.present.filter((_, i) => i !== idx)
+      Array.from(new Set([...verb.present, verb.past, verb.pastParticiple, verb.presentParticiple])).filter(form => form !== correct)
     ).slice(0, 3);
     questions.push({
       id: `conj-${verb.infinitive}-${pronoun}`, source: "conjugation",
@@ -110,7 +108,7 @@ function buildQuestions(): Question[] {
     });
   }
 
-  return shuffle(questions);
+  return shuffle(questions.filter(q => new Set(q.options).size === q.options.length && q.options.length >= 3));
 }
 
 const SOURCE_LABELS: Record<QuestionSource, string> = {
@@ -187,13 +185,13 @@ export function KnowledgeCheck() {
         </p>
         <div className="flex flex-wrap gap-2 justify-center mt-4">
           {(["flashcard-de", "nvv", "verb-prep", "conjugation"] as const).map((s) => (
-            <span key={s} className="text-[10px] font-semibold bg-[var(--color-primary-subtle)] text-[var(--color-primary-dark)] px-2.5 py-1 rounded-[var(--radius-pill)]">{SOURCE_LABELS[s]}</span>
+            <span key={s} className="text-[10px] font-semibold bg-[var(--color-primary-subtle)] text-[var(--color-text-link)] px-2.5 py-1 rounded-[var(--radius-pill)]">{SOURCE_LABELS[s]}</span>
           ))}
         </div>
         <p className="text-xs text-[var(--color-text-disabled)] mt-4">{ROUND_SIZE} questions per round</p>
         <button
           onClick={() => setPhase("playing")}
-          className="mt-6 px-8 py-3 rounded-[14px] bg-[var(--color-primary)] text-white font-bold text-sm hover:bg-brand-600 transition-all inline-flex items-center gap-2 shadow-[0_4px_0_rgba(28,176,246,0.3)]"
+          className="mt-6 px-8 py-3 rounded-[14px] bg-[var(--color-primary)] text-[var(--color-on-brand)] font-bold text-sm hover:bg-brand-600 transition-all inline-flex items-center gap-2 shadow-[0_4px_0_rgba(28,176,246,0.3)]"
         >
           <Target className="w-4 h-4" /> Start
         </button>
@@ -213,16 +211,16 @@ export function KnowledgeCheck() {
           </div>
           <div className="w-px h-10 bg-[var(--color-border-default)]" />
           <div>
-            <p className="text-3xl font-display font-extrabold text-[var(--color-primary-dark)]">{accuracy}%</p>
+            <p className="text-3xl font-display font-extrabold text-[var(--color-text-link)]">{accuracy}%</p>
             <p className="text-xs text-[var(--color-text-secondary)]">Accuracy</p>
           </div>
         </div>
-        <div className="mt-4 inline-flex items-center gap-1.5 text-sm font-bold bg-amber-500 text-white font-extrabold shadow-sm px-4 py-2 rounded-[10px]">
+        <div className="mt-4 inline-flex items-center gap-1.5 text-sm font-bold bg-amber-500 text-[var(--color-on-brand)] font-extrabold shadow-sm px-4 py-2 rounded-[10px]">
           <Sparkles className="w-4 h-4" /> +{correctCount * 5 + (accuracy >= 80 ? 10 : 0)} XP
         </div>
         <div className="mt-6 space-y-1.5 max-w-sm mx-auto">
           {results.map((r, i) => (
-            <div key={i} className={`flex items-center gap-2 text-xs px-3 py-1.5 rounded-[var(--radius-md)] ${r.correct ? "bg-[var(--color-success)] text-white " : "bg-[var(--color-error)] text-white text-red-700"}`}>
+            <div key={i} className={`flex items-center gap-2 text-xs px-3 py-1.5 rounded-[var(--radius-md)] ${r.correct ? "bg-[var(--color-success)] text-[var(--color-on-brand)] " : "bg-[var(--color-error)] text-[var(--color-on-brand)]"}`}>
               {r.correct ? <CheckCircle2 className="w-3 h-3 shrink-0" /> : <XCircle className="w-3 h-3 shrink-0" />}
               <span className="truncate">Q{i + 1}</span>
             </div>
@@ -230,7 +228,7 @@ export function KnowledgeCheck() {
         </div>
         <button
           onClick={handleRestart}
-          className="mt-6 px-8 py-3 rounded-[14px] bg-[var(--color-primary)] text-white font-bold text-sm hover:bg-brand-600 transition-all inline-flex items-center gap-2"
+          className="mt-6 px-8 py-3 rounded-[14px] bg-[var(--color-primary)] text-[var(--color-on-brand)] font-bold text-sm hover:bg-brand-600 transition-all inline-flex items-center gap-2"
         >
           <RefreshCw className="w-4 h-4" /> New round
         </button>
@@ -245,7 +243,7 @@ export function KnowledgeCheck() {
   return (
     <div className="space-y-4 max-w-lg mx-auto">
       <div className="flex items-center justify-between">
-        <span className="inline-flex items-center gap-1.5 rounded-[10px] bg-[var(--color-primary-subtle)] px-3 py-1 text-xs font-semibold text-[var(--color-primary-dark)]">
+        <span className="inline-flex items-center gap-1.5 rounded-[10px] bg-[var(--color-primary-subtle)] px-3 py-1 text-xs font-semibold text-[var(--color-text-link)]">
           <Brain className="w-3 h-3" />
           {index + 1}/{ROUND_SIZE}
         </span>
@@ -272,9 +270,9 @@ export function KnowledgeCheck() {
         <div className="space-y-2">
           {current.options.map((opt) => {
             let cls = "bg-[var(--color-surface)] border-2 border-[var(--color-border-default)] text-[var(--color-text-primary)] hover:ring-[var(--color-primary)] hover:bg-[var(--color-primary-subtle)]";
-            if (selected === opt && opt === current.correct) cls = "bg-[var(--color-success)] text-white ring-2 ring-emerald-400 text-emerald-800";
-            else if (selected === opt && opt !== current.correct) cls = "bg-[var(--color-error)] text-white ring-2 ring-red-300 text-red-700";
-            else if (selected !== null && opt === current.correct) cls = "bg-emerald-50/50 ring-1 ring-[var(--color-success)] text-[var(--color-success)]";
+            if (selected === opt && opt === current.correct) cls = "bg-[var(--color-success)] text-[var(--color-on-brand)] ring-2 ring-emerald-400";
+            else if (selected === opt && opt !== current.correct) cls = "bg-[var(--color-error)] text-[var(--color-on-brand)] ring-2 ring-red-300";
+            else if (selected !== null && opt === current.correct) cls = "bg-[var(--color-success-bg)] ring-1 ring-[var(--color-success)] text-[var(--color-text-success)]";
 
             return (
               <motion.button
@@ -282,8 +280,8 @@ export function KnowledgeCheck() {
                 onClick={() => handleSelect(opt)} disabled={selected !== null}
                 className={`flex items-center gap-2 w-full px-4 py-3 rounded-[14px] text-sm font-medium transition-all ${cls}`}
               >
-                {selected !== null && opt === current.correct && <CheckCircle2 className="w-4 h-4 text-[var(--color-success)] shrink-0" />}
-                {selected === opt && opt !== current.correct && <XCircle className="w-4 h-4 text-[var(--color-error)] shrink-0" />}
+                {selected !== null && opt === current.correct && <CheckCircle2 className="w-4 h-4 text-current shrink-0" />}
+                {selected === opt && opt !== current.correct && <XCircle className="w-4 h-4 text-current shrink-0" />}
                 <span>{opt}</span>
               </motion.button>
             );
@@ -298,14 +296,14 @@ export function KnowledgeCheck() {
 
         {selected !== null && selected !== current.correct && (
           <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className="mt-3 space-y-2">
-            <div className="flex items-start gap-3 p-4 rounded-[var(--radius-lg)] bg-[var(--color-warning)] text-white ring-1 ring-[var(--color-warning)]">
+            <div className="flex items-start gap-3 p-4 rounded-[var(--radius-lg)] bg-[var(--color-warning)] text-[var(--color-on-brand)] ring-1 ring-[var(--color-warning)]">
               <Lightbulb className="w-5 h-5 shrink-0 mt-0.5 text-[var(--color-warning)]" />
               <div>
                 <p className="font-semibold text-sm">Astuce (Tip)</p>
                 <p className="text-sm mt-1">{getKCTip(current.source).tip}</p>
               </div>
             </div>
-            <div className="flex items-start gap-3 p-4 rounded-[var(--radius-lg)] bg-[var(--color-info)] text-white ring-1 ring-[var(--color-info)]">
+            <div className="flex items-start gap-3 p-4 rounded-[var(--radius-lg)] bg-[var(--color-info)] text-[var(--color-on-brand)] ring-1 ring-[var(--color-info)]">
               <BookOpen className="w-5 h-5 shrink-0 mt-0.5 text-[var(--color-info)]" />
               <div>
                 <p className="font-semibold text-sm">Suggestion</p>
@@ -320,7 +318,7 @@ export function KnowledgeCheck() {
         <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className="flex justify-center">
           <button
             onClick={handleNext}
-            className="px-8 py-3 rounded-[14px] bg-[var(--color-primary)] text-white font-bold text-sm hover:bg-brand-600 transition-all shadow-[0_4px_0_rgba(28,176,246,0.3)]"
+            className="px-8 py-3 rounded-[14px] bg-[var(--color-primary)] text-[var(--color-on-brand)] font-bold text-sm hover:bg-brand-600 transition-all shadow-[0_4px_0_rgba(28,176,246,0.3)]"
           >
             {index + 1 >= ROUND_SIZE ? "See results" : "Next"}
           </button>

@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
@@ -15,11 +15,11 @@ import {
   Shield, Gem, Split, GitFork, MessageSquareQuote, CaseSensitive,
   CornerDownRight, Network, History, UserMinus, Clock, Clock9, ArrowBigRightDash, Scale, HelpCircle,
   FileText, ArrowLeftRight, Target, Trophy, RotateCcw, Users, Mic, Calendar, Printer, Brain, Ear, Shuffle, Globe, NotepadText, Award,
-  Dumbbell,
+  Dumbbell, X,
 } from "lucide-react";
 import { useProgress } from "@/store/useProgress";
 import { getLevelInfo } from "@/lib/xp";
-import { levels } from "@/data/content";
+import { courseCatalogue as levels } from "@/data/course-catalogue";
 import type { LucideIcon } from "lucide-react";
 
 type NavLink = { href: string; label: string; icon: LucideIcon; dot?: boolean; accent?: string };
@@ -239,6 +239,8 @@ function CollapsibleSection({ section, pathname, isOpen, onToggle }: {
 
 export function Sidebar({ open, onClose }: { open?: boolean; onClose?: () => void }) {
   const pathname = usePathname();
+  const drawerRef = useRef<HTMLElement>(null);
+  const closeRef = useRef<HTMLButtonElement>(null);
   const { xp } = useProgress();
   const levelInfo = getLevelInfo(xp);
   const [openSections, setOpenSections] = useState<Record<string, boolean>>({});
@@ -255,13 +257,32 @@ export function Sidebar({ open, onClose }: { open?: boolean; onClose?: () => voi
   }, [openSections, mounted]);
 
   useEffect(() => {
-    if (!onClose) return;
-    const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === "Escape") onClose();
+    if (!open || !onClose) return;
+    const previousFocus = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+    const previousOverflow = document.body.style.overflow;
+    const desktop = window.matchMedia("(min-width: 1024px)");
+    const closeOnDesktop = () => { if (desktop.matches) onClose(); };
+    document.body.style.overflow = "hidden";
+    closeRef.current?.focus({ preventScroll: true });
+    const handleKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") { event.preventDefault(); onClose(); }
+      if (event.key !== "Tab") return;
+      const controls = Array.from(drawerRef.current?.querySelectorAll<HTMLElement>('a[href], button:not([disabled]), [tabindex="0"]') ?? [])
+        .filter(element => element.getClientRects().length > 0);
+      const first = controls[0], last = controls[controls.length - 1];
+      if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last?.focus(); }
+      else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first?.focus(); }
     };
-    document.addEventListener("keydown", handleEscape);
-    return () => document.removeEventListener("keydown", handleEscape);
-  }, [onClose]);
+    document.addEventListener("keydown", handleKey);
+    desktop.addEventListener("change", closeOnDesktop);
+    closeOnDesktop();
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      document.removeEventListener("keydown", handleKey);
+      desktop.removeEventListener("change", closeOnDesktop);
+      previousFocus?.focus({ preventScroll: true });
+    };
+  }, [open, onClose]);
 
   const toggleSection = (id: string) => {
     setOpenSections((s) => ({ ...s, [id]: !s[id] }));
@@ -271,7 +292,7 @@ export function Sidebar({ open, onClose }: { open?: boolean; onClose?: () => voi
 
   const sidebarContent = (
     <>
-      <div className="px-4 py-4 border-b-2 border-[var(--color-border-default)]">
+      <div className="px-4 py-4 border-b-2 border-[var(--color-border-default)] flex items-center justify-between gap-2">
         <Link href="/" className="flex items-center gap-3" onClick={onClose ? (e) => { e.preventDefault(); onClose(); } : undefined}>
           <div className="w-9 h-9 rounded-[var(--radius-lg)] bg-[var(--color-primary)] flex items-center justify-center" style={{ boxShadow: "0 4px 0 var(--color-primary-dark)" }}>
             <GraduationCap className="w-5 h-5 text-white" />
@@ -284,9 +305,10 @@ export function Sidebar({ open, onClose }: { open?: boolean; onClose?: () => voi
             <span className="text-[9px] font-medium text-[var(--color-text-secondary)] tracking-wide uppercase">A1 to B2 English</span>
           </div>
         </Link>
+        {onClose && <button ref={closeRef} onClick={onClose} aria-label="Close navigation menu" className="h-11 w-11 shrink-0 flex items-center justify-center rounded-[var(--radius-md)] text-[var(--color-text-secondary)] hover:bg-[var(--color-surface-alt)]"><X className="w-5 h-5" /></button>}
       </div>
 
-      <nav className="flex-1 overflow-y-auto px-2.5 py-3 scrollbar-thin space-y-0.5">
+      <nav className="flex-1 min-h-0 overflow-y-auto px-2.5 py-3 scrollbar-thin space-y-0.5" onClick={event => { if (onClose && (event.target as Element).closest("a[href]")) onClose(); }}>
         <div className="mb-1 px-1">
           <div className="flex items-center gap-1.5 px-2 mb-1.5">
             <div className="w-1 h-3 rounded-full bg-[var(--color-primary)]" />
@@ -330,7 +352,7 @@ export function Sidebar({ open, onClose }: { open?: boolean; onClose?: () => voi
               <div className="flex items-center justify-center w-7 h-7 rounded-[var(--radius-md)] bg-indigo-500/10 text-indigo-500 shrink-0">
                 <Dumbbell className="w-3.5 h-3.5" />
               </div>
-              <span className="flex-1 truncate">Practice Drills & Revision</span>
+              <span className={cn("flex-1 min-w-0", onClose ? "break-words" : "truncate")}>Practice Drills & Revision</span>
               <span className="text-[9px] font-extrabold uppercase px-1.5 py-0.5 rounded-full bg-indigo-500/20 text-indigo-600 dark:text-indigo-400 shrink-0">Hub</span>
             </Link>
 
@@ -349,7 +371,7 @@ export function Sidebar({ open, onClose }: { open?: boolean; onClose?: () => voi
                   )}>
                     <Icon className="w-3.5 h-3.5" style={{ color: level.accent }} />
                   </div>
-                  <span className="flex-1 truncate">{level.title}</span>
+                  <span className={cn("flex-1 min-w-0", onClose ? "break-words" : "truncate")}>{level.title}</span>
                   <span className="text-[9px] font-bold uppercase px-1.5 py-0.5 rounded-[var(--radius-pill)] shrink-0" style={{ color: level.accent, backgroundColor: `${level.accent}15` }}>{level.examBadge || level.id}</span>
                 </Link>
               );
@@ -381,7 +403,7 @@ export function Sidebar({ open, onClose }: { open?: boolean; onClose?: () => voi
                   )}>
                     <Icon className="w-3.5 h-3.5" style={{ color: test.accent }} />
                   </div>
-                  <span className="flex-1 truncate">{test.label}</span>
+                  <span className={cn("flex-1 min-w-0", onClose ? "break-words" : "truncate")}>{test.label}</span>
                   <span className="text-[9px] font-bold uppercase px-1.5 py-0.5 rounded-[var(--radius-pill)] shrink-0" style={{ color: test.accent, backgroundColor: `${test.accent}15` }}>{test.badge}</span>
                 </Link>
               );
@@ -431,11 +453,15 @@ export function Sidebar({ open, onClose }: { open?: boolean; onClose?: () => voi
               onClick={onClose}
             />
             <motion.aside
-              initial={{ x: -280 }}
+              ref={drawerRef}
+              role="dialog"
+              aria-modal="true"
+              aria-label="Navigation menu"
+              initial={{ x: "-100%" }}
               animate={{ x: 0 }}
-              exit={{ x: -280 }}
+              exit={{ x: "-100%" }}
               transition={{ type: "spring", damping: 30, stiffness: 300 }}
-              className="fixed left-0 top-0 bottom-0 w-64 z-50 bg-[var(--color-surface)] border-r-2 border-[var(--color-border-default)] flex flex-col shadow-2xl"
+              className="fixed left-0 top-0 bottom-0 w-80 max-w-[calc(100vw-2rem)] pb-[env(safe-area-inset-bottom,0px)] z-50 bg-[var(--color-surface)] border-r-2 border-[var(--color-border-default)] flex flex-col shadow-2xl"
               style={{ boxShadow: "3px 0 0 var(--color-border-default), 8px 0 32px rgba(0,0,0,0.12)" }}
             >
               {sidebarContent}

@@ -1,0 +1,2203 @@
+{
+  "source": "Approved working tree before interactive upgrade; HEAD 72bda85702ce848e9976de2e2783d0d945faf205",
+  "levels": [
+    {
+      "id": "band4-5",
+      "lessons": [
+        {
+          "id": "band1-ielts-intro",
+          "xpReward": 60
+        },
+        {
+          "id": "band1-toefl-intro",
+          "xpReward": 60
+        },
+        {
+          "id": "band1-ielts-vs-toefl",
+          "xpReward": 60
+        },
+        {
+          "id": "band1-listening-format",
+          "xpReward": 60
+        },
+        {
+          "id": "band1-listening-gist",
+          "xpReward": 60
+        },
+        {
+          "id": "band1-listening-attitude",
+          "xpReward": 50
+        },
+        {
+          "id": "band1-reading-skimming",
+          "xpReward": 60
+        },
+        {
+          "id": "band1-reading-scanning",
+          "xpReward": 60
+        },
+        {
+          "id": "band1-reading-completion",
+          "xpReward": 50
+        },
+        {
+          "id": "band1-writing-task1-overview",
+          "xpReward": 50
+        },
+        {
+          "id": "band1-writing-trends",
+          "xpReward": 50
+        },
+        {
+          "id": "band1-writing-integrated",
+          "xpReward": 50
+        },
+        {
+          "id": "band1-writing-essay-structure",
+          "xpReward": 50
+        },
+        {
+          "id": "band1-writing-brainstorming",
+          "xpReward": 50
+        },
+        {
+          "id": "band1-speaking-part1-intro",
+          "xpReward": 50
+        },
+        {
+          "id": "band1-speaking-independent",
+          "xpReward": 50
+        },
+        {
+          "id": "band1-speaking-hometown",
+          "xpReward": 50
+        },
+        {
+          "id": "band1-grammar-articles",
+          "xpReward": 60
+        },
+        {
+          "id": "band1-grammar-agreement",
+          "xpReward": 50
+        },
+        {
+          "id": "band1-vocab-awl1",
+          "xpReward": 50
+        },
+        {
+          "id": "band1-vocab-synonyms",
+          "xpReward": 50
+        },
+        {
+          "id": "band1-time-reading",
+          "xpReward": 50
+        },
+        {
+          "id": "band1-time-writing",
+          "xpReward": 50
+        },
+        {
+          "id": "band1-practice-listening",
+          "xpReward": 50
+        },
+        {
+          "id": "band1-review",
+          "xpReward": 50
+        }
+      ]
+    },
+    {
+      "id": "band5-6",
+      "lessons": [
+        {
+          "id": "band2-listening-mcq",
+          "xpReward": 60
+        },
+        {
+          "id": "band2-listening-maps",
+          "xpReward": 60
+        },
+        {
+          "id": "band2-listening-form-completion",
+          "xpReward": 50
+        },
+        {
+          "id": "band2-reading-tfng",
+          "xpReward": 60
+        },
+        {
+          "id": "band2-reading-headings",
+          "xpReward": 60
+        },
+        {
+          "id": "band2-reading-mcq",
+          "xpReward": 50
+        },
+        {
+          "id": "band2-writing-line-graphs",
+          "xpReward": 60
+        },
+        {
+          "id": "band2-writing-bar-pie",
+          "xpReward": 60
+        },
+        {
+          "id": "band2-writing-letter",
+          "xpReward": 50
+        },
+        {
+          "id": "band2-writing-opinion",
+          "xpReward": 60
+        },
+        {
+          "id": "band2-writing-problem-solution",
+          "xpReward": 50
+        },
+        {
+          "id": "band2-writing-cohesion",
+          "xpReward": 50
+        },
+        {
+          "id": "band2-speaking-cue-card",
+          "xpReward": 60
+        },
+        {
+          "id": "band2-speaking-describe",
+          "xpReward": 50
+        },
+        {
+          "id": "band2-speaking-integrated",
+          "xpReward": 50
+        },
+        {
+          "id": "band2-grammar-tenses",
+          "xpReward": 50
+        },
+        {
+          "id": "band2-grammar-complex",
+          "xpReward": 50
+        },
+        {
+          "id": "band2-vocab-awl2",
+          "xpReward": 50
+        },
+        {
+          "id": "band2-vocab-collocations",
+          "xpReward": 50
+        },
+        {
+          "id": "band2-vocab-environment",
+          "xpReward": 50
+        },
+        {
+          "id": "band2-vocab-technology",
+          "xpReward": 50
+        },
+        {
+          "id": "band2-mistakes-prepositions",
+          "xpReward": 50
+        },
+        {
+          "id": "band2-mistakes-countable",
+          "xpReward": 50
+        },
+        {
+          "id": "band2-practice-reading",
+          "xpReward": 50
+        },
+        {
+          "id": "band2-review",
+          "xpReward": 50
+        }
+      ]
+    },
+    {
+      "id": "band6-7",
+      "lessons": [
+        {
+          "id": "band3-listening-section3",
+          "xpReward": 50
+        },
+        {
+          "id": "band3-listening-lecture",
+          "xpReward": 50
+        },
+        {
+          "id": "band3-listening-multiple-speakers",
+          "xpReward": 50
+        },
+        {
+          "id": "band3-reading-summary-completion",
+          "xpReward": 50
+        },
+        {
+          "id": "band3-reading-matching-features",
+          "xpReward": 50
+        },
+        {
+          "id": "band3-reading-flowchart",
+          "xpReward": 50
+        },
+        {
+          "id": "band3-writing-multiple-charts",
+          "xpReward": 60
+        },
+        {
+          "id": "band3-writing-maps-processes",
+          "xpReward": 60
+        },
+        {
+          "id": "band3-writing-discussion",
+          "xpReward": 60
+        },
+        {
+          "id": "band3-writing-advantages",
+          "xpReward": 50
+        },
+        {
+          "id": "band3-writing-task-response",
+          "xpReward": 50
+        },
+        {
+          "id": "band3-writing-formality",
+          "xpReward": 50
+        },
+        {
+          "id": "band3-speaking-part3",
+          "xpReward": 50
+        },
+        {
+          "id": "band3-speaking-opinions",
+          "xpReward": 50
+        },
+        {
+          "id": "band3-speaking-toefl4",
+          "xpReward": 60
+        },
+        {
+          "id": "band3-grammar-conditionals",
+          "xpReward": 50
+        },
+        {
+          "id": "band3-grammar-passive",
+          "xpReward": 50
+        },
+        {
+          "id": "band3-vocab-awl3",
+          "xpReward": 50
+        },
+        {
+          "id": "band3-vocab-health",
+          "xpReward": 50
+        },
+        {
+          "id": "band3-vocab-education",
+          "xpReward": 50
+        },
+        {
+          "id": "band3-vocab-work",
+          "xpReward": 50
+        },
+        {
+          "id": "band3-paraphrasing",
+          "xpReward": 50
+        },
+        {
+          "id": "band3-error-analysis",
+          "xpReward": 50
+        },
+        {
+          "id": "band3-practice-essay",
+          "xpReward": 50
+        },
+        {
+          "id": "band3-review",
+          "xpReward": 50
+        }
+      ]
+    },
+    {
+      "id": "band7-8",
+      "lessons": [
+        {
+          "id": "band4-listening-accents",
+          "xpReward": 60
+        },
+        {
+          "id": "band4-listening-inference",
+          "xpReward": 50
+        },
+        {
+          "id": "band4-listening-distractors",
+          "xpReward": 50
+        },
+        {
+          "id": "band4-reading-writers-views",
+          "xpReward": 50
+        },
+        {
+          "id": "band4-reading-difficult-texts",
+          "xpReward": 50
+        },
+        {
+          "id": "band4-reading-time-pressure",
+          "xpReward": 50
+        },
+        {
+          "id": "band4-writing-sophisticated",
+          "xpReward": 60
+        },
+        {
+          "id": "band4-writing-complex-comparisons",
+          "xpReward": 60
+        },
+        {
+          "id": "band4-writing-complex-ideas",
+          "xpReward": 50
+        },
+        {
+          "id": "band4-writing-lexical-resource",
+          "xpReward": 50
+        },
+        {
+          "id": "band4-writing-grammatical-range",
+          "xpReward": 50
+        },
+        {
+          "id": "band4-writing-band8-essay",
+          "xpReward": 50
+        },
+        {
+          "id": "band4-speaking-storytelling",
+          "xpReward": 50
+        },
+        {
+          "id": "band4-speaking-abstract-topics",
+          "xpReward": 50
+        },
+        {
+          "id": "band4-speaking-pronunciation",
+          "xpReward": 50
+        },
+        {
+          "id": "band4-grammar-inversion",
+          "xpReward": 60
+        },
+        {
+          "id": "band4-grammar-participles",
+          "xpReward": 50
+        },
+        {
+          "id": "band4-vocab-awl4",
+          "xpReward": 50
+        },
+        {
+          "id": "band4-vocab-science",
+          "xpReward": 50
+        },
+        {
+          "id": "band4-vocab-globalization",
+          "xpReward": 50
+        },
+        {
+          "id": "band4-vocab-idioms",
+          "xpReward": 50
+        },
+        {
+          "id": "band4-mock-ielts-listening",
+          "xpReward": 50
+        },
+        {
+          "id": "band4-mock-toefl-reading",
+          "xpReward": 50
+        },
+        {
+          "id": "band4-exam-day-strategies",
+          "xpReward": 50
+        },
+        {
+          "id": "band4-review",
+          "xpReward": 50
+        }
+      ]
+    }
+  ],
+  "exercises": [
+    {
+      "id": "ex-band1-ielts-intro-1",
+      "lessonId": "band1-ielts-intro",
+      "xpReward": 20,
+      "sha256": "7041b207f7144dcac946d6d61a748642858fff8d23e29333d5ef1d27e85fda84"
+    },
+    {
+      "id": "ex-band1-ielts-intro-2",
+      "lessonId": "band1-ielts-intro",
+      "xpReward": 20,
+      "sha256": "491548747b747e72bfb9d773ee5fc7296b3f7b5ccb051a870458e225fad84310"
+    },
+    {
+      "id": "ex-band1-ielts-intro-3",
+      "lessonId": "band1-ielts-intro",
+      "xpReward": 20,
+      "sha256": "b4891b13976c55aaddb20675f21a34d956801adf46e804c60f4b6e835e17cdf8"
+    },
+    {
+      "id": "ex-band1-ielts-intro-4",
+      "lessonId": "band1-ielts-intro",
+      "xpReward": 20,
+      "sha256": "48b21961401cc26fe20402ec5cd2a37cd69ec520508de60587e724835a6ebd57"
+    },
+    {
+      "id": "ex-band1-toefl-intro-1",
+      "lessonId": "band1-toefl-intro",
+      "xpReward": 20,
+      "sha256": "3ac61993d5244dabc14deef64ef7b96027303b0c82671850357e8524d9e18fc6"
+    },
+    {
+      "id": "ex-band1-toefl-intro-2",
+      "lessonId": "band1-toefl-intro",
+      "xpReward": 20,
+      "sha256": "46da85e36455882aae7ca3d0a3b831b16babb565c41286bb2f60f21ddfc596e2"
+    },
+    {
+      "id": "ex-band1-toefl-intro-3",
+      "lessonId": "band1-toefl-intro",
+      "xpReward": 20,
+      "sha256": "43d96dc4995b86658cb63d7564f88fde0382c93cb9aeea31ceceae5f1f4a473b"
+    },
+    {
+      "id": "ex-band1-toefl-intro-4",
+      "lessonId": "band1-toefl-intro",
+      "xpReward": 20,
+      "sha256": "9041d1dacb9100d24f8ed73915ab1d57072dd4d2ce05f56badc897c6e1cc5d0d"
+    },
+    {
+      "id": "ex-band1-ielts-vs-toefl-1",
+      "lessonId": "band1-ielts-vs-toefl",
+      "xpReward": 20,
+      "sha256": "a640e35771dee5b33a46f730f05b5476ab5a3a8fc07023180ba8739505f51e1b"
+    },
+    {
+      "id": "ex-band1-ielts-vs-toefl-2",
+      "lessonId": "band1-ielts-vs-toefl",
+      "xpReward": 20,
+      "sha256": "7eef2efc7c2c352b21038044ce1852d3f9c8b7a374745146d1e3d7e6517778db"
+    },
+    {
+      "id": "ex-band1-ielts-vs-toefl-3",
+      "lessonId": "band1-ielts-vs-toefl",
+      "xpReward": 20,
+      "sha256": "ef95301c47382342e19f18eb86dcfaa2ef090f0aa480af4f106a22d16422eefc"
+    },
+    {
+      "id": "ex-band1-ielts-vs-toefl-4",
+      "lessonId": "band1-ielts-vs-toefl",
+      "xpReward": 20,
+      "sha256": "634347b185b00e503c728fbd5adee47eb02bae461404a30c94a439c3e6b37d37"
+    },
+    {
+      "id": "ex-band1-listening-format-1",
+      "lessonId": "band1-listening-format",
+      "xpReward": 20,
+      "sha256": "8d38d696f0742b078efc6aaea576825fa2734a0049cea4efb7cb60eaca8d50ff"
+    },
+    {
+      "id": "ex-band1-listening-format-2",
+      "lessonId": "band1-listening-format",
+      "xpReward": 20,
+      "sha256": "26ba0044858791088faa125fdf76f99813983321c6ecaa5171b871548bd55c6a"
+    },
+    {
+      "id": "ex-band1-listening-format-3",
+      "lessonId": "band1-listening-format",
+      "xpReward": 20,
+      "sha256": "e30d648f26e2d3a468d2500d96da37175ebe005263256328ecee016642b68841"
+    },
+    {
+      "id": "ex-band1-listening-gist-1",
+      "lessonId": "band1-listening-gist",
+      "xpReward": 20,
+      "sha256": "93ffe8fa4be5be7e35d7f864334cf74382a77faf4ab4048e5087f5bcb8dc92c9"
+    },
+    {
+      "id": "ex-band1-listening-gist-2",
+      "lessonId": "band1-listening-gist",
+      "xpReward": 20,
+      "sha256": "2f72b992324ce7bdf6971f69ca35bd6cd252c83be02140d84ebf8deeebbfebf9"
+    },
+    {
+      "id": "ex-band1-listening-gist-3",
+      "lessonId": "band1-listening-gist",
+      "xpReward": 20,
+      "sha256": "e7009d154d0633c6c5e11fba39955a70cce36e8510a3954c26adefa7aeec0559"
+    },
+    {
+      "id": "ex-band1-reading-skimming-1",
+      "lessonId": "band1-reading-skimming",
+      "xpReward": 15,
+      "sha256": "f1db6c776db8163ac0889949217539510a38e0e9a677cf87e8ec7ddffc3f8bc2"
+    },
+    {
+      "id": "ex-band1-reading-skimming-2",
+      "lessonId": "band1-reading-skimming",
+      "xpReward": 15,
+      "sha256": "510f761070052297c62a32fdcf076709b1641fef32a2f01ff381853dfc243e15"
+    },
+    {
+      "id": "ex-band1-reading-skimming-3",
+      "lessonId": "band1-reading-skimming",
+      "xpReward": 10,
+      "sha256": "e17fa0261ce6da7d0cf0be66a485efc81a906d7caee646f10ab8378f7c33671d"
+    },
+    {
+      "id": "ex-band1-reading-scanning-1",
+      "lessonId": "band1-reading-scanning",
+      "xpReward": 10,
+      "sha256": "a9574adb47e7d9fb6b2b8c58221136ca5bee338fe3b04d9f020633844f64d6bf"
+    },
+    {
+      "id": "ex-band1-reading-scanning-2",
+      "lessonId": "band1-reading-scanning",
+      "xpReward": 15,
+      "sha256": "d776f94358402f6156169f7dd44ba52a88f1b26db1b1dd2fe76750e693eb88f9"
+    },
+    {
+      "id": "ex-band1-reading-scanning-3",
+      "lessonId": "band1-reading-scanning",
+      "xpReward": 15,
+      "sha256": "f5d3732e081cf474fb179ae0abecda86f55e15501a9dab52da2d458c391443ee"
+    },
+    {
+      "id": "ex-band1-writing-trends-1",
+      "lessonId": "band1-writing-trends",
+      "xpReward": 10,
+      "sha256": "06be49d1df541ac146307caa45d606ded363c262dbfcab1fc14c26f905972c38"
+    },
+    {
+      "id": "ex-band1-writing-trends-2",
+      "lessonId": "band1-writing-trends",
+      "xpReward": 10,
+      "sha256": "195dd1278e2ce4b2687106bc1bb83bb1530e7328e3c154e4e47a96fb1538ece7"
+    },
+    {
+      "id": "ex-band1-speaking-part1-1",
+      "lessonId": "band1-speaking-part1",
+      "xpReward": 10,
+      "sha256": "24abaa00e1651ac49252de2ef9211fb0abd472c2ccdf4126f798e609d7af96c3"
+    },
+    {
+      "id": "ex-band1-speaking-part1-2",
+      "lessonId": "band1-speaking-part1",
+      "xpReward": 10,
+      "sha256": "ac4090cde213ae0d85c093fcef687961bf1bd636c2da5a13a366d4e1eaf7104b"
+    },
+    {
+      "id": "ex-band1-grammar-articles-1",
+      "lessonId": "band1-grammar-articles",
+      "xpReward": 15,
+      "sha256": "93ac9b53b110456e6511c671df9bf2bf78ac5523161a26dc6cd1b9add9a68d88"
+    },
+    {
+      "id": "ex-band1-grammar-articles-2",
+      "lessonId": "band1-grammar-articles",
+      "xpReward": 15,
+      "sha256": "e0605f47896fbd328f0e1ce0e614a49cc10599a7d182262b49d5a116a7eeac3b"
+    },
+    {
+      "id": "ex-band1-grammar-articles-3",
+      "lessonId": "band1-grammar-articles",
+      "xpReward": 15,
+      "sha256": "1f7da63e08074d4bd37bde5ad6aa965ab1fe38955f8cc38a2750a3f371542106"
+    },
+    {
+      "id": "ex-band1-grammar-agreement-1",
+      "lessonId": "band1-grammar-agreement",
+      "xpReward": 10,
+      "sha256": "cc80fbad4665f62cc2f5210d19a4eed41865d94d9c78956bf0f714c7f2e8cc39"
+    },
+    {
+      "id": "ex-band1-grammar-agreement-2",
+      "lessonId": "band1-grammar-agreement",
+      "xpReward": 10,
+      "sha256": "1bdacd4ca66b420430215775148fd98ace4704526dffc1f1cef898164c30e964"
+    },
+    {
+      "id": "ex-band1-vocab-awl1-1",
+      "lessonId": "band1-vocab-awl1",
+      "xpReward": 10,
+      "sha256": "1fcad42eeac9c50593f3c3028eebbd9860e5965edef5e47dd7214fc06d649155"
+    },
+    {
+      "id": "ex-band1-vocab-awl1-2",
+      "lessonId": "band1-vocab-awl1",
+      "xpReward": 10,
+      "sha256": "af1bba92821d1f9e75eebc30584ec3452595fccd45e312a7409cb5ebae51d4bf"
+    },
+    {
+      "id": "ex-band2-listening-mc-1",
+      "lessonId": "band2-listening-mc",
+      "xpReward": 15,
+      "sha256": "62563d9d2beed35b1f1ef16e417d630aff79a717546c8960b81410bd843b4a40"
+    },
+    {
+      "id": "ex-band2-listening-mc-2",
+      "lessonId": "band2-listening-mc",
+      "xpReward": 15,
+      "sha256": "c277e33d2c0dbab333e43446907d99268402fc8b7163d10de377c56b5ac2c6c4"
+    },
+    {
+      "id": "ex-band2-listening-mcq-1",
+      "lessonId": "band2-listening-mcq",
+      "xpReward": 20,
+      "sha256": "3fcce7faf9d497ee62ccf22d064aa53024ea5807acb542ceef8be5ab86ed0f32"
+    },
+    {
+      "id": "ex-band2-listening-mcq-2",
+      "lessonId": "band2-listening-mcq",
+      "xpReward": 15,
+      "sha256": "36fe6993c4546719b7ece6aab0a0232b4244b4b2c534b7b5e77a25f1e308897d"
+    },
+    {
+      "id": "ex-band2-listening-mcq-3",
+      "lessonId": "band2-listening-mcq",
+      "xpReward": 15,
+      "sha256": "85385ba5359670cdd4901b2c9b6591d823967efe430dfcd2be9fc3f5e4769cca"
+    },
+    {
+      "id": "ex-band2-listening-maps-1",
+      "lessonId": "band2-listening-maps",
+      "xpReward": 15,
+      "sha256": "dc94d6d3b255bacaf1b5222acdd323a889df062f553d36ab66115d6ccbc0bdcd"
+    },
+    {
+      "id": "ex-band2-listening-maps-2",
+      "lessonId": "band2-listening-maps",
+      "xpReward": 15,
+      "sha256": "bfea9ca3398fbd228e101ee3e048dcce89450e8747d08f1d4794e68e5c862123"
+    },
+    {
+      "id": "ex-band2-listening-maps-3",
+      "lessonId": "band2-listening-maps",
+      "xpReward": 15,
+      "sha256": "b98de1b33dfe87dbdfa3596a9492be34276969573263c6f6adc28c574b208090"
+    },
+    {
+      "id": "ex-band2-reading-tfng-1",
+      "lessonId": "band2-reading-tfng",
+      "xpReward": 20,
+      "sha256": "c5b87c4c3c7f96f994aa901a4330ec1caddd4f72b788a0bd323b88a6607e101e"
+    },
+    {
+      "id": "ex-band2-reading-tfng-2",
+      "lessonId": "band2-reading-tfng",
+      "xpReward": 20,
+      "sha256": "b0fefb22bf244d3fb7074853d466361878e03bdfc415f22c200f1bfa5d9415e1"
+    },
+    {
+      "id": "ex-band2-reading-tfng-3",
+      "lessonId": "band2-reading-tfng",
+      "xpReward": 20,
+      "sha256": "75481327c74b221f610bf5314cf288b7bed57fb691ea1bd704f0e4457f7fafe3"
+    },
+    {
+      "id": "ex-band2-reading-tfng-4",
+      "lessonId": "band2-reading-tfng",
+      "xpReward": 20,
+      "sha256": "39176b7952d71b6fe5cf4f018c4313ca8724e42b329e3cd8ff8418555151371d"
+    },
+    {
+      "id": "ex-band2-writing-line-graphs-1",
+      "lessonId": "band2-writing-line-graphs",
+      "xpReward": 20,
+      "sha256": "2e958fd70211f60053f141dc6cbe41ec832a728816a9716db2f728af41aba0cd"
+    },
+    {
+      "id": "ex-band2-writing-line-graphs-2",
+      "lessonId": "band2-writing-line-graphs",
+      "xpReward": 20,
+      "sha256": "f969563045d07ea68d3c613cea1c03b2a05457220115a8bbc720736476c1059e"
+    },
+    {
+      "id": "ex-band2-writing-line-graphs-3",
+      "lessonId": "band2-writing-line-graphs",
+      "xpReward": 20,
+      "sha256": "e440d75364e766d4584ed0dc8897206b3c85bceb87db7ff2c8f89c4710135048"
+    },
+    {
+      "id": "ex-band2-writing-line-graphs-4",
+      "lessonId": "band2-writing-line-graphs",
+      "xpReward": 20,
+      "sha256": "6db4d9a5e907659833768eed2ac14637f4a15b53dd893c35b58a939248c898cd"
+    },
+    {
+      "id": "ex-band2-speaking-cue-card-1",
+      "lessonId": "band2-speaking-cue-card",
+      "xpReward": 20,
+      "sha256": "e82e7557e8dacd93c92cf63e30c853aa9e79f6965800736eaf94f2636211866c"
+    },
+    {
+      "id": "ex-band2-speaking-cue-card-2",
+      "lessonId": "band2-speaking-cue-card",
+      "xpReward": 20,
+      "sha256": "c42d3c242538aaa0818238729e2e650a1da2898ed0ced16551c99a59751ac27b"
+    },
+    {
+      "id": "ex-band2-speaking-cue-card-3",
+      "lessonId": "band2-speaking-cue-card",
+      "xpReward": 20,
+      "sha256": "7008736d50ec931c8b9f5dfd16fb3c22acaf318fbef67b02695563ae3fa247ee"
+    },
+    {
+      "id": "ex-band2-speaking-cue-card-4",
+      "lessonId": "band2-speaking-cue-card",
+      "xpReward": 20,
+      "sha256": "ae8e751126197978ca3963fe64293ae2bf1486a0c34ba45f085d3bdcd563556f"
+    },
+    {
+      "id": "ex-band2-grammar-tenses-1",
+      "lessonId": "band2-grammar-tenses",
+      "xpReward": 15,
+      "sha256": "4966bc3f98c6f0e03e2c34daaca571c16d2dbab3fbc27fd67ed0f43c019993b3"
+    },
+    {
+      "id": "ex-band2-grammar-tenses-2",
+      "lessonId": "band2-grammar-tenses",
+      "xpReward": 15,
+      "sha256": "ab64dd31c819dcf8f8eb639c64b087090aa03133edb29a10970440ac1bf12fff"
+    },
+    {
+      "id": "ex-band2-grammar-tenses-3",
+      "lessonId": "band2-grammar-tenses",
+      "xpReward": 15,
+      "sha256": "9b09c6886d8786995fecf9efa0a67e7503988f8929f61fcefd97eac87cc6e6c1"
+    },
+    {
+      "id": "ex-band2-grammar-tenses-4",
+      "lessonId": "band2-grammar-tenses",
+      "xpReward": 15,
+      "sha256": "dca8773e16800faa46f40cc994cf90dd2ccca0de5b4cc4b82f5a51329ecdc800"
+    },
+    {
+      "id": "ex-band2-vocab-awl2-1",
+      "lessonId": "band2-vocab-awl2",
+      "xpReward": 15,
+      "sha256": "d2097367506476b0fb093da0c6c372cc2d061ccc946ecbedfaed56e76ef76bb2"
+    },
+    {
+      "id": "ex-band2-vocab-awl2-2",
+      "lessonId": "band2-vocab-awl2",
+      "xpReward": 15,
+      "sha256": "87953ada339e60dc1b0e3cc3e932e54934bfe3890f01de9ef5170d9878c07cd7"
+    },
+    {
+      "id": "ex-band2-vocab-awl2-3",
+      "lessonId": "band2-vocab-awl2",
+      "xpReward": 15,
+      "sha256": "a05914b03a4223c7da451b0b34693cc5ba46e84ff798f3cd69ab3575d4edadc2"
+    },
+    {
+      "id": "ex-band2-vocab-awl2-4",
+      "lessonId": "band2-vocab-awl2",
+      "xpReward": 15,
+      "sha256": "93281fb2043a79b6392ce83202353d18902f9a673106f76bca3a40f51bf338ea"
+    },
+    {
+      "id": "ex-band2-vocab-awl2-5",
+      "lessonId": "band2-vocab-awl2",
+      "xpReward": 15,
+      "sha256": "0d69cb74e4b97acdf1ea51e23d5c483e702f6340ee3182dc26978733b9682607"
+    },
+    {
+      "id": "ex-band3-listening-lecture-1",
+      "lessonId": "band3-listening-lecture",
+      "xpReward": 20,
+      "sha256": "ee4254dcabb994f1ec7622120aab277d0f9c1f298d0e1d1511933e94e529f085"
+    },
+    {
+      "id": "ex-band3-listening-lecture-2",
+      "lessonId": "band3-listening-lecture",
+      "xpReward": 20,
+      "sha256": "4783a1b420996eb252896d316567fab763324ee7580aa92c8a0130cccd69911a"
+    },
+    {
+      "id": "ex-band3-listening-lecture-3",
+      "lessonId": "band3-listening-lecture",
+      "xpReward": 20,
+      "sha256": "a3e23403a66dffdbdd438497ec15052ee501b9d8106ef6898b62fb1dc51ee464"
+    },
+    {
+      "id": "ex-band3-listening-lecture-4",
+      "lessonId": "band3-listening-lecture",
+      "xpReward": 20,
+      "sha256": "78bede07cfee7d15ade5a32212e153e8402ca4a3414e2993a320e96bb82b2e0d"
+    },
+    {
+      "id": "ex-band3-reading-summary-1",
+      "lessonId": "band3-reading-summary",
+      "xpReward": 20,
+      "sha256": "657aec17eea3cf64baffbe3a4dc88daa7fbd2af1818fd0d39b42ef463e54b692"
+    },
+    {
+      "id": "ex-band3-reading-summary-2",
+      "lessonId": "band3-reading-summary",
+      "xpReward": 20,
+      "sha256": "0415af7a91b7bab32f53aacd346d7f2e71dfa354b16eda5fd859916fd46eea90"
+    },
+    {
+      "id": "ex-band3-reading-summary-3",
+      "lessonId": "band3-reading-summary",
+      "xpReward": 20,
+      "sha256": "253340e7714773a03988fd2ff52ea9a6491302daa477d20b325d321275fecb44"
+    },
+    {
+      "id": "ex-band3-reading-summary-4",
+      "lessonId": "band3-reading-summary",
+      "xpReward": 20,
+      "sha256": "b2697521041b7b98008b40e266125dc9629cb15a35aadd0c7fa4329e9a4edb8b"
+    },
+    {
+      "id": "ex-band3-writing-complex-data-1",
+      "lessonId": "band3-writing-complex-data",
+      "xpReward": 20,
+      "sha256": "9ceb9e71120230d34c30b886232815cbda54c289f1f5cec85fa19ea0651f26b6"
+    },
+    {
+      "id": "ex-band3-writing-complex-data-2",
+      "lessonId": "band3-writing-complex-data",
+      "xpReward": 20,
+      "sha256": "9245db7c4955bce5ff03f8b2d37fc3e6c0209c051a8f9b808ecd12a37d40caea"
+    },
+    {
+      "id": "ex-band3-writing-complex-data-3",
+      "lessonId": "band3-writing-complex-data",
+      "xpReward": 20,
+      "sha256": "38d17f4667db8cccaa4c2bed29f4250f8d21b7c7e3092252f0b005ad362541cd"
+    },
+    {
+      "id": "ex-band3-writing-complex-data-4",
+      "lessonId": "band3-writing-complex-data",
+      "xpReward": 20,
+      "sha256": "1c24929bf221d1de80cbb5e1a5bccfbc44a4fbd9571baf57c65202860248c0a9"
+    },
+    {
+      "id": "ex-band3-speaking-part3-1",
+      "lessonId": "band3-speaking-part3",
+      "xpReward": 20,
+      "sha256": "cc4e6c530064a55ca4656052ed308d21b5eab07a6b94e775376991d8b6383a9d"
+    },
+    {
+      "id": "ex-band3-speaking-part3-2",
+      "lessonId": "band3-speaking-part3",
+      "xpReward": 20,
+      "sha256": "0c4c3481b8de14a970173d25f6ccc66320f6b3d5b297d090e18dbf9b3d0fd58c"
+    },
+    {
+      "id": "ex-band3-speaking-part3-3",
+      "lessonId": "band3-speaking-part3",
+      "xpReward": 20,
+      "sha256": "c0e6c0abb0eb505c34a9229a5d6dc71f27c99c3cf10bed828b49c78f572ed1c3"
+    },
+    {
+      "id": "ex-band3-speaking-part3-4",
+      "lessonId": "band3-speaking-part3",
+      "xpReward": 20,
+      "sha256": "10fbcb95317a54eb915d3c0bb743ab31223458bfa17806e4a2ec55be690a4d0d"
+    },
+    {
+      "id": "ex-band3-grammar-conditionals-1",
+      "lessonId": "band3-grammar-conditionals",
+      "xpReward": 20,
+      "sha256": "edb981c9e1c0893b19fb325dacffc64ebdbe35bff90e5ae973d5a307240b8d5c"
+    },
+    {
+      "id": "ex-band3-grammar-conditionals-2",
+      "lessonId": "band3-grammar-conditionals",
+      "xpReward": 20,
+      "sha256": "db5b0690d0ed8eba7de2b4dc0c314335142b9c5f23c8efe510c4a61256483c09"
+    },
+    {
+      "id": "ex-band3-grammar-conditionals-3",
+      "lessonId": "band3-grammar-conditionals",
+      "xpReward": 20,
+      "sha256": "c840182edca5dc554771ccc69a81e9585164840715be4c1ffed7730aeaddee57"
+    },
+    {
+      "id": "ex-band3-grammar-conditionals-4",
+      "lessonId": "band3-grammar-conditionals",
+      "xpReward": 20,
+      "sha256": "90bf14fbc39115056bcb7916179fc176be332ec139c3cae9733088d03d6ddb1b"
+    },
+    {
+      "id": "ex-band3-vocab-awl3-1",
+      "lessonId": "band3-vocab-awl3",
+      "xpReward": 20,
+      "sha256": "761900d45de62513d01a1a0563061a7a9d11501dca335e5fbee4561d5a2d6554"
+    },
+    {
+      "id": "ex-band3-vocab-awl3-2",
+      "lessonId": "band3-vocab-awl3",
+      "xpReward": 20,
+      "sha256": "27b8394c8098029cdd25df94d791390596e5954a26f80d2400640cf6cf99d68f"
+    },
+    {
+      "id": "ex-band3-vocab-awl3-3",
+      "lessonId": "band3-vocab-awl3",
+      "xpReward": 20,
+      "sha256": "64856ad2db9be0cb213631f15de8c28659de8067ed14d6df2b949ed5a59c9881"
+    },
+    {
+      "id": "ex-band3-vocab-awl3-4",
+      "lessonId": "band3-vocab-awl3",
+      "xpReward": 20,
+      "sha256": "fd524800adae1554c4e666faf8adb96fc90ab062da401ce1fcc834c76e3fcf11"
+    },
+    {
+      "id": "ex-band3-vocab-awl3-5",
+      "lessonId": "band3-vocab-awl3",
+      "xpReward": 20,
+      "sha256": "0d71c35c1de83e28fb6af101014d92ab617b0511b880d9d257ac98e52f25d320"
+    },
+    {
+      "id": "ex-band4-listening-accents-1",
+      "lessonId": "band4-listening-accents",
+      "xpReward": 25,
+      "sha256": "ce91d864d3787dec2dc139c9fb991f058b80494799b68bf4adf5bec5cc8f2843"
+    },
+    {
+      "id": "ex-band4-listening-accents-2",
+      "lessonId": "band4-listening-accents",
+      "xpReward": 25,
+      "sha256": "d8738513eecc05d59f0d30ca564e526c676af470476a79f20a6c44f169a7edc8"
+    },
+    {
+      "id": "ex-band4-listening-accents-3",
+      "lessonId": "band4-listening-accents",
+      "xpReward": 25,
+      "sha256": "db9eedb0693e3e1ebb31340f455247b64f9c6c44c4ad6cc1a480fbd75944bd42"
+    },
+    {
+      "id": "ex-band4-listening-accents-4",
+      "lessonId": "band4-listening-accents",
+      "xpReward": 25,
+      "sha256": "6136918b46e7bc5dc1414a7df4947b22e598bd5eb1e85e3e994afe81d1fcefcf"
+    },
+    {
+      "id": "ex-band4-reading-views-1",
+      "lessonId": "band4-reading-views",
+      "xpReward": 25,
+      "sha256": "eff22bae63d2eb87870707203da55029230daae2aa44cdadf438e785cbf31881"
+    },
+    {
+      "id": "ex-band4-reading-views-2",
+      "lessonId": "band4-reading-views",
+      "xpReward": 25,
+      "sha256": "1d91fc4974b13f3447bbf953be1faa331862c0188d79961659b36c147a162e2a"
+    },
+    {
+      "id": "ex-band4-reading-views-3",
+      "lessonId": "band4-reading-views",
+      "xpReward": 25,
+      "sha256": "926043a1316db7b052e66af2081ed81720ad79d5e1842cdb32f89b8b1d73326c"
+    },
+    {
+      "id": "ex-band4-reading-views-4",
+      "lessonId": "band4-reading-views",
+      "xpReward": 25,
+      "sha256": "62a908a7eb70995f363ef1a5c4598879362b69b42494db62315226568862dc39"
+    },
+    {
+      "id": "ex-band4-writing-sophisticated-1",
+      "lessonId": "band4-writing-sophisticated",
+      "xpReward": 25,
+      "sha256": "5255cf832382627c83de3089bca3bb889a6cf06b508f5caa2ca9ceb05f645cea"
+    },
+    {
+      "id": "ex-band4-writing-sophisticated-2",
+      "lessonId": "band4-writing-sophisticated",
+      "xpReward": 25,
+      "sha256": "518860ffa5a6daeec67d93e2d531134b8be5f7f648a1b7e6ee2e555d5754bb9c"
+    },
+    {
+      "id": "ex-band4-writing-sophisticated-3",
+      "lessonId": "band4-writing-sophisticated",
+      "xpReward": 25,
+      "sha256": "799f7b78c069b9625aec126c5fb7cb0eb45850f42d72048d20a86e406c99900f"
+    },
+    {
+      "id": "ex-band4-writing-sophisticated-4",
+      "lessonId": "band4-writing-sophisticated",
+      "xpReward": 25,
+      "sha256": "64134712de555d59616e59b5d95e65830dc3c5d8ba63ccc727b6269cd33bab27"
+    },
+    {
+      "id": "ex-band4-speaking-storytelling-1",
+      "lessonId": "band4-speaking-storytelling",
+      "xpReward": 25,
+      "sha256": "5f97de778ce8f21a74f3d16ce7c7a7b5eeebf31567d8cbb82f7355be53032ecf"
+    },
+    {
+      "id": "ex-band4-speaking-storytelling-2",
+      "lessonId": "band4-speaking-storytelling",
+      "xpReward": 25,
+      "sha256": "c48700bbd60ef0f532f4471b7e6eed5ab66a2ae0fd0b7ae86dd5ce95be937b3f"
+    },
+    {
+      "id": "ex-band4-speaking-storytelling-3",
+      "lessonId": "band4-speaking-storytelling",
+      "xpReward": 25,
+      "sha256": "618fef69724d45e365d61cc1350cd15d177d87ce78cfcf637e1cfb5e792d5350"
+    },
+    {
+      "id": "ex-band4-speaking-storytelling-4",
+      "lessonId": "band4-speaking-storytelling",
+      "xpReward": 25,
+      "sha256": "3a6331b03e221358405710f649d53e85f9e688ea557fe2b587ab1e94efcad3ee"
+    },
+    {
+      "id": "ex-band4-grammar-inversion-1",
+      "lessonId": "band4-grammar-inversion",
+      "xpReward": 25,
+      "sha256": "cd07bfe5b19dab9abbe6f64d6d96e4b192a95b741eb5d2bb25370722566aff44"
+    },
+    {
+      "id": "ex-band4-grammar-inversion-2",
+      "lessonId": "band4-grammar-inversion",
+      "xpReward": 25,
+      "sha256": "861c66a94753bc468207b84825e7d5fa2331e84581346fad877776454e6af43f"
+    },
+    {
+      "id": "ex-band4-grammar-inversion-3",
+      "lessonId": "band4-grammar-inversion",
+      "xpReward": 25,
+      "sha256": "d685232da1157b5bc07548849924aab91154aa9d8040ea8e8d5b48740a7e6599"
+    },
+    {
+      "id": "ex-band4-grammar-inversion-4",
+      "lessonId": "band4-grammar-inversion",
+      "xpReward": 25,
+      "sha256": "1b5a7b9ca720223d85051453c3a00f708922edbbc8b36f0bf95f9e7106dec3f0"
+    },
+    {
+      "id": "ex-band4-grammar-inversion-5",
+      "lessonId": "band4-grammar-inversion",
+      "xpReward": 25,
+      "sha256": "ce949579c8f4c6305b754992ced07b15fa700a7cf0a94972de629e91b6faaa17"
+    },
+    {
+      "id": "ex-band4-vocab-awl4-1",
+      "lessonId": "band4-vocab-awl4",
+      "xpReward": 25,
+      "sha256": "90fae6e148ed23fb0466ea8a0e0d175ea7f8874edc3732ef0c24dbbf069d1847"
+    },
+    {
+      "id": "ex-band4-vocab-awl4-2",
+      "lessonId": "band4-vocab-awl4",
+      "xpReward": 25,
+      "sha256": "5e933be35d8508b069a238057568a2548c7a0d065fbd156ac9cbdb5baf83a0d3"
+    },
+    {
+      "id": "ex-band4-vocab-awl4-3",
+      "lessonId": "band4-vocab-awl4",
+      "xpReward": 25,
+      "sha256": "65aa0f387e6fadbf2b52599c6fcf07d934f1cd4efa85627a2a37428fdf06c1ff"
+    },
+    {
+      "id": "ex-band4-vocab-awl4-4",
+      "lessonId": "band4-vocab-awl4",
+      "xpReward": 25,
+      "sha256": "8932b7bd973e3bf52dafc136da1a72ec6fdb4b13f2cbf940ddf468b93a75f494"
+    },
+    {
+      "id": "ex-practice-trends-1",
+      "lessonId": "band1-writing-trends",
+      "xpReward": 20,
+      "sha256": "4fc391daea5decdcdf89a108f2ad8f62d1179a819630413ce70cd5e3ee1515b3"
+    },
+    {
+      "id": "ex-practice-trends-2",
+      "lessonId": "band1-writing-trends",
+      "xpReward": 20,
+      "sha256": "9daf3d23b73a787877a8be149ac89f8f4edbfffad9fd72a6525c8e3f3920903e"
+    },
+    {
+      "id": "ex-practice-trends-3",
+      "lessonId": "band1-writing-trends",
+      "xpReward": 20,
+      "sha256": "eecee89cecca44d7cc2bf428567a2e332f8172527f17421f8780c258c5616003"
+    },
+    {
+      "id": "ex-practice-tfng-1",
+      "lessonId": "band2-reading-tfng",
+      "xpReward": 20,
+      "sha256": "1f828b82fb5bdf2e1ad31f2e0b313ad34a025829a559904264fb24e510adc566"
+    },
+    {
+      "id": "ex-practice-tfng-2",
+      "lessonId": "band2-reading-tfng",
+      "xpReward": 20,
+      "sha256": "97e680fe7ad8ccc1b4f5a3184efa54b15f3a67fd26150efdc60ac89af9ea1895"
+    },
+    {
+      "id": "ex-practice-bar-pie-1",
+      "lessonId": "band2-writing-bar-pie",
+      "xpReward": 20,
+      "sha256": "c44946c5fdeaa170d0257d9c094b6a4cf9b59f80bb8e7b9602de0c36b30ac266"
+    },
+    {
+      "id": "ex-practice-bar-pie-2",
+      "lessonId": "band2-writing-bar-pie",
+      "xpReward": 20,
+      "sha256": "4c66bd6b62d1f853f4d679d7c340140b7c6eb7890320481e3335645b06c890c9"
+    },
+    {
+      "id": "ex-practice-bar-pie-3",
+      "lessonId": "band2-writing-bar-pie",
+      "xpReward": 20,
+      "sha256": "67ec5fa306366929364dbeb2734bdcb2ff5b3240c548e8cad34b94a284763d84"
+    },
+    {
+      "id": "ex-practice-opinion-1",
+      "lessonId": "band2-writing-opinion",
+      "xpReward": 25,
+      "sha256": "4b91280d27782cc4ba5247d157b1138a81af448203f408a8d3b2bc27580dce62"
+    },
+    {
+      "id": "ex-practice-opinion-2",
+      "lessonId": "band2-writing-opinion",
+      "xpReward": 25,
+      "sha256": "dded5c90d3d34aff481bd347316ccd7498806506a36891c9362cfdba90f4601a"
+    },
+    {
+      "id": "ex-practice-discussion-1",
+      "lessonId": "band3-writing-multiple-charts",
+      "xpReward": 25,
+      "sha256": "11d5734cca9302916fa96c541f468cf7d5104f5fb8e5e52cb7c7c6b901a5a788"
+    },
+    {
+      "id": "ex-practice-discussion-2",
+      "lessonId": "band3-writing-multiple-charts",
+      "xpReward": 25,
+      "sha256": "bb7398a92642d7fcab4a5802c27a2979378025524acdc90fe1550eb14ea02725"
+    },
+    {
+      "id": "ex-practice-integrated-1",
+      "lessonId": "band3-writing-maps-processes",
+      "xpReward": 25,
+      "sha256": "b55bd392c5789b8ddf105c5a66b1e39998dd8d39b8aa84c8b5e083cb6991abe1"
+    },
+    {
+      "id": "ex-practice-integrated-2",
+      "lessonId": "band3-writing-maps-processes",
+      "xpReward": 25,
+      "sha256": "81878bb059222f25f5c9a0cf817b09d57dc8c68e5bfb4dab03fb30d23730467c"
+    },
+    {
+      "id": "ex-practice-speaking-toefl-1",
+      "lessonId": "band3-speaking-toefl4",
+      "xpReward": 25,
+      "sha256": "97d2e84030ff627c5b51cea8ef9c2d76062a42646cbd77010a876a3821d18be4"
+    },
+    {
+      "id": "ex-practice-lecture-1",
+      "lessonId": "band3-listening-lecture",
+      "xpReward": 25,
+      "sha256": "364175ecf592daea238214a4da01c9b16abd48781be7a8f84d11c6407b40ed6b"
+    },
+    {
+      "id": "ex-practice-section3-1",
+      "lessonId": "band3-listening-section3",
+      "xpReward": 25,
+      "sha256": "5301025755affa5e2a322e3e06a4fd9449ddf5891ac140a80c9c28ee04e913f5"
+    },
+    {
+      "id": "ex-practice-letters-1",
+      "lessonId": "band4-writing-sophisticated",
+      "xpReward": 25,
+      "sha256": "78738f8283171129d080d579aea7945953942322806eec4897733451dbe369c8"
+    },
+    {
+      "id": "ex-practice-letters-2",
+      "lessonId": "band4-writing-sophisticated",
+      "xpReward": 25,
+      "sha256": "048a082d055d29975f9cbfeda60aefb40be0b27c05281543d073ce23ffb39011"
+    },
+    {
+      "id": "ex-practice-notices-1",
+      "lessonId": "band4-writing-complex-comparisons",
+      "xpReward": 25,
+      "sha256": "a5a8a4954ecc23deea8257936bfda2156dc63e2b6a899314b399c6ad708db3a5"
+    },
+    {
+      "id": "ex-practice-notices-2",
+      "lessonId": "band4-writing-complex-comparisons",
+      "xpReward": 25,
+      "sha256": "0abe9ba2d6a77ddbb490c7e6c3b69a1d808213bd14edeb5c55c52f419011339a"
+    },
+    {
+      "id": "ex-practice-inversion-1",
+      "lessonId": "band4-grammar-inversion",
+      "xpReward": 25,
+      "sha256": "7e0bfe3d66199d6f41fa0b4ddbda222624bc049e524fd8dd70500e5840dcd038"
+    },
+    {
+      "id": "ex-practice-inversion-2",
+      "lessonId": "band4-grammar-inversion",
+      "xpReward": 25,
+      "sha256": "82e2b45b7290a27aa65f7c063d70caf076b352d90997aa66db998e126ba0eadc"
+    },
+    {
+      "id": "ex-practice-inversion-3",
+      "lessonId": "band4-grammar-inversion",
+      "xpReward": 25,
+      "sha256": "f04cb75785aaa7cb7f1c0c176f824543afcea946d74031c45acd7be789e3f60c"
+    },
+    {
+      "id": "ex-practice-accents-1",
+      "lessonId": "band4-listening-accents",
+      "xpReward": 25,
+      "sha256": "de099c2de6e1f077f7569998715f7691ed9c6a34e0bd1dd699591107654a8955"
+    },
+    {
+      "id": "ex-practice-inference-1",
+      "lessonId": "band4-listening-inference",
+      "xpReward": 25,
+      "sha256": "e415815f5424ea0e16b04d836f920e54f39f4e19b8a50181d312af6f438df589"
+    },
+    {
+      "id": "ex-band2-listening-mcq-content-04",
+      "lessonId": "band2-listening-mcq",
+      "xpReward": 15,
+      "sha256": "b5b45250e04875ecd44524dc605c665a895752fc541612052c260181347312e6"
+    },
+    {
+      "id": "ex-band2-listening-maps-content-04",
+      "lessonId": "band2-listening-maps",
+      "xpReward": 15,
+      "sha256": "fc21c4bcafd34fb3ceedaa350574b69d3506dc9e114d2653f6a2ddd6781a31ba"
+    },
+    {
+      "id": "ex-band2-listening-form-completion-content-01",
+      "lessonId": "band2-listening-form-completion",
+      "xpReward": 15,
+      "sha256": "000a23b4977841293d93dc3a20a6e462f7d27d613f386f083b069b4490d84ddb"
+    },
+    {
+      "id": "ex-band2-listening-form-completion-content-02",
+      "lessonId": "band2-listening-form-completion",
+      "xpReward": 15,
+      "sha256": "2ce23ee6590d4523596e95954aa9ce1c7dcd7b95880c42aa25d2da0fb69b273a"
+    },
+    {
+      "id": "ex-band2-listening-form-completion-content-03",
+      "lessonId": "band2-listening-form-completion",
+      "xpReward": 15,
+      "sha256": "7a0981c52d744bf121f13a85def2cc36e64c815042e3864da16149768ca51dd6"
+    },
+    {
+      "id": "ex-band2-listening-form-completion-content-04",
+      "lessonId": "band2-listening-form-completion",
+      "xpReward": 15,
+      "sha256": "5407eb610015bc62301115810acd1bc4f1edb86a0a7902f2bc299dbfef226af2"
+    },
+    {
+      "id": "ex-band2-reading-headings-content-01",
+      "lessonId": "band2-reading-headings",
+      "xpReward": 15,
+      "sha256": "6b3774eec9c40ad8f02d1e5e14f852279bbdadc6a5d7a70ccd5e5e9b4fe93955"
+    },
+    {
+      "id": "ex-band2-reading-headings-content-02",
+      "lessonId": "band2-reading-headings",
+      "xpReward": 15,
+      "sha256": "0d7bd2f7ecdc152be7f48ce55af31c9e87574d60715e15b5bb02f7532e370e29"
+    },
+    {
+      "id": "ex-band2-reading-headings-content-03",
+      "lessonId": "band2-reading-headings",
+      "xpReward": 15,
+      "sha256": "30b5f0d05e750cc6591fff8bc9ca5d6feec60e4ef7c8e7099bef6279b5a24620"
+    },
+    {
+      "id": "ex-band2-reading-headings-content-04",
+      "lessonId": "band2-reading-headings",
+      "xpReward": 15,
+      "sha256": "fca1edd8938c743b29564eb8bf3403521515750053c4e237c5c101c41efdbef6"
+    },
+    {
+      "id": "ex-band2-reading-mcq-content-01",
+      "lessonId": "band2-reading-mcq",
+      "xpReward": 15,
+      "sha256": "3607aace23b8f2606b5c366a7994e4588ea0e310c41f4615ac1da70551e9ef61"
+    },
+    {
+      "id": "ex-band2-reading-mcq-content-02",
+      "lessonId": "band2-reading-mcq",
+      "xpReward": 15,
+      "sha256": "378ca367bd82b13c4760b019047d5ca147ee84a1c95627dae734d6de12df1c73"
+    },
+    {
+      "id": "ex-band2-reading-mcq-content-03",
+      "lessonId": "band2-reading-mcq",
+      "xpReward": 15,
+      "sha256": "a003ebb9bf46b9804dd76af92d73d675d96b4a0f6e0f62e874dc481300e278d9"
+    },
+    {
+      "id": "ex-band2-reading-mcq-content-04",
+      "lessonId": "band2-reading-mcq",
+      "xpReward": 15,
+      "sha256": "80e985f0aad4aa80c4c79961b468a03b1f223848571d61beb6b473f1403701ae"
+    },
+    {
+      "id": "ex-band2-writing-bar-pie-content-04",
+      "lessonId": "band2-writing-bar-pie",
+      "xpReward": 15,
+      "sha256": "8df17d16b67aa1519c43e708aa71ff2e6d5b4a499b394d8ed3b65e359380e137"
+    },
+    {
+      "id": "ex-band2-writing-letter-content-01",
+      "lessonId": "band2-writing-letter",
+      "xpReward": 15,
+      "sha256": "70ad2b67d019bc7a6b4ab39a7788dabacebbac396493de6b6ae0aa724bbf3715"
+    },
+    {
+      "id": "ex-band2-writing-letter-content-02",
+      "lessonId": "band2-writing-letter",
+      "xpReward": 15,
+      "sha256": "41982917d7226528e860850772112837f260e4bab6f4332ce0a293d31051ff06"
+    },
+    {
+      "id": "ex-band2-writing-letter-content-03",
+      "lessonId": "band2-writing-letter",
+      "xpReward": 15,
+      "sha256": "a034c32467f9118f58123b90dfe03ac9b66ad3103607e72c15062dbe68053ee2"
+    },
+    {
+      "id": "ex-band2-writing-letter-content-04",
+      "lessonId": "band2-writing-letter",
+      "xpReward": 15,
+      "sha256": "7ac510efb0f3c1e6cedcc00418268416db7c00fd1c7c0c7fdff9f4c9abce1fdc"
+    },
+    {
+      "id": "ex-band2-writing-opinion-content-03",
+      "lessonId": "band2-writing-opinion",
+      "xpReward": 15,
+      "sha256": "a7e4596dc4b034a727c63509e814f4dca2d6a2c7caa297e5914c54b60dc4a4d7"
+    },
+    {
+      "id": "ex-band2-writing-opinion-content-04",
+      "lessonId": "band2-writing-opinion",
+      "xpReward": 15,
+      "sha256": "3a9012f4d84ac83d33d99d157ac86fc455e1c6e47f1af412c39a39c4f1f51429"
+    },
+    {
+      "id": "ex-band2-writing-problem-solution-content-01",
+      "lessonId": "band2-writing-problem-solution",
+      "xpReward": 15,
+      "sha256": "be05c445c1f167b2c70807a4ed30166858c7197cf6f65547213a14204058debb"
+    },
+    {
+      "id": "ex-band2-writing-problem-solution-content-02",
+      "lessonId": "band2-writing-problem-solution",
+      "xpReward": 15,
+      "sha256": "2accf7bb30a7db126c3c80006a01daf69ca51420dedc3499088cb45114370b3b"
+    },
+    {
+      "id": "ex-band2-writing-problem-solution-content-03",
+      "lessonId": "band2-writing-problem-solution",
+      "xpReward": 15,
+      "sha256": "cb370ee4c2f4d3006e807c4a2d85e9c89842d66fee1cb6a5eb4cc6e727d997e0"
+    },
+    {
+      "id": "ex-band2-writing-problem-solution-content-04",
+      "lessonId": "band2-writing-problem-solution",
+      "xpReward": 15,
+      "sha256": "e14c2eab7e2601d96fd19cddb93b3094f857a51cc6010ab340683766c39f3720"
+    },
+    {
+      "id": "ex-band2-writing-cohesion-content-01",
+      "lessonId": "band2-writing-cohesion",
+      "xpReward": 15,
+      "sha256": "a026b6697b00625887dca4bd14facdd3a9e3b7b4d0fea9d5551a3e34d6e57cd8"
+    },
+    {
+      "id": "ex-band2-writing-cohesion-content-02",
+      "lessonId": "band2-writing-cohesion",
+      "xpReward": 15,
+      "sha256": "92b34a1daaa18411bf63885180a9fcba29bf596631193c449efc5f2b7aa686af"
+    },
+    {
+      "id": "ex-band2-writing-cohesion-content-03",
+      "lessonId": "band2-writing-cohesion",
+      "xpReward": 15,
+      "sha256": "a45014fb5e4ebdbbca20e6168bb495f8e1edbb91fc34bd18bd15210fa6afac83"
+    },
+    {
+      "id": "ex-band2-writing-cohesion-content-04",
+      "lessonId": "band2-writing-cohesion",
+      "xpReward": 15,
+      "sha256": "86a244e42451b2688596447b411f9e628d805bc01a0ebfff8945fb75a0412cbd"
+    },
+    {
+      "id": "ex-band2-speaking-describe-content-01",
+      "lessonId": "band2-speaking-describe",
+      "xpReward": 15,
+      "sha256": "e985a868438d0039a37dc6175fbf7d3f82bc8792d1eb627cedd54a55cd65cada"
+    },
+    {
+      "id": "ex-band2-speaking-describe-content-02",
+      "lessonId": "band2-speaking-describe",
+      "xpReward": 15,
+      "sha256": "a17da153a3b77f0198f4bb93e9d81eb41387a2f67b2f6d8fde59fca35c0d0af6"
+    },
+    {
+      "id": "ex-band2-speaking-describe-content-03",
+      "lessonId": "band2-speaking-describe",
+      "xpReward": 15,
+      "sha256": "2e65b47fb9a709b8ea0749c4b8abac71920944d96b22f47e6e18c81578ad3263"
+    },
+    {
+      "id": "ex-band2-speaking-describe-content-04",
+      "lessonId": "band2-speaking-describe",
+      "xpReward": 15,
+      "sha256": "240030c61c9ca1623c9fcabdb41cac4c253ebfd8f1ef852aa2b731076fb52161"
+    },
+    {
+      "id": "ex-band2-speaking-integrated-content-01",
+      "lessonId": "band2-speaking-integrated",
+      "xpReward": 15,
+      "sha256": "fea87c7108884a4c378801646e3dab3fa392b4c889016dbb4fc124ae4b03539c"
+    },
+    {
+      "id": "ex-band2-speaking-integrated-content-02",
+      "lessonId": "band2-speaking-integrated",
+      "xpReward": 15,
+      "sha256": "65c7a341cc625dcd683cf8c13a5839fd09caea4cd43a4c3283cfdd689913a4f3"
+    },
+    {
+      "id": "ex-band2-speaking-integrated-content-03",
+      "lessonId": "band2-speaking-integrated",
+      "xpReward": 15,
+      "sha256": "ced15aae9dda1b2ff270d72e3fef5655feed8daab5a31afde0454b9790e20b10"
+    },
+    {
+      "id": "ex-band2-speaking-integrated-content-04",
+      "lessonId": "band2-speaking-integrated",
+      "xpReward": 15,
+      "sha256": "ae7bda330454c2cd0f20666d974b495986d130cd256bd4850ab9574c496cb906"
+    },
+    {
+      "id": "ex-band2-grammar-complex-content-01",
+      "lessonId": "band2-grammar-complex",
+      "xpReward": 15,
+      "sha256": "1eac9611df5e9549c679806daafd8c589f71c9b17b13c9ff6ef6ece51f7ddac2"
+    },
+    {
+      "id": "ex-band2-grammar-complex-content-02",
+      "lessonId": "band2-grammar-complex",
+      "xpReward": 15,
+      "sha256": "68bfbf970f68fbbe7f1c15e2f62aa312ef027ed2194c9dcd6fb6eb096e2abbb6"
+    },
+    {
+      "id": "ex-band2-grammar-complex-content-03",
+      "lessonId": "band2-grammar-complex",
+      "xpReward": 15,
+      "sha256": "071848dfc48caa8bb1ec4df724be0c4007d8fa77f72c2ed5ef685f90fc1662a3"
+    },
+    {
+      "id": "ex-band2-grammar-complex-content-04",
+      "lessonId": "band2-grammar-complex",
+      "xpReward": 15,
+      "sha256": "dcad86c9b976de6c2df301fe586b12c28340aa3cac101d84b6614d1b5dbaa436"
+    },
+    {
+      "id": "ex-band2-vocab-collocations-content-01",
+      "lessonId": "band2-vocab-collocations",
+      "xpReward": 15,
+      "sha256": "b741fc57bab4bbcfe1779c69354b41878e1d4df9185c1356a52a3ab596680ab8"
+    },
+    {
+      "id": "ex-band2-vocab-collocations-content-02",
+      "lessonId": "band2-vocab-collocations",
+      "xpReward": 15,
+      "sha256": "c80776cce7e4086cd0e1fcdaff45b6880059a410142231d841ae962494d90636"
+    },
+    {
+      "id": "ex-band2-vocab-collocations-content-03",
+      "lessonId": "band2-vocab-collocations",
+      "xpReward": 15,
+      "sha256": "08ecee91cf1331acfa21e16e61b1daa1096891f1e83f1aad7ab5c550949c0e55"
+    },
+    {
+      "id": "ex-band2-vocab-collocations-content-04",
+      "lessonId": "band2-vocab-collocations",
+      "xpReward": 15,
+      "sha256": "a89c41b4097fd17c0cadf3da26a2b25ac4e58d25f9d830952c9454189d873a66"
+    },
+    {
+      "id": "ex-band2-vocab-environment-content-01",
+      "lessonId": "band2-vocab-environment",
+      "xpReward": 15,
+      "sha256": "a338c8c0d96d0036b0c8ed2277f873f8d4f1c2e26502fb01467d9003cb95d662"
+    },
+    {
+      "id": "ex-band2-vocab-environment-content-02",
+      "lessonId": "band2-vocab-environment",
+      "xpReward": 15,
+      "sha256": "50d3e48f299d53f9bb7596c3308b2a3b33f20d2538db14aba4e7950226350fce"
+    },
+    {
+      "id": "ex-band2-vocab-environment-content-03",
+      "lessonId": "band2-vocab-environment",
+      "xpReward": 15,
+      "sha256": "7da829d3a4cc1745eab6e12882a998910eba883b0ae0a3ef382073d10ac76082"
+    },
+    {
+      "id": "ex-band2-vocab-environment-content-04",
+      "lessonId": "band2-vocab-environment",
+      "xpReward": 15,
+      "sha256": "5f8f01dc3812b5b4aa468d4cff915fab157333ed878de5437eca3aa12c7101a6"
+    },
+    {
+      "id": "ex-band2-vocab-technology-content-01",
+      "lessonId": "band2-vocab-technology",
+      "xpReward": 15,
+      "sha256": "26867a887d97f3af21957456a785f040ada356e232cd3543b9db408a28e76929"
+    },
+    {
+      "id": "ex-band2-vocab-technology-content-02",
+      "lessonId": "band2-vocab-technology",
+      "xpReward": 15,
+      "sha256": "fb97e51a180e5fb63b6ee827380a3978fa02f0b1046c2c6f6395b423b463bfa5"
+    },
+    {
+      "id": "ex-band2-vocab-technology-content-03",
+      "lessonId": "band2-vocab-technology",
+      "xpReward": 15,
+      "sha256": "f21ce81bbe5ab825d25b94e9f705b30630eb16b570de4b07b39a031397814c66"
+    },
+    {
+      "id": "ex-band2-vocab-technology-content-04",
+      "lessonId": "band2-vocab-technology",
+      "xpReward": 15,
+      "sha256": "cc67cb6d15d47108e1e7c5a9f34735768b129a92e737aea918c51132902eb5d2"
+    },
+    {
+      "id": "ex-band2-mistakes-prepositions-content-01",
+      "lessonId": "band2-mistakes-prepositions",
+      "xpReward": 15,
+      "sha256": "ed0657b52dd5fdb2900eb1f5af4bc96fd0cf81b2e98c749e5d75afb6784e2096"
+    },
+    {
+      "id": "ex-band2-mistakes-prepositions-content-02",
+      "lessonId": "band2-mistakes-prepositions",
+      "xpReward": 15,
+      "sha256": "4505fa6a8c4fceacbb3999ca6018fd3d769f8608b55fb3160670b9d7088e2531"
+    },
+    {
+      "id": "ex-band2-mistakes-prepositions-content-03",
+      "lessonId": "band2-mistakes-prepositions",
+      "xpReward": 15,
+      "sha256": "486851ad26014c628d73e21350a2d688bbb67718252ec77b37e5cdeeb55eb8e9"
+    },
+    {
+      "id": "ex-band2-mistakes-prepositions-content-04",
+      "lessonId": "band2-mistakes-prepositions",
+      "xpReward": 15,
+      "sha256": "f2195dee0e0bfe5be79c61f51ec6d46a347a9a09ea24cf14c57acc4a51157b51"
+    },
+    {
+      "id": "ex-band2-mistakes-countable-content-01",
+      "lessonId": "band2-mistakes-countable",
+      "xpReward": 15,
+      "sha256": "575f8720efa7d82d921e8081ea6763f3294a3ed75d98973770ea34abad0a7ddb"
+    },
+    {
+      "id": "ex-band2-mistakes-countable-content-02",
+      "lessonId": "band2-mistakes-countable",
+      "xpReward": 15,
+      "sha256": "8bb06729def05992c18561db9ee2cf7a6c11db44da693700cb5b1aef90fc8a78"
+    },
+    {
+      "id": "ex-band2-mistakes-countable-content-03",
+      "lessonId": "band2-mistakes-countable",
+      "xpReward": 15,
+      "sha256": "421caeb5d8b49211bd592a20d82563b1b349ceeec514fa3e85ebf0b1b5efd860"
+    },
+    {
+      "id": "ex-band2-mistakes-countable-content-04",
+      "lessonId": "band2-mistakes-countable",
+      "xpReward": 15,
+      "sha256": "9504cd6299c7fb659cb8fbecde23f769b3fa2282a6704958ee011ef5488df8e5"
+    },
+    {
+      "id": "ex-band2-practice-reading-content-01",
+      "lessonId": "band2-practice-reading",
+      "xpReward": 15,
+      "sha256": "593fc301dca665007f6620d55b8c37b1697b85e54f34cbfa9aa7c9e32b460e06"
+    },
+    {
+      "id": "ex-band2-practice-reading-content-02",
+      "lessonId": "band2-practice-reading",
+      "xpReward": 15,
+      "sha256": "84d3b70213c2c49fc45f3e7d86a08e0940e027194bf366e2a1d041cbf90294f0"
+    },
+    {
+      "id": "ex-band2-practice-reading-content-03",
+      "lessonId": "band2-practice-reading",
+      "xpReward": 15,
+      "sha256": "cef37c8552df121ddea1dddc6bb18d769ea51779b371b2bfdbb83d6d2a7cc385"
+    },
+    {
+      "id": "ex-band2-practice-reading-content-04",
+      "lessonId": "band2-practice-reading",
+      "xpReward": 15,
+      "sha256": "b04ef822be55c86f055cda269eeb692d978f2fa780e6981eb6187a66ecdf20f3"
+    },
+    {
+      "id": "ex-band2-practice-reading-content-05",
+      "lessonId": "band2-practice-reading",
+      "xpReward": 15,
+      "sha256": "9abc47dae2d50d7393dd866ace6f48916170795fe84273431477e63d6f62db40"
+    },
+    {
+      "id": "ex-band2-practice-reading-content-06",
+      "lessonId": "band2-practice-reading",
+      "xpReward": 15,
+      "sha256": "f98d68f442dadd87c10281c3c68315c9ceb521cbc8244fa4d3584792a1da97d8"
+    },
+    {
+      "id": "ex-band2-practice-reading-content-07",
+      "lessonId": "band2-practice-reading",
+      "xpReward": 15,
+      "sha256": "b823fd01c8c4570a8a62571f1b919160c3a7a6df2d427bf8783cb71cfc30577a"
+    },
+    {
+      "id": "ex-band2-practice-reading-content-08",
+      "lessonId": "band2-practice-reading",
+      "xpReward": 15,
+      "sha256": "f061a64fdb4917736f08cf4050faf989d0a7b0b09fecca1928ce04ec72be641b"
+    },
+    {
+      "id": "ex-band2-practice-reading-content-09",
+      "lessonId": "band2-practice-reading",
+      "xpReward": 15,
+      "sha256": "1f2d9f2caf10090bc617923f2ce877555f0823db9b2ca7fcb7910860684b8433"
+    },
+    {
+      "id": "ex-band2-practice-reading-content-10",
+      "lessonId": "band2-practice-reading",
+      "xpReward": 15,
+      "sha256": "1de53d9676df257de2a349ecd569b911d12b68bde2194b45fd3df783a298d3e9"
+    },
+    {
+      "id": "ex-band2-practice-reading-content-11",
+      "lessonId": "band2-practice-reading",
+      "xpReward": 15,
+      "sha256": "2c1b0149e1dfe95241d3fdfccb54db1c0d82d75fbb03baa28a73d6af8bf15bac"
+    },
+    {
+      "id": "ex-band2-practice-reading-content-12",
+      "lessonId": "band2-practice-reading",
+      "xpReward": 15,
+      "sha256": "b6fb5387bbfd35ccc9962d2364e7237e3e8b5b7ba3c98a626c27ceaabf29c7bd"
+    },
+    {
+      "id": "ex-band2-practice-reading-content-13",
+      "lessonId": "band2-practice-reading",
+      "xpReward": 15,
+      "sha256": "e46e86cbd7d6031575c9a8a25f5fa894563e3cc289af66384802abbe702e9fdc"
+    },
+    {
+      "id": "ex-band2-review-content-01",
+      "lessonId": "band2-review",
+      "xpReward": 15,
+      "sha256": "e37d5bd706ecf69265215fab59db9ce0518e1e265354ed5ac2cbce913494f21d"
+    },
+    {
+      "id": "ex-band2-review-content-02",
+      "lessonId": "band2-review",
+      "xpReward": 15,
+      "sha256": "b1818d88b83121444dc2e499a1fd8923f6be029e93aeb87b8c65fc9b597e2870"
+    },
+    {
+      "id": "ex-band2-review-content-03",
+      "lessonId": "band2-review",
+      "xpReward": 15,
+      "sha256": "a141f3f05522f220afca290b741f7ddccd1997e3c6da26a5a504aec35898dd30"
+    },
+    {
+      "id": "ex-band2-review-content-04",
+      "lessonId": "band2-review",
+      "xpReward": 15,
+      "sha256": "43cb521226dc6e1c32379fa59ba6449f96b804e8379c3828c59ccc57f7dd3a1d"
+    },
+    {
+      "id": "ex-band3-listening-section3-content-02",
+      "lessonId": "band3-listening-section3",
+      "xpReward": 15,
+      "sha256": "5fbca76871e03001ecbd926ad60fc95eadea4adc4068ad62aeff21434b3718be"
+    },
+    {
+      "id": "ex-band3-listening-section3-content-03",
+      "lessonId": "band3-listening-section3",
+      "xpReward": 15,
+      "sha256": "7ea218951564193a7cae30d3a88b8fefd6ea1cca0ce1ad0b3eef0ff7e1fcc83f"
+    },
+    {
+      "id": "ex-band3-listening-section3-content-04",
+      "lessonId": "band3-listening-section3",
+      "xpReward": 15,
+      "sha256": "c4279f371f31da46fb4a16e4bff89397cd2b94ba80e0849b723e461cfb13b3ae"
+    },
+    {
+      "id": "ex-band3-listening-multiple-speakers-content-01",
+      "lessonId": "band3-listening-multiple-speakers",
+      "xpReward": 15,
+      "sha256": "602e622acb19fb1e1a68a506618d083d64baac99fa1de3eb6dc19d6c313705ad"
+    },
+    {
+      "id": "ex-band3-listening-multiple-speakers-content-02",
+      "lessonId": "band3-listening-multiple-speakers",
+      "xpReward": 15,
+      "sha256": "efa00bd93a99d7098d180462ad3bb951632810b13d2958524c4a532606ea824d"
+    },
+    {
+      "id": "ex-band3-listening-multiple-speakers-content-03",
+      "lessonId": "band3-listening-multiple-speakers",
+      "xpReward": 15,
+      "sha256": "047b2bab4f66a182b7399c59eae51a58cbc07a77394ac020430c91d830500bc6"
+    },
+    {
+      "id": "ex-band3-listening-multiple-speakers-content-04",
+      "lessonId": "band3-listening-multiple-speakers",
+      "xpReward": 15,
+      "sha256": "6f3c402428918b07e83ea1c930fa3c63ce5fa7e9b2ba03d1298b5ff340d25068"
+    },
+    {
+      "id": "ex-band3-reading-summary-completion-content-01",
+      "lessonId": "band3-reading-summary-completion",
+      "xpReward": 15,
+      "sha256": "cbaf14da4460714ddb3df361aa7b69d5fe31e06b86dce1a632a89951e6f44960"
+    },
+    {
+      "id": "ex-band3-reading-summary-completion-content-02",
+      "lessonId": "band3-reading-summary-completion",
+      "xpReward": 15,
+      "sha256": "ee4ff1b3baaf1dca1c524cbdf3730292c99efdcbe851545f837efcb1b9a79cec"
+    },
+    {
+      "id": "ex-band3-reading-summary-completion-content-03",
+      "lessonId": "band3-reading-summary-completion",
+      "xpReward": 15,
+      "sha256": "523ca9b926a048f732a23e509c52c3e72f253c7c04021c64d6c1ca16f67bbc76"
+    },
+    {
+      "id": "ex-band3-reading-summary-completion-content-04",
+      "lessonId": "band3-reading-summary-completion",
+      "xpReward": 15,
+      "sha256": "04ae6d763070a020a6c6593cef7b746826a989048dcf842e8cdf99ac87a87c8d"
+    },
+    {
+      "id": "ex-band3-reading-matching-features-content-01",
+      "lessonId": "band3-reading-matching-features",
+      "xpReward": 15,
+      "sha256": "fcd49505cd205f8ed6a5bf1f4c26946275ded5624333266919e87c399dc7205b"
+    },
+    {
+      "id": "ex-band3-reading-matching-features-content-02",
+      "lessonId": "band3-reading-matching-features",
+      "xpReward": 15,
+      "sha256": "c3618617164a0afb69a96a1b5cd35309188b8ed4f5e544637a2b2b57a07e3275"
+    },
+    {
+      "id": "ex-band3-reading-matching-features-content-03",
+      "lessonId": "band3-reading-matching-features",
+      "xpReward": 15,
+      "sha256": "55ca03594a05b4370561cecdaa553c06953ebb619714caf37ed6cf51ba8c7bc8"
+    },
+    {
+      "id": "ex-band3-reading-matching-features-content-04",
+      "lessonId": "band3-reading-matching-features",
+      "xpReward": 15,
+      "sha256": "273d63a3439261130ac04d28cf893900ea3f072e72cab1581a25d3df8bf0e8cf"
+    },
+    {
+      "id": "ex-band3-reading-flowchart-content-01",
+      "lessonId": "band3-reading-flowchart",
+      "xpReward": 15,
+      "sha256": "9d59b6932fbe7ef1c712e5dc9992a90d2bc0a6a79cb304f81f895fed80f80a9c"
+    },
+    {
+      "id": "ex-band3-reading-flowchart-content-02",
+      "lessonId": "band3-reading-flowchart",
+      "xpReward": 15,
+      "sha256": "bbd551175e8f89d6a79c69d01360a93296b6287afbe38e4ea8fe63b1e6b36dd2"
+    },
+    {
+      "id": "ex-band3-reading-flowchart-content-03",
+      "lessonId": "band3-reading-flowchart",
+      "xpReward": 15,
+      "sha256": "759ec5991c72062ac042244eba377aecc03bc19730492eaf6059f19bf48b613a"
+    },
+    {
+      "id": "ex-band3-reading-flowchart-content-04",
+      "lessonId": "band3-reading-flowchart",
+      "xpReward": 15,
+      "sha256": "0ca0060d80f4947d568254f35c5259fe862d4b0439adee9377c6c6149101a386"
+    },
+    {
+      "id": "ex-band3-writing-multiple-charts-content-03",
+      "lessonId": "band3-writing-multiple-charts",
+      "xpReward": 15,
+      "sha256": "bbcdbb9751a036404fb532ca4a9e4140908e2c7ba5668d3bd8b566cbaba6fb9d"
+    },
+    {
+      "id": "ex-band3-writing-multiple-charts-content-04",
+      "lessonId": "band3-writing-multiple-charts",
+      "xpReward": 15,
+      "sha256": "bb3a44c0afa8cc1748e1ccd2838f4a592775aea04285d47bccff1583ab71d95d"
+    },
+    {
+      "id": "ex-band3-writing-maps-processes-content-03",
+      "lessonId": "band3-writing-maps-processes",
+      "xpReward": 15,
+      "sha256": "32cf5b5841d7eaf25b26ab7b73cfc001d6888dba8c28dece3266044a7ce46403"
+    },
+    {
+      "id": "ex-band3-writing-maps-processes-content-04",
+      "lessonId": "band3-writing-maps-processes",
+      "xpReward": 15,
+      "sha256": "1f107891312bc7cee37bb516cf13dc35010150e1ccd9fc667bf2b19c435a7899"
+    },
+    {
+      "id": "ex-band3-writing-discussion-content-01",
+      "lessonId": "band3-writing-discussion",
+      "xpReward": 15,
+      "sha256": "bbbe37e722d56536265db2417333a801bcd36a840e85f4c40f8dc3d3d214f5ff"
+    },
+    {
+      "id": "ex-band3-writing-discussion-content-02",
+      "lessonId": "band3-writing-discussion",
+      "xpReward": 15,
+      "sha256": "a7ae3d50b4e55fd3e1990a9730311622b3370ddd16883075d9facdb60048ae51"
+    },
+    {
+      "id": "ex-band3-writing-discussion-content-03",
+      "lessonId": "band3-writing-discussion",
+      "xpReward": 15,
+      "sha256": "02ccaf0af859f90e229d1ea29510c9d3f0f23e3c5936712f03cd5ac61249166e"
+    },
+    {
+      "id": "ex-band3-writing-discussion-content-04",
+      "lessonId": "band3-writing-discussion",
+      "xpReward": 15,
+      "sha256": "201a6bdefaee054fa3560d11cbfd5f569aa49dfe11d3f71e04d599740117b681"
+    },
+    {
+      "id": "ex-band3-writing-advantages-content-01",
+      "lessonId": "band3-writing-advantages",
+      "xpReward": 15,
+      "sha256": "f89c1e3b29e38fc0e1350c2f9cde5be486bea5f40450919ef82bc5c7f4818a41"
+    },
+    {
+      "id": "ex-band3-writing-advantages-content-02",
+      "lessonId": "band3-writing-advantages",
+      "xpReward": 15,
+      "sha256": "203caaad9b45393ec0eeb29814ef76f3a4752a55be0ae3b31210a6d92232fc9c"
+    },
+    {
+      "id": "ex-band3-writing-advantages-content-03",
+      "lessonId": "band3-writing-advantages",
+      "xpReward": 15,
+      "sha256": "22999b9011d6212fa8a3a8ee34d78c3a5b877aa5fd9a9a25267c314421c5bde3"
+    },
+    {
+      "id": "ex-band3-writing-advantages-content-04",
+      "lessonId": "band3-writing-advantages",
+      "xpReward": 15,
+      "sha256": "f354cb28471e119622df75740afa889bb151c16020f8f3852ee670b9060d299e"
+    },
+    {
+      "id": "ex-band3-writing-task-response-content-01",
+      "lessonId": "band3-writing-task-response",
+      "xpReward": 15,
+      "sha256": "ba1dd49f9ff1b834815de84ca4db63698e3ac8cfb0b116d4e0c01265bc8de4c8"
+    },
+    {
+      "id": "ex-band3-writing-task-response-content-02",
+      "lessonId": "band3-writing-task-response",
+      "xpReward": 15,
+      "sha256": "e7b99ca8a54a5cc8c89d50ec5371d24da7a5dd6c0566d64921a27cfa3d5b58cb"
+    },
+    {
+      "id": "ex-band3-writing-task-response-content-03",
+      "lessonId": "band3-writing-task-response",
+      "xpReward": 15,
+      "sha256": "624aeb22a1b318acec2195ce48cd07b6512eb4f698a17246f5638c10c47bf7f1"
+    },
+    {
+      "id": "ex-band3-writing-task-response-content-04",
+      "lessonId": "band3-writing-task-response",
+      "xpReward": 15,
+      "sha256": "ec94d673b1cefdaf165f57553c7f1efee0eeb2c96260f20fa35f511ff8050bac"
+    },
+    {
+      "id": "ex-band3-writing-formality-content-01",
+      "lessonId": "band3-writing-formality",
+      "xpReward": 15,
+      "sha256": "85b257c2cfbf12c43678d9429269c89a9c144e85eb49ad95ce2a49a99c93b9dc"
+    },
+    {
+      "id": "ex-band3-writing-formality-content-02",
+      "lessonId": "band3-writing-formality",
+      "xpReward": 15,
+      "sha256": "def2cfc91049cfadb065f0d72ba30c20205b18c52a3b3ea5f27b016f91a3f257"
+    },
+    {
+      "id": "ex-band3-writing-formality-content-03",
+      "lessonId": "band3-writing-formality",
+      "xpReward": 15,
+      "sha256": "1e6e98ab43f29cc808de81efca07338b43b495da59dca35b9c9d5d15deff30bb"
+    },
+    {
+      "id": "ex-band3-writing-formality-content-04",
+      "lessonId": "band3-writing-formality",
+      "xpReward": 15,
+      "sha256": "1b7fe2cc6219855839a21f4edb53fb0bb553ecd7be6cc043b78b782b099ff6b8"
+    },
+    {
+      "id": "ex-band3-speaking-opinions-content-01",
+      "lessonId": "band3-speaking-opinions",
+      "xpReward": 15,
+      "sha256": "716f1d25a64f790596668a19182882f708bd1ce752d93051ebff1b374216d10c"
+    },
+    {
+      "id": "ex-band3-speaking-opinions-content-02",
+      "lessonId": "band3-speaking-opinions",
+      "xpReward": 15,
+      "sha256": "1d47378e0be45c0c801c10bbdd4778e6cfd218b737f7980511c482b1be6ebd4a"
+    },
+    {
+      "id": "ex-band3-speaking-opinions-content-03",
+      "lessonId": "band3-speaking-opinions",
+      "xpReward": 15,
+      "sha256": "21d83afd695ce2b03157f98df0650f4d2aa898ff9ac8a7ad6af609b453586e7c"
+    },
+    {
+      "id": "ex-band3-speaking-opinions-content-04",
+      "lessonId": "band3-speaking-opinions",
+      "xpReward": 15,
+      "sha256": "686f74ac1dcbf905481ed4845133c636c5c86fb66741b88ea0db62f4d2ba02a9"
+    },
+    {
+      "id": "ex-band3-speaking-toefl4-content-02",
+      "lessonId": "band3-speaking-toefl4",
+      "xpReward": 15,
+      "sha256": "de105ad45f5064a33a31a9ce272d806f882351bc26a83571fdb51ef531eefbe3"
+    },
+    {
+      "id": "ex-band3-speaking-toefl4-content-03",
+      "lessonId": "band3-speaking-toefl4",
+      "xpReward": 15,
+      "sha256": "cdd0a917326be1d3633e61964d774a875f8f8019a3abd7d96858989ed3a3ef91"
+    },
+    {
+      "id": "ex-band3-speaking-toefl4-content-04",
+      "lessonId": "band3-speaking-toefl4",
+      "xpReward": 15,
+      "sha256": "39ee38796909ed6974d4e47e12464807740ded43d6ed60ec53fdf72e25aad973"
+    },
+    {
+      "id": "ex-band3-grammar-passive-content-01",
+      "lessonId": "band3-grammar-passive",
+      "xpReward": 15,
+      "sha256": "14274eed051f6a95e3e3de8780a3383057b4a8d2e3aea839a74af71b7610d378"
+    },
+    {
+      "id": "ex-band3-grammar-passive-content-02",
+      "lessonId": "band3-grammar-passive",
+      "xpReward": 15,
+      "sha256": "28a2f3dbc41867b31eb06dc24455b4c2624784286481865716e1bdff634bdb70"
+    },
+    {
+      "id": "ex-band3-grammar-passive-content-03",
+      "lessonId": "band3-grammar-passive",
+      "xpReward": 15,
+      "sha256": "1a89219f3774e1a4c83ec110c4f7eb9899b82a5946586aaa948992b1b69f312d"
+    },
+    {
+      "id": "ex-band3-grammar-passive-content-04",
+      "lessonId": "band3-grammar-passive",
+      "xpReward": 15,
+      "sha256": "9b682877701c38fdd8640a2b0f8bfd78f7cfd4fde3cf1663bd301190efcb9fbc"
+    },
+    {
+      "id": "ex-band3-vocab-health-content-01",
+      "lessonId": "band3-vocab-health",
+      "xpReward": 15,
+      "sha256": "f3851c0fcca4af799ff0c8d54a7f17aba7839d10d0d843d45e4878ad50637d0a"
+    },
+    {
+      "id": "ex-band3-vocab-health-content-02",
+      "lessonId": "band3-vocab-health",
+      "xpReward": 15,
+      "sha256": "18b02dba3555cba63051ace2e0db207cf40f955a005c088ba8635a7f7147a7b7"
+    },
+    {
+      "id": "ex-band3-vocab-health-content-03",
+      "lessonId": "band3-vocab-health",
+      "xpReward": 15,
+      "sha256": "d9065eed1dec0cc8cca17ed5484cc4e7f846477a7a5a277176c905ee4451eccc"
+    },
+    {
+      "id": "ex-band3-vocab-health-content-04",
+      "lessonId": "band3-vocab-health",
+      "xpReward": 15,
+      "sha256": "80c5703497085f9d338ccb7d7312b9b933eafefccdc2f7484c9f23e9c1dba1ec"
+    },
+    {
+      "id": "ex-band3-vocab-education-content-01",
+      "lessonId": "band3-vocab-education",
+      "xpReward": 15,
+      "sha256": "db871c10173d3f11781efa64a1ba9087b337ce73f12ac489631abe9d1cebeb47"
+    },
+    {
+      "id": "ex-band3-vocab-education-content-02",
+      "lessonId": "band3-vocab-education",
+      "xpReward": 15,
+      "sha256": "bf28f950ca05ae0491be99246f4a6c450676d81fdc6bc314ef48f8ed9624bd29"
+    },
+    {
+      "id": "ex-band3-vocab-education-content-03",
+      "lessonId": "band3-vocab-education",
+      "xpReward": 15,
+      "sha256": "d47b660614a7aaccea857d6b7196f7e79bb0f0ab16adc5d82f2e80eff014d1e2"
+    },
+    {
+      "id": "ex-band3-vocab-education-content-04",
+      "lessonId": "band3-vocab-education",
+      "xpReward": 15,
+      "sha256": "84bebfa2dcde6b572c6c447e5377d2298ad20e208cb4df0ef708eb82612c6650"
+    },
+    {
+      "id": "ex-band3-vocab-work-content-01",
+      "lessonId": "band3-vocab-work",
+      "xpReward": 15,
+      "sha256": "4b08ed8bc64d3af82a5550431bebaf50304f8a3c5146ce2b28dd527337c9da49"
+    },
+    {
+      "id": "ex-band3-vocab-work-content-02",
+      "lessonId": "band3-vocab-work",
+      "xpReward": 15,
+      "sha256": "8efd05be5ffc729b926da61f2450f1d1fd42c9b0828be8d4c35862b601f4fc92"
+    },
+    {
+      "id": "ex-band3-vocab-work-content-03",
+      "lessonId": "band3-vocab-work",
+      "xpReward": 15,
+      "sha256": "464f29dd9513795814cf91ab39e527ce8accf49f36c3ce412309e337ae76063b"
+    },
+    {
+      "id": "ex-band3-vocab-work-content-04",
+      "lessonId": "band3-vocab-work",
+      "xpReward": 15,
+      "sha256": "e342ef1081a67c8adea6fe0077ffa11b8f93f26691a0a8657bc8c64aa1af7791"
+    },
+    {
+      "id": "ex-band3-paraphrasing-content-01",
+      "lessonId": "band3-paraphrasing",
+      "xpReward": 15,
+      "sha256": "8734ac3ca59cf8c29d3cd8e4cd53987379eecf84e46bde512bf086dc5b96adcb"
+    },
+    {
+      "id": "ex-band3-paraphrasing-content-02",
+      "lessonId": "band3-paraphrasing",
+      "xpReward": 15,
+      "sha256": "7759b68b4d66f7b259351729330c59a27084e3cbac5c2aa5f9fcd4c6122dcb99"
+    },
+    {
+      "id": "ex-band3-paraphrasing-content-03",
+      "lessonId": "band3-paraphrasing",
+      "xpReward": 15,
+      "sha256": "36a44d647a0111f55b4e934a263843457cf2b9524acc7cd8c8e55443c6cf08ca"
+    },
+    {
+      "id": "ex-band3-paraphrasing-content-04",
+      "lessonId": "band3-paraphrasing",
+      "xpReward": 15,
+      "sha256": "9d367cb36fd951bb025167d7719c351f7a44c11ea2d507a822f440a903c23212"
+    },
+    {
+      "id": "ex-band3-error-analysis-content-01",
+      "lessonId": "band3-error-analysis",
+      "xpReward": 15,
+      "sha256": "add59c3483f44db7e58fb1ad45a40e58bab675732ca6bea34a8c3faf072aec98"
+    },
+    {
+      "id": "ex-band3-error-analysis-content-02",
+      "lessonId": "band3-error-analysis",
+      "xpReward": 15,
+      "sha256": "89c63bc62726a3a0be198ad51e58167bc657f77e05a7952e547a121298975258"
+    },
+    {
+      "id": "ex-band3-error-analysis-content-03",
+      "lessonId": "band3-error-analysis",
+      "xpReward": 15,
+      "sha256": "3c9dbc339ff7eaceef72e55e706ff45f9b740e4fc05cc01a91a7d82b0b12e64d"
+    },
+    {
+      "id": "ex-band3-error-analysis-content-04",
+      "lessonId": "band3-error-analysis",
+      "xpReward": 15,
+      "sha256": "1d34c78d888435a2f49492bafa078ed9ed091776018ad637cd6ed2f616fed51e"
+    },
+    {
+      "id": "ex-band3-practice-essay-content-01",
+      "lessonId": "band3-practice-essay",
+      "xpReward": 15,
+      "sha256": "23d3d0a825ecffdce784d77bf231298b59558904baff1123a4fa1bc31e53f805"
+    },
+    {
+      "id": "ex-band3-practice-essay-content-02",
+      "lessonId": "band3-practice-essay",
+      "xpReward": 15,
+      "sha256": "b11b7fdcdba1357fb9415631e48f58168a8aaa71e595570f935cb8fc52859779"
+    },
+    {
+      "id": "ex-band3-practice-essay-content-03",
+      "lessonId": "band3-practice-essay",
+      "xpReward": 15,
+      "sha256": "852ff0df75f59e4b17a63c89a366dec277071fd684c7ab1fe5bd8518c532aa88"
+    },
+    {
+      "id": "ex-band3-practice-essay-content-04",
+      "lessonId": "band3-practice-essay",
+      "xpReward": 15,
+      "sha256": "76cc403fa038c824fb828bf50376b06f73aea64cb8c5eb0208d3d7b90d66cc62"
+    },
+    {
+      "id": "ex-band3-review-content-01",
+      "lessonId": "band3-review",
+      "xpReward": 15,
+      "sha256": "9c400a3033cd22ed5beb2d60822b474a73e5291a5dd17c595d827a069ec9daf4"
+    },
+    {
+      "id": "ex-band3-review-content-02",
+      "lessonId": "band3-review",
+      "xpReward": 15,
+      "sha256": "de326d9eed8fd2fc28160a5a6faa1616b1d0e429c7c5333d1788853748f8da45"
+    },
+    {
+      "id": "ex-band3-review-content-03",
+      "lessonId": "band3-review",
+      "xpReward": 15,
+      "sha256": "c019521f4d9d369e09ef985d3505da5b16c9b8c4944890a212f33c18a83e4cac"
+    },
+    {
+      "id": "ex-band3-review-content-04",
+      "lessonId": "band3-review",
+      "xpReward": 15,
+      "sha256": "5756592f0e49b239a45b063cf2db82d012c234e07c4812ec6b6ec830c9dc6d02"
+    }
+  ]
+}

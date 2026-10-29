@@ -11,7 +11,7 @@ export default function SpeedMatchPage() {
           <Zap className="w-6 h-6 text-[var(--color-warning)]" />
           <h1 className="font-display text-2xl font-extrabold text-[var(--color-text-primary)]">Speed Match</h1>
         </div>
-        <p className="text-sm text-[var(--color-text-secondary)]">Match words to their English translations as fast as you can</p>
+        <p className="text-sm text-[var(--color-text-secondary)]">Match each English word with its Arabic meaning as fast as you can</p>
       </div>
       <SpeedMatch />
     </PageWrapper>

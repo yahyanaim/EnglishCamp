@@ -10,9 +10,8 @@ import { RefreshCw, Sparkles, ArrowLeftRight, CheckCircle2, XCircle, ArrowRight 
 
 type TransItem = {
   id: string;
-  de: string;
-  en: string;
-  ar?: string;
+  english: string;
+  arabic: string;
   source: string;
 };
 
@@ -30,21 +29,25 @@ function buildItems(count: number): TransItem[] {
 
   for (const v of VERBS) {
     for (const ex of v.examples) {
-      pool.push({ id: `v-${v.infinitive}-${pool.length}`, de: ex.en, en: ex.en, ar: ex.ar, source: v.infinitive });
+      if (ex.ar) pool.push({ id: `v-${v.infinitive}-${pool.length}`, english: ex.en, arabic: ex.ar, source: v.infinitive });
     }
   }
 
   for (const nvv of NOUN_VERB_COLLOCATIONS) {
-    pool.push({ id: `nvv-${nvv.verb}-${nvv.noun}-${pool.length}`, de: nvv.example, en: nvv.arabic, ar: undefined, source: `${nvv.verb} ${nvv.noun}` });
+    pool.push({ id: `nvv-${nvv.verb}-${nvv.noun}-${pool.length}`, english: `${nvv.verb} ${nvv.noun}`, arabic: nvv.arabic, source: `${nvv.verb} ${nvv.noun}` });
   }
 
   for (const fc of FLASHCARDS) {
     if (fc.example) {
-      pool.push({ id: `fc-${fc.id}`, de: fc.example.de, en: fc.example.en, ar: fc.example.ar, source: fc.de });
+      pool.push({ id: `fc-${fc.id}`, english: fc.example.de, arabic: fc.example.ar || fc.example.en, source: fc.de });
     }
   }
 
-  return shuffle(pool).slice(0, count);
+  const english = new Set<string>(), arabic = new Set<string>();
+  return shuffle(pool).filter(item => {
+    if (english.has(item.english) || arabic.has(item.arabic)) return false;
+    english.add(item.english); arabic.add(item.arabic); return true;
+  }).slice(0, count);
 }
 
 export function SatzUebersetzer() {
@@ -54,7 +57,7 @@ export function SatzUebersetzer() {
   const [selected, setSelected] = useState<string | null>(null);
   const [score, setScore] = useState(0);
   const [phase, setPhase] = useState<"ready" | "playing" | "done">("ready");
-  const [mode, setMode] = useState<"de-to-en" | "en-to-de" | "ar">("ar");
+  const [mode, setMode] = useState<"english" | "arabic">("english");
 
   function initGame() {
     setItems(buildItems(10));
@@ -65,17 +68,16 @@ export function SatzUebersetzer() {
   }
 
   const current = items[index];
+  const correctAnswer = current?.[mode];
   const options = useMemo(() => {
     if (!current) return [];
-    const wrong = shuffle(items.filter((x) => x.en !== current.en)).slice(0, 3);
-    const key = mode === "de-to-en" ? "en" : "de"; // AR→DE: same as en-to-de, key="de"
-    return shuffle([current[key], ...wrong.map((x) => x[key])]);
-  }, [current, mode, index]);
+    const wrong = shuffle(Array.from(new Set(items.map(x => x[mode]))).filter(x => x !== current[mode])).slice(0, 3);
+    return shuffle([current[mode], ...wrong]);
+  }, [current, mode, items]);
 
   function handleSelect(opt: string) {
     if (selected !== null || !current) return;
     setSelected(opt);
-    const correctAnswer = mode === "de-to-en" ? current.en : current.de; // AR→DE: same as en-to-de
     if (opt === correctAnswer) {
       setScore((s) => s + 10);
       playCorrect();
@@ -102,18 +104,15 @@ export function SatzUebersetzer() {
       <h2 className="text-xl font-display font-extrabold text-[var(--color-text-primary)]">Sentence Translator</h2>
       <p className="text-sm text-[var(--color-text-secondary)] mt-2">Translate Arabic and English sentences</p>
         <div className="flex items-center justify-center gap-2 mt-5">
-          <button onClick={() => setMode("ar")}
-            className={`rounded-[10px] px-4 py-2 text-xs font-bold transition-all ${mode === "ar" ? "bg-[var(--color-primary)] text-white" : "bg-[var(--color-surface-alt)] text-[var(--color-text-secondary)] hover:bg-[var(--color-border-default)]"}`}
+          <button onClick={() => setMode("english")}
+            className={`rounded-[10px] px-4 py-2 text-xs font-bold transition-all ${mode === "english" ? "bg-[var(--color-primary)] text-[var(--color-on-brand)]" : "bg-[var(--color-surface-alt)] text-[var(--color-text-secondary)] hover:bg-[var(--color-border-default)]"}`}
           >AR → EN</button>
-          <button onClick={() => setMode("en-to-de")}
-            className={`rounded-[10px] px-4 py-2 text-xs font-bold transition-all ${mode === "en-to-de" ? "bg-[var(--color-primary)] text-white" : "bg-[var(--color-surface-alt)] text-[var(--color-text-secondary)] hover:bg-[var(--color-border-default)]"}`}
+          <button onClick={() => setMode("arabic")}
+            className={`rounded-[10px] px-4 py-2 text-xs font-bold transition-all ${mode === "arabic" ? "bg-[var(--color-primary)] text-[var(--color-on-brand)]" : "bg-[var(--color-surface-alt)] text-[var(--color-text-secondary)] hover:bg-[var(--color-border-default)]"}`}
           >EN → AR</button>
-          <button onClick={() => setMode("de-to-en")}
-            className={`rounded-[10px] px-4 py-2 text-xs font-bold transition-all ${mode === "de-to-en" ? "bg-[var(--color-primary)] text-white" : "bg-[var(--color-surface-alt)] text-[var(--color-text-secondary)] hover:bg-[var(--color-border-default)]"}`}
-          >DE → AR</button>
         </div>
         <button onClick={initGame}
-          className="mt-6 px-8 py-3 rounded-[14px] bg-[var(--color-primary)] text-white font-bold text-sm hover:bg-brand-600 transition-all inline-flex items-center gap-2 shadow-[0_4px_0_rgba(28,176,246,0.3)]"
+          className="mt-6 px-8 py-3 rounded-[14px] bg-[var(--color-primary)] text-[var(--color-on-brand)] font-bold text-sm hover:bg-brand-600 transition-all inline-flex items-center gap-2 shadow-[0_4px_0_rgba(28,176,246,0.3)]"
         >
           <ArrowLeftRight className="w-4 h-4" /> Start Translating
         </button>
@@ -135,15 +134,15 @@ export function SatzUebersetzer() {
           </div>
           <div className="w-px h-10 bg-[var(--color-border-default)]" />
           <div>
-            <p className="text-3xl font-display font-extrabold text-[var(--color-primary-dark)]">{pct}%</p>
+            <p className="text-3xl font-display font-extrabold text-[var(--color-text-link)]">{pct}%</p>
             <p className="text-xs text-[var(--color-text-secondary)]">Accuracy</p>
           </div>
         </div>
-        <p className="mt-4 text-sm font-bold bg-amber-500 text-white font-extrabold shadow-sm px-4 py-2 rounded-[10px] inline-flex items-center gap-1.5">
+        <p className="mt-4 text-sm font-bold bg-amber-500 text-[var(--color-on-brand)] font-extrabold shadow-sm px-4 py-2 rounded-[10px] inline-flex items-center gap-1.5">
           <Sparkles className="w-4 h-4" /> +{score + (pct >= 80 ? 20 : 0)} XP
         </p>
         <button onClick={() => setPhase("ready")}
-          className="mt-6 px-8 py-3 rounded-[14px] bg-[var(--color-primary)] text-white font-bold text-sm hover:bg-brand-600 transition-all inline-flex items-center gap-2"
+          className="mt-6 px-8 py-3 rounded-[14px] bg-[var(--color-primary)] text-[var(--color-on-brand)] font-bold text-sm hover:bg-brand-600 transition-all inline-flex items-center gap-2"
         >
           <RefreshCw className="w-4 h-4" /> New Session
         </button>
@@ -153,23 +152,20 @@ export function SatzUebersetzer() {
 
   if (!current) return null;
 
-  const promptText = mode === "ar"
-    ? { source: current.ar || current.de, target: "en", label: "What does this Arabic sentence mean?" }
-    : mode === "en-to-de"
-    ? { source: current.en, target: "ar", label: "How do you say this in Arabic?" }
-    : { source: current.de, target: "ar", label: "How do you say this in Arabic?" };
+  const promptText = mode === "english"
+    ? { source: current.arabic, target: "en", label: "What does this Arabic text mean?" }
+    : { source: current.english, target: "ar", label: "How do you say this in Arabic?" };
 
-  const correctAnswer = mode === "ar" ? current.en : (current.ar || current.en);
   const pct = ((index + (selected ? 1 : 0)) / items.length) * 100;
 
   return (
     <div className="space-y-4 max-w-lg mx-auto">
       <div className="flex items-center justify-between">
-        <span className="inline-flex items-center gap-1.5 rounded-[10px] bg-[var(--color-primary-subtle)] px-3 py-1 text-xs font-semibold text-[var(--color-primary-dark)]">
+        <span className="inline-flex items-center gap-1.5 rounded-[10px] bg-[var(--color-primary-subtle)] px-3 py-1 text-xs font-semibold text-[var(--color-text-link)]">
           <ArrowLeftRight className="w-3 h-3" /> {index + 1}/{items.length}
         </span>
         <div className="flex items-center gap-2">
-          <span className="inline-flex items-center gap-1.5 rounded-[10px] bg-[var(--color-success)] text-white px-3 py-1 text-xs font-semibold">
+          <span className="inline-flex items-center gap-1.5 rounded-[10px] bg-[var(--color-success)] text-[var(--color-on-brand)] px-3 py-1 text-xs font-semibold">
             <Sparkles className="w-3 h-3" /> {score}
           </span>
           <span className="text-[10px] text-[var(--color-text-disabled)] bg-[var(--color-surface-alt)] px-2 py-1 rounded-[var(--radius-pill)]">{current.source}</span>
@@ -186,24 +182,24 @@ export function SatzUebersetzer() {
         </div>
 
         <div className="mb-6 p-4 rounded-[16px] bg-[var(--color-surface-alt)]">
-          <p className="text-lg font-display font-extrabold text-[var(--color-text-primary)] text-center leading-relaxed">{promptText.source}</p>
+          <p lang={mode === "english" ? "ar" : "en"} dir={mode === "english" ? "rtl" : "ltr"} className="text-lg font-display font-extrabold text-[var(--color-text-primary)] text-center leading-relaxed">{promptText.source}</p>
         </div>
 
         <div className="space-y-2">
           {options.map((opt) => {
             let cls = "bg-[var(--color-surface)] border-2 border-[var(--color-border-default)] text-[var(--color-text-primary)] hover:ring-[var(--color-primary)] hover:bg-[var(--color-primary-subtle)]";
-            if (selected === opt && opt === correctAnswer) cls = "bg-[var(--color-success)] text-white ring-2 ring-emerald-400 text-emerald-800";
-            else if (selected === opt && opt !== correctAnswer) cls = "bg-[var(--color-error)] text-white ring-2 ring-red-300 text-red-700";
-            else if (selected !== null && opt === correctAnswer) cls = "bg-emerald-50/50 ring-1 ring-[var(--color-success)] text-[var(--color-success)]";
+            if (selected === opt && opt === correctAnswer) cls = "bg-[var(--color-success)] text-[var(--color-on-brand)] ring-2 ring-emerald-400";
+            else if (selected === opt && opt !== correctAnswer) cls = "bg-[var(--color-error)] text-[var(--color-on-brand)] ring-2 ring-red-300";
+            else if (selected !== null && opt === correctAnswer) cls = "bg-[var(--color-success-bg)] ring-1 ring-[var(--color-success)] text-[var(--color-text-success)]";
 
             return (
               <motion.button key={opt} layout initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }}
                 onClick={() => handleSelect(opt)} disabled={selected !== null}
                 className={`flex items-center gap-2 w-full px-4 py-3 rounded-[14px] text-sm font-medium transition-all text-left ${cls}`}
               >
-                {selected !== null && opt === correctAnswer && <CheckCircle2 className="w-4 h-4 text-[var(--color-success)] shrink-0" />}
-                {selected === opt && opt !== correctAnswer && <XCircle className="w-4 h-4 text-[var(--color-error)] shrink-0" />}
-                <span>{opt}</span>
+                {selected !== null && opt === correctAnswer && <CheckCircle2 className="w-4 h-4 text-current shrink-0" />}
+                {selected === opt && opt !== correctAnswer && <XCircle className="w-4 h-4 text-current shrink-0" />}
+                <span lang={mode === "english" ? "en" : "ar"} dir={mode === "english" ? "ltr" : "rtl"}>{opt}</span>
               </motion.button>
             );
           })}
@@ -213,7 +209,7 @@ export function SatzUebersetzer() {
       {selected !== null && (
         <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className="flex justify-center">
           <button onClick={handleNext}
-            className="px-8 py-3 rounded-[14px] bg-[var(--color-primary)] text-white font-bold text-sm hover:bg-brand-600 transition-all shadow-[0_4px_0_rgba(28,176,246,0.3)] inline-flex items-center gap-1.5"
+            className="px-8 py-3 rounded-[14px] bg-[var(--color-primary)] text-[var(--color-on-brand)] font-bold text-sm hover:bg-brand-600 transition-all shadow-[0_4px_0_rgba(28,176,246,0.3)] inline-flex items-center gap-1.5"
           >
             {index + 1 >= items.length ? "See results" : "Next"} <ArrowRight className="w-4 h-4" />
           </button>

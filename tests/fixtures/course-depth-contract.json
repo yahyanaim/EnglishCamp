@@ -1,0 +1,1322 @@
+{
+  "courses": [
+    {
+      "id": "band4-5",
+      "lessons": [
+        {
+          "id": "band1-ielts-intro",
+          "xpReward": 60
+        },
+        {
+          "id": "band1-toefl-intro",
+          "xpReward": 60
+        },
+        {
+          "id": "band1-ielts-vs-toefl",
+          "xpReward": 60
+        },
+        {
+          "id": "band1-listening-format",
+          "xpReward": 60
+        },
+        {
+          "id": "band1-listening-gist",
+          "xpReward": 60
+        },
+        {
+          "id": "band1-listening-attitude",
+          "xpReward": 50
+        },
+        {
+          "id": "band1-reading-skimming",
+          "xpReward": 60
+        },
+        {
+          "id": "band1-reading-scanning",
+          "xpReward": 60
+        },
+        {
+          "id": "band1-reading-completion",
+          "xpReward": 50
+        },
+        {
+          "id": "band1-writing-task1-overview",
+          "xpReward": 50
+        },
+        {
+          "id": "band1-writing-trends",
+          "xpReward": 50
+        },
+        {
+          "id": "band1-writing-integrated",
+          "xpReward": 50
+        },
+        {
+          "id": "band1-writing-essay-structure",
+          "xpReward": 50
+        },
+        {
+          "id": "band1-writing-brainstorming",
+          "xpReward": 50
+        },
+        {
+          "id": "band1-speaking-part1-intro",
+          "xpReward": 50
+        },
+        {
+          "id": "band1-speaking-independent",
+          "xpReward": 50
+        },
+        {
+          "id": "band1-speaking-hometown",
+          "xpReward": 50
+        },
+        {
+          "id": "band1-grammar-articles",
+          "xpReward": 60
+        },
+        {
+          "id": "band1-grammar-agreement",
+          "xpReward": 50
+        },
+        {
+          "id": "band1-vocab-awl1",
+          "xpReward": 50
+        },
+        {
+          "id": "band1-vocab-synonyms",
+          "xpReward": 50
+        },
+        {
+          "id": "band1-time-reading",
+          "xpReward": 50
+        },
+        {
+          "id": "band1-time-writing",
+          "xpReward": 50
+        },
+        {
+          "id": "band1-practice-listening",
+          "xpReward": 50
+        },
+        {
+          "id": "band1-review",
+          "xpReward": 50
+        }
+      ]
+    },
+    {
+      "id": "band5-6",
+      "lessons": [
+        {
+          "id": "band2-listening-mcq",
+          "xpReward": 60
+        },
+        {
+          "id": "band2-listening-maps",
+          "xpReward": 60
+        },
+        {
+          "id": "band2-listening-form-completion",
+          "xpReward": 50
+        },
+        {
+          "id": "band2-reading-tfng",
+          "xpReward": 60
+        },
+        {
+          "id": "band2-reading-headings",
+          "xpReward": 60
+        },
+        {
+          "id": "band2-reading-mcq",
+          "xpReward": 50
+        },
+        {
+          "id": "band2-writing-line-graphs",
+          "xpReward": 60
+        },
+        {
+          "id": "band2-writing-bar-pie",
+          "xpReward": 60
+        },
+        {
+          "id": "band2-writing-letter",
+          "xpReward": 50
+        },
+        {
+          "id": "band2-writing-opinion",
+          "xpReward": 60
+        },
+        {
+          "id": "band2-writing-problem-solution",
+          "xpReward": 50
+        },
+        {
+          "id": "band2-writing-cohesion",
+          "xpReward": 50
+        },
+        {
+          "id": "band2-speaking-cue-card",
+          "xpReward": 60
+        },
+        {
+          "id": "band2-speaking-describe",
+          "xpReward": 50
+        },
+        {
+          "id": "band2-speaking-integrated",
+          "xpReward": 50
+        },
+        {
+          "id": "band2-grammar-tenses",
+          "xpReward": 50
+        },
+        {
+          "id": "band2-grammar-complex",
+          "xpReward": 50
+        },
+        {
+          "id": "band2-vocab-awl2",
+          "xpReward": 50
+        },
+        {
+          "id": "band2-vocab-collocations",
+          "xpReward": 50
+        },
+        {
+          "id": "band2-vocab-environment",
+          "xpReward": 50
+        },
+        {
+          "id": "band2-vocab-technology",
+          "xpReward": 50
+        },
+        {
+          "id": "band2-mistakes-prepositions",
+          "xpReward": 50
+        },
+        {
+          "id": "band2-mistakes-countable",
+          "xpReward": 50
+        },
+        {
+          "id": "band2-practice-reading",
+          "xpReward": 50
+        },
+        {
+          "id": "band2-review",
+          "xpReward": 50
+        }
+      ]
+    },
+    {
+      "id": "band6-7",
+      "lessons": [
+        {
+          "id": "band3-listening-section3",
+          "xpReward": 50
+        },
+        {
+          "id": "band3-listening-lecture",
+          "xpReward": 50
+        },
+        {
+          "id": "band3-listening-multiple-speakers",
+          "xpReward": 50
+        },
+        {
+          "id": "band3-reading-summary-completion",
+          "xpReward": 50
+        },
+        {
+          "id": "band3-reading-matching-features",
+          "xpReward": 50
+        },
+        {
+          "id": "band3-reading-flowchart",
+          "xpReward": 50
+        },
+        {
+          "id": "band3-writing-multiple-charts",
+          "xpReward": 60
+        },
+        {
+          "id": "band3-writing-maps-processes",
+          "xpReward": 60
+        },
+        {
+          "id": "band3-writing-discussion",
+          "xpReward": 60
+        },
+        {
+          "id": "band3-writing-advantages",
+          "xpReward": 50
+        },
+        {
+          "id": "band3-writing-task-response",
+          "xpReward": 50
+        },
+        {
+          "id": "band3-writing-formality",
+          "xpReward": 50
+        },
+        {
+          "id": "band3-speaking-part3",
+          "xpReward": 50
+        },
+        {
+          "id": "band3-speaking-opinions",
+          "xpReward": 50
+        },
+        {
+          "id": "band3-speaking-toefl4",
+          "xpReward": 60
+        },
+        {
+          "id": "band3-grammar-conditionals",
+          "xpReward": 50
+        },
+        {
+          "id": "band3-grammar-passive",
+          "xpReward": 50
+        },
+        {
+          "id": "band3-vocab-awl3",
+          "xpReward": 50
+        },
+        {
+          "id": "band3-vocab-health",
+          "xpReward": 50
+        },
+        {
+          "id": "band3-vocab-education",
+          "xpReward": 50
+        },
+        {
+          "id": "band3-vocab-work",
+          "xpReward": 50
+        },
+        {
+          "id": "band3-paraphrasing",
+          "xpReward": 50
+        },
+        {
+          "id": "band3-error-analysis",
+          "xpReward": 50
+        },
+        {
+          "id": "band3-practice-essay",
+          "xpReward": 50
+        },
+        {
+          "id": "band3-review",
+          "xpReward": 50
+        }
+      ]
+    },
+    {
+      "id": "band7-8",
+      "lessons": [
+        {
+          "id": "band4-listening-accents",
+          "xpReward": 60
+        },
+        {
+          "id": "band4-listening-inference",
+          "xpReward": 50
+        },
+        {
+          "id": "band4-listening-distractors",
+          "xpReward": 50
+        },
+        {
+          "id": "band4-reading-writers-views",
+          "xpReward": 50
+        },
+        {
+          "id": "band4-reading-difficult-texts",
+          "xpReward": 50
+        },
+        {
+          "id": "band4-reading-time-pressure",
+          "xpReward": 50
+        },
+        {
+          "id": "band4-writing-sophisticated",
+          "xpReward": 60
+        },
+        {
+          "id": "band4-writing-complex-comparisons",
+          "xpReward": 60
+        },
+        {
+          "id": "band4-writing-complex-ideas",
+          "xpReward": 50
+        },
+        {
+          "id": "band4-writing-lexical-resource",
+          "xpReward": 50
+        },
+        {
+          "id": "band4-writing-grammatical-range",
+          "xpReward": 50
+        },
+        {
+          "id": "band4-writing-band8-essay",
+          "xpReward": 50
+        },
+        {
+          "id": "band4-speaking-storytelling",
+          "xpReward": 50
+        },
+        {
+          "id": "band4-speaking-abstract-topics",
+          "xpReward": 50
+        },
+        {
+          "id": "band4-speaking-pronunciation",
+          "xpReward": 50
+        },
+        {
+          "id": "band4-grammar-inversion",
+          "xpReward": 60
+        },
+        {
+          "id": "band4-grammar-participles",
+          "xpReward": 50
+        },
+        {
+          "id": "band4-vocab-awl4",
+          "xpReward": 50
+        },
+        {
+          "id": "band4-vocab-science",
+          "xpReward": 50
+        },
+        {
+          "id": "band4-vocab-globalization",
+          "xpReward": 50
+        },
+        {
+          "id": "band4-vocab-idioms",
+          "xpReward": 50
+        },
+        {
+          "id": "band4-mock-ielts-listening",
+          "xpReward": 50
+        },
+        {
+          "id": "band4-mock-toefl-reading",
+          "xpReward": 50
+        },
+        {
+          "id": "band4-exam-day-strategies",
+          "xpReward": 50
+        },
+        {
+          "id": "band4-review",
+          "xpReward": 50
+        }
+      ]
+    }
+  ],
+  "signatures": {
+    "band1-ielts-intro-stage-1": "v1-aafdb875",
+    "band1-ielts-intro-stage-2": "v1-51e0254e",
+    "band1-ielts-intro-stage-3": "v1-b3a13089",
+    "band1-toefl-intro-stage-1": "v1-d8dc5aa7",
+    "band1-toefl-intro-stage-2": "v1-390c0784",
+    "band1-toefl-intro-stage-3": "v1-e9d9a1b1",
+    "band1-ielts-vs-toefl-stage-1": "v1-c98e82f6",
+    "band1-ielts-vs-toefl-stage-2": "v1-78cf4224",
+    "band1-ielts-vs-toefl-stage-3": "v2-c805eaf6",
+    "band1-listening-format-stage-1": "v1-771eefec",
+    "band1-listening-format-stage-2": "v1-a471b757",
+    "band1-listening-format-stage-3": "v1-9dd2742",
+    "band1-listening-gist-stage-1": "v1-f171b183",
+    "band1-listening-gist-stage-2": "v1-12fe1228",
+    "band1-listening-gist-stage-3": "v1-f21e6468",
+    "band1-listening-attitude-stage-1": "v1-e1da0a17",
+    "band1-listening-attitude-stage-2": "v1-a2973daf",
+    "band1-listening-attitude-stage-3": "v1-11fbda16",
+    "band1-reading-skimming-stage-1": "v2-547f22bb",
+    "band1-reading-skimming-stage-2": "v2-22cbbae4",
+    "band1-reading-skimming-stage-3": "v2-5d3f3aa3",
+    "band1-reading-scanning-stage-1": "v1-c675d7b3",
+    "band1-reading-scanning-stage-2": "v1-3946cac",
+    "band1-reading-scanning-stage-3": "v1-19f95383",
+    "band1-reading-completion-stage-1": "v1-4573592d",
+    "band1-reading-completion-stage-2": "v1-d9fa12a9",
+    "band1-reading-completion-stage-3": "v1-8b76095f",
+    "band1-writing-task1-overview-stage-1": "v1-37e6e54e",
+    "band1-writing-task1-overview-stage-2": "v1-62d36aef",
+    "band1-writing-task1-overview-stage-3": "v1-135b805d",
+    "band1-writing-trends-stage-1": "v1-ce579751",
+    "band1-writing-trends-stage-2": "v1-6761a45b",
+    "band1-writing-trends-stage-3": "v1-c6b4e940",
+    "band1-writing-integrated-stage-1": "v1-ecb8507f",
+    "band1-writing-integrated-stage-2": "v1-b86a842e",
+    "band1-writing-integrated-stage-3": "v1-3afca583",
+    "band1-writing-essay-structure-stage-1": "v1-c66be242",
+    "band1-writing-essay-structure-stage-2": "v1-e7e4a9a5",
+    "band1-writing-essay-structure-stage-3": "v1-de021f28",
+    "band1-writing-brainstorming-stage-1": "v1-6fe85af8",
+    "band1-writing-brainstorming-stage-2": "v1-63e109dd",
+    "band1-writing-brainstorming-stage-3": "v1-3d27689b",
+    "band1-speaking-part1-intro-stage-1": "v1-49920182",
+    "band1-speaking-part1-intro-stage-2": "v1-48699c0d",
+    "band1-speaking-part1-intro-stage-3": "v1-9fef847d",
+    "band1-speaking-independent-stage-1": "v1-38df6267",
+    "band1-speaking-independent-stage-2": "v1-4267e5bc",
+    "band1-speaking-independent-stage-3": "v1-db5e093",
+    "band1-speaking-hometown-stage-1": "v1-be4c6cbe",
+    "band1-speaking-hometown-stage-2": "v1-ed6e2bb4",
+    "band1-speaking-hometown-stage-3": "v1-cf6c8779",
+    "band1-grammar-articles-stage-1": "v1-d719bd39",
+    "band1-grammar-articles-stage-2": "v1-475e136f",
+    "band1-grammar-articles-stage-3": "v1-ba08093f",
+    "band1-grammar-agreement-stage-1": "v1-3633a344",
+    "band1-grammar-agreement-stage-2": "v1-5e349c81",
+    "band1-grammar-agreement-stage-3": "v1-31b329c5",
+    "band1-vocab-awl1-stage-1": "v1-993adea6",
+    "band1-vocab-awl1-stage-2": "v1-c325107d",
+    "band1-vocab-awl1-stage-3": "v1-e9194cee",
+    "band1-vocab-synonyms-stage-1": "v1-e297892d",
+    "band1-vocab-synonyms-stage-2": "v1-58bdfd27",
+    "band1-vocab-synonyms-stage-3": "v1-bae1d3d4",
+    "band1-time-reading-stage-1": "v2-15d8b3f1",
+    "band1-time-reading-stage-2": "v2-c2cf7ad7",
+    "band1-time-reading-stage-3": "v2-53e613c6",
+    "band1-time-writing-stage-1": "v1-3cf04391",
+    "band1-time-writing-stage-2": "v1-27a1d081",
+    "band1-time-writing-stage-3": "v1-af8cfa15",
+    "band1-practice-listening-stage-1": "v1-5516c41b",
+    "band1-practice-listening-stage-2": "v1-a0aa98d",
+    "band1-practice-listening-stage-3": "v1-fc55c4c",
+    "band1-review-stage-1": "v1-7f37fef1",
+    "band1-review-stage-2": "v1-11fe5862",
+    "band1-review-stage-3": "v1-c0d85d74",
+    "band2-listening-mcq-stage-1": "v1-484cd76a",
+    "band2-listening-mcq-stage-2": "v1-169f86a6",
+    "band2-listening-mcq-stage-3": "v1-2a8bd182",
+    "band2-listening-maps-stage-1": "v1-f353cf80",
+    "band2-listening-maps-stage-2": "v1-67f81991",
+    "band2-listening-maps-stage-3": "v1-c40cc3b6",
+    "band2-listening-form-completion-stage-1": "v1-532c6be0",
+    "band2-listening-form-completion-stage-2": "v1-9ed7e921",
+    "band2-listening-form-completion-stage-3": "v1-b23c3bf3",
+    "band2-vocab-environment-stage-1": "v1-dc22c391",
+    "band2-vocab-environment-stage-2": "v1-8510a529",
+    "band2-vocab-environment-stage-3": "v1-ce864663",
+    "band2-reading-tfng-stage-1": "v2-eff910bd",
+    "band2-reading-tfng-stage-2": "v2-4c710c1c",
+    "band2-reading-tfng-stage-3": "v2-6e431e5f",
+    "band2-reading-headings-stage-1": "v2-1c007728",
+    "band2-reading-headings-stage-2": "v2-5f7cc03f",
+    "band2-reading-headings-stage-3": "v2-c7ab21db",
+    "band2-reading-mcq-stage-1": "v2-47226c9",
+    "band2-reading-mcq-stage-2": "v2-bf5d616b",
+    "band2-reading-mcq-stage-3": "v2-3864062a",
+    "band2-vocab-awl2-stage-1": "v2-fcc3c018",
+    "band2-vocab-awl2-stage-2": "v2-5b4a8b5c",
+    "band2-vocab-awl2-stage-3": "v2-3c9e1a3b",
+    "band2-practice-reading-stage-1": "v2-2ef818e8",
+    "band2-practice-reading-stage-2": "v2-b6e404a9",
+    "band2-practice-reading-stage-3": "v2-e6e6b8e8",
+    "band2-writing-line-graphs-stage-1": "v1-feefbc08",
+    "band2-writing-line-graphs-stage-2": "v1-5987b98d",
+    "band2-writing-line-graphs-stage-3": "v1-f0e869c8",
+    "band2-writing-bar-pie-stage-1": "v1-1e9ce68a",
+    "band2-writing-bar-pie-stage-2": "v1-7d78d92a",
+    "band2-writing-bar-pie-stage-3": "v1-3f1906fe",
+    "band2-writing-letter-stage-1": "v1-985e9810",
+    "band2-writing-letter-stage-2": "v1-de07ba46",
+    "band2-writing-letter-stage-3": "v1-6ee1c203",
+    "band2-writing-opinion-stage-1": "v1-664b0441",
+    "band2-writing-opinion-stage-2": "v1-4d854a7d",
+    "band2-writing-opinion-stage-3": "v1-940e1341",
+    "band2-writing-problem-solution-stage-1": "v1-11d3d53c",
+    "band2-writing-problem-solution-stage-2": "v1-f95c8e1b",
+    "band2-writing-problem-solution-stage-3": "v1-2a92cbf",
+    "band2-writing-cohesion-stage-1": "v1-63bcbf81",
+    "band2-writing-cohesion-stage-2": "v1-22d51fef",
+    "band2-writing-cohesion-stage-3": "v1-d0cd1d15",
+    "band2-grammar-tenses-stage-1": "v1-1e251b82",
+    "band2-grammar-tenses-stage-2": "v1-66db0ff0",
+    "band2-grammar-tenses-stage-3": "v1-97a4f31d",
+    "band2-grammar-complex-stage-1": "v1-d9d35b50",
+    "band2-grammar-complex-stage-2": "v1-ca366aa9",
+    "band2-grammar-complex-stage-3": "v1-ab5306da",
+    "band2-vocab-collocations-stage-1": "v1-3a450a8d",
+    "band2-vocab-collocations-stage-2": "v1-9e0fc06f",
+    "band2-vocab-collocations-stage-3": "v1-40559d64",
+    "band2-vocab-technology-stage-1": "v1-ee4284bf",
+    "band2-vocab-technology-stage-2": "v1-6f13444a",
+    "band2-vocab-technology-stage-3": "v1-76577dc5",
+    "band2-mistakes-prepositions-stage-1": "v1-d1c972b2",
+    "band2-mistakes-prepositions-stage-2": "v1-a593a9fe",
+    "band2-mistakes-prepositions-stage-3": "v1-70e2e563",
+    "band2-mistakes-countable-stage-1": "v1-9ffd736c",
+    "band2-mistakes-countable-stage-2": "v1-8cf7a7a0",
+    "band2-mistakes-countable-stage-3": "v1-bcbe42e0",
+    "band2-speaking-cue-card-stage-1": "v1-abd4591a",
+    "band2-speaking-cue-card-stage-2": "v2-ae97cf45",
+    "band2-speaking-cue-card-stage-3": "v1-5f6f9601",
+    "band2-speaking-describe-stage-1": "v1-a75f10a6",
+    "band2-speaking-describe-stage-2": "v2-fa8d589c",
+    "band2-speaking-describe-stage-3": "v1-408f2564",
+    "band2-speaking-integrated-stage-1": "v1-8843147c",
+    "band2-speaking-integrated-stage-2": "v1-a93d30e4",
+    "band2-speaking-integrated-stage-3": "v1-2715e1b1",
+    "band2-review-stage-1": "v1-3d49c948",
+    "band2-review-stage-2": "v1-b7075f7b",
+    "band2-review-stage-3": "v1-c959e885",
+    "band3-listening-section3-stage-1": "v2-e8e72f35",
+    "band3-listening-section3-stage-2": "v2-926ec6fd",
+    "band3-listening-section3-stage-3": "v2-88a13ad8",
+    "band3-listening-lecture-stage-1": "v2-bc64ff4f",
+    "band3-listening-lecture-stage-2": "v2-55b25a7a",
+    "band3-listening-lecture-stage-3": "v2-224dcbce",
+    "band3-listening-multiple-speakers-stage-1": "v2-6439b18b",
+    "band3-listening-multiple-speakers-stage-2": "v2-16eebbb9",
+    "band3-listening-multiple-speakers-stage-3": "v2-f6be2f6",
+    "band3-vocab-education-stage-1": "v2-1fded9d0",
+    "band3-vocab-education-stage-2": "v2-8453a733",
+    "band3-vocab-education-stage-3": "v2-fba8ec8d",
+    "band3-reading-summary-completion-stage-1": "v1-f3fd5351",
+    "band3-reading-summary-completion-stage-2": "v1-da0e9954",
+    "band3-reading-summary-completion-stage-3": "v1-6c43664a",
+    "band3-reading-matching-features-stage-1": "v2-2859bd0f",
+    "band3-reading-matching-features-stage-2": "v2-487f7eb0",
+    "band3-reading-matching-features-stage-3": "v2-dc5de2b7",
+    "band3-reading-flowchart-stage-1": "v2-abfdac5f",
+    "band3-reading-flowchart-stage-2": "v2-dac5b5ec",
+    "band3-reading-flowchart-stage-3": "v2-2ebc36c4",
+    "band3-vocab-awl3-stage-1": "v2-fc729901",
+    "band3-vocab-awl3-stage-2": "v2-55d954d6",
+    "band3-vocab-awl3-stage-3": "v2-9a4343e7",
+    "band3-vocab-health-stage-1": "v2-b89ce756",
+    "band3-vocab-health-stage-2": "v2-5b161b4e",
+    "band3-vocab-health-stage-3": "v2-bf1128f5",
+    "band3-vocab-work-stage-1": "v2-4d6e4721",
+    "band3-vocab-work-stage-2": "v2-e61cd7b8",
+    "band3-vocab-work-stage-3": "v2-81b8a74",
+    "band3-writing-discussion-stage-1": "v1-d8c6e45e",
+    "band3-writing-discussion-stage-2": "v1-82e7abe9",
+    "band3-writing-discussion-stage-3": "v1-b668cecc",
+    "band3-writing-advantages-stage-1": "v1-7945c140",
+    "band3-writing-advantages-stage-2": "v1-48c3f554",
+    "band3-writing-advantages-stage-3": "v1-bda4f603",
+    "band3-grammar-conditionals-stage-1": "v1-8fb6a0b6",
+    "band3-grammar-conditionals-stage-2": "v1-8b05515a",
+    "band3-grammar-conditionals-stage-3": "v1-5c560355",
+    "band3-grammar-passive-stage-1": "v1-36de4b99",
+    "band3-grammar-passive-stage-2": "v1-9db8f1be",
+    "band3-grammar-passive-stage-3": "v1-469b451b",
+    "band3-error-analysis-stage-1": "v1-ce411ea2",
+    "band3-error-analysis-stage-2": "v1-631c84eb",
+    "band3-error-analysis-stage-3": "v1-7cadd5ba",
+    "band3-writing-multiple-charts-stage-1": "v1-e0eeec9b",
+    "band3-writing-multiple-charts-stage-2": "v1-a76ff447",
+    "band3-writing-multiple-charts-stage-3": "v2-452ab493",
+    "band3-writing-maps-processes-stage-1": "v1-f49781b0",
+    "band3-writing-maps-processes-stage-2": "v1-9b74b823",
+    "band3-writing-maps-processes-stage-3": "v2-6596978a",
+    "band3-writing-task-response-stage-1": "v1-f414f7ca",
+    "band3-writing-task-response-stage-2": "v1-78f140fd",
+    "band3-writing-task-response-stage-3": "v2-db96a7ce",
+    "band3-writing-formality-stage-1": "v1-6d4b75e8",
+    "band3-writing-formality-stage-2": "v1-9a7367c8",
+    "band3-writing-formality-stage-3": "v2-33fc7583",
+    "band3-practice-essay-stage-1": "v1-a68f586b",
+    "band3-practice-essay-stage-2": "v1-305b3f2d",
+    "band3-practice-essay-stage-3": "v2-4abfe900",
+    "band3-speaking-part3-stage-1": "v1-7ab38dc",
+    "band3-speaking-part3-stage-2": "v1-27d8edbc",
+    "band3-speaking-part3-stage-3": "v1-a1ed4b6d",
+    "band3-speaking-toefl4-stage-1": "v1-6026c2f0",
+    "band3-speaking-toefl4-stage-2": "v1-4c82ef5a",
+    "band3-speaking-toefl4-stage-3": "v1-5f1a020f",
+    "band3-speaking-opinions-stage-1": "v1-16aac302",
+    "band3-speaking-opinions-stage-2": "v1-170d4431",
+    "band3-speaking-opinions-stage-3": "v1-4cfd57dd",
+    "band3-paraphrasing-stage-1": "v1-642024a",
+    "band3-paraphrasing-stage-2": "v1-717c8146",
+    "band3-paraphrasing-stage-3": "v1-107bd634",
+    "band3-review-stage-1": "v1-49abed76",
+    "band3-review-stage-2": "v1-c6f9c0d9",
+    "band3-review-stage-3": "v1-e5f7b48c",
+    "band4-listening-accents-stage-1": "v1-eb99dd87",
+    "band4-listening-accents-stage-2": "v2-88009e87",
+    "band4-listening-accents-stage-3": "v1-f90d2d48",
+    "band4-listening-inference-stage-1": "v1-b358d4c6",
+    "band4-listening-inference-stage-2": "v1-e98d7b4a",
+    "band4-listening-inference-stage-3": "v1-9dcf602d",
+    "band4-listening-distractors-stage-1": "v1-ac968ef9",
+    "band4-listening-distractors-stage-2": "v2-a1cc3f7b",
+    "band4-listening-distractors-stage-3": "v1-718b8628",
+    "band4-mock-ielts-listening-stage-1": "v2-cadb3437",
+    "band4-mock-ielts-listening-stage-2": "v1-f6afaed7",
+    "band4-mock-ielts-listening-stage-3": "v1-9d255c0f",
+    "band4-reading-writers-views-stage-1": "v2-4b131fc3",
+    "band4-reading-writers-views-stage-2": "v2-c1419250",
+    "band4-reading-writers-views-stage-3": "v2-e63406c5",
+    "band4-reading-difficult-texts-stage-1": "v2-58df47d0",
+    "band4-reading-difficult-texts-stage-2": "v2-7bf9f296",
+    "band4-reading-difficult-texts-stage-3": "v2-5da454ec",
+    "band4-reading-time-pressure-stage-1": "v2-399d8440",
+    "band4-reading-time-pressure-stage-2": "v2-806ada94",
+    "band4-reading-time-pressure-stage-3": "v2-ba27d27f",
+    "band4-writing-complex-comparisons-stage-1": "v2-1f146c6",
+    "band4-writing-complex-comparisons-stage-2": "v2-79cee366",
+    "band4-writing-complex-comparisons-stage-3": "v2-dc2e01a6",
+    "band4-vocab-awl4-stage-1": "v2-c17c10e",
+    "band4-vocab-awl4-stage-2": "v2-5de3bb41",
+    "band4-vocab-awl4-stage-3": "v2-40eb1d98",
+    "band4-vocab-science-stage-1": "v2-e0f66ee1",
+    "band4-vocab-science-stage-2": "v2-2470d0d",
+    "band4-vocab-science-stage-3": "v2-12ee281e",
+    "band4-vocab-globalization-stage-1": "v2-3d4b2e5b",
+    "band4-vocab-globalization-stage-2": "v2-15fb5cb1",
+    "band4-vocab-globalization-stage-3": "v2-d6dddb2",
+    "band4-mock-toefl-reading-stage-1": "v2-210fbf6c",
+    "band4-mock-toefl-reading-stage-2": "v2-99ea5c08",
+    "band4-mock-toefl-reading-stage-3": "v2-c5223dee",
+    "band4-writing-sophisticated-stage-1": "v1-6a3358fb",
+    "band4-writing-sophisticated-stage-2": "v1-cb30de4d",
+    "band4-writing-sophisticated-stage-3": "v1-977cf2a2",
+    "band4-writing-complex-ideas-stage-1": "v1-2788e8f1",
+    "band4-writing-complex-ideas-stage-2": "v1-ebd13b01",
+    "band4-writing-complex-ideas-stage-3": "v1-58c7764a",
+    "band4-writing-lexical-resource-stage-1": "v1-2f8b611d",
+    "band4-writing-lexical-resource-stage-2": "v2-ddd59c51",
+    "band4-writing-lexical-resource-stage-3": "v2-eadf2f5f",
+    "band4-writing-grammatical-range-stage-1": "v1-7b88da2",
+    "band4-writing-grammatical-range-stage-2": "v1-3e0a6ec1",
+    "band4-writing-grammatical-range-stage-3": "v1-452eeb56",
+    "band4-grammar-inversion-stage-1": "v1-78138a6a",
+    "band4-grammar-inversion-stage-2": "v1-889e58f2",
+    "band4-grammar-inversion-stage-3": "v1-33d23fa3",
+    "band4-grammar-participles-stage-1": "v1-21d05ee1",
+    "band4-grammar-participles-stage-2": "v1-8ac236b7",
+    "band4-grammar-participles-stage-3": "v1-977ba68e",
+    "band4-writing-band8-essay-stage-1": "v1-247685c",
+    "band4-writing-band8-essay-stage-2": "v1-62ba0e38",
+    "band4-writing-band8-essay-stage-3": "v1-d733e4c4",
+    "band4-speaking-storytelling-stage-1": "v1-7f001a51",
+    "band4-speaking-storytelling-stage-2": "v2-3ce4daa0",
+    "band4-speaking-storytelling-stage-3": "v1-a9e06b3f",
+    "band4-speaking-abstract-topics-stage-1": "v1-b9fcae07",
+    "band4-speaking-abstract-topics-stage-2": "v1-49cdd751",
+    "band4-speaking-abstract-topics-stage-3": "v1-68c9fc62",
+    "band4-speaking-pronunciation-stage-1": "v1-8de01fd0",
+    "band4-speaking-pronunciation-stage-2": "v1-f5f9e3e5",
+    "band4-speaking-pronunciation-stage-3": "v1-ebff3494",
+    "band4-vocab-idioms-stage-1": "v1-b28bc706",
+    "band4-vocab-idioms-stage-2": "v1-238928ae",
+    "band4-vocab-idioms-stage-3": "v1-e581600c",
+    "band4-exam-day-strategies-stage-1": "v2-76f2f9fa",
+    "band4-exam-day-strategies-stage-2": "v2-df1b29a4",
+    "band4-exam-day-strategies-stage-3": "v2-c0905d17",
+    "band4-review-stage-1": "v2-7a1e66bb",
+    "band4-review-stage-2": "v2-72d84e09",
+    "band4-review-stage-3": "v2-50657cdc"
+  },
+  "exercisesSha256": "6b2c6d0e1b5b15628fe2edafcc995625c944dab36873290687005782c60ce02a",
+  "wordFormationBefore": {
+    "id": "activity-band1-toefl-intro",
+    "lessonId": "band1-toefl-intro",
+    "type": "course-activity",
+    "prompt": "B2 Word Formation: building meaning in context — guided practice, independent response and transfer assessment",
+    "data": {
+      "exam": "B2 First",
+      "objective": "B2 Word Formation: building meaning in context",
+      "learn": "In Part 3, the gap needs a form of the supplied word. Read the whole sentence to decide its grammatical role, then check number, negative meaning and spelling. Suffixes are clues, not rules that work for every word. A noun may require a plural ending; an adjective may need a negative prefix. Read the finished paragraph to ensure the meaning fits.",
+      "worked": {
+        "example": "The route is not SAFE in winter → Safety depends on the weather.",
+        "reasoning": "The first gap would need “safe”; after a verb such as “depends”, the subject needs the noun “safety”. Meaning and syntax determine the form."
+      },
+      "tasks": [
+        {
+          "kind": "language",
+          "title": "A community garden",
+          "instructions": "Read the complete source and answer each question. Use only the evidence given. These are original lesson tasks, not a complete examination paper.",
+          "source": "Residents turned an unused yard into a garden. A shared project required careful planning, patient communication and decisions about who would do each job.",
+          "questions": [
+            {
+              "prompt": "The garden is open to all local ___ (RESIDE).",
+              "answers": [
+                "residents"
+              ],
+              "evidence": "A plural noun names the people who live locally.",
+              "explanation": "The source supports this answer: A plural noun names the people who live locally.",
+              "maxWords": 1,
+              "id": "q1",
+              "punctuation": "terminal"
+            },
+            {
+              "prompt": "Its ___ (CREATE) required months of work.",
+              "answers": [
+                "creation"
+              ],
+              "evidence": "Its is followed by a noun; creation names the process.",
+              "explanation": "The source supports this answer: Its is followed by a noun; creation names the process.",
+              "maxWords": 1,
+              "id": "q2",
+              "punctuation": "terminal"
+            },
+            {
+              "prompt": "A detailed plan made the work more ___ (MANAGE).",
+              "answers": [
+                "manageable"
+              ],
+              "evidence": "More modifies the adjective manageable.",
+              "explanation": "The source supports this answer: More modifies the adjective manageable.",
+              "maxWords": 1,
+              "id": "q3",
+              "punctuation": "terminal"
+            },
+            {
+              "prompt": "Volunteers receive ___ (PRACTICE) training.",
+              "answers": [
+                "practical"
+              ],
+              "evidence": "The adjective practical modifies training.",
+              "explanation": "The source supports this answer: The adjective practical modifies training.",
+              "maxWords": 1,
+              "id": "q4",
+              "punctuation": "terminal"
+            },
+            {
+              "prompt": "The coordinator explains tasks ___ (CLEAR).",
+              "answers": [
+                "clearly"
+              ],
+              "evidence": "An adverb modifies explains.",
+              "explanation": "The source supports this answer: An adverb modifies explains.",
+              "maxWords": 1,
+              "id": "q5",
+              "punctuation": "terminal"
+            },
+            {
+              "prompt": "Teamwork has been especially ___ (VALUE).",
+              "answers": [
+                "valuable"
+              ],
+              "evidence": "Been is followed by an adjective here.",
+              "explanation": "The source supports this answer: Been is followed by an adjective here.",
+              "maxWords": 1,
+              "id": "q6",
+              "punctuation": "terminal"
+            },
+            {
+              "prompt": "Water use fell ___ (SIGNIFICANT).",
+              "answers": [
+                "significantly"
+              ],
+              "evidence": "The adverb describes the size of the fall.",
+              "explanation": "The source supports this answer: The adverb describes the size of the fall.",
+              "maxWords": 1,
+              "id": "q7",
+              "punctuation": "terminal"
+            },
+            {
+              "prompt": "The project depends on regular ___ (MAINTAIN).",
+              "answers": [
+                "maintenance"
+              ],
+              "evidence": "The noun after regular is maintenance.",
+              "explanation": "The source supports this answer: The noun after regular is maintenance.",
+              "maxWords": 1,
+              "id": "q8",
+              "punctuation": "terminal"
+            }
+          ],
+          "seconds": 480,
+          "id": "band1-toefl-intro-stage-1"
+        },
+        {
+          "kind": "language",
+          "title": "An accessible museum",
+          "instructions": "Read the complete source and answer each question. Use only the evidence given. These are original lesson tasks, not a complete examination paper.",
+          "source": "A small museum redesigned its displays after speaking with visitors. The team wanted clearer information without removing challenging ideas.",
+          "questions": [
+            {
+              "prompt": "The new signs improve ___ (ACCESS).",
+              "answers": [
+                "accessibility"
+              ],
+              "evidence": "Accessibility is the quality of being accessible.",
+              "explanation": "The source supports this answer: Accessibility is the quality of being accessible.",
+              "maxWords": 1,
+              "id": "q1",
+              "punctuation": "terminal"
+            },
+            {
+              "prompt": "The director welcomed visitors’ ___ (SUGGEST).",
+              "answers": [
+                "suggestions"
+              ],
+              "evidence": "The plural possessive visitors’ is followed by plural suggestions here.",
+              "explanation": "The source supports this answer: The plural possessive visitors’ is followed by plural suggestions here.",
+              "maxWords": 1,
+              "id": "q2",
+              "punctuation": "terminal"
+            },
+            {
+              "prompt": "A ___ (DESIGN) created a simpler map.",
+              "answers": [
+                "designer"
+              ],
+              "evidence": "A person who designs is a designer.",
+              "explanation": "The source supports this answer: A person who designs is a designer.",
+              "maxWords": 1,
+              "id": "q3",
+              "punctuation": "terminal"
+            },
+            {
+              "prompt": "Each display includes a short ___ (EXPLAIN).",
+              "answers": [
+                "explanation"
+              ],
+              "evidence": "A countable noun follows a short.",
+              "explanation": "The source supports this answer: A countable noun follows a short.",
+              "maxWords": 1,
+              "id": "q4",
+              "punctuation": "terminal"
+            },
+            {
+              "prompt": "The museum avoids ___ (NECESSARY) technical terms.",
+              "answers": [
+                "unnecessary"
+              ],
+              "evidence": "The context requires terms that are not needed.",
+              "explanation": "The source supports this answer: The context requires terms that are not needed.",
+              "maxWords": 1,
+              "id": "q5",
+              "punctuation": "terminal"
+            },
+            {
+              "prompt": "The labels are ___ (USUAL) easy to read.",
+              "answers": [
+                "unusually"
+              ],
+              "evidence": "The adverb modifies the adjective easy.",
+              "explanation": "The source supports this answer: The adverb modifies the adjective easy.",
+              "maxWords": 1,
+              "id": "q6",
+              "punctuation": "terminal"
+            },
+            {
+              "prompt": "The changes increased visitor ___ (SATISFY).",
+              "answers": [
+                "satisfaction"
+              ],
+              "evidence": "The noun satisfaction names the feeling.",
+              "explanation": "The source supports this answer: The noun satisfaction names the feeling.",
+              "maxWords": 1,
+              "id": "q7",
+              "punctuation": "terminal"
+            },
+            {
+              "prompt": "Staff will review their ___ (EFFECTIVE) next year.",
+              "answers": [
+                "effectiveness"
+              ],
+              "evidence": "The noun names how effective the changes are.",
+              "explanation": "The source supports this answer: The noun names how effective the changes are.",
+              "maxWords": 1,
+              "id": "q8",
+              "punctuation": "terminal"
+            }
+          ],
+          "seconds": 480,
+          "id": "band1-toefl-intro-stage-2"
+        },
+        {
+          "kind": "language",
+          "title": "A volunteer survey",
+          "instructions": "Read the complete source and answer each question. Use only the evidence given. These are original lesson tasks, not a complete examination paper.",
+          "source": "A library asked users to comment on its weekend programme. Staff compared responses, recorded limitations and planned a small trial.",
+          "questions": [
+            {
+              "prompt": "The survey encouraged active ___ (PARTICIPATE).",
+              "answers": [
+                "participation"
+              ],
+              "evidence": "A noun follows active.",
+              "explanation": "The source supports this answer: A noun follows active.",
+              "maxWords": 1,
+              "id": "q1",
+              "punctuation": "terminal"
+            },
+            {
+              "prompt": "Some comments were ___ (CRITIC).",
+              "answers": [
+                "critical"
+              ],
+              "evidence": "An adjective describes the comments.",
+              "explanation": "The source supports this answer: An adjective describes the comments.",
+              "maxWords": 1,
+              "id": "q2",
+              "punctuation": "terminal"
+            },
+            {
+              "prompt": "Staff responded ___ (POLITE).",
+              "answers": [
+                "politely"
+              ],
+              "evidence": "An adverb describes responded.",
+              "explanation": "The source supports this answer: An adverb describes responded.",
+              "maxWords": 1,
+              "id": "q3",
+              "punctuation": "terminal"
+            },
+            {
+              "prompt": "The results revealed a ___ (PREFER) for later opening.",
+              "answers": [
+                "preference"
+              ],
+              "evidence": "The noun preference follows a.",
+              "explanation": "The source supports this answer: The noun preference follows a.",
+              "maxWords": 1,
+              "id": "q4",
+              "punctuation": "terminal"
+            },
+            {
+              "prompt": "A ___ (RELY) timetable was essential.",
+              "answers": [
+                "reliable"
+              ],
+              "evidence": "The adjective reliable modifies timetable.",
+              "explanation": "The source supports this answer: The adjective reliable modifies timetable.",
+              "maxWords": 1,
+              "id": "q5",
+              "punctuation": "terminal"
+            },
+            {
+              "prompt": "The trial was not ___ (COMPLETE) successful.",
+              "answers": [
+                "completely"
+              ],
+              "evidence": "The adverb modifies successful.",
+              "explanation": "The source supports this answer: The adverb modifies successful.",
+              "maxWords": 1,
+              "id": "q6",
+              "punctuation": "terminal"
+            },
+            {
+              "prompt": "Costs remained ___ (REASON).",
+              "answers": [
+                "reasonable"
+              ],
+              "evidence": "The adjective means fair or sensible in amount.",
+              "explanation": "The source supports this answer: The adjective means fair or sensible in amount.",
+              "maxWords": 1,
+              "id": "q7",
+              "punctuation": "terminal"
+            },
+            {
+              "prompt": "Further ___ (IMPROVE) will depend on funding.",
+              "answers": [
+                "improvements"
+              ],
+              "evidence": "Further improvements is the plural subject of will depend.",
+              "explanation": "The source supports this answer: Further improvements is the plural subject of will depend.",
+              "maxWords": 1,
+              "id": "q8",
+              "punctuation": "terminal"
+            }
+          ],
+          "seconds": 480,
+          "id": "band1-toefl-intro-stage-3"
+        }
+      ]
+    },
+    "xpReward": 20
+  },
+  "planningActivitiesBefore": [
+    {
+      "id": "activity-band3-writing-maps-processes",
+      "lessonId": "band3-writing-maps-processes",
+      "type": "course-activity",
+      "prompt": "Writing: Write an Email—Purpose, Detail and Tone — guided practice, independent response and transfer assessment",
+      "data": {
+        "exam": "TOEFL iBT 2026",
+        "objective": "Writing: Write an Email—Purpose, Detail and Tone",
+        "learn": "Current TOEFL Writing includes Build a Sentence, Write an Email and Write for an Academic Discussion. Write an Email requires producing an original response, not selecting a strategy answer. Address the communicative purpose, develop relevant detail and use a suitable register. The local timers and word targets support practice; they do not reproduce adaptive delivery or generate an official score.",
+        "worked": {
+          "example": "A request should explain the issue, provide actionable details and say what response is needed.",
+          "reasoning": "A polite opening cannot compensate for an unclear purpose or omitted task point."
+        },
+        "tasks": [
+          {
+            "kind": "writing",
+            "title": "Guided task planning",
+            "instructions": "Write 50–80 words planning the independent Write an Email task below. Identify the reader or discussion issue, the required points and the order you would use. Do not compose the full response yet.",
+            "model": "The response needs to address write an email directly. I would begin with a clear purpose or position, then develop the specific problem or reason before proposing a useful next step. The reader should not have to infer what action or viewpoint I am communicating. I would check that every required point is covered and remove details that do not help the task. Finally, I would review tone, sentence completeness and precise wording.",
+            "minWords": 50,
+            "seconds": 600,
+            "rubric": [
+              "Task fulfilment: my response addresses the situation and all requested points, or contributes a relevant discussion position.",
+              "Development: reasons and specific details explain my message or position without invented research.",
+              "Organisation and register: connections, audience and purpose are clear.",
+              "Language: I checked word choice, grammar, punctuation and sentence completeness."
+            ],
+            "analysis": "Compare the message and reasoning, not just the vocabulary. Identify where the model addresses each instruction, how each paragraph develops its point, and one sentence you can improve in your own draft. This is an original teaching model, not an examiner-rated script.",
+            "maxWords": 80,
+            "id": "band3-writing-maps-processes-stage-1"
+          },
+          {
+            "kind": "writing",
+            "title": "Independent Write an Email",
+            "instructions": "You are preparing a group presentation. The assigned room’s projector does not work. Write to your instructor: explain the problem, propose an alternative, and ask for a decision. Include enough detail for the instructor to respond. Local practice target: 120–180 words in seven minutes.",
+            "model": "Dear Dr Chen,\n\nI am writing about the presentation scheduled for Thursday. Our group has completed the research, but the projector in the assigned room is not working. We tested it this morning and could not display our slides, even with a different laptop.\n\nWould it be possible to move the presentation to room 12? The room is listed as available at the same time, and its screen worked during our last seminar. If changing rooms is not possible, we can prepare printed copies of the key charts, although this would make the demonstration less clear.\n\nPlease let us know which option you prefer so that we can inform the other students and prepare the appropriate materials. We are available to test the equipment again before class if that would help.\n\nThank you for your advice.\n\nBest regards,\nSam Malik",
+            "minWords": 120,
+            "seconds": 420,
+            "rubric": [
+              "Task fulfilment: my response addresses the situation and all requested points, or contributes a relevant discussion position.",
+              "Development: reasons and specific details explain my message or position without invented research.",
+              "Organisation and register: connections, audience and purpose are clear.",
+              "Language: I checked word choice, grammar, punctuation and sentence completeness."
+            ],
+            "analysis": "Compare the message and reasoning, not just the vocabulary. Identify where the model addresses each instruction, how each paragraph develops its point, and one sentence you can improve in your own draft. This is an original teaching model, not an examiner-rated script.",
+            "maxWords": 180,
+            "id": "band3-writing-maps-processes-stage-2"
+          },
+          {
+            "kind": "writing",
+            "title": "Assessment: a fresh email",
+            "instructions": "You organise a student photography exhibition. A room booking confirmation gives the wrong date: 18 March rather than 25 March. Email the campus events officer. Explain the error and why it matters, request the correct date or a suitable alternative, and ask how to confirm the amended booking.",
+            "model": "Dear Events Officer,\n\nI am writing about the room confirmation for our student photography exhibition. Our group requested 25 March, but the confirmation lists 18 March. Several contributors will be away on that earlier date, so we could not display their work.\n\nCould you check whether the room is available on 25 March and amend the booking? If it has already been reserved, a similar space on the same afternoon would be helpful. We need room for twelve display boards and expect about thirty visitors.\n\nPlease let me know which option is possible and whether I need to submit a new form. I can send our original request immediately if that would help you locate the correct booking.\n\nKind regards,\nAlex",
+            "minWords": 120,
+            "seconds": 420,
+            "rubric": [
+              "I identify the two dates and explain the practical consequence.",
+              "I request a correction and offer a workable alternative.",
+              "I ask for a clear next step in a courteous email to the events officer.",
+              "I checked language, connections and punctuation."
+            ],
+            "analysis": "Trace each requested point in the model, then compare how your response fulfils it. These are original teaching models for self-review, not examiner-rated scripts.",
+            "id": "band3-writing-maps-processes-stage-3",
+            "contentVersion": 2,
+            "taskFamily": "email"
+          }
+        ]
+      },
+      "xpReward": 20
+    },
+    {
+      "id": "activity-band3-writing-task-response",
+      "lessonId": "band3-writing-task-response",
+      "type": "course-activity",
+      "prompt": "Writing: Email Task Fulfilment and Actionable Requests — guided practice, independent response and transfer assessment",
+      "data": {
+        "exam": "TOEFL iBT 2026",
+        "objective": "Writing: Email Task Fulfilment and Actionable Requests",
+        "learn": "Current TOEFL Writing includes Build a Sentence, Write an Email and Write for an Academic Discussion. Email task fulfilment requires producing an original response, not selecting a strategy answer. Address the communicative purpose, develop relevant detail and use a suitable register. The local timers and word targets support practice; they do not reproduce adaptive delivery or generate an official score.",
+        "worked": {
+          "example": "A request should explain the issue, provide actionable details and say what response is needed.",
+          "reasoning": "A polite opening cannot compensate for an unclear purpose or omitted task point."
+        },
+        "tasks": [
+          {
+            "kind": "writing",
+            "title": "Guided task planning",
+            "instructions": "Write 50–80 words planning the independent Email task fulfilment task below. Identify the reader or discussion issue, the required points and the order you would use. Do not compose the full response yet.",
+            "model": "The response needs to address email task fulfilment directly. I would begin with a clear purpose or position, then develop the specific problem or reason before proposing a useful next step. The reader should not have to infer what action or viewpoint I am communicating. I would check that every required point is covered and remove details that do not help the task. Finally, I would review tone, sentence completeness and precise wording.",
+            "minWords": 50,
+            "seconds": 600,
+            "rubric": [
+              "Task fulfilment: my response addresses the situation and all requested points, or contributes a relevant discussion position.",
+              "Development: reasons and specific details explain my message or position without invented research.",
+              "Organisation and register: connections, audience and purpose are clear.",
+              "Language: I checked word choice, grammar, punctuation and sentence completeness."
+            ],
+            "analysis": "Compare the message and reasoning, not just the vocabulary. Identify where the model addresses each instruction, how each paragraph develops its point, and one sentence you can improve in your own draft. This is an original teaching model, not an examiner-rated script.",
+            "maxWords": 80,
+            "id": "band3-writing-task-response-stage-1"
+          },
+          {
+            "kind": "writing",
+            "title": "Independent Email task fulfilment",
+            "instructions": "You booked laboratory training but a compulsory class now conflicts with it. Email the technician: explain the conflict, ask about another session, and state when you are available. Local practice target: 120–180 words in seven minutes.",
+            "model": "Dear Laboratory Technician,\n\nI am registered for the equipment training on Tuesday afternoon, but my department has moved a compulsory seminar to the same time. I would therefore like to ask whether I can attend another session before beginning my project next week.\n\nI have completed the online safety module, and I can send the confirmation if needed. I am available on Wednesday after two and throughout Thursday morning. If neither period is possible, please let me know the next scheduled session so that I can adjust my project plan rather than use the equipment without training.\n\nCould you also confirm whether I should cancel the original booking myself? I do not want to prevent another student from using the place.\n\nThank you for helping me arrange a suitable alternative.\n\nBest regards,\nMaya Lee",
+            "minWords": 120,
+            "seconds": 420,
+            "rubric": [
+              "Task fulfilment: my response addresses the situation and all requested points, or contributes a relevant discussion position.",
+              "Development: reasons and specific details explain my message or position without invented research.",
+              "Organisation and register: connections, audience and purpose are clear.",
+              "Language: I checked word choice, grammar, punctuation and sentence completeness."
+            ],
+            "analysis": "Compare the message and reasoning, not just the vocabulary. Identify where the model addresses each instruction, how each paragraph develops its point, and one sentence you can improve in your own draft. This is an original teaching model, not an examiner-rated script.",
+            "maxWords": 180,
+            "id": "band3-writing-task-response-stage-2"
+          },
+          {
+            "kind": "writing",
+            "title": "Assessment: a fresh email",
+            "instructions": "You signed up for a campus volunteer induction on Tuesday morning, but a required laboratory session has been moved to the same time. Email the volunteer coordinator. Explain the conflict, request another induction or an alternative arrangement, and give your availability so the coordinator can act.",
+            "model": "Dear Volunteer Coordinator,\n\nThank you for reserving a place for me at Tuesday morning’s induction. My department has moved a compulsory laboratory session to the same time, so I can no longer attend as planned. I still want to join the weekend reading project and would appreciate advice on completing the induction.\n\nWould it be possible to attend another session later in the week? I am free after two on Wednesday and throughout Friday morning. If neither is suitable, I could review the introductory material in advance and arrange a short meeting to cover the safety procedures.\n\nPlease let me know whether one of these arrangements would meet the project’s requirements. I understand that I should not begin volunteering until the induction is complete.\n\nBest wishes,\nMorgan",
+            "minWords": 120,
+            "seconds": 420,
+            "rubric": [
+              "I explain the timetable conflict without implying that induction is optional.",
+              "I make an actionable request and state specific availability.",
+              "I use a clear, polite email with an appropriate opening and close.",
+              "I checked language, connections and punctuation."
+            ],
+            "analysis": "Trace each requested point in the model, then compare how your response fulfils it. These are original teaching models for self-review, not examiner-rated scripts.",
+            "id": "band3-writing-task-response-stage-3",
+            "contentVersion": 2,
+            "taskFamily": "email"
+          }
+        ]
+      },
+      "xpReward": 20
+    },
+    {
+      "id": "activity-band3-writing-formality",
+      "lessonId": "band3-writing-formality",
+      "type": "course-activity",
+      "prompt": "Writing: Academic Discussion Development and Register — guided practice, independent response and transfer assessment",
+      "data": {
+        "exam": "TOEFL iBT 2026",
+        "objective": "Writing: Academic Discussion Development and Register",
+        "learn": "Current TOEFL Writing includes Build a Sentence, Write an Email and Write for an Academic Discussion. Academic Discussion development requires producing an original response, not selecting a strategy answer. Address the communicative purpose, develop relevant detail and use a suitable register. The local timers and word targets support practice; they do not reproduce adaptive delivery or generate an official score.",
+        "worked": {
+          "example": "A request should explain the issue, provide actionable details and say what response is needed.",
+          "reasoning": "A polite opening cannot compensate for an unclear purpose or omitted task point."
+        },
+        "tasks": [
+          {
+            "kind": "writing",
+            "title": "Guided task planning",
+            "instructions": "Write 50–80 words planning the independent Academic Discussion development task below. Identify the reader or discussion issue, the required points and the order you would use. Do not compose the full response yet.",
+            "model": "The response needs to address academic discussion development directly. I would begin with a clear purpose or position, then develop the specific problem or reason before proposing a useful next step. The reader should not have to infer what action or viewpoint I am communicating. I would check that every required point is covered and remove details that do not help the task. Finally, I would review tone, sentence completeness and precise wording.",
+            "minWords": 50,
+            "seconds": 600,
+            "rubric": [
+              "Task fulfilment: my response addresses the situation and all requested points, or contributes a relevant discussion position.",
+              "Development: reasons and specific details explain my message or position without invented research.",
+              "Organisation and register: connections, audience and purpose are clear.",
+              "Language: I checked word choice, grammar, punctuation and sentence completeness."
+            ],
+            "analysis": "Compare the message and reasoning, not just the vocabulary. Identify where the model addresses each instruction, how each paragraph develops its point, and one sentence you can improve in your own draft. This is an original teaching model, not an examiner-rated script.",
+            "maxWords": 80,
+            "id": "band3-writing-formality-stage-1"
+          },
+          {
+            "kind": "writing",
+            "title": "Independent Academic Discussion development",
+            "instructions": "Professor: Should a university spend limited funds on longer library opening hours or more online resources? Noah favours longer hours for quiet study. Priya favours digital access for commuting students. Contribute an original, supported view that responds to the discussion. Aim for at least 100 words.",
+            "model": "Priya’s point about commuting students is important, but I would first identify which barrier affects the largest number of users. More online resources will not solve the problem for students who lack a quiet place to work, while longer opening hours may be unhelpful if transport stops early. I would use a short survey and existing access records to compare these needs. The university could then trial one later evening alongside remote access to a small set of frequently requested materials. This would produce evidence before committing the whole budget. The choice should follow actual learning needs rather than assuming that either physical or digital access is always superior.",
+            "minWords": 100,
+            "seconds": 600,
+            "rubric": [
+              "Task fulfilment: my response addresses the situation and all requested points, or contributes a relevant discussion position.",
+              "Development: reasons and specific details explain my message or position without invented research.",
+              "Organisation and register: connections, audience and purpose are clear.",
+              "Language: I checked word choice, grammar, punctuation and sentence completeness."
+            ],
+            "analysis": "Compare the message and reasoning, not just the vocabulary. Identify where the model addresses each instruction, how each paragraph develops its point, and one sentence you can improve in your own draft. This is an original teaching model, not an examiner-rated script.",
+            "id": "band3-writing-formality-stage-2",
+            "taskFamily": "discussion"
+          },
+          {
+            "kind": "writing",
+            "title": "Assessment: a fresh academic discussion",
+            "instructions": "Professor: A university is considering replacing some large lectures with small workshops. Sara believes workshops make participation easier. Ben worries that fewer lectures would reduce access to expert explanations. What arrangement would you recommend? Engage with a viewpoint and explain your reasoning. Aim for at least 100 words.",
+            "model": "I would retain a shorter expert lecture and use the remaining time for small workshops. Sara is right that students need opportunities to test their understanding rather than only listen. In a workshop, they could explain an answer to a partner and discover which step they have misunderstood. However, Ben identifies a real risk: students may struggle if they are asked to solve problems before the key concepts have been explained. A short lecture could introduce those concepts, while a prepared workshop task would require students to apply them. Tutors could collect common difficulties and pass them back to the lecturer. This would connect explanation and participation rather than make them competing priorities.",
+            "minWords": 100,
+            "seconds": 600,
+            "rubric": [
+              "I recommend a specific arrangement, not simply list advantages.",
+              "I respond to Sara or Ben and explain an example of learning.",
+              "I use a natural academic discussion register and check clarity.",
+              "I checked language, connections and punctuation."
+            ],
+            "analysis": "Trace each requested point in the model, then compare how your response fulfils it. These are original teaching models for self-review, not examiner-rated scripts.",
+            "id": "band3-writing-formality-stage-3",
+            "contentVersion": 2,
+            "taskFamily": "discussion"
+          }
+        ]
+      },
+      "xpReward": 20
+    },
+    {
+      "id": "activity-band3-practice-essay",
+      "lessonId": "band3-practice-essay",
+      "type": "course-activity",
+      "prompt": "Writing: Timed Email and Academic Discussion Practice — guided practice, independent response and transfer assessment",
+      "data": {
+        "exam": "TOEFL iBT 2026",
+        "objective": "Writing: Timed Email and Academic Discussion Practice",
+        "learn": "Current TOEFL Writing includes Build a Sentence, Write an Email and Write for an Academic Discussion. Timed Email and Discussion transfer requires producing an original response, not selecting a strategy answer. Address the communicative purpose, develop relevant detail and use a suitable register. The local timers and word targets support practice; they do not reproduce adaptive delivery or generate an official score.",
+        "worked": {
+          "example": "A request should explain the issue, provide actionable details and say what response is needed.",
+          "reasoning": "A polite opening cannot compensate for an unclear purpose or omitted task point."
+        },
+        "tasks": [
+          {
+            "kind": "writing",
+            "title": "Guided task planning",
+            "instructions": "Write 50–80 words planning the independent Timed Email and Discussion transfer task below. Identify the reader or discussion issue, the required points and the order you would use. Do not compose the full response yet.",
+            "model": "The response needs to address timed email and discussion transfer directly. I would begin with a clear purpose or position, then develop the specific problem or reason before proposing a useful next step. The reader should not have to infer what action or viewpoint I am communicating. I would check that every required point is covered and remove details that do not help the task. Finally, I would review tone, sentence completeness and precise wording.",
+            "minWords": 50,
+            "seconds": 600,
+            "rubric": [
+              "Task fulfilment: my response addresses the situation and all requested points, or contributes a relevant discussion position.",
+              "Development: reasons and specific details explain my message or position without invented research.",
+              "Organisation and register: connections, audience and purpose are clear.",
+              "Language: I checked word choice, grammar, punctuation and sentence completeness."
+            ],
+            "analysis": "Compare the message and reasoning, not just the vocabulary. Identify where the model addresses each instruction, how each paragraph develops its point, and one sentence you can improve in your own draft. This is an original teaching model, not an examiner-rated script.",
+            "maxWords": 80,
+            "id": "band3-practice-essay-stage-1"
+          },
+          {
+            "kind": "writing",
+            "title": "Independent Timed Email and Discussion transfer",
+            "instructions": "Professor: Should first-year students choose all their courses, or follow a partly required programme? Elise favours freedom; David argues that beginners need guidance. Contribute your position and engage with at least one viewpoint. Aim for at least 100 words.",
+            "model": "I support a partly required programme because first-year students may not yet know which foundations later courses assume. David is right that guidance can prevent choices that close useful opportunities. However, Elise’s concern about motivation also matters: students should have room to explore a subject that interests them. A small required core combined with several elective options would balance these needs. Advisers could explain the purpose of each requirement rather than presenting it as an arbitrary restriction. After the first year, students would have more experience on which to base independent choices. This approach provides support without treating all learners as if they have identical goals.",
+            "minWords": 100,
+            "seconds": 600,
+            "rubric": [
+              "Task fulfilment: my response addresses the situation and all requested points, or contributes a relevant discussion position.",
+              "Development: reasons and specific details explain my message or position without invented research.",
+              "Organisation and register: connections, audience and purpose are clear.",
+              "Language: I checked word choice, grammar, punctuation and sentence completeness."
+            ],
+            "analysis": "Compare the message and reasoning, not just the vocabulary. Identify where the model addresses each instruction, how each paragraph develops its point, and one sentence you can improve in your own draft. This is an original teaching model, not an examiner-rated script.",
+            "maxWords": 180,
+            "id": "band3-practice-essay-stage-2",
+            "taskFamily": "discussion"
+          },
+          {
+            "kind": "writing",
+            "title": "Assessment: a fresh email",
+            "instructions": "You are helping organise a campus careers event. A guest speaker has asked for an online connection, but the assigned room has no video-call equipment. Email the careers adviser. Explain the difficulty, propose a practical solution, and request a decision before you contact the speaker. Local practice target: 120–180 words in seven minutes.",
+            "model": "Dear Careers Adviser,\n\nI am contacting you about Thursday’s careers event. Our guest speaker has asked to join online because her train has been cancelled. Unfortunately, Room 14 has no camera or speakers suitable for a video call, so the current arrangement will not allow the audience to hear her properly.\n\nCould we move the session to the language laboratory? It has the necessary equipment and is free after three, according to the booking calendar. I could help test the connection with the technician before the event. If that room cannot be reserved, another option would be to hold the interview online and send students a joining link.\n\nPlease let me know which arrangement you approve by tomorrow afternoon. I will wait for your decision before confirming anything with the speaker.\n\nKind regards,\nJamie",
+            "minWords": 120,
+            "seconds": 420,
+            "rubric": [
+              "I explain the equipment problem and its effect on the event.",
+              "I propose a feasible solution with useful practical details.",
+              "I request a decision and make clear who will contact the speaker.",
+              "I checked language, connections and punctuation."
+            ],
+            "analysis": "Trace each requested point in the model, then compare how your response fulfils it. These are original teaching models for self-review, not examiner-rated scripts.",
+            "id": "band3-practice-essay-stage-3",
+            "contentVersion": 2,
+            "taskFamily": "email"
+          }
+        ]
+      },
+      "xpReward": 20
+    }
+  ]
+}

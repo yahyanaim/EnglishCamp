@@ -48,7 +48,7 @@ export default function Home() {
             🇬🇧
           </motion.span>
           <h1 className="font-display text-5xl md:text-7xl font-extrabold tracking-tight mb-4">
-            English<span style={{ color: "var(--color-primary)" }}>Camp</span>
+            English<span style={{ color: "var(--color-text-link)" }}>Camp</span>
           </h1>
           <p className="font-body text-lg md:text-xl" style={{ color: "var(--color-text-secondary)" }}>
             Your complete path from{" "}
@@ -67,8 +67,8 @@ export default function Home() {
                 className="inline-flex items-center gap-2 rounded-[var(--radius-pill)] px-4 py-2"
                 style={{ background: "var(--color-warning-bg)", border: "1.5px solid var(--color-warning)" }}
               >
-                <Zap className="w-4 h-4" style={{ color: "var(--color-warning-dark)" }} />
-                <span className="font-display font-extrabold text-base" style={{ color: "var(--color-warning-dark)" }}>
+                <Zap className="w-4 h-4" style={{ color: "var(--color-text-warning)" }} />
+                <span className="font-display font-extrabold text-base" style={{ color: "var(--color-text-warning)" }}>
                   {getTotalXP()} XP
                 </span>
               </div>
@@ -76,8 +76,8 @@ export default function Home() {
                 className="inline-flex items-center gap-2 rounded-[var(--radius-pill)] px-4 py-2"
                 style={{ background: "var(--color-warning-bg)", border: "1.5px solid var(--color-warning)" }}
               >
-                <Flame className="w-4 h-4" style={{ color: "var(--color-warning-dark)" }} />
-                <span className="font-display font-extrabold text-base" style={{ color: "var(--color-warning-dark)" }}>
+                <Flame className="w-4 h-4" style={{ color: "var(--color-text-warning)" }} />
+                <span className="font-display font-extrabold text-base" style={{ color: "var(--color-text-warning)" }}>
                   {streak}
                 </span>
                 <span className="font-body text-xs" style={{ color: "var(--color-text-warning)" }}>day streak</span>
@@ -187,14 +187,14 @@ export default function Home() {
                       <div className="flex items-start justify-between gap-2 mb-2">
                         <span
                           className="font-display text-lg font-extrabold leading-snug"
-                          style={{ color: level.accent }}
+                          style={{ color: `var(--color-course-${level.id})` }}
                         >
                           {level.title}
                         </span>
                         {level.examBadge && (
                           <span
                             className="text-[10px] font-display font-extrabold uppercase px-2 py-0.5 rounded-full shrink-0"
-                            style={{ color: level.accent, backgroundColor: `${level.accent}18` }}
+                            style={{ color: `var(--color-course-${level.id})`, backgroundColor: `${level.accent}18` }}
                           >
                             {level.examBadge}
                           </span>
@@ -242,12 +242,12 @@ export default function Home() {
                       </div>
 
                       <div className="flex items-center justify-between pt-2 border-t border-[var(--color-border-default)]">
-                        <span className="font-body text-xs font-medium" style={{ color: "var(--color-text-disabled)" }}>
+                        <span className="font-body text-xs font-medium" style={{ color: "var(--color-text-secondary)" }}>
                           {level.lessons.length} Lessons · {level.duration}
                         </span>
                         <span
                           className="font-display font-bold text-xs inline-flex items-center gap-1"
-                          style={{ color: level.accent }}
+                          style={{ color: `var(--color-course-${level.id})` }}
                         >
                           {progress > 0 ? "Continue" : "Start Course"}
                           <ChevronRight className="w-3.5 h-3.5" />

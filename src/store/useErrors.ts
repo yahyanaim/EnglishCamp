@@ -10,11 +10,14 @@ export type ErrorEntry = {
   sourceId: string;
   timestamp: string;
   reviewed: boolean;
+  taskId?: string;
+  questionId?: string;
 };
 
 interface ErrorsStore {
   errors: ErrorEntry[];
   addError: (entry: Omit<ErrorEntry, "timestamp" | "reviewed">) => void;
+  resolveActivityErrors: (moduleId: string, taskId: string, questionIds: string[]) => void;
   markReviewed: (index: number) => void;
   clearReviewed: () => void;
   getRecent: (n?: number) => ErrorEntry[];
@@ -37,6 +40,9 @@ export const useErrors = create<ErrorsStore>()(
         }));
       },
 
+      resolveActivityErrors: (moduleId, taskId, questionIds) => set(s => ({
+        errors: s.errors.map(error => error.source === "course-activity" && error.sourceId === moduleId && error.taskId === taskId && questionIds.includes(error.questionId ?? "") ? { ...error, reviewed: true } : error),
+      })),
       markReviewed: (index) => {
         set((s) => {
           const errors = [...s.errors];

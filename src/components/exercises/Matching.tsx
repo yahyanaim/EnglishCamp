@@ -45,7 +45,7 @@ export function Matching({ data }: { data: MatchingData }) {
   }
 
   function selectRight(item: string) {
-    if (!selected || matched[selected] || checked) return;
+    if (!selected || matched[selected] || checked || Object.values(matched).includes(item)) return;
     setMatched((prev) => ({ ...prev, [selected]: item }));
     setSelected(null);
   }
@@ -98,9 +98,9 @@ export function Matching({ data }: { data: MatchingData }) {
                   isSelected
                     ? "border-[var(--color-primary)] bg-[var(--color-primary-subtle)]"
                     : isRightMatch
-                      ? "bg-[var(--color-success-bg)] border-[var(--color-success)] text-[var(--color-success-dark)]"
+                      ? "bg-[var(--color-success-bg)] border-[var(--color-success)] text-[var(--color-text-success)]"
                       : isWrong
-                        ? "bg-[var(--color-error-bg)] border-[var(--color-error)] text-[var(--color-error)]"
+                        ? "bg-[var(--color-error-bg)] border-[var(--color-error)] text-[var(--color-text-error)]"
                         : isMatched
                           ? "bg-[var(--color-surface-alt)] border-[var(--color-border-default)] text-[var(--color-text-disabled)]"
                           : "bg-[var(--color-surface)] border-[var(--color-border-default)] hover:border-[var(--color-border-strong)]"
@@ -110,7 +110,7 @@ export function Matching({ data }: { data: MatchingData }) {
                 <div className="flex items-center justify-between">
                   <span>{item}</span>
                   {isRightMatch && <CheckCircle className="w-4 h-4 text-[var(--color-success)] shrink-0" />}
-                  {isWrong && <XCircle className="w-4 h-4 text-[var(--color-error)] shrink-0" />}
+                  {isWrong && <XCircle className="w-4 h-4 text-[var(--color-text-error)] shrink-0" />}
                 </div>
               </button>
             );
@@ -126,8 +126,8 @@ export function Matching({ data }: { data: MatchingData }) {
                 className={`w-full text-left p-3 rounded-[var(--radius-md)] font-body text-sm transition-all duration-150 border-2 ${
                   checked && isMatched
                     ? isCorrectMatch
-                      ? "bg-[var(--color-success-bg)] border-[var(--color-success)] text-[var(--color-success-dark)]"
-                      : "bg-[var(--color-error-bg)] border-[var(--color-error)] text-[var(--color-error)]"
+                      ? "bg-[var(--color-success-bg)] border-[var(--color-success)] text-[var(--color-text-success)]"
+                      : "bg-[var(--color-error-bg)] border-[var(--color-error)] text-[var(--color-text-error)]"
                     : isMatched
                       ? "bg-[var(--color-surface-alt)] border-[var(--color-border-default)] text-[var(--color-text-disabled)]"
                       : "bg-[var(--color-surface)] border-[var(--color-border-default)] hover:border-[var(--color-border-strong)]"
@@ -137,7 +137,7 @@ export function Matching({ data }: { data: MatchingData }) {
                 <div className="flex items-center justify-between">
                   <span>{item}</span>
                   {checked && isMatched && isCorrectMatch && <CheckCircle className="w-4 h-4 text-[var(--color-success)] shrink-0" />}
-                  {checked && isMatched && !isCorrectMatch && <XCircle className="w-4 h-4 text-[var(--color-error)] shrink-0" />}
+                  {checked && isMatched && !isCorrectMatch && <XCircle className="w-4 h-4 text-[var(--color-text-error)] shrink-0" />}
                 </div>
               </button>
             );
@@ -149,7 +149,7 @@ export function Matching({ data }: { data: MatchingData }) {
         {checked && (
           <motion.div initial={{ opacity: 0, y: -8 }} animate={{ opacity: 1, y: 0 }} className="space-y-3">
             {isCorrect ? (
-              <div className="flex items-center gap-3 p-4 rounded-[var(--radius-lg)] bg-[var(--color-success-bg)] text-[var(--color-success-dark)] border-2 border-[var(--color-success)]" style={{ boxShadow: "0 2px 0 var(--color-success)" }}>
+              <div className="flex items-center gap-3 p-4 rounded-[var(--radius-lg)] bg-[var(--color-success-bg)] text-[var(--color-text-success)] border-2 border-[var(--color-success)]" style={{ boxShadow: "0 2px 0 var(--color-success)" }}>
                 <CheckCircle className="w-5 h-5 shrink-0 text-[var(--color-success)]" />
                 <div>
                   <p className="font-display font-extrabold">All matched correctly! +{data.xpReward} XP</p>
@@ -157,8 +157,8 @@ export function Matching({ data }: { data: MatchingData }) {
               </div>
             ) : (
               <div className="space-y-2">
-                <div className="flex items-start gap-3 p-4 rounded-[var(--radius-lg)] bg-[var(--color-error-bg)] text-[var(--color-error)] border-2 border-[var(--color-error)]" style={{ boxShadow: "0 2px 0 var(--color-error)" }}>
-                  <XCircle className="w-5 h-5 shrink-0 mt-0.5 text-[var(--color-error)]" />
+                <div className="flex items-start gap-3 p-4 rounded-[var(--radius-lg)] bg-[var(--color-error-bg)] text-[var(--color-text-error)] border-2 border-[var(--color-error)]" style={{ boxShadow: "0 2px 0 var(--color-error)" }}>
+                  <XCircle className="w-5 h-5 shrink-0 mt-0.5 text-[var(--color-text-error)]" />
                   <div className="w-full">
                     <p className="font-display font-extrabold mb-2">Some matches are wrong</p>
                     <div className="space-y-1.5">
@@ -167,7 +167,7 @@ export function Matching({ data }: { data: MatchingData }) {
                         const isMatchCorrect = userMatch === r;
                         return (
                           <div key={l} className={`flex items-center gap-2 font-body text-sm px-3 py-2 rounded-[var(--radius-md)] border-2 ${
-                            isMatchCorrect ? "bg-[var(--color-success-bg)] border-[var(--color-success)] text-[var(--color-success-dark)]" : "bg-[var(--color-error-bg)] border-[var(--color-error)] text-[var(--color-error)]"
+                            isMatchCorrect ? "bg-[var(--color-success-bg)] border-[var(--color-success)] text-[var(--color-text-success)]" : "bg-[var(--color-error-bg)] border-[var(--color-error)] text-[var(--color-text-error)]"
                           }`}>
                             <span className="font-mono">{l}</span>
                             <span className="text-[var(--color-text-disabled)]">→</span>
@@ -177,7 +177,7 @@ export function Matching({ data }: { data: MatchingData }) {
                               <>
                                 <span className="line-through font-mono">{userMatch ?? "—"}</span>
                                 <span className="text-[var(--color-text-disabled)]">|</span>
-                                <span className="font-mono font-bold text-[var(--color-success-dark)]">{r}</span>
+                                <span className="font-mono font-bold text-[var(--color-text-success)]">{r}</span>
                               </>
                             )}
                           </div>
@@ -188,7 +188,7 @@ export function Matching({ data }: { data: MatchingData }) {
                 </div>
 
                 {grammarNote && (
-                  <div className="flex items-start gap-3 p-4 rounded-[var(--radius-lg)] bg-[var(--color-warning-bg)] text-[var(--color-warning-dark)] border-2 border-[var(--color-warning)]" style={{ boxShadow: "0 2px 0 var(--color-warning)" }}>
+                  <div className="flex items-start gap-3 p-4 rounded-[var(--radius-lg)] bg-[var(--color-warning-bg)] text-[var(--color-text-warning)] border-2 border-[var(--color-warning)]" style={{ boxShadow: "0 2px 0 var(--color-warning)" }}>
                     <BookOpen className="w-5 h-5 shrink-0 mt-0.5 text-[var(--color-warning)]" />
                     <div>
                       <p className="font-display font-extrabold text-sm">Study Tip</p>

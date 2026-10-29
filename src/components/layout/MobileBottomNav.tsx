@@ -26,7 +26,7 @@ export function MobileBottomNav() {
               key={item.href}
               href={item.href}
               className={cn(
-                "flex flex-col items-center gap-0.5 px-3 py-1 rounded-[var(--radius-md)] transition-all min-w-0",
+                "flex flex-1 flex-col items-center justify-center gap-0.5 min-h-11 px-1 sm:px-3 py-1 rounded-[var(--radius-md)] transition-all min-w-0",
                 active
                   ? "text-[var(--color-primary)]"
                   : "text-[var(--color-text-disabled)] hover:text-[var(--color-text-secondary)]"

@@ -29,7 +29,7 @@ function buildItems(difficulty: Difficulty): ListenItem[] {
     return FLASHCARDS.map((c) => ({ de: c.de, en: c.en, source: c.cat }));
   }
   return NOUN_VERB_COLLOCATIONS.map((nvv) => {
-    return { de: nvv.example, en: nvv.arabic, source: `${nvv.verb} ${nvv.noun}` };
+    return { de: `${nvv.verb} ${nvv.noun}`, en: nvv.arabic, source: `${nvv.verb} ${nvv.noun}` };
   });
 }
 
@@ -52,26 +52,33 @@ export function ListeningLab() {
   const [speed, setSpeed] = useState<0.85 | 0.6>(0.85);
   const [autoAdvance, setAutoAdvance] = useState(false);
 
-  const items = useMemo(() => shuffle(buildItems(difficulty)).slice(0, 10), [difficulty, phase === "ready"]);
+  const [items, setItems] = useState<ListenItem[]>([]);
+  const advanceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  useEffect(() => () => { if (advanceRef.current) clearTimeout(advanceRef.current); window.speechSynthesis?.cancel(); }, []);
+  function startGame() {
+    if (advanceRef.current) clearTimeout(advanceRef.current);
+    setItems(shuffle(buildItems(difficulty)).slice(0, 10));
+    setIndex(0); setSelected(null); setResults([]); setPhase("playing");
+  }
   const current = items[index];
   const correct = results.filter((r) => r.correct).length;
   const accuracy = results.length > 0 ? Math.round((correct / results.length) * 100) : 0;
 
   const options = useMemo(() => {
     if (!current) return [];
-    const wrong = shuffle(items.filter((x) => x.en !== current.en)).slice(0, 3).map((x) => x.en);
+    const wrong = shuffle(Array.from(new Set(items.map(x => x.en))).filter(x => x !== current.en)).slice(0, 3);
     return shuffle([current.en, ...wrong]);
-  }, [index, difficulty, phase === "playing"]);
+  }, [current, items]);
 
   useEffect(() => {
     if (phase === "playing" && current) {
-      const t = setTimeout(() => speak(current.en, speed), 300);
+      const t = setTimeout(() => speak(current.de, speed), 300);
       return () => clearTimeout(t);
     }
-  }, [index, phase, speed]);
+  }, [current, phase, speed]);
 
   function handlePlay() {
-    if (current) speak(current.en, speed);
+    if (current) speak(current.de, speed);
   }
 
   function handleSelect(opt: string) {
@@ -81,7 +88,7 @@ export function ListeningLab() {
     else playWrong();
     setResults((r) => [...r, { correct: opt === current.en }]);
     if (autoAdvance && index + 1 < items.length) {
-      setTimeout(() => {
+      advanceRef.current = setTimeout(() => {
         setSelected(null);
         setIndex((i) => i + 1);
       }, 1200);
@@ -120,7 +127,7 @@ export function ListeningLab() {
           {(["words", "phrases"] as const).map((d) => (
             <button key={d} onClick={() => setDifficulty(d)}
               className={`rounded-[10px] px-4 py-2 text-xs font-bold transition-all ${
-                difficulty === d ? "bg-[var(--color-primary)] text-white" : "bg-[var(--color-surface-alt)] text-[var(--color-text-secondary)] hover:bg-[var(--color-border-default)]"
+                difficulty === d ? "bg-[var(--color-primary)] text-[var(--color-on-brand)]" : "bg-[var(--color-surface-alt)] text-[var(--color-text-secondary)] hover:bg-[var(--color-border-default)]"
               }`}
             >
               {d === "words" ? "Words" : "Phrases"}
@@ -139,8 +146,8 @@ export function ListeningLab() {
           </label>
         </div>
 
-        <button onClick={() => setPhase("playing")}
-          className="mt-6 px-8 py-3 rounded-[14px] bg-[var(--color-primary)] text-white font-bold text-sm hover:bg-brand-600 transition-all inline-flex items-center gap-2 shadow-[0_4px_0_rgba(28,176,246,0.3)]"
+        <button onClick={startGame}
+          className="mt-6 px-8 py-3 rounded-[14px] bg-[var(--color-primary)] text-[var(--color-on-brand)] font-bold text-sm hover:bg-brand-600 transition-all inline-flex items-center gap-2 shadow-[0_4px_0_rgba(28,176,246,0.3)]"
         >
           <Ear className="w-4 h-4" /> Start Listening
         </button>
@@ -160,15 +167,15 @@ export function ListeningLab() {
           </div>
           <div className="w-px h-10 bg-[var(--color-border-default)]" />
           <div>
-            <p className="text-3xl font-display font-extrabold text-[var(--color-primary-dark)]">{accuracy}%</p>
+            <p className="text-3xl font-display font-extrabold text-[var(--color-text-link)]">{accuracy}%</p>
             <p className="text-xs text-[var(--color-text-secondary)]">Accuracy</p>
           </div>
         </div>
-        <p className="mt-4 text-sm font-bold bg-amber-500 text-white font-extrabold shadow-sm px-4 py-2 rounded-[10px] inline-flex items-center gap-1.5">
+        <p className="mt-4 text-sm font-bold bg-amber-500 text-[var(--color-on-brand)] font-extrabold shadow-sm px-4 py-2 rounded-[10px] inline-flex items-center gap-1.5">
           <Sparkles className="w-4 h-4" /> +{correct * 5 + (accuracy >= 80 ? 10 : 0)} XP
         </p>
         <button onClick={handleRestart}
-          className="mt-6 px-8 py-3 rounded-[14px] bg-[var(--color-primary)] text-white font-bold text-sm hover:bg-brand-600 transition-all inline-flex items-center gap-2"
+          className="mt-6 px-8 py-3 rounded-[14px] bg-[var(--color-primary)] text-[var(--color-on-brand)] font-bold text-sm hover:bg-brand-600 transition-all inline-flex items-center gap-2"
         >
           <RefreshCw className="w-4 h-4" /> New session
         </button>
@@ -179,7 +186,7 @@ export function ListeningLab() {
   return (
     <div className="space-y-4 max-w-lg mx-auto">
       <div className="flex items-center justify-between">
-        <span className="inline-flex items-center gap-1.5 rounded-[10px] bg-[var(--color-primary-subtle)] px-3 py-1 text-xs font-semibold text-[var(--color-primary-dark)]">
+        <span className="inline-flex items-center gap-1.5 rounded-[10px] bg-[var(--color-primary-subtle)] px-3 py-1 text-xs font-semibold text-[var(--color-text-link)]">
           <Ear className="w-3 h-3" />
           {index + 1}/{items.length}
         </span>
@@ -199,7 +206,7 @@ export function ListeningLab() {
       <div className="bg-[var(--color-surface)] rounded-[24px] border-2 border-[var(--color-border-default)] p-8 shadow-[0_4px_16px_rgba(0,0,0,0.08)] text-center">
         <div className="flex items-center justify-center gap-3 mb-6">
           <button onClick={handlePlay}
-            className="w-14 h-14 rounded-[var(--radius-pill)] bg-[var(--color-primary)] text-white flex items-center justify-center hover:bg-brand-600 transition-all shadow-[0_4px_0_rgba(28,176,246,0.3)]"
+            className="w-14 h-14 rounded-[var(--radius-pill)] bg-[var(--color-primary)] text-[var(--color-on-brand)] flex items-center justify-center hover:bg-brand-600 transition-all shadow-[0_4px_0_rgba(28,176,246,0.3)]"
             title="Play audio"
           >
             <Volume2 className="w-6 h-6" />
@@ -216,17 +223,17 @@ export function ListeningLab() {
         <div className="space-y-2">
           {options.map((opt) => {
             let cls = "bg-[var(--color-surface)] border-2 border-[var(--color-border-default)] text-[var(--color-text-primary)] hover:ring-[var(--color-primary)] hover:bg-[var(--color-primary-subtle)]";
-            if (selected === opt && opt === current.en) cls = "bg-[var(--color-success)] text-white ring-2 ring-[var(--color-success)]";
-            else if (selected === opt && opt !== current.en) cls = "bg-[var(--color-error)] text-white ring-2 ring-[var(--color-error)]";
-            else if (selected !== null && opt === current.en) cls = "bg-[var(--color-success)] text-white ring-1 ring-[var(--color-success)]";
+            if (selected === opt && opt === current.en) cls = "bg-[var(--color-success)] text-[var(--color-on-brand)] ring-2 ring-[var(--color-success)]";
+            else if (selected === opt && opt !== current.en) cls = "bg-[var(--color-error)] text-[var(--color-on-brand)] ring-2 ring-[var(--color-error)]";
+            else if (selected !== null && opt === current.en) cls = "bg-[var(--color-success)] text-[var(--color-on-brand)] ring-1 ring-[var(--color-success)]";
 
             return (
               <motion.button key={opt} layout initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }}
                 onClick={() => handleSelect(opt)} disabled={selected !== null}
                 className={`flex items-center gap-2 w-full px-4 py-3 rounded-[14px] text-sm font-medium transition-all ${cls}`}
               >
-                {selected !== null && opt === current.en && <CheckCircle2 className="w-4 h-4 text-[var(--color-success)] shrink-0" />}
-                {selected === opt && opt !== current.en && <XCircle className="w-4 h-4 text-[var(--color-error)] shrink-0" />}
+                {selected !== null && opt === current.en && <CheckCircle2 className="w-4 h-4 text-current shrink-0" />}
+                {selected === opt && opt !== current.en && <XCircle className="w-4 h-4 text-current shrink-0" />}
                 <span>{opt}</span>
               </motion.button>
             );
@@ -235,15 +242,15 @@ export function ListeningLab() {
 
         {selected !== null && (
           <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className="mt-4 text-xs text-[var(--color-text-disabled)]">
-            <span className="font-medium text-[var(--color-text-secondary)]">Heard:</span> {current.en}
+            <span className="font-medium text-[var(--color-text-secondary)]">Heard:</span> {current.de}
           </motion.div>
         )}
       </div>
 
-      {selected !== null && !autoAdvance && (
+      {selected !== null && (!autoAdvance || index + 1 >= items.length) && (
         <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className="flex justify-center">
           <button onClick={handleNext}
-            className="px-8 py-3 rounded-[14px] bg-[var(--color-primary)] text-white font-bold text-sm hover:bg-brand-600 transition-all shadow-[0_4px_0_rgba(28,176,246,0.3)]"
+            className="px-8 py-3 rounded-[14px] bg-[var(--color-primary)] text-[var(--color-on-brand)] font-bold text-sm hover:bg-brand-600 transition-all shadow-[0_4px_0_rgba(28,176,246,0.3)]"
           >
             {index + 1 >= items.length ? "See results" : "Next"}
           </button>

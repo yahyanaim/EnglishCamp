@@ -205,7 +205,7 @@ export default function VocabularyPage() {
       </motion.div>
 
       {/* View switcher */}
-      <motion.div variants={itemAnim} className="flex gap-1.5 bg-[var(--color-neutral-100)] rounded-[var(--radius-lg)] p-1 w-fit">
+      <motion.div variants={itemAnim} className="flex flex-wrap gap-1.5 bg-[var(--color-neutral-100)] rounded-[var(--radius-lg)] p-1 w-fit max-w-full">
         {([
           { id: "browse" as const, label: "Browse", icon: Eye },
           { id: "bank" as const, label: "Bank", icon: Library },

@@ -14,10 +14,10 @@ interface Props extends ComponentPropsWithoutRef<"button"> {
 }
 
 const variants: Record<Variant, string> = {
-  primary:   "bg-[var(--color-primary)] text-white shadow-[0_4px_0_var(--color-primary-dark)] hover:brightness-[1.06] active:translate-y-1 active:shadow-none",
+  primary:   "bg-[var(--color-primary)] text-[var(--color-on-brand)] shadow-[0_4px_0_var(--color-primary-dark)] hover:brightness-[1.06] active:translate-y-1 active:shadow-none",
   secondary: "bg-transparent text-[var(--color-text-secondary)] border-2 border-[var(--color-border-strong)] shadow-[0_4px_0_var(--color-border-strong)] hover:border-[var(--color-neutral-500)] hover:text-[var(--color-neutral-600)] active:translate-y-1 active:shadow-none",
   ghost:     "bg-transparent text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] hover:underline",
-  danger:    "bg-[var(--color-error)] text-white shadow-[0_4px_0_var(--color-error-dark)] hover:brightness-[1.06] active:translate-y-1 active:shadow-none",
+  danger:    "bg-[var(--color-error)] text-[var(--color-on-brand)] shadow-[0_4px_0_var(--color-error-dark)] hover:brightness-[1.06] active:translate-y-1 active:shadow-none",
   level:     "text-white shadow-[0_4px_0_rgba(0,0,0,0.2)]",
 };
 

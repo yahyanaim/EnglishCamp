@@ -1,0 +1,13 @@
+{
+  "integration": {
+    "src/components/course/ModuleExperience.tsx": {
+      "before": "8c53c0dd0ec91c8bdf626e3ad87374bb58462c41d57edc73f6898e3a5df0a420",
+      "after": "685222392deab325ca9350c49d0cd7d559338cd2d100c2643f7ec7d170be5764"
+    }
+  },
+  "inlineImageIntegration": {
+    "before": "5b6be3fccd385f92eeb5dd594a7faafb73e60a54d210aad93b438213408146a9",
+    "after": "685222392deab325ca9350c49d0cd7d559338cd2d100c2643f7ec7d170be5764",
+    "scope": "Pass only the selected inline images to the existing teaching renderer and expose its jump link. Original activities, narration, fonts and global styles remain protected."
+  }
+}

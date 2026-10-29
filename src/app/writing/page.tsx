@@ -107,13 +107,13 @@ export default function WritingPage() {
             {/* Filters */}
             <motion.div variants={itemAnim} className="flex flex-wrap gap-2 items-center">
               <select value={levelFilter} onChange={(e) => setLevelFilter(e.target.value)}
-                className="font-body text-sm bg-[var(--color-surface)] border-2 border-[var(--color-border-default)] rounded-[var(--radius-md)] px-3 py-2.5 outline-none text-[var(--color-text-primary)] transition-all duration-150"
+                className="max-w-full min-w-0 font-body text-sm bg-[var(--color-surface)] border-2 border-[var(--color-border-default)] rounded-[var(--radius-md)] px-3 py-2.5 outline-none text-[var(--color-text-primary)] transition-all duration-150"
                 style={{ boxShadow: "0 2px 0 var(--color-border-default)" }}>
                 <option value="all">All Levels</option>
                 {levels.map((lv) => <option key={lv.id} value={lv.id}>{lv.title}</option>)}
               </select>
               <select value={typeFilter} onChange={(e) => setTypeFilter(e.target.value)}
-                className="font-body text-sm bg-[var(--color-surface)] border-2 border-[var(--color-border-default)] rounded-[var(--radius-md)] px-3 py-2.5 outline-none text-[var(--color-text-primary)] transition-all duration-150"
+                className="max-w-full min-w-0 font-body text-sm bg-[var(--color-surface)] border-2 border-[var(--color-border-default)] rounded-[var(--radius-md)] px-3 py-2.5 outline-none text-[var(--color-text-primary)] transition-all duration-150"
                 style={{ boxShadow: "0 2px 0 var(--color-border-default)" }}>
                 <option value="all">All Types</option>
                 {types.map((t) => <option key={t} value={t}>{TYPE_LABELS[t] || t}</option>)}

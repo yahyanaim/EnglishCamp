@@ -159,11 +159,11 @@ export default function Dashboard() {
         style={{ boxShadow: "0 3px 0 var(--color-border-default)" }}
       >
         <div className="flex flex-col md:flex-row md:items-center gap-5">
-          <div className="flex-1">
+          <div className="flex-1 min-w-0">
             <XPBar xp={xp} level={level} title={title} nextXP={nextXP} />
           </div>
-          <div className="flex items-center gap-5">
-            <StreakWidget streak={streak} />
+          <div className="flex flex-wrap items-center gap-3 sm:gap-5">
+            <div className="basis-full sm:basis-auto"><StreakWidget streak={streak} /></div>
             {stats.map((s, i) => (
               <div key={s.label}>
                 {i > 0 && (

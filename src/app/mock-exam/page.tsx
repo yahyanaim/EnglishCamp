@@ -625,7 +625,7 @@ function MockExamContent() {
           </div>
 
           {/* Skill Navigation Tabs */}
-          <div className="flex items-center gap-2 border-b border-[var(--color-border-default)] pb-1">
+          <div className="grid grid-cols-2 sm:flex sm:flex-wrap items-center gap-2 border-b border-[var(--color-border-default)] pb-1">
             <button
               onClick={() => setActiveTab("listening")}
               className={`flex items-center gap-2 px-4 py-2 rounded-t-[var(--radius-md)] font-display text-xs font-bold transition-all ${
@@ -890,7 +890,7 @@ function MockExamContent() {
                 return (
                   <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
                     {/* Left Pane: Authentic Reading Passage */}
-                    <div className="lg:col-span-7 bg-[var(--color-surface)] border-2 border-[var(--color-border-default)] rounded-[var(--radius-lg)] p-6 space-y-4 max-h-[750px] overflow-y-auto">
+                    <div className="lg:col-span-7 bg-[var(--color-surface)] border-2 border-[var(--color-border-default)] rounded-[var(--radius-lg)] p-6 space-y-4 lg:max-h-[750px] lg:overflow-y-auto">
                       <div>
                         <span className="text-xs font-display font-bold uppercase text-[var(--color-primary)]">
                           {currentReading?.subtitle}
@@ -906,7 +906,7 @@ function MockExamContent() {
                     </div>
 
                     {/* Right Pane: Interactive Question Palette */}
-                    <div className="lg:col-span-5 space-y-4 max-h-[750px] overflow-y-auto pr-1">
+                    <div className="lg:col-span-5 space-y-4 lg:max-h-[750px] lg:overflow-y-auto pr-1">
                       <div className="bg-emerald-50/60 dark:bg-emerald-950/20 border border-emerald-200 dark:border-emerald-900 rounded-[var(--radius-md)] p-3.5 text-xs text-emerald-900 dark:text-emerald-200">
                         <strong>Task Instructions:</strong> {currentReading?.instructions}
                       </div>

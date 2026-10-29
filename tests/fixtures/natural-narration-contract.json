@@ -1,0 +1,1349 @@
+{
+  "files": {
+    "public/media/courses/course-audio-001.wav": {
+      "before": "70acd1bbdea04c0afaaba751eb0dcd8cbeef9a209a741bc39376fb710a05164d",
+      "after": "0d612c0ac0638568d2c676d5703dcbbce82f5c8e07a45cebee8eeb301dca217a"
+    },
+    "public/media/courses/course-audio-002.wav": {
+      "before": "cff77974da4778485da8738e179ba0a16395594a997c62bb5a8a0c1e80d1bf14",
+      "after": "9ed9a1dcdeb6c630f694b180b825b66ddf8e4dba85823e61079c912f27970f9c"
+    },
+    "public/media/courses/course-audio-003.wav": {
+      "before": "5068c07b247ed9d33bb0c5ab2cf48a4bb4f82e40cf26f0b56f5a48c2eb448fd3",
+      "after": "2928f025613fa02e7395a52476281007acc99a38ee0041240d3101e270919abf"
+    },
+    "public/media/courses/course-audio-004.wav": {
+      "before": "1474fe17004c26f7c434890f16f08cf192b4744a53c45fea54be545b6aea8e4e",
+      "after": "538cb80bd52c9e89a46ccc367492e279785c04640ffba404a9a8139511b03250"
+    },
+    "public/media/courses/course-audio-005.wav": {
+      "before": "c28ec70cec62986a4d5e901492cbb8f9eabf660c3cedb60da0e65091586e8895",
+      "after": "8d94d925c8b7b23ef7921fec7e88f72a74194a9294ee65baae691f6123934b00"
+    },
+    "public/media/courses/course-audio-006.wav": {
+      "before": "dbad969a411af011c81720b9172061029f0ee87a7297195fea03a9bc6049b687",
+      "after": "278e387c5dcd82511ef37b51b968dc319549a99d43c4a643b727d8e38553af69"
+    },
+    "public/media/courses/course-audio-007.wav": {
+      "before": "c1505ae71ddcd4c7f6131033b7926dfc9f97f6668127aa2b3569317b9ca45b9e",
+      "after": "aace0bcc1c72ca94f2d886e240b8703b371c1f42b7945aa2c5840be52b2a1dae"
+    },
+    "public/media/courses/course-audio-008.wav": {
+      "before": "012f6512ebfc6ece699e9d5e4302e09eebc309d7cf1374aa2882a2b067e10769",
+      "after": "38350a1a089fdedaf079ba212b0213685abce852391252acfa56aff84b973da5"
+    },
+    "public/media/courses/course-audio-009.wav": {
+      "before": "b777ae76b3573e2af2deff686b48d5165e3f3c5c24b36e275c73e900729c04b2",
+      "after": "6d2a44ffeffe93a3cffd10c535cc4ab7b411c94f3f12c70ab034fd1531646db5"
+    },
+    "public/media/courses/course-audio-010.wav": {
+      "before": "b7abf88cab3ac0b06b4888089e3aa788d1f752c6fff25032731092b057599f9c",
+      "after": "e0f64656164d80832805f2399ae474fa110d60cbc42578f205da5993a5d15c79"
+    },
+    "public/media/courses/course-audio-011.wav": {
+      "before": "c928f3c1127618dae888cdf7e101edf9a067f3061a16fd7c4b840a4e71054502",
+      "after": "02af89b6606e3d3bbf0f7437cd3a5aa69c64594ad8725e07e93d422c2e03b85a"
+    },
+    "public/media/courses/course-audio-012.wav": {
+      "before": "40ad7dd2ab73b9a3d059c7f3ee5c927363dbd045ebb38251166db8d182bb13b6",
+      "after": "69491f1458bc5a5634e64aecf50ac546467c76232fda8e0f4c1947305a84e951"
+    },
+    "public/media/courses/course-audio-013.wav": {
+      "before": "2ab1b0ad3b4bb3d35769ca17b7ea362342ab8bbd69d844d94343040fc23ddcd8",
+      "after": "81d609c5ad76bb611433ea40b7a0829c2b0e9e69b2a9b626715d1739464c7eb2"
+    },
+    "public/media/courses/course-audio-014.wav": {
+      "before": "4a675d9b1b0af46c50d2c37cb3d43c99c298d4f5bc3cfd3c0428a0df8d4b25fe",
+      "after": "1ba2814751134ee663006bf2f705e0a4fa9f21afe88fdabce46dc9fc0c527270"
+    },
+    "public/media/courses/course-audio-015.wav": {
+      "before": "ce0eb352e5ea2dbf8a2822ea6154ac0903fee97bab9ebba848e7e7ffeb536f35",
+      "after": "fcae53ef60641115c7eb6f73151c9e87cdaacb0056cad1c068f25f951fe714a3"
+    },
+    "public/media/courses/course-audio-016.wav": {
+      "before": "ba22ae413667ae27246501196e507beb647ac534b3432a95db1f207a04239f65",
+      "after": "41787724d59805e968fe79804840605f8a3c4223b6eb77aa8627fe713b4407c7"
+    },
+    "public/media/courses/course-audio-017.wav": {
+      "before": "fc551b85f3e49170b6301100879e9f33bb7da4fdc1fe2b7d580e80914c6ecdb1",
+      "after": "9a6b6347d660798219aafede1d6ef1b3f13d3bfa7c924d149ec4b87f37fdb129"
+    },
+    "public/media/courses/course-audio-018.wav": {
+      "before": "e1e3473533cb4385eaf7bcc4150527ce23affb61ef99ed3a6179da3e72c35f9b",
+      "after": "6b3ddc1631893d8df9846af0512ec15c893ac9604ca184c449c0ffb136c8e2c5"
+    },
+    "public/media/courses/course-audio-019.wav": {
+      "before": "4e906fc8946f33e2fca982d4983dcd376b89a73c9cb47f8fa32a245d6410d48d",
+      "after": "a40ed6cf8f2737f5cda6f7948abb803e64df4a22f2f3dd7c2c179e8b23e42184"
+    },
+    "public/media/courses/course-audio-020.wav": {
+      "before": "08a060c90486733afe39e2fdaf22618ade4254262442f74f9581c1a7908de622",
+      "after": "cd8bbef4de89753dd561bcb085985fa811dbf14ffea5581e7af69b4375303f99"
+    },
+    "public/media/courses/course-audio-021.wav": {
+      "before": "3feebaef6b46d999b5f27be5eae4391e1dc5ad04a347364319dab12a1a3eb1b4",
+      "after": "4157f6e4c3eb5042a42c7ac98bbec526d4827b2f9cde7d19eedf2f374ac2a508"
+    },
+    "public/media/courses/course-audio-022.wav": {
+      "before": "d27931ac7cf1117f1ade43e3ec88edb3abcccec755a1a30b8014f080a6fa1c6c",
+      "after": "7f50e2ca33fbe5f7379d3a24cefcc0d1d2909452164791f39a4b9d3085799339"
+    },
+    "public/media/courses/course-audio-023.wav": {
+      "before": "32bc4af8fb09bdb77513883568967f622a9533113d55dff7d7c17abdf2171939",
+      "after": "e6e76cdfca55879a00cbc09f91e45c813918f1960063dd9a9f0dea75204cf021"
+    },
+    "public/media/courses/course-audio-024.wav": {
+      "before": "574b01af68cb18da393a7ca05f87c7521be0271d6a8b1fb9925b8a01a326efcd",
+      "after": "bda5323649aa10a435a506ee7d89c72033040e85acdc35e1176b928f9e36b53b"
+    },
+    "public/media/courses/course-audio-025.wav": {
+      "before": "4283295b011cd768c129f06fc7b1c8231b2461a84f567a32f0fcbf1fbf9783a3",
+      "after": "9957ca171985ed9c4462accda2bec74fe3cf4eefb003410c9fdc8eb676ac21ff"
+    },
+    "public/media/courses/course-audio-026.wav": {
+      "before": "0f8ceda21a948d85fc99a37c3f0c2a25f774736a481126a7af8b9ffb87404f2d",
+      "after": "40ab66771b77c6d5f1aaa0259bec79549f572a3625589da742ca79fc885bf528"
+    },
+    "public/media/courses/course-audio-027.wav": {
+      "before": "31d62506ca68c09fa2160937dcb69b6d444b1fe3559118a3d42f62d596629275",
+      "after": "375a68d9e872652b36777ba7dfa786b4a8300704e7f840736e9ca8ea250a9fc5"
+    },
+    "public/media/courses/course-audio-028.wav": {
+      "before": "4aa1172ab4ca9e5320ef94a59fb0e82ee4ed634e0cf30aa6153772ec60c1def1",
+      "after": "4552d57c855304352dfb4f1fad452e11218da870c71ca84da5a5a8290f5b6530"
+    },
+    "public/media/courses/course-audio-029.wav": {
+      "before": "80c63dcee2961512abef507fd9fcfd31aa04de3205e99eb22a3e6e8493f7c610",
+      "after": "318bd3682e4fdf32efbf8642813143f92b00025e942780820ec5bcc2b12b9900"
+    },
+    "public/media/courses/course-audio-030.wav": {
+      "before": "30ee01d171d1e40fe120d0293ffdf9db0bbe7c6b28885a078f85df47a5adb886",
+      "after": "6eb4a2e9fd2e053c31359665bdc54d586848a96939687ae2bbe6c50a88165f80"
+    },
+    "public/media/courses/course-audio-031.wav": {
+      "before": "2fcb7d446fcca47f7e9e11ae8fb45cc3f96b7036557ca5991c4bf63ce9b4cb05",
+      "after": "441d879657bf83b190fdf6c3f82dd04a96fc005e80edba95cc630b188d826691"
+    },
+    "public/media/courses/course-audio-032.wav": {
+      "before": "35310df2efce22fde6b87d6f2c0a20b4c53c3e3e086288d7b402984688599373",
+      "after": "244e77c82482bc59eb4e35e096f050bf53cb2a0ca2ebe90612b93da4c231629e"
+    },
+    "public/media/courses/course-audio-033.wav": {
+      "before": "25e85757578743327b3486a16bba6dcfc6dc4540f045368ea36ac309f3ca408e",
+      "after": "50a0526d602cc0f3d680f3929b6739065df30d80276ff8d5dc86acf9644b0078"
+    },
+    "public/media/courses/course-audio-034.wav": {
+      "before": "07fc56620a409de75e5364882121d18f88e9df12f633c2f9ae55ef98e2c2de50",
+      "after": "c75da3207369d27f6e3bea4fcb28aa0f79ee6bd1e3a7dc24aca62e764a84adb8"
+    },
+    "public/media/courses/course-audio-035.wav": {
+      "before": "98a274bb38be0750ae6b8a8ed68b0d178f7679b2a81f14aef842dcbc4af6dcd2",
+      "after": "ebb916aed1f184ef3b01ff01e8207932bab5ca63fe4fa20a7d6ae8c9fdfede23"
+    },
+    "public/media/courses/course-audio-036.wav": {
+      "before": "e8e4930df683d21394c89285f6a3eb137007454e511c02a450d82b8cf28aa3cd",
+      "after": "7e0a1ae35b140bfad9042cae3edc680463976a5a695931c76b9014baef7c71f9"
+    },
+    "public/media/courses/course-audio-037.wav": {
+      "before": "a4c31870c49f58260ec10547b866a6117e5eecf599f2ae34c94ff6b108e61947",
+      "after": "a6c90a1b9875328463fe5f83f3e0e21adbbe8a38e9ae554c965761e8397c27ca"
+    },
+    "public/media/courses/course-audio-038.wav": {
+      "before": "b75b36abd492dc15603bcc9c1274ab11ca3bf75c14a8655e50d77004865856c8",
+      "after": "52d03c3d71cef332ab223e61c79a830a58a7961802f78795de27486453328657"
+    },
+    "public/media/courses/course-audio-039.wav": {
+      "before": "80935cd054e64b92ffdea29928a8f973a724fe06ffe388969c694fdd7fe5b684",
+      "after": "fa18a03ad8639cb346a20cca6afd669d6ad14f68d56d5e9f3a4a7a67ec7c6644"
+    },
+    "public/media/courses/course-audio-040.wav": {
+      "before": "36719e873386a1885454af68f2cc899ff8c799dcfcb70855ebda6e0a8390307f",
+      "after": "001afa76ef89d6a5881da6868c2d35b86c059e682c89e6e7130c0a96cc746c26"
+    },
+    "public/media/courses/course-audio-041.wav": {
+      "before": "a17114350cc307871b9b9b10b6db497e01b41d17abde5155ab8f917c197dacd6",
+      "after": "53a6237c9ff42fc5c9b9aec622ba803eee781eb7dd38dbd62f538932a824e4bc"
+    },
+    "public/media/courses/course-audio-042.wav": {
+      "before": "2d645df6998f7f74acf621241b660f0e09b68d71543a7df51cc4a8961369331c",
+      "after": "0ea531033f2263061e331cfb19f5b9a0a6e61819c9682b0736e2c45817815dda"
+    },
+    "public/media/courses/course-audio-043.wav": {
+      "before": "d72ff1a235c8b8308c76c9662f4093944b6d6cffb2aa7ae06c5822026df621e4",
+      "after": "a46d9e80e3ed939b6aee053385431f66b64e8700ef22a78ada54c6dfa5b13ff3"
+    },
+    "public/media/courses/course-audio-044.wav": {
+      "before": "241b205af6e227ac088b0371d6807ac2191894025e0e829dd265c52eceba3a5f",
+      "after": "a28e643615b1174a6933449138fefc76149ef21a297841b02f7c3646377b5276"
+    },
+    "public/media/courses/course-audio-045.wav": {
+      "before": "b0e137b2e0d7c30e5a4a7a5d4c984bd8953197546f3b2f11f9c0b627b06b7450",
+      "after": "0b6069ae741a2ced1e318ed99519e9ef8d014dd90a21f18520edd59f5deb52ec"
+    },
+    "public/media/courses/course-audio-046.wav": {
+      "before": "692d6874a57b205b67a0506110eb145a23c11b02e70222d54bae067a2df331a1",
+      "after": "feee35d8f234e18cffdc5815c579eee460f120f52d5af4e3b1e6faf0742cc77c"
+    },
+    "public/media/courses/course-audio-047.wav": {
+      "before": "1e7ed43704dd44cdf50a0fbcf2d1ee4d016908ec4406f92c4c9d9ff1b59c2e73",
+      "after": "46227633811f9128bbf8f88d6638d85d6d667d2b7d38594fec5da4730e5bcbfd"
+    },
+    "public/media/courses/course-audio-048.wav": {
+      "before": "c4873c5bf7040ec493098a2101ab49ba1ec1e995d8a1933bfd5bfae95bfc86c2",
+      "after": "a434ccda5ad8c21a2fdb3392e47100baebba8db563b80d7d6fc3f0fd1880ac19"
+    },
+    "public/media/courses/course-audio-049.wav": {
+      "before": "d8d1c52212c1a532a80f81abc7f0fda4a36a9f1e35c4fcb5b3689551f9e93d19",
+      "after": "b82a5546dacd60be4e9c42400476757b7fa089522337901872a9c82f1b5700a7"
+    },
+    "public/media/courses/course-audio-050.wav": {
+      "before": "62efc265d1a4d521a6fb89e4bf473ca38a5675370372b8f33f7de438604ff52f",
+      "after": "7ed01f43affafbf6c6bc6b236b1ac8c01f0b43d2911bcb6b6f5166094c3a7f03"
+    },
+    "public/media/courses/course-audio-051.wav": {
+      "before": "96609ecd517f449b81f0bd2e99fae4222160efc1080c2d292209975968796bea",
+      "after": "d53e69a802765354f85d8dbf7f69dad75e4fe86eb25b452fbb2fe7ac5c0f6f7c"
+    },
+    "public/media/courses/course-audio-052.wav": {
+      "before": "23e2332f648e5ef56df012bd16e76ffa75f0e076510c1cad767a920efb547dc0",
+      "after": "4cd573e2f28c31ac8987bb4eca8d11c3d3d7c255782b182d88e588ef62fa0536"
+    },
+    "public/media/courses/course-audio-053.wav": {
+      "before": "c1d2775248592879614837f3bf82f9120fedbbf30a1942228bcc254f1fc5bc2d",
+      "after": "66d503e8fb7c75e2ecc76d82ba5b120e94a7b464f879ab3d34facdea376f5a88"
+    },
+    "public/media/courses/course-audio-054.wav": {
+      "before": "9a89e89d85702266e6df382884b80f8720ecbbbd1c11ccda9daa212fa285c09b",
+      "after": "f7f9f5f21888943959ac1153c6e29469637ca1627928a226871a48ed6d8f03f4"
+    },
+    "public/media/courses/course-audio-055.wav": {
+      "before": "39dcbbf199a945d6fe62434bfe7187f7bfcabce001fdfcab409c0854305877cd",
+      "after": "cf26bd56e7541ba2687f3170305a4bed7dec277b0e892b7ec9096019c1a17e31"
+    },
+    "public/media/courses/course-audio-056.wav": {
+      "before": "9a7ea6e0941917793f41c106186adb2eab2742fced40ccda945ab68033ec4e90",
+      "after": "8a61f03ac54d003ef44c793a4f5e32a9cb91889a7c5b72cd52cfb9e46f7244f2"
+    },
+    "public/media/courses/course-audio-057.wav": {
+      "before": "051a4d417a0bcc8932f77d6fe089906dd8691b7a4917f5810ebbebfe38f6a703",
+      "after": "07927f207688a15268f782eb43375c9807d029ef056c46055b653db3b0bd6909"
+    },
+    "public/media/courses/course-audio-058.wav": {
+      "before": "909a0ce4334a92bd0aab5d401e9a1b7b204fd884487ce903f9767d8da06f5274",
+      "after": "15a373b1a70d660eff71b8e4f7998b2a0a7c300bc8956253b5d21c51b1af9948"
+    },
+    "public/media/courses/course-audio-059.wav": {
+      "before": "92b56f7a4f86ae0188a2298b7405ec23ddcb58ace53bf6aeb778507259ad352e",
+      "after": "d346fc118f088f93f3bd8b5440ddf7b630cff82dcd9e950ee57d9c863e62061f"
+    },
+    "public/media/courses/course-audio-060.wav": {
+      "before": "bdc7c1c5397cc7ad42e59aaaecad981ceebd4c442082efb6b6cf9530e64b9fde",
+      "after": "acc5d822513fafa924870529a87097776202554d69cbea28f0592ff0d17d59a9"
+    },
+    "public/media/courses/course-audio-061.wav": {
+      "before": "b8fbe4a7374d0a79a2a1ed07523225e0e050321c3cfd90465e3228854aadfff8",
+      "after": "754f630c04128caf5f37f283a94e47867648a6697188655723576890b18c8c46"
+    },
+    "public/media/courses/course-audio-062.wav": {
+      "before": "44faf0125896af272ddc6805257c5448488b2992a9700df3768dd1178663d087",
+      "after": "f9a0849f7e1263f148e0b04a356278fe6b33d9247d708da788c62cd231ba40d0"
+    },
+    "public/media/courses/course-audio-063.wav": {
+      "before": "3a298d0bca34e610c08620ff3772e2ca4e5e2da5c1058c70a785f57597eddb3e",
+      "after": "688d17f91fc4d158f225b9257059e9e199e0f80e58a424865138ec9c45169ca9"
+    },
+    "public/media/courses/course-audio-064.wav": {
+      "before": "41accf49f393b2df9ee5b03cd676fc01e3fc58f1db4593e4da8ae17a5a6823d4",
+      "after": "31a4267207c1087d3c378d7267169b833ec54b4ef95eb756e2b98fd3ea2cff20"
+    },
+    "public/media/courses/course-audio-065.wav": {
+      "before": "edb3dba0847d4afb338f2f7fe369a6035473197aa22675159943b934e5f8f866",
+      "after": "7ecc72229fcbe7680cfffa5a7d8116c23b2a378004f6eda2b9f40ec521dc8466"
+    },
+    "public/media/courses/course-audio-066.wav": {
+      "before": "d85694ffce494c567d5133ce869de97eb3591db7abe8c588ba1640a4bdbecf1d",
+      "after": "af28016e88a00abb0fb966eba0ecc8c402f74ca57e70c3bff1dca0d136fb4666"
+    },
+    "public/media/courses/course-audio-067.wav": {
+      "before": "0a38e9be9fb184dcc592f80c1f92455f79b4391db7ab6e3a612c348f2e332f2b",
+      "after": "e323d794d6b91e93d13d4ea7f8a04807d1f828aaee4c99fcb7bbd0b41b928178"
+    },
+    "public/media/courses/course-audio-068.wav": {
+      "before": "ba3b3fa0fde517a19f738edf51d5b50cb0871f2a33e254ef118ff785448099e6",
+      "after": "1b408c6f2fd3260a5c8d7d32d2d3d15006ad596d2007719f21c4efa5ba09e9b3"
+    },
+    "public/media/courses/course-audio-069.wav": {
+      "before": "ec033e17299a6c5133764d20f8d5d8e46110621fb3e47cfdcaeba37f49836857",
+      "after": "7c6a54d8e108d4a9201e4066f292ce646c7cb5f0615a8ec823f3b90aaf697805"
+    },
+    "public/media/courses/course-audio-070.wav": {
+      "before": "d15fdbfd4bbacd924bfbddfbcf8dc2d818e1249c5f7af680813488bec7550d67",
+      "after": "d3cb422615fec18a2c0b4298018acab18ee8407dcdbca5089f11e37819245762"
+    },
+    "public/media/courses/course-audio-071.wav": {
+      "before": "7b23555fd2f947c3b8b0e62cd73219ca90504d66d134d8c37773d9bb3ce954e9",
+      "after": "32a6d98f9313561e1fb7bb3182c8abab4cd48e76b0ef28ec0b61f73372cb201e"
+    },
+    "public/media/courses/course-audio-072.wav": {
+      "before": "a989c8a5b88f1ed57ba5a11c20a4667ba8465ac7cbdeabac46782d2bf4b744d1",
+      "after": "cd7a55a477d06a4a578b20488e1b98b7af00ad40216e51cfc4b2a46ad028a1bc"
+    },
+    "public/media/courses/course-audio-073.wav": {
+      "before": "b1be5938b5bbb380993be5d955265ef6d4b037cee2db0b226c20db1941d8dc82",
+      "after": "99bc23870311f0f64ffa685de0e39407295ce71b53cff16410acf354c7ac1743"
+    },
+    "public/media/courses/course-audio-074.wav": {
+      "before": "cb364b0ac4e2ee6c6b789c9fc6c94cf43bd5500d6d77af0105b7c3fb7b1c98e9",
+      "after": "44251abd3b0c5f7edff1b68777f5e4d74b0d771d14a96aaaaa003611925c4b46"
+    },
+    "public/media/courses/course-audio-075.wav": {
+      "before": "083282d134727e428f340b20c131cec5e669f465caf9ad61653b9784393afa89",
+      "after": "c1a27e097a5fb73674ae3b73136c8db3998406ccd8d89097403eb1f8f011e816"
+    },
+    "public/media/courses/course-audio-076.wav": {
+      "before": "48e3ebcb8718b0fe915b709ae9aa804c675927f2b57936cb75db7459f1a5866e",
+      "after": "c610cb8180697b0f859b0e445e4abc71df3a090b0ab76f06a1c1f19c3560631b"
+    },
+    "public/media/courses/course-audio-077.wav": {
+      "before": "cf1a6a294a4a7bd8801d21e84ca93e19372aba777fdb22d3c79a70ca1b2b2605",
+      "after": "324e749593d3f1684a47e98b7cdde4ebc7ea9482e8074bfaceaf3c92c4eef81c"
+    },
+    "public/media/courses/course-audio-078.wav": {
+      "before": "04b2383e0fc77322a7dc24421ba794d1ec8dad85a55c7e52c5255dafb37d73d6",
+      "after": "1bed30e796859b08b74492efa0bb9620f17a761172041d9bbbc537ab66d206c0"
+    },
+    "public/media/courses/course-audio-079.wav": {
+      "before": "651aaf55cfa2340934653d15c400080b19ea5ed84aa840914f49e6b12f6152b7",
+      "after": "28c9c721448a2bdbe95bd35effdb84826453eb4aa4041d85c1012a26a1722643"
+    },
+    "public/media/courses/course-audio-080.wav": {
+      "before": "0a153fa6a05d46b50273948171db0ac7231402465ae1723d5198270f26bd4b98",
+      "after": "ddbd478e921782a8da1f5ba416422560e7de4f9f28e7fee7c610ee9ed20273a3"
+    },
+    "public/media/courses/course-audio-081.wav": {
+      "before": "9a3b7269e6faa634386c7e56fb9244ac51223b85dc9e169528b5a777582dbbd6",
+      "after": "d60616f06c97468d697a49e8f45e60fd3cd60eb5807019dff3a90e5d1aa55b24"
+    },
+    "public/media/courses/course-audio-082.wav": {
+      "before": "2163d2675ec3090acdc29242f154b4545f771fefe1d0f37049e8e8a3e0998234",
+      "after": "35ad5a1c3eec2d113116fb63641487aa60cf02d08ea47a57da2e6ab13b001416"
+    },
+    "public/media/courses/course-audio-083.wav": {
+      "before": "bb33d2a1d4845e26baefd5b14fee46216b4fdd26f8bb2d928eb79366fe3849b7",
+      "after": "e3fd42b9726e9753ee7ef18dec80903f522113ab30ec3639007170433043f9d8"
+    },
+    "public/media/courses/course-audio-084.wav": {
+      "before": "0d5797b06c4638295f72a32dabbb6830f6e7f92019c5fad679975eba79c3eb7b",
+      "after": "4b766138b3f7051ed97f79c5692ea71d07aa4e54ea9e0e82cd0a9383f06df7f2"
+    },
+    "public/media/courses/course-audio-085.wav": {
+      "before": "39e7c91400dced1cdbfe6a8ad43b61e85f95a19b9321b534cf54d491fc901301",
+      "after": "9ff3cc6b4c3997f570c8b824ca5e697e492d6be4618dd4c8db87f456d47b5c82"
+    },
+    "public/media/courses/course-audio-086.wav": {
+      "before": "f8d44851dd3c673979101d4b3f036e6e5a1ee9c38c7d3bc246edf1aaa3eadb89",
+      "after": "5772792457ed72bcaa1eaa4c597c8b31e822a3a1036dd917c1c0a92960655180"
+    },
+    "public/media/courses/course-audio-087.wav": {
+      "before": "20bb9fe516f6273d5dc3d13a86342487799017621bf058a7c506c09f22e02219",
+      "after": "2fe1dbcee9f6319275f28370c256cf6202ce6164e5fe60fa6b346bc62eeec9b6"
+    },
+    "public/media/courses/course-audio-088.wav": {
+      "before": "fdfb67595d006548846e806cf48350eba1ee199b573fadfa37b40280bc11057e",
+      "after": "8e2aee5319d6f8fff6e5c86a5f6cb145de885af94f738d18ff5bb71d1a033b7a"
+    },
+    "public/media/courses/course-audio-089.wav": {
+      "before": "4f696ba729c1d88f7612628074eaaab8c8235baabc3c77331e026b2b23100821",
+      "after": "85ff734fd691bd4e296bbeb501c3bff0633d654df8b4cd56e1a3811ad7bab530"
+    },
+    "public/media/courses/course-audio-090.wav": {
+      "before": "0064314bbc760495bf1cb3d7b2d65d29590f48588721ac1fdfc616b2df9452a0",
+      "after": "881e0853d202f698738464cfac192aebcb17f9fc86bb83bd4cdfdeedd55450f8"
+    },
+    "public/media/courses/course-audio-091.wav": {
+      "before": "f94f801e98eb678045180283af17b94a550673ebd4449b7a45ab9d8dbcf431f7",
+      "after": "a89e1646613a00c5f47a5ff189b2a3e0022ce9542efd2ea230ce89a6485a3f9a"
+    },
+    "public/media/courses/course-audio-092.wav": {
+      "before": "7bbf0f3275da30e06b6dbde16264d2b9fd5afedcccd99454a336c29cd7021f87",
+      "after": "ce9fff53cfc859b12a0f89ba84dc7a6cc7f87cd83551f2e549598539f8d1a2d3"
+    },
+    "public/media/courses/course-audio-093.wav": {
+      "before": "754c2d3c9d23326dbf2043b2a970e60ddb38e1e98f419012167cab474895b9e3",
+      "after": "d9903f76956a4851c7e2be8f6eb9c5498815c6c525fe66f8356ed21d60cfe0c4"
+    },
+    "public/media/courses/course-audio-094.wav": {
+      "before": "2ae14665afdbdbd8e92ef053fd89478abb5ba5f8d3f7d6e95f3d2d80ed898862",
+      "after": "0bae0fa2aa794f915208dc0c6f211a37d9117318a5aa1c8db9bcb40ea58bf108"
+    },
+    "public/media/courses/course-audio-095.wav": {
+      "before": "3096b8c2c22c8805be14d8c21285e2cde9e87748fd3d586673d86d79bd145798",
+      "after": "d430286370e13b7cce5acfbfc04008b9cfab91c5fbfdfcb6fb3f3fe2ce8017b1"
+    },
+    "public/media/courses/recovery-band2-speaking-cue-card-long-turn.wav": {
+      "before": "71df212a7cf8ad0c207952a8f4fc59cb075ec73247419885b8d8ac9ac21b4a8b",
+      "after": "fdcc078270f7c1e2dfcd4ef023a1f615dc9ffee53f563e4526ee5fca6766bb89"
+    },
+    "public/media/courses/recovery-band2-speaking-describe-long-turn.wav": {
+      "before": "95a7401ac339c523aa2ad3c59f8a08952fe47d1780692dbf6b5a787175927b36",
+      "after": "7b16d09a2bb6ac80db2e909ca1137c45b6ff653ed85f274182ee38c6c01b9f3f"
+    },
+    "public/media/courses/recovery-band4-speaking-storytelling-long-turn.wav": {
+      "before": "29b42c5cebc9715119d1ad62f318ecfe1e99c76ff9dff0c3593dd757b6b0d351",
+      "after": "c557b06b4fc1efef16b792aa66d518697cdb5a7eeddd03902a0f47caae771dc4"
+    },
+    "public/media/courses/recovery-gt-plan.wav": {
+      "before": "85c830b2390ccd9f8468881ec056d625c2a2f690b900e42da2b3a3f56ce2f54b",
+      "after": "9852a300290cb475a077f1ecf5696eeb57c48d98ce55dbabcaaf2cf56db97a16"
+    },
+    "public/media/courses/audio-manifest.json": {
+      "before": "d5bc2806ce77a83743cd903346dcf12880e3ba0d5e124a9baa0f3e5205f27d16",
+      "after": "41f848494f9a2d75c0211f1efa6a6bf6d69e76ebc484aac295ccce0b947ef6b2"
+    },
+    "src/components/exercises/CourseActivity.tsx": {
+      "before": "50ce49f9aa13084bc5e06dcdc8ef45a8ba7ab5d4421e6442faabed46338309be",
+      "after": "47a765d9e592ad2f50dd9ac0fb12af153401d6e1c44059b406e3d67fb3ac475b"
+    }
+  },
+  "clips": [
+    {
+      "id": "course-audio-001",
+      "path": "public/media/courses/course-audio-001.wav",
+      "scriptSha256": "da3bf3f22959b32dfadf0f218c3a9db43d179bab20be8825b35ce887acf81f4b",
+      "speakerRoles": []
+    },
+    {
+      "id": "course-audio-002",
+      "path": "public/media/courses/course-audio-002.wav",
+      "scriptSha256": "1b73ad37595bc72f7a4b84e715a32db0395251fb9d2babe4917df0bd44ddf082",
+      "speakerRoles": []
+    },
+    {
+      "id": "course-audio-003",
+      "path": "public/media/courses/course-audio-003.wav",
+      "scriptSha256": "b886b70c013bb16e895cbe22bea9da74fdc9705aac7069f00087e1dc9ce74864",
+      "speakerRoles": []
+    },
+    {
+      "id": "course-audio-004",
+      "path": "public/media/courses/course-audio-004.wav",
+      "scriptSha256": "5d4c1d9052ff38fae518f2402af052d6969f8725bd51de02c9e1ab8b633604fe",
+      "speakerRoles": []
+    },
+    {
+      "id": "course-audio-005",
+      "path": "public/media/courses/course-audio-005.wav",
+      "scriptSha256": "bccb309a5d0951e0307539e3028870eb8b13261437325f385ddb23214994b15e",
+      "speakerRoles": []
+    },
+    {
+      "id": "course-audio-006",
+      "path": "public/media/courses/course-audio-006.wav",
+      "scriptSha256": "84e0e5e41040c094c464f042aa15e759fbb4530043f1e4e0af257f565dc45769",
+      "speakerRoles": []
+    },
+    {
+      "id": "course-audio-007",
+      "path": "public/media/courses/course-audio-007.wav",
+      "scriptSha256": "987caa3656b29d338293e1539fa5b365b356fbcac03038af72711347d943d31a",
+      "speakerRoles": []
+    },
+    {
+      "id": "course-audio-008",
+      "path": "public/media/courses/course-audio-008.wav",
+      "scriptSha256": "a2276f3c9f50a2eb63a38cdf1bb910cc76070f14d8649d71733b55300bdf7e8e",
+      "speakerRoles": []
+    },
+    {
+      "id": "course-audio-009",
+      "path": "public/media/courses/course-audio-009.wav",
+      "scriptSha256": "144f511e10fc910e1ed881240f6cff491092947e49a7d5391d9efa939ce4b574",
+      "speakerRoles": []
+    },
+    {
+      "id": "course-audio-010",
+      "path": "public/media/courses/course-audio-010.wav",
+      "scriptSha256": "27d752c937770e502d58c3a1478bea2dfa7df105c6bc6922dc41ae6af4cd5cfb",
+      "speakerRoles": [
+        "Interviewer",
+        "Guest"
+      ]
+    },
+    {
+      "id": "course-audio-011",
+      "path": "public/media/courses/course-audio-011.wav",
+      "scriptSha256": "3b0eeb10b493d8d5a727e48bb78101a3c43879bf3c4d8a9b2cb7965e7e01cc00",
+      "speakerRoles": [
+        "Interviewer",
+        "Guest"
+      ]
+    },
+    {
+      "id": "course-audio-012",
+      "path": "public/media/courses/course-audio-012.wav",
+      "scriptSha256": "321a8504caa6675362ac1c0ac7f082dc479ecc841498ce68bffd3f5a1c32a21a",
+      "speakerRoles": [
+        "Interviewer",
+        "Guest"
+      ]
+    },
+    {
+      "id": "course-audio-013",
+      "path": "public/media/courses/course-audio-013.wav",
+      "scriptSha256": "e2c800651c5dffcc5a5976b013840c0329d1308cae15a1ac5c8000c6597e1495",
+      "speakerRoles": [
+        "Receptionist",
+        "Caller"
+      ]
+    },
+    {
+      "id": "course-audio-014",
+      "path": "public/media/courses/course-audio-014.wav",
+      "scriptSha256": "ff11999438524c61b5c1f99bcdbb2820dfa8d4eb302cd16bf8f0048972acfd18",
+      "speakerRoles": [
+        "Receptionist",
+        "Customer"
+      ]
+    },
+    {
+      "id": "course-audio-015",
+      "path": "public/media/courses/course-audio-015.wav",
+      "scriptSha256": "29d198c9e70a0df71f7df4da4289499cc94e77a53d0ee6c6f5097c45bb985c5f",
+      "speakerRoles": [
+        "Visitor",
+        "Clerk"
+      ]
+    },
+    {
+      "id": "course-audio-016",
+      "path": "public/media/courses/course-audio-016.wav",
+      "scriptSha256": "41969d247e609a10741519afc602b1c5e5eb010c06085da723a5fa6ffe02dda8",
+      "speakerRoles": []
+    },
+    {
+      "id": "course-audio-017",
+      "path": "public/media/courses/course-audio-017.wav",
+      "scriptSha256": "b3169ab9545f6dc0c09ce476c9c593ebf25c9bf1b0145714ee80bd9105d8373e",
+      "speakerRoles": []
+    },
+    {
+      "id": "course-audio-018",
+      "path": "public/media/courses/course-audio-018.wav",
+      "scriptSha256": "3e1a25a1f48d2171fe18a8f1d108895d798db3bedaf836aa2af511425832feed",
+      "speakerRoles": []
+    },
+    {
+      "id": "course-audio-019",
+      "path": "public/media/courses/course-audio-019.wav",
+      "scriptSha256": "64e920f6cbd4e2875a71888f3db3eff1f1c81220abbf4ac7dcd2f63293337756",
+      "speakerRoles": [
+        "Tutor",
+        "Student"
+      ]
+    },
+    {
+      "id": "course-audio-020",
+      "path": "public/media/courses/course-audio-020.wav",
+      "scriptSha256": "c239549426ce2bae621f07ca42e6831b9835540ac371fc4e1b507aea44386554",
+      "speakerRoles": [
+        "Tutor",
+        "Student one",
+        "Student two"
+      ]
+    },
+    {
+      "id": "course-audio-021",
+      "path": "public/media/courses/course-audio-021.wav",
+      "scriptSha256": "c44d96b1d59b48960295107cade5fe4b2986fba291a6e29d3631ae46943ee062",
+      "speakerRoles": []
+    },
+    {
+      "id": "course-audio-022",
+      "path": "public/media/courses/course-audio-022.wav",
+      "scriptSha256": "269269c2ff108a344e43ef6a1656438ffdfccb7e0edf0fd0a9ad97cf15964630",
+      "speakerRoles": []
+    },
+    {
+      "id": "course-audio-023",
+      "path": "public/media/courses/course-audio-023.wav",
+      "scriptSha256": "856490ba3476be51555cfb46da1c75e0c7a260960f74d816f28bfb01a95b3410",
+      "speakerRoles": []
+    },
+    {
+      "id": "course-audio-024",
+      "path": "public/media/courses/course-audio-024.wav",
+      "scriptSha256": "192c40c499d482432359f3b2753521528b0f4a3354024b05ae4eaaf3b7f2cfcd",
+      "speakerRoles": []
+    },
+    {
+      "id": "course-audio-025",
+      "path": "public/media/courses/course-audio-025.wav",
+      "scriptSha256": "fbc57890058bac5d731165c781966aaaecfda4076881ff77060f9ea313af74e3",
+      "speakerRoles": []
+    },
+    {
+      "id": "course-audio-026",
+      "path": "public/media/courses/course-audio-026.wav",
+      "scriptSha256": "af6f48f4e436038f7b4049f24ef56a620f5011c058bfb024de295807e563e30f",
+      "speakerRoles": []
+    },
+    {
+      "id": "course-audio-027",
+      "path": "public/media/courses/course-audio-027.wav",
+      "scriptSha256": "b082e3aad75e99d204ecf9e62c04cc5332d32eb1cfe35ff8304dc7d7e33834b2",
+      "speakerRoles": []
+    },
+    {
+      "id": "course-audio-028",
+      "path": "public/media/courses/course-audio-028.wav",
+      "scriptSha256": "44c763d5cc756181c3fdc78a94c6f8e67808557492986d54a8d35d8e33dc9550",
+      "speakerRoles": []
+    },
+    {
+      "id": "course-audio-029",
+      "path": "public/media/courses/course-audio-029.wav",
+      "scriptSha256": "a1c64ce8bfeeb63c3a2f916afa98511073a8065af0e75acdf2305a256f254c27",
+      "speakerRoles": []
+    },
+    {
+      "id": "course-audio-030",
+      "path": "public/media/courses/course-audio-030.wav",
+      "scriptSha256": "10e1113010d43a16947789ec8706f7eedbb6ac3f019bfdd57f5b2b6daf3712b5",
+      "speakerRoles": []
+    },
+    {
+      "id": "course-audio-031",
+      "path": "public/media/courses/course-audio-031.wav",
+      "scriptSha256": "4592cba6d34e0fb34c327494403eb97b3eb4bdaafa151e80f2cd30c2743ce6be",
+      "speakerRoles": []
+    },
+    {
+      "id": "course-audio-032",
+      "path": "public/media/courses/course-audio-032.wav",
+      "scriptSha256": "481b722845eee7ed08f30562e991fbfbd60fbea89e7127136ada5f2018dd229b",
+      "speakerRoles": []
+    },
+    {
+      "id": "course-audio-033",
+      "path": "public/media/courses/course-audio-033.wav",
+      "scriptSha256": "eb0b8d8c697a3855d24b16e9e0c56bad0e0dc70468133a5b4b0003bd912931d9",
+      "speakerRoles": []
+    },
+    {
+      "id": "course-audio-034",
+      "path": "public/media/courses/course-audio-034.wav",
+      "scriptSha256": "0658505cdc75647bb62f0a742f93258b35197c5542e6daac1b89cedb4a860a85",
+      "speakerRoles": [
+        "Student",
+        "Librarian"
+      ]
+    },
+    {
+      "id": "course-audio-035",
+      "path": "public/media/courses/course-audio-035.wav",
+      "scriptSha256": "33211cedf37ddb906f884ea9cfb9339cd632409203275b4af51b885cd643f287",
+      "speakerRoles": [
+        "Student one",
+        "Student two"
+      ]
+    },
+    {
+      "id": "course-audio-036",
+      "path": "public/media/courses/course-audio-036.wav",
+      "scriptSha256": "c191887d9a0b1270ad7e7aa70744cc2fdab87fd7d67b6949923712ea4e9c6a63",
+      "speakerRoles": [
+        "Student",
+        "Staff member"
+      ]
+    },
+    {
+      "id": "course-audio-037",
+      "path": "public/media/courses/course-audio-037.wav",
+      "scriptSha256": "7cb0bee763b51690096d18d5d300ea3ae7e0c061d375ab41e03794f4fb640fda",
+      "speakerRoles": []
+    },
+    {
+      "id": "course-audio-038",
+      "path": "public/media/courses/course-audio-038.wav",
+      "scriptSha256": "a7755f2ddc04065eaf446789262aac6e6f816eeaec84903717fd27f84ae052b5",
+      "speakerRoles": []
+    },
+    {
+      "id": "course-audio-039",
+      "path": "public/media/courses/course-audio-039.wav",
+      "scriptSha256": "58708a11247d10aaef7e124ddc1d88392804fd7ed52ec97903a798efa4bc8644",
+      "speakerRoles": []
+    },
+    {
+      "id": "course-audio-040",
+      "path": "public/media/courses/course-audio-040.wav",
+      "scriptSha256": "8526abb9cc1c6399727e6e897f32f164c0f0a1af770f53a02529e8691402d1e4",
+      "speakerRoles": []
+    },
+    {
+      "id": "course-audio-041",
+      "path": "public/media/courses/course-audio-041.wav",
+      "scriptSha256": "76e484e245ecbb0db12ef8dd54e1925b8837ef0a577ae56098f32face23b5f85",
+      "speakerRoles": []
+    },
+    {
+      "id": "course-audio-042",
+      "path": "public/media/courses/course-audio-042.wav",
+      "scriptSha256": "e37b1759f3ab43a0f3301b75bfbfc9d240c8200a16f8be97b16639e87aa7e540",
+      "speakerRoles": []
+    },
+    {
+      "id": "course-audio-043",
+      "path": "public/media/courses/course-audio-043.wav",
+      "scriptSha256": "d62a06822aab094b5fec1f00cd2cdc9f45a28cccb7122bc67d23a7b9b6423253",
+      "speakerRoles": []
+    },
+    {
+      "id": "course-audio-044",
+      "path": "public/media/courses/course-audio-044.wav",
+      "scriptSha256": "797c233df2dbf17a98c4f348e6f550349f84a9c97da8a4a8b043e046040b074d",
+      "speakerRoles": []
+    },
+    {
+      "id": "course-audio-045",
+      "path": "public/media/courses/course-audio-045.wav",
+      "scriptSha256": "ded2d69491700a796489cc4fc7935324f85f33ee674b4d6ef965a8be5d6306d2",
+      "speakerRoles": []
+    },
+    {
+      "id": "course-audio-046",
+      "path": "public/media/courses/course-audio-046.wav",
+      "scriptSha256": "7b8b0ea4e91e15692e642534d6ac31bc2b37431b3b0d8ebc60c1fffb6a6af314",
+      "speakerRoles": []
+    },
+    {
+      "id": "course-audio-047",
+      "path": "public/media/courses/course-audio-047.wav",
+      "scriptSha256": "7dab5d082c9145934285d1b7a759d8d9baf6e8aa0beaa91f7c8edb36345dfdb0",
+      "speakerRoles": []
+    },
+    {
+      "id": "course-audio-048",
+      "path": "public/media/courses/course-audio-048.wav",
+      "scriptSha256": "f06f77ed11dbf55b9d76e391b04eff817bb1f7c647ac81c81ad30285a5b8d582",
+      "speakerRoles": []
+    },
+    {
+      "id": "course-audio-049",
+      "path": "public/media/courses/course-audio-049.wav",
+      "scriptSha256": "f33867972571679ca31eac26cdfc0565356f96225924079a612bff2c1d85d28d",
+      "speakerRoles": []
+    },
+    {
+      "id": "course-audio-050",
+      "path": "public/media/courses/course-audio-050.wav",
+      "scriptSha256": "df23a7ee33f18b97cb30d1dd33be56be05ea75c535ebd77c46a1fe3dc13b4646",
+      "speakerRoles": []
+    },
+    {
+      "id": "course-audio-051",
+      "path": "public/media/courses/course-audio-051.wav",
+      "scriptSha256": "3f0b7c30011f0e438d93c7468447c781e2c1f47dcaa7003194c7b0c452c2de8e",
+      "speakerRoles": []
+    },
+    {
+      "id": "course-audio-052",
+      "path": "public/media/courses/course-audio-052.wav",
+      "scriptSha256": "9be792ca4e7e41244347d08d9faae6852b31ed3d8d9bb26daefcbf1b2aebee1f",
+      "speakerRoles": []
+    },
+    {
+      "id": "course-audio-053",
+      "path": "public/media/courses/course-audio-053.wav",
+      "scriptSha256": "34e2dcd4c22faa5e0fe7efc08e5a693e5c878ba53e9d136e2012c205e5119fac",
+      "speakerRoles": []
+    },
+    {
+      "id": "course-audio-054",
+      "path": "public/media/courses/course-audio-054.wav",
+      "scriptSha256": "cd88626bc05a69206465be721251a79dd5edc86242814fcc831def338a60cc75",
+      "speakerRoles": []
+    },
+    {
+      "id": "course-audio-055",
+      "path": "public/media/courses/course-audio-055.wav",
+      "scriptSha256": "a7a92fcc9bd997e90e4058c4db36380b26f7b9ac98f9ef5038d2408979da8bee",
+      "speakerRoles": []
+    },
+    {
+      "id": "course-audio-056",
+      "path": "public/media/courses/course-audio-056.wav",
+      "scriptSha256": "88e265082f5bbbb36c2193f63a68701a60981ec2e63b0a97f21122174c48d8d5",
+      "speakerRoles": []
+    },
+    {
+      "id": "course-audio-057",
+      "path": "public/media/courses/course-audio-057.wav",
+      "scriptSha256": "8b3a71aec5d198ff340a1f4f33c8dc19df64427ce075da3c31383d6530ca7c54",
+      "speakerRoles": []
+    },
+    {
+      "id": "course-audio-058",
+      "path": "public/media/courses/course-audio-058.wav",
+      "scriptSha256": "ef7c002c536ceb5ba4eb22efe9194b34cc36564c92345ac4d34da4dee526d4ff",
+      "speakerRoles": []
+    },
+    {
+      "id": "course-audio-059",
+      "path": "public/media/courses/course-audio-059.wav",
+      "scriptSha256": "5c483262d0b666e64148f4b1c37bbc51f4056cb599a62e9b36435809a555e8e0",
+      "speakerRoles": []
+    },
+    {
+      "id": "course-audio-060",
+      "path": "public/media/courses/course-audio-060.wav",
+      "scriptSha256": "6079ad18766eb8159a176a2df1434133d3f810bb5e256a9a8492d51deb497b62",
+      "speakerRoles": []
+    },
+    {
+      "id": "course-audio-061",
+      "path": "public/media/courses/course-audio-061.wav",
+      "scriptSha256": "6b863a2ff20f14731877e3c683fc9eed102cb313c6e4f6291a259678f6c3bd9f",
+      "speakerRoles": []
+    },
+    {
+      "id": "course-audio-062",
+      "path": "public/media/courses/course-audio-062.wav",
+      "scriptSha256": "76cc152aa0a171f070781dd69671586479fd7a511dbd46acd24c437fbdaa7a45",
+      "speakerRoles": []
+    },
+    {
+      "id": "course-audio-063",
+      "path": "public/media/courses/course-audio-063.wav",
+      "scriptSha256": "2bfafba649c6a3230cf39b10dbfd12fc7427460a8ab3f49e0e7ece4baa0b6e8b",
+      "speakerRoles": []
+    },
+    {
+      "id": "course-audio-064",
+      "path": "public/media/courses/course-audio-064.wav",
+      "scriptSha256": "b8b553e0625612de5132f3ed9c0d060884c22050635e3e87a66d729bb8af7fee",
+      "speakerRoles": []
+    },
+    {
+      "id": "course-audio-065",
+      "path": "public/media/courses/course-audio-065.wav",
+      "scriptSha256": "ed39abe7b06f151b8497cbc65289463ce7b0cd9f8b4c517c0720af3c0475e9cd",
+      "speakerRoles": []
+    },
+    {
+      "id": "course-audio-066",
+      "path": "public/media/courses/course-audio-066.wav",
+      "scriptSha256": "5fded5f416a06310daf6c766e5bb208b13a300b7fd0d16fb164fed2cd7764861",
+      "speakerRoles": []
+    },
+    {
+      "id": "course-audio-067",
+      "path": "public/media/courses/course-audio-067.wav",
+      "scriptSha256": "bc1a103e40ffd5259e8819c960c5c1c4171c9e31330c8cd2f9a342fca131118c",
+      "speakerRoles": []
+    },
+    {
+      "id": "course-audio-068",
+      "path": "public/media/courses/course-audio-068.wav",
+      "scriptSha256": "fab1fba2b7ff324476b0d9dc6c9c68cdd3952f62d44e4d8e44fcb4c0be94bba1",
+      "speakerRoles": []
+    },
+    {
+      "id": "course-audio-069",
+      "path": "public/media/courses/course-audio-069.wav",
+      "scriptSha256": "d8b8064532212bdfc77e137e543291a0264daa281b4745f4fa06ce26c98a8b98",
+      "speakerRoles": []
+    },
+    {
+      "id": "course-audio-070",
+      "path": "public/media/courses/course-audio-070.wav",
+      "scriptSha256": "7fc1c8f49d0b1976830bb59a46674ae68372dd2197380dfd78d1a1b688fb0002",
+      "speakerRoles": []
+    },
+    {
+      "id": "course-audio-071",
+      "path": "public/media/courses/course-audio-071.wav",
+      "scriptSha256": "da88dcfb7e1f260bbfb7a95360bb5c9a4973e64cfb2233b60450b3605ac184b1",
+      "speakerRoles": []
+    },
+    {
+      "id": "course-audio-072",
+      "path": "public/media/courses/course-audio-072.wav",
+      "scriptSha256": "761d9cce722d6d4b56bce70d74412f888899108e839db112ed74459430019ccd",
+      "speakerRoles": []
+    },
+    {
+      "id": "course-audio-073",
+      "path": "public/media/courses/course-audio-073.wav",
+      "scriptSha256": "0522427e8ce167dd2e41dc130ebe6697dca1cd7192449063320517fbd6c051cd",
+      "speakerRoles": []
+    },
+    {
+      "id": "course-audio-074",
+      "path": "public/media/courses/course-audio-074.wav",
+      "scriptSha256": "953846cd212a16be5ee2967515fc396305e8606dae297b865b247886e3fa4af5",
+      "speakerRoles": []
+    },
+    {
+      "id": "course-audio-075",
+      "path": "public/media/courses/course-audio-075.wav",
+      "scriptSha256": "3d449284f86530ec02ae2a1637cda410b4ee1083b1c5aaa11a5dc728cf375fee",
+      "speakerRoles": []
+    },
+    {
+      "id": "course-audio-076",
+      "path": "public/media/courses/course-audio-076.wav",
+      "scriptSha256": "a06e15b0b8ecd2496d461e86081c70d6697a4cc64955d870ee31edfe42077140",
+      "speakerRoles": []
+    },
+    {
+      "id": "course-audio-077",
+      "path": "public/media/courses/course-audio-077.wav",
+      "scriptSha256": "24286893e575aaff9a41f3b4ab58f31f2439b2b18f7e1f7d00d943f2731c05d1",
+      "speakerRoles": [
+        "Caller",
+        "Agent"
+      ]
+    },
+    {
+      "id": "course-audio-078",
+      "path": "public/media/courses/course-audio-078.wav",
+      "scriptSha256": "68e6dd61577727a967b62398e8e9f124ae7e812d139d272f0e277ca3aa1573bb",
+      "speakerRoles": []
+    },
+    {
+      "id": "course-audio-079",
+      "path": "public/media/courses/course-audio-079.wav",
+      "scriptSha256": "a47643510e4fe96e8d026fb6d5535248b280d2e65ac211b034697f0c27011d78",
+      "speakerRoles": []
+    },
+    {
+      "id": "course-audio-080",
+      "path": "public/media/courses/course-audio-080.wav",
+      "scriptSha256": "4b0d5dcc5eae40dc4126ca399c24e60992999495f3c8c9bad37210cfd854fbaa",
+      "speakerRoles": []
+    },
+    {
+      "id": "course-audio-081",
+      "path": "public/media/courses/course-audio-081.wav",
+      "scriptSha256": "ce962a448f34a8d88cb0785945adfa143cef85d52223f4c0e563685c7a63178f",
+      "speakerRoles": [
+        "Tutor",
+        "Student"
+      ]
+    },
+    {
+      "id": "course-audio-082",
+      "path": "public/media/courses/course-audio-082.wav",
+      "scriptSha256": "cdcd6840bbd1726d41154fed640aef1761ae9a3f2660940a50d4bbafe5b12d9c",
+      "speakerRoles": []
+    },
+    {
+      "id": "course-audio-083",
+      "path": "public/media/courses/course-audio-083.wav",
+      "scriptSha256": "559e62d61b60a5f324c9082acdb19955abeb2a9697961f4814b2e88ca3a8a656",
+      "speakerRoles": []
+    },
+    {
+      "id": "course-audio-084",
+      "path": "public/media/courses/course-audio-084.wav",
+      "scriptSha256": "31d55c65765f1236dd703434d1317df3ca545110358dd7cc163ab29fb032c213",
+      "speakerRoles": [
+        "Customer",
+        "Adviser"
+      ]
+    },
+    {
+      "id": "course-audio-085",
+      "path": "public/media/courses/course-audio-085.wav",
+      "scriptSha256": "c862c9825179e87d3d85997d58511718daf7bda56793c630651904b6988fcc26",
+      "speakerRoles": []
+    },
+    {
+      "id": "course-audio-086",
+      "path": "public/media/courses/course-audio-086.wav",
+      "scriptSha256": "d66dcbe4fdf01a0aaecbe70460d5bed47bebd029b799069acbd5dfea64fb23ee",
+      "speakerRoles": []
+    },
+    {
+      "id": "course-audio-087",
+      "path": "public/media/courses/course-audio-087.wav",
+      "scriptSha256": "d7eec5f5912db9697324abbcf19a507eab85c9f6c2f88536a8fafb0117f21a43",
+      "speakerRoles": []
+    },
+    {
+      "id": "course-audio-088",
+      "path": "public/media/courses/course-audio-088.wav",
+      "scriptSha256": "3ba26bcbdc4455ae5d310c4c6e1c9cb3a4f00cd8e1685352484c8912bad3c783",
+      "speakerRoles": []
+    },
+    {
+      "id": "course-audio-089",
+      "path": "public/media/courses/course-audio-089.wav",
+      "scriptSha256": "4ee2fdbf5e0e9a578ff5e4fc7f7d08dc0ee94610aad6c2fb557dc9735802e3c6",
+      "speakerRoles": []
+    },
+    {
+      "id": "course-audio-090",
+      "path": "public/media/courses/course-audio-090.wav",
+      "scriptSha256": "e50aefff16edd423ce9dcdf1b6d52e44e499e4b108d3b4cbf1a93c7d0059d1c6",
+      "speakerRoles": []
+    },
+    {
+      "id": "course-audio-091",
+      "path": "public/media/courses/course-audio-091.wav",
+      "scriptSha256": "2f477b3f84ad5640498e5327edae29607facca65675c32e7f2d1a7976a7a4686",
+      "speakerRoles": []
+    },
+    {
+      "id": "course-audio-092",
+      "path": "public/media/courses/course-audio-092.wav",
+      "scriptSha256": "d671033caeb8264c6aff5cd437cffd591f980883a8749b009d20c0c48dfe3703",
+      "speakerRoles": []
+    },
+    {
+      "id": "course-audio-093",
+      "path": "public/media/courses/course-audio-093.wav",
+      "scriptSha256": "3741b72967a2e32c240950283f9c5b112d3d79abc0ac0bd62284e2fa127207c3",
+      "speakerRoles": []
+    },
+    {
+      "id": "course-audio-094",
+      "path": "public/media/courses/course-audio-094.wav",
+      "scriptSha256": "470b4197fdcd627342f6079ad3bb68f8b641d82bd5e81760d58608cc284b231f",
+      "speakerRoles": []
+    },
+    {
+      "id": "course-audio-095",
+      "path": "public/media/courses/course-audio-095.wav",
+      "scriptSha256": "9c01ba48c0fca5bf07a9ee00bc54d30ee993750124e4481df12f2c9bc74295ab",
+      "speakerRoles": []
+    },
+    {
+      "id": "recovery-band2-speaking-cue-card-long-turn",
+      "path": "public/media/courses/recovery-band2-speaking-cue-card-long-turn.wav",
+      "scriptSha256": "b7a0f56631197ef9b5036c87be47ecbab625aab256f82e8bad243853ae23596c",
+      "speakerRoles": []
+    },
+    {
+      "id": "recovery-band2-speaking-describe-long-turn",
+      "path": "public/media/courses/recovery-band2-speaking-describe-long-turn.wav",
+      "scriptSha256": "35fc61e7963fb91d895e6ce2c1b5918179e6319fdda06588b866905817c01e56",
+      "speakerRoles": []
+    },
+    {
+      "id": "recovery-band4-speaking-storytelling-long-turn",
+      "path": "public/media/courses/recovery-band4-speaking-storytelling-long-turn.wav",
+      "scriptSha256": "869cbc33b3ee76fb29ce8919616fa3b453bf3054b78f4767d7cd82fe6e56651b",
+      "speakerRoles": []
+    },
+    {
+      "id": "recovery-gt-plan",
+      "path": "public/media/courses/recovery-gt-plan.wav",
+      "scriptSha256": "6fe400b732c1aff2bc6458625f3a535ae911f6035ea1bd0fac7d8c8024501e98",
+      "speakerRoles": []
+    }
+  ],
+  "taskSignatures": {
+    "band1-ielts-intro-stage-1": "v2-7f30e6d7",
+    "band1-ielts-intro-stage-2": "v1-51e0254e",
+    "band1-ielts-intro-stage-3": "v1-b3a13089",
+    "band1-toefl-intro-stage-1": "v2-2226a766",
+    "band1-toefl-intro-stage-2": "v1-390c0784",
+    "band1-toefl-intro-stage-3": "v1-e9d9a1b1",
+    "band1-ielts-vs-toefl-stage-1": "v2-65b0aaf2",
+    "band1-ielts-vs-toefl-stage-2": "v1-78cf4224",
+    "band1-ielts-vs-toefl-stage-3": "v2-c805eaf6",
+    "band1-listening-format-stage-1": "v2-35557371",
+    "band1-listening-format-stage-2": "v2-122f4818",
+    "band1-listening-format-stage-3": "v2-35a04e69",
+    "band1-listening-gist-stage-1": "v2-91ca5b5a",
+    "band1-listening-gist-stage-2": "v2-1a11a4bd",
+    "band1-listening-gist-stage-3": "v2-40235d75",
+    "band1-listening-attitude-stage-1": "v2-4a529ee3",
+    "band1-listening-attitude-stage-2": "v2-d87b9b4a",
+    "band1-listening-attitude-stage-3": "v2-ffe11baa",
+    "band1-reading-skimming-stage-1": "v3-7b25f974",
+    "band1-reading-skimming-stage-2": "v2-22cbbae4",
+    "band1-reading-skimming-stage-3": "v2-5d3f3aa3",
+    "band1-reading-scanning-stage-1": "v2-c69cfe96",
+    "band1-reading-scanning-stage-2": "v1-3946cac",
+    "band1-reading-scanning-stage-3": "v1-19f95383",
+    "band1-reading-completion-stage-1": "v2-f0767eba",
+    "band1-reading-completion-stage-2": "v2-2d06cc95",
+    "band1-reading-completion-stage-3": "v2-d52bf962",
+    "band1-writing-task1-overview-stage-1": "v1-37e6e54e",
+    "band1-writing-task1-overview-stage-2": "v1-62d36aef",
+    "band1-writing-task1-overview-stage-3": "v1-135b805d",
+    "band1-writing-trends-stage-1": "v1-ce579751",
+    "band1-writing-trends-stage-2": "v1-6761a45b",
+    "band1-writing-trends-stage-3": "v1-c6b4e940",
+    "band1-writing-integrated-stage-1": "v1-ecb8507f",
+    "band1-writing-integrated-stage-2": "v1-b86a842e",
+    "band1-writing-integrated-stage-3": "v1-3afca583",
+    "band1-writing-essay-structure-stage-1": "v1-c66be242",
+    "band1-writing-essay-structure-stage-2": "v1-e7e4a9a5",
+    "band1-writing-essay-structure-stage-3": "v1-de021f28",
+    "band1-writing-brainstorming-stage-1": "v1-6fe85af8",
+    "band1-writing-brainstorming-stage-2": "v1-63e109dd",
+    "band1-writing-brainstorming-stage-3": "v1-3d27689b",
+    "band1-speaking-part1-intro-stage-1": "v1-49920182",
+    "band1-speaking-part1-intro-stage-2": "v1-48699c0d",
+    "band1-speaking-part1-intro-stage-3": "v1-9fef847d",
+    "band1-speaking-independent-stage-1": "v1-38df6267",
+    "band1-speaking-independent-stage-2": "v1-4267e5bc",
+    "band1-speaking-independent-stage-3": "v1-db5e093",
+    "band1-speaking-hometown-stage-1": "v1-be4c6cbe",
+    "band1-speaking-hometown-stage-2": "v1-ed6e2bb4",
+    "band1-speaking-hometown-stage-3": "v1-cf6c8779",
+    "band1-grammar-articles-stage-1": "v2-ec801371",
+    "band1-grammar-articles-stage-2": "v1-475e136f",
+    "band1-grammar-articles-stage-3": "v1-ba08093f",
+    "band1-grammar-agreement-stage-1": "v2-9b11087f",
+    "band1-grammar-agreement-stage-2": "v1-5e349c81",
+    "band1-grammar-agreement-stage-3": "v1-31b329c5",
+    "band1-vocab-awl1-stage-1": "v2-60bc4544",
+    "band1-vocab-awl1-stage-2": "v1-c325107d",
+    "band1-vocab-awl1-stage-3": "v1-e9194cee",
+    "band1-vocab-synonyms-stage-1": "v2-a2ddd97a",
+    "band1-vocab-synonyms-stage-2": "v1-58bdfd27",
+    "band1-vocab-synonyms-stage-3": "v1-bae1d3d4",
+    "band1-time-reading-stage-1": "v3-499af37b",
+    "band1-time-reading-stage-2": "v2-c2cf7ad7",
+    "band1-time-reading-stage-3": "v2-53e613c6",
+    "band1-time-writing-stage-1": "v1-3cf04391",
+    "band1-time-writing-stage-2": "v1-27a1d081",
+    "band1-time-writing-stage-3": "v1-af8cfa15",
+    "band1-practice-listening-stage-1": "v2-95b2873f",
+    "band1-practice-listening-stage-2": "v2-f9e60766",
+    "band1-practice-listening-stage-3": "v2-6e885e61",
+    "band1-review-stage-1": "v2-bc2cc6da",
+    "band1-review-stage-2": "v1-11fe5862",
+    "band1-review-stage-3": "v1-c0d85d74",
+    "band2-listening-mcq-stage-1": "v2-8d7edaaa",
+    "band2-listening-mcq-stage-2": "v2-49f19241",
+    "band2-listening-mcq-stage-3": "v2-5f23164f",
+    "band2-listening-maps-stage-1": "v2-15c93221",
+    "band2-listening-maps-stage-2": "v2-15043fd4",
+    "band2-listening-maps-stage-3": "v2-9271be7b",
+    "band2-listening-form-completion-stage-1": "v2-6c62cb22",
+    "band2-listening-form-completion-stage-2": "v2-57413774",
+    "band2-listening-form-completion-stage-3": "v2-4dc8450c",
+    "band2-vocab-environment-stage-1": "v2-f876df80",
+    "band2-vocab-environment-stage-2": "v2-8c6dedaa",
+    "band2-vocab-environment-stage-3": "v2-15f9a0e4",
+    "band2-reading-tfng-stage-1": "v3-53778af3",
+    "band2-reading-tfng-stage-2": "v2-4c710c1c",
+    "band2-reading-tfng-stage-3": "v3-a0a1ee8d",
+    "band2-reading-headings-stage-1": "v3-9ce2964b",
+    "band2-reading-headings-stage-2": "v3-7bb792de",
+    "band2-reading-headings-stage-3": "v2-c7ab21db",
+    "band2-reading-mcq-stage-1": "v3-420ac946",
+    "band2-reading-mcq-stage-2": "v2-bf5d616b",
+    "band2-reading-mcq-stage-3": "v2-3864062a",
+    "band2-vocab-awl2-stage-1": "v3-d806e090",
+    "band2-vocab-awl2-stage-2": "v2-5b4a8b5c",
+    "band2-vocab-awl2-stage-3": "v2-3c9e1a3b",
+    "band2-practice-reading-stage-1": "v3-ff929941",
+    "band2-practice-reading-stage-2": "v2-b6e404a9",
+    "band2-practice-reading-stage-3": "v2-e6e6b8e8",
+    "band2-writing-line-graphs-stage-1": "v1-feefbc08",
+    "band2-writing-line-graphs-stage-2": "v1-5987b98d",
+    "band2-writing-line-graphs-stage-3": "v1-f0e869c8",
+    "band2-writing-bar-pie-stage-1": "v1-1e9ce68a",
+    "band2-writing-bar-pie-stage-2": "v1-7d78d92a",
+    "band2-writing-bar-pie-stage-3": "v1-3f1906fe",
+    "band2-writing-letter-stage-1": "v1-985e9810",
+    "band2-writing-letter-stage-2": "v1-de07ba46",
+    "band2-writing-letter-stage-3": "v1-6ee1c203",
+    "band2-writing-opinion-stage-1": "v1-664b0441",
+    "band2-writing-opinion-stage-2": "v1-4d854a7d",
+    "band2-writing-opinion-stage-3": "v1-940e1341",
+    "band2-writing-problem-solution-stage-1": "v1-11d3d53c",
+    "band2-writing-problem-solution-stage-2": "v1-f95c8e1b",
+    "band2-writing-problem-solution-stage-3": "v1-2a92cbf",
+    "band2-writing-cohesion-stage-1": "v1-63bcbf81",
+    "band2-writing-cohesion-stage-2": "v1-22d51fef",
+    "band2-writing-cohesion-stage-3": "v1-d0cd1d15",
+    "band2-grammar-tenses-stage-1": "v1-1e251b82",
+    "band2-grammar-tenses-stage-2": "v1-66db0ff0",
+    "band2-grammar-tenses-stage-3": "v1-97a4f31d",
+    "band2-grammar-complex-stage-1": "v1-d9d35b50",
+    "band2-grammar-complex-stage-2": "v1-ca366aa9",
+    "band2-grammar-complex-stage-3": "v1-ab5306da",
+    "band2-vocab-collocations-stage-1": "v1-3a450a8d",
+    "band2-vocab-collocations-stage-2": "v1-9e0fc06f",
+    "band2-vocab-collocations-stage-3": "v1-40559d64",
+    "band2-vocab-technology-stage-1": "v1-ee4284bf",
+    "band2-vocab-technology-stage-2": "v1-6f13444a",
+    "band2-vocab-technology-stage-3": "v1-76577dc5",
+    "band2-mistakes-prepositions-stage-1": "v1-d1c972b2",
+    "band2-mistakes-prepositions-stage-2": "v2-e01cfa63",
+    "band2-mistakes-prepositions-stage-3": "v1-70e2e563",
+    "band2-mistakes-countable-stage-1": "v1-9ffd736c",
+    "band2-mistakes-countable-stage-2": "v1-8cf7a7a0",
+    "band2-mistakes-countable-stage-3": "v1-bcbe42e0",
+    "band2-speaking-cue-card-stage-1": "v1-abd4591a",
+    "band2-speaking-cue-card-stage-2": "v2-ae97cf45",
+    "band2-speaking-cue-card-stage-3": "v1-5f6f9601",
+    "band2-speaking-describe-stage-1": "v1-a75f10a6",
+    "band2-speaking-describe-stage-2": "v2-fa8d589c",
+    "band2-speaking-describe-stage-3": "v1-408f2564",
+    "band2-speaking-integrated-stage-1": "v1-8843147c",
+    "band2-speaking-integrated-stage-2": "v1-a93d30e4",
+    "band2-speaking-integrated-stage-3": "v1-2715e1b1",
+    "band2-review-stage-1": "v1-3d49c948",
+    "band2-review-stage-2": "v1-b7075f7b",
+    "band2-review-stage-3": "v1-c959e885",
+    "band3-listening-section3-stage-1": "v3-a83d80f1",
+    "band3-listening-section3-stage-2": "v3-7c57dd41",
+    "band3-listening-section3-stage-3": "v3-59ca2ae7",
+    "band3-listening-lecture-stage-1": "v3-a77f5abe",
+    "band3-listening-lecture-stage-2": "v3-8bf8c739",
+    "band3-listening-lecture-stage-3": "v3-736d953d",
+    "band3-listening-multiple-speakers-stage-1": "v3-8f8e332",
+    "band3-listening-multiple-speakers-stage-2": "v3-a90ca846",
+    "band3-listening-multiple-speakers-stage-3": "v3-b3ada461",
+    "band3-vocab-education-stage-1": "v3-f903a7b0",
+    "band3-vocab-education-stage-2": "v3-2f18b1d6",
+    "band3-vocab-education-stage-3": "v3-34462e76",
+    "band3-reading-summary-completion-stage-1": "v2-ebd8dd4b",
+    "band3-reading-summary-completion-stage-2": "v1-da0e9954",
+    "band3-reading-summary-completion-stage-3": "v1-6c43664a",
+    "band3-reading-matching-features-stage-1": "v2-2859bd0f",
+    "band3-reading-matching-features-stage-2": "v2-487f7eb0",
+    "band3-reading-matching-features-stage-3": "v2-dc5de2b7",
+    "band3-reading-flowchart-stage-1": "v3-5cbe9448",
+    "band3-reading-flowchart-stage-2": "v2-dac5b5ec",
+    "band3-reading-flowchart-stage-3": "v2-2ebc36c4",
+    "band3-vocab-awl3-stage-1": "v3-eff9de1f",
+    "band3-vocab-awl3-stage-2": "v2-55d954d6",
+    "band3-vocab-awl3-stage-3": "v2-9a4343e7",
+    "band3-vocab-health-stage-1": "v2-b89ce756",
+    "band3-vocab-health-stage-2": "v2-5b161b4e",
+    "band3-vocab-health-stage-3": "v2-bf1128f5",
+    "band3-vocab-work-stage-1": "v3-24821019",
+    "band3-vocab-work-stage-2": "v2-e61cd7b8",
+    "band3-vocab-work-stage-3": "v2-81b8a74",
+    "band3-writing-discussion-stage-1": "v2-edf822fa",
+    "band3-writing-discussion-stage-2": "v1-82e7abe9",
+    "band3-writing-discussion-stage-3": "v1-b668cecc",
+    "band3-writing-advantages-stage-1": "v2-4d51de33",
+    "band3-writing-advantages-stage-2": "v1-48c3f554",
+    "band3-writing-advantages-stage-3": "v1-bda4f603",
+    "band3-grammar-conditionals-stage-1": "v2-6fbdd5a7",
+    "band3-grammar-conditionals-stage-2": "v1-8b05515a",
+    "band3-grammar-conditionals-stage-3": "v1-5c560355",
+    "band3-grammar-passive-stage-1": "v2-47c1527c",
+    "band3-grammar-passive-stage-2": "v1-9db8f1be",
+    "band3-grammar-passive-stage-3": "v1-469b451b",
+    "band3-error-analysis-stage-1": "v2-df731661",
+    "band3-error-analysis-stage-2": "v1-631c84eb",
+    "band3-error-analysis-stage-3": "v1-7cadd5ba",
+    "band3-writing-multiple-charts-stage-1": "v2-8b2e173d",
+    "band3-writing-multiple-charts-stage-2": "v1-a76ff447",
+    "band3-writing-multiple-charts-stage-3": "v2-452ab493",
+    "band3-writing-maps-processes-stage-1": "v1-f49781b0",
+    "band3-writing-maps-processes-stage-2": "v1-9b74b823",
+    "band3-writing-maps-processes-stage-3": "v2-6596978a",
+    "band3-writing-task-response-stage-1": "v1-f414f7ca",
+    "band3-writing-task-response-stage-2": "v1-78f140fd",
+    "band3-writing-task-response-stage-3": "v2-db96a7ce",
+    "band3-writing-formality-stage-1": "v1-6d4b75e8",
+    "band3-writing-formality-stage-2": "v1-9a7367c8",
+    "band3-writing-formality-stage-3": "v2-33fc7583",
+    "band3-practice-essay-stage-1": "v1-a68f586b",
+    "band3-practice-essay-stage-2": "v1-305b3f2d",
+    "band3-practice-essay-stage-3": "v2-4abfe900",
+    "band3-speaking-part3-stage-1": "v1-7ab38dc",
+    "band3-speaking-part3-stage-2": "v1-27d8edbc",
+    "band3-speaking-part3-stage-3": "v1-a1ed4b6d",
+    "band3-speaking-toefl4-stage-1": "v1-6026c2f0",
+    "band3-speaking-toefl4-stage-2": "v1-4c82ef5a",
+    "band3-speaking-toefl4-stage-3": "v1-5f1a020f",
+    "band3-speaking-opinions-stage-1": "v1-16aac302",
+    "band3-speaking-opinions-stage-2": "v1-170d4431",
+    "band3-speaking-opinions-stage-3": "v1-4cfd57dd",
+    "band3-paraphrasing-stage-1": "v1-642024a",
+    "band3-paraphrasing-stage-2": "v1-717c8146",
+    "band3-paraphrasing-stage-3": "v1-107bd634",
+    "band3-review-stage-1": "v2-b35b70bb",
+    "band3-review-stage-2": "v1-c6f9c0d9",
+    "band3-review-stage-3": "v1-e5f7b48c",
+    "band4-listening-accents-stage-1": "v2-f16d803",
+    "band4-listening-accents-stage-2": "v3-91c90654",
+    "band4-listening-accents-stage-3": "v2-df11495d",
+    "band4-listening-inference-stage-1": "v2-1b9e29f2",
+    "band4-listening-inference-stage-2": "v2-f518794f",
+    "band4-listening-inference-stage-3": "v2-173f508e",
+    "band4-listening-distractors-stage-1": "v2-42887e24",
+    "band4-listening-distractors-stage-2": "v3-14dc7f0e",
+    "band4-listening-distractors-stage-3": "v2-2092fc53",
+    "band4-mock-ielts-listening-stage-1": "v3-e46f313e",
+    "band4-mock-ielts-listening-stage-2": "v2-9f4fb5fa",
+    "band4-mock-ielts-listening-stage-3": "v2-69bf3d18",
+    "band4-reading-writers-views-stage-1": "v3-b4a93bd4",
+    "band4-reading-writers-views-stage-2": "v3-f6f1aef1",
+    "band4-reading-writers-views-stage-3": "v3-420fd4c7",
+    "band4-reading-difficult-texts-stage-1": "v3-aa7f877b",
+    "band4-reading-difficult-texts-stage-2": "v2-7bf9f296",
+    "band4-reading-difficult-texts-stage-3": "v2-5da454ec",
+    "band4-reading-time-pressure-stage-1": "v3-660ea635",
+    "band4-reading-time-pressure-stage-2": "v2-806ada94",
+    "band4-reading-time-pressure-stage-3": "v2-ba27d27f",
+    "band4-writing-complex-comparisons-stage-1": "v3-2db1737b",
+    "band4-writing-complex-comparisons-stage-2": "v3-3bbce3f4",
+    "band4-writing-complex-comparisons-stage-3": "v3-dd9d57ca",
+    "band4-vocab-awl4-stage-1": "v3-8351369",
+    "band4-vocab-awl4-stage-2": "v2-5de3bb41",
+    "band4-vocab-awl4-stage-3": "v2-40eb1d98",
+    "band4-vocab-science-stage-1": "v3-624c47c3",
+    "band4-vocab-science-stage-2": "v2-2470d0d",
+    "band4-vocab-science-stage-3": "v2-12ee281e",
+    "band4-vocab-globalization-stage-1": "v3-93080b2e",
+    "band4-vocab-globalization-stage-2": "v2-15fb5cb1",
+    "band4-vocab-globalization-stage-3": "v2-d6dddb2",
+    "band4-mock-toefl-reading-stage-1": "v3-7000fe38",
+    "band4-mock-toefl-reading-stage-2": "v2-99ea5c08",
+    "band4-mock-toefl-reading-stage-3": "v2-c5223dee",
+    "band4-writing-sophisticated-stage-1": "v1-6a3358fb",
+    "band4-writing-sophisticated-stage-2": "v1-cb30de4d",
+    "band4-writing-sophisticated-stage-3": "v1-977cf2a2",
+    "band4-writing-complex-ideas-stage-1": "v1-2788e8f1",
+    "band4-writing-complex-ideas-stage-2": "v1-ebd13b01",
+    "band4-writing-complex-ideas-stage-3": "v1-58c7764a",
+    "band4-writing-lexical-resource-stage-1": "v2-cc9e9357",
+    "band4-writing-lexical-resource-stage-2": "v3-8a268742",
+    "band4-writing-lexical-resource-stage-3": "v2-eadf2f5f",
+    "band4-writing-grammatical-range-stage-1": "v2-13ee0189",
+    "band4-writing-grammatical-range-stage-2": "v1-3e0a6ec1",
+    "band4-writing-grammatical-range-stage-3": "v1-452eeb56",
+    "band4-grammar-inversion-stage-1": "v2-e0ea8c0c",
+    "band4-grammar-inversion-stage-2": "v1-889e58f2",
+    "band4-grammar-inversion-stage-3": "v1-33d23fa3",
+    "band4-grammar-participles-stage-1": "v2-743f7ad3",
+    "band4-grammar-participles-stage-2": "v1-8ac236b7",
+    "band4-grammar-participles-stage-3": "v1-977ba68e",
+    "band4-writing-band8-essay-stage-1": "v1-247685c",
+    "band4-writing-band8-essay-stage-2": "v1-62ba0e38",
+    "band4-writing-band8-essay-stage-3": "v1-d733e4c4",
+    "band4-speaking-storytelling-stage-1": "v1-7f001a51",
+    "band4-speaking-storytelling-stage-2": "v2-3ce4daa0",
+    "band4-speaking-storytelling-stage-3": "v1-a9e06b3f",
+    "band4-speaking-abstract-topics-stage-1": "v1-b9fcae07",
+    "band4-speaking-abstract-topics-stage-2": "v1-49cdd751",
+    "band4-speaking-abstract-topics-stage-3": "v1-68c9fc62",
+    "band4-speaking-pronunciation-stage-1": "v1-8de01fd0",
+    "band4-speaking-pronunciation-stage-2": "v1-f5f9e3e5",
+    "band4-speaking-pronunciation-stage-3": "v1-ebff3494",
+    "band4-vocab-idioms-stage-1": "v1-b28bc706",
+    "band4-vocab-idioms-stage-2": "v1-238928ae",
+    "band4-vocab-idioms-stage-3": "v1-e581600c",
+    "band4-exam-day-strategies-stage-1": "v2-76f2f9fa",
+    "band4-exam-day-strategies-stage-2": "v2-df1b29a4",
+    "band4-exam-day-strategies-stage-3": "v2-c0905d17",
+    "band4-review-stage-1": "v2-7a1e66bb",
+    "band4-review-stage-2": "v2-72d84e09",
+    "band4-review-stage-3": "v2-50657cdc"
+  }
+}

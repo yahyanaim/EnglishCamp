@@ -126,8 +126,8 @@ export function WordSearch() {
       </div>
 
       <div className="flex flex-col lg:flex-row gap-6">
-        <div className="flex-shrink-0">
-          <div className="grid gap-0.5" style={{ gridTemplateColumns: `repeat(${puzzle.size}, minmax(0, 1fr))` }}>
+        <div className="min-w-0 max-w-full overflow-x-auto lg:shrink-0" role="region" aria-label="Word search grid" tabIndex={0}>
+          <div className="grid gap-0.5 w-max" style={{ gridTemplateColumns: `repeat(${puzzle.size}, minmax(0, 1fr))` }}>
             {puzzle.grid.map((row, r) =>
               row.map((ch, c) => {
                 const isSelected = selected.some(([rr, cc]) => rr === r && cc === c);
