@@ -1,4 +1,6 @@
 "use client";
+import { speak } from "@/lib/audio";
+import { LearningArt } from "@/components/brand/LearningArt";
 import { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { playCorrect } from "@/lib/audio";
@@ -13,14 +15,6 @@ interface Props {
   total: number;
 }
 
-function speak(text: string) {
-  if (typeof window === "undefined") return;
-  const u = new SpeechSynthesisUtterance(text);
-  u.lang = "en-US";
-  u.rate = 0.85;
-  window.speechSynthesis.cancel();
-  window.speechSynthesis.speak(u);
-}
 
 export function FlashcardQuiz({ card, pool, onComplete, index, total }: Props) {
   const [answered, setAnswered] = useState(false);
@@ -53,7 +47,7 @@ export function FlashcardQuiz({ card, pool, onComplete, index, total }: Props) {
         className="inline-flex items-center gap-1.5 rounded-[var(--radius-pill)] px-3 py-1.5 text-xs font-bold"
         style={{ backgroundColor: "var(--color-primary-subtle)", color: "var(--color-primary-dark)" }}
       >
-        <Brain className="w-3.5 h-3.5" />
+        <LearningArt name="Brain" size={14} className="w-3.5 h-3.5" />
         Quiz {index + 1} / {total}
       </span>
 

@@ -1,4 +1,6 @@
 "use client";
+import { LearningArt } from "@/components/brand/LearningArt";
+import { PracticeCard, PracticeButton } from "@/components/ui/PracticeSurface";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useProgress } from "@/store/useProgress";
@@ -62,18 +64,18 @@ export function QuestionFormationTrainer() {
       <div className="text-center py-8">
         <span className="text-5xl block mb-3">{pct >= 80 ? "🏆" : pct >= 50 ? "👍" : "💪"}</span>
         <h3 className="text-xl font-display font-extrabold text-[var(--color-text-primary)] mb-1">Question Formation Complete!</h3>
-        <p className="text-lg font-display font-extrabold text-[var(--color-primary-dark)] mb-1">{score}/{QUESTIONS.length} correct ({pct}%)</p>
-        <button onClick={restart} className="text-sm font-medium bg-[var(--color-primary-subtle)] text-[var(--color-primary-dark)] border border-[var(--color-primary)] px-5 py-2 rounded-[var(--radius-lg)] hover:bg-[var(--color-primary)] transition-all mt-4">Play Again 🔄</button>
+        <p className="text-lg font-display font-extrabold text-[var(--color-text-link)] mb-1">{score}/{QUESTIONS.length} correct ({pct}%)</p>
+        <PracticeButton onClick={restart} className="text-sm font-medium bg-[var(--color-primary-subtle)] text-[var(--color-text-link)] border border-[var(--color-primary)] px-5 py-2 rounded-[var(--radius-lg)] hover:bg-[var(--color-primary)] transition-all mt-4">Play Again <LearningArt name="🔄" size={16} /></PracticeButton>
       </div>
     );
   }
 
   const q = QUESTIONS[current];
   return (
-    <div className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border-2 border-[var(--color-border-default)] p-6 shadow-sm" style={{ boxShadow: "0 3px 0 var(--color-border-default)" }}>
+    <PracticeCard data-practice-surface="question" className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-6 shadow-sm" style={{ boxShadow: "0 3px 0 var(--color-border-default)" }}>
       <div className="flex items-center justify-between mb-4">
-        <span className="text-xs font-semibold text-[var(--color-warning)] uppercase tracking-wider">Question Formation</span>
-        <span className="text-xs text-[var(--color-text-disabled)]">{current + 1} / {QUESTIONS.length}</span>
+        <span className="text-xs font-semibold text-[var(--color-text-warning)] uppercase tracking-wider">Question Formation</span>
+        <span className="text-xs text-[var(--color-text-secondary)]">{current + 1} / {QUESTIONS.length}</span>
       </div>
       <p className="text-sm text-[var(--color-text-secondary)] mb-4">Practice W-questions, yes/no questions, indirect questions, and more.</p>
 
@@ -83,28 +85,28 @@ export function QuestionFormationTrainer() {
           <div className="space-y-2 mb-4">
             {q.options.map((opt, i) => {
               let cls = "bg-[var(--color-surface)] border-[var(--color-border-default)] hover:border-[var(--color-primary)] text-[var(--color-text-primary)]";
-              if (answered && i === q.correct) cls = "bg-[var(--color-success)] text-white border-emerald-400";
-              else if (answered && i === selected && i !== q.correct) cls = "bg-[var(--color-error)] text-white border-red-300";
+              if (answered && i === q.correct) cls = "bg-[var(--color-success-bg)] text-[var(--color-text-success)] border-emerald-400";
+              else if (answered && i === selected && i !== q.correct) cls = "bg-[var(--color-error-bg)] text-[var(--color-text-error)] border-red-300";
               else if (answered) cls = "opacity-60";
               return (
-                <button key={i} onClick={() => handleSelect(i)}
+                <PracticeButton key={i} onClick={() => handleSelect(i)}
                   className={`w-full text-left px-4 py-3 rounded-[var(--radius-lg)] border text-sm font-medium transition-all ${cls}`}
                 >
                   {opt}
-                </button>
+                </PracticeButton>
               );
             })}
           </div>
           {answered && (
             <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className="p-3 rounded-[var(--radius-lg)] bg-[var(--color-surface-alt)] border border-[var(--color-border-default)]">
               <p className="text-xs text-[var(--color-text-secondary)] leading-relaxed">{q.explanation}</p>
-              <button onClick={next} className="mt-3 text-sm font-medium bg-[var(--color-primary-subtle)] text-[var(--color-primary-dark)] border border-[var(--color-primary)] px-5 py-2 rounded-[var(--radius-lg)] hover:bg-[var(--color-primary)] transition-all">
+              <PracticeButton onClick={next} className="mt-3 text-sm font-medium bg-[var(--color-primary-subtle)] text-[var(--color-text-link)] border border-[var(--color-primary)] px-5 py-2 rounded-[var(--radius-lg)] hover:bg-[var(--color-primary)] transition-all">
                 {current + 1 >= QUESTIONS.length ? "See Results" : "Next →"}
-              </button>
+              </PracticeButton>
             </motion.div>
           )}
         </motion.div>
       </AnimatePresence>
-    </div>
+    </PracticeCard>
   );
 }

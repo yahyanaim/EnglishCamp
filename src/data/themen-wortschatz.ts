@@ -1,3 +1,5 @@
+import { EXTRA_TOPICS } from "./topic-vocabulary-extra";
+
 export type TopicCategory = {
   id: string;
   label: string;
@@ -7,6 +9,7 @@ export type TopicCategory = {
 };
 
 export const TOPICS: TopicCategory[] = [
+  ...EXTRA_TOPICS,
   {
     id: "education", label: "Education", icon: "🎓", color: "text-indigo-600",
     words: [

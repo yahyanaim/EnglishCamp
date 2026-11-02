@@ -1,4 +1,6 @@
 "use client";
+import { LearningArt } from "@/components/brand/LearningArt";
+import { PracticeCard, PracticeButton } from "@/components/ui/PracticeSurface";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useProgress } from "@/store/useProgress";
@@ -96,28 +98,28 @@ export function ReadingComprehension() {
       <div className="text-center py-8">
         <span className="text-5xl block mb-3">{pct >= 80 ? "🏆" : "👍"}</span>
         <h3 className="text-xl font-display font-extrabold text-[var(--color-text-primary)] mb-1">Reading Complete!</h3>
-        <p className="text-lg font-display font-extrabold text-[var(--color-primary-dark)]">{score}/{total} ({pct}%)</p>
-        <button onClick={() => { setDone(false); setScore(0); setTotal(0); setIndex(0); setQIndex(0); }}
-          className="text-sm font-medium bg-[var(--color-primary-subtle)] text-[var(--color-primary-dark)] border border-[var(--color-primary)] px-5 py-2 rounded-[var(--radius-lg)] hover:bg-[var(--color-primary)] transition-all mt-4">Start Over 🔄</button>
+        <p className="text-lg font-display font-extrabold text-[var(--color-text-link)]">{score}/{total} ({pct}%)</p>
+        <PracticeButton onClick={() => { setDone(false); setScore(0); setTotal(0); setIndex(0); setQIndex(0); }}
+          className="text-sm font-medium bg-[var(--color-primary-subtle)] text-[var(--color-text-link)] border border-[var(--color-primary)] px-5 py-2 rounded-[var(--radius-lg)] hover:bg-[var(--color-primary)] transition-all mt-4">Start Over <LearningArt name="🔄" size={16} /></PracticeButton>
       </div>
     );
   }
 
   return (
-    <div className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border-2 border-[var(--color-border-default)] p-6 shadow-sm" style={{ boxShadow: "0 3px 0 var(--color-border-default)" }}>
+    <PracticeCard data-practice-surface="question" className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-6 shadow-sm" style={{ boxShadow: "0 3px 0 var(--color-border-default)" }}>
       <div className="flex items-center justify-between mb-4">
         <span className="text-xs font-semibold text-sky-600 uppercase tracking-wider">Reading Comprehension</span>
-        <span className="text-xs text-[var(--color-text-disabled)]">Text {index + 1}/{TEXTS.length} &middot; Q{qIndex + 1}/{text.questions.length}</span>
+        <span className="text-xs text-[var(--color-text-secondary)]">Text {index + 1}/{TEXTS.length} &middot; Q{qIndex + 1}/{text.questions.length}</span>
       </div>
 
-      <div className="bg-sky-50 rounded-[var(--radius-lg)] p-4 mb-4">
+      <div className="bg-[var(--color-primary-subtle)] rounded-[var(--radius-lg)] p-4 mb-4">
         <div className="flex items-start gap-2">
           <p className="text-sm text-[var(--color-text-primary)] leading-relaxed flex-1">{text.text}</p>
           <SpeakerButton text={text.text} />
         </div>
-        <button onClick={() => setShowTranslation(!showTranslation)} className="text-xs text-sky-600 hover:text-sky-700 font-medium mt-2">
+        <PracticeButton onClick={() => setShowTranslation(!showTranslation)} className="text-xs text-sky-600 hover:text-sky-700 font-medium mt-2">
           {showTranslation ? "Hide translation" : "Show translation"}
-        </button>
+        </PracticeButton>
         {showTranslation && <>
           <p className="text-xs text-[var(--color-text-secondary)] italic mt-1">{text.translation}</p>
           {text.ar && <span className="block font-arabic mt-1 text-xs text-[var(--color-text-secondary)] italic" lang="ar">{text.ar}</span>}
@@ -131,30 +133,30 @@ export function ReadingComprehension() {
             {question?.options.map((opt, i) => {
               let style = "bg-[var(--color-surface-alt)] border-[var(--color-border-default)] hover:border-[var(--color-primary)]";
               if (answered) {
-                if (i === question.correct) style = "bg-[var(--color-success)] text-white border-[var(--color-success)] ring-2 ring-[var(--color-success)]";
-                else if (i === selected) style = "bg-[var(--color-error)] text-white border-[var(--color-error)]";
+                if (i === question.correct) style = "bg-[var(--color-success-bg)] text-[var(--color-text-success)] border-[var(--color-success)] ring-2 ring-[var(--color-success)]";
+                else if (i === selected) style = "bg-[var(--color-error-bg)] text-[var(--color-text-error)] border-[var(--color-error)]";
                 else style = "bg-[var(--color-surface-alt)] border-[var(--color-border-default)] opacity-50";
               }
               return (
-                <button key={i} onClick={() => handleAnswer(i)} disabled={answered}
+                <PracticeButton key={i} onClick={() => handleAnswer(i)} disabled={answered}
                   className={`w-full text-left p-3 rounded-[var(--radius-lg)] border transition-all ${style}`}>
                   <span className="text-sm text-[var(--color-text-primary)]">{opt}</span>
-                </button>
+                </PracticeButton>
               );
             })}
           </div>
           {answered && (
             <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className="mt-3 flex items-center justify-between">
-              <p className={`text-sm font-medium ${isCorrect ? "text-[var(--color-success)]" : "text-[var(--color-error)]"}`}>
+              <p className={`text-sm font-medium ${isCorrect ? "text-[var(--color-text-success)]" : "text-[var(--color-text-error)]"}`}>
                 {isCorrect ? "✓ Correct!" : "✗ Wrong"}
               </p>
-              <button onClick={next} className="text-sm font-medium bg-[var(--color-primary-subtle)] text-[var(--color-primary-dark)] border border-[var(--color-primary)] px-4 py-1.5 rounded-[var(--radius-lg)] hover:bg-[var(--color-primary)] transition-all">
+              <PracticeButton onClick={next} className="text-sm font-medium bg-[var(--color-primary-subtle)] text-[var(--color-text-link)] border border-[var(--color-primary)] px-4 py-1.5 rounded-[var(--radius-lg)] hover:bg-[var(--color-primary)] transition-all">
                 Next &rarr;
-              </button>
+              </PracticeButton>
             </motion.div>
           )}
         </motion.div>
       </AnimatePresence>
-    </div>
+    </PracticeCard>
   );
 }

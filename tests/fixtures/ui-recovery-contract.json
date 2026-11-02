@@ -1,0 +1,1391 @@
+{
+  "scope": "English public routes and reference-inspired spacing/surfaces; preserve teaching content, handlers, saved IDs, palette and typefaces.",
+  "files": {
+    "src/app/artikel-meister/page.tsx": {
+      "before": "6df86fd7dcf7894a345f3430362cd89d29710369c2cb97328bce6e4bde31e64d",
+      "after": "4c58e90fa91a7a3f865d7058232455a3d1fd46b59494b82da81a623bbe964c80"
+    },
+    "src/app/b2-pruefung/page.tsx": {
+      "before": "c55aa1f9e38388e2643136a2e6e7396097522ff354ce753ef1da31a9776b77d1",
+      "after": "63bd95e452b2d816f017d8f9c5041dfd51d96d1559b229275ee4d3011f0fd0aa"
+    },
+    "src/app/badges/page.tsx": {
+      "before": "442fd733cd0c4bb7b0754df7a8193aaac2ceaac094fdc7222239e9ded8cbab8c",
+      "after": "77a877117594cd3c41896e78ca8aecde74522c21c63c97f2840791e2956ad0a9"
+    },
+    "src/app/bildbeschreibung/page.tsx": {
+      "before": "e3a4c0afadfd4191bbf58e0bf7a3c281ede22792d75e114cbeb5fa35a6141bed",
+      "after": "cc7c85f716d7124c8f815b823d36dbff16998d666dffe0dbb6c1eec38562a15b"
+    },
+    "src/app/briefe-schreiben/page.tsx": {
+      "before": "7f0568a3ac82471516baddb9e3dd500aea10e4435ac32b2aa0782852210bc2e4",
+      "after": "4547aae1273478c15026fe7fd1575a5cac12ccc85387b40a087b594ae3695f93"
+    },
+    "src/app/british-vs-american/page.tsx": {
+      "before": "5a26d2865f14f6e10987122d739eb529a7203cb2a55de788c9e3ffe2c7374d6e",
+      "after": "319e4e4821145ecc2817ceba2ba4cc9c5f2a2ff476d76b35080eb5c8a44ffc1f"
+    },
+    "src/app/buchstabensalat/page.tsx": {
+      "before": "e6d01b42dfe1d2fefc187512e771961272d1b3bfafa03e5a22e6a301956c9571",
+      "after": "3fe6c5631f9777c75eb2f3edeebd38972c0d572c9d58a5016f1e1654ad52142d"
+    },
+    "src/app/challenge/page.tsx": {
+      "before": "6103507560b5d27569cd8a5b10654975c843889f1a1837961b8e5261c8cad105",
+      "after": "b3220fcd691193ad2ae4731d5dc9af4c85bde9f0edd50ad7724c92741128235f"
+    },
+    "src/app/conjugaise/page.tsx": {
+      "before": "8182528ab94be96b2bc5a070d0bfe0ab5300704e1f268802544181e7f29133d1",
+      "after": "48264947817a0454222b8c554d607c7d4faf8035b89f2e8855e2fb7f000be2be"
+    },
+    "src/app/conversation/page.tsx": {
+      "before": "4c843b59222c407d50aa53d86bf732488a4aa6acde57f70d86326dbe98fdc973",
+      "after": "b72ab5258bd307ef13e17976d3b42e8d1b3641c22fd124dbbdb7c5f04253cf9e"
+    },
+    "src/app/custom-flashcards/page.tsx": {
+      "before": "ba137692ade4b8d930b779430a5e69e5dc22c7d3d641062e3c032d856cd27a5f",
+      "after": "cdffb351277f08adc3b0bc36735074d832e873ca34f05f9cb205028268c26ce1"
+    },
+    "src/app/da-komposita/page.tsx": {
+      "before": "c1c2f3351c0aea6bd23dd5767384463f928bca2d0e5a31b3f9cbd3b31d04859d",
+      "after": "718e706a8a4eda93f480e4237d34ca3d00d56a960febe83ab59933dd3a5e5753"
+    },
+    "src/app/da-komposita-ubersetzer/page.tsx": {
+      "before": "e2bf2fe0cf62d270851207dfefa9890b36482f698de2596e330dedb0ad2f7ba1",
+      "after": "8eaf223d30166634bab7fee8ae51dd99132f21d2a15ac8f1221992287447cf63"
+    },
+    "src/app/daily-challenge/page.tsx": {
+      "before": "7a575a844fa7d62d99bae8d1583aa48b1cbf6a2c24a30fca22ce8bcb4310fd3d",
+      "after": "e4b37ffbdaa2b9357cb6204c1b33b253653491be4d0bfa024a262e4a9b28d2cd"
+    },
+    "src/app/dashboard/page.tsx": {
+      "before": "4eb7b84521cd33d38b7b5f66d2b477704a3764ed319e61143468aae3c01f730c",
+      "after": "85709bcb5996be230fb34a4a3541965b6ad9561948775e2687798e9b6f09efb6"
+    },
+    "src/app/declensions/page.tsx": {
+      "before": "90f292393e4032ac21d3952406d1de58bcaa68bd270bc4af423853f2f2258528",
+      "after": "55176d54d3ab0e35fe7b492309ff56548e6d5f26c12b43120dd0f20cf4b3b3e9"
+    },
+    "src/app/dialoge-ubersetzer/page.tsx": {
+      "before": "90fc55a57a78465ceb6900c422fedbe11105712c01c54b4fa242d0b81e5f42c2",
+      "after": "e918db42ddc4da1342e087622bb5478eb05f41ac4eba4bb8325308a4f245eb5d"
+    },
+    "src/app/error.tsx": {
+      "before": "1e6b3ca07ed461399909058702242c287645a460910bba5adba79f18ed830546",
+      "after": "138b9db1fc05625b26592782c7869798caef516503581a57e548fd9bffe86185"
+    },
+    "src/app/essay-templates/page.tsx": {
+      "before": "e45ca15edad4119085578fd2f9246188e84249a9122d57d33ef5c8b9f62dcd07",
+      "after": "9052e284e7c6392ca93d6fa6e1a9204dd39f950888e98542e9356f71eb17dfd4"
+    },
+    "src/app/false-friends/page.tsx": {
+      "before": "50a6aa1fa34d765a3942e0f5643a5d741e130371087260a0934744dfee10a0c4",
+      "after": "cb5f79474f4ebdcf72c166846f53bbdbc7b4585ffe0c5adfbc2ae848074161b3"
+    },
+    "src/app/false-friends-ubersetzer/page.tsx": {
+      "before": "ac0d40dfcad8e906e7c20ed9c16d4154ce01b90c29ebfc39bb381bbcc0f02521",
+      "after": "2018e5d1dbc9144bcecf962fafd2d0cc080ab997f6c6bdc15a8e71d76cfbc4c3"
+    },
+    "src/app/flashcards/page.tsx": {
+      "before": "6be6d4b6579165f590e464879d383596b6510e17f6d8bd5e904178aff4ee1fa9",
+      "after": "633bc7d4ff0a9a6e966e8354db6166481f1c6015bd67fad3fe38e31f46946d44"
+    },
+    "src/app/fragen/page.tsx": {
+      "before": "466bc9ec4dad4767ca369dacbb9550a458b8d82b6b154c18efde25b271677646",
+      "after": "28445c425e05658cf21d7110e40fd005f0ccff9205ab061804bf8fd8733c92fa"
+    },
+    "src/app/fragen-ubersetzer/page.tsx": {
+      "before": "823ad7d8b928794af263abdfba07d8cc2bf3d0a7d79d8ecb8ebaa3dcf8905bf4",
+      "after": "ab3184e3a29c2bac7c1df70bfc45ceff026b0db2313cb5ecfb04daa91e77ec57"
+    },
+    "src/app/futur/page.tsx": {
+      "before": "995b8c916826ca4fe3d92451f37c4cca1caa0dc6cedbe113871125d7674d038b",
+      "after": "ee68afed2b8071f00d765e5fd6f2cecb3b4fd89d86eb49815153ddb62034d2ef"
+    },
+    "src/app/global-error.tsx": {
+      "before": "df6d7c6f33df6b280a4d04597ef559e0b662c9752a9b6f986f48902d04aa9a61",
+      "after": "5d55579efd190f0dd5827c745cb915083f580c108ac265897b7089eedf6ae1b0"
+    },
+    "src/app/globals.css": {
+      "before": "3f485d7ea32a94cfb85b6de1485c71d608743dda13d4e940e1ca540296b88bf6",
+      "after": "4912e066c459de3c22a7d22f59a31120e0bdb7dff42f646912a8e4a1714729f9"
+    },
+    "src/app/grammar/cheat-sheet/page.tsx": {
+      "before": "95d57d51d58e05c080cf4182cab90b5b966dc41f6023badd4e17ef41e25be0b2",
+      "after": "f4080ddd53ece06906532fd13250f1f330090a616ed75efd598abc078f6ba282"
+    },
+    "src/app/grammar/page.tsx": {
+      "before": "db54e6d16823533dee65c04007e2974335f3bfa46b946538b91e6bc79603195e",
+      "after": "b055f20f199441ae7ca4dd65addc3cf5ccdb76b597cecfcc3d8398661ad6371f"
+    },
+    "src/app/grammar-compare/page.tsx": {
+      "before": "99d154cc0901157dc819b855b6322ca4b382c0d9bf7171189d19d713866ba2b8",
+      "after": "aae873879838746906d0575cd8a6cf4b01823fe3760867aa3bea2129faa3a978"
+    },
+    "src/app/idiom-match/page.tsx": {
+      "before": "44930c4b6ff1c908cfe1d1617da5559ba2cf5cdfcc8b4399fef1f69be661570a",
+      "after": "b43d9334308cce7068a6db9c02c0e33089d25407ef1b147a4ffd15b380dcaf65"
+    },
+    "src/app/ielts/ielts-guide/page.tsx": {
+      "before": "d9aa4a53935fdd1f66d8b632d7108476ea30bdf9b191d6b12bbba04fb993896b",
+      "after": "f8124acf085c77c87f01bd36e64d084121d93aaf604c7f2dd40a4abcf3e2ee19"
+    },
+    "src/app/ielts/page.tsx": {
+      "before": "8c1ed937d65df64659e2e341b5b7efe4afc202d51cda3367dcb65a30da864c25",
+      "after": "6f00f796d3399c75ac199a0a67b6f7ba677d6c459042ffbae8fdd87af0d469fb"
+    },
+    "src/app/indirekte-rede/page.tsx": {
+      "before": "df9a3a3dac8be74e411622d28d8d4b2f77a6036b63b8386906bcebcca7011d09",
+      "after": "e089025f788b87af2e0fb30f6a0e18a217b011d06de82cef613c138750e7676a"
+    },
+    "src/app/knowledge-check/page.tsx": {
+      "before": "639f5aa53ce056dc4d40822a7d87d3329fd08c2d27f6507217d078bdfcdde54f",
+      "after": "6784319f518efd2ab2ced5f34820cefd74f4da2bc9b056896ff03e4ea9f2361d"
+    },
+    "src/app/kollokationen/page.tsx": {
+      "before": "1e17786538600e527ce3a969e237419d342eb16bb2fb50cfdf20d5933a7fa156",
+      "after": "468ecc7591c3d7300b6e677b9adee90589f0014b1a9be721ac56e4f21ffec041"
+    },
+    "src/app/kollokationen-ubersetzer/page.tsx": {
+      "before": "b7da651e7fa7ccda1d3c7c3827db02a5116b5d9513d2909af3075c8eac9c02af",
+      "after": "1614252a28563c4c41a9aac541f4163fd2f92620277677d39bcc1e62bc9498cf"
+    },
+    "src/app/konjunktionen-challenge/page.tsx": {
+      "before": "2778bb9e3ad4a821348c60e967c21e865d78122dfe7f8fb90e2bfeb1ac675afe",
+      "after": "91e82f7e91a12942ce73cebd89a380726c85101c1391793b08e7219d8cde371a"
+    },
+    "src/app/konjunktiv-ii/page.tsx": {
+      "before": "c43a095257e922e1fcadc192b1292831acda884ca2a7cf171c276e2b74b026fd",
+      "after": "dbf8ef3077f8463b2725305dc06b94fdd6094f0d37b6ec8358bf63065cce74a0"
+    },
+    "src/app/konnektoren/page.tsx": {
+      "before": "bb7db15b8a40cdc58015724a1a9352ea2844aad45422260d13d130e1b82d764a",
+      "after": "31e2f6c5a19c7a620c946c382994216006b7f5431667fd4218daf55a5ea9b8e3"
+    },
+    "src/app/korrektur/page.tsx": {
+      "before": "4ae75297059d66170977e96beced048a44229a4114c5e83b9898ef023b1aee74",
+      "after": "e12d0d694a5d589505fe15fc13f4b1e97e26e3314767fa9111c76897c74ef78b"
+    },
+    "src/app/landeskunde-quiz/page.tsx": {
+      "before": "bb8059c11c21ca1ed7e983add67c711874465b23fa2dde44f851999e645c42ac",
+      "after": "00672c60e9ce7017906d3039eed47a0e4f8fde1118a75f51790e042576401ce9"
+    },
+    "src/app/listening-lab/page.tsx": {
+      "before": "5c5ef2ea051c47c36c984f711d06989126ab3f43f5f2e4ee8a61569f7c193f8d",
+      "after": "023ba2a54c946622d0951fd5b53df2ff4afcd7dde92660fa62f9b67f972a70ac"
+    },
+    "src/app/mock-exam/page.tsx": {
+      "before": "888e1cc648eeb53e17db8983a6aee98309dbf4469cb6618dfe669997cf902bb7",
+      "after": "70f9b1fdfb4ccf1004f9d4d00737428f9a735f8f870a84cde3b3e3c04b4dceab"
+    },
+    "src/app/modalpartikel/page.tsx": {
+      "before": "ba6575bccf2205352347178603f034d8f777470342b59ea81036e6db3de458cd",
+      "after": "2e1d1029f47bf87834c202fe3b3a1119f1a2bbb30eda022c1008ea2a67cc015a"
+    },
+    "src/app/modalpartikel-ubersetzer/page.tsx": {
+      "before": "4c186a166217812099363f9d30001889691ceb70681dc4d67fb456d27a9a956f",
+      "after": "f9b084e975a09c937ad868e111e632a048a5487ef7cb0cdf02ebd98339219271"
+    },
+    "src/app/n-deklination/page.tsx": {
+      "before": "c59b3580ab49b604ae81d79bffd9d167151272058c4f542b0a7d9e94f4f22758",
+      "after": "fa54d9ec79b0127b5c4c15c692100c951224b77557659fa4f4968a05e41df573"
+    },
+    "src/app/nebensaetze/page.tsx": {
+      "before": "2f8fea7435cc931217b164f979a538af9413bec9ef367c68f5a8affe7cc188bf",
+      "after": "ee5a596458267b112303e555d2dc00106ca4235f348d0bfd54c75bf487b33139"
+    },
+    "src/app/nomen-verb-verbindungen/page.tsx": {
+      "before": "15ecac5e020a74d656553c04d80e2665725ebedba7e93d8d9a80cf946fb9a601",
+      "after": "2b0f152d28d110f993da7fbdc7ccb0aad8abc244d3fa5b9b688581e6812fa774"
+    },
+    "src/app/not-found.tsx": {
+      "before": "9652163462bc670ba0f7e64f87c23127378696d36a5f773287c8f4295a737fcd",
+      "after": "ab14dd07bfc7200e654dab18074083b29eaae65ad877ef8639374535e7a5056e"
+    },
+    "src/app/nvv-ubersetzer/page.tsx": {
+      "before": "4c76dfd8b22cc0500ba8f2d1dab477c78d51be2adf3e09af9f08e93587bc1187",
+      "after": "5f0dfd044a65ca8e21483e935fc4d202858d3d26d6db4cd1a954d0101b432a82"
+    },
+    "src/app/page.tsx": {
+      "before": "97c20d530c08dde9b7ac29c2b903c103954e6f3a4528ff9b6101622ce68a00ba",
+      "after": "dd8d13298d7dc1ad99d2af8f2a01799700322107e50c62e67c295cdc587afa36"
+    },
+    "src/app/partizipien-als-adjektive/page.tsx": {
+      "before": "266cbe7a4d0cc88149f72754445abc9b2ba5284d6502ed6e0026bede2dc4c23b",
+      "after": "57d076670010208f52acb7d761cd495ba870eadb06649afa43c4bad9c1cec655"
+    },
+    "src/app/passiv/page.tsx": {
+      "before": "cf62fb087a12097c132b5415036b9d0113ee5c5ecad4f34c07974809e23c14b6",
+      "after": "d676ca4f54458cba88bf00ecb679189ca919544c47e39383ff986855e66180e5"
+    },
+    "src/app/phonics/page.tsx": {
+      "before": "ecce6382911d7cb0744f793415c73585d050ea4dae04d7842fba5b8f3b198ab6",
+      "after": "a2878cd05d2f02e1702e709b1cd396e8559605e6f0c7096b2dce425f1523b898"
+    },
+    "src/app/plusquamperfekt/page.tsx": {
+      "before": "e0192aee0a62879f228531553a2e1518dcd767351aa4506f1d42fde659543634",
+      "after": "c9f714874bb7d0d974825a43709a314e14ee644b2d7f6c7bc0f08b3e0022f619"
+    },
+    "src/app/practice/page.tsx": {
+      "before": "322e416868885fce9c300450eabc93b8bf30e67e28aed6269c14d55e0b19725d",
+      "after": "9b1a96e81029b53091455bee0c23a06f4df67771ff52cfca18ff3721514a5286"
+    },
+    "src/app/praeteritum/page.tsx": {
+      "before": "961d3850a14f384a38d6213738a914acc37cdcabf484bb9ba0f03f8b20904580",
+      "after": "491f006355353d8e5b80c9ebf64641ba23f493ca27e320630783a182d4a9fa4e"
+    },
+    "src/app/praeteritum-ubersetzer/page.tsx": {
+      "before": "c8582adab2792ce6abf3180dd2c3c0bedeaa293bad45a782a9ee0d8c702adaf3",
+      "after": "8402b9715ab91eb105fc67ed310067930956e8a26b0750dcd79bf7309bfd8257"
+    },
+    "src/app/prefix-verbs/page.tsx": {
+      "before": "461fb5dad6beb12e2e9d78f731c6d03dc497d9bec798955098a37289b8eae185",
+      "after": "ccb5b3f2a2228b17f5235da8a09b9114fca4ed049fc5b219ef020657a132f6a3"
+    },
+    "src/app/pronunciation/page.tsx": {
+      "before": "afaad50d08ca17ca53d108e473e241af976de877c99459713f25864e4ef830ce",
+      "after": "b049355572096c2d0d56705a186af4ed3cf6663de44bc580a452b4d20c796b05"
+    },
+    "src/app/redemittel/page.tsx": {
+      "before": "bb1ccf3ca1f5089e39575aaba88002ffd5764fceab2a7adffba07560703db93b",
+      "after": "ac46dff050350136ad9890d83c19998a4aeb02eb6dd9b14a8d8ff5665095ee51"
+    },
+    "src/app/redemittel-praxis/page.tsx": {
+      "before": "cca958b3ca6b1d4b78f1b88c05faab3e59d59ae746cd0ddf55c6cc6b67653e83",
+      "after": "3a2969ecf6d662219113fe7c7fd2ce3f5148c1c43fca22cc8090a2fc95f61d9c"
+    },
+    "src/app/redewendungen/page.tsx": {
+      "before": "b2b7c28ad17088e02e2e59d973bf6a509d5f3f650239d042eb192d60c69a255e",
+      "after": "abf7176d42a739a5594a5878334313e0f75bf6fc6d48b16906dd88be547a1532"
+    },
+    "src/app/redewendungen-ubersetzer/page.tsx": {
+      "before": "13d2fd6fc053241f400f16e35e1780fce858c51a9ebeb5ded58c0e201abf1c83",
+      "after": "e333e99745a411bc3254897bea58230c2e3e1fe241f7311bdea9a0603f3a57f8"
+    },
+    "src/app/reflexive-verben/page.tsx": {
+      "before": "04ec33159cb14813b35772dfb960bf9afca7d0bc91458db12ad81083882d2cc0",
+      "after": "6452348702067c59b65d60cd7d0bf3f9fba873b1cd112e955092bf6c17734e3f"
+    },
+    "src/app/relativsaetze/page.tsx": {
+      "before": "22ff361aee345baca778c4b30361c647f5d6dfda973d5e9fb6342414b85096d7",
+      "after": "29ab37c018ef7037f25679a7839ee0afc65ed8887186bae6efff1e28aa4e2edc"
+    },
+    "src/app/review/page.tsx": {
+      "before": "7f8d1744ee896cda5c0d519252a3039ac0f65ba523653c953a68b243505f6025",
+      "after": "d8b29186edfeadfce762c892854bef0d7f82f933da8cdd5de39ac4ebdbc58292"
+    },
+    "src/app/satz-ubersetzer/page.tsx": {
+      "before": "a9e957140c121dc400e8d8565782588aa99097cd851cf535ecb7c75a05163dbd",
+      "after": "6ca0b0ffc84d9b530104818a15145dbe9b94cb4625ffb5c6c95b221c1d98bc3d"
+    },
+    "src/app/satzbau/page.tsx": {
+      "before": "90714ce3f04ca079116b84ae461934c9f6bef77fa5d22f155d0f712b30674ebc",
+      "after": "bcdb645722567dc8eb6a0b149fd5ad9dbf3dc4555dabbd1862712519e645e973"
+    },
+    "src/app/satzmuster/page.tsx": {
+      "before": "f79f98689a7800da84cea402edf5a9413679817665a71cc8dbf9fb339144af75",
+      "after": "827b582e200eb141738411a4c38e2411fd846f122c372af82cda17ea6dcc5c74"
+    },
+    "src/app/satzmuster-ubersetzer/page.tsx": {
+      "before": "a3f79e2d6fc5215e9692f333be9ba4dcded48bb5e568e4a5f24a8760e568dae0",
+      "after": "e4eff739c770e0ce26a8386597bd38d0fecc87408738799449db7f8d8f9f5d77"
+    },
+    "src/app/search/page.tsx": {
+      "before": "119154cd83443a0e9758a403bd66bbbc1c4c874076b10cfbdde5f9f5476e57e2",
+      "after": "86ccb9afe2a4483e6234660284bc12df116f9cd257c0ae473404b655acc0745a"
+    },
+    "src/app/speed-match/page.tsx": {
+      "before": "b482812c9911a92b51ab08fd7b10c6379a49dbbc2efa762a89103460a62736e6",
+      "after": "41532686774bae5c1d443ecd35e24e8a8522d2eefb8ed187ccf743420a337a77"
+    },
+    "src/app/sprint/page.tsx": {
+      "before": "9eb18787f50f7874b78b19107c0d92c8b0312d40e2a11be089bd34f02b2076e6",
+      "after": "49ca3f7c76a4133bc6994c6919a80b769994c6ddfd62442ae52a2ed9425cdcc9"
+    },
+    "src/app/stats/page.tsx": {
+      "before": "35c7879240e36596b826c45d84bf489cdb40f39ac2a374b611f011d080f8e86c",
+      "after": "9d9df7c0b76c266e6bb46fb744b357fc8e1832ec97e7cbbc689361e8dfd1b55f"
+    },
+    "src/app/study-plan/page.tsx": {
+      "before": "e631197f45a58bf31dac9f84361bba5d3750b514f7c19008c2cd04ee86745f78",
+      "after": "36a380b549d7265e7d838ac7d011cacb3bd38a9583b9ac51228ddad1d141ddeb"
+    },
+    "src/app/study-strategies/page.tsx": {
+      "before": "9e8a2693d5ea73ddb1e17fedd36a49cf2daed53952219d8df9530dfda85c9361",
+      "after": "ad33fcc458977d7482cc78fdba7b7bc43763048dbad6230f7c25c68db4069433"
+    },
+    "src/app/tenses-guide/page.tsx": {
+      "before": "1050313bdeb168fbd74b12d675ab70f41758eea0ed93179d97c13b26e5015e27",
+      "after": "145447cf26376dd787e1f1db318f970d3dea20422732911fe81923a8e8f8f657"
+    },
+    "src/app/tenses-quiz/page.tsx": {
+      "before": "ecf5ed931c545c9e073285d74a3b7620c0ea5fec6b89eb6ea904edb885e40c77",
+      "after": "3f7560a0af27b2c69bb3eb080dbe3ac5e3ba941d98df9f25d80db58557bcec30"
+    },
+    "src/app/text-analyzer/page.tsx": {
+      "before": "3b2ab14a6a61b953af1b12cd2a405990dcb67002d0b682c652e377b5c1c54009",
+      "after": "4017490feb3c3b1a3bb72b2bb7df15ca91d33eafe85501eaca45db5aa331770a"
+    },
+    "src/app/themen-vokabeln/page.tsx": {
+      "before": "6263ab4c44a7ba5e819e7bc49c94cbfb5049992e201159a0060735fe3e15232f",
+      "after": "4d6ec89faffcff99a34eab954ae3b3314e29f7df42848edef90bfa842f79c276"
+    },
+    "src/app/themen-wortschatz/page.tsx": {
+      "before": "c744910e6301d9f3fdb2fc76a6811142221839cdebd68e9ffda4a8baf1c15f84",
+      "after": "a1a093bee3d6b0441a31057ba9b7a56be7f73a2cda672d34c2bc3af3626fcd2a"
+    },
+    "src/app/toefl/page.tsx": {
+      "before": "c09d06c656631fe9ab6b7346d655643bc2630ad36f2422f49213eb8a72e2d2b7",
+      "after": "510fefda356fa5b99879926677dccfe09ee74585fc800d01160fcb5d2ef5f4a8"
+    },
+    "src/app/toefl/toefl-guide/page.tsx": {
+      "before": "4b05ecc7495b238bd83e15b90f6aeec234e5a381688759bc81a94825f7abed08",
+      "after": "df49f0f1c44c1d75327eaa743895b3eebc8d5f934cb237efe2fc04ee70bbc2eb"
+    },
+    "src/app/typische-fehler/page.tsx": {
+      "before": "ab34074b123c95e5738417f9f099c7f2e771191341a13ce4ae1abaa5ae6b30f5",
+      "after": "664dae37fe9afb1ee1b7bb98118342057376effdd76bc42571b51631e70108bb"
+    },
+    "src/app/unregelmaessige-verben/page.tsx": {
+      "before": "6da3ea0fa4c96178f428c38af06349677b46e52d5784aaef684e2cac13c29abf",
+      "after": "61613a2a0d5d130c13716ac9b2a12e7a9ae5fa66edf80d214972a36c4cdf5372"
+    },
+    "src/app/verb-puzzle/page.tsx": {
+      "before": "a939a2404047ee4036de4a6147cc9ab0ba0162a93af06758e9dbd151cb6959ec",
+      "after": "543717e87be369b196952127976f051b5a0f86911b8b25323e6f31ca0eecbc1e"
+    },
+    "src/app/verb-tables/page.tsx": {
+      "before": "5a942b15223c3bacd4ea0882f026a58abdf6d8f961179408ae47d2e92091a5c6",
+      "after": "a9a334a9820dc7b9e475c4b136f1a6049699ba8e0ca7cd2f7aff27e74acfc5c2"
+    },
+    "src/app/verben-mit-praepositionen-ubersetzer/page.tsx": {
+      "before": "c9427973d6dab38befcac5ae2a4032bb85f5ca654cfe28d4a66144ee365194aa",
+      "after": "29095cad83488470c7e729890f861905783ed420c71cee206d28f80d251ca096"
+    },
+    "src/app/verben-mit-prapositionen/page.tsx": {
+      "before": "b489b1da132938d98e91d508803104fd35a57a41bbff47e022bb9e6f10293db4",
+      "after": "d78910b4d2732076f97df6755620a36f0393b0c41e43ae31a04bc271a30384ba"
+    },
+    "src/app/vergleiche/page.tsx": {
+      "before": "b5e794ac49c31aece5c15e3a67fb205eface40ad215e0866153aeda598b538d1",
+      "after": "ed006f2b58b0b2480809f45ccc4d9adc53432e4e0e21548d4bdb6904788abc49"
+    },
+    "src/app/vergleiche-ubersetzer/page.tsx": {
+      "before": "07eb2b331e6bfa1da77082f4534e8cc6305408c95c35ddcd3bda337d63a02fb7",
+      "after": "cd65016f6cfbb54f57976b5eb95a973fb69d642d5ebe0aadf01e4411b4d32683"
+    },
+    "src/app/vocabulary/page.tsx": {
+      "before": "c7ca2dca66e9ed312d5440691f2afbaf8d78710107eff6494be158e04b29ed5d",
+      "after": "4b8422c254909685a2ef03b5e47de887959a0b57e1ec87ac42331d8ff8728c28"
+    },
+    "src/app/weak-areas/page.tsx": {
+      "before": "fd6ceca6f82388257d27a9042cac03b8c6d71fff6630d0fe6181771942194c71",
+      "after": "25d5a3165f9d676b16954f3a5fb81793464948acab2239cb33e430ca41046026"
+    },
+    "src/app/weekly-report/page.tsx": {
+      "before": "add2aba0d7dee1863a9303a588378b26b1ca0feeb59fc8b28172cbd4c9608a4c",
+      "after": "7f3f0fb50c006f301c49dadeff7990a6a89456f62ef7593792c99490f4d5f04b"
+    },
+    "src/app/wortbildung/page.tsx": {
+      "before": "04d8312546499cc545c9da3a9592dab190b219d0880bda85580ce6d684422fe1",
+      "after": "0d1905cc44645f8599237461c3d7eab04cd46a114b706df8f7a598a3eae8afd1"
+    },
+    "src/app/wortpaare/page.tsx": {
+      "before": "d83fa6a63c0c7a5d276776ef232603b80a7d3d3fe30c2ae948f3463c841c5565",
+      "after": "eb83f4c11d241a285f54cc9deff4936d065d9db14edb01ed3e840d02da0584ca"
+    },
+    "src/app/wortpaare-quiz/page.tsx": {
+      "before": "a4d50a50157362cd160a1330b2b620bc2cb8817656677f14869669928d6d576d",
+      "after": "4c5cf28d3828a314f931ed44cf09436fe3c0e97cb9598611260218f25790ca96"
+    },
+    "src/app/writing/page.tsx": {
+      "before": "5ff7f33c7f894331cc09b32dbb7c68b9eb7fe497d909b4cb0a27e0a1af176086",
+      "after": "4c280a327d7d5ac7ea2a3eaff6dc9127706abc80f0dcb64f0c5191b5be87b9df"
+    },
+    "src/app/zweiteilige-konnektoren/page.tsx": {
+      "before": "d4038e5f973b5161c5c8a6255663844576f6b8b7a947ecd4a7d51a39c530b03e",
+      "after": "447458b3a3acf980a372c56020f1b6eafa227cdba253cac283d725b826602f95"
+    },
+    "src/components/dashboard/StreakWidget.tsx": {
+      "before": "c2eb56b7e915c69de87471bf19ee6fa3d388ff37cf0c40c4fb5011fb09cd29db",
+      "after": "cebaf06b0eab8852c70d763bdc59e01ccf7c3c23766b2b39a69a15c350078072"
+    },
+    "src/components/dashboard/XPBar.tsx": {
+      "before": "c619e8fb69dc48651199c017e33628a4474f2cd05b4f4bd20a27f45d2f677b0c",
+      "after": "203fcc62d1c40ea886738900b764c4ae714b5ced2edfdaee6c15108dfec100e1"
+    },
+    "src/components/layout/CommandPalette.tsx": {
+      "before": "a4a8ecbea2ba9eae8c16258e01478b168450cb9a07fe9507531ab49cc8ab0af6",
+      "after": "008e447e388d57e7f1281414e9d1a5075ccb730271d7528d0dd09187d93e8935"
+    },
+    "src/components/layout/LayoutShell.tsx": {
+      "before": "357d591995734608628e144d5842a5892fb808c4168a305c14970f243bbc3a13",
+      "after": "397e2bed7efb9e1d4311a2db9dcdf0dec04b0385537e2dd8e1860edde0e9f9a8"
+    },
+    "src/components/layout/MobileBottomNav.tsx": {
+      "before": "1913f4ed1b2c44c3d4ae07efd7d3cd1f5c6d1a83445ef3c388f238757ee9431e",
+      "after": "3dcc30b764b2e321c9965317211dde4ca43f357f8f6e739cf3b49464c972a86b"
+    },
+    "src/components/layout/PageWrapper.tsx": {
+      "before": "084f43b61e566b8b2056d246f1eb63119c3ff753bb766b58f4dcdf84ed69eeed",
+      "after": "11f14a5c80907e657844635fe9db02f4349bccade341a265113d4c6d83e2a4a1"
+    },
+    "src/components/layout/Sidebar.tsx": {
+      "before": "0333283e8c537d36d5187a9ce30514c1a42ab1b690344bd3de01da2ede85e598",
+      "after": "e34eb857a3c1078ccd6a01ce1ab30665d97c848690ef1240bc9065c33fb34a36"
+    },
+    "src/components/layout/TopBar.tsx": {
+      "before": "fb7ae22fc4d71307300ff7ba199a1e5661e77fed1b8874477ad7d9a5b450b10b",
+      "after": "e132445d14dff33743d14792c12bd52d0ba0dba9de917014fed9221c694834e3"
+    },
+    "src/components/learn/AdjectiveEndingsTrainer.tsx": {
+      "before": "4dcdb3bfdd9a5b3d0eb44cb09f96b7172cf38f76b0b2c5174bc65f657e789bd9",
+      "after": "2d1429c729d166a1daffab0ba83e6b4878321873453eb840938de02a634e2217"
+    },
+    "src/components/learn/ArtikelMeister.tsx": {
+      "before": "3bfe6171731cf09e2c1d8b25d5c4446c5de1c5bf5a97296ffcf0dd1791f840ef",
+      "after": "87ec66dcb387e0cc671f97a6c77d064b283886b41a2113f8fd8325e69eb3a5df"
+    },
+    "src/components/learn/BriefeSchreiben.tsx": {
+      "before": "f291e5edfe90703015e8917cb5759747dac2f1871642f0b9b27449050742c884",
+      "after": "30c1b80a2d26d1b393157e780d4910c35c6a81db3a47065c055fe13b74117491"
+    },
+    "src/components/learn/Buchstabensalat.tsx": {
+      "before": "5afc03244d110ff5fd07be18e8f09db33782353b33b696117749b28dbe1a0ce2",
+      "after": "ab79d4ffb4f769989d138c42101ee33a15a9a9928043433f88466169b2dc742c"
+    },
+    "src/components/learn/CaseTrainer.tsx": {
+      "before": "b740156529677c60ce66934ba0ab015caf727f72d2fda4b42ffa5485cdc7146d",
+      "after": "d511f6f389069b167423139f85723fb8d5b5a7bc30c664b09b50213534bd88cd"
+    },
+    "src/components/learn/ClozeTextTrainer.tsx": {
+      "before": "b6637eebcc1a328a853c0116a860676a22f39d4d4ff950772e84243d5fb04e89",
+      "after": "df20def7d7dc0dddb57c4d2bb84a1c4ef8d048292bf11067f67f7b3204da22cb"
+    },
+    "src/components/learn/CollocationTrainer.tsx": {
+      "before": "3afa34233f1c030243602ee84f6424efad100baa84bec088068490a3e40795ec",
+      "after": "1ef4337fffc661759beee912c6361349efc00756e163484a21b53071c116e6b4"
+    },
+    "src/components/learn/ComparativeTrainer.tsx": {
+      "before": "cdea52195204fdac6bbdaa6e987d4f74444e74a158ac4ae9eaa2b57cef7d128b",
+      "after": "1d782a41b53f114de7e5145a37e66ac8dcb9debd4a33960bdeefc6a748e7b369"
+    },
+    "src/components/learn/CompoundNounTrainer.tsx": {
+      "before": "bfa7d6f5a9b02cae44f057a92cc8a1ca30427374d95a89d29ed09baa8f22fdf8",
+      "after": "357975ab95eeba3663b439ee32f503442786b8c18d221ac76aae7f3224ef71c0"
+    },
+    "src/components/learn/ConjugationTrainer.tsx": {
+      "before": "64da34b582ef588b77ec1c13d4381e652c0f294303fd73f5ee6d20738bff3355",
+      "after": "d4143c5a4438848b091dde6490aa656020b218d2cd5b5eb40c98907b362e43c0"
+    },
+    "src/components/learn/CoordinatingConjunctionsTrainer.tsx": {
+      "before": "7441fc90c1a254b23a24fb8787a6f3e9248a87099b6c55596679b7d7cef6d6b3",
+      "after": "a527cccdc3f866a436838570894db4cb78bd7ea81a92248049715b13bd3a68a5"
+    },
+    "src/components/learn/CrosswordPuzzle.tsx": {
+      "before": "13438cfc126edf23cd128cfb80127c056841ddaa15342fbf06f6c947bd6f4ef4",
+      "after": "d84d9601dc0484f47ed97660fa03742c4c23360a7b254cf9fdb4e3ba91bd62d8"
+    },
+    "src/components/learn/DaCompoundsTrainer.tsx": {
+      "before": "6087e9887bac2809c708f15aa1b4995a4ac1f4c0fd90558d5d1ad8b1f5888b66",
+      "after": "b5e4b72c097dd7c30d62c7cb41d0dbb90a472e1a81c0bc0645cb13bde82ed135"
+    },
+    "src/components/learn/DaKompositaUebersetzer.tsx": {
+      "before": "9f49c05977facacaca5cc60f1cb645f2689cdcecd2b6f64bd101298b6eee0316",
+      "after": "b7278742e28d03f4ecd122f01f1b20e30f8c50c6a9754ce2699bdcf6aed01082"
+    },
+    "src/components/learn/DialogeUebersetzer.tsx": {
+      "before": "a37f7b40a885c62ed42ca8f9deddcaa9c201cbaeba794622c97a66387b8d6a9a",
+      "after": "edda3dd0033c5002168618e7a7825ceb89d99b1e7004f404755a220711ea71c6"
+    },
+    "src/components/learn/DialogueCompletionTrainer.tsx": {
+      "before": "8d985fc6568629bd3cd2095a7d89a8ecac7ddd2b12608b81f2d2904691c06b18",
+      "after": "28e5019a34a83a2d34ffc5e77f2a09d10b2e3eccf806187c68ed6b7d5284fb23"
+    },
+    "src/components/learn/Dictation.tsx": {
+      "before": "18a68a5b05d704ad00b6927a17988da1d7d5f0cfd521c521da7837038ff6fc05",
+      "after": "631c2619162e5ed5613928d040273fff7b9c198390179990cf9bd1e7940bbbf8"
+    },
+    "src/components/learn/DoubleInfinitiveTrainer.tsx": {
+      "before": "e1d988c10dee589abc45437fb2a30e9c478eef3a86250da829944233a1b09797",
+      "after": "269259f3d417584b5b5fa4ee5137aa95942ae777ea1b4d6d9639b9404ef23eec"
+    },
+    "src/components/learn/ErrorReview.tsx": {
+      "before": "b97fc8e49ac708c59d4536351712b3f18f470a7d52294a7e3db7480bd057f0d8",
+      "after": "595a33395ef72a401561c6ba638f405179145fc52cbc7e96943f3fbcd90b2199"
+    },
+    "src/components/learn/FalseFriendsTrainer.tsx": {
+      "before": "7be0931a839309eaaf50a4fed305c7db4d28daf5d82156e76bf3564729d544cc",
+      "after": "0d21baa4d4df658c435c00247b58cdd2282fdef6df21d0d3df07a9bf7f1b01c9"
+    },
+    "src/components/learn/FalseFriendsUebersetzer.tsx": {
+      "before": "c88663013bb354b3a1d7914b2c1a674a0f6467cc9dca7ca55119c6a5bca6c9e6",
+      "after": "9c0ac2a97a98688ddc5213cc5fb90a43604a048ff2f2649c3cf8549ec9e9f6d8"
+    },
+    "src/components/learn/FlashcardRace.tsx": {
+      "before": "564e9279662cf287ea7085f37f235e78335f1c9e438867df78131da81b94cc10",
+      "after": "cce42142e30b8a7a7a570504fe21c2cf21214e49ef1759eca07922a347e79abf"
+    },
+    "src/components/learn/FragenUebersetzer.tsx": {
+      "before": "8f53c617bf268b48ed05f295fee5aca0116ce3d8b96597287b21266a2bab9214",
+      "after": "512679b016539fb0fbf21f922445e5263d7011a8678aca303224135a4615b98a"
+    },
+    "src/components/learn/FragewörterTrainer.tsx": {
+      "before": "55eb3b3967c5d89ce28f8609457d1a30fc57d2c77f71d33b4b264469d1d0d6be",
+      "after": "03740f6060969b732db769ff13d432e597d3bcc89f9c0c7782d76e478fc42d32"
+    },
+    "src/components/learn/FutureTenseTrainer.tsx": {
+      "before": "259c2978f48b0d6509e580f8be210da08a19b470670e59f61f6a70b81e9e0d93",
+      "after": "65375ede24c734feda20711fa7ec63098c62b4a2ca878899059ebe131890008c"
+    },
+    "src/components/learn/GenitiveTrainer.tsx": {
+      "before": "301b279a62ac60122d403a1c3ec1fdbbf7b7f94b4c507ecec2c929654b912705",
+      "after": "3b8caede9d9a3b2b084de6fbc9078549ad50c3a0ccae84fecc18d78220eb29da"
+    },
+    "src/components/learn/GrammarReference.tsx": {
+      "before": "a141894a31b9946d6b2de5196065f353b08b1d91fec6115a157a681d246be222",
+      "after": "a67934465a39090dc3814bd9f2047477c33cc399523d826bafb9c847e2c11a97"
+    },
+    "src/components/learn/Hangman.tsx": {
+      "before": "e3a3ccd0abe0abfdc30f8e0b265937d7eb711c6884038199b1ad05ae286f18f8",
+      "after": "3372fb264472e3459fe0263777a1fe567713827bfc15c2076055031fa1cf4d03"
+    },
+    "src/components/learn/IdiomMatch.tsx": {
+      "before": "aebb1e19dc7de8c80f5d400aaedea71ba0058ec2b4fcb82d3edd1dbfd6bbdd71",
+      "after": "365cec3c261046b71fae85846c3ef29acc62330efea27b6c14eef2aa1f4d2736"
+    },
+    "src/components/learn/IdiomsTrainer.tsx": {
+      "before": "d4beae2d2470415397c548a22316fcd04c3e20565d6447663972deee58250b69",
+      "after": "2b6485d04704ddb29f7e8092c665616da94f53fecad0927769a436d2ddf2ce8c"
+    },
+    "src/components/learn/ImperativeTrainer.tsx": {
+      "before": "6faa9ec8253506f209d5e9b1b1b139a159fdffde44121b2c0d30b9f0470cebe1",
+      "after": "2171fb1a1690b0ff51e424e42d6ba18f0fa7fc1e20a21c1dfe183e6a04ec3ab3"
+    },
+    "src/components/learn/InfinitivMitZuTrainer.tsx": {
+      "before": "e265a02ae5e4646e2a9a461132ee0a9d92c292740480edf59d712fae655099f2",
+      "after": "e8afb7c12aca2be13a02febc8aaf470a60d6feb4ddf001bdcc55771e867d7b81"
+    },
+    "src/components/learn/KnowledgeCheck.tsx": {
+      "before": "305346390d6a5a11b5d2e11829c362298c7ecf386819b5ac89b1b3c76cca53fa",
+      "after": "8bb4846f88db30daf9f99b071157de72af8fab92646a7e9c28bdda5a93b22a95"
+    },
+    "src/components/learn/KollokationenUebersetzer.tsx": {
+      "before": "f591233b8edf247c095a619f142f6eb2c60ceada4fe4ee5bb7b34cc99c258553",
+      "after": "6d6d10808d5c049dc08e00f901d4dd076c225800071c2ff60ddbe64b2dc7396d"
+    },
+    "src/components/learn/KonjunktionenChallenge.tsx": {
+      "before": "f7d424b10958d2f78966e1c3b0f7b8e48f7c1bb8eafc2951c16a2d10b18f6f64",
+      "after": "44859a5147b0ccde1986799607019b361a91b55e2da8a50130b68c156303689e"
+    },
+    "src/components/learn/KonjunktivIITrainer.tsx": {
+      "before": "4135d93f69037d997f04eeb73a1d952921c87665ce2258ff4f530e3317d3738a",
+      "after": "e6fbf963c2a52f264a17e3f7642a1f0dc231bec440f597963cdf9c5b3b2d3045"
+    },
+    "src/components/learn/Korrekturlesen.tsx": {
+      "before": "cb4097153a9cb4e14e33c93359514beda9377ae13522aef329fd161e4a4f3d31",
+      "after": "9724bd3970b6372c41a40da97befefa4c9a192819e9314d280e9972cdce2b222"
+    },
+    "src/components/learn/LandeskundeQuiz.tsx": {
+      "before": "2e6fbace78af2a66c8552ad224f5018ef6e5c53c3d2654a8353073ed70e59e47",
+      "after": "46a74720dae40594fc7f4f96a4f6617df4e6f30a7d0b6dd2be6e2a5a52284456"
+    },
+    "src/components/learn/ListeningLab.tsx": {
+      "before": "ca34f901d2f3505cf10f4ef2387f4c75e9c5206542ca211b5b8989ac4546a31b",
+      "after": "8c5ede2ac8942fdf4128386bef7b5ec0984e60754a7ebd4d7d2d7f30ad4edead"
+    },
+    "src/components/learn/MemoryMatchGame.tsx": {
+      "before": "671ea9a011bb3f148e5dce57707a36679b03a61a449a1a916ede041a1ff474f9",
+      "after": "467c2ae854717ba4cfdc76950881efc18ed9b2d8cb7c58c6688b0784143f0f8d"
+    },
+    "src/components/learn/ModalParticlesTrainer.tsx": {
+      "before": "0ec022e8154c0923c9d5dd7565bf07a7f3ed0738d53821446ec945febc70e487",
+      "after": "a488d0dbea1d993ee51c60fe42de15cba751273212c6323245faaa428a047d9f"
+    },
+    "src/components/learn/ModalVerbsTrainer.tsx": {
+      "before": "de1685561bac3f676de05710239dbd7e428650f3ee8caa32fbfaa2e4d318a000",
+      "after": "6d0c5f5947bf3e211d22537785c8608993e0c4114cd69719cf0fbff247e35ce4"
+    },
+    "src/components/learn/ModalpartikelUebersetzer.tsx": {
+      "before": "a76c3a1e5d4fc6a726e91202c88e9f9fc09833193447c1f8fff97bf7a86e570b",
+      "after": "840f067679096d7cafb6111297bb70613e25885b6b3978f1a121120b3a8092cf"
+    },
+    "src/components/learn/NVVUebersetzer.tsx": {
+      "before": "289ffa368c30c05ac93c9ff43b4dd9444aa2452d169d3c8ca57bc202060ea6ee",
+      "after": "724b6d5121322562a9f5405e4028af3979f007210a96d40e2142b6fea84a0d68"
+    },
+    "src/components/learn/NarrativePastTrainer.tsx": {
+      "before": "440c630a49ee5d1dcf59556c29f96b9d6f444708b6d0ac334641857afd3f5765",
+      "after": "8bd9008ccb5c9249457645fedf9dbbd83116f884cbc3121eba3386f244f7ba0c"
+    },
+    "src/components/learn/NegationTrainer.tsx": {
+      "before": "d6334231a9de6c934e0648c49544e2bac550cd6ffd04314257c9175dd9236cf8",
+      "after": "be2c21ecab9c68ae410de130a9bbad2b5527e2e3d2b0f56124949ab981f72a41"
+    },
+    "src/components/learn/NounGenderTrainer.tsx": {
+      "before": "df87b7cda43d0013d809f9d58ca3912fcae813f5fd702d896922a1bdbe932c4e",
+      "after": "ec66600be57dec7e60e87ce137f313026a1004ebfea472cce2598d007857a0e3"
+    },
+    "src/components/learn/NumbersTrainer.tsx": {
+      "before": "dca617ef814237100daa998d5d93821c2f38f53a50e9ab9cd3399daac068de19",
+      "after": "019c477798e00d709db59d1992672d3ebb4d5abb7454b691389ac41e38fcb76e"
+    },
+    "src/components/learn/PassiveVoiceTrainer.tsx": {
+      "before": "3062a3ef64f0d1b8ad2fd9486ac32bf2d327dc3a679727de17cff76e19c32997",
+      "after": "b944c75fc56aad0c670040d0f143bf88688897e77fd319fd4a6416223b1a3f94"
+    },
+    "src/components/learn/PluralTrainer.tsx": {
+      "before": "448c578a67d6063e8a1266d81b524f51c77b0deac498922fd1f05b20205f2450",
+      "after": "4e7004862b1c46f17d8f988538623baa446b938e8d385e72d4ea38d8fa0350f8"
+    },
+    "src/components/learn/PossessivesTrainer.tsx": {
+      "before": "1b69337b842fc593617979ea929719899079ba4b8f3caa40cbe03624b49c49d4",
+      "after": "99d6e8e090349280d7cd512caf4c7943351345ecf8edfc44a287555a25fc787f"
+    },
+    "src/components/learn/PraeteritumUebersetzer.tsx": {
+      "before": "995c4edcf47f72a7f94ab0033c480d15df6e0d1f10c2eab25a2deab40f798e4f",
+      "after": "422a09c9bbeea222d097d24d8a9494aaf73369ae45fbab19283de256df1a05ed"
+    },
+    "src/components/learn/PrefixVerbsTrainer.tsx": {
+      "before": "88602a08d45611d80a290abad95de526212f90a61db6e80bea083e986da04c30",
+      "after": "6c2b9bca01a86d608c7b442b2c6bfcaadb12407489450b298d3e030a50acec1f"
+    },
+    "src/components/learn/PrepositionalContractionsTrainer.tsx": {
+      "before": "80a11aa8183a34ad190c3917ce1b92c7d745590f44acc02de56d48e228923be0",
+      "after": "bfee30f80410ce763444d26bd05e077e798e28fd92b80dce7f3c06349942ff7c"
+    },
+    "src/components/learn/PrepositionsTrainer.tsx": {
+      "before": "1251dd18bf3660fe9185f28bdc6a3a69ba412a0439a47d6e91a446abcbb90843",
+      "after": "798c7acec4414c69fed8578dc1af67b49bcfede6b0c3e4a8da0df2496ddb5312"
+    },
+    "src/components/learn/QuestionFormationTrainer.tsx": {
+      "before": "834c1638f151da73862d23171653d04583cbaac67812f51a5d512b0cea8ad344",
+      "after": "cc0d6ec963b2b40809a2b5063aeb34f60ef4a792a51a6a76886234a5222f3eae"
+    },
+    "src/components/learn/ReadingComprehension.tsx": {
+      "before": "9d2a15c5e1f3bde79bff4932b2b0cc256c78ec67b220f4b30b498a54882a9094",
+      "after": "a497b33bc9d86aedfd2c95e35df7a9996a196934eb5c10d50423b06e55cb3c5b"
+    },
+    "src/components/learn/RedemittelPraxis.tsx": {
+      "before": "f9f9ce7dcc76bf45e92cdaec99f2bc9dbe860170c52cd91da14932f290c40548",
+      "after": "c0c410f40d092933844fc34c8fee88daa205894eebb03686b81b50fc490fe8fb"
+    },
+    "src/components/learn/ReflexiveVerbsTrainer.tsx": {
+      "before": "4f9cb2ef9087c7b0262924aeb93cab9052f936e4b5f29cf7f9f75e7cf78002bb",
+      "after": "1bc233d7d01a3e5326d122f976f749b30022db68a3c961b3dba928e848363260"
+    },
+    "src/components/learn/RelativeClausesTrainer.tsx": {
+      "before": "1d7f516a356740edd63f82d9e6f35a7ed8d1ce9a789ee0dd6abb1735393fee89",
+      "after": "6e8074bf5f16a54e99b9804f2bc30d786f644aed7ab3a9a34f69ffcb14c15862"
+    },
+    "src/components/learn/RewendungenUebersetzer.tsx": {
+      "before": "d1239c2021b0c4486a7bd5b85980df22256957a3c5a6e5b010e1c09fd9cf15d2",
+      "after": "ef65043df9d51b1ce57bb80edc584891efed091e0f6716c4d56d3618f5f7f4c3"
+    },
+    "src/components/learn/SatzUebersetzer.tsx": {
+      "before": "b00d8a154088d2579471180e95f1c91c494532c39e2b6fb56398a55c333ccac4",
+      "after": "d21aab01162815aa1067442d3120ebe91ff4ea6a15b27cc9caee297b3b1ab8c9"
+    },
+    "src/components/learn/SatzmusterUebersetzer.tsx": {
+      "before": "8d7a865f3d6b3476e7d8d0275fe7cdf6b6b2d639302a9af018f446d834dc5831",
+      "after": "80c7ced0ad9325a15c651c39398ca040c2214be12d75463e3486458af3b4aad2"
+    },
+    "src/components/learn/SentenceBuilder.tsx": {
+      "before": "78d4b4731c8e9ab3c71f3716a1542efb94f584de10bbee7f2b72d4154c53d0dd",
+      "after": "ea7ae0ae4ba4323ad3411caa73bf7388831abcb7fb3ecb7b409ca2d1504a5170"
+    },
+    "src/components/learn/SeparableVerbsTrainer.tsx": {
+      "before": "c1280ebb5588ef9a0ae1819ba578c159b93a212c39530b08ee79f1b4cbf65df8",
+      "after": "3a98847ae07240decfbfefaf6b25410a49b837cacc3721d1934c2c2aba9b1a1e"
+    },
+    "src/components/learn/SpeedMatch.tsx": {
+      "before": "4d20d7f40077b5fe6e4f238f31d7db3baca54549ff8b73aaa676d9b135ef126b",
+      "after": "60a99e9997d2e44190c25371831815dd7dc553ee3171e48809e19efd53581e02"
+    },
+    "src/components/learn/SpellingTrainer.tsx": {
+      "before": "03a6a1b455f8dbfe58df018147350b7f7ae929e8aac6e0ff27fd34fbd8c14a50",
+      "after": "2d431f3628d3d53d514bd2263ca9bd6cef6560c1e0d2c747247f8da885a87b6e"
+    },
+    "src/components/learn/Sprint.tsx": {
+      "before": "287f5758a80838e098b756ca6b0a757dae51a4ad2dde7648bd8e512af5aad612",
+      "after": "65e2afe8dbcd3b4761d583182cf21736426f3167a8cdfaf30c257982284bde22"
+    },
+    "src/components/learn/SubordinateClausesTrainer.tsx": {
+      "before": "4d14396bbe50b54a33ab3103c24e100945007ccda273f70c811af5e0ff5ea8c6",
+      "after": "9cd8e79a455023748a831a96a97af814eef4f1f2217007cd660e561a2e5d8bd3"
+    },
+    "src/components/learn/SynonymTrainer.tsx": {
+      "before": "9ddb681720322c8792942eac31bdade98cd6b1efa6aafce212200e370b4c7eb1",
+      "after": "b38a41e2831586de02ef0d33ba697657934369d52f0c88b83dc3abcf789b327e"
+    },
+    "src/components/learn/TensesQuiz.tsx": {
+      "before": "6a92ed5032138d06408f52bb3d1368da6c79a37a449057d9891a9cb234f18272",
+      "after": "540b264070c36b6424cfd587a52083c57f9e071e4b2620df6c52137cbf52c5ef"
+    },
+    "src/components/learn/ThemenVokabeln.tsx": {
+      "before": "e6dd1c2594cf2653b24190d67c1d7e4c75d206e5ee7339a6864e53b5befefce8",
+      "after": "31b8b5d762f9be37e96df3cd8f2d7f10987192fccd2cd9034c62146f9d08457b"
+    },
+    "src/components/learn/TimedChallenge.tsx": {
+      "before": "9de18091de80c02277fa00ac1b3362da7193ee13d1cad27446b8fb0224db5df8",
+      "after": "e92633f362dc5406079646538c68c0cfce9dcb28e4e29387801066252233ba50"
+    },
+    "src/components/learn/TwoWayPrepositionsTrainer.tsx": {
+      "before": "64d0e0464abb4ae335fabcbdca78185fdc4ddd86b56f498dce187b0ea6272f57",
+      "after": "0bf367f0056e95c65657386dcd9c14a49aad9e1bf3233c06bbbe94f78f9a9030"
+    },
+    "src/components/learn/VerbExplorer.tsx": {
+      "before": "49482581930bdb449910f630c157bed036b8461fe73aec3649ba625f1f4b9476",
+      "after": "bcbf30416d1e152457b9a16d96039edfc7c87f66511d27700a95891cfe498e99"
+    },
+    "src/components/learn/VerbPrepUebersetzer.tsx": {
+      "before": "3ffa80a97c1df11116c99a8b2e97138ddcc6d236c06bd771c14e1f9c27f79d37",
+      "after": "2894f69f2b04cc733d1a8ea7892ac4528505ca1972c75d90ab40c352ca03c1fd"
+    },
+    "src/components/learn/VerbPuzzle.tsx": {
+      "before": "3b045a9fbd166f4ceb283e7f71dc1b423c0e9d3014c5eb18a62869394aafac01",
+      "after": "705efb6a554ae1e91d95ef87006a735bf942b7cde96649332564fdf0e6eebac5"
+    },
+    "src/components/learn/VergleicheUebersetzer.tsx": {
+      "before": "9260b19650dd3df54fb900bc2bef2a008f8a0e08b096ba0884236186c0a02210",
+      "after": "28d3d8d6068fdc5f81a2aa32488ab7ff216df0f70c38de78b60e703749db6fe2"
+    },
+    "src/components/learn/VocabularyPractice.tsx": {
+      "before": "311c7d71ff0ef4bcbcf399e248af7fa83fde3347839d7ccc037906c55c1a3ed8",
+      "after": "74f982ed5059582330776965226c06a6c4f8d7ce1a8eec38bb697ec40fea4fa5"
+    },
+    "src/components/learn/WeakNounsTrainer.tsx": {
+      "before": "1b89bbbcd5af0455979b16e8c433dd0fdedebc2f42d641e4e3798ef0452f7778",
+      "after": "b322f5d81cab35e7aec6ead23e861a8c909eca6b7de3b6dba4d1546576cef55b"
+    },
+    "src/components/learn/WordFormationTrainer.tsx": {
+      "before": "f82f62f92f7511031ee945edbd69f106f6ba31ef8b7bd92fb32a89345723194b",
+      "after": "b031481456ed4e57f50b17581a3d2d437b44b4435e80a2ab77dbfbb0b8c4f2c2"
+    },
+    "src/components/learn/WordOrderTrainer.tsx": {
+      "before": "05d651895cf51b62115ae6990f27472db5ece8ca6d256b31015e7a521ae0c9ee",
+      "after": "7245a92ca8638df009306ea404f88119bafd824c053556b5132efb75ca5ffd81"
+    },
+    "src/components/learn/WordSearch.tsx": {
+      "before": "46c200c0a6e92d7fbe5edcc5659b608bd1b8a04188641728cd1a4a98dd236a84",
+      "after": "68f54c19f1a59a42469251a5245096f90db161bc7a28b94765db48c235eebee5"
+    },
+    "src/components/learn/WortpaareQuiz.tsx": {
+      "before": "a2afc5ad23ef0291070b69e9e2033fbaacd6273b4c208cd42ca7c614100a471a",
+      "after": "1e23781ae024b647373176032e2537eec49bacd7eb99d8276a7f37089101df0d"
+    },
+    "src/components/mock-exam/ExamElements.tsx": {
+      "before": "42b1c5257b0e7e42a4199bff6a56abfc7e82d011f814bc5bd43856a6adb8eb3b",
+      "after": "98ad838c5298243594a447a8a8640d3950b4339d97566934c999e505af09eb68"
+    },
+    "src/components/mock-exam/ExamReview.tsx": {
+      "before": "53ed8622d5769cb8edcf0cb957fd1fe7df9135e16f45084b55ca164adf1e44ee",
+      "after": "c8b2cae0fe6df0bc3f12b4de4f4ab2a3c86b44c194486f701dbfe46d7290ea13"
+    },
+    "src/components/ui/AddToVocabButton.tsx": {
+      "before": "e7efa7a2576dbf0dcd632fb73625dd1526032c8c8bbf279429ed174aa86f9b7d",
+      "after": "2ef58a4a9ccf11b7798fa5345876d643a7a0a5136d0d1fb761ec74631a3e742e"
+    },
+    "src/components/ui/BookmarkButton.tsx": {
+      "before": "ec9216baaacf21a705d476476040bbd8be666b7a006dc204073d874ada90b518",
+      "after": "76822c6937a4b4b35c6f2482e9ee660fe71213b59e3345907dcbfb12d13c2005"
+    },
+    "src/components/ui/Button.tsx": {
+      "before": "35c1c7049ca362ef554c830096d0f23d5fa8bbaf1a63834e0077c1e5d5a3f43c",
+      "after": "b954bcfe30835c311efe83474f1de19a3e8e0c4d45d497a3a99e87b93cbf886e"
+    },
+    "src/components/ui/ProgressChart.tsx": {
+      "before": "b66894b5bb025320a739aed96cb9d41b820b8c49db11ed8229e6b060fe361813",
+      "after": "b5f77f84447dd8391f8b9fcae3732fc0a5933f0aa3f467ed7d266651fc6b3c49"
+    },
+    "src/components/ui/StudyTimer.tsx": {
+      "before": "4e16676210ed7b74cad9aababd52a74c78e923f8d452ed07fe1cc5623a71f739",
+      "after": "c33cc6586e4bd50469d020759c72ce7cda65cf25135bbb486dd39742d3d8265f"
+    },
+    "src/components/ui/WeeklyGoalWidget.tsx": {
+      "before": "b946aef95614e4a6cb366b2f971f2f3a0f80a4ce0deae66bcbe5ec8dbca4f7f6",
+      "after": "8f7bcedb93627c17ce5388f2b2e945ea9a26a016c700e0f4c29e95fc1e2d7c46"
+    },
+    "src/components/ui/WordOfDay.tsx": {
+      "before": "3a29103ddf46b628c3213af6dcb047e53aed93315f234ad77d6d4becc66eae7e",
+      "after": "f27653b4dda4dd2cf9d15dbf17931ed9b43be192c146184a09658337077d771e"
+    },
+    "src/data/searchIndex.ts": {
+      "before": "076b58e6398fe508dd9e61a593be6efc6cb953d4cf0b0c92a6fec0c9e2814f6a",
+      "after": "30746cf4315ee310f4d0847cd381dbfd7f5875913256ec1da0c6b79de95b47ea"
+    },
+    "next.config.mjs": {
+      "before": "cf486583e8415aad65ab79be025cfffbc13e153f086f88f29ff47b06e13a8638",
+      "after": "6ffdcfb3bd5bbae39879e23849f4e793d15d953df677fe597773063a89d089a1"
+    }
+  },
+  "preserved": {
+    "src/app/layout.tsx": "67c3e482c99a0c1b60dbec7b7c9581ebf8547d424555282efe32ed238816170f",
+    "src/data/alltagsdialoge.ts": "7dc906b3e483b848c054a428a59b22ea152c58a80acab2c39974a7c142c8cb2b",
+    "src/data/articles/band4-5.ts": "994a8909260344789af56c310988464eb6f9ccee0dab8a821cc069751d7e5624",
+    "src/data/articles/band5-6.ts": "6e254e8698c7f53a4fe5926dd6dfa41dbbbec2e615734e529a8731cd06a73503",
+    "src/data/articles/band6-7.ts": "01d784a9cf64d94280b4c670b969de61ef1ec946e653397237fb141c0d4793a4",
+    "src/data/articles/band7-8.ts": "048e4ecf1020709f2fbad530a339244c0931e1fa8851b8e8bff976a60c318374",
+    "src/data/articles/index.ts": "0f08b59a5aeea4977ea3764044ed6c21ac9f1beb36e5cb75228b53e340764590",
+    "src/data/b2-pruefung.ts": "d1b591d028da93f8d7eb10fa18f3a4ad42245691f911d424d148264c2bfa8670",
+    "src/data/bildbeschreibung.ts": "18a6c24dcc08f0d840e311199b13342af175bdf190c423593510db8da682763a",
+    "src/data/briefe.ts": "9a439eed31b61f1c8b14683a715bdc5590fdfb38d22e9d8ab2fed99a06e79687",
+    "src/data/british-vs-american.ts": "a159214d3a6d80b0debea0a82ccc9a7543fa02c3ebd7956bc917c101572fcab6",
+    "src/data/cases-guide.ts": "a8584bc16d88e8843045365d33b4073892faa2cf8c22084401910c82d9e85734",
+    "src/data/conjugaise.ts": "92be117542c6a001601e19518ace12e9665ef37379720900b323f8a9bd37dea2",
+    "src/data/content.ts": "812b65fe4f559006dca76f80291ede7f62817aa7cac4000f0560c149d6a2e3de",
+    "src/data/conversations.ts": "f1c68be7fb5e9ee384774e075420a5d7089c3396b42743579e29fac24ed29ae8",
+    "src/data/course-activities.ts": "9840e027ac8ab788a1b2962b4512afa712f2c29a25255019f2d73e564487c518",
+    "src/data/course-catalogue.ts": "c10c0532a6d05539351d531b9c2ef743f725179c96c08536346374e2c157fb39",
+    "src/data/course-enrichment/academic.ts": "0a14981a46db61208a8082036415e1065e6fee8b4f609bffc0e5cfec0df54f26",
+    "src/data/course-enrichment/foundation.ts": "a93ba8cabbe5ce1e8f8769337e9885d351a5ba7b7f8f20b3d0d21e4d1d9d9255",
+    "src/data/course-enrichment/general.ts": "ee29371a2cc496dcffb7c89f256a088d89218977e125802ff81ac96077d7451d",
+    "src/data/course-enrichment/index.ts": "061ca5169789bc0729193c91651d34664d7ec71748b10aa33043439bd0bbf8c2",
+    "src/data/course-enrichment/media.ts": "ba3cac321a236ebb5780dda8b50d707fc8506bef70e95d63fd640499788f737d",
+    "src/data/course-enrichment/toefl.ts": "73145ead2731ae0b99d8b7458b91ed7e9b318fb8978871538b3a6fd5051562c1",
+    "src/data/course-enrichment/types.ts": "f9763f3ee088b74a4ba145054ed5f27b777b736b2ccc5da311d6272434cfeed8",
+    "src/data/course-enrichment/video-catalogue.ts": "1e5763c7305d15f5015d8935f19d4ce91a7dc7e5adf93be7e901237ab11da90e",
+    "src/data/course-enrichment/videos.ts": "e122e4e790e8fa7e83b8d8ec2b5f9c613b8c7310903a6c07c54e4f821a35e995",
+    "src/data/course-instruction/academic.ts": "eb0adadaca536fe26f31a8e54f131d269d298001cfb66a5c00be908794c4c81f",
+    "src/data/course-instruction/authoring.ts": "f027c2eef033b896c99f9b5d90a8d2b901280395d1a68dc0d1af091058bbffa7",
+    "src/data/course-instruction/foundation-lessons.ts": "3306ea03c7639e7d50a5d08752641289a780013742902fb93e3575a7b3ffecbc",
+    "src/data/course-instruction/foundation.ts": "4cfcf95e97eb52fa17989d6b85384faf40387644981362ad2d773ccc9bb12113",
+    "src/data/course-instruction/general.ts": "6f7b081688621bd49fe8ad3ffd6d42c4b790e6b75fedb88af41af0a0cf7f269e",
+    "src/data/course-instruction/index.ts": "507a5f125800a2fe75639e60d10d47a4adea3deff754665b16e49345d3c5106e",
+    "src/data/course-instruction/toefl.ts": "9dc310d96cd6acaa4950ac53f493da9ecc4d851910fdea3c6e45c4d0303ee368",
+    "src/data/course-instruction/types.ts": "964ba53a71412a25df725f523683d1b83f31d1c1f13823f0c68b31716c656af6",
+    "src/data/da-komposita.ts": "fc7903f775fe7e5b41b03cc703d210077ec2ecbd48538a69ad06e8ff28419c4f",
+    "src/data/declensions.ts": "31005e27577e3e58abc32128a022c9667af121f81301696fc514a9a63e10347f",
+    "src/data/essay-templates.ts": "78ee796b2e90adeab722b41006422d6b7532903ff77fff42e2b6b31552aca9d1",
+    "src/data/exercises.ts": "759ca750f29bbdab62a7b86459a1b84b4ee0bbadad3407dea0b47b1829f46b10",
+    "src/data/false-friends.ts": "0b4054c874641e3243770c24d267c2a688f4c263b3213f16644bd69f55eef95b",
+    "src/data/flashcards.ts": "92aa339b35e73e3e884d6eb6f6c782e12eebe68011e481e34df5838ba2ac28a0",
+    "src/data/fragen.ts": "3c057cf76133fc2f16feba1245db5746465760297ac60f0d0e47955c366d0437",
+    "src/data/futur.ts": "3b8b48af49ff5c87ac95006152a28ec6f96c29684baef14a05b8cede777e88c6",
+    "src/data/grammarCompare.ts": "6222cd785c485ebc37c2bc6313d50a295a28364190930b36a4bcde5358f74fbd",
+    "src/data/indirekte-rede.ts": "3f6f4725d2e902bf27c2654092ff3242796b771f80fe34d02fb78a5c1b0b731c",
+    "src/data/kollokationen-index.ts": "67c8c4fc9f63409336467c047c05259b6501af62937382b8b09338e98eb205ee",
+    "src/data/kollokationen.ts": "13323bd09005d150bca2144600e6e7c5fc7dc084cc7c4377b6f225192fdc6c43",
+    "src/data/konjunktiv-ii.ts": "2ce61cb08718b416104cf4fecc14839a0a75840d9e8d9648c47c5e142f791b98",
+    "src/data/konnektoren.ts": "80cf096770bc7eb265d5c628b2158bf4f13b3a340f7227762f7aa9bce244b93c",
+    "src/data/korrektur.ts": "4f62eef031f9e969e65214b5cc78b8ab29a0fe756cae06bc896d678289f09deb",
+    "src/data/landeskunde.ts": "4a3de49078b49a2f35e910a57d2518d73b42cfac5a83e280eb44e5f7018e094b",
+    "src/data/lesson-images/academic.ts": "e0590b46fc652fb2d8a2cc13b2bfc8f28a282d9aca512aacf91cbea054f4c5e7",
+    "src/data/lesson-images/assets.ts": "2ebefaaf022a453359de2b3516e3e673a1e291d0c022fc63c0f0274b7a5ebc74",
+    "src/data/lesson-images/build.ts": "9968b80c3795029db3565ac188e759d651477e9bff51b4315e17f6e8de277690",
+    "src/data/lesson-images/foundation.ts": "a0863fab8091d2e676a099a2fd3eed1349cf663c812426be84287409ba772e56",
+    "src/data/lesson-images/general.ts": "f9629e83bb9ec2bfff5f42c9ae8a1bbdc75474c7cb7ac310ad371a04c479606d",
+    "src/data/lesson-images/index.ts": "d45cbc0ac39acf2c881293eda67c1e192540b7e67849216d2335b038ab29ccdd",
+    "src/data/lesson-images/toefl.ts": "19ec7d2959f97613152ec5680e1ef18a6515098c5bbd8a7e21c23ec5896efb9c",
+    "src/data/lesson-principles/academic.ts": "f67fb06f89d517344e97e6072b79070276ffc45681d323eac5979f1cfbc5d966",
+    "src/data/lesson-principles/foundation.ts": "824feff456d555ee89f7c9fe11229b5ed5f17c4b7db3b0728b8cc69f3a01df40",
+    "src/data/lesson-principles/general.ts": "a38b16545a94d36191e0d5520ea082e8d16de395e5e4f4dd08c293e236a88a37",
+    "src/data/lesson-principles/index.ts": "bb0c1658c90df979ce7b76d9034655418bd3622abe407961b722e3c2a2400fe8",
+    "src/data/lesson-principles/maps/academic.ts": "bc02a4fc2cb11398de8bf5aa1d5414609449f01017bcdd105da8fdb126f80253",
+    "src/data/lesson-principles/maps/foundation.ts": "1c2fed3b5b9e950e9064ba5c7e2bb6acc91a85add914d720a9e1678c3ef08e4c",
+    "src/data/lesson-principles/maps/general.ts": "d0f137d8b3c6241957aa781120666182cfcfdc366554c48f9933c4cb17264bb5",
+    "src/data/lesson-principles/maps/index.ts": "27337a3702440cea6424efdc414498d8807ccb4210c4f96ab2e2815a595bff57",
+    "src/data/lesson-principles/maps/toefl.ts": "83a24dd4b53b053922a89ffa8208b09a9446203ecec829c5fea343b0305e1af0",
+    "src/data/lesson-principles/maps/types.ts": "92cea6892455ab3c1593e8013fe2294b71fa9d5fe4735cc8d2a1888aaeb2b3c7",
+    "src/data/lesson-principles/toefl.ts": "a23f94e0616b2060877d3cb15f2416f11fdf8e61856adc09092b065a4dc42ede",
+    "src/data/lesson-principles/types.ts": "5afb37837cebe78c3fd319f82f027fc24bd70e34088084c7bf7e2510e75e1e93",
+    "src/data/mock-exam-audio.ts": "16415065ffcd0b93699f8ed235fc898a3ca3aac8185ace4d59f9505fbae9983c",
+    "src/data/mock-exam.ts": "c275ee17f4343b8cd5d92917bc3fae65f32291818edebeab952630f2fcf52d63",
+    "src/data/mock-exams/content/b2-listening.json": "4300e7056fb1f21ac567f4f6c391c6e20046047365bf9478884e72de455b3b13",
+    "src/data/mock-exams/content/b2-reading.json": "09dc05d31dd056e849ecdd5d8ba78c6aae5d630c602ad219a5736c743c85b71b",
+    "src/data/mock-exams/content/ielts-academic-reading.json": "dbf39419df03c9c0553b925dc885cbf2ad0627c068a415dc5c9efc39fcf4016b",
+    "src/data/mock-exams/content/ielts-general-reading.json": "6055b91079cee8e31b0bacb855f3ff004899e6d90407c57e05e872c38f9fceaf",
+    "src/data/mock-exams/content/ielts-listening.json": "d424f08205432cf4b5afd7a344f1fc58803d2dc867cfaf8691d08c53c4543909",
+    "src/data/mock-exams/content/productive.json": "1633ed76ea374e0d4c2da1775180edbfaf44779ecc349f8cb9594c235cd71dbd",
+    "src/data/mock-exams/content/toefl-listening.json": "9e95e09a8c52192d9d4cba702b7ec6107b4abf6c73edb950864a650aeeace45e",
+    "src/data/mock-exams/content/toefl-reading.json": "c5a0acf21a02aed9349954212890b907bad37c45c22db48c82bc2d469c179cfb",
+    "src/data/mock-exams/index.ts": "afe136da5a2791ec45e07b946e51f046f0d4618111b7b01c1b5bded8b4f24591",
+    "src/data/mock-exams/shared.ts": "5289a8e4355533baaee5472fb9b2a13e4b4ad930733edbe40320aac89c105797",
+    "src/data/mock-exams/types.ts": "ef1ddba891af46e281dd681a121590a12741b5a08577645d1f1248f9d8f8ac58",
+    "src/data/modalpartikel.ts": "ec03cfd47ecb5f0f6efdbb49d724050953b830f2c96ef050daf5729abd23f258",
+    "src/data/n-deklination.ts": "b87fb62948d1a9c0480d9c1feabd34ab71fe695631e6beed10bd4d302f149d27",
+    "src/data/nebensaetze.ts": "060933bf3c70f1162399bf87e7a9dd89ab85e62bbda842ed7afb29cb3dbfe2cb",
+    "src/data/nomen-verb-verbindungen.ts": "a3530b5913493bfed4c85a7f6d78e2001111302f24f8655f0387c969ac2c3b44",
+    "src/data/nominalisierung.ts": "be807b4a83e87812fb5a63a0d7bf7270c63d5ee69219d72ff4954ca9dd8fcd54",
+    "src/data/partizipien-als-adjektive.ts": "0e40013c5aaa21ae8ad335717e256b900e712f5c401d987b475eac75c7898f4b",
+    "src/data/passiv.ts": "998f671d64a247f839ecda61d2cf23f883862310d4a9c827625a6bf25721599b",
+    "src/data/plusquamperfekt.ts": "e8c2e7882f9948a6ff0ab0b2a60c62e7089b7cb62f7254e553dd6e284181c2fb",
+    "src/data/praeteritum.ts": "45bae910f82136634e34ffde906e1539934fb58f4012d0a6908e7fbbadade469",
+    "src/data/prefix-verbs.ts": "1d042b407d8a5ed68a2a8350e4d7c812c7e38623b4014a3cf75177fa7ec05867",
+    "src/data/pronunciation.ts": "754151a33e35ea567bb372d301b0aadfdd87e653e851f4e69574f97970c78ca0",
+    "src/data/quizzes.ts": "697d9fac382312b612196ad2fabc75868c9171007b2547e705bf5f5b7f8c561e",
+    "src/data/reading-articles.ts": "effffd8526aeb34e19c08f014c045343fc40d9d1ea140e07ac8ebff0ae776b8a",
+    "src/data/redemittel.ts": "234f9a0acd444462a8275d23d98c11d89fb52aea111de04624f3e2d3becc45be",
+    "src/data/redewendungen.ts": "599db85e167149f83acd5b7fa4b7d11f844896480b07d53eb20628897a4a94a6",
+    "src/data/reflexive-verben.ts": "c6e63de9f68dce5fdfbf5b6e71e7ef9d05f447b783abf00b1c5eba3904fa9b32",
+    "src/data/regional.ts": "8caebe19b49132a3c3b7c8c66de28e6771a1264ee2bcfe2d072093585251f2e7",
+    "src/data/relativsaetze.ts": "026720ff28b766631f7afd068c7174d2edce055addd864af2ed1ab20b1366951",
+    "src/data/satzbau.ts": "23611e640acc9d4a05f197acbd9a20fb0e17dcc8e9aeec638cdb52c0e06bb659",
+    "src/data/satzmuster.ts": "cba6a6c59ec57993f7974504064fbe85a2713bafca66ccd7ca8097ecdf8bf87c",
+    "src/data/study-strategies.ts": "a3423bae1a13adf405826f61702587a34f848ec6c6f0b28bb2b8bc70303464d1",
+    "src/data/teaching-diagrams/academic.ts": "067a2c3996fc571bc20dfc4d87199fb6b029c61cae8385a435763b8047ca3ad0",
+    "src/data/teaching-diagrams/build.ts": "5948ed9355d7171d7e7c51b5504d16da31d5e44e3a51e487f5163b5000aa39ce",
+    "src/data/teaching-diagrams/foundation.ts": "90d534979ed65b18f7fdc720e295b5266b51d846875351fae12fe763af5fe644",
+    "src/data/teaching-diagrams/general.ts": "946971e74df34ced3f6699eb5dee405269970be29186ffffd928d92d7edcc0a2",
+    "src/data/teaching-diagrams/index.ts": "814b56c21be7f4c68e78446adfb58fd9648cc228d1c31fc5003133a3a11bb4a9",
+    "src/data/teaching-diagrams/toefl.ts": "20971588e0c5bc1a0e50124eab6ae391e0a086399426738c0bd5ff484e02f502",
+    "src/data/teaching-diagrams/types.ts": "fefb888526b8cfdc611ee2ad66d52cfd562c06bcc70cae15f57cee40415922ba",
+    "src/data/tenses-guide.ts": "68a3d6416e1207cb49c4cb61fdf163011fed8767e088030a93907cf923a68c10",
+    "src/data/themen-wortschatz.ts": "d4b4f62a7abfd2414b00edb30e5196ea7817744731fd8c2df835316a95777c0e",
+    "src/data/types.ts": "0ca17a0509f14c66d7834c692d5eb17821fdff722a8c18802703e589eb7710b3",
+    "src/data/typische-fehler.ts": "23cd8c0cb573035bd2085c4fb063a2051284e3bffb227e7cca085bb77db84535",
+    "src/data/unregelmaessige-verben.ts": "1951dfee2241e34a4be5d3e6929f030300ceb9fea0b0dda1101faac658a6d376",
+    "src/data/verb-tables.ts": "e223ec851f74ddecb3d4d40217529b1e8d516859ca8ba7215d6296f09e6a780d",
+    "src/data/verben-mit-prapositionen.ts": "04c4dec0c3a4e4a78d3f7782ad1e80b81dc7ec7f3636e6c4d6b1650d9385b7d3",
+    "src/data/vergleiche.ts": "db5da06f04d66ca265df59bbb5726ae02441eaf94fe57a834e53c952c8b3503d",
+    "src/data/vocabulary-5000.ts": "dad21cb4be63a30c34a018f6f2a5b45e12eeb1fa88bb57edfd0fef2a3203c59e",
+    "src/data/wortbildung.ts": "9350d2e54e0deea55b3a2e2c61a7f9d1c140259a77f5fa71db722425b1e03a0d",
+    "src/data/wortfamilien.ts": "522aa7f601c7ab96c982655bfc7bdfb6eaa0e2bcdf8373777dede97eafc674cd",
+    "src/data/wortpaare.ts": "019e499c0c2526f2438ae17af28dd996b461671d171b9928470e5804e5e7a2b4",
+    "src/data/writing.ts": "9a598f2620e83f7bdca608057aa154a397303a0fe8a9b5cbcca38092282637f5",
+    "src/data/zweiteilige-konnektoren.ts": "a8e38eecb7bc30bfea09a1a0477024fb43d13bdcc03d870e987f7e17a7b27bf6",
+    "src/hooks/useActivityAttempt.ts": "b697b954a8a75d1bd905f198c1ac4edc4cc8745e30b7109195bd186ce103ade9",
+    "src/hooks/useDrillAttempt.ts": "df37f5f4074d5c352a795cea81276d5180a45beea8657863bfdf5b7d898352f6",
+    "src/hooks/useFlashcard.ts": "f0b484904b7d2e0c202f26ad81d81e54cdcc4119083b2b0df3a69e38ecdd01d7",
+    "src/hooks/useLesson.ts": "ad6c3a9fc69d6aad7e5142328641dd33b0477b52ad36e77aeed9c7759c21aa60",
+    "src/hooks/useMockExamAudio.ts": "6163bc2970615f2c1cca5fe8a83f5a96fd87395e3d2350229e480bc6791499ce",
+    "src/hooks/useQuiz.ts": "3508a341ed38cacfdf875574bb8e27f6c5e3f7cdab37806871bd8af624e21001",
+    "src/hooks/useStreak.ts": "e6191204cfbef0a2ffbfbf845a5c76040264f7e1d25723c4561df088b7ada3dc",
+    "src/lib/activityState.ts": "eacd39091494db806bbad657bcb1163ee750e83b5f707453632037309c7c7df3",
+    "src/lib/animations.ts": "67f592770dbfc2a343629d7162c54197008d9e71a91747fce07071226a431ada",
+    "src/lib/audio.ts": "3d6e0c34b32a6929a39d79da9cd0440debed6aaef0064511394134372b36db14",
+    "src/lib/courseActivity.ts": "ae42a92feacf1c035d6388838b882720f8ccb9bbf0b7338e8da21074357cd119",
+    "src/lib/courseData.ts": "3be2c80235acaabf425632ae1244c6b75489e13bc59ce4d72dc67e2e4a425445",
+    "src/lib/courseLabels.ts": "0d6076ddba6eee0289af054b9866871fcfdfba4bf362680946670a03f37fe178",
+    "src/lib/courseProgress.ts": "1c857617e9a8a44959253ac36851c4e8ea84743a65391fff905f56ed70ec43da",
+    "src/lib/mockExam.ts": "196e5509f6643884e37c8052fbf96367233553e081c8172aa87eb3b93861f640",
+    "src/lib/streak.ts": "0ee11eab388dbbdca9b987ef036e86e3186beeedd689c7a9d836d8d4447d6977",
+    "src/lib/useAppTranslation.ts": "a0dad8c6642545640789f2673fda7c2e5462882cc9059144c2c08b2279985e13",
+    "src/lib/utils.ts": "d1f1e0d62cb8d8d1e04c26e14de842d8a151f75812d81b046c65b5d1fe8e4b27",
+    "src/lib/xp.ts": "e9cc14c22fd2891ce06b5d1d6380073189612875a437f9659c64dd56da4f7a46",
+    "src/store/useAchievements.ts": "54e3a7f356fc89db37d65f7a615fe261bd59565646f5238086a025eba6bcce90",
+    "src/store/useCustomFlashcards.ts": "cc113aae33da349060e081450299f89e0becf5e114cbc78781a9b29e3774c611",
+    "src/store/useDailyChallenge.ts": "4da7874bf0886d8f4a3054a28833a8b7caaa91252dd9325d8fe821c3f289d5d1",
+    "src/store/useErrors.ts": "57adeedcd2228c73424316e2b75ef62e4449e24f756092380bc6db99ea3187eb",
+    "src/store/useGoals.ts": "2cf59c53169871047b35fb26e6bf39818bda634672efa7c114a31fad6e923fd0",
+    "src/store/useNotes.ts": "fda9d89b4a269de8bb812fbed8f025eb6cd39989ce88d7d12673e18438938764",
+    "src/store/useProgress.ts": "cd3e5a024dc3e7146016caf73ac20b36f91a8605feac1a98055f1b1ddb21db41",
+    "src/store/useSettings.ts": "4496e30c8374208df26749d3b36321f5eae99b5dbc5e70adadb5e9e9f8b03152",
+    "src/store/useVocabulary.ts": "a6829a200eb7b7b727179e753ea065861434de4bc56e6ddbcec91bf4c961d0a4"
+  },
+  "logic": {
+    "src/components/learn/AdjectiveEndingsTrainer.tsx": "7d5808081dad7ab9a05c145d0642681a99fbd4404f5e5814e3a6729df3b533dd",
+    "src/components/learn/ArtikelMeister.tsx": "4fd2f8e0b040b168819297103e1f5456fc926140be11b5e04e83768a0914ea4d",
+    "src/components/learn/BriefeSchreiben.tsx": "793978616b6775a819bf8fceedad3d57fee07e009d2e587295481ec2d387f800",
+    "src/components/learn/Buchstabensalat.tsx": "d7afb81756a49136258e936e985c55e9dd5fc5d281cd49349e0c6a77e3276fb2",
+    "src/components/learn/CaseTrainer.tsx": "f3928be030511a4f3b55acaf40b44b80b87f496723437a3e527b84c1e16e984a",
+    "src/components/learn/ClozeTextTrainer.tsx": "a0ad89d518660a60387623a2309e9fed7a12e5edadc4605d1c06fad1a6d81750",
+    "src/components/learn/CollocationTrainer.tsx": "05210f1906b8c1365e8c40eb0aa52b5a60c46edf38422d4749b5708b0e239c16",
+    "src/components/learn/ComparativeTrainer.tsx": "fe8c9efab1cdbdc92249a02c9ddb7de68a2b5d396c8894a3571438b6c7a3b3d7",
+    "src/components/learn/CompoundNounTrainer.tsx": "1ea0e36ab3ea6de735572dc63e6774897fef1bb7d9c4af78b0a139b476b56970",
+    "src/components/learn/ConjugationTrainer.tsx": "a8f910f77ca6ffa5cedbbe98bdb36c3bbf3ec5e64a95ca983a6cec18f5acd3e0",
+    "src/components/learn/CoordinatingConjunctionsTrainer.tsx": "3781e010e26153c2a70a75effadb2f8bd9cfe56508ffa2767e1d4983c82a3621",
+    "src/components/learn/CrosswordPuzzle.tsx": "9b41ad5c8647f5affba7c378ba5ef59e3804b9cf23c6d04d4647a2abd13fadde",
+    "src/components/learn/DaCompoundsTrainer.tsx": "78ac340a92aa444831628e635544bf8c0dcd8791a1d33fa84818bab9f02a8d4f",
+    "src/components/learn/DaKompositaUebersetzer.tsx": "451d51c254431e234aceb56e46dee35129feb25eda528ec3c3e64af9b3f4d939",
+    "src/components/learn/DialogeUebersetzer.tsx": "69518dde8f73cebad3a4861b351401c910bcec2bd0194259faf57b485fb6fe4c",
+    "src/components/learn/DialogueCompletionTrainer.tsx": "94a04896b856ef59047dec2b5d23f2b313d8d98e30560e3a8f10cea42e44dfcd",
+    "src/components/learn/Dictation.tsx": "76ad0cda5ceefadf347a8451697b761bb9a76ab1b38b062ad6fd987538845b8a",
+    "src/components/learn/DoubleInfinitiveTrainer.tsx": "eb6f705318cd90f322fdcf708909da3c8a7b97d9bb46be86f57362c894ff8d40",
+    "src/components/learn/ErrorReview.tsx": "30358150bddea73b2503c3628deaaf17e9a689de4aaccf8a8f8672690b71fd77",
+    "src/components/learn/FalseFriendsTrainer.tsx": "c59e5ff7c5a7aec0acc647604836cccafbf25650cb881a4b81f79062a08faf07",
+    "src/components/learn/FalseFriendsUebersetzer.tsx": "7f1ba166e16f6ad9aa69bd13b17ee3cfaafd17dccd93b08f16b031c8d057c83e",
+    "src/components/learn/FlashcardRace.tsx": "114135ec47ba1d956cb0800b26d92ef23580fb4c5692b064b036f3e2e7a71c6a",
+    "src/components/learn/FragenUebersetzer.tsx": "6f6965ae8982c77e8709e30913827c1caf702b19b72827a0a42b55bfcee91346",
+    "src/components/learn/FragewörterTrainer.tsx": "28d93862860743a53cba8b6f859134877d7f435c0ce3792ee49be1eda2084ee9",
+    "src/components/learn/FutureTenseTrainer.tsx": "9e170d8cc24bcc6ba57693a2bde2a91f381f512255236212f2c68eb83506751e",
+    "src/components/learn/GenitiveTrainer.tsx": "aa0b73fd6820864940985487b209eafebd6a2828e191b35184bc9ff472af72ee",
+    "src/components/learn/GrammarReference.tsx": "26e7958c81cf35b50a9a44e133d6a67c94b68e811c0963cc2c993b0033a46269",
+    "src/components/learn/Hangman.tsx": "b0a9edefc1e0fe178fcdd7df85db67af5c3e59dbb2faa875d68ccf99bc87feb0",
+    "src/components/learn/IdiomMatch.tsx": "0b338026fe3a6dff5f940f27fec7921e4641f158bbe34c8c0248c7eef26de964",
+    "src/components/learn/IdiomsTrainer.tsx": "9f5dfbe146179104e6a05f1a06473d3d3da854f56a83928f8d4fb2432ebdb109",
+    "src/components/learn/ImperativeTrainer.tsx": "bfd5e4b69ca005c461128f96b05fab66b36ad61dad66bce5471a22779a4f206e",
+    "src/components/learn/InfinitivMitZuTrainer.tsx": "56cc1c81d8a614bb4b570888c897a70c1c677269b97d2ce94a2d6fbc9e449744",
+    "src/components/learn/KnowledgeCheck.tsx": "6d20c082320b3294eb910052eef0ea67bc5b269631c2eea927b6afc0411c875a",
+    "src/components/learn/KollokationenUebersetzer.tsx": "c6511ad8ae14d4a4d1fddb56b0642c2b63aa4824f18aaa5b234073064103598c",
+    "src/components/learn/KonjunktionenChallenge.tsx": "836a0bd38b4a92c7d0f1714617a6f571770ad1ec3642dbc96696dbc989d56db1",
+    "src/components/learn/KonjunktivIITrainer.tsx": "25be4240af6bcb81dfb97741b9aa337e7bf0c45693cb6316540b605328a6614f",
+    "src/components/learn/Korrekturlesen.tsx": "2540ed06e80a1574984b85f23ce39ebbbe35564d9719df41408bb2ea7b562b41",
+    "src/components/learn/LandeskundeQuiz.tsx": "79f46a7dda9500472e9c0cc4d53e2f8faebaedf5e565705900819e4e3ca70145",
+    "src/components/learn/ListeningLab.tsx": "36e73abe81ea6c9e6b0410638d01b350b86fe0db21f432fc1fdb1d6e3b0806ab",
+    "src/components/learn/MemoryMatchGame.tsx": "733b03dd61ef35a7cb465e52afa2594972a369ea57a402f468c45c64a8583884",
+    "src/components/learn/ModalParticlesTrainer.tsx": "b3260d5271735a1279390d927e3cd7fa62854c632df1d725f373075cb938ae29",
+    "src/components/learn/ModalVerbsTrainer.tsx": "ebeb1def9a0b842bd7a8b419cb095871b6e9f77bd17a1a6af58ac7c95603ce4a",
+    "src/components/learn/ModalpartikelUebersetzer.tsx": "3c3662ef60bf360c2064dc92cbc3ebe38c96ba11ad928d0610e8b90ff13e6843",
+    "src/components/learn/NVVUebersetzer.tsx": "846979c46fe384a88fc3a1156f3e06969beff2e3c07c9755d99f606b1d318af4",
+    "src/components/learn/NarrativePastTrainer.tsx": "73af1133cf97618c0eb8950402996028f2ce7917638e0b02ca37a46a0856f238",
+    "src/components/learn/NegationTrainer.tsx": "d4f072d64396e206213eaa687069e3013635bd0281d73687900e317e82b20cbe",
+    "src/components/learn/NounGenderTrainer.tsx": "97ba0007316c71137dfae6c456db0e431c8050e6a39fa2c38177f53aec91dfe6",
+    "src/components/learn/NumbersTrainer.tsx": "3e7b11246fbf5cc82cb1b78c24135ad995922e59ee79ed6ecbb094f388e96be5",
+    "src/components/learn/PassiveVoiceTrainer.tsx": "307fe98da35f2bb8bee1af470d6f093124190b091baeec63c20be73868c53a47",
+    "src/components/learn/PluralTrainer.tsx": "164b116d0b3609876f4ff88c73df79d69613a0682507a1b67cc56ac1f2616f23",
+    "src/components/learn/PossessivesTrainer.tsx": "1bebe01e9591a1f2ca906b49f456224e3fa88fb771bb5a8f2b59a3d22adf06ea",
+    "src/components/learn/PraeteritumUebersetzer.tsx": "5d658a73f6b00bb3932bfaf863f2abbce257eb3dbeb3586fe6d065aaad422308",
+    "src/components/learn/PrefixVerbsTrainer.tsx": "859dbc6a3a89241ce90981996737bc8872d4b2705c4b0ed59b81666bbc54071a",
+    "src/components/learn/PrepositionalContractionsTrainer.tsx": "8e2b312aabe8b04750bb5fa62a74e36a00fab875db7ccf333cb62d1e6f708eb5",
+    "src/components/learn/PrepositionsTrainer.tsx": "4e793e0be1d7214a7707b1363b51aa380b8d0074fdd0173da3c254d229ae8210",
+    "src/components/learn/QuestionFormationTrainer.tsx": "4e7a7e435b991e70e3c4f10ce356f388694e857f40c3deb3dc8f9d63af6ad711",
+    "src/components/learn/ReadingComprehension.tsx": "9c5a30c3f58d75056628218d93182d6348fa9d32733e152c7e2d9e9b6f05064c",
+    "src/components/learn/RedemittelPraxis.tsx": "f748752853bb37758d41f0d2c3dfec56670475378627bcb1e425bfe5b9f85618",
+    "src/components/learn/ReflexiveVerbsTrainer.tsx": "b750778378e9bfc006543cb0c3b6c78c2557752e303a0ac9d2e0a3dd8f1c7ded",
+    "src/components/learn/RelativeClausesTrainer.tsx": "a2bef9f923aa4b00b07145b75e9b28ae993bec0e4150a1a29b9826c4f1d884bd",
+    "src/components/learn/RewendungenUebersetzer.tsx": "6ca16a471a741137cf575c330e1718d89e8601ee079c7e22146f31bd184ea304",
+    "src/components/learn/SatzUebersetzer.tsx": "50915a32c8bd4ad7ee255753af879bbfcfb6609ba5e0e4c4077b00140896ab8a",
+    "src/components/learn/SatzmusterUebersetzer.tsx": "d931031ca027c9799676beb368dc380dec810094e99abe8adf0b8e8544d85937",
+    "src/components/learn/SentenceBuilder.tsx": "2e3d4133ca028b3ab20874ac59c833343fc6c4f42871f1be16dad3b942390115",
+    "src/components/learn/SeparableVerbsTrainer.tsx": "2599e500cc462c8ddd506d1e3bf2de8249be3221c706c26f40d5dd914090ed34",
+    "src/components/learn/SpeedMatch.tsx": "957d3516ef46ebdee3dce070d62653f5c7e04ebeba741d2cdebe2ed52b124bc3",
+    "src/components/learn/SpellingTrainer.tsx": "70b49c54f6bf691eb58e3a3ec363235be0df5efd69e955727ee09e80887e9b7b",
+    "src/components/learn/Sprint.tsx": "db3613f1688b7146a38e0299c98976673066933415dceafa4f0e6c6c7d619792",
+    "src/components/learn/SubordinateClausesTrainer.tsx": "2ae3ab6bd26c81173a7fe1b2b3db1536dd19b689128210cdd234c54058a5664b",
+    "src/components/learn/SynonymTrainer.tsx": "0ca64147830fd748681b0a5fc4f18e059345d260b05fc4d44712d5cfa00d9200",
+    "src/components/learn/TensesQuiz.tsx": "c6bfaacc71761e423ef7e1438b06b64958a78cfb7544d6b50f403c3f328c64ab",
+    "src/components/learn/ThemenVokabeln.tsx": "53ac6b22342644b40aa2f32696d2d9f22f72f132b3ba12899685a03151d1606c",
+    "src/components/learn/TimedChallenge.tsx": "24fb0b810c614e430d1a5def9a635e2443c65122d0747fd1bb027c614066616d",
+    "src/components/learn/TwoWayPrepositionsTrainer.tsx": "f8f97cf3807bfe3adf0889159048093a3b95483c986e77f35b6220871bed84e0",
+    "src/components/learn/VerbExplorer.tsx": "adec3091a65d9d2c73851ac25e0413ac8534641a505bb9b80182226b4031efc1",
+    "src/components/learn/VerbPrepUebersetzer.tsx": "98951f12f871d261d198098027b2a7fc7025b55e368ce1b455add781462bb832",
+    "src/components/learn/VerbPuzzle.tsx": "7a4629eb60e9af4d348f948823f22225fbb4dc601881590a65e8b9b93b4f5ef7",
+    "src/components/learn/VergleicheUebersetzer.tsx": "592a0db5b600900894278c55c053c2109d4e8c56e751bed2585ca61114196906",
+    "src/components/learn/VocabularyPractice.tsx": "457664a270a0533c12fd7570120a6d82781b1cf085edc9c628edc5e42fac030c",
+    "src/components/learn/WeakNounsTrainer.tsx": "2a59507f70c3bc4948a397308b4c117775b929694e6520ce925eb3797be9bc6d",
+    "src/components/learn/WordFormationTrainer.tsx": "cb7572f8738d3636d971d523256de4b8464eb28cc798923f034e636fde4733e8",
+    "src/components/learn/WordOrderTrainer.tsx": "3265c4de91eee03e091ad8062d9def32774ef5a1ba45c0f4a6e6982e5bf0c78c",
+    "src/components/learn/WordSearch.tsx": "d36cf9cd223b2302e3e57680031ab72a8e20ed73eba39e081c8c36d5594206f3",
+    "src/components/learn/WortpaareQuiz.tsx": "a577cb33564b999d8fb05d94f6525f0ad2334c97862793ca113028a0f385e90a"
+  },
+  "historicalNavigation": {
+    "src/components/layout/Sidebar.tsx": "\"use client\";\nimport { useState, useEffect, useRef } from \"react\";\nimport Link from \"next/link\";\nimport { usePathname } from \"next/navigation\";\nimport { motion, AnimatePresence } from \"framer-motion\";\nimport { cn } from \"@/lib/utils\";\nimport {\n  GraduationCap, BarChart3, BookOpen, Library, Lightbulb,\n  ChevronRight, Sparkles, BookMarked, MessageSquareText,\n  BookHeart, Search, Zap, AlertTriangle, Languages,\n  BookOpenText, BookCopy, BarChart4, Gamepad2, ChevronDown,\n  Table2, Link2, MapPin, BookA, MessageCircle,\n  Puzzle, Layout, Quote, BookText,\n  MessageSquare, Image, GitBranch, RefreshCcw, AlertCircle,\n  Shield, Gem, Split, GitFork, MessageSquareQuote, CaseSensitive,\n  CornerDownRight, Network, History, UserMinus, Clock, Clock9, ArrowBigRightDash, Scale, HelpCircle,\n  FileText, ArrowLeftRight, Target, Trophy, RotateCcw, Users, Mic, Calendar, Printer, Brain, Ear, Shuffle, Globe, NotepadText, Award,\n  Dumbbell, X,\n} from \"lucide-react\";\nimport { useProgress } from \"@/store/useProgress\";\nimport { getLevelInfo } from \"@/lib/xp\";\nimport { courseCatalogue as levels } from \"@/data/course-catalogue\";\nimport type { LucideIcon } from \"lucide-react\";\n\ntype NavLink = { href: string; label: string; icon: LucideIcon; dot?: boolean; accent?: string };\ntype NavSection = { id: string; label: string; icon: LucideIcon; links: NavLink[] };\n\nconst NAV_MAIN: NavLink[] = [\n  { href: \"/dashboard\", label: \"Dashboard\", icon: BarChart3 },\n  { href: \"/vocabulary\", label: \"Vocabulary\", icon: BookHeart },\n  { href: \"/flashcards\", label: \"Flashcards\", icon: BookOpen },\n  { href: \"/custom-flashcards\", label: \"My Cards\", icon: BookCopy },\n  { href: \"/phonics\", label: \"Phonics / IPA\", icon: MessageSquareText },\n];\n\nconst NAV_SECTIONS: NavSection[] = [\n  {\n    id: \"practice\", label: \"Practice\", icon: Gamepad2,\n    links: [\n      { href: \"/practice\", label: \"Practice Hub\", icon: Gamepad2 },\n      { href: \"/writing\", label: \"Writing\", icon: FileText },\n      { href: \"/conjugaise\", label: \"Conjugaise\", icon: BookMarked },\n      { href: \"/declensions\", label: \"Prepositions Guide\", icon: Table2 },\n      { href: \"/text-analyzer\", label: \"Text Analyzer\", icon: FileText },\n      { href: \"/search\", label: \"Search\", icon: Search },\n      { href: \"/knowledge-check\", label: \"Knowledge Check\", icon: Brain },\n      { href: \"/speed-match\", label: \"Speed Match\", icon: Zap },\n      { href: \"/listening-lab\", label: \"Listening Lab\", icon: Ear },\n      { href: \"/buchstabensalat\", label: \"Word Scramble\", icon: Shuffle },\n      { href: \"/sprint\", label: \"Sprint\", icon: Zap },\n      { href: \"/konjunktionen-challenge\", label: \"Conjunctions\", icon: Link2 },\n      { href: \"/tenses-quiz\", label: \"Tenses Quiz\", icon: Clock },\n      { href: \"/briefe-schreiben\", label: \"Letter Writing\", icon: FileText },\n      { href: \"/landeskunde-quiz\", label: \"Culture Quiz\", icon: Globe },\n      { href: \"/redemittel-praxis\", label: \"Phrases Practice\", icon: MessageSquare },\n      { href: \"/artikel-meister\", label: \"Article Master\", icon: Target },\n      { href: \"/satz-ubersetzer\", label: \"Sentence Translator\", icon: ArrowLeftRight },\n      { href: \"/themen-vokabeln\", label: \"Topic Vocab\", icon: BookText },\n      { href: \"/redewendungen-ubersetzer\", label: \"Idioms Practice\", icon: Quote },\n      { href: \"/kollokationen-ubersetzer\", label: \"Collocations Practice\", icon: Link2 },\n      { href: \"/dialoge-ubersetzer\", label: \"Dialogues Practice\", icon: MessageCircle },\n      { href: \"/modalpartikel-ubersetzer\", label: \"Discourse Markers\", icon: MessageSquare },\n      { href: \"/nvv-ubersetzer\", label: \"Collocations Practice\", icon: BookMarked },\n      { href: \"/verben-mit-praepositionen-ubersetzer\", label: \"Verbs+Preps Practice\", icon: ArrowLeftRight },\n      { href: \"/da-komposita-ubersetzer\", label: \"Compound Adverbs\", icon: Link2 },\n      { href: \"/satzmuster-ubersetzer\", label: \"Patterns Practice\", icon: Layout },\n      { href: \"/wortpaare-quiz\", label: \"Word Pairs Quiz\", icon: Shuffle },\n      { href: \"/vergleiche-ubersetzer\", label: \"Comparisons Practice\", icon: Scale },\n      { href: \"/false-friends-ubersetzer\", label: \"False Friends Practice\", icon: AlertTriangle },\n      { href: \"/fragen-ubersetzer\", label: \"Questions Practice\", icon: HelpCircle },\n      { href: \"/praeteritum-ubersetzer\", label: \"Past Tense Practice\", icon: Clock },\n      { href: \"/essay-templates\", label: \"Essay Templates\", icon: FileText },\n    ],\n  },\n  {\n    id: \"grammar\", label: \"Grammar\", icon: Languages,\n    links: [\n      { href: \"/grammar\", label: \"Grammar Ref\", icon: Languages },\n      { href: \"/grammar-compare\", label: \"Compare\", icon: ArrowLeftRight },\n      { href: \"/grammar/cheat-sheet\", label: \"Cheat Sheet\", icon: Printer },\n      { href: \"/satzbau\", label: \"Sentence Structure\", icon: Layout },\n      { href: \"/konnektoren\", label: \"Connectives\", icon: Link2 },\n      { href: \"/passiv\", label: \"Passive Voice\", icon: Shield },\n      { href: \"/konjunktiv-ii\", label: \"Conditionals & Wishes\", icon: Gem },\n      { href: \"/relativsaetze\", label: \"Relative Clauses\", icon: GitFork },\n      { href: \"/indirekte-rede\", label: \"Indirect Speech\", icon: MessageSquareQuote },\n      { href: \"/partizipien-als-adjektive\", label: \"Participles as Adj.\", icon: CaseSensitive },\n      { href: \"/nebensaetze\", label: \"Subordinate Clauses\", icon: Network },\n      { href: \"/zweiteilige-konnektoren\", label: \"Two-Part Conn.\", icon: Split },\n      { href: \"/da-komposita\", label: \"Compound Adverbs\", icon: CornerDownRight },\n      { href: \"/praeteritum\", label: \"Simple Past\", icon: History },\n      { href: \"/plusquamperfekt\", label: \"Past Perfect\", icon: Clock9 },\n      { href: \"/futur\", label: \"Future Tenses\", icon: ArrowBigRightDash },\n      { href: \"/n-deklination\", label: \"Irregular Plurals\", icon: UserMinus },\n      { href: \"/vergleiche\", label: \"Comparisons\", icon: Scale },\n      { href: \"/fragen\", label: \"Questions\", icon: HelpCircle },\n      { href: \"/modalpartikel\", label: \"Discourse Markers\", icon: MessageSquare },\n      { href: \"/unregelmaessige-verben\", label: \"Irregular Verbs\", icon: GitBranch },\n      { href: \"/reflexive-verben\", label: \"Reflexive Verbs\", icon: RefreshCcw },\n      { href: \"/typische-fehler\", label: \"Common Mistakes\", icon: AlertCircle },\n      { href: \"/wortbildung\", label: \"Word Formation\", icon: Puzzle },\n      { href: \"/verb-tables\", label: \"Verb Tables\", icon: Table2 },\n      { href: \"/satzmuster\", label: \"Sentence Patterns\", icon: Layout },\n      { href: \"/tenses-guide\", label: \"Tenses Guide\", icon: CaseSensitive },\n      { href: \"/prefix-verbs\", label: \"Prefix Verbs\", icon: GitBranch },\n      { href: \"/wortpaare\", label: \"Word Pairs\", icon: ArrowLeftRight },\n    ],\n  },\n  {\n    id: \"vocab-speaking\", label: \"Vocab & Speaking\", icon: BookHeart,\n    links: [\n      { href: \"/redemittel\", label: \"Useful Phrases\", icon: MessageCircle },\n      { href: \"/redewendungen\", label: \"Idioms\", icon: Quote },\n      { href: \"/themen-wortschatz\", label: \"Topic Vocabulary\", icon: BookText },\n      { href: \"/nomen-verb-verbindungen\", label: \"Verb-Noun Collocations\", icon: BookA },\n      { href: \"/verben-mit-prapositionen\", label: \"Verbs + Preps\", icon: MapPin },\n      { href: \"/pronunciation\", label: \"Pronunciation\", icon: Mic },\n      { href: \"/conversation\", label: \"Conversations\", icon: Users },\n      { href: \"/bildbeschreibung\", label: \"Picture Desc.\", icon: Image },\n      { href: \"/vocabulary\", label: \"Reading\", icon: BookOpenText },\n      { href: \"/false-friends\", label: \"False Friends\", icon: AlertTriangle },\n      { href: \"/kollokationen\", label: \"Collocations\", icon: Link2 },\n      { href: \"/british-vs-american\", label: \"British vs American\", icon: Globe },\n    ],\n  },\n  {\n    id: \"progress\", label: \"Progress\", icon: BarChart4,\n    links: [\n      { href: \"/daily-challenge\", label: \"Daily Challenge\", icon: Zap },\n      { href: \"/review\", label: \"Review Queue\", icon: RotateCcw },\n      { href: \"/badges\", label: \"Badges\", icon: Trophy },\n      { href: \"/weak-areas\", label: \"Weak Areas\", icon: AlertTriangle },\n      { href: \"/stats\", label: \"Statistics\", icon: BarChart4 },\n      { href: \"/study-plan\", label: \"Study Plan\", icon: Target },\n      { href: \"/weekly-report\", label: \"Weekly Report\", icon: Calendar },\n      { href: \"/b2-pruefung\", label: \"B2 First (FCE) Guide\", icon: GraduationCap },\n      { href: \"/ielts\", label: \"IELTS Guide\", icon: GraduationCap },\n      { href: \"/toefl\", label: \"TOEFL Guide\", icon: GraduationCap },\n      { href: \"/mock-exam\", label: \"Mock Exam\", icon: Shield },\n      { href: \"/challenge\", label: \"Challenges\", icon: Zap },\n      { href: \"/study-strategies\", label: \"Study Strategies\", icon: Target },\n    ],\n  },\n];\n\nconst LEVEL_ICONS = [Sparkles, Lightbulb, BookMarked, Library];\n\nconst MOCK_TESTS: { href: string; label: string; badge: string; accent: string; icon: LucideIcon }[] = [\n  { href: \"/mock-exam?exam=ielts-academic\", label: \"IELTS Academic Mock\", badge: \"Academic\", accent: \"#a855f7\", icon: Shield },\n  { href: \"/mock-exam?exam=ielts-general\", label: \"IELTS General Mock\", badge: \"General\", accent: \"#f97316\", icon: FileText },\n  { href: \"/mock-exam?exam=toefl-ibt\", label: \"TOEFL iBT Mock\", badge: \"2026\", accent: \"#0ea5e9\", icon: Target },\n  { href: \"/mock-exam?exam=b2-first\", label: \"B2 First (FCE) Exam\", badge: \"Cambridge\", accent: \"#10b981\", icon: Award },\n];\n\nconst SECTION_STORAGE_KEY = \"englishcamp-sidebar-sections\";\n\nfunction getDefaultOpen(): Record<string, boolean> {\n  if (typeof window === \"undefined\") return {};\n  try {\n    const stored = localStorage.getItem(SECTION_STORAGE_KEY);\n    if (stored) return JSON.parse(stored);\n  } catch {}\n  return {};\n}\n\nfunction NavItem({ href, icon: Icon, label, active }: { href: string; icon: LucideIcon; label: string; active: boolean }) {\n  return (\n    <Link href={href} className={cn(\n      \"group relative flex items-center gap-2.5 px-3 py-2 rounded-[var(--radius-md)] text-sm font-medium transition-all duration-200\",\n      active\n        ? \"bg-[var(--color-primary-subtle)] text-[var(--color-primary-dark)]\"\n        : \"text-[var(--color-text-secondary)] hover:bg-[var(--color-neutral-50)] hover:text-[var(--color-text-primary)]\"\n    )}>\n      {active && (\n        <motion.span layoutId=\"sidebar-active\" className=\"absolute left-0 top-1/2 -translate-y-1/2 w-0.5 h-4 rounded-full bg-[var(--color-primary)]\" />\n      )}\n      <div className={cn(\n        \"flex items-center justify-center w-7 h-7 rounded-[var(--radius-md)] transition-all duration-200 flex-shrink-0\",\n        active ? \"bg-[var(--color-primary-subtle)] text-[var(--color-primary)]\" : \"bg-transparent text-[var(--color-text-disabled)] group-hover:bg-[var(--color-neutral-50)] group-hover:text-[var(--color-text-secondary)]\"\n      )}>\n        <Icon className=\"w-4 h-4\" />\n      </div>\n      <span className=\"truncate\">{label}</span>\n    </Link>\n  );\n}\n\nfunction CollapsibleSection({ section, pathname, isOpen, onToggle }: {\n  section: NavSection;\n  pathname: string;\n  isOpen: boolean;\n  onToggle: () => void;\n}) {\n  const isAnyActive = section.links.some((l) => pathname === l.href);\n  return (\n    <div className=\"mb-0.5 px-1\">\n      <button\n        onClick={onToggle}\n        className={cn(\n          \"flex items-center gap-2 w-full px-2 py-2 rounded-[var(--radius-md)] text-xs font-display font-bold uppercase tracking-widest transition-all\",\n          isAnyActive ? \"text-[var(--color-primary)]\" : \"text-[var(--color-text-disabled)] hover:text-[var(--color-text-secondary)]\"\n        )}\n      >\n        <div className={cn(\n          \"flex items-center justify-center w-5 h-5 rounded-[var(--radius-sm)] transition-all\",\n          isAnyActive ? \"bg-[var(--color-primary-subtle)] text-[var(--color-primary)]\" : \"text-[var(--color-text-disabled)]\"\n        )}>\n          <section.icon className=\"w-3.5 h-3.5\" />\n        </div>\n        <span className=\"flex-1 text-left\">{section.label}</span>\n        <motion.div\n          animate={{ rotate: isOpen ? 180 : 0 }}\n          transition={{ duration: 0.2 }}\n        >\n          <ChevronDown className=\"w-3.5 h-3.5\" />\n        </motion.div>\n      </button>\n      <AnimatePresence initial={false}>\n        {isOpen && (\n          <motion.div\n            key={section.id}\n            initial={{ height: 0, opacity: 0 }}\n            animate={{ height: \"auto\", opacity: 1 }}\n            exit={{ height: 0, opacity: 0 }}\n            transition={{ duration: 0.2, ease: \"easeInOut\" }}\n            className=\"overflow-hidden\"\n          >\n            <div className=\"ml-2 pl-2 border-l border-[var(--color-border-default)] space-y-0.5 mt-0.5\">\n              {section.links.map((item) => (\n                <NavItem key={item.href} {...item} active={pathname === item.href} />\n              ))}\n            </div>\n          </motion.div>\n        )}\n      </AnimatePresence>\n    </div>\n  );\n}\n\nexport function Sidebar({ open, onClose }: { open?: boolean; onClose?: () => void }) {\n  const pathname = usePathname();\n  const drawerRef = useRef<HTMLElement>(null);\n  const closeRef = useRef<HTMLButtonElement>(null);\n  const { xp } = useProgress();\n  const levelInfo = getLevelInfo(xp);\n  const [openSections, setOpenSections] = useState<Record<string, boolean>>({});\n  const [mounted, setMounted] = useState(false);\n\n  useEffect(() => {\n    setOpenSections(getDefaultOpen());\n    setMounted(true);\n  }, []);\n\n  useEffect(() => {\n    if (!mounted) return;\n    try { localStorage.setItem(SECTION_STORAGE_KEY, JSON.stringify(openSections)); } catch {}\n  }, [openSections, mounted]);\n\n  useEffect(() => {\n    if (!open || !onClose) return;\n    const previousFocus = document.activeElement instanceof HTMLElement ? document.activeElement : null;\n    const previousOverflow = document.body.style.overflow;\n    const desktop = window.matchMedia(\"(min-width: 1024px)\");\n    const closeOnDesktop = () => { if (desktop.matches) onClose(); };\n    document.body.style.overflow = \"hidden\";\n    closeRef.current?.focus({ preventScroll: true });\n    const handleKey = (event: KeyboardEvent) => {\n      if (event.key === \"Escape\") { event.preventDefault(); onClose(); }\n      if (event.key !== \"Tab\") return;\n      const controls = Array.from(drawerRef.current?.querySelectorAll<HTMLElement>('a[href], button:not([disabled]), [tabindex=\"0\"]') ?? [])\n        .filter(element => element.getClientRects().length > 0);\n      const first = controls[0], last = controls[controls.length - 1];\n      if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last?.focus(); }\n      else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first?.focus(); }\n    };\n    document.addEventListener(\"keydown\", handleKey);\n    desktop.addEventListener(\"change\", closeOnDesktop);\n    closeOnDesktop();\n    return () => {\n      document.body.style.overflow = previousOverflow;\n      document.removeEventListener(\"keydown\", handleKey);\n      desktop.removeEventListener(\"change\", closeOnDesktop);\n      previousFocus?.focus({ preventScroll: true });\n    };\n  }, [open, onClose]);\n\n  const toggleSection = (id: string) => {\n    setOpenSections((s) => ({ ...s, [id]: !s[id] }));\n  };\n\n  const progressPct = levelInfo.nextXP === Infinity ? 100 : Math.min(100, Math.round((xp / levelInfo.nextXP) * 100));\n\n  const sidebarContent = (\n    <>\n      <div className=\"px-4 py-4 border-b-2 border-[var(--color-border-default)] flex items-center justify-between gap-2\">\n        <Link href=\"/\" className=\"flex items-center gap-3\" onClick={onClose ? (e) => { e.preventDefault(); onClose(); } : undefined}>\n          <div className=\"w-9 h-9 rounded-[var(--radius-lg)] bg-[var(--color-primary)] flex items-center justify-center\" style={{ boxShadow: \"0 4px 0 var(--color-primary-dark)\" }}>\n            <GraduationCap className=\"w-5 h-5 text-white\" />\n          </div>\n          <div>\n            <span className=\"font-display text-lg font-extrabold tracking-tight block leading-tight\">\n              <span className=\"text-[var(--color-text-primary)]\">English</span>\n              <span className=\"text-[var(--color-primary)]\">Camp</span>\n            </span>\n            <span className=\"text-[9px] font-medium text-[var(--color-text-secondary)] tracking-wide uppercase\">A1 to B2 English</span>\n          </div>\n        </Link>\n        {onClose && <button ref={closeRef} onClick={onClose} aria-label=\"Close navigation menu\" className=\"h-11 w-11 shrink-0 flex items-center justify-center rounded-[var(--radius-md)] text-[var(--color-text-secondary)] hover:bg-[var(--color-surface-alt)]\"><X className=\"w-5 h-5\" /></button>}\n      </div>\n\n      <nav className=\"flex-1 min-h-0 overflow-y-auto px-2.5 py-3 scrollbar-thin space-y-0.5\" onClick={event => { if (onClose && (event.target as Element).closest(\"a[href]\")) onClose(); }}>\n        <div className=\"mb-1 px-1\">\n          <div className=\"flex items-center gap-1.5 px-2 mb-1.5\">\n            <div className=\"w-1 h-3 rounded-full bg-[var(--color-primary)]\" />\n            <p className=\"text-[10px] font-display font-bold text-[var(--color-text-disabled)] uppercase tracking-widest\">Main</p>\n          </div>\n          <div className=\"space-y-0.5\">\n            {NAV_MAIN.map((item) => (\n              <NavItem key={item.href} {...item} active={pathname === item.href || pathname.startsWith(item.href + \"/\")} />\n            ))}\n          </div>\n        </div>\n\n        {NAV_SECTIONS.map((section) => (\n          <CollapsibleSection\n            key={section.id}\n            section={section}\n            pathname={pathname}\n            isOpen={openSections[section.id] ?? false}\n            onToggle={() => toggleSection(section.id)}\n          />\n        ))}\n\n        <div className=\"pt-3 mt-2 border-t-2 border-[var(--color-border-default)] px-1\">\n          <div className=\"flex items-center justify-between px-2 mb-1.5\">\n            <div className=\"flex items-center gap-1.5\">\n              <div className=\"w-1 h-3 rounded-full bg-[var(--color-primary)]\" />\n              <p className=\"text-[10px] font-display font-bold text-[var(--color-text-disabled)] uppercase tracking-widest\">Practice Courses</p>\n            </div>\n            <span className=\"text-[9px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded-full bg-[var(--color-primary-subtle)] text-[var(--color-primary-dark)]\">Exam Prep</span>\n          </div>\n          <div className=\"space-y-0.5\">\n            <Link\n              href=\"/exercises/band1-listening-format\"\n              className={cn(\n                \"group relative flex items-center gap-2.5 px-3 py-2 rounded-[var(--radius-md)] text-xs font-bold transition-all duration-200 mb-1.5 border\",\n                pathname.startsWith(\"/exercises\")\n                  ? \"bg-indigo-500/15 text-indigo-600 dark:text-indigo-400 border-indigo-500/30\"\n                  : \"bg-[var(--color-surface-alt)] text-[var(--color-text-secondary)] hover:bg-[var(--color-neutral-50)] hover:text-indigo-600 border-[var(--color-border-default)] hover:border-indigo-400\"\n              )}\n            >\n              <div className=\"flex items-center justify-center w-7 h-7 rounded-[var(--radius-md)] bg-indigo-500/10 text-indigo-500 shrink-0\">\n                <Dumbbell className=\"w-3.5 h-3.5\" />\n              </div>\n              <span className={cn(\"flex-1 min-w-0\", onClose ? \"break-words\" : \"truncate\")}>Practice Drills & Revision</span>\n              <span className=\"text-[9px] font-extrabold uppercase px-1.5 py-0.5 rounded-full bg-indigo-500/20 text-indigo-600 dark:text-indigo-400 shrink-0\">Hub</span>\n            </Link>\n\n            {levels.map((level, i) => {\n              const Icon = LEVEL_ICONS[i % LEVEL_ICONS.length];\n              const active = pathname === `/levels/${level.id}` || pathname.startsWith(`/levels/${level.id}/`);\n              return (\n                <Link key={level.id} href={`/levels/${level.id}`} className={cn(\n                  \"group relative flex items-center gap-2.5 px-3 py-2 rounded-[var(--radius-md)] text-sm font-medium transition-all duration-200\",\n                  active ? \"bg-[var(--color-primary-subtle)] text-[var(--color-primary-dark)]\" : \"text-[var(--color-text-secondary)] hover:bg-[var(--color-neutral-50)] hover:text-[var(--color-text-primary)]\"\n                )} style={active ? { boxShadow: \"0 2px 0 var(--color-primary-dark)\" } : undefined}>\n                  {active && <motion.span layoutId=\"sidebar-level-active\" className=\"absolute left-0 top-1/2 -translate-y-1/2 w-0.5 h-4 rounded-full bg-[var(--color-primary)]\" />}\n                  <div className={cn(\n                    \"flex items-center justify-center w-7 h-7 rounded-[var(--radius-md)] transition-all duration-200 flex-shrink-0\",\n                    active ? \"bg-[var(--color-primary-subtle)]\" : \"bg-transparent group-hover:bg-[var(--color-neutral-50)]\"\n                  )}>\n                    <Icon className=\"w-3.5 h-3.5\" style={{ color: level.accent }} />\n                  </div>\n                  <span className={cn(\"flex-1 min-w-0\", onClose ? \"break-words\" : \"truncate\")}>{level.title}</span>\n                  <span className=\"text-[9px] font-bold uppercase px-1.5 py-0.5 rounded-[var(--radius-pill)] shrink-0\" style={{ color: level.accent, backgroundColor: `${level.accent}15` }}>{level.examBadge || level.id}</span>\n                </Link>\n              );\n            })}\n          </div>\n        </div>\n\n        <div className=\"pt-3 mt-2 border-t-2 border-[var(--color-border-default)] px-1\">\n          <div className=\"flex items-center justify-between px-2 mb-1.5\">\n            <div className=\"flex items-center gap-1.5\">\n              <div className=\"w-1 h-3 rounded-full bg-[var(--color-error)]\" />\n              <p className=\"text-[10px] font-display font-bold text-[var(--color-text-disabled)] uppercase tracking-widest\">Mock Tests</p>\n            </div>\n            <span className=\"text-[9px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded-full bg-red-50 text-red-600\">Full Exams</span>\n          </div>\n          <div className=\"space-y-0.5\">\n            {MOCK_TESTS.map((test) => {\n              const active = pathname === test.href || (pathname === \"/mock-exam\" && test.href.startsWith(\"/mock-exam\"));\n              const Icon = test.icon;\n              return (\n                <Link key={test.href} href={test.href} className={cn(\n                  \"group relative flex items-center gap-2.5 px-3 py-2 rounded-[var(--radius-md)] text-sm font-medium transition-all duration-200\",\n                  active ? \"bg-[var(--color-primary-subtle)] text-[var(--color-primary-dark)]\" : \"text-[var(--color-text-secondary)] hover:bg-[var(--color-neutral-50)] hover:text-[var(--color-text-primary)]\"\n                )} style={active ? { boxShadow: \"0 2px 0 var(--color-primary-dark)\" } : undefined}>\n                  {active && <motion.span layoutId=\"sidebar-mock-active\" className=\"absolute left-0 top-1/2 -translate-y-1/2 w-0.5 h-4 rounded-full bg-[var(--color-primary)]\" />}\n                  <div className={cn(\n                    \"flex items-center justify-center w-7 h-7 rounded-[var(--radius-md)] transition-all duration-200 flex-shrink-0\",\n                    active ? \"bg-[var(--color-primary-subtle)]\" : \"bg-transparent text-[var(--color-text-disabled)] group-hover:bg-[var(--color-neutral-50)] group-hover:text-[var(--color-text-secondary)]\"\n                  )}>\n                    <Icon className=\"w-3.5 h-3.5\" style={{ color: test.accent }} />\n                  </div>\n                  <span className={cn(\"flex-1 min-w-0\", onClose ? \"break-words\" : \"truncate\")}>{test.label}</span>\n                  <span className=\"text-[9px] font-bold uppercase px-1.5 py-0.5 rounded-[var(--radius-pill)] shrink-0\" style={{ color: test.accent, backgroundColor: `${test.accent}15` }}>{test.badge}</span>\n                </Link>\n              );\n            })}\n          </div>\n        </div>\n      </nav>\n\n      <div className=\"m-2.5 p-3 rounded-[var(--radius-lg)] border-2 border-[var(--color-border-default)] bg-[var(--color-surface)]\" style={{ boxShadow: \"0 3px 0 var(--color-border-default)\" }}>\n        <div className=\"flex items-center gap-2.5 mb-2.5\">\n          <div suppressHydrationWarning className=\"w-8 h-8 rounded-[var(--radius-circle)] bg-[var(--color-primary)] flex items-center justify-center text-white text-[10px] font-display font-bold flex-shrink-0\" style={{ boxShadow: \"0 2px 0 var(--color-primary-dark)\" }}>\n            {mounted ? levelInfo.level : 1}\n          </div>\n          <div className=\"flex-1 min-w-0\">\n            <p suppressHydrationWarning className=\"text-[11px] font-display font-bold text-[var(--color-text-primary)] truncate\">{mounted ? levelInfo.title : \"Beginner\"}</p>\n            {levelInfo.nextXP !== Infinity && (\n              <p suppressHydrationWarning className=\"text-[9px] text-[var(--color-text-secondary)]\">{mounted ? xp.toLocaleString() : 0} / {levelInfo.nextXP.toLocaleString()} XP</p>\n            )}\n          </div>\n        </div>\n        {levelInfo.nextXP !== Infinity && (\n          <div className=\"w-full h-2 rounded-[var(--radius-pill)] bg-[var(--color-neutral-100)] overflow-hidden border border-[var(--color-border-default)]\">\n            <motion.div\n              initial={{ width: 0 }}\n              animate={{ width: `${mounted ? progressPct : 0}%` }}\n              transition={{ duration: 0.8, ease: \"easeOut\" }}\n              className=\"h-full rounded-[var(--radius-pill)] bg-[var(--color-primary)]\"\n              style={progressPct > 0 ? { boxShadow: \"inset 0 1px 0 rgba(255,255,255,0.3)\" } : undefined}\n            />\n          </div>\n        )}\n      </div>\n    </>\n  );\n\n  if (onClose) {\n    return (\n      <AnimatePresence>\n        {open && (\n          <>\n            <motion.div\n              initial={{ opacity: 0 }}\n              animate={{ opacity: 1 }}\n              exit={{ opacity: 0 }}\n              transition={{ duration: 0.2 }}\n              className=\"fixed inset-0 z-40 bg-black/40\"\n              onClick={onClose}\n            />\n            <motion.aside\n              ref={drawerRef}\n              role=\"dialog\"\n              aria-modal=\"true\"\n              aria-label=\"Navigation menu\"\n              initial={{ x: \"-100%\" }}\n              animate={{ x: 0 }}\n              exit={{ x: \"-100%\" }}\n              transition={{ type: \"spring\", damping: 30, stiffness: 300 }}\n              className=\"fixed left-0 top-0 bottom-0 w-80 max-w-[calc(100vw-2rem)] pb-[env(safe-area-inset-bottom,0px)] z-50 bg-[var(--color-surface)] border-r-2 border-[var(--color-border-default)] flex flex-col shadow-2xl\"\n              style={{ boxShadow: \"3px 0 0 var(--color-border-default), 8px 0 32px rgba(0,0,0,0.12)\" }}\n            >\n              {sidebarContent}\n            </motion.aside>\n          </>\n        )}\n      </AnimatePresence>\n    );\n  }\n\n  return (\n    <aside className=\"fixed left-0 top-0 bottom-0 w-64 bg-[var(--color-surface)] border-r-2 border-[var(--color-border-default)] z-40 flex flex-col\" style={{ boxShadow: \"3px 0 0 var(--color-border-default)\" }}>\n      {sidebarContent}\n    </aside>\n  );\n}\n",
+    "src/components/layout/CommandPalette.tsx": "\"use client\";\nimport { useEffect, useCallback } from \"react\";\nimport { Command } from \"cmdk\";\nimport { useRouter } from \"next/navigation\";\nimport {\n  BarChart3, BookHeart, BookOpen, BookCopy, MessageSquareText,\n  Gamepad2, FileText, BookMarked, Table2, Search,\n  Languages, ArrowLeftRight, Printer, Layout, Link2, Shield, Gem,\n  GitFork, MessageSquareQuote, CaseSensitive, Network, Split,\n  CornerDownRight, History, Clock, Clock9, ArrowBigRightDash, UserMinus,\n  Scale, HelpCircle, MessageSquare, GitBranch, RefreshCcw, AlertCircle,\n  Puzzle, BookA, MapPin, Mic, Users, Image, BookOpenText, AlertTriangle,\n  Quote, BookText, BarChart4, Zap, RotateCcw, Trophy, Target, Calendar,\n  GraduationCap, Sparkles, Lightbulb, Library, ChevronRight, Brain, Ear, Shuffle, Globe, MessageCircle,\n} from \"lucide-react\";\nimport { courseCatalogue as levels } from \"@/data/course-catalogue\";\nimport type { LucideIcon } from \"lucide-react\";\nimport { motion, AnimatePresence } from \"framer-motion\";\n\ntype CmdItem = {\n  id: string;\n  label: string;\n  href: string;\n  icon: LucideIcon;\n  group: string;\n};\n\nconst MAIN_ITEMS: CmdItem[] = [\n  { id: \"dashboard\", label: \"Dashboard\", href: \"/dashboard\", icon: BarChart3, group: \"Main\" },\n  { id: \"vocabulary\", label: \"Vocabulary\", href: \"/vocabulary\", icon: BookHeart, group: \"Main\" },\n  { id: \"flashcards\", label: \"Flashcards\", href: \"/flashcards\", icon: BookOpen, group: \"Main\" },\n  { id: \"custom-flashcards\", label: \"My Cards\", href: \"/custom-flashcards\", icon: BookCopy, group: \"Main\" },\n  { id: \"phonics\", label: \"Phonics / IPA\", href: \"/phonics\", icon: MessageSquareText, group: \"Main\" },\n];\n\nconst PRACTICE_ITEMS: CmdItem[] = [\n  { id: \"practice\", label: \"Practice Hub\", href: \"/practice\", icon: Gamepad2, group: \"Practice\" },\n  { id: \"writing\", label: \"Writing\", href: \"/writing\", icon: FileText, group: \"Practice\" },\n  { id: \"conjugaise\", label: \"Conjugaise\", href: \"/conjugaise\", icon: BookMarked, group: \"Practice\" },\n  { id: \"declensions\", label: \"Prepositions Guide\", href: \"/declensions\", icon: Table2, group: \"Practice\" },\n  { id: \"text-analyzer\", label: \"Text Analyzer\", href: \"/text-analyzer\", icon: FileText, group: \"Practice\" },\n  { id: \"search-page\", label: \"Search\", href: \"/search\", icon: Search, group: \"Practice\" },\n  { id: \"knowledge-check\", label: \"Knowledge Check\", href: \"/knowledge-check\", icon: Brain, group: \"Practice\" },\n  { id: \"speed-match\", label: \"Speed Match\", href: \"/speed-match\", icon: Zap, group: \"Practice\" },\n  { id: \"listening-lab\", label: \"Listening Lab\", href: \"/listening-lab\", icon: Ear, group: \"Practice\" },\n  { id: \"buchstabensalat\", label: \"Word Scramble\", href: \"/buchstabensalat\", icon: Shuffle, group: \"Practice\" },\n  { id: \"sprint\", label: \"Sprint\", href: \"/sprint\", icon: Zap, group: \"Practice\" },\n  { id: \"konjunktionen-challenge\", label: \"Conjunctions Challenge\", href: \"/konjunktionen-challenge\", icon: Link2, group: \"Practice\" },\n  { id: \"tenses-quiz\", label: \"Tenses Quiz\", href: \"/tenses-quiz\", icon: Clock, group: \"Practice\" },\n  { id: \"briefe-schreiben\", label: \"Letter Writing\", href: \"/briefe-schreiben\", icon: FileText, group: \"Practice\" },\n  { id: \"landeskunde-quiz\", label: \"Culture Quiz\", href: \"/landeskunde-quiz\", icon: Globe, group: \"Practice\" },\n  { id: \"redemittel-praxis\", label: \"Phrases Practice\", href: \"/redemittel-praxis\", icon: MessageSquare, group: \"Practice\" },\n  { id: \"artikel-meister\", label: \"Article Master\", href: \"/artikel-meister\", icon: Target, group: \"Practice\" },\n  { id: \"satz-ubersetzer\", label: \"Sentence Translator\", href: \"/satz-ubersetzer\", icon: ArrowLeftRight, group: \"Practice\" },\n  { id: \"themen-vokabeln\", label: \"Topic Vocab\", href: \"/themen-vokabeln\", icon: BookText, group: \"Practice\" },\n  { id: \"redewendungen-ubersetzer\", label: \"Idioms Translator\", href: \"/redewendungen-ubersetzer\", icon: Quote, group: \"Practice\" },\n  { id: \"kollokationen-ubersetzer\", label: \"Collocations Translator\", href: \"/kollokationen-ubersetzer\", icon: Link2, group: \"Practice\" },\n  { id: \"dialoge-ubersetzer\", label: \"Dialogues Translator\", href: \"/dialoge-ubersetzer\", icon: MessageCircle, group: \"Practice\" },\n  { id: \"modalpartikel-ubersetzer\", label: \"Discourse Markers\", href: \"/modalpartikel-ubersetzer\", icon: MessageSquare, group: \"Practice\" },\n  { id: \"nvv-ubersetzer\", label: \"Collocations Translator\", href: \"/nvv-ubersetzer\", icon: BookMarked, group: \"Practice\" },\n  { id: \"verbprep-ubersetzer\", label: \"Verbs+Preps Translator\", href: \"/verben-mit-praepositionen-ubersetzer\", icon: ArrowLeftRight, group: \"Practice\" },\n  { id: \"dakomp-ubersetzer\", label: \"Compound Adverbs\", href: \"/da-komposita-ubersetzer\", icon: Link2, group: \"Practice\" },\n  { id: \"satzmuster-ubersetzer\", label: \"Patterns Translator\", href: \"/satzmuster-ubersetzer\", icon: Layout, group: \"Practice\" },\n  { id: \"wortpaare-quiz\", label: \"Word Pairs Quiz\", href: \"/wortpaare-quiz\", icon: Shuffle, group: \"Practice\" },\n  { id: \"vergleiche-ubersetzer\", label: \"Comparisons Translator\", href: \"/vergleiche-ubersetzer\", icon: Scale, group: \"Practice\" },\n  { id: \"false-friends-ubersetzer\", label: \"False Friends Translator\", href: \"/false-friends-ubersetzer\", icon: AlertTriangle, group: \"Practice\" },\n  { id: \"fragen-ubersetzer\", label: \"Questions Translator\", href: \"/fragen-ubersetzer\", icon: HelpCircle, group: \"Practice\" },\n  { id: \"praeteritum-ubersetzer\", label: \"Past Tense Translator\", href: \"/praeteritum-ubersetzer\", icon: Clock, group: \"Practice\" },\n  { id: \"essay-templates\", label: \"Essay Templates\", href: \"/essay-templates\", icon: FileText, group: \"Practice\" },\n];\n\nconst GRAMMAR_ITEMS: CmdItem[] = [\n  { id: \"grammar\", label: \"Grammar Ref\", href: \"/grammar\", icon: Languages, group: \"Grammar\" },\n  { id: \"grammar-compare\", label: \"Compare\", href: \"/grammar-compare\", icon: ArrowLeftRight, group: \"Grammar\" },\n  { id: \"cheat-sheet\", label: \"Cheat Sheet\", href: \"/grammar/cheat-sheet\", icon: Printer, group: \"Grammar\" },\n  { id: \"satzbau\", label: \"Sentence Structure\", href: \"/satzbau\", icon: Layout, group: \"Grammar\" },\n  { id: \"konnektoren\", label: \"Connectives\", href: \"/konnektoren\", icon: Link2, group: \"Grammar\" },\n  { id: \"passiv\", label: \"Passive Voice\", href: \"/passiv\", icon: Shield, group: \"Grammar\" },\n  { id: \"konjunktiv-ii\", label: \"Conditionals & Wishes\", href: \"/konjunktiv-ii\", icon: Gem, group: \"Grammar\" },\n  { id: \"relativsaetze\", label: \"Relative Clauses\", href: \"/relativsaetze\", icon: GitFork, group: \"Grammar\" },\n  { id: \"indirekte-rede\", label: \"Indirect Speech\", href: \"/indirekte-rede\", icon: MessageSquareQuote, group: \"Grammar\" },\n  { id: \"partizipien\", label: \"Participles as Adj.\", href: \"/partizipien-als-adjektive\", icon: CaseSensitive, group: \"Grammar\" },\n  { id: \"nebensaetze\", label: \"Subordinate Clauses\", href: \"/nebensaetze\", icon: Network, group: \"Grammar\" },\n  { id: \"zweiteilige-konnektoren\", label: \"Two-Part Conn.\", href: \"/zweiteilige-konnektoren\", icon: Split, group: \"Grammar\" },\n  { id: \"da-komposita\", label: \"Compound Adverbs\", href: \"/da-komposita\", icon: CornerDownRight, group: \"Grammar\" },\n  { id: \"praeteritum\", label: \"Simple Past\", href: \"/praeteritum\", icon: History, group: \"Grammar\" },\n  { id: \"plusquamperfekt\", label: \"Past Perfect\", href: \"/plusquamperfekt\", icon: Clock9, group: \"Grammar\" },\n  { id: \"futur\", label: \"Future Tenses\", href: \"/futur\", icon: ArrowBigRightDash, group: \"Grammar\" },\n  { id: \"n-deklination\", label: \"Irregular Plurals\", href: \"/n-deklination\", icon: UserMinus, group: \"Grammar\" },\n  { id: \"vergleiche\", label: \"Comparisons\", href: \"/vergleiche\", icon: Scale, group: \"Grammar\" },\n  { id: \"fragen\", label: \"Questions\", href: \"/fragen\", icon: HelpCircle, group: \"Grammar\" },\n  { id: \"modalpartikel\", label: \"Discourse Markers\", href: \"/modalpartikel\", icon: MessageSquare, group: \"Grammar\" },\n  { id: \"unregelmaessige-verben\", label: \"Irregular Verbs\", href: \"/unregelmaessige-verben\", icon: GitBranch, group: \"Grammar\" },\n  { id: \"reflexive-verben\", label: \"Reflexive Verbs\", href: \"/reflexive-verben\", icon: RefreshCcw, group: \"Grammar\" },\n  { id: \"typische-fehler\", label: \"Common Mistakes\", href: \"/typische-fehler\", icon: AlertCircle, group: \"Grammar\" },\n  { id: \"wortbildung\", label: \"Word Formation\", href: \"/wortbildung\", icon: Puzzle, group: \"Grammar\" },\n  { id: \"verb-tables\", label: \"Verb Tables\", href: \"/verb-tables\", icon: Table2, group: \"Grammar\" },\n  { id: \"satzmuster\", label: \"Sentence Patterns\", href: \"/satzmuster\", icon: Layout, group: \"Grammar\" },\n  { id: \"tenses-guide\", label: \"Tenses Guide\", href: \"/tenses-guide\", icon: CaseSensitive, group: \"Grammar\" },\n  { id: \"prefix-verbs\", label: \"Prefix Verbs\", href: \"/prefix-verbs\", icon: GitBranch, group: \"Grammar\" },\n  { id: \"wortpaare\", label: \"Word Pairs\", href: \"/wortpaare\", icon: ArrowLeftRight, group: \"Grammar\" },\n];\n\nconst VOCAB_ITEMS: CmdItem[] = [\n  { id: \"redemittel\", label: \"Useful Phrases\", href: \"/redemittel\", icon: MessageSquare, group: \"Vocab & Speaking\" },\n  { id: \"redewendungen\", label: \"Idioms\", href: \"/redewendungen\", icon: Quote, group: \"Vocab & Speaking\" },\n  { id: \"themen-wortschatz\", label: \"Topic Vocabulary\", href: \"/themen-wortschatz\", icon: BookText, group: \"Vocab & Speaking\" },\n  { id: \"nomen-verb-verbindungen\", label: \"Verb-Noun Collocations\", href: \"/nomen-verb-verbindungen\", icon: BookA, group: \"Vocab & Speaking\" },\n  { id: \"verben-mit-prapositionen\", label: \"Verbs + Preps\", href: \"/verben-mit-prapositionen\", icon: MapPin, group: \"Vocab & Speaking\" },\n  { id: \"pronunciation\", label: \"Pronunciation\", href: \"/pronunciation\", icon: Mic, group: \"Vocab & Speaking\" },\n  { id: \"conversation\", label: \"Conversations\", href: \"/conversation\", icon: Users, group: \"Vocab & Speaking\" },\n  { id: \"bildbeschreibung\", label: \"Picture Desc.\", href: \"/bildbeschreibung\", icon: Image, group: \"Vocab & Speaking\" },\n  { id: \"reading\", label: \"Reading\", href: \"/vocabulary\", icon: BookOpenText, group: \"Vocab & Speaking\" },\n  { id: \"false-friends\", label: \"False Friends\", href: \"/false-friends\", icon: AlertTriangle, group: \"Vocab & Speaking\" },\n  { id: \"kollokationen\", label: \"Collocations\", href: \"/kollokationen\", icon: Link2, group: \"Vocab & Speaking\" },\n  { id: \"british-vs-american\", label: \"British vs American\", href: \"/british-vs-american\", icon: Globe, group: \"Vocab & Speaking\" },\n];\n\nconst PROGRESS_ITEMS: CmdItem[] = [\n  { id: \"daily-challenge\", label: \"Daily Challenge\", href: \"/daily-challenge\", icon: Zap, group: \"Progress\" },\n  { id: \"review\", label: \"Review Queue\", href: \"/review\", icon: RotateCcw, group: \"Progress\" },\n  { id: \"badges\", label: \"Badges\", href: \"/badges\", icon: Trophy, group: \"Progress\" },\n  { id: \"weak-areas\", label: \"Weak Areas\", href: \"/weak-areas\", icon: AlertTriangle, group: \"Progress\" },\n  { id: \"stats\", label: \"Statistics\", href: \"/stats\", icon: BarChart4, group: \"Progress\" },\n  { id: \"study-plan\", label: \"Study Plan\", href: \"/study-plan\", icon: Target, group: \"Progress\" },\n  { id: \"weekly-report\", label: \"Weekly Report\", href: \"/weekly-report\", icon: Calendar, group: \"Progress\" },\n  { id: \"exam-guide\", label: \"IELTS & TOEFL Guide\", href: \"/b2-pruefung\", icon: GraduationCap, group: \"Progress\" },\n  { id: \"mock-exam\", label: \"Mock Exam\", href: \"/mock-exam\", icon: Shield, group: \"Progress\" },\n  { id: \"challenge\", label: \"Challenges\", href: \"/challenge\", icon: Zap, group: \"Progress\" },\n  { id: \"study-strategies\", label: \"Study Strategies\", href: \"/study-strategies\", icon: Target, group: \"Progress\" },\n];\n\nconst LEVEL_ICONS: LucideIcon[] = [Sparkles, Lightbulb, BookMarked, Library];\n\nexport function CommandPalette({ open, onOpenChange }: { open: boolean; onOpenChange: (v: boolean) => void }) {\n  const router = useRouter();\n\n  useEffect(() => {\n    const down = (e: KeyboardEvent) => {\n      if (e.key === \"k\" && (e.metaKey || e.ctrlKey)) {\n        e.preventDefault();\n        onOpenChange(!open);\n      }\n    };\n    document.addEventListener(\"keydown\", down);\n    return () => document.removeEventListener(\"keydown\", down);\n  }, [open, onOpenChange]);\n\n  const run = useCallback((href: string) => {\n    onOpenChange(false);\n    router.push(href);\n  }, [router, onOpenChange]);\n\n  return (\n    <AnimatePresence>\n      {open && (\n        <motion.div\n          initial={{ opacity: 0 }}\n          animate={{ opacity: 1 }}\n          exit={{ opacity: 0 }}\n          className=\"fixed inset-0 z-50 flex items-center justify-center p-4\"\n        >\n          <div className=\"fixed inset-0 bg-[var(--color-surface-overlay)]\" onClick={() => onOpenChange(false)} />\n          <motion.div\n            initial={{ opacity: 0, scale: 0.96, y: -8 }}\n            animate={{ opacity: 1, scale: 1, y: 0 }}\n            exit={{ opacity: 0, scale: 0.96, y: -8 }}\n            transition={{ duration: 0.15 }}\n            className=\"relative w-full max-w-[640px] bg-[var(--color-surface)] rounded-[var(--radius-lg)] border-2 border-[var(--color-border-default)] overflow-hidden sm:mx-auto\"\n            style={{ boxShadow: \"0 4px 0 var(--color-border-default), var(--shadow-4)\" }}\n          >\n            <Command label=\"Navigation search\" shouldFilter={true}>\n              <div className=\"flex items-center gap-2 px-4 border-b border-[var(--color-border-default)]\">\n                <Search className=\"w-4 h-4 text-[var(--color-text-secondary)] shrink-0\" />\n                <Command.Input\n                  placeholder=\"Search pages...\"\n                  className=\"w-full h-12 bg-transparent font-body text-sm text-[var(--color-text-primary)] placeholder:text-[var(--color-text-disabled)] outline-none border-0\"\n                  autoFocus\n                />\n                <kbd className=\"hidden sm:inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded bg-[var(--color-neutral-100)] text-[10px] font-mono text-[var(--color-text-disabled)] border border-[var(--color-border-default)] shrink-0\">\n                  ESC\n                </kbd>\n              </div>\n              <div className=\"max-h-[420px] overflow-y-auto p-2\">\n                <Command.Empty className=\"py-8 text-center\">\n                  <span className=\"text-2xl block mb-2\">🔍</span>\n                  <p className=\"font-display font-bold text-sm text-[var(--color-text-secondary)]\">No results found</p>\n                  <p className=\"font-body text-xs text-[var(--color-text-disabled)] mt-1\">Try a different search term</p>\n                </Command.Empty>\n\n                {[MAIN_ITEMS, PRACTICE_ITEMS, GRAMMAR_ITEMS, VOCAB_ITEMS, PROGRESS_ITEMS].map((group) => (\n                  <Command.Group key={group[0]?.group || \"x\"} heading={group[0]?.group || \"\"}>\n                    {group.map((item) => {\n                      const Icon = item.icon;\n                      return (\n                        <Command.Item\n                          key={item.id}\n                          value={item.id}\n                          onSelect={() => run(item.href)}\n                          className=\"flex items-center gap-3 px-3 py-2.5 rounded-[var(--radius-md)] font-body text-sm text-[var(--color-text-primary)] cursor-pointer data-[selected=true]:bg-[var(--color-primary-subtle)] data-[selected=true]:text-[var(--color-primary-dark)] transition-all\"\n                        >\n                          <Icon className=\"w-4 h-4 text-[var(--color-text-secondary)] shrink-0\" />\n                          <span>{item.label}</span>\n                        </Command.Item>\n                      );\n                    })}\n                  </Command.Group>\n                ))}\n\n                <Command.Group heading=\"Practice Courses\">\n                  {levels.map((level, i) => {\n                    const Icon = LEVEL_ICONS[i % LEVEL_ICONS.length];\n                    return (\n                      <Command.Item\n                        key={`course-${level.id}`}\n                        value={`course-${level.title}-${level.id}`}\n                        onSelect={() => run(`/levels/${level.id}`)}\n                        className=\"flex items-center gap-3 px-3 py-2.5 rounded-[var(--radius-md)] font-body text-sm text-[var(--color-text-primary)] cursor-pointer data-[selected=true]:bg-[var(--color-primary-subtle)] data-[selected=true]:text-[var(--color-primary-dark)] transition-all\"\n                      >\n                        <Icon className=\"w-4 h-4 shrink-0\" style={{ color: level.accent }} />\n                        <span className=\"truncate\">{level.title}</span>\n                        <span className=\"ml-auto font-display font-extrabold text-[10px] uppercase px-1.5 py-0.5 rounded shrink-0\" style={{ color: level.accent, backgroundColor: `${level.accent}15` }}>{level.examBadge || level.id}</span>\n                      </Command.Item>\n                    );\n                  })}\n                </Command.Group>\n\n                <Command.Group heading=\"Mock Tests\">\n                  {[\n                    { href: \"/mock-exam?exam=ielts-academic\", label: \"IELTS Academic Mock Exam\", badge: \"Academic\", accent: \"#a855f7\" },\n                    { href: \"/mock-exam?exam=ielts-general\", label: \"IELTS General Mock Exam\", badge: \"General\", accent: \"#f97316\" },\n                    { href: \"/mock-exam?exam=toefl-ibt\", label: \"TOEFL iBT Mock Exam\", badge: \"2026\", accent: \"#0ea5e9\" },\n                    { href: \"/mock-exam?exam=b2-first\", label: \"B2 First (FCE) Cambridge Exam\", badge: \"Cambridge\", accent: \"#10b981\" },\n                  ].map((test) => (\n                    <Command.Item\n                      key={test.href}\n                      value={`mock-test-${test.label}`}\n                      onSelect={() => run(test.href)}\n                      className=\"flex items-center gap-3 px-3 py-2.5 rounded-[var(--radius-md)] font-body text-sm text-[var(--color-text-primary)] cursor-pointer data-[selected=true]:bg-[var(--color-primary-subtle)] data-[selected=true]:text-[var(--color-primary-dark)] transition-all\"\n                    >\n                      <Shield className=\"w-4 h-4 shrink-0\" style={{ color: test.accent }} />\n                      <span className=\"truncate\">{test.label}</span>\n                      <span className=\"ml-auto font-display font-extrabold text-[10px] uppercase px-1.5 py-0.5 rounded shrink-0\" style={{ color: test.accent, backgroundColor: `${test.accent}15` }}>{test.badge}</span>\n                    </Command.Item>\n                  ))}\n                </Command.Group>\n              </div>\n              <div className=\"flex items-center gap-4 px-4 py-2.5 border-t border-[var(--color-border-default)] bg-[var(--color-surface-alt)]\">\n                <div className=\"flex items-center gap-1.5 text-[10px] text-[var(--color-text-disabled)]\">\n                  <kbd className=\"px-1 py-0.5 rounded bg-[var(--color-surface)] border border-[var(--color-border-default)] font-mono text-[10px]\">↑↓</kbd>\n                  <span>navigate</span>\n                </div>\n                <div className=\"flex items-center gap-1.5 text-[10px] text-[var(--color-text-disabled)]\">\n                  <kbd className=\"px-1 py-0.5 rounded bg-[var(--color-surface)] border border-[var(--color-border-default)] font-mono text-[10px]\">↵</kbd>\n                  <span>open</span>\n                </div>\n                <div className=\"flex items-center gap-1.5 text-[10px] text-[var(--color-text-disabled)]\">\n                  <kbd className=\"px-1 py-0.5 rounded bg-[var(--color-surface)] border border-[var(--color-border-default)] font-mono text-[10px]\">esc</kbd>\n                  <span>close</span>\n                </div>\n              </div>\n            </Command>\n          </motion.div>\n        </motion.div>\n      )}\n    </AnimatePresence>\n  );\n}\n"
+  },
+  "searchNavigation": {
+    "before": "import { DIALOGS } from \"./alltagsdialoge\";\nimport { EXAM_INFO } from \"./b2-pruefung\";\nimport { BILD_SECTIONS } from \"./bildbeschreibung\";\nimport { VERBS } from \"./conjugaise\";\nimport { COMPOUND_WORDS } from \"./da-komposita\";\nimport { PREPOSITIONS, LOCATION_DIRECTION_PAIRS } from \"./declensions\";\nimport { FRAGEN_RULES } from \"./fragen\";\nimport { FUTURE_TENSES } from \"./futur\";\nimport { INDIREKTE_REDE_RULES } from \"./indirekte-rede\";\nimport { COLLOCATIONS } from \"./kollokationen\";\nimport { CONDITIONAL_RULES } from \"./konjunktiv-ii\";\nimport { KONNEKTOREN } from \"./konnektoren\";\nimport { CULTURE_QUESTIONS } from \"./landeskunde\";\nimport { DISCOURSE_MARKERS } from \"./modalpartikel\";\nimport { WEAK_NOUN_RULES } from \"./n-deklination\";\nimport { NEBENSAETZE_RULES } from \"./nebensaetze\";\nimport { NOUN_VERB_COLLOCATIONS } from \"./nomen-verb-verbindungen\";\nimport { NOMINALIZATIONS } from \"./nominalisierung\";\nimport { PARTICIPLE_RULES } from \"./partizipien-als-adjektive\";\nimport { PASSIVE_RULES } from \"./passiv\";\nimport { PAST_PERFECT_RULES } from \"./plusquamperfekt\";\nimport { PRAETERITUM_RULES } from \"./praeteritum\";\nimport { REDEMITTEL } from \"./redemittel\";\nimport { IDIOMS } from \"./redewendungen\";\nimport { REFLEXIVE_VERBS } from \"./reflexive-verben\";\nimport { RELATIVE_RULES } from \"./relativsaetze\";\nimport { SYNTAX_RULES } from \"./satzbau\";\nimport { TOPICS } from \"./themen-wortschatz\";\nimport { MISTAKES } from \"./typische-fehler\";\nimport { VERB_PATTERNS } from \"./unregelmaessige-verben\";\nimport { VERB_PREPOSITIONS } from \"./verben-mit-prapositionen\";\nimport { COMPARISON_RULES } from \"./vergleiche\";\nimport { PREFIXES, SUFFIXES } from \"./wortbildung\";\nimport { WORD_FAMILIES } from \"./wortfamilien\";\nimport { CORRELATIVE_CONJUNCTIONS } from \"./zweiteilige-konnektoren\";\n\nexport type SearchEntry = {\n  sourceId: string;\n  sourceLabel: string;\n  sourceHref: string;\n  title: string;\n  text: string;\n  level?: string;\n};\n\nfunction extractTexts(item: any): string[] {\n  const texts: string[] = [];\n  if (typeof item === \"string\") { texts.push(item); return texts; }\n  if (!item) return texts;\n  const keys = [\"explanation\", \"description\", \"situation\", \"meaning\", \"phrase\", \"english\", \"note\", \"desc\", \"root\", \"prefix\", \"type\", \"formation\", \"ar\", \"question_ar\", \"explain_ar\"];\n  for (const key of keys) { if (typeof item[key] === \"string\" && item[key]) texts.push(item[key]); }\n  if (item.examples) {\n    if (Array.isArray(item.examples)) {\n      texts.push(...item.examples.flatMap((e: any) => {\n        if (typeof e === \"string\") return [e];\n        if (e.de && e.en) return [e.de, e.en, e.ar].filter(Boolean);\n        if (e.example) return [e.example];\n        if (e.english) return [e.english, e.arabic].filter(Boolean);\n        return [];\n      }));\n    }\n  }\n  if (item.words) texts.push(...item.words.flatMap((w: any) => [w.word, w.meaning, w.type, w.definition, w.example].filter(Boolean)));\n  if (item.conjugations) texts.push(...item.conjugations.flatMap((c: any) => [c.tense, ...(c.forms || [])].filter(Boolean)));\n  if (item.items) texts.push(...item.items.flatMap((sub: any) => extractTexts(sub)));\n  if (item.subRules) texts.push(...item.subRules.flatMap((s: any) => [s.label, ...(s.items || [])].filter(Boolean)));\n  if (item.lines) texts.push(...item.lines.flatMap((l: any) => [l.de, l.en, l.ar].filter(Boolean)));\n  if (item.rows) texts.push(...item.rows.flatMap((r: any) => Object.values(r).filter(Boolean)));\n  return texts;\n}\n\nfunction collect(entries: { sourceId: string; sourceLabel: string; sourceHref: string; title: string; text: string; level?: string; }[]): SearchEntry[] {\n  return entries;\n}\n\nfunction fromRules(items: any[], sourceId: string, sourceLabel: string, sourceHref: string, titleKey = \"title\"): SearchEntry[] {\n  return items.map((item) => ({\n    sourceId, sourceLabel, sourceHref,\n    title: typeof item === \"string\" ? item : item[titleKey] || item.label || item.phrase || item.infinitive || item.root || item.prefix || item.mistake || item.word || \"\",\n    text: extractTexts(item).join(\" \"),\n  }));\n}\n\nexport const GRAMMAR_SEARCH_INDEX: SearchEntry[] = [\n  ...fromRules(DIALOGS.map((d) => ({ title: d.title, explanation: d.situation, lines: d.lines })), \"alltagsdialoge\", \"Everyday Dialogues\", \"/alltagsdialoge\"),\n  ...fromRules(EXAM_INFO, \"b2-pruefung\", \"B2 Exam Guide\", \"/b2-pruefung\"),\n  ...fromRules(BILD_SECTIONS.map((s: any) => ({ title: s.title, explanation: s.explanation, items: s.phrases })), \"bildbeschreibung\", \"Picture Description\", \"/bildbeschreibung\"),\n  ...VERBS.slice(0, 200).flatMap((v) => ({\n    sourceId: \"conjugaise\", sourceLabel: \"Conjugaise\", sourceHref: \"/conjugaise\",\n    title: v.infinitive, text: extractTexts(v).join(\" \"),\n  })),\n  ...fromRules(COMPOUND_WORDS, \"da-komposita\", \"Compound Adverbs\", \"/da-komposita\"),\n  ...PREPOSITIONS.flatMap((d) => ({\n    sourceId: \"declensions\", sourceLabel: \"English Prepositions\", sourceHref: \"/declensions\",\n    title: d.preposition || \"Prepositions\", text: extractTexts(d).join(\" \"),\n  })),\n  ...fromRules(FRAGEN_RULES, \"fragen\", \"Questions\", \"/fragen\"),\n  ...fromRules(FUTURE_TENSES, \"futur\", \"Future Tenses\", \"/futur\"),\n  ...fromRules(INDIREKTE_REDE_RULES, \"indirekte-rede\", \"Indirect Speech\", \"/indirekte-rede\"),\n  ...fromRules(COLLOCATIONS, \"kollokationen\", \"Collocations\", \"/kollokationen\"),\n  ...fromRules(CONDITIONAL_RULES, \"konjunktiv-ii\", \"Conditionals\", \"/konjunktiv-ii\"),\n  ...fromRules(KONNEKTOREN, \"konnektoren\", \"Connectives\", \"/konnektoren\"),\n  ...fromRules(CULTURE_QUESTIONS, \"landeskunde\", \"Cultural Studies\", \"/landeskunde\"),\n  ...fromRules(DISCOURSE_MARKERS, \"modalpartikel\", \"Discourse Markers\", \"/modalpartikel\"),\n  ...fromRules(WEAK_NOUN_RULES, \"n-deklination\", \"Irregular Plurals\", \"/n-deklination\"),\n  ...fromRules(NEBENSAETZE_RULES, \"nebensaetze\", \"Subordinate Clauses\", \"/nebensaetze\"),\n  ...fromRules(NOUN_VERB_COLLOCATIONS, \"nomen-verb-verbindungen\", \"Verb-Noun Collocations\", \"/nomen-verb-verbindungen\"),\n  ...fromRules(NOMINALIZATIONS, \"nominalisierung\", \"Nominalization\", \"/nominalisierung\"),\n  ...fromRules(PARTICIPLE_RULES, \"partizipien-als-adjektive\", \"Participles as Adj.\", \"/partizipien-als-adjektive\"),\n  ...fromRules(PASSIVE_RULES, \"passiv\", \"Passive Voice\", \"/passiv\"),\n  ...fromRules(PAST_PERFECT_RULES, \"plusquamperfekt\", \"Past Perfect\", \"/plusquamperfekt\"),\n  ...fromRules(PRAETERITUM_RULES, \"praeteritum\", \"Simple Past\", \"/praeteritum\"),\n  ...fromRules(REDEMITTEL, \"redemittel\", \"Useful Phrases\", \"/redemittel\"),\n  ...fromRules(IDIOMS, \"redewendungen\", \"Idioms\", \"/redewendungen\"),\n  ...fromRules(REFLEXIVE_VERBS, \"reflexive-verben\", \"Reflexive Verbs\", \"/reflexive-verben\"),\n  ...fromRules(RELATIVE_RULES, \"relativsaetze\", \"Relative Clauses\", \"/relativsaetze\"),\n  ...fromRules(SYNTAX_RULES, \"satzbau\", \"Sentence Structure\", \"/satzbau\"),\n  ...fromRules(TOPICS, \"themen-wortschatz\", \"Topic Vocabulary\", \"/themen-wortschatz\", \"label\"),\n  ...fromRules(MISTAKES, \"typische-fehler\", \"Common Mistakes\", \"/typische-fehler\", \"mistake\"),\n  ...fromRules(VERB_PATTERNS, \"unregelmaessige-verben\", \"Irregular Verbs\", \"/unregelmaessige-verben\"),\n  ...fromRules(VERB_PREPOSITIONS, \"verben-mit-prapositionen\", \"Verbs + Preps\", \"/verben-mit-prapositionen\"),\n  ...fromRules(COMPARISON_RULES, \"vergleiche\", \"Comparisons\", \"/vergleiche\"),\n  ...fromRules(PREFIXES, \"wortbildung\", \"Word Formation\", \"/wortbildung\", \"prefix\"),\n  ...fromRules(SUFFIXES, \"wortbildung\", \"Word Formation\", \"/wortbildung\", \"suffix\"),\n  ...fromRules(WORD_FAMILIES, \"wortfamilien\", \"Word Families\", \"/wortfamilien\"),\n  ...fromRules(CORRELATIVE_CONJUNCTIONS, \"zweiteilige-konnektoren\", \"Two-Part Conn.\", \"/zweiteilige-konnektoren\"),\n];\n"
+  },
+  "themeTokens": {
+    "--color-primary": [
+      "#0EA5E9",
+      "#38BDF8"
+    ],
+    "--color-primary-hover": [
+      "#38BDF8",
+      "#7DD3FC"
+    ],
+    "--color-primary-dark": [
+      "#0284C7",
+      "#0284C7"
+    ],
+    "--color-primary-light": [
+      "#7DD3FC",
+      "#BAE6FD"
+    ],
+    "--color-primary-subtle": [
+      "#E0F2FE",
+      "rgba(14, 165, 233, 0.2)"
+    ],
+    "--color-success": [
+      "#10B981",
+      "#34D399"
+    ],
+    "--color-success-dark": [
+      "#059669",
+      "#10B981"
+    ],
+    "--color-success-bg": [
+      "#D1FAE5",
+      "rgba(16, 185, 129, 0.2)"
+    ],
+    "--color-error": [
+      "#EF4444",
+      "#F87171"
+    ],
+    "--color-error-dark": [
+      "#DC2626",
+      "#EF4444"
+    ],
+    "--color-error-bg": [
+      "#FEE2E2",
+      "rgba(239, 68, 68, 0.2)"
+    ],
+    "--color-warning": [
+      "#F59E0B",
+      "#FBBF24"
+    ],
+    "--color-warning-dark": [
+      "#D97706",
+      "#F59E0B"
+    ],
+    "--color-warning-bg": [
+      "#FEF3C7",
+      "rgba(245, 158, 11, 0.2)"
+    ],
+    "--color-info": [
+      "#6366F1",
+      "#818CF8"
+    ],
+    "--color-info-dark": [
+      "#4F46E5",
+      "#6366F1"
+    ],
+    "--color-info-bg": [
+      "#E0E7FF",
+      "rgba(99, 102, 241, 0.2)"
+    ],
+    "--color-neutral-0": [
+      "#FFFFFF",
+      "#0F172A"
+    ],
+    "--color-neutral-50": [
+      "#F7F7F7",
+      "#0B0F19"
+    ],
+    "--color-neutral-100": [
+      "#EFEFEF",
+      "#1E293B"
+    ],
+    "--color-neutral-200": [
+      "#E5E5E5",
+      "#334155"
+    ],
+    "--color-neutral-300": [
+      "#AFAFAF",
+      "#64748B"
+    ],
+    "--color-neutral-400": [
+      "#777777",
+      "#94A3B8"
+    ],
+    "--color-neutral-500": [
+      "#5C5C5C",
+      "#CBD5E1"
+    ],
+    "--color-neutral-600": [
+      "#3C3C3C",
+      "#E2E8F0"
+    ],
+    "--color-neutral-700": [
+      "#262626",
+      "#F1F5F9"
+    ],
+    "--color-neutral-800": [
+      "#1C1C1E",
+      "#F8FAFC"
+    ],
+    "--color-neutral-900": [
+      "#111111",
+      "#FFFFFF"
+    ],
+    "--color-text-primary": [
+      "#3C3C3C",
+      "#F8FAFC"
+    ],
+    "--color-text-secondary": [
+      "#5C5C5C",
+      "#CBD5E1"
+    ],
+    "--color-text-disabled": [
+      "#AFAFAF",
+      "#64748B"
+    ],
+    "--color-text-inverse": [
+      "#FFFFFF",
+      "#0F172A"
+    ],
+    "--color-text-link": [
+      "#0369A1",
+      "#38BDF8"
+    ],
+    "--color-text-success": [
+      "#166534",
+      "#34D399"
+    ],
+    "--color-text-error": [
+      "#991B1B",
+      "#F87171"
+    ],
+    "--color-text-warning": [
+      "#854D0E",
+      "#FBBF24"
+    ],
+    "--color-on-brand": [
+      "#0F172A"
+    ],
+    "--color-text-info": [
+      "#3730A3",
+      "#C7D2FE"
+    ],
+    "--color-course-band4-5": [
+      "#7E22CE",
+      "#D8B4FE"
+    ],
+    "--color-course-band5-6": [
+      "#9A3412",
+      "#FDBA74"
+    ],
+    "--color-course-band6-7": [
+      "#0369A1",
+      "#7DD3FC"
+    ],
+    "--color-course-band7-8": [
+      "#047857",
+      "#6EE7B7"
+    ],
+    "--color-surface": [
+      "#FFFFFF",
+      "#0F172A"
+    ],
+    "--color-surface-alt": [
+      "#F7F7F7",
+      "#1E293B"
+    ],
+    "--color-surface-overlay": [
+      "rgba(0, 0, 0, 0.4)",
+      "rgba(0, 0, 0, 0.7)"
+    ],
+    "--color-surface-scrim": [
+      "rgba(0, 0, 0, 0.6)",
+      "rgba(0, 0, 0, 0.85)"
+    ],
+    "--color-border-default": [
+      "#E5E5E5",
+      "#334155"
+    ],
+    "--color-border-strong": [
+      "#AFAFAF",
+      "#475569"
+    ],
+    "--color-border-focus": [
+      "#1CB0F6",
+      "#38BDF8"
+    ],
+    "--shadow-1": [
+      "0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04)"
+    ],
+    "--shadow-2": [
+      "0 2px 8px rgba(0,0,0,0.08), 0 1px 3px rgba(0,0,0,0.05)"
+    ],
+    "--shadow-3": [
+      "0 4px 16px rgba(0,0,0,0.10), 0 2px 6px rgba(0,0,0,0.06)"
+    ],
+    "--shadow-4": [
+      "0 8px 32px rgba(0,0,0,0.14), 0 4px 12px rgba(0,0,0,0.08)"
+    ],
+    "--shadow-5": [
+      "0 16px 48px rgba(0,0,0,0.20), 0 8px 24px rgba(0,0,0,0.12)"
+    ],
+    "--radius-xs": [
+      "4px"
+    ],
+    "--radius-sm": [
+      "8px"
+    ],
+    "--radius-md": [
+      "12px"
+    ],
+    "--radius-lg": [
+      "16px"
+    ],
+    "--radius-xl": [
+      "20px"
+    ],
+    "--radius-2xl": [
+      "24px"
+    ],
+    "--radius-3xl": [
+      "32px"
+    ],
+    "--radius-pill": [
+      "9999px"
+    ],
+    "--radius-circle": [
+      "50%"
+    ],
+    "--ease-bounce": [
+      "cubic-bezier(0.34, 1.56, 0.64, 1)"
+    ],
+    "--ease-elastic": [
+      "cubic-bezier(0.68, -0.55, 0.27, 1.55)"
+    ],
+    "--ease-swift": [
+      "cubic-bezier(0.55, 0, 0.1, 1)"
+    ],
+    "--nav-height": [
+      "56px"
+    ],
+    "--sidebar-width": [
+      "240px"
+    ],
+    "--width-lesson": [
+      "560px"
+    ],
+    "--width-content": [
+      "728px"
+    ],
+    "--width-wide": [
+      "960px"
+    ],
+    "--background": [
+      "var(--color-surface)"
+    ],
+    "--foreground": [
+      "var(--color-text-primary)"
+    ],
+    "--card": [
+      "var(--color-surface)"
+    ],
+    "--card-foreground": [
+      "var(--color-text-primary)"
+    ],
+    "--popover": [
+      "var(--color-surface)"
+    ],
+    "--popover-foreground": [
+      "var(--color-text-primary)"
+    ],
+    "--primary": [
+      "var(--color-primary)"
+    ],
+    "--primary-foreground": [
+      "var(--color-on-brand)"
+    ],
+    "--secondary": [
+      "var(--color-surface-alt)"
+    ],
+    "--secondary-foreground": [
+      "var(--color-text-secondary)"
+    ],
+    "--muted": [
+      "var(--color-surface-alt)"
+    ],
+    "--muted-foreground": [
+      "var(--color-text-secondary)"
+    ],
+    "--accent": [
+      "var(--color-primary-subtle)"
+    ],
+    "--accent-foreground": [
+      "var(--color-text-link)"
+    ],
+    "--destructive": [
+      "var(--color-error)"
+    ],
+    "--destructive-foreground": [
+      "var(--color-on-brand)"
+    ],
+    "--border": [
+      "var(--color-border-default)"
+    ],
+    "--input": [
+      "var(--color-border-default)"
+    ],
+    "--ring": [
+      "var(--color-border-focus)"
+    ],
+    "--radius": [
+      "var(--radius-md)"
+    ]
+  }
+}

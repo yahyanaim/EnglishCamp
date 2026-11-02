@@ -1,4 +1,5 @@
 "use client";
+import { LearningArt } from "@/components/brand/LearningArt";
 import { motion } from "framer-motion";
 import { useGoals } from "@/store/useGoals";
 import { Target } from "lucide-react";
@@ -14,7 +15,7 @@ export function WeeklyGoalWidget() {
       style={{ boxShadow: "0 3px 0 var(--color-border-default)" }}
     >
       <div className="flex items-center gap-2 mb-3">
-        <Target className="w-4 h-4" style={{ color: "var(--color-primary)" }} />
+        <LearningArt name="Target" size={16} className="w-4 h-4" />
         <span className="font-display font-bold text-sm" style={{ color: "var(--color-text-primary)" }}>Weekly Goals</span>
       </div>
 
@@ -62,7 +63,7 @@ export function WeeklyGoalWidget() {
             style={{ color: "var(--color-text-primary)" }}
             placeholder="Lessons"
           />
-          <span className="font-body text-[10px] self-center" style={{ color: "var(--color-text-disabled)" }}>Set weekly targets</span>
+          <span className="font-body text-[10px] self-center" style={{ color: "var(--color-text-secondary)" }}>Set weekly targets</span>
         </div>
       </div>
     </motion.div>

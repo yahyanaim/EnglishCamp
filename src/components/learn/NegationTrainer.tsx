@@ -1,4 +1,7 @@
 "use client";
+
+import { LearningArt } from "@/components/brand/LearningArt";
+import { PracticeCard, PracticeButton } from "@/components/ui/PracticeSurface";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useProgress } from "@/store/useProgress";
@@ -46,45 +49,45 @@ export function NegationTrainer() {
 
   function restart() { setPool([...NEG].sort(() => Math.random() - 0.5)); setCurrent(0); setScore(0); setTotal(0); setSelected(null); setAnswered(false); setCorrect(false); setDone(false); }
 
-  if (done) return <div className="text-center py-8"><span className="text-5xl block mb-3">🏆</span><h3 className="text-xl font-display font-extrabold text-[var(--color-text-primary)] mb-1">Negation Done!</h3><p className="text-lg font-display font-extrabold text-[var(--color-primary-dark)]">{score}/{total}</p><button onClick={restart} className="text-sm font-medium bg-[var(--color-primary-subtle)] text-[var(--color-primary-dark)] border border-[var(--color-primary)] px-5 py-2 rounded-[var(--radius-lg)] hover:bg-[var(--color-primary)] transition-all mt-4">Play Again 🔄</button></div>;
+  if (done) return <div data-practice-surface="result" className="practice-card text-center py-8"><LearningArt name="🏆" size={36} className=" block mb-3" /><h3 className="text-xl font-display font-extrabold text-[var(--color-text-primary)] mb-1">Negation Done!</h3><p className="text-lg font-display font-extrabold text-[var(--color-text-link)]">{score}/{total}</p><PracticeButton onClick={restart} className="text-sm font-medium bg-[var(--color-primary-subtle)] text-[var(--color-text-link)] border border-[var(--color-primary)] px-5 py-2 rounded-[var(--radius-lg)] hover:bg-[var(--color-primary)] transition-all mt-4">Play Again <LearningArt name="🔄" size={16} /></PracticeButton></div>;
   if (!item) return null;
 
   return (
-    <div className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border-2 border-[var(--color-border-default)] p-6 shadow-sm" style={{ boxShadow: "0 3px 0 var(--color-border-default)" }}>
+    <PracticeCard data-practice-surface="question" className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-6 shadow-sm" style={{ boxShadow: "0 3px 0 var(--color-border-default)" }}>
       <div className="flex items-center justify-between mb-4">
         <span className="text-xs font-display font-extrabold text-[#E0115F] uppercase tracking-wider">Negation (nicht/kein)</span>
-        <span className="text-xs text-[var(--color-text-disabled)]">{current + 1}/{pool.length}</span>
+        <span className="text-xs text-[var(--color-text-secondary)]">{current + 1}/{pool.length}</span>
       </div>
       <AnimatePresence mode="wait">
         <motion.div key={current} initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="mb-4">
           <p className="text-lg font-display font-extrabold text-[var(--color-text-primary)] font-mono">{item.sentence}</p>
-          <p className="text-xs text-[var(--color-text-disabled)] italic mt-1">{item.en}</p>
+          <p className="text-xs text-[var(--color-text-secondary)] italic mt-1">{item.en}</p>
         </motion.div>
       </AnimatePresence>
       <div className="grid grid-cols-2 gap-2 mb-4">
         {item.options.map((opt) => {
           let style = "bg-[var(--color-surface-alt)] border-[var(--color-border-default)] hover:bg-[var(--color-primary-subtle)] hover:border-[var(--color-primary)]";
           if (answered) {
-            if (opt === item.answer) style = "bg-[var(--color-success)] text-white border-[var(--color-success)] ring-2 ring-[var(--color-success)]";
-            else if (opt === selected) style = "bg-[var(--color-error)] text-white border-[var(--color-error)]";
+            if (opt === item.answer) style = "bg-[var(--color-success-bg)] text-[var(--color-text-success)] border-[var(--color-success)] ring-2 ring-[var(--color-success)]";
+            else if (opt === selected) style = "bg-[var(--color-error-bg)] text-[var(--color-text-error)] border-[var(--color-error)]";
             else style = "bg-[var(--color-surface-alt)] border-[var(--color-border-default)] opacity-50";
           }
           return (
-            <button key={opt} onClick={() => handleAnswer(opt)} disabled={answered}
-              className={`p-3 rounded-[var(--radius-lg)] border-2 text-sm font-mono font-bold transition-all ${style}`}>{opt}</button>
+            <PracticeButton key={opt} onClick={() => handleAnswer(opt)} disabled={answered}
+              className={`p-3 rounded-[var(--radius-lg)] border text-sm font-mono font-bold transition-all ${style}`}>{opt}</PracticeButton>
           );
         })}
       </div>
       {answered && (
         <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className="text-center">
-          <p className={`text-sm font-medium mb-2 ${correct ? "text-[var(--color-success)]" : "text-[var(--color-error)]"}`}>
+          <p className={`text-sm font-medium mb-2 ${correct ? "text-[var(--color-text-success)]" : "text-[var(--color-text-error)]"}`}>
             {correct ? "✓ Correct!" : `✗ Correct: "${item.answer}"`}
           </p>
-          <button onClick={next} className="text-sm font-medium bg-[var(--color-primary-subtle)] text-[var(--color-primary-dark)] border border-[var(--color-primary)] px-5 py-2 rounded-[var(--radius-lg)] hover:bg-[var(--color-primary)] transition-all">
+          <PracticeButton onClick={next} className="text-sm font-medium bg-[var(--color-primary-subtle)] text-[var(--color-text-link)] border border-[var(--color-primary)] px-5 py-2 rounded-[var(--radius-lg)] hover:bg-[var(--color-primary)] transition-all">
             {current + 1 >= pool.length ? "Results" : "Next →"}
-          </button>
+          </PracticeButton>
         </motion.div>
       )}
-    </div>
+    </PracticeCard>
   );
 }

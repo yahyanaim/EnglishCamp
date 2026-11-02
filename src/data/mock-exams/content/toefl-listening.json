@@ -1,0 +1,2196 @@
+[
+  {
+    "id": "tf2-l-router-1",
+    "title": "Listen and Choose a Response",
+    "subtitle": "Module 1",
+    "part": 1,
+    "skill": "listening",
+    "instructions": "Listen once, then choose the best answer. After moving to the next question you cannot return.",
+    "questions": [
+      {
+        "number": 1,
+        "kind": "choice",
+        "prompt": "Choose the most appropriate response.",
+        "answers": [
+          "Just past the stairs on your left."
+        ],
+        "evidence": "The speaker asks for a location; the response supplies directions.",
+        "explanation": "The speaker asks for a location; the response supplies directions.",
+        "marks": 1,
+        "options": [
+          "Just past the stairs on your left.",
+          "It finished yesterday at noon.",
+          "I usually take notes.",
+          "The desk was expensive."
+        ],
+        "id": "tf2-l-router-1-q1"
+      }
+    ],
+    "stage": "router",
+    "segments": [
+      {
+        "role": "student",
+        "text": "Could you tell me where the orientation desk is?",
+        "pauseAfter": 0.25
+      }
+    ],
+    "plays": 1
+  },
+  {
+    "id": "tf2-l-router-2",
+    "title": "Listen and Choose a Response",
+    "subtitle": "Module 1",
+    "part": 2,
+    "skill": "listening",
+    "instructions": "Listen once, then choose the best answer. After moving to the next question you cannot return.",
+    "questions": [
+      {
+        "number": 2,
+        "kind": "choice",
+        "prompt": "Choose the most appropriate response.",
+        "answers": [
+          "I will send it in a different format."
+        ],
+        "evidence": "A different file format addresses the access problem.",
+        "explanation": "A different file format addresses the access problem.",
+        "marks": 1,
+        "options": [
+          "I opened the window earlier.",
+          "I will send it in a different format.",
+          "The office closes at five.",
+          "The file cabinet is heavy."
+        ],
+        "id": "tf2-l-router-2-q1"
+      }
+    ],
+    "stage": "router",
+    "segments": [
+      {
+        "role": "student",
+        "text": "I cannot open the file you sent.",
+        "pauseAfter": 0.25
+      }
+    ],
+    "plays": 1
+  },
+  {
+    "id": "tf2-l-router-3",
+    "title": "Listen and Choose a Response",
+    "subtitle": "Module 1",
+    "part": 3,
+    "skill": "listening",
+    "instructions": "Listen once, then choose the best answer. After moving to the next question you cannot return.",
+    "questions": [
+      {
+        "number": 3,
+        "kind": "choice",
+        "prompt": "Choose the most appropriate response.",
+        "answers": [
+          "Of course, I will put it under the table."
+        ],
+        "evidence": "The reply agrees to free the chair.",
+        "explanation": "The reply agrees to free the chair.",
+        "marks": 1,
+        "options": [
+          "I bought it last month.",
+          "The journey took an hour.",
+          "Of course, I will put it under the table.",
+          "My chair is made of wood."
+        ],
+        "id": "tf2-l-router-3-q1"
+      }
+    ],
+    "stage": "router",
+    "segments": [
+      {
+        "role": "student",
+        "text": "Would you mind moving your bag from this chair?",
+        "pauseAfter": 0.25
+      }
+    ],
+    "plays": 1
+  },
+  {
+    "id": "tf2-l-router-4",
+    "title": "Listen and Choose a Response",
+    "subtitle": "Module 1",
+    "part": 4,
+    "skill": "listening",
+    "instructions": "Listen once, then choose the best answer. After moving to the next question you cannot return.",
+    "questions": [
+      {
+        "number": 4,
+        "kind": "choice",
+        "prompt": "Choose the most appropriate response.",
+        "answers": [
+          "Yes, it is now on Friday."
+        ],
+        "evidence": "The reply confirms a change of date.",
+        "explanation": "The reply confirms a change of date.",
+        "marks": 1,
+        "options": [
+          "The post office is nearby.",
+          "I prefer sitting at the back.",
+          "The speaker has a new book.",
+          "Yes, it is now on Friday."
+        ],
+        "id": "tf2-l-router-4-q1"
+      }
+    ],
+    "stage": "router",
+    "segments": [
+      {
+        "role": "student",
+        "text": "Has the seminar been postponed?",
+        "pauseAfter": 0.25
+      }
+    ],
+    "plays": 1
+  },
+  {
+    "id": "tf2-l-router-5",
+    "title": "Listen and Choose a Response",
+    "subtitle": "Module 1",
+    "part": 5,
+    "skill": "listening",
+    "instructions": "Listen once, then choose the best answer. After moving to the next question you cannot return.",
+    "questions": [
+      {
+        "number": 5,
+        "kind": "choice",
+        "prompt": "Choose the most appropriate response.",
+        "answers": [
+          "The deadline was extended to Monday."
+        ],
+        "evidence": "The correction addresses the application deadline.",
+        "explanation": "The correction addresses the application deadline.",
+        "marks": 1,
+        "options": [
+          "The deadline was extended to Monday.",
+          "I applied some paint yesterday.",
+          "The door is on the right.",
+          "Tomorrow is a long word."
+        ],
+        "id": "tf2-l-router-5-q1"
+      }
+    ],
+    "stage": "router",
+    "segments": [
+      {
+        "role": "student",
+        "text": "I thought the application was due tomorrow.",
+        "pauseAfter": 0.25
+      }
+    ],
+    "plays": 1
+  },
+  {
+    "id": "tf2-l-router-6",
+    "title": "Listen and Choose a Response",
+    "subtitle": "Module 1",
+    "part": 6,
+    "skill": "listening",
+    "instructions": "Listen once, then choose the best answer. After moving to the next question you cannot return.",
+    "questions": [
+      {
+        "number": 6,
+        "kind": "choice",
+        "prompt": "Choose the most appropriate response.",
+        "answers": [
+          "Better than I expected, thanks."
+        ],
+        "evidence": "How did it go asks about the outcome, not a route.",
+        "explanation": "How did it go asks about the outcome, not a route.",
+        "marks": 1,
+        "options": [
+          "Through the main entrance.",
+          "Better than I expected, thanks.",
+          "At two o’clock tomorrow.",
+          "A new projector is on order."
+        ],
+        "id": "tf2-l-router-6-q1"
+      }
+    ],
+    "stage": "router",
+    "segments": [
+      {
+        "role": "student",
+        "text": "How did your presentation go?",
+        "pauseAfter": 0.25
+      }
+    ],
+    "plays": 1
+  },
+  {
+    "id": "tf2-l-router-7",
+    "title": "Listen and Choose a Response",
+    "subtitle": "Module 1",
+    "part": 7,
+    "skill": "listening",
+    "instructions": "Listen once, then choose the best answer. After moving to the next question you cannot return.",
+    "questions": [
+      {
+        "number": 7,
+        "kind": "choice",
+        "prompt": "Choose the most appropriate response.",
+        "answers": [
+          "There is an empty room upstairs."
+        ],
+        "evidence": "The empty room offers a quieter meeting place.",
+        "explanation": "The empty room offers a quieter meeting place.",
+        "marks": 1,
+        "options": [
+          "We have already met twice.",
+          "The meeting lasts an hour.",
+          "There is an empty room upstairs.",
+          "I study three subjects."
+        ],
+        "id": "tf2-l-router-7-q1"
+      }
+    ],
+    "stage": "router",
+    "segments": [
+      {
+        "role": "student",
+        "text": "Can we meet somewhere quieter?",
+        "pauseAfter": 0.25
+      }
+    ],
+    "plays": 1
+  },
+  {
+    "id": "tf2-l-router-8",
+    "title": "Listen and Choose a Response",
+    "subtitle": "Module 1",
+    "part": 8,
+    "skill": "listening",
+    "instructions": "Listen once, then choose the best answer. After moving to the next question you cannot return.",
+    "questions": [
+      {
+        "number": 8,
+        "kind": "choice",
+        "prompt": "Choose the most appropriate response.",
+        "answers": [
+          "I left it at reception this morning."
+        ],
+        "evidence": "The reply identifies when and where the key was returned.",
+        "explanation": "The reply identifies when and where the key was returned.",
+        "marks": 1,
+        "options": [
+          "The lab studies water.",
+          "I returned from holiday.",
+          "It is a very small key.",
+          "I left it at reception this morning."
+        ],
+        "id": "tf2-l-router-8-q1"
+      }
+    ],
+    "stage": "router",
+    "segments": [
+      {
+        "role": "student",
+        "text": "You have not returned the lab key, have you?",
+        "pauseAfter": 0.25
+      }
+    ],
+    "plays": 1
+  },
+  {
+    "id": "tf2-l-router-9",
+    "title": "Listen and Choose a Response",
+    "subtitle": "Module 1",
+    "part": 9,
+    "skill": "listening",
+    "instructions": "Listen once, then choose the best answer. After moving to the next question you cannot return.",
+    "questions": [
+      {
+        "number": 9,
+        "kind": "choice",
+        "prompt": "Choose the most appropriate response.",
+        "answers": [
+          "That is a good idea; I will do that."
+        ],
+        "evidence": "Why not makes a suggestion; the reply accepts it.",
+        "explanation": "Why not makes a suggestion; the reply accepts it.",
+        "marks": 1,
+        "options": [
+          "That is a good idea; I will do that.",
+          "The books are in alphabetical order.",
+          "My library card is blue.",
+          "I walked here yesterday."
+        ],
+        "id": "tf2-l-router-9-q1"
+      }
+    ],
+    "stage": "router",
+    "segments": [
+      {
+        "role": "student",
+        "text": "Why not ask the librarian for help?",
+        "pauseAfter": 0.25
+      }
+    ],
+    "plays": 1
+  },
+  {
+    "id": "tf2-l-router-10",
+    "title": "Listen and Choose a Response",
+    "subtitle": "Module 1",
+    "part": 10,
+    "skill": "listening",
+    "instructions": "Listen once, then choose the best answer. After moving to the next question you cannot return.",
+    "questions": [
+      {
+        "number": 10,
+        "kind": "choice",
+        "prompt": "Choose the most appropriate response.",
+        "answers": [
+          "I can check the booking page."
+        ],
+        "evidence": "The reply offers to check availability.",
+        "explanation": "The reply offers to check availability.",
+        "marks": 1,
+        "options": [
+          "The room is on the left.",
+          "I can check the booking page.",
+          "The lecture was fascinating.",
+          "I left my seat near the door."
+        ],
+        "id": "tf2-l-router-10-q1"
+      }
+    ],
+    "stage": "router",
+    "segments": [
+      {
+        "role": "student",
+        "text": "Do you know if there are any seats left?",
+        "pauseAfter": 0.25
+      }
+    ],
+    "plays": 1
+  },
+  {
+    "id": "tf2-l-router-11",
+    "title": "Listen and Choose a Response",
+    "subtitle": "Module 1",
+    "part": 11,
+    "skill": "listening",
+    "instructions": "Listen once, then choose the best answer. After moving to the next question you cannot return.",
+    "questions": [
+      {
+        "number": 11,
+        "kind": "choice",
+        "prompt": "Choose the most appropriate response.",
+        "answers": [
+          "You are welcome; I was glad to help."
+        ],
+        "evidence": "The appropriate response acknowledges thanks.",
+        "explanation": "The appropriate response acknowledges thanks.",
+        "marks": 1,
+        "options": [
+          "I covered the box with paper.",
+          "The shift starts at nine.",
+          "You are welcome; I was glad to help.",
+          "Yesterday was Tuesday."
+        ],
+        "id": "tf2-l-router-11-q1"
+      }
+    ],
+    "stage": "router",
+    "segments": [
+      {
+        "role": "student",
+        "text": "Thanks for covering my shift yesterday.",
+        "pauseAfter": 0.25
+      }
+    ],
+    "plays": 1
+  },
+  {
+    "id": "tf2-l-lower-1",
+    "title": "Listen and Choose a Response",
+    "subtitle": "Module 2 · Foundation route",
+    "part": 1,
+    "skill": "listening",
+    "instructions": "Listen once, then choose the best answer. After moving to the next question you cannot return.",
+    "questions": [
+      {
+        "number": 1,
+        "kind": "choice",
+        "prompt": "Choose the most appropriate response.",
+        "answers": [
+          "At eight in the morning."
+        ],
+        "evidence": "The question asks for opening time.",
+        "explanation": "The question asks for opening time.",
+        "marks": 1,
+        "options": [
+          "At eight in the morning.",
+          "Beside the new building.",
+          "A cup of coffee, please.",
+          "It is a small cafe."
+        ],
+        "id": "tf2-l-lower-1-q1"
+      }
+    ],
+    "stage": "lower",
+    "segments": [
+      {
+        "role": "student",
+        "text": "What time does the cafe open?",
+        "pauseAfter": 0.25
+      }
+    ],
+    "plays": 1
+  },
+  {
+    "id": "tf2-l-lower-2",
+    "title": "Listen and Choose a Response",
+    "subtitle": "Module 2 · Foundation route",
+    "part": 2,
+    "skill": "listening",
+    "instructions": "Listen once, then choose the best answer. After moving to the next question you cannot return.",
+    "questions": [
+      {
+        "number": 2,
+        "kind": "choice",
+        "prompt": "Choose the most appropriate response.",
+        "answers": [
+          "No, please sit down."
+        ],
+        "evidence": "The reply offers the available seat.",
+        "explanation": "The reply offers the available seat.",
+        "marks": 1,
+        "options": [
+          "The journey was short.",
+          "No, please sit down.",
+          "I took the bus.",
+          "The room is upstairs."
+        ],
+        "id": "tf2-l-lower-2-q1"
+      }
+    ],
+    "stage": "lower",
+    "segments": [
+      {
+        "role": "student",
+        "text": "Is this seat taken?",
+        "pauseAfter": 0.25
+      }
+    ],
+    "plays": 1
+  },
+  {
+    "id": "tf2-l-lower-3",
+    "title": "Listen and Choose a Response",
+    "subtitle": "Module 2 · Foundation route",
+    "part": 3,
+    "skill": "listening",
+    "instructions": "Listen once, then choose the best answer. After moving to the next question you cannot return.",
+    "questions": [
+      {
+        "number": 3,
+        "kind": "choice",
+        "prompt": "Choose the most appropriate response.",
+        "answers": [
+          "At the library service desk."
+        ],
+        "evidence": "The question asks for a return location.",
+        "explanation": "The question asks for a return location.",
+        "marks": 1,
+        "options": [
+          "It has ten chapters.",
+          "I read it last year.",
+          "At the library service desk.",
+          "The cover is green."
+        ],
+        "id": "tf2-l-lower-3-q1"
+      }
+    ],
+    "stage": "lower",
+    "segments": [
+      {
+        "role": "student",
+        "text": "Where should I return this book?",
+        "pauseAfter": 0.25
+      }
+    ],
+    "plays": 1
+  },
+  {
+    "id": "tf2-l-lower-4",
+    "title": "Listen and Choose a Response",
+    "subtitle": "Module 2 · Foundation route",
+    "part": 4,
+    "skill": "listening",
+    "instructions": "Listen once, then choose the best answer. After moving to the next question you cannot return.",
+    "questions": [
+      {
+        "number": 4,
+        "kind": "choice",
+        "prompt": "Choose the most appropriate response.",
+        "answers": [
+          "You should report it to reception."
+        ],
+        "evidence": "Reporting a lost card addresses the problem.",
+        "explanation": "Reporting a lost card addresses the problem.",
+        "marks": 1,
+        "options": [
+          "I study in the afternoon.",
+          "That is a large card.",
+          "The class is difficult.",
+          "You should report it to reception."
+        ],
+        "id": "tf2-l-lower-4-q1"
+      }
+    ],
+    "stage": "lower",
+    "segments": [
+      {
+        "role": "student",
+        "text": "I have lost my student card.",
+        "pauseAfter": 0.25
+      }
+    ],
+    "plays": 1
+  },
+  {
+    "id": "tf2-l-lower-5",
+    "title": "Listen and Choose a Response",
+    "subtitle": "Module 2 · Foundation route",
+    "part": 5,
+    "skill": "listening",
+    "instructions": "Listen once, then choose the best answer. After moving to the next question you cannot return.",
+    "questions": [
+      {
+        "number": 5,
+        "kind": "choice",
+        "prompt": "Choose the most appropriate response.",
+        "answers": [
+          "Yes, please."
+        ],
+        "evidence": "The speaker is offering a drink.",
+        "explanation": "The speaker is offering a drink.",
+        "marks": 1,
+        "options": [
+          "Yes, please.",
+          "The river is deep.",
+          "I like to swim.",
+          "It rained yesterday."
+        ],
+        "id": "tf2-l-lower-5-q1"
+      }
+    ],
+    "stage": "lower",
+    "segments": [
+      {
+        "role": "student",
+        "text": "Would you like some water?",
+        "pauseAfter": 0.25
+      }
+    ],
+    "plays": 1
+  },
+  {
+    "id": "tf2-l-lower-6",
+    "title": "Listen and Choose a Response",
+    "subtitle": "Module 2 · Foundation route",
+    "part": 6,
+    "skill": "listening",
+    "instructions": "Listen once, then choose the best answer. After moving to the next question you cannot return.",
+    "questions": [
+      {
+        "number": 6,
+        "kind": "choice",
+        "prompt": "Choose the most appropriate response.",
+        "answers": [
+          "Sure, which side should I take?"
+        ],
+        "evidence": "The reply agrees and asks how to help.",
+        "explanation": "The reply agrees and asks how to help.",
+        "marks": 1,
+        "options": [
+          "I bought two boxes.",
+          "Sure, which side should I take?",
+          "The corridor is wide.",
+          "It arrived by post."
+        ],
+        "id": "tf2-l-lower-6-q1"
+      }
+    ],
+    "stage": "lower",
+    "segments": [
+      {
+        "role": "student",
+        "text": "Can you help me carry this box?",
+        "pauseAfter": 0.25
+      }
+    ],
+    "plays": 1
+  },
+  {
+    "id": "tf2-l-lower-7",
+    "title": "Listen and Choose a Response",
+    "subtitle": "Module 2 · Foundation route",
+    "part": 7,
+    "skill": "listening",
+    "instructions": "Listen once, then choose the best answer. After moving to the next question you cannot return.",
+    "questions": [
+      {
+        "number": 7,
+        "kind": "choice",
+        "prompt": "Choose the most appropriate response.",
+        "answers": [
+          "Yes, I will be there at three."
+        ],
+        "evidence": "The response confirms attendance.",
+        "explanation": "The response confirms attendance.",
+        "marks": 1,
+        "options": [
+          "We met last month.",
+          "The room has chairs.",
+          "Yes, I will be there at three.",
+          "It is made of wood."
+        ],
+        "id": "tf2-l-lower-7-q1"
+      }
+    ],
+    "stage": "lower",
+    "segments": [
+      {
+        "role": "student",
+        "text": "Are you going to the meeting?",
+        "pauseAfter": 0.25
+      }
+    ],
+    "plays": 1
+  },
+  {
+    "id": "tf2-l-lower-8",
+    "title": "Listen and Choose a Response",
+    "subtitle": "Module 2 · Foundation route",
+    "part": 8,
+    "skill": "listening",
+    "instructions": "Listen once, then choose the best answer. After moving to the next question you cannot return.",
+    "questions": [
+      {
+        "number": 8,
+        "kind": "choice",
+        "prompt": "Choose the most appropriate response.",
+        "answers": [
+          "Every twenty minutes."
+        ],
+        "evidence": "How often asks for frequency.",
+        "explanation": "How often asks for frequency.",
+        "marks": 1,
+        "options": [
+          "Along the main road.",
+          "At the bus station.",
+          "I ran yesterday.",
+          "Every twenty minutes."
+        ],
+        "id": "tf2-l-lower-8-q1"
+      }
+    ],
+    "stage": "lower",
+    "segments": [
+      {
+        "role": "student",
+        "text": "How often does the bus run?",
+        "pauseAfter": 0.25
+      }
+    ],
+    "plays": 1
+  },
+  {
+    "id": "tf2-l-lower-9",
+    "title": "Listen and Choose a Response",
+    "subtitle": "Module 2 · Foundation route",
+    "part": 9,
+    "skill": "listening",
+    "instructions": "Listen once, then choose the best answer. After moving to the next question you cannot return.",
+    "questions": [
+      {
+        "number": 9,
+        "kind": "choice",
+        "prompt": "Choose the most appropriate response.",
+        "answers": [
+          "All right, I will close it."
+        ],
+        "evidence": "The reply agrees to the request.",
+        "explanation": "The reply agrees to the request.",
+        "marks": 1,
+        "options": [
+          "All right, I will close it.",
+          "The glass is clean.",
+          "I live near a window.",
+          "The shop window is large."
+        ],
+        "id": "tf2-l-lower-9-q1"
+      }
+    ],
+    "stage": "lower",
+    "segments": [
+      {
+        "role": "student",
+        "text": "Please close the window.",
+        "pauseAfter": 0.25
+      }
+    ],
+    "plays": 1
+  },
+  {
+    "id": "tf2-l-lower-10",
+    "title": "Listen and Choose a Response",
+    "subtitle": "Module 2 · Foundation route",
+    "part": 10,
+    "skill": "listening",
+    "instructions": "Listen once, then choose the best answer. After moving to the next question you cannot return.",
+    "questions": [
+      {
+        "number": 10,
+        "kind": "choice",
+        "prompt": "Choose the most appropriate response.",
+        "answers": [
+          "Yes, the final song was excellent."
+        ],
+        "evidence": "The reply gives an evaluation of the concert.",
+        "explanation": "The reply gives an evaluation of the concert.",
+        "marks": 1,
+        "options": [
+          "At the concert hall.",
+          "Yes, the final song was excellent.",
+          "It begins tomorrow.",
+          "I bought a ticket online."
+        ],
+        "id": "tf2-l-lower-10-q1"
+      }
+    ],
+    "stage": "lower",
+    "segments": [
+      {
+        "role": "student",
+        "text": "Did you enjoy the concert?",
+        "pauseAfter": 0.25
+      }
+    ],
+    "plays": 1
+  },
+  {
+    "id": "tf2-l-lower-11",
+    "title": "Listen and Choose a Response",
+    "subtitle": "Module 2 · Foundation route",
+    "part": 11,
+    "skill": "listening",
+    "instructions": "Listen once, then choose the best answer. After moving to the next question you cannot return.",
+    "questions": [
+      {
+        "number": 11,
+        "kind": "choice",
+        "prompt": "Choose the most appropriate response.",
+        "answers": [
+          "That is okay; we have not started."
+        ],
+        "evidence": "The reply acknowledges the apology.",
+        "explanation": "The reply acknowledges the apology.",
+        "marks": 1,
+        "options": [
+          "The clock has stopped.",
+          "The journey is by train.",
+          "That is okay; we have not started.",
+          "It is on the second floor."
+        ],
+        "id": "tf2-l-lower-11-q1"
+      }
+    ],
+    "stage": "lower",
+    "segments": [
+      {
+        "role": "student",
+        "text": "I am sorry I am late.",
+        "pauseAfter": 0.25
+      }
+    ],
+    "plays": 1
+  },
+  {
+    "id": "tf2-l-lower-12",
+    "title": "Listen and Choose a Response",
+    "subtitle": "Module 2 · Foundation route",
+    "part": 12,
+    "skill": "listening",
+    "instructions": "Listen once, then choose the best answer. After moving to the next question you cannot return.",
+    "questions": [
+      {
+        "number": 12,
+        "kind": "choice",
+        "prompt": "Choose the most appropriate response.",
+        "answers": [
+          "Room twenty-six."
+        ],
+        "evidence": "The question asks for a room.",
+        "explanation": "The question asks for a room.",
+        "marks": 1,
+        "options": [
+          "It lasts two hours.",
+          "I take three classes.",
+          "The teacher is new.",
+          "Room twenty-six."
+        ],
+        "id": "tf2-l-lower-12-q1"
+      }
+    ],
+    "stage": "lower",
+    "segments": [
+      {
+        "role": "student",
+        "text": "Which room is the class in?",
+        "pauseAfter": 0.25
+      }
+    ],
+    "plays": 1
+  },
+  {
+    "id": "tf2-l-upper-1",
+    "title": "Listen and Choose a Response",
+    "subtitle": "Module 2 · Challenge route",
+    "part": 1,
+    "skill": "listening",
+    "instructions": "Listen once, then choose the best answer. After moving to the next question you cannot return.",
+    "questions": [
+      {
+        "number": 1,
+        "kind": "choice",
+        "prompt": "Choose the most appropriate response.",
+        "answers": [
+          "Perhaps we should qualify the claim."
+        ],
+        "evidence": "The speaker questions certainty; qualifying the claim addresses that concern.",
+        "explanation": "The speaker questions certainty; qualifying the claim addresses that concern.",
+        "marks": 1,
+        "options": [
+          "Perhaps we should qualify the claim.",
+          "The building has strong walls.",
+          "I concluded the meeting at noon.",
+          "The evidence is in a blue folder, so it is correct."
+        ],
+        "id": "tf2-l-upper-1-q1"
+      }
+    ],
+    "stage": "upper",
+    "segments": [
+      {
+        "role": "student",
+        "text": "I am not sure the evidence supports such a strong conclusion.",
+        "pauseAfter": 0.25
+      }
+    ],
+    "plays": 1
+  },
+  {
+    "id": "tf2-l-upper-2",
+    "title": "Listen and Choose a Response",
+    "subtitle": "Module 2 · Challenge route",
+    "part": 2,
+    "skill": "listening",
+    "instructions": "Listen once, then choose the best answer. After moving to the next question you cannot return.",
+    "questions": [
+      {
+        "number": 2,
+        "kind": "choice",
+        "prompt": "Choose the most appropriate response.",
+        "answers": [
+          "Not at all; I will send it this afternoon."
+        ],
+        "evidence": "The indirect request is to distribute the revision.",
+        "explanation": "The indirect request is to distribute the revision.",
+        "marks": 1,
+        "options": [
+          "The circular room is downstairs.",
+          "Not at all; I will send it this afternoon.",
+          "The original schedule was printed on paper.",
+          "I usually travel by train."
+        ],
+        "id": "tf2-l-upper-2-q1"
+      }
+    ],
+    "stage": "upper",
+    "segments": [
+      {
+        "role": "student",
+        "text": "Would it be too much trouble to circulate the revised schedule?",
+        "pauseAfter": 0.25
+      }
+    ],
+    "plays": 1
+  },
+  {
+    "id": "tf2-l-upper-3",
+    "title": "Listen and Choose a Response",
+    "subtitle": "Module 2 · Challenge route",
+    "part": 3,
+    "skill": "listening",
+    "instructions": "Listen once, then choose the best answer. After moving to the next question you cannot return.",
+    "questions": [
+      {
+        "number": 3,
+        "kind": "choice",
+        "prompt": "Choose the most appropriate response.",
+        "answers": [
+          "It is taking longer than we expected, isn’t it?"
+        ],
+        "evidence": "So much for signals disappointment about the earlier expectation.",
+        "explanation": "So much for signals disappointment about the earlier expectation.",
+        "marks": 1,
+        "options": [
+          "Lunch is served in the cafeteria.",
+          "We have plenty of food.",
+          "It is taking longer than we expected, isn’t it?",
+          "I finished my lunch yesterday."
+        ],
+        "id": "tf2-l-upper-3-q1"
+      }
+    ],
+    "stage": "upper",
+    "segments": [
+      {
+        "role": "student",
+        "text": "So much for finishing before lunch.",
+        "pauseAfter": 0.25
+      }
+    ],
+    "plays": 1
+  },
+  {
+    "id": "tf2-l-upper-4",
+    "title": "Listen and Choose a Response",
+    "subtitle": "Module 2 · Challenge route",
+    "part": 4,
+    "skill": "listening",
+    "instructions": "Listen once, then choose the best answer. After moving to the next question you cannot return.",
+    "questions": [
+      {
+        "number": 4,
+        "kind": "choice",
+        "prompt": "Choose the most appropriate response.",
+        "answers": [
+          "Yes, let us wait for confirmation."
+        ],
+        "evidence": "Hold off means delay; the reply agrees to wait.",
+        "explanation": "Hold off means delay; the reply agrees to wait.",
+        "marks": 1,
+        "options": [
+          "The publication has a glossy cover.",
+          "The figures are standing outside.",
+          "I can hold the door open.",
+          "Yes, let us wait for confirmation."
+        ],
+        "id": "tf2-l-upper-4-q1"
+      }
+    ],
+    "stage": "upper",
+    "segments": [
+      {
+        "role": "student",
+        "text": "Could we hold off on publishing until the figures are checked?",
+        "pauseAfter": 0.25
+      }
+    ],
+    "plays": 1
+  },
+  {
+    "id": "tf2-l-upper-5",
+    "title": "Listen and Choose a Response",
+    "subtitle": "Module 2 · Challenge route",
+    "part": 5,
+    "skill": "listening",
+    "instructions": "Listen once, then choose the best answer. After moving to the next question you cannot return.",
+    "questions": [
+      {
+        "number": 5,
+        "kind": "choice",
+        "prompt": "Choose the most appropriate response.",
+        "answers": [
+          "Actually, there is one in my bag you can borrow."
+        ],
+        "evidence": "This is a polite indirect request to borrow a charger.",
+        "explanation": "This is a polite indirect request to borrow a charger.",
+        "marks": 1,
+        "options": [
+          "Actually, there is one in my bag you can borrow.",
+          "I charged the customer yesterday.",
+          "The lecture begins shortly.",
+          "Spare time is important."
+        ],
+        "id": "tf2-l-upper-5-q1"
+      }
+    ],
+    "stage": "upper",
+    "segments": [
+      {
+        "role": "student",
+        "text": "You would not happen to have a spare charger, would you?",
+        "pauseAfter": 0.25
+      }
+    ],
+    "plays": 1
+  },
+  {
+    "id": "tf2-l-upper-6",
+    "title": "Listen and Choose a Response",
+    "subtitle": "Module 2 · Challenge route",
+    "part": 6,
+    "skill": "listening",
+    "instructions": "Listen once, then choose the best answer. After moving to the next question you cannot return.",
+    "questions": [
+      {
+        "number": 6,
+        "kind": "choice",
+        "prompt": "Choose the most appropriate response.",
+        "answers": [
+          "I am sorry; I should have let you know."
+        ],
+        "evidence": "The speaker missed information; an apology acknowledges that.",
+        "explanation": "The speaker missed information; an apology acknowledges that.",
+        "marks": 1,
+        "options": [
+          "We changed trains at the station.",
+          "I am sorry; I should have let you know.",
+          "The group is joining two tables.",
+          "I will know the answer tomorrow."
+        ],
+        "id": "tf2-l-upper-6-q1"
+      }
+    ],
+    "stage": "upper",
+    "segments": [
+      {
+        "role": "student",
+        "text": "I would have joined you if I had known about the change.",
+        "pauseAfter": 0.25
+      }
+    ],
+    "plays": 1
+  },
+  {
+    "id": "tf2-l-upper-7",
+    "title": "Listen and Choose a Response",
+    "subtitle": "Module 2 · Challenge route",
+    "part": 7,
+    "skill": "listening",
+    "instructions": "Listen once, then choose the best answer. After moving to the next question you cannot return.",
+    "questions": [
+      {
+        "number": 7,
+        "kind": "choice",
+        "prompt": "Choose the most appropriate response.",
+        "answers": [
+          "Possibly; we should settle the budget first."
+        ],
+        "evidence": "Getting ahead of ourselves means acting before prerequisites are settled.",
+        "explanation": "Getting ahead of ourselves means acting before prerequisites are settled.",
+        "marks": 1,
+        "options": [
+          "The front row is empty.",
+          "We are walking very quickly.",
+          "Possibly; we should settle the budget first.",
+          "The heading is in bold type."
+        ],
+        "id": "tf2-l-upper-7-q1"
+      }
+    ],
+    "stage": "upper",
+    "segments": [
+      {
+        "role": "student",
+        "text": "Do you think we are getting ahead of ourselves?",
+        "pauseAfter": 0.25
+      }
+    ],
+    "plays": 1
+  },
+  {
+    "id": "tf2-l-upper-8",
+    "title": "Listen and Choose a Response",
+    "subtitle": "Module 2 · Challenge route",
+    "part": 8,
+    "skill": "listening",
+    "instructions": "Listen once, then choose the best answer. After moving to the next question you cannot return.",
+    "questions": [
+      {
+        "number": 8,
+        "kind": "choice",
+        "prompt": "Choose the most appropriate response.",
+        "answers": [
+          "Which points would you like me to clarify?"
+        ],
+        "evidence": "The reply invites clarification of unresolved points.",
+        "explanation": "The reply invites clarification of unresolved points.",
+        "marks": 1,
+        "options": [
+          "The answer sheet is on the desk.",
+          "The question mark is missing.",
+          "I left the room early.",
+          "Which points would you like me to clarify?"
+        ],
+        "id": "tf2-l-upper-8-q1"
+      }
+    ],
+    "stage": "upper",
+    "segments": [
+      {
+        "role": "student",
+        "text": "That explanation leaves a few questions unanswered.",
+        "pauseAfter": 0.25
+      }
+    ],
+    "plays": 1
+  },
+  {
+    "id": "tf2-l-upper-9",
+    "title": "Listen and Choose a Response",
+    "subtitle": "Module 2 · Challenge route",
+    "part": 9,
+    "skill": "listening",
+    "instructions": "Listen once, then choose the best answer. After moving to the next question you cannot return.",
+    "questions": [
+      {
+        "number": 9,
+        "kind": "choice",
+        "prompt": "Choose the most appropriate response.",
+        "answers": [
+          "Then we should decide what we really need to keep."
+        ],
+        "evidence": "The speaker highlights a constraint; prioritising storage responds to it.",
+        "explanation": "The speaker highlights a constraint; prioritising storage responds to it.",
+        "marks": 1,
+        "options": [
+          "Then we should decide what we really need to keep.",
+          "The store sells notebooks.",
+          "The limit is written in large letters.",
+          "I have not visited the shop."
+        ],
+        "id": "tf2-l-upper-9-q1"
+      }
+    ],
+    "stage": "upper",
+    "segments": [
+      {
+        "role": "student",
+        "text": "It is not as though we have unlimited storage.",
+        "pauseAfter": 0.25
+      }
+    ],
+    "plays": 1
+  },
+  {
+    "id": "tf2-l-upper-10",
+    "title": "Listen and Choose a Response",
+    "subtitle": "Module 2 · Challenge route",
+    "part": 10,
+    "skill": "listening",
+    "instructions": "Listen once, then choose the best answer. After moving to the next question you cannot return.",
+    "questions": [
+      {
+        "number": 10,
+        "kind": "choice",
+        "prompt": "Choose the most appropriate response.",
+        "answers": [
+          "Actually, the funder has said it cannot be moved."
+        ],
+        "evidence": "I take it states an assumption; the reply corrects that assumption.",
+        "explanation": "I take it states an assumption; the reply corrects that assumption.",
+        "marks": 1,
+        "options": [
+          "I took the bus this morning.",
+          "Actually, the funder has said it cannot be moved.",
+          "The line is painted yellow.",
+          "I usually negotiate prices."
+        ],
+        "id": "tf2-l-upper-10-q1"
+      }
+    ],
+    "stage": "upper",
+    "segments": [
+      {
+        "role": "student",
+        "text": "I take it the deadline is still negotiable.",
+        "pauseAfter": 0.25
+      }
+    ],
+    "plays": 1
+  },
+  {
+    "id": "tf2-l-upper-11",
+    "title": "Listen and Choose a Response",
+    "subtitle": "Module 2 · Challenge route",
+    "part": 11,
+    "skill": "listening",
+    "instructions": "Listen once, then choose the best answer. After moving to the next question you cannot return.",
+    "questions": [
+      {
+        "number": 11,
+        "kind": "choice",
+        "prompt": "Choose the most appropriate response.",
+        "answers": [
+          "Certainly; the first step is to register the request."
+        ],
+        "evidence": "Talk me through asks for a step-by-step explanation.",
+        "explanation": "Talk me through asks for a step-by-step explanation.",
+        "marks": 1,
+        "options": [
+          "I spoke through a microphone.",
+          "The corridor is on your left.",
+          "Certainly; the first step is to register the request.",
+          "The revision uses blue ink."
+        ],
+        "id": "tf2-l-upper-11-q1"
+      }
+    ],
+    "stage": "upper",
+    "segments": [
+      {
+        "role": "student",
+        "text": "Could you talk me through the revised procedure?",
+        "pauseAfter": 0.25
+      }
+    ],
+    "plays": 1
+  },
+  {
+    "id": "tf2-l-upper-12",
+    "title": "Listen and Choose a Response",
+    "subtitle": "Module 2 · Challenge route",
+    "part": 12,
+    "skill": "listening",
+    "instructions": "Listen once, then choose the best answer. After moving to the next question you cannot return.",
+    "questions": [
+      {
+        "number": 12,
+        "kind": "choice",
+        "prompt": "Choose the most appropriate response.",
+        "answers": [
+          "Has the original room become unavailable?"
+        ],
+        "evidence": "The follow-up asks what new circumstance motivates reconsideration.",
+        "explanation": "The follow-up asks what new circumstance motivates reconsideration.",
+        "marks": 1,
+        "options": [
+          "The venue has a roof.",
+          "I thought about the exam.",
+          "It is called Central Hall.",
+          "Has the original room become unavailable?"
+        ],
+        "id": "tf2-l-upper-12-q1"
+      }
+    ],
+    "stage": "upper",
+    "segments": [
+      {
+        "role": "student",
+        "text": "We may need to rethink the venue after all.",
+        "pauseAfter": 0.25
+      }
+    ],
+    "plays": 1
+  },
+  {
+    "id": "tf2-l-router-12",
+    "title": "Conversation — Equipment booking",
+    "subtitle": "Module 1",
+    "part": 12,
+    "skill": "listening",
+    "instructions": "Listen once, then choose the best answer. After moving to the next question you cannot return.",
+    "questions": [
+      {
+        "number": 12,
+        "kind": "choice",
+        "prompt": "Why does the student need help?",
+        "answers": [
+          "The collection deadline conflicts with a class."
+        ],
+        "evidence": "The student is in class until noon, after the normal eleven deadline.",
+        "explanation": "The student is in class until noon, after the normal eleven deadline.",
+        "marks": 1,
+        "options": [
+          "The collection deadline conflicts with a class.",
+          "The field project has been cancelled.",
+          "The recorder has already been lost.",
+          "The class needs a new teacher."
+        ],
+        "id": "tf2-l-router-12-q1"
+      },
+      {
+        "number": 13,
+        "kind": "choice",
+        "prompt": "Why can collection be extended?",
+        "answers": [
+          "There is no later booking that day."
+        ],
+        "evidence": "The coordinator checks and finds no later booking.",
+        "explanation": "The coordinator checks and finds no later booking.",
+        "marks": 1,
+        "options": [
+          "The office never closes.",
+          "There is no later booking that day.",
+          "The student offers to buy batteries.",
+          "The project lasts a month."
+        ],
+        "id": "tf2-l-router-12-q2"
+      },
+      {
+        "number": 14,
+        "kind": "choice",
+        "prompt": "What should the student do before leaving?",
+        "answers": [
+          "Test both batteries and check the case."
+        ],
+        "evidence": "The coordinator asks for battery testing and a check for missing items.",
+        "explanation": "The coordinator asks for battery testing and a check for missing items.",
+        "marks": 1,
+        "options": [
+          "Delete all files without copying.",
+          "Buy a different recorder.",
+          "Test both batteries and check the case.",
+          "Return the card permanently."
+        ],
+        "id": "tf2-l-router-12-q3"
+      },
+      {
+        "number": 15,
+        "kind": "choice",
+        "prompt": "Why is a ten o’clock return important?",
+        "answers": [
+          "Another group needs the recorder soon afterwards."
+        ],
+        "evidence": "The following booking requires a timely return.",
+        "explanation": "The following booking requires a timely return.",
+        "marks": 1,
+        "options": [
+          "The building closes permanently then.",
+          "The student has no class.",
+          "The battery can charge only then.",
+          "Another group needs the recorder soon afterwards."
+        ],
+        "id": "tf2-l-router-12-q4"
+      }
+    ],
+    "stage": "router",
+    "segments": [
+      {
+        "role": "student",
+        "text": "I booked a recorder for our field project, but the confirmation says I must collect it before eleven. Our class does not finish until noon. Could I pick it up afterwards?",
+        "pauseAfter": 0.25
+      },
+      {
+        "role": "coordinator",
+        "text": "Normally uncollected equipment is released at eleven. Let me see whether another group has reserved it. There is no later booking today, so I can extend your collection time to one. Please bring your student card.",
+        "pauseAfter": 0.25
+      },
+      {
+        "role": "student",
+        "text": "Thank you. Do I need to buy batteries? We will be outside all afternoon.",
+        "pauseAfter": 0.25
+      },
+      {
+        "role": "coordinator",
+        "text": "The recorder has a rechargeable battery. We include a charged spare, but test both before you leave. The quick-start sheet explains how to switch them. If anything is missing from the case, tell us at the desk rather than after you reach the field site.",
+        "pauseAfter": 0.25
+      },
+      {
+        "role": "student",
+        "text": "We were hoping to return it tomorrow morning.",
+        "pauseAfter": 0.25
+      },
+      {
+        "role": "coordinator",
+        "text": "That is fine, as long as it is here by ten. Another group needs it shortly afterwards. Delete your recordings only after you have copied them safely to your own storage.",
+        "pauseAfter": 0.25
+      }
+    ],
+    "plays": 1
+  },
+  {
+    "id": "tf2-l-router-13",
+    "title": "Announcement — Campus bus",
+    "subtitle": "Module 1",
+    "part": 13,
+    "skill": "listening",
+    "instructions": "Listen once, then choose the best answer. After moving to the next question you cannot return.",
+    "questions": [
+      {
+        "number": 16,
+        "kind": "choice",
+        "prompt": "Why is the stop moving?",
+        "answers": [
+          "Pavement repairs are taking place."
+        ],
+        "evidence": "The announcement identifies pavement repairs.",
+        "explanation": "The announcement identifies pavement repairs.",
+        "marks": 1,
+        "options": [
+          "Pavement repairs are taking place.",
+          "The bus has a new timetable.",
+          "The science building is closing forever.",
+          "All passengers requested a longer walk."
+        ],
+        "id": "tf2-l-router-13-q1"
+      },
+      {
+        "number": 17,
+        "kind": "choice",
+        "prompt": "What stays the same?",
+        "answers": [
+          "The timetable."
+        ],
+        "evidence": "The timetable is unchanged.",
+        "explanation": "The timetable is unchanged.",
+        "marks": 1,
+        "options": [
+          "The pickup location.",
+          "The timetable.",
+          "The condition of the pavement.",
+          "The route of the walk from the old stop."
+        ],
+        "id": "tf2-l-router-13-q2"
+      },
+      {
+        "number": 18,
+        "kind": "choice",
+        "prompt": "What should passengers check?",
+        "answers": [
+          "Confirmation before using the original stop again."
+        ],
+        "evidence": "The website confirms when the old stop reopens.",
+        "explanation": "The website confirms when the old stop reopens.",
+        "marks": 1,
+        "options": [
+          "The sports results.",
+          "The driver’s home address.",
+          "Confirmation before using the original stop again.",
+          "The price of laboratory equipment."
+        ],
+        "id": "tf2-l-router-13-q3"
+      }
+    ],
+    "stage": "router",
+    "segments": [
+      {
+        "role": "guide",
+        "text": "A notice for passengers using the north campus bus. From Monday, the stop outside the science building will move to the sports centre while pavement repairs are carried out. The timetable is unchanged. Follow the temporary signs from the old stop; the walk takes about five minutes. The driver cannot pick up passengers from the closed area. Repairs are expected to last two weeks, but please check the transport website for confirmation before returning to the original stop.",
+        "pauseAfter": 0.25
+      }
+    ],
+    "plays": 1
+  },
+  {
+    "id": "tf2-l-router-14",
+    "title": "Academic Talk — Working memory",
+    "subtitle": "Module 1",
+    "part": 14,
+    "skill": "listening",
+    "instructions": "Listen once, then choose the best answer. After moving to the next question you cannot return.",
+    "questions": [
+      {
+        "number": 19,
+        "kind": "choice",
+        "prompt": "What is the talk mainly about?",
+        "answers": [
+          "How limited mental processing affects learning."
+        ],
+        "evidence": "The talk relates a limited workspace to unfamiliar task demands.",
+        "explanation": "The talk relates a limited workspace to unfamiliar task demands.",
+        "marks": 1,
+        "options": [
+          "The design of street signs.",
+          "The limits of long-distance travel.",
+          "The price of teaching materials.",
+          "How limited mental processing affects learning."
+        ],
+        "id": "tf2-l-router-14-q1"
+      },
+      {
+        "number": 20,
+        "kind": "choice",
+        "prompt": "Why is learning a route mentioned?",
+        "answers": [
+          "To illustrate how familiar units can reduce processing effort."
+        ],
+        "evidence": "Route details become grouped into familiar units.",
+        "explanation": "Route details become grouped into familiar units.",
+        "marks": 1,
+        "options": [
+          "To illustrate how familiar units can reduce processing effort.",
+          "To argue maps should never be used.",
+          "To show all routes have the same length.",
+          "To recommend moving house."
+        ],
+        "id": "tf2-l-router-14-q2"
+      },
+      {
+        "number": 21,
+        "kind": "choice",
+        "prompt": "What is chunking?",
+        "answers": [
+          "Organising information into meaningful units."
+        ],
+        "evidence": "The lecturer defines chunking as grouping information.",
+        "explanation": "The lecturer defines chunking as grouping information.",
+        "marks": 1,
+        "options": [
+          "Removing every limit on memory.",
+          "Organising information into meaningful units.",
+          "Storing nothing for later use.",
+          "Repeating a word without meaning."
+        ],
+        "id": "tf2-l-router-14-q3"
+      },
+      {
+        "number": 22,
+        "kind": "choice",
+        "prompt": "What caution is given about experts?",
+        "answers": [
+          "They may overlook steps unfamiliar to beginners."
+        ],
+        "evidence": "An obvious expert stage may contain unknown novice steps.",
+        "explanation": "An obvious expert stage may contain unknown novice steps.",
+        "marks": 1,
+        "options": [
+          "They always dislike teaching.",
+          "They cannot learn new routes.",
+          "They may overlook steps unfamiliar to beginners.",
+          "They need more street names than novices."
+        ],
+        "id": "tf2-l-router-14-q4"
+      },
+      {
+        "number": 23,
+        "kind": "choice",
+        "prompt": "What should a teacher consider?",
+        "answers": [
+          "The amount of unfamiliar processing required together."
+        ],
+        "evidence": "The final sentence states this practical question.",
+        "explanation": "The final sentence states this practical question.",
+        "marks": 1,
+        "options": [
+          "Only the page count.",
+          "Only what the expert finds easy.",
+          "Whether all learners already know the procedure.",
+          "The amount of unfamiliar processing required together."
+        ],
+        "id": "tf2-l-router-14-q5"
+      }
+    ],
+    "stage": "router",
+    "segments": [
+      {
+        "role": "lecturer",
+        "text": "Working memory is often described as a mental workspace. It allows us to hold information briefly while doing something with it, such as remembering numbers while calculating a total. This differs from simply storing information for a long period. The workspace is limited, so a task can become difficult when it requires several unfamiliar steps at once. Consider learning a new route. At first, a traveller may need to remember street names, directions and landmarks separately. With experience, parts of the route can become familiar units, reducing the effort needed to manage each detail. This organisation is sometimes called chunking. It does not make every limit disappear; it changes how information is grouped. In teaching, presenting a complex procedure in meaningful stages can therefore help a beginner. However, a stage that seems obvious to an expert may contain several unknown steps for a novice. The design should be checked with the learner, rather than based only on what the teacher finds easy. The practical question is not merely how much information appears on a page, but how much unfamiliar processing a task requires at one time.",
+        "pauseAfter": 0.25
+      }
+    ],
+    "plays": 1
+  },
+  {
+    "id": "tf2-l-lower-13",
+    "title": "Conversation — Study group",
+    "subtitle": "Module 2 · Foundation route",
+    "part": 13,
+    "skill": "listening",
+    "instructions": "Listen once, then choose the best answer. After moving to the next question you cannot return.",
+    "questions": [
+      {
+        "number": 13,
+        "kind": "choice",
+        "prompt": "What has changed?",
+        "answers": [
+          "The meeting time."
+        ],
+        "evidence": "The time has changed from four to five.",
+        "explanation": "The time has changed from four to five.",
+        "marks": 1,
+        "options": [
+          "The meeting time.",
+          "The subject.",
+          "The day.",
+          "The library address."
+        ],
+        "id": "tf2-l-lower-13-q1"
+      },
+      {
+        "number": 14,
+        "kind": "choice",
+        "prompt": "When is registration needed?",
+        "answers": [
+          "If the student plans to continue after the first meeting."
+        ],
+        "evidence": "The first meeting is open; continuing participants email the organiser.",
+        "explanation": "The first meeting is open; continuing participants email the organiser.",
+        "marks": 1,
+        "options": [
+          "Before entering the library at any time.",
+          "If the student plans to continue after the first meeting.",
+          "Only after an examination.",
+          "Never."
+        ],
+        "id": "tf2-l-lower-13-q2"
+      },
+      {
+        "number": 15,
+        "kind": "choice",
+        "prompt": "Why does the organiser need an email?",
+        "answers": [
+          "To send questions before meetings."
+        ],
+        "evidence": "Registration enables advance questions.",
+        "explanation": "Registration enables advance questions.",
+        "marks": 1,
+        "options": [
+          "To sell a new textbook.",
+          "To cancel the group.",
+          "To send questions before meetings.",
+          "To arrange a different subject."
+        ],
+        "id": "tf2-l-lower-13-q3"
+      },
+      {
+        "number": 16,
+        "kind": "choice",
+        "prompt": "What kind of activity does the group do?",
+        "answers": [
+          "Works on problems together."
+        ],
+        "evidence": "Participants compare methods while solving problems.",
+        "explanation": "Participants compare methods while solving problems.",
+        "marks": 1,
+        "options": [
+          "Only listens to a lecture.",
+          "Writes library notices.",
+          "Replaces chemistry classes.",
+          "Works on problems together."
+        ],
+        "id": "tf2-l-lower-13-q4"
+      }
+    ],
+    "stage": "lower",
+    "segments": [
+      {
+        "role": "student",
+        "text": "I want to join the chemistry study group. Is it still meeting in the library on Wednesdays?",
+        "pauseAfter": 0.25
+      },
+      {
+        "role": "coordinator",
+        "text": "It is, but the time has changed from four to five because the room is being used for another event earlier. Have you registered?",
+        "pauseAfter": 0.25
+      },
+      {
+        "role": "student",
+        "text": "Not yet. I thought I could just arrive.",
+        "pauseAfter": 0.25
+      },
+      {
+        "role": "coordinator",
+        "text": "You can attend the first meeting without registering, but email the organiser if you plan to continue. That way she can send you the questions in advance.",
+        "pauseAfter": 0.25
+      },
+      {
+        "role": "student",
+        "text": "Should I bring my textbook?",
+        "pauseAfter": 0.25
+      },
+      {
+        "role": "coordinator",
+        "text": "Yes, and a calculator. The group works through problems together; it is not another lecture. If a question is difficult, you can compare methods with other students.",
+        "pauseAfter": 0.25
+      },
+      {
+        "role": "student",
+        "text": "That sounds useful. I will come this Wednesday.",
+        "pauseAfter": 0.25
+      }
+    ],
+    "plays": 1
+  },
+  {
+    "id": "tf2-l-lower-14",
+    "title": "Announcement — Lost property",
+    "subtitle": "Module 2 · Foundation route",
+    "part": 14,
+    "skill": "listening",
+    "instructions": "Listen once, then choose the best answer. After moving to the next question you cannot return.",
+    "questions": [
+      {
+        "number": 17,
+        "kind": "choice",
+        "prompt": "What is the announcement about?",
+        "answers": [
+          "Items left after an event."
+        ],
+        "evidence": "The desk has lost property from yesterday’s event.",
+        "explanation": "The desk has lost property from yesterday’s event.",
+        "marks": 1,
+        "options": [
+          "Items left after an event.",
+          "A new umbrella shop.",
+          "An examination timetable.",
+          "A backpack design competition."
+        ],
+        "id": "tf2-l-lower-14-q1"
+      },
+      {
+        "number": 18,
+        "kind": "choice",
+        "prompt": "What will someone collecting an item need to do?",
+        "answers": [
+          "Describe the item."
+        ],
+        "evidence": "A description is required before collection.",
+        "explanation": "A description is required before collection.",
+        "marks": 1,
+        "options": [
+          "Buy a replacement item.",
+          "Describe the item.",
+          "Send an identity photograph by email.",
+          "Wait a month."
+        ],
+        "id": "tf2-l-lower-14-q2"
+      },
+      {
+        "number": 19,
+        "kind": "choice",
+        "prompt": "What should students bring?",
+        "answers": [
+          "Their student card."
+        ],
+        "evidence": "The announcement asks them to bring a student card.",
+        "explanation": "The announcement asks them to bring a student card.",
+        "marks": 1,
+        "options": [
+          "A printed weather forecast.",
+          "A month’s timetable.",
+          "Their student card.",
+          "Two new umbrellas."
+        ],
+        "id": "tf2-l-lower-14-q3"
+      }
+    ],
+    "stage": "lower",
+    "segments": [
+      {
+        "role": "guide",
+        "text": "If you left an item in the lecture hall during yesterday’s event, please contact the information desk. A blue backpack and two umbrellas were handed in. You will be asked to describe the item before collecting it. The desk is open until six this evening and from nine tomorrow. Please do not email photographs of identification documents; bring your student card when you come. Items not collected within a month will be handled under the college’s lost-property procedure.",
+        "pauseAfter": 0.25
+      }
+    ],
+    "plays": 1
+  },
+  {
+    "id": "tf2-l-lower-15",
+    "title": "Academic Talk — Museum labels",
+    "subtitle": "Module 2 · Foundation route",
+    "part": 15,
+    "skill": "listening",
+    "instructions": "Listen once, then choose the best answer. After moving to the next question you cannot return.",
+    "questions": [
+      {
+        "number": 20,
+        "kind": "choice",
+        "prompt": "What is the talk mainly about?",
+        "answers": [
+          "How useful museum labels are designed."
+        ],
+        "evidence": "The lecturer discusses selection, connections and testing.",
+        "explanation": "The lecturer discusses selection, connections and testing.",
+        "marks": 1,
+        "options": [
+          "How bowls should be stored.",
+          "The cost of building museums.",
+          "Why all labels should be long.",
+          "How useful museum labels are designed."
+        ],
+        "id": "tf2-l-lower-15-q1"
+      },
+      {
+        "number": 21,
+        "kind": "choice",
+        "prompt": "Why can a short label be difficult to write?",
+        "answers": [
+          "Writers must select information suited to visitors."
+        ],
+        "evidence": "Few words still require decisions about visitor knowledge.",
+        "explanation": "Few words still require decisions about visitor knowledge.",
+        "marks": 1,
+        "options": [
+          "Writers must select information suited to visitors.",
+          "Objects never have visible features.",
+          "All visitors are specialists.",
+          "Labels cannot contain nouns."
+        ],
+        "id": "tf2-l-lower-15-q2"
+      },
+      {
+        "number": 22,
+        "kind": "choice",
+        "prompt": "Why mention a mark on a bowl?",
+        "answers": [
+          "To illustrate linking a visible detail with an explanation."
+        ],
+        "evidence": "The mark connects observation with production.",
+        "explanation": "The mark connects observation with production.",
+        "marks": 1,
+        "options": [
+          "To prove all bowls are damaged.",
+          "To illustrate linking a visible detail with an explanation.",
+          "To explain ticket prices.",
+          "To replace every object with a photograph."
+        ],
+        "id": "tf2-l-lower-15-q3"
+      },
+      {
+        "number": 23,
+        "kind": "choice",
+        "prompt": "How should introductory panels and individual labels relate?",
+        "answers": [
+          "They should provide different, complementary levels of information."
+        ],
+        "evidence": "The panel introduces the room; labels focus on objects.",
+        "explanation": "The panel introduces the room; labels focus on objects.",
+        "marks": 1,
+        "options": [
+          "They must repeat exactly the same text.",
+          "Neither should mention objects.",
+          "They should provide different, complementary levels of information.",
+          "They should be written in different languages only."
+        ],
+        "id": "tf2-l-lower-15-q4"
+      },
+      {
+        "number": 24,
+        "kind": "choice",
+        "prompt": "What is a purpose of testing labels?",
+        "answers": [
+          "To identify confusing terms and references."
+        ],
+        "evidence": "Visitor testing reveals unfamiliar words and confusion.",
+        "explanation": "Visitor testing reveals unfamiliar words and confusion.",
+        "marks": 1,
+        "options": [
+          "To make all visitors experts immediately.",
+          "To remove every explanation.",
+          "To avoid showing objects.",
+          "To identify confusing terms and references."
+        ],
+        "id": "tf2-l-lower-15-q5"
+      }
+    ],
+    "stage": "lower",
+    "segments": [
+      {
+        "role": "lecturer",
+        "text": "A museum label is a short text beside an object. It might seem easy to write because it contains few words. In fact, selecting those words requires decisions about the visitor’s knowledge and interests. A label that lists specialist terms may be accurate but difficult for a new visitor to understand. Another that says only an object is beautiful may tell the visitor very little. One useful approach is to connect a visible feature to a larger idea. For example, a mark on a handmade bowl could introduce a discussion of how it was produced. The visitor can look back at the object and check the connection. Labels also work together. An introductory panel may explain the topic of a room, while individual labels focus on particular objects. Repeating the whole room introduction beside every object wastes space and attention. Testing draft labels with visitors helps reveal unfamiliar words and confusing references. The aim is not to explain everything, but to give someone a clear starting point for looking more closely.",
+        "pauseAfter": 0.25
+      }
+    ],
+    "plays": 1
+  },
+  {
+    "id": "tf2-l-upper-13",
+    "title": "Conversation — Exhibition proposal",
+    "subtitle": "Module 2 · Challenge route",
+    "part": 13,
+    "skill": "listening",
+    "instructions": "Listen once, then choose the best answer. After moving to the next question you cannot return.",
+    "questions": [
+      {
+        "number": 13,
+        "kind": "choice",
+        "prompt": "What issue are the speakers trying to resolve?",
+        "answers": [
+          "Space for an audio station."
+        ],
+        "evidence": "The new plan leaves too little room for the station.",
+        "explanation": "The new plan leaves too little room for the station.",
+        "marks": 1,
+        "options": [
+          "Space for an audio station.",
+          "A missing exhibition title.",
+          "The closure of the website.",
+          "A shortage of printed tickets."
+        ],
+        "id": "tf2-l-upper-13-q1"
+      },
+      {
+        "number": 14,
+        "kind": "choice",
+        "prompt": "Why is a leaflet questioned?",
+        "answers": [
+          "It adds an unbudgeted printing cost."
+        ],
+        "evidence": "The coordinator raises the printing cost.",
+        "explanation": "The coordinator raises the printing cost.",
+        "marks": 1,
+        "options": [
+          "It would make all background information inaccurate.",
+          "It adds an unbudgeted printing cost.",
+          "Visitors never read paper.",
+          "There is no desk in the building."
+        ],
+        "id": "tf2-l-upper-13-q2"
+      },
+      {
+        "number": 15,
+        "kind": "choice",
+        "prompt": "What concern does the student express about a website-only solution?",
+        "answers": [
+          "It could make using a phone necessary."
+        ],
+        "evidence": "The student does not want a phone to be essential.",
+        "explanation": "The student does not want a phone to be essential.",
+        "marks": 1,
+        "options": [
+          "It would require replacing the entrance.",
+          "It would make the audio louder.",
+          "It could make using a phone necessary.",
+          "It would automatically exceed the printing budget."
+        ],
+        "id": "tf2-l-upper-13-q3"
+      },
+      {
+        "number": 16,
+        "kind": "choice",
+        "prompt": "What should happen before equipment is ordered?",
+        "answers": [
+          "The accessible route and revised dimensions should be checked."
+        ],
+        "evidence": "The coordinator requires a clear accessible route first.",
+        "explanation": "The coordinator requires a clear accessible route first.",
+        "marks": 1,
+        "options": [
+          "All panels should be removed.",
+          "Visitors should pay for a leaflet.",
+          "The website should close.",
+          "The accessible route and revised dimensions should be checked."
+        ],
+        "id": "tf2-l-upper-13-q4"
+      }
+    ],
+    "stage": "upper",
+    "segments": [
+      {
+        "role": "student",
+        "text": "I have revised the exhibition proposal, but I am worried that the new floor plan leaves too little room for the audio station.",
+        "pauseAfter": 0.25
+      },
+      {
+        "role": "coordinator",
+        "text": "I noticed that too. We could move the entrance panel, although that might make the route through the room less clear.",
+        "pauseAfter": 0.25
+      },
+      {
+        "role": "student",
+        "text": "What if we shorten the panel and put the background information in a leaflet? Visitors who want detail could still have it.",
+        "pauseAfter": 0.25
+      },
+      {
+        "role": "coordinator",
+        "text": "Possibly. But printing a leaflet introduces a cost we have not budgeted for. Could the extended text go on the existing website instead?",
+        "pauseAfter": 0.25
+      },
+      {
+        "role": "student",
+        "text": "That would avoid printing. I would rather not make a phone essential, though. Could we keep a large-print copy at the desk as well?",
+        "pauseAfter": 0.25
+      },
+      {
+        "role": "coordinator",
+        "text": "That seems a workable compromise. Check the desk staff can manage it, then send me the revised plan with the dimensions marked. Do not order the audio equipment until we know the accessible route remains clear.",
+        "pauseAfter": 0.25
+      }
+    ],
+    "plays": 1
+  },
+  {
+    "id": "tf2-l-upper-14",
+    "title": "Announcement — Provisional findings",
+    "subtitle": "Module 2 · Challenge route",
+    "part": 14,
+    "skill": "listening",
+    "instructions": "Listen once, then choose the best answer. After moving to the next question you cannot return.",
+    "questions": [
+      {
+        "number": 17,
+        "kind": "choice",
+        "prompt": "Why is a correction being made?",
+        "answers": [
+          "The findings are preliminary, not final."
+        ],
+        "evidence": "The notice corrects the status of the findings.",
+        "explanation": "The notice corrects the status of the findings.",
+        "marks": 1,
+        "options": [
+          "The findings are preliminary, not final.",
+          "The speaker has cancelled.",
+          "The room has moved.",
+          "The data collection has finished."
+        ],
+        "id": "tf2-l-upper-14-q1"
+      },
+      {
+        "number": 18,
+        "kind": "choice",
+        "prompt": "What should earlier handout users do?",
+        "answers": [
+          "Download the replacement version."
+        ],
+        "evidence": "The replacement is on the department website.",
+        "explanation": "The replacement is on the department website.",
+        "marks": 1,
+        "options": [
+          "Keep treating it as final.",
+          "Download the replacement version.",
+          "Change the seminar time.",
+          "Collect the data themselves."
+        ],
+        "id": "tf2-l-upper-14-q2"
+      },
+      {
+        "number": 19,
+        "kind": "choice",
+        "prompt": "Why are questions invited beforehand?",
+        "answers": [
+          "To help select relevant examples."
+        ],
+        "evidence": "The speaker can tailor examples to the audience.",
+        "explanation": "The speaker can tailor examples to the audience.",
+        "marks": 1,
+        "options": [
+          "To prevent any discussion.",
+          "To decide whether to cancel.",
+          "To help select relevant examples.",
+          "To count final results."
+        ],
+        "id": "tf2-l-upper-14-q3"
+      }
+    ],
+    "stage": "upper",
+    "segments": [
+      {
+        "role": "guide",
+        "text": "A correction to tomorrow’s research seminar notice: the speaker will discuss preliminary findings rather than final results. The data collection is continuing, so the session will focus on the method and the questions still unresolved. Attendees who downloaded the earlier handout should replace it with the version now on the department website. The room and start time are unchanged. Please send methodological questions in advance if possible, so the speaker can select examples relevant to the audience.",
+        "pauseAfter": 0.25
+      }
+    ],
+    "plays": 1
+  },
+  {
+    "id": "tf2-l-upper-15",
+    "title": "Academic Talk — Negative evidence",
+    "subtitle": "Module 2 · Challenge route",
+    "part": 15,
+    "skill": "listening",
+    "instructions": "Listen once, then choose the best answer. After moving to the next question you cannot return.",
+    "questions": [
+      {
+        "number": 20,
+        "kind": "choice",
+        "prompt": "What is the main point?",
+        "answers": [
+          "Absence is informative only in relation to observation conditions."
+        ],
+        "evidence": "The lecturer links interpretation with reasonable detection opportunities.",
+        "explanation": "The lecturer links interpretation with reasonable detection opportunities.",
+        "marks": 1,
+        "options": [
+          "Missing observations always prove absence.",
+          "Winter is the best time for every survey.",
+          "Archives contain all historical letters.",
+          "Absence is informative only in relation to observation conditions."
+        ],
+        "id": "tf2-l-upper-15-q1"
+      },
+      {
+        "number": 21,
+        "kind": "choice",
+        "prompt": "What does detectability refer to?",
+        "answers": [
+          "The chance of recording something if it is present."
+        ],
+        "evidence": "The term is explicitly defined.",
+        "explanation": "The term is explicitly defined.",
+        "marks": 1,
+        "options": [
+          "The chance of recording something if it is present.",
+          "The number of ponds in a country.",
+          "The age of an archived letter.",
+          "The certainty that no organism exists."
+        ],
+        "id": "tf2-l-upper-15-q2"
+      },
+      {
+        "number": 22,
+        "kind": "choice",
+        "prompt": "Why are repeated surveys useful?",
+        "answers": [
+          "They can increase the opportunity to detect the organism."
+        ],
+        "evidence": "Repeated suitable surveys improve detection opportunities.",
+        "explanation": "Repeated suitable surveys improve detection opportunities.",
+        "marks": 1,
+        "options": [
+          "They guarantee absolute certainty.",
+          "They can increase the opportunity to detect the organism.",
+          "They remove all seasonal variation.",
+          "They eliminate the need to choose a method."
+        ],
+        "id": "tf2-l-upper-15-q3"
+      },
+      {
+        "number": 23,
+        "kind": "choice",
+        "prompt": "Why is an archive mentioned?",
+        "answers": [
+          "To show similar reasoning applies in another field."
+        ],
+        "evidence": "The archive example extends the principle beyond ecology.",
+        "explanation": "The archive example extends the principle beyond ecology.",
+        "marks": 1,
+        "options": [
+          "To argue ecology uses no records.",
+          "To compare the price of surveys.",
+          "To show similar reasoning applies in another field.",
+          "To prove all letters were destroyed."
+        ],
+        "id": "tf2-l-upper-15-q4"
+      },
+      {
+        "number": 24,
+        "kind": "choice",
+        "prompt": "What must be understood before interpreting a missing result?",
+        "answers": [
+          "How a positive observation could have been produced and retained."
+        ],
+        "evidence": "The conclusion depends on the observation process.",
+        "explanation": "The conclusion depends on the observation process.",
+        "marks": 1,
+        "options": [
+          "Only the preferred conclusion.",
+          "The researcher’s publication count.",
+          "The number of readers.",
+          "How a positive observation could have been produced and retained."
+        ],
+        "id": "tf2-l-upper-15-q5"
+      }
+    ],
+    "stage": "upper",
+    "segments": [
+      {
+        "role": "lecturer",
+        "text": "An absent observation can sometimes be evidence, but only if we had a reasonable opportunity to observe what was missing. Suppose a fictional field team searches a pond for a particular insect. Finding none during a brief winter visit does not necessarily show the species is absent. The insect might be active at another season, or the sampling method might miss it. The conclusion depends partly on detectability: the chance of recording the organism if it is actually there. Researchers may repeat surveys at suitable times and use complementary methods to improve that chance. Even then, they usually describe the strength of evidence rather than claim absolute certainty. This reasoning applies outside ecology. An archive may contain no letters about an event, yet that silence means little if most letters from the period were never preserved. Before treating absence as informative, we must ask what records would be expected and how they could have survived. Negative evidence is strongest when the observation process is understood. The lesson is not that absence never matters, but that a missing result cannot be interpreted independently of the conditions that could have produced a positive one.",
+        "pauseAfter": 0.25
+      }
+    ],
+    "plays": 1
+  }
+]

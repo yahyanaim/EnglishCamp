@@ -1,4 +1,5 @@
 "use client";
+import { LearningArt } from "@/components/brand/LearningArt";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
@@ -22,7 +23,7 @@ export function Navbar() {
     <nav className="fixed top-0 left-0 right-0 z-40 bg-[var(--color-neutral-900)] backdrop-blur-xl border-b border-[var(--color-neutral-700)]">
       <div className="px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2 font-display text-2xl font-extrabold">
-          <GraduationCap className="w-6 h-6 text-[var(--color-primary)]" />
+          <LearningArt name="GraduationCap" size={24} className="w-6 h-6 text-[var(--color-primary)]" />
           <span className="text-white">English<span className="text-[var(--color-primary)]">Camp</span></span>
         </Link>
 
@@ -40,7 +41,7 @@ export function Navbar() {
                     : "text-[var(--color-text-disabled)] hover:text-white hover:bg-[var(--color-neutral-700)]"
                 }`}
               >
-                <Icon className="w-4 h-4" />
+                <LearningArt name={Icon.displayName || "book"} size={16} className="w-4 h-4" />
                 {item.label}
               </Link>
             );
@@ -82,7 +83,7 @@ export function Navbar() {
                       active ? "bg-[var(--color-primary)]/20 text-[var(--color-primary)]" : "text-[var(--color-text-disabled)] hover:text-white hover:bg-[var(--color-neutral-700)]"
                     }`}
                   >
-                    <Icon className="w-4 h-4" />
+                    <LearningArt name={Icon.displayName || "book"} size={16} className="w-4 h-4" />
                     {item.label}
                   </Link>
                 );

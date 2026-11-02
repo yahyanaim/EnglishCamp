@@ -1,4 +1,7 @@
 "use client";
+
+import { LearningArt } from "@/components/brand/LearningArt";
+import { PracticeCard, PracticeButton } from "@/components/ui/PracticeSurface";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useProgress } from "@/store/useProgress";
@@ -13,6 +16,8 @@ const PAIRS: Pair[] = [
   { word: "Tree", match: "Tree" }, { word: "Water", match: "Water" }, { word: "School", match: "School" },
   { word: "Friend", match: "Friend" }, { word: "Love", match: "Love" }, { word: "Time", match: "Time" },
 ];
+
+const MotionPracticeButton = motion.create(PracticeButton);
 
 export function MemoryMatchGame() {
   const { completeExercise } = useProgress();
@@ -86,43 +91,43 @@ export function MemoryMatchGame() {
   }, [matched, cards.length]);
 
   return (
-    <div className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border-2 border-[var(--color-border-default)] p-6 shadow-sm" style={{ boxShadow: "0 3px 0 var(--color-border-default)" }}>
+    <PracticeCard data-practice-surface="question" className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-6 shadow-sm" style={{ boxShadow: "0 3px 0 var(--color-border-default)" }}>
       <div className="flex items-center justify-between mb-4">
         <span className="text-xs font-semibold text-[#E0115F] uppercase tracking-wider">Memory Match</span>
-        <span className="text-xs text-[var(--color-text-disabled)]">Moves: {moves}</span>
+        <span className="text-xs text-[var(--color-text-secondary)]">Moves: {moves}</span>
       </div>
 
       {gameDone ? (
         <div className="text-center py-6">
-          <span className="text-5xl block mb-3">🎉</span>
+          <LearningArt name="🎉" size={36} className=" block mb-3" />
           <h3 className="text-xl font-display font-extrabold text-[var(--color-text-primary)]">You matched them all!</h3>
           <p className="text-sm text-[var(--color-text-secondary)] mb-1">{moves} moves</p>
-          <button onClick={initGame} className="text-sm font-medium bg-[var(--color-primary-subtle)] text-[var(--color-primary-dark)] border border-[var(--color-primary)] px-5 py-2 rounded-[var(--radius-lg)] hover:bg-[var(--color-primary)] transition-all mt-3">New Game 🔄</button>
+          <PracticeButton onClick={initGame} className="text-sm font-medium bg-[var(--color-primary-subtle)] text-[var(--color-text-link)] border border-[var(--color-primary)] px-5 py-2 rounded-[var(--radius-lg)] hover:bg-[var(--color-primary)] transition-all mt-3">New Game <LearningArt name="🔄" size={16} /></PracticeButton>
         </div>
       ) : (
         <>
           <div className="grid grid-cols-4 gap-2">
             {cards.map((card) => (
-              <motion.button
+              <MotionPracticeButton
                 key={card.id}
                 onClick={() => handleClick(card.id)}
                 animate={{ rotateY: card.flipped || card.matched ? 180 : 0 }}
-                className={`h-16 rounded-[var(--radius-lg)] border-2 text-sm font-semibold transition-all ${
+                className={`h-16 rounded-[var(--radius-lg)] border text-sm font-semibold transition-all ${
                   card.matched
-                    ? "bg-[var(--color-success)] text-white border-[var(--color-success)] cursor-default"
+                    ? "bg-[var(--color-success-bg)] text-[var(--color-text-success)] border-[var(--color-success)] cursor-default"
                     : card.flipped
-                    ? "bg-[var(--color-primary-subtle)] border-[var(--color-primary)] text-[var(--color-primary-dark)]"
-                    : "bg-[var(--color-surface-alt)] border-[var(--color-border-default)] text-[var(--color-text-disabled)] hover:bg-[var(--color-surface-alt)] hover:border-[var(--color-primary)]"
+                    ? "bg-[var(--color-primary-subtle)] border-[var(--color-primary)] text-[var(--color-text-link)]"
+                    : "bg-[var(--color-surface-alt)] border-[var(--color-border-default)] text-[var(--color-text-secondary)] hover:bg-[var(--color-surface-alt)] hover:border-[var(--color-primary)]"
                 }`}
                 style={{ transformStyle: "preserve-3d" }}
               >
                 {card.flipped || card.matched ? card.text : "?"}
-              </motion.button>
+              </MotionPracticeButton>
             ))}
           </div>
-          <p className="text-xs text-[var(--color-text-disabled)] text-center mt-3">Match the word pairs</p>
+          <p className="text-xs text-[var(--color-text-secondary)] text-center mt-3">Match the word pairs</p>
         </>
       )}
-    </div>
+    </PracticeCard>
   );
 }

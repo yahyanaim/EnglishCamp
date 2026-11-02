@@ -1,3 +1,4 @@
+import { learnerStorage } from "@/lib/learnerStorage";
 import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
 
@@ -63,6 +64,6 @@ export const useErrors = create<ErrorsStore>()(
 
       getUnreviewed: () => get().errors.filter((e) => !e.reviewed),
     }),
-    { name: "englishcamp-errors", storage: createJSONStorage(() => localStorage) }
+    { name: "englishcamp-errors", skipHydration: true, storage: createJSONStorage(() => learnerStorage) }
   )
 );

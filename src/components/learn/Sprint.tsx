@@ -1,4 +1,8 @@
 "use client";
+import { learnerStorage } from "@/lib/learnerStorage";
+
+import { LearningArt } from "@/components/brand/LearningArt";
+import { PracticeCard, PracticeButton } from "@/components/ui/PracticeSurface";
 import { useState, useMemo, useCallback, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { playCorrect, playWrong, playXP } from "@/lib/audio";
@@ -38,6 +42,8 @@ function buildQuestions(count: number): Question[] {
 const STORAGE_KEY = "englishcamp-sprint-best";
 const DURATION = 60;
 
+const MotionPracticeButton = motion.create(PracticeButton);
+
 export function Sprint() {
   const { addXP } = useProgress();
   const [questions, setQuestions] = useState<Question[]>([]);
@@ -57,7 +63,7 @@ export function Sprint() {
 
   useEffect(() => {
     try {
-      const stored = localStorage.getItem(STORAGE_KEY);
+      const stored = learnerStorage.getItem(STORAGE_KEY);
       if (stored) setBestScore(Number(stored));
     } catch {}
   }, []);
@@ -108,7 +114,7 @@ export function Sprint() {
     playXP();
     const newBest = Math.max(bestScore, points);
     setBestScore(newBest);
-    try { localStorage.setItem(STORAGE_KEY, String(newBest)); } catch {}
+    try { learnerStorage.setItem(STORAGE_KEY, String(newBest)); } catch {}
   }, [addXP, bestScore]);
 
   useEffect(() => {
@@ -142,37 +148,37 @@ export function Sprint() {
 
   if (phase === "ready") {
     return (
-      <div className="bg-[var(--color-surface)] rounded-[24px] border-2 border-[var(--color-border-default)] p-10 text-center shadow-[0_4px_16px_rgba(0,0,0,0.08)] max-w-lg mx-auto">
-        <Zap className="w-14 h-14 text-[var(--color-warning)] mx-auto mb-4" />
+      <PracticeCard data-practice-surface="intro" className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-5 sm:p-6 text-center shadow-[var(--shadow-1)] max-w-lg mx-auto">
+        <LearningArt name="Zap" className="w-14 h-14 text-[var(--color-text-warning)] mx-auto mb-4" />
         <h2 className="text-xl font-display font-extrabold text-[var(--color-text-primary)]">Sprint</h2>
         <p className="text-sm text-[var(--color-text-secondary)] mt-2">Answer as many questions as you can in 60 seconds!</p>
         {bestScore > 0 && (
           <p className="mt-3 text-sm bg-amber-500 text-[var(--color-on-brand)] font-extrabold shadow-sm rounded-[10px] px-4 py-2 inline-flex items-center gap-1.5">
-            <Trophy className="w-4 h-4" /> Best: {bestScore} correct
+            <LearningArt name="Trophy" size={16} className="w-4 h-4" /> Best: {bestScore} correct
           </p>
         )}
-        <button onClick={startGame}
-          className="mt-6 px-8 py-3 rounded-[14px] bg-[var(--color-primary)] text-[var(--color-on-brand)] font-bold text-sm hover:bg-brand-600 transition-all inline-flex items-center gap-2 shadow-[0_4px_0_rgba(28,176,246,0.3)]"
+        <PracticeButton onClick={startGame}
+          className="mt-6 px-8 py-3 rounded-[14px] bg-[var(--color-primary)] text-[var(--color-on-brand)] font-bold text-sm hover:bg-[var(--color-primary-hover)] transition-all inline-flex items-center gap-2 shadow-[var(--shadow-1)]"
         >
-          <Zap className="w-4 h-4" /> Start Sprint
-        </button>
-      </div>
+          <LearningArt name="Zap" size={16} className="w-4 h-4" /> Start Sprint
+        </PracticeButton>
+      </PracticeCard>
     );
   }
 
   if (phase === "done") {
     return (
-      <div className="bg-[var(--color-surface)] rounded-[24px] border-2 border-[var(--color-border-default)] p-10 text-center shadow-[0_4px_16px_rgba(0,0,0,0.08)] max-w-lg mx-auto">
-        <span className="text-5xl block mb-4">{accuracy >= 80 ? "🎉" : accuracy >= 50 ? "💪" : "📚"}</span>
+      <PracticeCard data-practice-surface="result" className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-5 sm:p-6 text-center shadow-[var(--shadow-1)] max-w-lg mx-auto">
+        <span className="text-5xl block mb-4"><LearningArt name={accuracy >= 80 ? "🎉" : accuracy >= 50 ? "💪" : "📚"} size={28} /></span>
         <h2 className="text-xl font-display font-extrabold text-[var(--color-text-primary)]">Time&rsquo;s Up!</h2>
         <div className="flex items-center justify-center gap-6 mt-4">
           <div>
-            <p className="text-3xl font-display font-extrabold text-[var(--color-success)]">{correct}</p>
+            <p className="text-3xl font-display font-extrabold text-[var(--color-text-success)]">{correct}</p>
             <p className="text-xs text-[var(--color-text-secondary)]">Correct</p>
           </div>
           <div className="w-px h-10 bg-[var(--color-border-default)]" />
           <div>
-            <p className="text-3xl font-display font-extrabold text-[var(--color-error)]">{wrong}</p>
+            <p className="text-3xl font-display font-extrabold text-[var(--color-text-error)]">{wrong}</p>
             <p className="text-xs text-[var(--color-text-secondary)]">Wrong</p>
           </div>
           <div className="w-px h-10 bg-[var(--color-border-default)]" />
@@ -183,20 +189,20 @@ export function Sprint() {
         </div>
         <div className="flex items-center justify-center gap-4 mt-4">
           <p className="text-sm font-bold bg-amber-500 text-[var(--color-on-brand)] font-extrabold shadow-sm px-4 py-2 rounded-[10px] inline-flex items-center gap-1.5">
-            <Sparkles className="w-4 h-4" /> +{correct * 5 + (totalAnswered >= 20 ? 20 : totalAnswered >= 10 ? 10 : 0)} XP
+            <LearningArt name="Sparkles" size={16} className="w-4 h-4" /> +{correct * 5 + (totalAnswered >= 20 ? 20 : totalAnswered >= 10 ? 10 : 0)} XP
           </p>
           {correct >= bestScore && correct > 0 && (
             <p className="text-xs font-bold bg-emerald-500 text-[var(--color-on-brand)] font-bold px-3 py-2 rounded-[10px] inline-flex items-center gap-1">
-              <Trophy className="w-3.5 h-3.5" /> New Best!
+              <LearningArt name="Trophy" size={14} className="w-3.5 h-3.5" /> New Best!
             </p>
           )}
         </div>
-        <button onClick={startGame}
-          className="mt-6 px-8 py-3 rounded-[14px] bg-[var(--color-primary)] text-[var(--color-on-brand)] font-bold text-sm hover:bg-brand-600 transition-all inline-flex items-center gap-2"
+        <PracticeButton onClick={startGame}
+          className="mt-6 px-8 py-3 rounded-[14px] bg-[var(--color-primary)] text-[var(--color-on-brand)] font-bold text-sm hover:bg-[var(--color-primary-hover)] transition-all inline-flex items-center gap-2"
         >
           <RotateCcw className="w-4 h-4" /> Try Again
-        </button>
-      </div>
+        </PracticeButton>
+      </PracticeCard>
     );
   }
 
@@ -204,18 +210,18 @@ export function Sprint() {
 
   return (
     <div className="space-y-4 max-w-lg mx-auto">
-      <div className="flex items-center justify-between">
+      <div className="camp-quiz-status flex items-center justify-between">
         <div className="flex items-center gap-2">
           <span className={`inline-flex items-center gap-1.5 rounded-[10px] px-3 py-1 text-xs font-bold ${
-            timeLeft <= 10 ? "bg-[var(--color-error)] text-[var(--color-on-brand)] " : "bg-[var(--color-primary-subtle)] text-[var(--color-text-link)]"
+            timeLeft <= 10 ? "bg-[var(--color-error-bg)] text-[var(--color-text-error)] " : "bg-[var(--color-primary-subtle)] text-[var(--color-text-link)]"
           }`}>
-            <Clock className="w-3 h-3" /> {timeLeft}s
+            <LearningArt name="Clock" size={12} className="w-3 h-3" /> {timeLeft}s
           </span>
-          <span className="inline-flex items-center gap-1.5 rounded-[10px] bg-[var(--color-success)] text-[var(--color-on-brand)] px-3 py-1 text-xs font-semibold">
-            <Target className="w-3 h-3" /> {correct}/{totalAnswered}
+          <span className="inline-flex items-center gap-1.5 rounded-[10px] bg-[var(--color-success-bg)] text-[var(--color-text-success)] px-3 py-1 text-xs font-semibold">
+            <LearningArt name="Target" size={12} className="w-3 h-3" /> {correct}/{totalAnswered}
           </span>
         </div>
-        <span className="text-[10px] text-[var(--color-text-disabled)] bg-[var(--color-surface-alt)] px-2 py-1 rounded-[var(--radius-pill)]">
+        <span className="text-[10px] text-[var(--color-text-secondary)] bg-[var(--color-surface-alt)] px-2 py-1 rounded-[var(--radius-pill)]">
           Vocabulary
         </span>
       </div>
@@ -229,9 +235,9 @@ export function Sprint() {
         />
       </div>
 
-      <div className="bg-[var(--color-surface)] rounded-[24px] border-2 border-[var(--color-border-default)] p-8 shadow-[0_4px_16px_rgba(0,0,0,0.08)] text-center">
+      <PracticeCard data-practice-surface="question" className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-5 sm:p-6 shadow-[var(--shadow-1)] text-center">
         <div className="mb-1">
-          <span className="text-xs text-[var(--color-text-disabled)] font-medium uppercase tracking-wide">
+          <span className="text-xs text-[var(--color-text-secondary)] font-medium uppercase tracking-wide">
             Fill in the blank
           </span>
         </div>
@@ -241,7 +247,7 @@ export function Sprint() {
             <span key={i}>
               {part}
               {i < arr.length - 1 && (
-                <span className="inline-block mx-1 px-3 py-0.5 rounded bg-[var(--color-warning)] text-[var(--color-on-brand)] border-2 border-dashed border-[var(--color-warning)] font-bold">
+                <span className="inline-block mx-1 px-3 py-0.5 rounded bg-[var(--color-warning-bg)] text-[var(--color-text-warning)] border border-dashed border-[var(--color-warning)] font-bold">
                   ?
                 </span>
               )}
@@ -251,18 +257,18 @@ export function Sprint() {
 
         <div className="space-y-2 mt-5">
           {current.options.map((opt) => {
-            let cls = "bg-[var(--color-surface)] border-2 border-[var(--color-border-default)] text-[var(--color-text-primary)] hover:ring-[var(--color-primary)] hover:bg-[var(--color-primary-subtle)]";
-            if (selected === opt && opt === current.correctAnswer) cls = "bg-[var(--color-success)] text-[var(--color-on-brand)] ring-2 ring-emerald-400";
-            else if (selected === opt && opt !== current.correctAnswer) cls = "bg-[var(--color-error)] text-[var(--color-on-brand)] ring-2 ring-red-300";
+            let cls = "bg-[var(--color-surface)] border border-[var(--color-border-default)] text-[var(--color-text-primary)] hover:ring-[var(--color-primary)] hover:bg-[var(--color-primary-subtle)]";
+            if (selected === opt && opt === current.correctAnswer) cls = "bg-[var(--color-success-bg)] text-[var(--color-text-success)] ring-2 ring-emerald-400";
+            else if (selected === opt && opt !== current.correctAnswer) cls = "bg-[var(--color-error-bg)] text-[var(--color-text-error)] ring-2 ring-red-300";
             else if (selected !== null && opt === current.correctAnswer) cls = "bg-[var(--color-success-bg)] ring-1 ring-[var(--color-success)] text-[var(--color-text-success)]";
 
             return (
-              <motion.button key={opt} layout initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }}
+              <MotionPracticeButton key={opt} layout initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }}
                 onClick={() => handleSelect(opt)} disabled={selected !== null}
                 className={`flex items-center justify-center w-full px-4 py-3 rounded-[14px] text-sm font-medium transition-all ${cls}`}
               >
                 <span>{opt}</span>
-              </motion.button>
+              </MotionPracticeButton>
             );
           })}
         </div>
@@ -276,7 +282,7 @@ export function Sprint() {
             </motion.div>
           )}
         </AnimatePresence>
-      </div>
+      </PracticeCard>
     </div>
   );
 }

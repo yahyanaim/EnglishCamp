@@ -17,7 +17,7 @@ export const SYNTAX_RULES: SyntaxRule[] = [
     title: "Basic Word Order: SVO (Subject-Verb-Object)",
     icon: "🔢",
     color: "text-blue-600",
-    explanation: "English has a fixed word order: Subject + Verb + Object (SVO). Unlike Arabic, the verb does NOT come first. This is the most important rule for Arabic speakers learning English.",
+    explanation: "The usual order in a neutral English statement is subject + verb + object when the verb takes an object. Questions, imperatives and some emphatic constructions follow other patterns. Arabic also permits different orders, so compare complete sentence structures rather than translating word by word.",
     examples: [
       { de: "I eat an apple.", en: "I eat an apple. (S+V+O)", ar: "أنا آكل تفاحة." },
       { de: "She reads a book.", en: "She reads a book.", ar: "هي تقرأ كتاباً." },
@@ -25,12 +25,12 @@ export const SYNTAX_RULES: SyntaxRule[] = [
       { de: "The dog chased the cat.", en: "The dog chased the cat.", ar: "الكلب طارد القطة." },
     ],
     subRules: [
-      { label: "SVO Rule", items: ["Subject → Verb → Object (ALWAYS in this order)", "The verb NEVER goes to position 1 in statements (unlike Arabic)", "Adjectives come BEFORE nouns: a red car (not: a car red)"] },
+      { label: "SVO Rule", items: ["Neutral transitive statement: subject → verb → object", "Questions and special constructions may use inversion; imperatives often begin with a verb.", "Adjectives come BEFORE nouns: a red car (not: a car red)"] },
     ],
   },
   {
     id: "s-v-o-m-p-t",
-    title: "SPOT: Subject, Place, Object, Time",
+    title: "Adding place, time and adverbs",
     icon: "📐",
     color: "text-emerald-600",
     explanation: "When you have multiple elements in a sentence, English follows this order: Subject + Verb + Object + Place + Time. Time can also go at the START of the sentence for emphasis. Adverbs of frequency (always, never, often) go BEFORE the main verb.",
@@ -51,7 +51,7 @@ export const SYNTAX_RULES: SyntaxRule[] = [
     title: "Question Formation (Yes/No & WH)",
     icon: "❓",
     color: "text-purple-600",
-    explanation: "Yes/No questions are formed by inverting the subject and the auxiliary verb (do/does/did, be, have, modals). WH-questions add the question word at the beginning. Unlike Arabic, English questions always require subject-auxiliary inversion.",
+    explanation: "Yes/No questions are formed by inverting the subject and the auxiliary verb (do/does/did, be, have, modals). WH-questions add the question word at the beginning. Subject questions such as Who called? normally keep subject–verb order without adding do. Embedded questions also use statement order.",
     formation: "Yes/No: Auxiliary + Subject + Main verb?  |  WH: WH-word + Auxiliary + Subject + Main verb?",
     examples: [
       { de: "Do you like coffee?", en: "Do you like coffee?", ar: "هل تحب القهوة؟" },
@@ -62,7 +62,7 @@ export const SYNTAX_RULES: SyntaxRule[] = [
       { de: "Why are you learning English?", en: "Why are you learning English?", ar: "لماذا تتعلم الإنجليزية؟" },
     ],
     subRules: [
-      { label: "Yes/No question formation", items: ["With 'be': invert subject and be-verb — Are you ready? / Is he here?", "With 'have' (as main verb): Do you have a car? (NOT: Have you a car?)", "With other verbs: Do/Does/Did + subject + base verb — Does she work here? / Did you see him?", "With modals: Modal + subject + base verb — Can you swim? / Should I go?"] },
+      { label: "Yes/No question formation", items: ["With 'be': invert subject and be-verb — Are you ready? / Is he here?", "With main-verb have: Do you have a car? is widely used. Have you got a car? is common in British English; Have you a car? also occurs in some varieties.", "With other verbs: Do/Does/Did + subject + base verb — Does she work here? / Did you see him?", "With modals: Modal + subject + base verb — Can you swim? / Should I go?"] },
       { label: "WH question formation", items: ["WH-word (what/where/when/why/who/how) + auxiliary + subject + verb?", "Who/What + verb (when subject) — Who called you? / What happened?", "Prepositions at the end (informal) — Who are you talking TO? / Where do you come FROM?"] },
     ],
   },

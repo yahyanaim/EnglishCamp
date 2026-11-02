@@ -1,4 +1,6 @@
 "use client";
+import { SelectField } from "@/components/ui/shadcn/select-field";
+import { LearningArt } from "@/components/brand/LearningArt";
 import { useState, useMemo, useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
 import { FlashCard } from "./FlashCard";
@@ -95,7 +97,7 @@ export function FlashcardDeck({ initialCategory = "All" }: { initialCategory?: s
   };
 
   return (
-    <div className="space-y-5">
+    <div className="camp-flashcard-deck space-y-5">
       {/* Mode switcher */}
       <div className="flex gap-1.5 bg-[var(--color-neutral-100)] rounded-[var(--radius-lg)] p-1 w-fit">
         {MODES.map((m) => {
@@ -104,13 +106,14 @@ export function FlashcardDeck({ initialCategory = "All" }: { initialCategory?: s
             <button
               key={m.id}
               onClick={() => setMode(m.id)}
+              aria-pressed={mode === m.id}
               className={`flex items-center gap-1.5 px-4 py-2 rounded-[var(--radius-md)] text-xs font-bold transition-all duration-150 ${
                 mode === m.id
                   ? "bg-[var(--color-surface)] text-[var(--color-text-primary)] shadow-[var(--shadow-2)]"
                   : "text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]"
               }`}
             >
-              <Icon className="w-3.5 h-3.5" />
+              <LearningArt name={Icon.displayName || "book"} size={14} className="w-3.5 h-3.5" />
               {m.label}
             </button>
           );
@@ -126,7 +129,7 @@ export function FlashcardDeck({ initialCategory = "All" }: { initialCategory?: s
             style={{ borderColor: s.border, boxShadow: `0 2px 0 ${s.border}` }}
           >
             <div className="flex items-center gap-1.5 mb-1">
-              <s.icon className="w-3.5 h-3.5" style={{ color: s.fg }} />
+              <LearningArt name={s.icon.displayName || "book"} size={14} className="w-3.5 h-3.5" />
               <span className="font-body font-semibold text-[9px] uppercase tracking-wider" style={{ color: "var(--color-text-secondary)" }}>
                 {s.label}
               </span>
@@ -149,7 +152,7 @@ export function FlashcardDeck({ initialCategory = "All" }: { initialCategory?: s
             placeholder="Search cards..."
             className="w-full h-12 pl-10 pr-10 bg-[var(--color-surface)] rounded-[var(--radius-md)] border-2 border-[var(--color-border-default)] text-sm font-medium text-[var(--color-text-primary)] placeholder:text-[var(--color-text-disabled)] placeholder:italic outline-none transition-all duration-150"
             style={{ boxShadow: "0 2px 0 var(--color-border-default)" }}
-            onFocus={(e) => { e.target.style.borderColor = "var(--color-border-focus)"; e.target.style.boxShadow = "0 2px 0 var(--color-border-focus), 0 0 0 3px rgba(28,176,246,0.15)"; }}
+            onFocus={(e) => { e.target.style.borderColor = "var(--color-border-focus)"; e.target.style.boxShadow = "0 2px 0 var(--color-border-focus), 0 0 0 3px rgba(126,34,206,0.15)"; }}
             onBlur={(e) => { e.target.style.borderColor = "var(--color-border-default)"; e.target.style.boxShadow = "0 2px 0 var(--color-border-default)"; }}
           />
           {search && (
@@ -160,34 +163,7 @@ export function FlashcardDeck({ initialCategory = "All" }: { initialCategory?: s
         </div>
       )}
 
-      {/* Categories */}
-      <div className="flex flex-wrap gap-1.5">
-        <button
-          onClick={() => setCategory("All")}
-          className={`rounded-[var(--radius-pill)] px-3 py-1.5 text-[11px] font-bold transition-all duration-150 ${
-            category === "All"
-              ? "bg-[var(--color-primary)] text-white"
-              : "bg-[var(--color-surface)] border-2 border-[var(--color-border-default)] text-[var(--color-text-secondary)] hover:border-[var(--color-border-strong)]"
-          }`}
-          style={category === "All" ? { boxShadow: "0 2px 0 var(--color-primary-dark)" } : {}}
-        >
-          All <span className="opacity-60">({totalCards})</span>
-        </button>
-        {ALL_CATEGORIES.map((cat) => (
-          <button
-            key={cat}
-            onClick={() => setCategory(cat)}
-            className={`rounded-[var(--radius-pill)] px-3 py-1.5 text-[11px] font-bold transition-all duration-150 ${
-              cat === category
-                ? "bg-[var(--color-primary)] text-white"
-                : "bg-[var(--color-surface)] border-2 border-[var(--color-border-default)] text-[var(--color-text-secondary)] hover:border-[var(--color-border-strong)]"
-            }`}
-            style={cat === category ? { boxShadow: "0 2px 0 var(--color-primary-dark)" } : {}}
-          >
-            {cat} <span className="opacity-60">({catCounts[cat] || 0})</span>
-          </button>
-        ))}
-      </div>
+      <label className="camp-flashcard-category">Category<SelectField value={category} onValueChange={setCategory} aria-label="Flashcard category"><option value="All">All categories ({totalCards})</option>{ALL_CATEGORIES.map(cat=><option key={cat} value={cat}>{cat} ({catCounts[cat] || 0})</option>)}</SelectField></label>
 
       {/* Progress */}
       {filtered.length > 0 && (

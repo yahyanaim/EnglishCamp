@@ -1,3 +1,7 @@
+const consistency=require('./fixtures/consistency-content-contract.json');
+const notesBrand=require('./fixtures/notes-brand-contract.json');
+const violet=require('./fixtures/violet-session-contract.json');
+const fullsize=require('./fixtures/fullsize-ui-contract.json');
 require('./register.cjs');
 const {test}=require('node:test');
 const assert=require('node:assert/strict');
@@ -9,6 +13,11 @@ const mobileLayout=require('./fixtures/mobile-layout-contract.json');
 const narration=require('./fixtures/natural-narration-contract.json');
 const enrichment=require('./fixtures/course-enrichment-contract.json');
 const principles=require('./fixtures/lesson-principles-contract.json');
+const mockNarration=require('./fixtures/mock-narration-contract.json');
+const mockRebuild=require('./fixtures/mock-rebuild-contract.json');
+const styling=require('./fixtures/style-refinement-contract.json');
+const recovery=require('./fixtures/ui-recovery-contract.json');
+const reference=require('./fixtures/reference-ui-contract.json');
 const {courseActivities}=require('../src/data/course-activities.ts');
 const {levels}=require('../src/data/content.ts');
 const {courseInstruction}=require('../src/data/course-instruction/index.ts');
@@ -36,7 +45,12 @@ test('protected production files remain identical except the reviewed UI, narrat
  const prior={...reviewedUI,...enrichment.integration};
  assert.deepEqual(Object.keys(principles.integration).sort(),['src/components/course/ModuleExperience.tsx']);
  for(const [name,delta]of Object.entries(principles.integration)){assert.equal(delta.before,prior[name]?.after??contract.protectedFiles[name],name+' principle boundary');assert.notEqual(delta.after,delta.before);}
- const reviewedAll={...prior,...principles.integration};
+ const beforeMock={...prior,...principles.integration};
+ assert.deepEqual(Object.keys(mockNarration.integration),['src/app/mock-exam/page.tsx']);
+ for(const [name,delta]of Object.entries(mockNarration.integration)){assert.equal(delta.before,beforeMock[name]?.after??contract.protectedFiles[name],name+' mock narration boundary');assert.notEqual(delta.after,delta.before);}
+ for(const [name,delta]of Object.entries(mockRebuild.integration)){assert.equal(delta.before,mockNarration.integration[name]?.after??beforeMock[name]?.after??contract.protectedFiles[name]??enrichment.preserved[name],name+' authorised mock rebuild boundary');assert.notEqual(delta.after,delta.before);}
+ const reviewedAll={...beforeMock,...mockNarration.integration,...mockRebuild.integration,...styling.files,...recovery.files,...reference.files,...fullsize.files,...violet.files,...notesBrand.files,...consistency.files};
+ for(const [name,expected]of Object.entries(styling.preserved))assert.equal(hash(fs.readFileSync(path.join(__dirname,'..',name))),consistency.files[name]?.after??notesBrand.files[name]?.after??violet.files[name]?.after??fullsize.files[name]?.after??reference.files[name]?.after??recovery.files[name]?.after??expected,name+' content/media/state preserved during styling');
  for(const [name,expected]of Object.entries(contract.protectedFiles))assert.equal(hash(fs.readFileSync(path.join(__dirname,'..',name))),reviewedAll[name]?.after??expected,name);
 });
 test('three lessons classified strong and their complete activities remain exactly preserved',()=>{

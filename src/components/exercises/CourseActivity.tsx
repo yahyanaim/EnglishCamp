@@ -1,4 +1,7 @@
 "use client";
+import { learnerStorage } from "@/lib/learnerStorage";
+import { Input } from "@/components/ui/shadcn/input";
+import { Textarea } from "@/components/ui/shadcn/textarea";
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import type { ActivityTask, CourseActivityData } from "@/data/types";
@@ -11,7 +14,7 @@ import { courseLabel, planningPrompt } from "@/lib/courseLabels";
 import type { TaskOutcome } from "@/lib/courseProgress";
 import { checkActivityAnswer, countWords, selectedAnswers, createRecordingSession, type RecordingSession } from "@/lib/courseActivity";
 
-const field = "w-full rounded-[var(--radius-md)] border-2 border-[var(--color-border-default)] bg-[var(--color-surface)] text-[var(--color-text-primary)] p-3 focus:border-[var(--color-border-focus)] outline-none";
+const field = "w-full rounded-[var(--radius-md)] border border-[var(--color-border-default)] bg-[var(--color-surface)] text-[var(--color-text-primary)] p-3 focus:border-[var(--color-border-focus)] outline-none";
 const stages = ["Guided practice", "Independent practice", "Assessment"];
 // Keep immutable task labels/signatures compatible with saved attempts; disclose the replacement narration in the player.
 const narrationLabel = (label: string) => label.replace(/^Original synthetic (speech|model|dialogue) · [^·]+ · /, (_match, kind: string) => `Original AI-generated neural ${kind === "model" ? "model audio" : kind} · `);
@@ -176,12 +179,12 @@ function Task({ task, exerciseId, moduleId, stage, active, onComplete, onBusy, p
       <label className="flex gap-2 text-sm"><input type="checkbox" checked={alternative} disabled={busy || submitted} onChange={e => patch({ alternative: e.target.checked, checks: [] })} />Use accessible study alternative</label>
       {alternative && <div className="space-y-3 text-sm bg-[var(--color-surface-alt)] p-4 rounded-[var(--radius-md)]"><p>Transcript / written study records engagement only. It does not demonstrate listening or spoken performance.</p>
         {task.audio && <p className="whitespace-pre-line">{task.audio.transcript}</p>}
-        {task.kind === "speaking" && <><p className="whitespace-pre-line">{task.spokenItems ? "Read each written prompt and possible response below. Compare the wording or organisation, then plan a suitable next activity." : task.model}</p><p>Use this material to study meaning and structure. A recording, accessible performance arrangement or human feedback is needed to evaluate the performance skill.</p><label className="block" htmlFor={`${task.id}-study`}>Study reflection: explain what you would practise and why (at least 10 words)</label><textarea id={`${task.id}-study`} value={studyNotes} readOnly={submitted} onChange={e => patch({ studyNotes: e.target.value })} className={field} rows={4} /></>}
+        {task.kind === "speaking" && <><p className="whitespace-pre-line">{task.spokenItems ? "Read each written prompt and possible response below. Compare the wording or organisation, then plan a suitable next activity." : task.model}</p><p>Use this material to study meaning and structure. A recording, accessible performance arrangement or human feedback is needed to evaluate the performance skill.</p><label className="block" htmlFor={`${task.id}-study`}>Study reflection: explain what you would practise and why (at least 10 words)</label><Textarea id={`${task.id}-study`} value={studyNotes} readOnly={submitted} onChange={e => patch({ studyNotes: e.target.value })} className={field} rows={4} /></>}
       </div>}
     </div>}
     {task.kind === "writing" && <div className="space-y-2">
       <label className="block font-semibold text-sm" htmlFor={`${task.id}-response`}>Your written response</label>
-      <textarea id={`${task.id}-response`} value={text} onChange={e => patch({ text: e.target.value })} readOnly={submitted} rows={12} className={field} spellCheck />
+      <Textarea id={`${task.id}-response`} value={text} onChange={e => patch({ text: e.target.value })} readOnly={submitted} rows={12} className={field} spellCheck />
       <p role="status" className="text-xs">{words} words · Target: {task.minWords}{task.maxWords ? `–${task.maxWords}` : "+"} · {saving}</p>
       {previous && <details className="text-sm"><summary className="cursor-pointer text-[var(--color-text-link)]">{state.earlierPrompt ? "Preserved draft from an earlier task version" : "Compare with your previous draft"}</summary><p className="whitespace-pre-line mt-2">{previous}</p></details>}
     </div>}
@@ -191,7 +194,7 @@ function Task({ task, exerciseId, moduleId, stage, active, onComplete, onBusy, p
       {question.options ? question.options.map(option => <label key={option} className="flex gap-3 items-start p-3 border border-[var(--color-border-default)] rounded-[var(--radius-md)] text-sm"><input type={question.selectCount ? "checkbox" : "radio"} name={`${task.id}-${question.id}`} checked={question.selectCount ? selectedAnswers(answers[question.id] ?? "").includes(option) : answers[question.id] === option} onChange={() => setState(s => {
         const current = selectedAnswers(s.answers[question.id] ?? "");
         return { ...s, answers: { ...s.answers, [question.id]: question.selectCount ? JSON.stringify(current.includes(option) ? current.filter(x => x !== option) : [...current, option]) : option } };
-      })} className="mt-1" /><span>{option}</span></label>) : <input aria-label={`Answer to question ${index + 1}: ${question.prompt}`} className={field} value={answers[question.id] ?? ""} onChange={e => patch({ answers: { ...answers, [question.id]: e.target.value } })} autoComplete="off" />}
+      })} className="mt-1" /><span>{option}</span></label>) : <Input aria-label={`Answer to question ${index + 1}: ${question.prompt}`} className={field} value={answers[question.id] ?? ""} onChange={e => patch({ answers: { ...answers, [question.id]: e.target.value } })} autoComplete="off" />}
       {question.maxWords && <p className="text-xs">No more than {question.maxWords} word(s).</p>}
     </fieldset>}
     {questions.length > 1 && <div className="flex gap-2 flex-wrap" aria-label="Question navigation">{questions.map((q, i) => <Button key={q.id} size="sm" aria-pressed={i === index} variant={i === index ? "primary" : "secondary"} onClick={() => patch({ index: i })} aria-label={`Question ${i + 1}${answers[q.id] ? ", answered" : ""}`}>{i + 1}{answers[q.id] ? " ✓" : ""}</Button>)}</div>}
@@ -231,14 +234,14 @@ export function CourseActivity({ data, id, xpReward, moduleId = id.replace(/^act
   const container = useRef<HTMLDivElement>(null);
   useEffect(() => {
     try {
-      const raw = localStorage.getItem(`${id}:stages`);
+      const raw = learnerStorage.getItem(`${id}:stages`);
       if (raw) { const saved = JSON.parse(raw); if (Number.isInteger(saved.unlocked) && saved.unlocked >= 0 && saved.unlocked <= 2) { setUnlocked(saved.unlocked); setStage(Number.isInteger(saved.stage) && saved.stage >= 0 ? Math.min(saved.stage, saved.unlocked) : 0); } }
     } catch { /* Per-task storage messages cover unavailable local storage. */ }
     setLoaded(true);
   }, [id]);
   useEffect(() => {
     if (!loaded) return;
-    try { localStorage.setItem(`${id}:stages`, JSON.stringify({ unlocked, stage })); } catch { /* Tasks remain usable without persistence. */ }
+    try { learnerStorage.setItem(`${id}:stages`, JSON.stringify({ unlocked, stage })); } catch { /* Tasks remain usable without persistence. */ }
     visitModule(moduleId, stage);
   }, [loaded, id, unlocked, stage, moduleId, visitModule]);
   useEffect(() => { registerContent(moduleId, data.tasks.map(taskSignature)); }, [moduleId, data, registerContent]);

@@ -1,3 +1,4 @@
+import { learnerStorage } from "@/lib/learnerStorage";
 import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
 
@@ -58,6 +59,6 @@ export const useGoals = create<GoalsStore>()(
         };
       },
     }),
-    { name: "englishcamp-goals", storage: createJSONStorage(() => localStorage) }
+    { name: "englishcamp-goals", skipHydration: true, storage: createJSONStorage(() => learnerStorage) }
   )
 );

@@ -1,4 +1,7 @@
 "use client";
+
+import { LearningArt } from "@/components/brand/LearningArt";
+import { PracticeCard, PracticeButton } from "@/components/ui/PracticeSurface";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useProgress } from "@/store/useProgress";
@@ -92,27 +95,27 @@ export function Proofreading() {
   if (done) {
     const pct = total > 0 ? Math.round((score / total) * 100) : 0;
     return (
-      <div className="bg-[var(--color-surface)] rounded-[24px] border-2 border-[var(--color-border-default)] p-10 text-center shadow-[0_4px_16px_rgba(0,0,0,0.08)]">
-        <Sparkles className="w-14 h-14 text-[var(--color-primary)] mx-auto mb-4" />
+      <PracticeCard data-practice-surface="result" className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-5 sm:p-6 text-center shadow-[var(--shadow-1)]">
+        <LearningArt name="Sparkles" className="w-14 h-14 text-[var(--color-primary)] mx-auto mb-4" />
         <h3 className="text-xl font-display font-extrabold text-[var(--color-text-primary)] mb-1">Error Correction Done!</h3>
-        <p className="text-lg font-display font-extrabold text-[var(--color-primary-dark)]">{score}/{total} ({pct}%)</p>
+        <p className="text-lg font-display font-extrabold text-[var(--color-text-link)]">{score}/{total} ({pct}%)</p>
         <p className="text-sm text-[var(--color-text-secondary)] mt-2 max-w-sm mx-auto">
           {pct >= 80 ? "Excellent! You have a sharp eye for errors." : pct >= 50 ? "Good start! Keep practising." : "Keep going! Error correction gets easier with practice."}
         </p>
-        <button onClick={restart} className="mt-4 text-sm font-medium bg-[var(--color-primary-subtle)] text-[var(--color-primary-dark)] border border-[var(--color-primary)] px-5 py-2 rounded-[var(--radius-lg)] hover:bg-[var(--color-primary)] transition-all">
+        <PracticeButton onClick={restart} className="mt-4 text-sm font-medium bg-[var(--color-primary-subtle)] text-[var(--color-text-link)] border border-[var(--color-primary)] px-5 py-2 rounded-[var(--radius-lg)] hover:bg-[var(--color-primary)] transition-all">
           Play Again ↺
-        </button>
-      </div>
+        </PracticeButton>
+      </PracticeCard>
     );
   }
 
   if (!current) return null;
 
   return (
-    <div className="bg-[var(--color-surface)] rounded-[24px] border-2 border-[var(--color-border-default)] p-6 shadow-[0_4px_16px_rgba(0,0,0,0.08)] max-w-2xl mx-auto">
+    <PracticeCard data-practice-surface="question" className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-6 shadow-[var(--shadow-1)] max-w-2xl mx-auto">
       <div className="flex items-center justify-between mb-4">
-        <span className="text-xs font-semibold text-[var(--color-error)] uppercase tracking-wider">Error Correction</span>
-        <span className="text-xs text-[var(--color-text-disabled)]">{index + 1}/{pool.length}</span>
+        <span className="text-xs font-semibold text-[var(--color-text-error)] uppercase tracking-wider">Error Correction</span>
+        <span className="text-xs text-[var(--color-text-secondary)]">{index + 1}/{pool.length}</span>
       </div>
 
       <div className="flex gap-1.5 mb-6">
@@ -125,7 +128,7 @@ export function Proofreading() {
         <motion.div key={current.id} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} className="space-y-4">
           <div>
             <p className="text-xs text-[var(--color-text-secondary)] mb-1">Find and fix the error in this sentence:</p>
-            <p className="text-lg font-display font-extrabold text-[var(--color-text-primary)] font-mono bg-[var(--color-error)] text-white rounded-[var(--radius-lg)] px-4 py-3 ring-1 ring-[var(--color-error)]">
+            <p className="text-lg font-display font-extrabold text-[var(--color-text-primary)] font-mono bg-[var(--color-error-bg)] text-[var(--color-text-error)] rounded-[var(--radius-lg)] px-4 py-3 ring-1 ring-[var(--color-error)]">
               {current.incorrect}
             </p>
           </div>
@@ -137,32 +140,32 @@ export function Proofreading() {
               disabled={revealed}
               placeholder="Type the corrected sentence..."
               rows={2}
-              className="w-full px-4 py-3 rounded-[var(--radius-lg)] text-sm border-2 border-[var(--color-border-default)] focus:ring-2 focus:ring-brand-500 outline-none resize-none bg-[var(--color-surface)]"
+              className="w-full px-4 py-3 rounded-[var(--radius-lg)] text-sm border border-[var(--color-border-default)] focus:ring-2 focus:ring-brand-500 outline-none resize-none bg-[var(--color-surface)]"
             />
 
             <div className="flex items-center gap-2">
               {!revealed && (
                 <>
-                  <button
+                  <PracticeButton
                     onClick={handleCheck}
                     disabled={!userGuess.trim()}
-                    className="flex items-center gap-2 px-5 py-2.5 bg-[var(--color-primary)] text-white rounded-[var(--radius-lg)] font-semibold text-sm hover:bg-brand-600 disabled:opacity-50 transition-all"
+                    className="flex items-center gap-2 px-5 py-2.5 bg-[var(--color-primary)] text-[var(--color-on-brand)] rounded-[var(--radius-lg)] font-semibold text-sm hover:bg-[var(--color-primary-hover)] disabled:opacity-50 transition-all"
                   >
                     <CheckCircle className="w-4 h-4" /> Check
-                  </button>
-                  <button
+                  </PracticeButton>
+                  <PracticeButton
                     onClick={() => setShowHint(true)}
-                    className="flex items-center gap-2 px-4 py-2.5 bg-[var(--color-warning)] text-white rounded-[var(--radius-lg)] font-medium text-sm hover:bg-amber-100 border border-[var(--color-warning)] transition-all"
+                    className="flex items-center gap-2 px-4 py-2.5 bg-[var(--color-warning-bg)] text-[var(--color-text-warning)] rounded-[var(--radius-lg)] font-medium text-sm hover:bg-amber-100 border border-[var(--color-warning)] transition-all"
                   >
-                    <Lightbulb className="w-4 h-4" /> Hint
-                  </button>
+                    <LearningArt name="Lightbulb" size={16} className="w-4 h-4" /> Hint
+                  </PracticeButton>
                 </>
               )}
             </div>
 
             {showHint && !revealed && (
-              <motion.div initial={{ opacity: 0, y: -4 }} animate={{ opacity: 1, y: 0 }} className="flex items-start gap-2 p-3 rounded-[var(--radius-lg)] bg-[var(--color-warning)] text-white ring-1 ring-[var(--color-warning)]">
-                <Lightbulb className="w-4 h-4 shrink-0 mt-0.5" />
+              <motion.div initial={{ opacity: 0, y: -4 }} animate={{ opacity: 1, y: 0 }} className="flex items-start gap-2 p-3 rounded-[var(--radius-lg)] bg-[var(--color-warning-bg)] text-[var(--color-text-warning)] ring-1 ring-[var(--color-warning)]">
+                <LearningArt name="Lightbulb" size={16} className="w-4 h-4 shrink-0 mt-0.5" />
                 <p className="text-sm">{current.hints[0]}</p>
               </motion.div>
             )}
@@ -171,7 +174,7 @@ export function Proofreading() {
           {revealed && (
             <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className="space-y-3">
               {isCorrect ? (
-                <div className="flex items-start gap-3 p-4 rounded-[var(--radius-lg)] bg-[var(--color-success)] text-white ring-1 ring-[var(--color-success)] text-emerald-800">
+                <div className="flex items-start gap-3 p-4 rounded-[var(--radius-lg)] bg-[var(--color-success-bg)] text-[var(--color-text-success)] ring-1 ring-[var(--color-success)] text-[var(--color-text-success)]">
                   <CheckCircle className="w-5 h-5 shrink-0 mt-0.5" />
                   <div>
                     <p className="font-semibold">Correct! +10 XP</p>
@@ -180,30 +183,30 @@ export function Proofreading() {
                 </div>
               ) : (
                 <div className="space-y-2">
-                  <div className="flex items-start gap-3 p-4 rounded-[var(--radius-lg)] bg-[var(--color-error)] text-white ring-1 ring-[var(--color-error)] text-red-800">
+                  <div className="flex items-start gap-3 p-4 rounded-[var(--radius-lg)] bg-[var(--color-error-bg)] text-[var(--color-text-error)] ring-1 ring-[var(--color-error)] text-[var(--color-text-error)]">
                     <XCircle className="w-5 h-5 shrink-0 mt-0.5" />
                     <div>
                       <p className="font-semibold">Not quite</p>
                       <p className="text-sm mt-1">
-                        Your answer: <span className="line-through text-[var(--color-error)]">{userGuess.trim()}</span>
+                        Your answer: <span className="line-through text-[var(--color-text-error)]">{userGuess.trim()}</span>
                       </p>
                       <p className="text-sm">
-                        Correct: <span className="font-mono font-bold text-[var(--color-success)]">{current.correct}</span>
+                        Correct: <span className="font-mono font-bold text-[var(--color-text-success)]">{current.correct}</span>
                       </p>
                       <p className="text-sm mt-2 text-[var(--color-text-secondary)]">{current.explanation}</p>
                     </div>
                   </div>
 
-                  <div className="flex items-start gap-3 p-4 rounded-[var(--radius-lg)] bg-[var(--color-warning)] text-white ring-1 ring-[var(--color-warning)]">
-                    <Lightbulb className="w-5 h-5 shrink-0 mt-0.5 text-[var(--color-warning)]" />
+                  <div className="flex items-start gap-3 p-4 rounded-[var(--radius-lg)] bg-[var(--color-warning-bg)] text-[var(--color-text-warning)] ring-1 ring-[var(--color-warning)]">
+                    <LearningArt name="Lightbulb" size={20} className="w-5 h-5 shrink-0 mt-0.5 text-[var(--color-text-warning)]" />
                     <div>
                       <p className="font-semibold text-sm">Tip</p>
                       <p className="text-sm mt-1">{getErrorTip(current).tip}</p>
                     </div>
                   </div>
 
-                  <div className="flex items-start gap-3 p-4 rounded-[var(--radius-lg)] bg-[var(--color-info)] text-white ring-1 ring-[var(--color-info)]">
-                    <BookOpen className="w-5 h-5 shrink-0 mt-0.5 text-[var(--color-info)]" />
+                  <div className="flex items-start gap-3 p-4 rounded-[var(--radius-lg)] bg-[var(--color-info-bg)] text-[var(--color-text-info)] ring-1 ring-[var(--color-info)]">
+                    <LearningArt name="BookOpen" size={20} className="w-5 h-5 shrink-0 mt-0.5 text-[var(--color-text-info)]" />
                     <div>
                       <p className="font-semibold text-sm">Suggestion</p>
                       <p className="text-sm mt-1">{getErrorTip(current).suggest}</p>
@@ -213,17 +216,17 @@ export function Proofreading() {
               )}
 
               <div className="flex justify-end">
-                <button
+                <PracticeButton
                   onClick={next}
-                  className="flex items-center gap-2 px-5 py-2.5 bg-[var(--color-primary)] text-white rounded-[var(--radius-lg)] font-semibold text-sm hover:bg-brand-600 transition-all"
+                  className="flex items-center gap-2 px-5 py-2.5 bg-[var(--color-primary)] text-[var(--color-on-brand)] rounded-[var(--radius-lg)] font-semibold text-sm hover:bg-[var(--color-primary-hover)] transition-all"
                 >
                   {index + 1 >= pool.length ? "See Results" : "Next"} <ArrowRight className="w-4 h-4" />
-                </button>
+                </PracticeButton>
               </div>
             </motion.div>
           )}
         </motion.div>
       </AnimatePresence>
-    </div>
+    </PracticeCard>
   );
 }

@@ -5387,7 +5387,7 @@ export const levels: Level[] = [
     accent: "#a855f7",
     examTarget: "Cambridge B2 First",
     examBadge: "B2 / FCE",
-    examHref: "/b2-pruefung",
+    examHref: "/mock-exam?exam=b2-first",
     lessons: BAND1_LESSONS,
   },
   {

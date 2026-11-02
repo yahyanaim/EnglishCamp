@@ -1,0 +1,1043 @@
+[
+  {
+    "id": "b22-r1",
+    "title": "Part 1 · Multiple-choice cloze",
+    "subtitle": "Reading and Use of English · 8 questions",
+    "part": 1,
+    "skill": "reading",
+    "instructions": "For questions 1–8, choose the word which best fits each gap. One mark per answer.",
+    "passage": "A closer look\nA local photography group decided to [1] a closer look at the streets around its meeting place. Rather than photographing famous buildings, members wanted to [2] attention to details that people usually passed without noticing. The project [3] place over six weekends, with a different route chosen each time. Participants [4] notes as they walked, recording the location of each photograph and any questions it raised.\nA quiet street turned [5] to contain an old theatre, now hidden behind a modern shopfront. On another walk, the group came [6] a faded sign for a business that had closed decades earlier. Members did not assume that their first interpretation was correct. They checked old directories and invited residents to comment. Finally, they put the photographs on [7] at the library. The event [8] residents to exchange memories and correct several mistaken captions. What began as an exercise in looking carefully became a conversation about how a place changes while traces of its past remain visible.",
+    "questions": [
+      {
+        "number": 1,
+        "kind": "choice",
+        "prompt": "The group decided to _____ a closer look at its neighbourhood.",
+        "answers": [
+          "take"
+        ],
+        "evidence": "The fixed expression is take a closer look.",
+        "explanation": "The fixed expression is take a closer look.",
+        "marks": 1,
+        "options": [
+          "take",
+          "make",
+          "do",
+          "set"
+        ],
+        "id": "b22-r1-q1",
+        "component": "reading"
+      },
+      {
+        "number": 2,
+        "kind": "choice",
+        "prompt": "It wanted to _____ attention to small details.",
+        "answers": [
+          "pay"
+        ],
+        "evidence": "Pay attention is the appropriate collocation.",
+        "explanation": "Pay attention is the appropriate collocation.",
+        "marks": 1,
+        "options": [
+          "pay",
+          "spend",
+          "cost",
+          "charge"
+        ],
+        "id": "b22-r1-q2",
+        "component": "reading"
+      },
+      {
+        "number": 3,
+        "kind": "choice",
+        "prompt": "The project _____ place over six weekends.",
+        "answers": [
+          "took"
+        ],
+        "evidence": "An event takes place.",
+        "explanation": "An event takes place.",
+        "marks": 1,
+        "options": [
+          "made",
+          "took",
+          "put",
+          "kept"
+        ],
+        "id": "b22-r1-q3",
+        "component": "reading"
+      },
+      {
+        "number": 4,
+        "kind": "choice",
+        "prompt": "Participants _____ notes as they walked.",
+        "answers": [
+          "made"
+        ],
+        "evidence": "Make notes is the natural collocation.",
+        "explanation": "Make notes is the natural collocation.",
+        "marks": 1,
+        "options": [
+          "did",
+          "held",
+          "made",
+          "carried"
+        ],
+        "id": "b22-r1-q4",
+        "component": "reading"
+      },
+      {
+        "number": 5,
+        "kind": "choice",
+        "prompt": "A quiet street turned _____ to contain an old theatre.",
+        "answers": [
+          "out"
+        ],
+        "evidence": "Turn out to means prove or be discovered to be.",
+        "explanation": "Turn out to means prove or be discovered to be.",
+        "marks": 1,
+        "options": [
+          "off",
+          "over",
+          "down",
+          "out"
+        ],
+        "id": "b22-r1-q5",
+        "component": "reading"
+      },
+      {
+        "number": 6,
+        "kind": "choice",
+        "prompt": "The group came _____ a faded sign.",
+        "answers": [
+          "across"
+        ],
+        "evidence": "Come across means discover unexpectedly.",
+        "explanation": "Come across means discover unexpectedly.",
+        "marks": 1,
+        "options": [
+          "across",
+          "through",
+          "after",
+          "along"
+        ],
+        "id": "b22-r1-q6",
+        "component": "reading"
+      },
+      {
+        "number": 7,
+        "kind": "choice",
+        "prompt": "They put the photographs on _____ at the library.",
+        "answers": [
+          "display"
+        ],
+        "evidence": "On display is the fixed phrase.",
+        "explanation": "On display is the fixed phrase.",
+        "marks": 1,
+        "options": [
+          "sight",
+          "display",
+          "viewing",
+          "showing"
+        ],
+        "id": "b22-r1-q7",
+        "component": "reading"
+      },
+      {
+        "number": 8,
+        "kind": "choice",
+        "prompt": "The event _____ residents to exchange memories.",
+        "answers": [
+          "enabled"
+        ],
+        "evidence": "Enable takes object + to-infinitive; let/make do not.",
+        "explanation": "Enable takes object + to-infinitive; let/make do not.",
+        "marks": 1,
+        "options": [
+          "let",
+          "made",
+          "enabled",
+          "avoided"
+        ],
+        "id": "b22-r1-q8",
+        "component": "reading"
+      }
+    ]
+  },
+  {
+    "id": "b22-r2",
+    "title": "Part 2 · Open cloze",
+    "subtitle": "Reading and Use of English · 8 questions",
+    "part": 2,
+    "skill": "reading",
+    "instructions": "For questions 9–16, write ONE word for each gap. One mark per answer.",
+    "passage": "Learning to mend\nBefore last winter, I [9] never tried to repair my own clothes. If a button fell off, I put the item aside and forgot about it. Then I decided [10] join a sewing class at the community centre. The tutor, [11] had worked in a theatre costume department, was much more patient [12] I expected. She showed us how to begin with a small, manageable task.\n[13] first I found it difficult to thread a needle, but the routine became easier with practice. The tutor reminded us that a repair could be useful even [14] it was not invisible. Instead [15] buying a new bag when a seam opened, I repaired it [16]. I still make mistakes, and I would not attempt every kind of repair without advice. However, I now understand enough to recognise a simple problem and decide whether to try it or ask someone more experienced. The class changed a habit rather than turning me into an expert overnight.",
+    "questions": [
+      {
+        "number": 9,
+        "kind": "completion",
+        "prompt": "Gap 9: write ONE word.",
+        "answers": [
+          "had"
+        ],
+        "evidence": "Past perfect: I had never tried.",
+        "explanation": "Past perfect: I had never tried.",
+        "marks": 1,
+        "maxWords": 1,
+        "id": "b22-r2-q9",
+        "component": "use-of-english"
+      },
+      {
+        "number": 10,
+        "kind": "completion",
+        "prompt": "Gap 10: write ONE word.",
+        "answers": [
+          "to"
+        ],
+        "evidence": "Decide to do something.",
+        "explanation": "Decide to do something.",
+        "marks": 1,
+        "maxWords": 1,
+        "id": "b22-r2-q10",
+        "component": "use-of-english"
+      },
+      {
+        "number": 11,
+        "kind": "completion",
+        "prompt": "Gap 11: write ONE word.",
+        "answers": [
+          "who"
+        ],
+        "evidence": "A relative pronoun referring to a person.",
+        "explanation": "A relative pronoun referring to a person.",
+        "marks": 1,
+        "maxWords": 1,
+        "id": "b22-r2-q11",
+        "component": "use-of-english"
+      },
+      {
+        "number": 12,
+        "kind": "completion",
+        "prompt": "Gap 12: write ONE word.",
+        "answers": [
+          "than"
+        ],
+        "evidence": "The comparative expression is more patient than.",
+        "explanation": "The comparative expression is more patient than.",
+        "marks": 1,
+        "maxWords": 1,
+        "id": "b22-r2-q12",
+        "component": "use-of-english"
+      },
+      {
+        "number": 13,
+        "kind": "completion",
+        "prompt": "Gap 13: write ONE word.",
+        "answers": [
+          "at"
+        ],
+        "evidence": "At first is a fixed expression.",
+        "explanation": "At first is a fixed expression.",
+        "marks": 1,
+        "maxWords": 1,
+        "id": "b22-r2-q13",
+        "component": "use-of-english"
+      },
+      {
+        "number": 14,
+        "kind": "completion",
+        "prompt": "Gap 14: write ONE word.",
+        "answers": [
+          "if"
+        ],
+        "evidence": "Even if introduces a condition.",
+        "explanation": "Even if introduces a condition.",
+        "marks": 1,
+        "maxWords": 1,
+        "id": "b22-r2-q14",
+        "component": "use-of-english"
+      },
+      {
+        "number": 15,
+        "kind": "completion",
+        "prompt": "Gap 15: write ONE word.",
+        "answers": [
+          "of"
+        ],
+        "evidence": "Instead of is followed by a noun or -ing form.",
+        "explanation": "Instead of is followed by a noun or -ing form.",
+        "marks": 1,
+        "maxWords": 1,
+        "id": "b22-r2-q15",
+        "component": "use-of-english"
+      },
+      {
+        "number": 16,
+        "kind": "completion",
+        "prompt": "Gap 16: write ONE word.",
+        "answers": [
+          "myself"
+        ],
+        "evidence": "I is the subject; the reflexive is myself.",
+        "explanation": "I is the subject; the reflexive is myself.",
+        "marks": 1,
+        "maxWords": 1,
+        "id": "b22-r2-q16",
+        "component": "use-of-english"
+      }
+    ]
+  },
+  {
+    "id": "b22-r3",
+    "title": "Part 3 · Word formation",
+    "subtitle": "Reading and Use of English · 8 questions",
+    "part": 3,
+    "skill": "reading",
+    "instructions": "Use the word in capitals to form ONE word that fits the same numbered gap. One mark per answer.",
+    "passage": "Making information clear\nPatient [17] matters when showing a visitor an unfamiliar process. At our small science centre, we wanted the workshop to be [18] to people with different needs. A local [19] helped us prepare clear signs, but the first versions caused some [20] because the arrows were inconsistent.\nWe invited a group of visitors to try the route while staff observed where they hesitated. Their comments were practical. Some symbols looked similar from a distance; a heading was hidden whenever a door was open. We made the symbols more [21] without adding extra text, and the team checked the [22] of each direction on the plan. Visitors moved around more [23] after the changes. The [24] of the project depended on testing with real visitors rather than assuming that a professional-looking sign would automatically work well. We kept a record of each revision, so a future change to the building would not mean starting the whole process again.",
+    "questions": [
+      {
+        "number": 17,
+        "kind": "word-formation",
+        "prompt": "Patient ____ matters when showing a visitor an unfamiliar process. Base word: EXPLAIN.",
+        "answers": [
+          "explanation"
+        ],
+        "evidence": "A noun is needed after patient and before matters.",
+        "explanation": "A noun is needed after patient and before matters.",
+        "marks": 1,
+        "maxWords": 1,
+        "keyword": "EXPLAIN",
+        "id": "b22-r3-q17",
+        "component": "use-of-english"
+      },
+      {
+        "number": 18,
+        "kind": "word-formation",
+        "prompt": "We wanted the workshop to be ____ to people with different needs. Base word: ACCESS.",
+        "answers": [
+          "accessible"
+        ],
+        "evidence": "The adjective accessible follows be.",
+        "explanation": "The adjective accessible follows be.",
+        "marks": 1,
+        "maxWords": 1,
+        "keyword": "ACCESS",
+        "id": "b22-r3-q18",
+        "component": "use-of-english"
+      },
+      {
+        "number": 19,
+        "kind": "word-formation",
+        "prompt": "A local ____ helped us prepare clear signs. Base word: DESIGN.",
+        "answers": [
+          "designer"
+        ],
+        "evidence": "A person noun is needed after a local.",
+        "explanation": "A person noun is needed after a local.",
+        "marks": 1,
+        "maxWords": 1,
+        "keyword": "DESIGN",
+        "id": "b22-r3-q19",
+        "component": "use-of-english"
+      },
+      {
+        "number": 20,
+        "kind": "word-formation",
+        "prompt": "The first signs caused some ____ because the arrows were inconsistent. Base word: CONFUSE.",
+        "answers": [
+          "confusion"
+        ],
+        "evidence": "Some is followed by the uncountable noun confusion.",
+        "explanation": "Some is followed by the uncountable noun confusion.",
+        "marks": 1,
+        "maxWords": 1,
+        "keyword": "CONFUSE",
+        "id": "b22-r3-q20",
+        "component": "use-of-english"
+      },
+      {
+        "number": 21,
+        "kind": "word-formation",
+        "prompt": "We made the symbols more ____ without adding extra text. Base word: RECOGNISE.",
+        "answers": [
+          "recognisable",
+          "recognizable"
+        ],
+        "evidence": "More takes an adjective here; both spellings are accepted.",
+        "explanation": "More takes an adjective here; both spellings are accepted.",
+        "marks": 1,
+        "maxWords": 1,
+        "keyword": "RECOGNISE",
+        "id": "b22-r3-q21",
+        "component": "use-of-english"
+      },
+      {
+        "number": 22,
+        "kind": "word-formation",
+        "prompt": "The team checked the ____ of each direction on the plan. Base word: ACCURATE.",
+        "answers": [
+          "accuracy"
+        ],
+        "evidence": "The noun accuracy follows the.",
+        "explanation": "The noun accuracy follows the.",
+        "marks": 1,
+        "maxWords": 1,
+        "keyword": "ACCURATE",
+        "id": "b22-r3-q22",
+        "component": "use-of-english"
+      },
+      {
+        "number": 23,
+        "kind": "word-formation",
+        "prompt": "Visitors moved around more ____ after the changes. Base word: CONFIDENT.",
+        "answers": [
+          "confidently"
+        ],
+        "evidence": "An adverb modifies moved.",
+        "explanation": "An adverb modifies moved.",
+        "marks": 1,
+        "maxWords": 1,
+        "keyword": "CONFIDENT",
+        "id": "b22-r3-q23",
+        "component": "use-of-english"
+      },
+      {
+        "number": 24,
+        "kind": "word-formation",
+        "prompt": "The ____ of the project depended on testing with real visitors. Base word: SUCCEED.",
+        "answers": [
+          "success"
+        ],
+        "evidence": "The noun success is required.",
+        "explanation": "The noun success is required.",
+        "marks": 1,
+        "maxWords": 1,
+        "keyword": "SUCCEED",
+        "id": "b22-r3-q24",
+        "component": "use-of-english"
+      }
+    ]
+  },
+  {
+    "id": "b22-r4",
+    "title": "Part 4 · Key-word transformations",
+    "subtitle": "Reading and Use of English · 6 questions",
+    "part": 4,
+    "skill": "reading",
+    "instructions": "Questions 25–30. Two marks for a complete accepted answer; listed partial structures can earn one mark. Contractions count as their full forms.",
+    "passage": "Complete the second sentence so that it means the same as the first, using the word given. Do not change the key word. Write between TWO and FIVE words in each gap, including the key word.",
+    "questions": [
+      {
+        "number": 25,
+        "kind": "transformation",
+        "prompt": "I last saw Amir three years ago.\nKey word: SEEN\nI _____ Amir for three years.",
+        "answers": [
+          "have not seen"
+        ],
+        "evidence": "Present perfect negative with for describes the period since the last meeting.",
+        "explanation": "Present perfect negative with for describes the period since the last meeting.",
+        "marks": 2,
+        "maxWords": 5,
+        "keyword": "SEEN",
+        "before": "I",
+        "after": "Amir for three years.",
+        "partial": [
+          {
+            "answers": [
+              "not seen"
+            ],
+            "marks": 1
+          }
+        ],
+        "id": "b22-r4-q25",
+        "component": "use-of-english"
+      },
+      {
+        "number": 26,
+        "kind": "transformation",
+        "prompt": "The instructions were too complicated for us to follow.\nKey word: ENOUGH\nThe instructions were not _____ for us to follow.",
+        "answers": [
+          "simple enough",
+          "clear enough"
+        ],
+        "evidence": "Not simple enough preserves the meaning of too complicated; clear enough is also a full equivalent.",
+        "explanation": "Not simple enough preserves the meaning of too complicated; clear enough is also a full equivalent.",
+        "marks": 2,
+        "maxWords": 5,
+        "keyword": "ENOUGH",
+        "before": "The instructions were not",
+        "after": "for us to follow.",
+        "id": "b22-r4-q26",
+        "component": "use-of-english"
+      },
+      {
+        "number": 27,
+        "kind": "transformation",
+        "prompt": "Someone is repairing my bicycle tomorrow.\nKey word: HAVING\nI _____ tomorrow.",
+        "answers": [
+          "am having my bicycle repaired"
+        ],
+        "evidence": "Have + object + past participle describes an arranged service.",
+        "explanation": "Have + object + past participle describes an arranged service.",
+        "marks": 2,
+        "maxWords": 5,
+        "keyword": "HAVING",
+        "before": "I",
+        "after": "tomorrow.",
+        "partial": [
+          {
+            "answers": [
+              "having my bicycle repaired"
+            ],
+            "marks": 1
+          }
+        ],
+        "id": "b22-r4-q27",
+        "component": "use-of-english"
+      },
+      {
+        "number": 28,
+        "kind": "transformation",
+        "prompt": "You should reserve a place before Friday.\nKey word: BETTER\nYou _____ a place before Friday.",
+        "answers": [
+          "had better reserve"
+        ],
+        "evidence": "Had better + bare infinitive conveys the advice.",
+        "explanation": "Had better + bare infinitive conveys the advice.",
+        "marks": 2,
+        "maxWords": 5,
+        "keyword": "BETTER",
+        "before": "You",
+        "after": "a place before Friday.",
+        "partial": [
+          {
+            "answers": [
+              "better reserve"
+            ],
+            "marks": 1
+          }
+        ],
+        "id": "b22-r4-q28",
+        "component": "use-of-english"
+      },
+      {
+        "number": 29,
+        "kind": "transformation",
+        "prompt": "The rain prevented us from playing outside.\nKey word: BECAUSE\nWe could not play outside _____ rain.",
+        "answers": [
+          "because of the"
+        ],
+        "evidence": "Because of is followed by the noun phrase the rain.",
+        "explanation": "Because of is followed by the noun phrase the rain.",
+        "marks": 2,
+        "maxWords": 5,
+        "keyword": "BECAUSE",
+        "before": "We could not play outside",
+        "after": "rain.",
+        "partial": [
+          {
+            "answers": [
+              "because of"
+            ],
+            "marks": 1
+          }
+        ],
+        "id": "b22-r4-q29",
+        "component": "use-of-english"
+      },
+      {
+        "number": 30,
+        "kind": "transformation",
+        "prompt": "Although she was tired, Lena completed the walk.\nKey word: SPITE\nLena completed the walk _____ tired.",
+        "answers": [
+          "in spite of being"
+        ],
+        "evidence": "In spite of + -ing contrasts tiredness with completion.",
+        "explanation": "In spite of + -ing contrasts tiredness with completion.",
+        "marks": 2,
+        "maxWords": 5,
+        "keyword": "SPITE",
+        "before": "Lena completed the walk",
+        "after": "tired.",
+        "partial": [
+          {
+            "answers": [
+              "in spite of"
+            ],
+            "marks": 1
+          }
+        ],
+        "id": "b22-r4-q30",
+        "component": "use-of-english"
+      }
+    ]
+  },
+  {
+    "id": "b22-r5",
+    "title": "Part 5 · Reading multiple choice",
+    "subtitle": "Reading and Use of English · 6 questions",
+    "part": 5,
+    "skill": "reading",
+    "instructions": "Questions 31–36. Choose A, B, C or D. Two marks per answer.",
+    "passage": "When the rehearsal room went quiet\nOn the first evening of a community music project, I arrived carrying a notebook and a confident plan. I had been asked to make an audio portrait of the group for a local exhibition. As a radio producer, I knew how to gather a lively introduction: ask people why they had joined, record a little music, then find a memorable closing remark. I expected the hardest problem to be background noise. Instead, when I placed the recorder on the table, conversation stopped. Several people looked at it as if it were an additional participant whose intentions nobody understood.\nThe conductor suggested beginning with the rehearsal and leaving interviews until later. I agreed, although privately I worried that the most interesting spontaneous comments would be lost. For the next hour I sat against the wall. A melody that initially sounded confused gradually became recognisable as players listened and adjusted to one another. I noticed that a joke, a short demonstration and a patient repetition often achieved more than a long explanation. My original plan had assumed that the meaning of the project would be found mainly in what people said about it. Now I wondered whether it was also present in how they worked together.\nAt the break, a violinist named Rosa asked whether she could listen to a small part of the recording. I expected her to comment on the quality of the playing. Instead, she pointed out that her chair made a loud noise whenever she moved. She was worried that listeners would think she was interrupting deliberately. Another member asked if the final piece would include names. These were reasonable questions, yet my information sheet had not made their answers clear. I had explained the exhibition's purpose in general terms without showing what being recorded might feel like to a particular person.\nWe agreed on a different approach. I would return for three rehearsals, and at each one members could hear selected material and discuss how it might be used. Anyone could ask for a contribution to be left out. This did not give every participant control over every editing decision, but it created a way to raise concerns before the exhibition opened. It also meant more work than the single visit I had budgeted for. I reduced another part of the production rather than pretending that meaningful consultation could happen without time.\nDuring the second visit, people largely ignored the recorder. That was useful, but I no longer treated their lack of attention as proof that I had solved every ethical question. A familiar object can still capture something unexpected. When one player described a difficult personal experience, I asked separately whether she wanted it included. She decided against it. The story might have made a dramatic moment in the final piece, but drama was not the only measure of a good edit. The finished portrait needed to be something the group could recognise without feeling that its trust had been used against it.\nThe final recording included more pauses than I had anticipated. In one passage, listeners hear an uncertain beginning, the conductor's brief suggestion and a stronger second attempt. I left that sequence almost untouched because the change was audible without explanation. At the exhibition, a visitor told me the quiet moments made the group sound approachable: learning seemed possible rather than embarrassing. I could not claim that every listener responded that way. Still, the comment reminded me why the project had improved. By abandoning the assumption that I already knew where its meaning would be, I had learned to listen before deciding what the audience should hear.",
+    "questions": [
+      {
+        "number": 31,
+        "kind": "choice",
+        "prompt": "What surprised the writer at the first visit?",
+        "answers": [
+          "The recorder changed how people behaved."
+        ],
+        "evidence": "The recorder made conversation stop.",
+        "explanation": "The recorder made conversation stop.",
+        "marks": 2,
+        "options": [
+          "The music was louder than expected.",
+          "The recorder changed how people behaved.",
+          "The conductor refused every recording.",
+          "The group had no rehearsal plan."
+        ],
+        "id": "b22-r5-q31",
+        "component": "reading"
+      },
+      {
+        "number": 32,
+        "kind": "choice",
+        "prompt": "What did the writer begin to question during rehearsal?",
+        "answers": [
+          "Whether interviews alone revealed the project’s meaning."
+        ],
+        "evidence": "The writer noticed meaning in how members worked together.",
+        "explanation": "The writer noticed meaning in how members worked together.",
+        "marks": 2,
+        "options": [
+          "Whether the instruments were valuable.",
+          "Whether the exhibition needed visitors.",
+          "Whether interviews alone revealed the project’s meaning.",
+          "Whether a notebook was useful for radio work."
+        ],
+        "id": "b22-r5-q32",
+        "component": "reading"
+      },
+      {
+        "number": 33,
+        "kind": "choice",
+        "prompt": "What did Rosa’s concern reveal?",
+        "answers": [
+          "General information had not answered personal concerns."
+        ],
+        "evidence": "The information sheet did not explain what participation might feel like.",
+        "explanation": "The information sheet did not explain what participation might feel like.",
+        "marks": 2,
+        "options": [
+          "The musicians wanted perfect technical recordings only.",
+          "The writer had used the wrong chair.",
+          "Nobody understood the purpose of music.",
+          "General information had not answered personal concerns."
+        ],
+        "id": "b22-r5-q33",
+        "component": "reading"
+      },
+      {
+        "number": 34,
+        "kind": "choice",
+        "prompt": "Why did the writer reduce another part of production?",
+        "answers": [
+          "Consultation required additional time."
+        ],
+        "evidence": "Three visits needed time beyond the original budget.",
+        "explanation": "Three visits needed time beyond the original budget.",
+        "marks": 2,
+        "options": [
+          "Consultation required additional time.",
+          "The group cancelled the exhibition.",
+          "The recorder no longer worked.",
+          "All interviews had become unnecessary."
+        ],
+        "id": "b22-r5-q34",
+        "component": "reading"
+      },
+      {
+        "number": 35,
+        "kind": "choice",
+        "prompt": "How did the writer view the personal story?",
+        "answers": [
+          "As material that needed a separate, respectful decision."
+        ],
+        "evidence": "The writer asked separately and respected the decision to exclude it.",
+        "explanation": "The writer asked separately and respected the decision to exclude it.",
+        "marks": 2,
+        "options": [
+          "As essential because it was dramatic.",
+          "As material that needed a separate, respectful decision.",
+          "As proof that every concern was solved.",
+          "As information already approved by everyone."
+        ],
+        "id": "b22-r5-q35",
+        "component": "reading"
+      },
+      {
+        "number": 36,
+        "kind": "choice",
+        "prompt": "What does the final paragraph suggest?",
+        "answers": [
+          "Listening openly improved the result."
+        ],
+        "evidence": "The writer links improvement to abandoning a fixed assumption.",
+        "explanation": "The writer links improvement to abandoning a fixed assumption.",
+        "marks": 2,
+        "options": [
+          "Every visitor reacted identically.",
+          "Quiet moments always indicate poor editing.",
+          "Listening openly improved the result.",
+          "The first production plan was followed exactly."
+        ],
+        "id": "b22-r5-q36",
+        "component": "reading"
+      }
+    ]
+  },
+  {
+    "id": "b22-r6",
+    "title": "Part 6 · Gapped text",
+    "subtitle": "Reading and Use of English · 6 questions",
+    "part": 6,
+    "skill": "reading",
+    "instructions": "Questions 37–42. Choose a sentence A–G for each gap. Use each chosen sentence once. Two marks per answer.",
+    "passage": "A history made together\nOur neighbourhood association began collecting old photographs for a small display. We imagined a simple job: ask residents for pictures, write captions and arrange them in date order. The first donation was a photograph of a crowded street. On the back, someone had written the name of a shop, but the building in the picture now housed a dentist. We realised that the same place could connect several periods and several kinds of experience. [37]\nSoon, residents were bringing memories as well as photographs. One remembered waiting outside the shop as a child, while another had delivered goods to its rear entrance. They disagreed about the colour of the sign, but each described a different decade. [38] We began recording when each person had known a place and which details they were certain about. Disagreement was something to investigate rather than erase.\nDating the photographs was another challenge. A car model or a cinema poster sometimes offered a clue, but one image showed neither. The donor remembered finding it among a relative's possessions and could say nothing about when it was taken. [39] The caption explained what was known and invited further information. This felt more honest than a precise-looking answer with no evidence behind it.\nAs the collection grew, people wanted to see how familiar locations related to one another. A school photograph and a factory picture seemed unrelated until a visitor explained that many pupils' parents had worked at the factory. [40] Threads linked photographs to streets, and coloured notes distinguished direct recollections from suggestions that still needed checking. The display gradually became a record of enquiry as well as a record of places.\nWe noticed that some streets had many photographs while others had none. At first this looked like a failure of the collection. Then we used the gaps to ask for contributions from people who had not yet visited. [41] A resident brought a picture of a laundry behind her grandparents' home, adding a kind of working life that the collection had previously missed.\nWhen the exhibition opened, visitors asked for copies of several photographs. Before agreeing, we checked what each donor had permitted and whether identifiable people raised additional concerns. [42] Collecting memories had created relationships, and those relationships still mattered after the display looked complete. We now keep a record of permissions beside the captions, so future volunteers can understand both the images and the conditions under which they were shared.",
+    "questions": [
+      {
+        "number": 37,
+        "kind": "matching",
+        "prompt": "Choose the sentence for gap 37. One sentence is extra.",
+        "answers": [
+          "A. That small discovery changed the question we were trying to answer."
+        ],
+        "evidence": "The discovery broadens the enquiry beyond chronological captioning.",
+        "explanation": "The discovery broadens the enquiry beyond chronological captioning.",
+        "marks": 2,
+        "options": [
+          "A. That small discovery changed the question we were trying to answer.",
+          "B. We therefore decided to leave the date blank rather than invent one.",
+          "C. Their different memories made clear why a single interview would not be enough.",
+          "D. To make those connections visible, we pinned a large map to the wall.",
+          "E. The empty spaces on that map became invitations rather than defects.",
+          "F. This was a useful reminder that public interest did not end our responsibility.",
+          "G. The new computer arrived in a damaged cardboard box."
+        ],
+        "id": "b22-r6-q37",
+        "component": "reading"
+      },
+      {
+        "number": 38,
+        "kind": "matching",
+        "prompt": "Choose the sentence for gap 38. One sentence is extra.",
+        "answers": [
+          "C. Their different memories made clear why a single interview would not be enough."
+        ],
+        "evidence": "The previous sentences describe two different residents’ memories.",
+        "explanation": "The previous sentences describe two different residents’ memories.",
+        "marks": 2,
+        "options": [
+          "A. That small discovery changed the question we were trying to answer.",
+          "B. We therefore decided to leave the date blank rather than invent one.",
+          "C. Their different memories made clear why a single interview would not be enough.",
+          "D. To make those connections visible, we pinned a large map to the wall.",
+          "E. The empty spaces on that map became invitations rather than defects.",
+          "F. This was a useful reminder that public interest did not end our responsibility.",
+          "G. The new computer arrived in a damaged cardboard box."
+        ],
+        "id": "b22-r6-q38",
+        "component": "reading"
+      },
+      {
+        "number": 39,
+        "kind": "matching",
+        "prompt": "Choose the sentence for gap 39. One sentence is extra.",
+        "answers": [
+          "B. We therefore decided to leave the date blank rather than invent one."
+        ],
+        "evidence": "The date cannot be established from the donor’s information.",
+        "explanation": "The date cannot be established from the donor’s information.",
+        "marks": 2,
+        "options": [
+          "A. That small discovery changed the question we were trying to answer.",
+          "B. We therefore decided to leave the date blank rather than invent one.",
+          "C. Their different memories made clear why a single interview would not be enough.",
+          "D. To make those connections visible, we pinned a large map to the wall.",
+          "E. The empty spaces on that map became invitations rather than defects.",
+          "F. This was a useful reminder that public interest did not end our responsibility.",
+          "G. The new computer arrived in a damaged cardboard box."
+        ],
+        "id": "b22-r6-q39",
+        "component": "reading"
+      },
+      {
+        "number": 40,
+        "kind": "matching",
+        "prompt": "Choose the sentence for gap 40. One sentence is extra.",
+        "answers": [
+          "D. To make those connections visible, we pinned a large map to the wall."
+        ],
+        "evidence": "The next sentence refers to threads linking photographs to streets on the map.",
+        "explanation": "The next sentence refers to threads linking photographs to streets on the map.",
+        "marks": 2,
+        "options": [
+          "A. That small discovery changed the question we were trying to answer.",
+          "B. We therefore decided to leave the date blank rather than invent one.",
+          "C. Their different memories made clear why a single interview would not be enough.",
+          "D. To make those connections visible, we pinned a large map to the wall.",
+          "E. The empty spaces on that map became invitations rather than defects.",
+          "F. This was a useful reminder that public interest did not end our responsibility.",
+          "G. The new computer arrived in a damaged cardboard box."
+        ],
+        "id": "b22-r6-q40",
+        "component": "reading"
+      },
+      {
+        "number": 41,
+        "kind": "matching",
+        "prompt": "Choose the sentence for gap 41. One sentence is extra.",
+        "answers": [
+          "E. The empty spaces on that map became invitations rather than defects."
+        ],
+        "evidence": "Gaps prompt new contributions, matching empty spaces as invitations.",
+        "explanation": "Gaps prompt new contributions, matching empty spaces as invitations.",
+        "marks": 2,
+        "options": [
+          "A. That small discovery changed the question we were trying to answer.",
+          "B. We therefore decided to leave the date blank rather than invent one.",
+          "C. Their different memories made clear why a single interview would not be enough.",
+          "D. To make those connections visible, we pinned a large map to the wall.",
+          "E. The empty spaces on that map became invitations rather than defects.",
+          "F. This was a useful reminder that public interest did not end our responsibility.",
+          "G. The new computer arrived in a damaged cardboard box."
+        ],
+        "id": "b22-r6-q41",
+        "component": "reading"
+      },
+      {
+        "number": 42,
+        "kind": "matching",
+        "prompt": "Choose the sentence for gap 42. One sentence is extra.",
+        "answers": [
+          "F. This was a useful reminder that public interest did not end our responsibility."
+        ],
+        "evidence": "The next sentences continue the responsibility to donors after opening.",
+        "explanation": "The next sentences continue the responsibility to donors after opening.",
+        "marks": 2,
+        "options": [
+          "A. That small discovery changed the question we were trying to answer.",
+          "B. We therefore decided to leave the date blank rather than invent one.",
+          "C. Their different memories made clear why a single interview would not be enough.",
+          "D. To make those connections visible, we pinned a large map to the wall.",
+          "E. The empty spaces on that map became invitations rather than defects.",
+          "F. This was a useful reminder that public interest did not end our responsibility.",
+          "G. The new computer arrived in a damaged cardboard box."
+        ],
+        "id": "b22-r6-q42",
+        "component": "reading"
+      }
+    ]
+  },
+  {
+    "id": "b22-r7",
+    "title": "Part 7 · Multiple matching",
+    "subtitle": "Reading and Use of English · 10 questions",
+    "part": 7,
+    "skill": "reading",
+    "instructions": "Questions 43–52. Choose person A–D. Each person may be chosen more than once. One mark per answer.",
+    "passage": "Four people describe learning a practical skill\nA — Daniel, bicycle maintenance\nI joined the class after paying for a simple repair I later realised I could have done myself. Saving money was the attraction, although it has not been the most important result. I used to feel helpless when a bicycle made an unfamiliar noise. Now I can describe what is happening and decide whether it is a job for a mechanic. The instructor insisted that we should know when to stop, which made me trust him more. I expected to watch demonstrations for most of the session, but we spent almost all the time working in pairs. My partner noticed when I skipped a step, and explaining my own method helped me understand it. I still keep a small checklist in my tool bag. Being able to do something once in class is different from remembering the order several weeks later, especially when I am in a hurry to get somewhere.\n\nB — Elif, pottery\nMy first pot collapsed, and the second was so heavy that I could barely lift it. I had imagined taking home something elegant after one lesson. Fortunately, the tutor showed us one of her early attempts, which looked much like mine. That changed the atmosphere. We could laugh at mistakes without pretending they were good work. I practise at the studio because I have neither the equipment nor a suitable space at home. The journey takes an hour, so I cannot go as often as I would like. Still, the time there has become a welcome break from my office routine. I do not check messages while my hands are covered in clay. Friends keep suggesting that I should sell pieces, but making the activity into a business would remove the reason I enjoy it. I am happy to improve slowly without a customer waiting for a perfect result.\n\nC — Rosa, repairing clothes\nI inherited a sewing machine that I did not know how to use. An online video helped me thread it, but I needed a class to understand why the fabric kept pulling to one side. The tutor watched my hands and spotted the problem immediately. Since then, I have been more careful about choosing a learning method to suit the difficulty. Video is convenient for reviewing a familiar step; individual feedback is better when I cannot identify what I am doing wrong. I had worried I would be the youngest person in the room, but the range of ages made no difference once we began working. My most satisfying repair was to a coat my mother had worn for years. Its value was personal, not financial. She had been ready to stop wearing it, and I liked being able to return something familiar to use.\n\nD — Owen, growing vegetables\nI started because my neighbour offered me part of her garden. I thought the spare space was the difficult thing to obtain; in fact, making time to visit regularly was harder. At first I chose too many crops and lost track of what needed attention. The next year I reduced the variety and kept a diary of what I planted and when. This made patterns easier to notice. I also stopped comparing my small harvest with photographs posted by experienced growers. Those pictures rarely showed the unsuccessful plants. Now a few useful meals matter more to me than producing an impressive image. My neighbour and I share jobs when one of us is away, and we discuss changes before making them. The arrangement works because we are clear about responsibility, rather than because both of us always have the same amount of free time.",
+    "questions": [
+      {
+        "number": 43,
+        "kind": "matching",
+        "prompt": "Who values knowing when professional help is needed?",
+        "answers": [
+          "A"
+        ],
+        "evidence": "Daniel learned when to stop and consult a mechanic.",
+        "explanation": "Daniel learned when to stop and consult a mechanic.",
+        "marks": 1,
+        "options": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "id": "b22-r7-q43",
+        "component": "reading"
+      },
+      {
+        "number": 44,
+        "kind": "matching",
+        "prompt": "Who found a teacher’s early failure encouraging?",
+        "answers": [
+          "B"
+        ],
+        "evidence": "Elif’s tutor showed an early attempt.",
+        "explanation": "Elif’s tutor showed an early attempt.",
+        "marks": 1,
+        "options": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "id": "b22-r7-q44",
+        "component": "reading"
+      },
+      {
+        "number": 45,
+        "kind": "matching",
+        "prompt": "Who distinguishes uses for video and individual feedback?",
+        "answers": [
+          "C"
+        ],
+        "evidence": "Rosa compares reviewing familiar steps with diagnosing an unknown problem.",
+        "explanation": "Rosa compares reviewing familiar steps with diagnosing an unknown problem.",
+        "marks": 1,
+        "options": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "id": "b22-r7-q45",
+        "component": "reading"
+      },
+      {
+        "number": 46,
+        "kind": "matching",
+        "prompt": "Who made a second attempt simpler in scope?",
+        "answers": [
+          "D"
+        ],
+        "evidence": "Owen reduced the variety of crops the following year.",
+        "explanation": "Owen reduced the variety of crops the following year.",
+        "marks": 1,
+        "options": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "id": "b22-r7-q46",
+        "component": "reading"
+      },
+      {
+        "number": 47,
+        "kind": "matching",
+        "prompt": "Who does not want the hobby to become paid work?",
+        "answers": [
+          "B"
+        ],
+        "evidence": "Elif says a business would remove her reason for enjoying pottery.",
+        "explanation": "Elif says a business would remove her reason for enjoying pottery.",
+        "marks": 1,
+        "options": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "id": "b22-r7-q47",
+        "component": "reading"
+      },
+      {
+        "number": 48,
+        "kind": "matching",
+        "prompt": "Who benefited from explaining a method to another learner?",
+        "answers": [
+          "A"
+        ],
+        "evidence": "Daniel’s pair work included explaining his own method.",
+        "explanation": "Daniel’s pair work included explaining his own method.",
+        "marks": 1,
+        "options": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "id": "b22-r7-q48",
+        "component": "reading"
+      },
+      {
+        "number": 49,
+        "kind": "matching",
+        "prompt": "Who restored an object valued because of a family connection?",
+        "answers": [
+          "C"
+        ],
+        "evidence": "Rosa repaired her mother’s familiar coat.",
+        "explanation": "Rosa repaired her mother’s familiar coat.",
+        "marks": 1,
+        "options": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "id": "b22-r7-q49",
+        "component": "reading"
+      },
+      {
+        "number": 50,
+        "kind": "matching",
+        "prompt": "Who learned that regular attendance was harder than obtaining space?",
+        "answers": [
+          "D"
+        ],
+        "evidence": "Owen found making time harder than obtaining garden space.",
+        "explanation": "Owen found making time harder than obtaining garden space.",
+        "marks": 1,
+        "options": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "id": "b22-r7-q50",
+        "component": "reading"
+      },
+      {
+        "number": 51,
+        "kind": "matching",
+        "prompt": "Who uses a written reminder to recall a sequence later?",
+        "answers": [
+          "A"
+        ],
+        "evidence": "Daniel keeps a checklist in his tool bag.",
+        "explanation": "Daniel keeps a checklist in his tool bag.",
+        "marks": 1,
+        "options": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "id": "b22-r7-q51",
+        "component": "reading"
+      },
+      {
+        "number": 52,
+        "kind": "matching",
+        "prompt": "Who faces a long journey because home practice is unsuitable?",
+        "answers": [
+          "B"
+        ],
+        "evidence": "Elif travels an hour because she lacks home space and equipment.",
+        "explanation": "Elif travels an hour because she lacks home space and equipment.",
+        "marks": 1,
+        "options": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "id": "b22-r7-q52",
+        "component": "reading"
+      }
+    ]
+  }
+]

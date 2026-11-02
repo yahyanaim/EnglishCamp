@@ -1,4 +1,5 @@
 "use client";
+import { LearningArt } from "@/components/brand/LearningArt";
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { playCorrect } from "@/lib/audio";
@@ -57,7 +58,7 @@ export function FlashcardWrite({ card, onComplete, index, total }: Props) {
         className="inline-flex items-center gap-1.5 rounded-[var(--radius-pill)] px-3 py-1.5 text-xs font-bold"
         style={{ backgroundColor: "var(--color-warning-bg)", color: "var(--color-warning-dark)" }}
       >
-        <PenLine className="w-3.5 h-3.5" />
+        <LearningArt name="PenLine" size={14} className="w-3.5 h-3.5" />
         Write {index + 1} / {total}
       </span>
 
@@ -176,7 +177,7 @@ export function FlashcardWrite({ card, onComplete, index, total }: Props) {
                       borderColor: "var(--color-warning)",
                     }}
                   >
-                    <Lightbulb className="w-5 h-5 shrink-0 mt-0.5" style={{ color: "var(--color-warning-dark)" }} />
+                    <LearningArt name="Lightbulb" size={20} className="w-5 h-5 shrink-0 mt-0.5" />
                     <div>
                       <p className="font-display font-bold text-sm" style={{ color: "var(--color-warning-dark)" }}>Tip</p>
                       <p className="font-body text-sm mt-1" style={{ color: "var(--color-text-primary)" }}>
@@ -191,7 +192,7 @@ export function FlashcardWrite({ card, onComplete, index, total }: Props) {
                       borderColor: "var(--color-info)",
                     }}
                   >
-                    <BookOpen className="w-5 h-5 shrink-0 mt-0.5" style={{ color: "var(--color-info-dark)" }} />
+                    <LearningArt name="BookOpen" size={20} className="w-5 h-5 shrink-0 mt-0.5" />
                     <div>
                       <p className="font-display font-bold text-sm" style={{ color: "var(--color-info-dark)" }}>Suggestion</p>
                       <p className="font-body text-sm mt-1" style={{ color: "var(--color-text-primary)" }}>

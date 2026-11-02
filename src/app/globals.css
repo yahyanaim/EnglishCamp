@@ -1,14 +1,15 @@
+@import "./reference.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
 
-  --color-primary:          #0EA5E9;
-  --color-primary-hover:    #38BDF8;
-  --color-primary-dark:     #0284C7;
-  --color-primary-light:    #7DD3FC;
-  --color-primary-subtle:   #E0F2FE;
+  --color-primary:          #C084FC;
+  --color-primary-hover:    #D8B4FE;
+  --color-primary-dark:     #6B21A8;
+  --color-primary-light:    #E9D5FF;
+  --color-primary-subtle:   #F3E8FF;
 
   --color-success:          #10B981;
   --color-success-dark:     #059669;
@@ -19,9 +20,9 @@
   --color-warning:          #F59E0B;
   --color-warning-dark:     #D97706;
   --color-warning-bg:       #FEF3C7;
-  --color-info:             #6366F1;
-  --color-info-dark:        #4F46E5;
-  --color-info-bg:          #E0E7FF;
+  --color-info:             #A855F7;
+  --color-info-dark:        #7E22CE;
+  --color-info-bg:          #F3E8FF;
 
   --color-neutral-0:        #FFFFFF;
   --color-neutral-50:       #F7F7F7;
@@ -39,18 +40,20 @@
   --color-text-secondary:   #5C5C5C;
   --color-text-disabled:    #AFAFAF;
   --color-text-inverse:     #FFFFFF;
-  --color-text-link:        #0369A1;
+  --color-text-link:        #6B21A8;
   --color-text-success:     #166534;
   --color-text-error:       #991B1B;
   --color-text-warning:     #854D0E;
 
   /* Text roles keep the existing brand fills and typefaces legible. */
-  --color-on-brand:         #0F172A;
-  --color-text-info:        #3730A3;
+  --color-on-brand:         #281239;
+  --color-text-info:        #6B21A8;
+  --color-amethyst: var(--color-course-band4-5);
+  --color-sapphire: var(--color-course-band6-7);
   --color-course-band4-5:   #7E22CE;
-  --color-course-band5-6:   #9A3412;
-  --color-course-band6-7:   #0369A1;
-  --color-course-band7-8:   #047857;
+  --color-course-band5-6:   #6B21A8;
+  --color-course-band6-7:   #86198F;
+  --color-course-band7-8:   #581C87;
 
   --color-surface:          #FFFFFF;
   --color-surface-alt:      #F7F7F7;
@@ -59,7 +62,7 @@
 
   --color-border-default:   #E5E5E5;
   --color-border-strong:    #AFAFAF;
-  --color-border-focus:     #1CB0F6;
+  --color-border-focus:     #A855F7;
 
   --shadow-1: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
   --shadow-2: 0 2px 8px rgba(0,0,0,0.08), 0 1px 3px rgba(0,0,0,0.05);
@@ -86,14 +89,36 @@
   --width-lesson:          560px;
   --width-content:         728px;
   --width-wide:            960px;
+
+  /* shadcn/ui semantic roles inherit the established EnglishCamp palette. */
+  --background:            var(--color-surface);
+  --foreground:            var(--color-text-primary);
+  --card:                  var(--color-surface);
+  --card-foreground:       var(--color-text-primary);
+  --popover:               var(--color-surface);
+  --popover-foreground:    var(--color-text-primary);
+  --primary:               var(--color-primary);
+  --primary-foreground:    var(--color-on-brand);
+  --secondary:             var(--color-surface-alt);
+  --secondary-foreground:  var(--color-text-secondary);
+  --muted:                 var(--color-surface-alt);
+  --muted-foreground:      var(--color-text-secondary);
+  --accent:                var(--color-primary-subtle);
+  --accent-foreground:     var(--color-text-link);
+  --destructive:           var(--color-error);
+  --destructive-foreground: var(--color-on-brand);
+  --border:                var(--color-border-default);
+  --input:                 var(--color-border-default);
+  --ring:                  var(--color-border-focus);
+  --radius:                var(--radius-md);
 }
 
 .dark {
-  --color-primary:          #38BDF8;
-  --color-primary-hover:    #7DD3FC;
-  --color-primary-dark:     #0284C7;
-  --color-primary-light:    #BAE6FD;
-  --color-primary-subtle:   rgba(14, 165, 233, 0.2);
+  --color-primary:          #C084FC;
+  --color-primary-hover:    #D8B4FE;
+  --color-primary-dark:     #6B21A8;
+  --color-primary-light:    #E9D5FF;
+  --color-primary-subtle:   rgba(126, 34, 206, 0.20);
 
   --color-success:          #34D399;
   --color-success-dark:     #10B981;
@@ -104,45 +129,45 @@
   --color-warning:          #FBBF24;
   --color-warning-dark:     #F59E0B;
   --color-warning-bg:       rgba(245, 158, 11, 0.2);
-  --color-info:             #818CF8;
-  --color-info-dark:        #6366F1;
-  --color-info-bg:          rgba(99, 102, 241, 0.2);
+  --color-info:             #C084FC;
+  --color-info-dark:        #7E22CE;
+  --color-info-bg:          rgba(126, 34, 206, 0.20);
 
-  --color-neutral-0:        #0F172A;
-  --color-neutral-50:       #0B0F19;
-  --color-neutral-100:      #1E293B;
-  --color-neutral-200:      #334155;
-  --color-neutral-300:      #64748B;
-  --color-neutral-400:      #94A3B8;
-  --color-neutral-500:      #CBD5E1;
-  --color-neutral-600:      #E2E8F0;
-  --color-neutral-700:      #F1F5F9;
-  --color-neutral-800:      #F8FAFC;
+  --color-neutral-0:        #17121E;
+  --color-neutral-50:       #120F17;
+  --color-neutral-100:      #241C2E;
+  --color-neutral-200:      #3B3048;
+  --color-neutral-300:      #72657E;
+  --color-neutral-400:      #A69AAF;
+  --color-neutral-500:      #D1C7DA;
+  --color-neutral-600:      #E7DFEE;
+  --color-neutral-700:      #F3EDF8;
+  --color-neutral-800:      #FAF7FD;
   --color-neutral-900:      #FFFFFF;
 
-  --color-text-primary:     #F8FAFC;
-  --color-text-secondary:   #CBD5E1;
-  --color-text-disabled:    #64748B;
-  --color-text-inverse:     #0F172A;
-  --color-text-link:        #38BDF8;
+  --color-text-primary:     #FAF7FD;
+  --color-text-secondary:   #D1C7DA;
+  --color-text-disabled:    #9F91AE;
+  --color-text-inverse:     #17121E;
+  --color-text-link:        #D8B4FE;
   --color-text-success:     #34D399;
   --color-text-error:       #F87171;
   --color-text-warning:     #FBBF24;
 
-  --color-text-info:        #C7D2FE;
+  --color-text-info:        #E9D5FF;
   --color-course-band4-5:   #D8B4FE;
-  --color-course-band5-6:   #FDBA74;
-  --color-course-band6-7:   #7DD3FC;
-  --color-course-band7-8:   #6EE7B7;
+  --color-course-band5-6:   #E9D5FF;
+  --color-course-band6-7:   #F0ABFC;
+  --color-course-band7-8:   #D8B4FE;
 
-  --color-surface:          #0F172A;
-  --color-surface-alt:      #1E293B;
+  --color-surface:          #17121E;
+  --color-surface-alt:      #241C2E;
   --color-surface-overlay:  rgba(0, 0, 0, 0.7);
   --color-surface-scrim:    rgba(0, 0, 0, 0.85);
 
-  --color-border-default:   #334155;
-  --color-border-strong:    #475569;
-  --color-border-focus:     #38BDF8;
+  --color-border-default:   #3B3048;
+  --color-border-strong:    #72657E;
+  --color-border-focus:     #C084FC;
 }
 
 @layer base {
@@ -206,4 +231,229 @@
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+/* Reference-inspired refinement: existing neutral canvas, crisp cards and compact controls. */
+@layer components {
+  .learning-page h1 { @apply tracking-tight; text-wrap: balance; }
+  .practice-card { @apply border-border bg-card text-card-foreground; }
+  .practice-button { @apply focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2; }
+  .practice-button:not(:disabled):active { transform: translateY(1px); }
+  .practice-button:not(:disabled):hover { box-shadow: var(--shadow-1); }
+}
+
+/* Data-driven category labels retain their hue with legible text shades in each theme. */
+@layer components {
+  .learning-page .text-emerald-400,
+  .learning-page .text-emerald-500,
+  .learning-page .text-emerald-600,
+  .learning-page .text-emerald-700,
+  .learning-page .text-emerald-800,
+  .learning-page .text-emerald-900 { color: theme("colors.emerald.800"); }
+  .dark .learning-page .text-emerald-400,
+  .dark .learning-page .text-emerald-500,
+  .dark .learning-page .text-emerald-600,
+  .dark .learning-page .text-emerald-700,
+  .dark .learning-page .text-emerald-800,
+  .dark .learning-page .text-emerald-900 { color: theme("colors.emerald.300"); }
+  .learning-page .text-green-400,
+  .learning-page .text-green-500,
+  .learning-page .text-green-600,
+  .learning-page .text-green-700,
+  .learning-page .text-green-800,
+  .learning-page .text-green-900 { color: theme("colors.green.800"); }
+  .dark .learning-page .text-green-400,
+  .dark .learning-page .text-green-500,
+  .dark .learning-page .text-green-600,
+  .dark .learning-page .text-green-700,
+  .dark .learning-page .text-green-800,
+  .dark .learning-page .text-green-900 { color: theme("colors.green.300"); }
+  .learning-page .text-teal-400,
+  .learning-page .text-teal-500,
+  .learning-page .text-teal-600,
+  .learning-page .text-teal-700,
+  .learning-page .text-teal-800,
+  .learning-page .text-teal-900 { color: theme("colors.teal.800"); }
+  .dark .learning-page .text-teal-400,
+  .dark .learning-page .text-teal-500,
+  .dark .learning-page .text-teal-600,
+  .dark .learning-page .text-teal-700,
+  .dark .learning-page .text-teal-800,
+  .dark .learning-page .text-teal-900 { color: theme("colors.teal.300"); }
+  .learning-page .text-cyan-400,
+  .learning-page .text-cyan-500,
+  .learning-page .text-cyan-600,
+  .learning-page .text-cyan-700,
+  .learning-page .text-cyan-800,
+  .learning-page .text-cyan-900 { color: theme("colors.cyan.800"); }
+  .dark .learning-page .text-cyan-400,
+  .dark .learning-page .text-cyan-500,
+  .dark .learning-page .text-cyan-600,
+  .dark .learning-page .text-cyan-700,
+  .dark .learning-page .text-cyan-800,
+  .dark .learning-page .text-cyan-900 { color: theme("colors.cyan.300"); }
+  .learning-page .text-sky-400,
+  .learning-page .text-sky-500,
+  .learning-page .text-sky-600,
+  .learning-page .text-sky-700,
+  .learning-page .text-sky-800,
+  .learning-page .text-sky-900 { color: theme("colors.sky.800"); }
+  .dark .learning-page .text-sky-400,
+  .dark .learning-page .text-sky-500,
+  .dark .learning-page .text-sky-600,
+  .dark .learning-page .text-sky-700,
+  .dark .learning-page .text-sky-800,
+  .dark .learning-page .text-sky-900 { color: theme("colors.sky.300"); }
+  .learning-page .text-blue-400,
+  .learning-page .text-blue-500,
+  .learning-page .text-blue-600,
+  .learning-page .text-blue-700,
+  .learning-page .text-blue-800,
+  .learning-page .text-blue-900 { color: theme("colors.blue.800"); }
+  .dark .learning-page .text-blue-400,
+  .dark .learning-page .text-blue-500,
+  .dark .learning-page .text-blue-600,
+  .dark .learning-page .text-blue-700,
+  .dark .learning-page .text-blue-800,
+  .dark .learning-page .text-blue-900 { color: theme("colors.blue.300"); }
+  .learning-page .text-indigo-400,
+  .learning-page .text-indigo-500,
+  .learning-page .text-indigo-600,
+  .learning-page .text-indigo-700,
+  .learning-page .text-indigo-800,
+  .learning-page .text-indigo-900 { color: theme("colors.indigo.800"); }
+  .dark .learning-page .text-indigo-400,
+  .dark .learning-page .text-indigo-500,
+  .dark .learning-page .text-indigo-600,
+  .dark .learning-page .text-indigo-700,
+  .dark .learning-page .text-indigo-800,
+  .dark .learning-page .text-indigo-900 { color: theme("colors.indigo.300"); }
+  .learning-page .text-violet-400,
+  .learning-page .text-violet-500,
+  .learning-page .text-violet-600,
+  .learning-page .text-violet-700,
+  .learning-page .text-violet-800,
+  .learning-page .text-violet-900 { color: theme("colors.violet.800"); }
+  .dark .learning-page .text-violet-400,
+  .dark .learning-page .text-violet-500,
+  .dark .learning-page .text-violet-600,
+  .dark .learning-page .text-violet-700,
+  .dark .learning-page .text-violet-800,
+  .dark .learning-page .text-violet-900 { color: theme("colors.violet.300"); }
+  .learning-page .text-purple-400,
+  .learning-page .text-purple-500,
+  .learning-page .text-purple-600,
+  .learning-page .text-purple-700,
+  .learning-page .text-purple-800,
+  .learning-page .text-purple-900 { color: theme("colors.purple.800"); }
+  .dark .learning-page .text-purple-400,
+  .dark .learning-page .text-purple-500,
+  .dark .learning-page .text-purple-600,
+  .dark .learning-page .text-purple-700,
+  .dark .learning-page .text-purple-800,
+  .dark .learning-page .text-purple-900 { color: theme("colors.purple.300"); }
+  .learning-page .text-pink-400,
+  .learning-page .text-pink-500,
+  .learning-page .text-pink-600,
+  .learning-page .text-pink-700,
+  .learning-page .text-pink-800,
+  .learning-page .text-pink-900 { color: theme("colors.pink.800"); }
+  .dark .learning-page .text-pink-400,
+  .dark .learning-page .text-pink-500,
+  .dark .learning-page .text-pink-600,
+  .dark .learning-page .text-pink-700,
+  .dark .learning-page .text-pink-800,
+  .dark .learning-page .text-pink-900 { color: theme("colors.pink.300"); }
+  .learning-page .text-rose-400,
+  .learning-page .text-rose-500,
+  .learning-page .text-rose-600,
+  .learning-page .text-rose-700,
+  .learning-page .text-rose-800,
+  .learning-page .text-rose-900 { color: theme("colors.rose.800"); }
+  .dark .learning-page .text-rose-400,
+  .dark .learning-page .text-rose-500,
+  .dark .learning-page .text-rose-600,
+  .dark .learning-page .text-rose-700,
+  .dark .learning-page .text-rose-800,
+  .dark .learning-page .text-rose-900 { color: theme("colors.rose.300"); }
+  .learning-page .text-red-400,
+  .learning-page .text-red-500,
+  .learning-page .text-red-600,
+  .learning-page .text-red-700,
+  .learning-page .text-red-800,
+  .learning-page .text-red-900 { color: theme("colors.red.800"); }
+  .dark .learning-page .text-red-400,
+  .dark .learning-page .text-red-500,
+  .dark .learning-page .text-red-600,
+  .dark .learning-page .text-red-700,
+  .dark .learning-page .text-red-800,
+  .dark .learning-page .text-red-900 { color: theme("colors.red.300"); }
+  .learning-page .text-amber-400,
+  .learning-page .text-amber-500,
+  .learning-page .text-amber-600,
+  .learning-page .text-amber-700,
+  .learning-page .text-amber-800,
+  .learning-page .text-amber-900 { color: theme("colors.amber.800"); }
+  .dark .learning-page .text-amber-400,
+  .dark .learning-page .text-amber-500,
+  .dark .learning-page .text-amber-600,
+  .dark .learning-page .text-amber-700,
+  .dark .learning-page .text-amber-800,
+  .dark .learning-page .text-amber-900 { color: theme("colors.amber.300"); }
+  .learning-page .text-orange-400,
+  .learning-page .text-orange-500,
+  .learning-page .text-orange-600,
+  .learning-page .text-orange-700,
+  .learning-page .text-orange-800,
+  .learning-page .text-orange-900 { color: theme("colors.orange.800"); }
+  .dark .learning-page .text-orange-400,
+  .dark .learning-page .text-orange-500,
+  .dark .learning-page .text-orange-600,
+  .dark .learning-page .text-orange-700,
+  .dark .learning-page .text-orange-800,
+  .dark .learning-page .text-orange-900 { color: theme("colors.orange.300"); }
+  .learning-page .text-yellow-400,
+  .learning-page .text-yellow-500,
+  .learning-page .text-yellow-600,
+  .learning-page .text-yellow-700,
+  .learning-page .text-yellow-800,
+  .learning-page .text-yellow-900 { color: theme("colors.yellow.800"); }
+  .dark .learning-page .text-yellow-400,
+  .dark .learning-page .text-yellow-500,
+  .dark .learning-page .text-yellow-600,
+  .dark .learning-page .text-yellow-700,
+  .dark .learning-page .text-yellow-800,
+  .dark .learning-page .text-yellow-900 { color: theme("colors.yellow.300"); }
+}
+
+@layer components {
+  .dark .learning-page :is(.text-slate-400, .text-slate-500, .text-slate-600, .text-slate-700, .text-slate-800, .text-slate-900) { color: var(--color-text-secondary); }
+  .learning-page [class~="text-[#9B59B6]"] { color: var(--color-course-band4-5); }
+}
+
+@layer components {
+.learning-page .text-lime-400,
+.learning-page .text-lime-500,
+.learning-page .text-lime-600,
+.learning-page .text-lime-700,
+.learning-page .text-lime-800,
+.learning-page .text-lime-900 { color: theme("colors.lime.800"); }
+.dark .learning-page .text-lime-400,
+.dark .learning-page .text-lime-500,
+.dark .learning-page .text-lime-600,
+.dark .learning-page .text-lime-700,
+.dark .learning-page .text-lime-800,
+.dark .learning-page .text-lime-900 { color: theme("colors.lime.300"); }
+.learning-page .text-fuchsia-400,
+.learning-page .text-fuchsia-500,
+.learning-page .text-fuchsia-600,
+.learning-page .text-fuchsia-700,
+.learning-page .text-fuchsia-800,
+.learning-page .text-fuchsia-900 { color: theme("colors.fuchsia.800"); }
+.dark .learning-page .text-fuchsia-400,
+.dark .learning-page .text-fuchsia-500,
+.dark .learning-page .text-fuchsia-600,
+.dark .learning-page .text-fuchsia-700,
+.dark .learning-page .text-fuchsia-800,
+.dark .learning-page .text-fuchsia-900 { color: theme("colors.fuchsia.300"); }
 }

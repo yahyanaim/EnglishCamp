@@ -1,3 +1,4 @@
+import { learnerStorage } from "@/lib/learnerStorage";
 import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
 import type { ProgressStore, BandId, QuizResult } from "@/data/types";
@@ -173,7 +174,7 @@ export const useProgress = create<ProgressStore & ProgressActions>()(
       name:    "englishcamp-progress",
       version: 2,
       migrate: saved => migrateCourseProgress(saved) as ProgressStore & ProgressActions,
-      storage: createJSONStorage(() => localStorage),
+      skipHydration: true, storage: createJSONStorage(() => learnerStorage),
     }
   )
 );

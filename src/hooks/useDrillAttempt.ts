@@ -1,8 +1,9 @@
 "use client";
+import { learnerStorage } from "@/lib/learnerStorage";
 import { useEffect, useState } from "react";
 
 export function clearDrillAttempt(id: string) {
-  try { localStorage.removeItem(`englishcamp-drill-v2:${id}`); } catch { /* A retry remains available without storage. */ }
+  try { learnerStorage.removeItem(`englishcamp-drill-v2:${id}`); } catch { /* A retry remains available without storage. */ }
 }
 /** Local drafts are content-scoped. Only an explicit Retry drill clears the attempt. */
 export function useDrillAttempt<T extends object>(id: string, content: unknown, initial: T) {
@@ -11,7 +12,7 @@ export function useDrillAttempt<T extends object>(id: string, content: unknown, 
   const [loaded, setLoaded] = useState(false);
   useEffect(() => {
     try {
-      const raw = localStorage.getItem(key);
+      const raw = learnerStorage.getItem(key);
       if (raw) {
         const saved = JSON.parse(raw);
         if (saved.signature === signature && saved.state && typeof saved.state === "object") setState(previous => ({ ...previous, ...saved.state, award: 0 }));
@@ -20,7 +21,7 @@ export function useDrillAttempt<T extends object>(id: string, content: unknown, 
     setLoaded(true);
   }, [key, signature]);
   useEffect(() => {
-    if (loaded) { try { localStorage.setItem(key, JSON.stringify({ signature, state })); } catch { /* Never block an answer on storage. */ } }
+    if (loaded) { try { learnerStorage.setItem(key, JSON.stringify({ signature, state })); } catch { /* Never block an answer on storage. */ } }
   }, [state, key, signature, loaded]);
   const patch = (values: Partial<T>) => setState(previous => ({ ...previous, ...values }));
   return { state, patch, loaded };

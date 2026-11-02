@@ -1,4 +1,6 @@
 "use client";
+import { LearningArt } from "@/components/brand/LearningArt";
+import { PracticeCard, PracticeButton } from "@/components/ui/PracticeSurface";
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useProgress } from "@/store/useProgress";
@@ -111,16 +113,16 @@ export function NounGenderTrainer() {
       <div className="text-center py-8">
         <span className="text-5xl block mb-3">{pct >= 80 ? "🏆" : pct >= 50 ? "👍" : "💪"}</span>
         <h3 className="text-xl font-display font-extrabold text-[var(--color-text-primary)] mb-1">Article Trainer Complete!</h3>
-        <p className="text-lg font-display font-extrabold text-[var(--color-primary-dark)] mb-1">{score}/{total} correct ({pct}%)</p>
+        <p className="text-lg font-display font-extrabold text-[var(--color-text-link)] mb-1">{score}/{total} correct ({pct}%)</p>
         <p className="text-sm text-[var(--color-text-secondary)] mb-6">
           {pct >= 80 ? "Great article knowledge!" : "Keep practicing!"}
         </p>
-        <button
+        <PracticeButton
           onClick={restart}
-          className="text-sm font-medium bg-[var(--color-primary-subtle)] text-[var(--color-primary-dark)] border border-[var(--color-primary)] px-5 py-2 rounded-[var(--radius-lg)] hover:bg-[var(--color-primary)] transition-all"
+          className="text-sm font-medium bg-[var(--color-primary-subtle)] text-[var(--color-text-link)] border border-[var(--color-primary)] px-5 py-2 rounded-[var(--radius-lg)] hover:bg-[var(--color-primary)] transition-all"
         >
-          Play Again 🔄
-        </button>
+          Play Again <LearningArt name="🔄" size={16} />
+        </PracticeButton>
       </div>
     );
   }
@@ -128,10 +130,10 @@ export function NounGenderTrainer() {
   if (!item) return null;
 
   return (
-    <div className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border-2 border-[var(--color-border-default)] p-6 shadow-sm" style={{ boxShadow: "0 3px 0 var(--color-border-default)" }}>
+    <PracticeCard data-practice-surface="question" className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-6 shadow-sm" style={{ boxShadow: "0 3px 0 var(--color-border-default)" }}>
       <div className="flex items-center justify-between mb-4">
         <span className="text-xs font-semibold text-[#9B59B6] uppercase tracking-wider">Article Trainer</span>
-        <span className="text-xs text-[var(--color-text-disabled)]">{current + 1} / {pool.length}</span>
+        <span className="text-xs text-[var(--color-text-secondary)]">{current + 1} / {pool.length}</span>
       </div>
 
       <AnimatePresence mode="wait">
@@ -152,23 +154,23 @@ export function NounGenderTrainer() {
 
       <div className="flex justify-center gap-3 mb-6">
         {ARTICLES.map((article) => {
-          let style = "bg-[var(--color-surface-alt)] border-[var(--color-border-default)] hover:bg-[var(--color-primary-subtle)] hover:border-[var(--color-primary)] hover:text-[var(--color-primary-dark)]";
+          let style = "bg-[var(--color-surface-alt)] border-[var(--color-border-default)] hover:bg-[var(--color-primary-subtle)] hover:border-[var(--color-primary)] hover:text-[var(--color-text-link)]";
           if (answered) {
             if (article === item.article) {
-              style = "bg-[var(--color-success)] text-white border-[var(--color-success)] ring-2 ring-[var(--color-success)]";
+              style = "bg-[var(--color-success-bg)] text-[var(--color-text-success)] border-[var(--color-success)] ring-2 ring-[var(--color-success)]";
             } else if (article !== item.article) {
-              style = "bg-[var(--color-error)] text-white border-[var(--color-error)] opacity-50";
+              style = "bg-[var(--color-error-bg)] text-[var(--color-text-error)] border-[var(--color-error)] opacity-50";
             }
           }
           return (
-            <button
+            <PracticeButton
               key={article}
               onClick={() => handleAnswer(article)}
               disabled={answered}
-              className={`w-20 h-14 text-lg font-display font-extrabold rounded-[var(--radius-lg)] border-2 transition-all duration-200 ${style}`}
+              className={`w-20 h-14 text-lg font-display font-extrabold rounded-[var(--radius-lg)] border transition-all duration-200 ${style}`}
             >
               {article}
-            </button>
+            </PracticeButton>
           );
         })}
       </div>
@@ -179,19 +181,19 @@ export function NounGenderTrainer() {
           animate={{ opacity: 1, y: 0 }}
           className="text-center"
         >
-          <p className={`text-sm font-medium mb-3 ${correct ? "text-[var(--color-success)]" : "text-[var(--color-error)]"}`}>
+          <p className={`text-sm font-medium mb-3 ${correct ? "text-[var(--color-text-success)]" : "text-[var(--color-text-error)]"}`}>
             {correct ? "✓ Correct! +5 XP" : `✗ Correct: ${item.article} ${item.noun}`}
           </p>
-          <button
+          <PracticeButton
             onClick={next}
-            className="text-sm font-medium bg-[var(--color-primary-subtle)] text-[var(--color-primary-dark)] border border-[var(--color-primary)] px-5 py-2 rounded-[var(--radius-lg)] hover:bg-[var(--color-primary)] transition-all"
+            className="text-sm font-medium bg-[var(--color-primary-subtle)] text-[var(--color-text-link)] border border-[var(--color-primary)] px-5 py-2 rounded-[var(--radius-lg)] hover:bg-[var(--color-primary)] transition-all"
           >
             {current + 1 >= pool.length ? "See Results" : "Next →"}
-          </button>
+          </PracticeButton>
         </motion.div>
       )}
 
-      <div className="flex justify-between mt-4 text-xs text-[var(--color-text-disabled)]">
+      <div className="flex justify-between mt-4 text-xs text-[var(--color-text-secondary)]">
         <span>Score: {score}/{total}</span>
         <div className="flex gap-1">
           {pool.map((_, i) => (
@@ -204,6 +206,6 @@ export function NounGenderTrainer() {
           ))}
         </div>
       </div>
-    </div>
+    </PracticeCard>
   );
 }

@@ -1,4 +1,5 @@
 "use client";
+import { LearningArt } from "@/components/brand/LearningArt";
 import { useMemo } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
@@ -97,9 +98,9 @@ export function ScoreScreen({ score, total, correct, levelId, answers, questions
   }, [questions, answers]);
 
   return (
-    <div className="px-4 sm:px-6 lg:px-8 text-center">
+    <div className="practice-card text-center" data-practice-surface="result">
       <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ type: "spring", stiffness: 200 }}>
-        <span className="text-8xl block mb-6">{emoji}</span>
+        <LearningArt name={emoji} size={28} className="mb-4" />
       </motion.div>
 
       <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}>
@@ -130,7 +131,7 @@ export function ScoreScreen({ score, total, correct, levelId, answers, questions
           }}
         >
           <div className="flex items-center gap-2 mb-3">
-            <Target className="w-5 h-5 text-white" />
+            <LearningArt name="Target" size={20} className="w-5 h-5 text-white" />
             <h2 className="font-display font-extrabold text-white">Areas to Improve</h2>
           </div>
           <div className="space-y-2">
@@ -166,9 +167,9 @@ export function ScoreScreen({ score, total, correct, levelId, answers, questions
           className="text-left mb-8 p-5 rounded-[var(--radius-lg)] border-2"
           style={{
             backgroundColor: "var(--color-info)",
-            borderColor: "#0d7ab8",
+            borderColor: "#7E22CE",
             color: "#FFFFFF",
-            boxShadow: "0 3px 0 #0a5c8a",
+            boxShadow: "0 3px 0 #581C87",
           }}
         >
           <div className="flex items-center gap-2 mb-3">
@@ -188,7 +189,7 @@ export function ScoreScreen({ score, total, correct, levelId, answers, questions
               <span className="w-5 h-5 rounded-full flex items-center justify-center shrink-0 mt-0.5"
                 style={{ backgroundColor: "rgba(255,255,255,0.3)", color: "#FFFFFF" }}
               >
-                <BookOpen className="w-3 h-3" />
+                <LearningArt name="BookOpen" size={12} className="w-3 h-3" />
               </span>
               <span>Visit the Practice Hub for targeted trainers on each topic.</span>
             </li>

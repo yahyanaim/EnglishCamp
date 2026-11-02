@@ -1,4 +1,8 @@
 "use client";
+import { learnerStorage } from "@/lib/learnerStorage";
+
+import { LearningArt } from "@/components/brand/LearningArt";
+import { PracticeButton } from "@/components/ui/PracticeSurface";
 import { useState, useEffect, useRef, useCallback } from "react";
 import { motion } from "framer-motion";
 import { playCorrect, playWrong, playXP } from "@/lib/audio";
@@ -25,6 +29,8 @@ function shuffle<T>(a: T[]): T[] {
 
 const PAIR_COUNTS = [4, 6, 8];
 
+const MotionPracticeButton = motion.create(PracticeButton);
+
 export function SpeedMatch() {
   const { addXP } = useProgress();
   const [pairCount, setPairCount] = useState(6);
@@ -44,7 +50,7 @@ export function SpeedMatch() {
 
   useEffect(() => {
     try {
-      const stored = localStorage.getItem("speedmatch-best");
+      const stored = learnerStorage.getItem("speedmatch-best");
       if (stored) setBestTime(Number(stored));
     } catch {}
   }, []);
@@ -129,7 +135,7 @@ export function SpeedMatch() {
         setElapsed(finalTime);
         if (bestTime === null || finalTime < bestTime) {
           setBestTime(finalTime);
-          try { localStorage.setItem("speedmatch-best", String(finalTime)); } catch {}
+          try { learnerStorage.setItem("speedmatch-best", String(finalTime)); } catch {}
         }
         const xp = Math.max(10, Math.round((totalPairs * 50) / (finalTime / 1000)));
         addXP(xp);
@@ -151,33 +157,33 @@ export function SpeedMatch() {
   }
 
   if (gameState === "idle" && cards.length === 0) {
-    return <div className="text-center py-12 text-[var(--color-text-disabled)]">Loading...</div>;
+    return <div className="text-center py-12 text-[var(--color-text-secondary)]">Loading...</div>;
   }
 
   return (
     <div className="space-y-4">
-      <div className="flex flex-wrap items-center justify-between gap-2">
+      <div className="camp-quiz-status flex flex-wrap items-center justify-between gap-2">
         <div className="flex flex-wrap items-center gap-2">
           <span className="inline-flex items-center gap-1 whitespace-nowrap rounded-[10px] bg-[var(--color-primary-subtle)] px-3 py-1 text-xs font-semibold text-[var(--color-text-link)]">
-            <Target className="w-3 h-3" />
+            <LearningArt name="Target" size={12} className="w-3 h-3" />
             {matches}/{totalPairs} matched
           </span>
           {misses > 0 && (
-            <span className="inline-flex items-center gap-1 whitespace-nowrap rounded-[10px] bg-[var(--color-error)] text-[var(--color-on-brand)] px-3 py-1 text-xs font-semibold">
+            <span className="inline-flex items-center gap-1 whitespace-nowrap rounded-[10px] bg-[var(--color-error-bg)] text-[var(--color-text-error)] px-3 py-1 text-xs font-semibold">
               {misses} misses
             </span>
           )}
         </div>
         <div className="flex flex-wrap items-center gap-3">
           {gameState === "playing" && (
-            <span className="inline-flex items-center gap-1 whitespace-nowrap rounded-[10px] bg-[var(--color-warning)] text-[var(--color-on-brand)] px-3 py-1 text-xs font-semibold">
-              <Clock className="w-3 h-3" />
+            <span className="inline-flex items-center gap-1 whitespace-nowrap rounded-[10px] bg-[var(--color-warning-bg)] text-[var(--color-text-warning)] px-3 py-1 text-xs font-semibold">
+              <LearningArt name="Clock" size={12} className="w-3 h-3" />
               {formatTime(elapsed)}
             </span>
           )}
           {bestTime !== null && (
             <span className="inline-flex items-center gap-1 whitespace-nowrap rounded-[var(--radius-md)] bg-[#9B59B6] px-3 py-1 text-xs font-semibold text-white">
-              <Trophy className="w-3 h-3" />
+              <LearningArt name="Trophy" size={12} className="w-3 h-3" />
               {formatTime(bestTime)}
             </span>
           )}
@@ -186,49 +192,49 @@ export function SpeedMatch() {
 
       <div className="flex gap-1.5">
         {PAIR_COUNTS.map((n) => (
-          <button
+          <PracticeButton
             key={n}
             onClick={() => initGame(n)}
             className={`rounded-[10px] px-3 py-1.5 text-[11px] font-semibold transition-all ${
               pairCount === n
-                ? "bg-[var(--color-primary)] text-[var(--color-on-brand)] shadow-[0_2px_0_rgba(28,176,246,0.3)]"
-                : "bg-[var(--color-surface)] border-2 border-[var(--color-border-default)] text-[var(--color-text-secondary)] hover:bg-[var(--color-surface-alt)]"
+                ? "bg-[var(--color-primary)] text-[var(--color-on-brand)] shadow-[0_2px_0_rgba(126,34,206,0.3)]"
+                : "bg-[var(--color-surface)] border border-[var(--color-border-default)] text-[var(--color-text-secondary)] hover:bg-[var(--color-surface-alt)]"
             }`}
           >
             {n} pairs
-          </button>
+          </PracticeButton>
         ))}
       </div>
 
       <>
         {gameState === "done" ? (
-          <motion.div key="done" initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} className="bg-[var(--color-surface)] rounded-[24px] border-2 border-[var(--color-border-default)] p-8 text-center shadow-[0_4px_16px_rgba(0,0,0,0.08)]">
-            <span className="text-5xl block mb-4">🎉</span>
+          <motion.div data-practice-surface="result" key="done" initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} className="practice-card bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-5 sm:p-6 text-center shadow-[var(--shadow-1)]">
+            <LearningArt name="🎉" size={36} className=" block mb-4" />
             <h3 className="text-xl font-display font-extrabold text-[var(--color-text-primary)]">All matched!</h3>
             <p className="text-sm text-[var(--color-text-secondary)] mt-1">
               {totalPairs} pairs in {formatTime(elapsed)}
             </p>
-            {misses > 0 && <p className="text-xs text-[var(--color-text-disabled)] mt-1">{misses} misses</p>}
+            {misses > 0 && <p className="text-xs text-[var(--color-text-secondary)] mt-1">{misses} misses</p>}
             {elapsed === (bestTime ?? elapsed) && (
               <p className="inline-flex items-center gap-1 mt-3 text-sm font-bold bg-amber-500 text-[var(--color-on-brand)] font-extrabold shadow-sm px-3 py-1.5 rounded-[10px]">
-                <Trophy className="w-4 h-4" /> New best!
+                <LearningArt name="Trophy" size={16} className="w-4 h-4" /> New best!
               </p>
             )}
-            <button
+            <PracticeButton
               onClick={() => initGame(pairCount)}
-              className="mt-5 px-6 py-2.5 rounded-[12px] bg-[var(--color-primary)] text-[var(--color-on-brand)] font-bold text-sm hover:bg-brand-600 transition-all inline-flex items-center gap-1.5"
+              className="mt-5 px-6 py-2.5 rounded-[12px] bg-[var(--color-primary)] text-[var(--color-on-brand)] font-bold text-sm hover:bg-[var(--color-primary-hover)] transition-all inline-flex items-center gap-1.5"
             >
               <RotateCcw className="w-4 h-4" /> Play again
-            </button>
+            </PracticeButton>
           </motion.div>
         ) : (
-          <motion.div key="grid" className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+          <motion.div key="grid" className="camp-match-board grid grid-cols-2 sm:grid-cols-4 gap-2.5">
             {cards.map((card) => {
               if (card.removed) return null;
               const isSelected = selected === card.id;
               const isAr = card.lang === "ar";
               return (
-                <motion.button
+                <MotionPracticeButton
                   key={card.id}
                   layout
                   initial={{ opacity: 0, scale: 0.8 }}
@@ -237,17 +243,17 @@ export function SpeedMatch() {
                   onClick={() => handleSelect(card.id)}
                   className={`relative p-4 rounded-[16px] text-sm font-medium transition-all min-h-[72px] ${
                     isSelected
-                      ? "ring-2 ring-brand-500 text-[var(--color-text-link)] bg-[var(--color-primary-subtle)] shadow-[0_2px_8px_rgba(28,176,246,0.2)]"
+                      ? "ring-2 ring-brand-500 text-[var(--color-text-link)] bg-[var(--color-primary-subtle)] shadow-[0_2px_8px_rgba(126,34,206,0.2)]"
                       : isAr
-                        ? "bg-[var(--color-surface)] border-2 border-[var(--color-border-default)] text-[var(--color-text-primary)] hover:ring-[var(--color-primary)] hover:shadow-sm"
-                        : "bg-[var(--color-surface-alt)] border-2 border-[var(--color-border-default)] text-[var(--color-text-secondary)] hover:ring-[var(--color-primary)] hover:shadow-sm"
+                        ? "bg-[var(--color-surface)] border border-[var(--color-border-default)] text-[var(--color-text-primary)] hover:ring-[var(--color-primary)] hover:shadow-sm"
+                        : "bg-[var(--color-surface-alt)] border border-[var(--color-border-default)] text-[var(--color-text-secondary)] hover:ring-[var(--color-primary)] hover:shadow-sm"
                   }`}
                 >
                   {isAr && (
-                    <span className="absolute top-1.5 left-2 text-[9px] font-bold text-[var(--color-text-disabled)] uppercase tracking-wider">AR</span>
+                    <span className="absolute top-1.5 left-2 text-[9px] font-bold text-[var(--color-text-secondary)] uppercase tracking-wider">AR</span>
                   )}
                   <span lang={isAr ? "ar" : "en"} dir={isAr ? "rtl" : "ltr"} className={`block ${isAr ? "mt-2 font-bold" : ""}`}>{card.text}</span>
-                </motion.button>
+                </MotionPracticeButton>
               );
             })}
           </motion.div>
@@ -256,12 +262,12 @@ export function SpeedMatch() {
 
       {feedback === "correct" && (
         <motion.div initial={{ opacity: 0, scale: 0.5 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0 }} className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none z-50">
-          <span className="text-6xl">✅</span>
+          <LearningArt name="✅" size={24} className="text-6xl" />
         </motion.div>
       )}
       {feedback === "wrong" && (
         <motion.div initial={{ opacity: 0, scale: 0.5 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0 }} className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none z-50">
-          <span className="text-6xl">❌</span>
+          <LearningArt name="❌" size={24} className="text-6xl" />
         </motion.div>
       )}
     </div>

@@ -1,5 +1,6 @@
 import type { ActivityTask } from "@/data/types";
 import { activityStorageKey } from "./courseActivity";
+import { learnerRecordingPrefix } from "./learnerStorage";
 
 /** Non-security content fingerprint: changed prompts never inherit checked-answer evidence. */
 export function taskSignature(task: ActivityTask): string {
@@ -65,6 +66,7 @@ function recordingsDB(): Promise<IDBDatabase> {
 }
 /** One latest take per task/prompt; never uploaded. The old take remains if a new save fails. */
 export async function saveTake(key: string, blob: Blob): Promise<void> {
+  key = learnerRecordingPrefix() + key;
   const db = await recordingsDB();
   try {
     await new Promise<void>((resolve, reject) => {
@@ -74,6 +76,7 @@ export async function saveTake(key: string, blob: Blob): Promise<void> {
   } finally { db.close(); }
 }
 export async function loadTake(key: string): Promise<Blob | undefined> {
+  key = learnerRecordingPrefix() + key;
   const db = await recordingsDB();
   try {
     return await new Promise<Blob | undefined>((resolve, reject) => {
@@ -82,6 +85,16 @@ export async function loadTake(key: string): Promise<Blob | undefined> {
       request.onerror = () => reject(request.error);
     });
   } finally { db.close(); }
+}
+
+export async function deleteLearnerTakes(prefix: string): Promise<void> {
+  if (!prefix) return;
+  const db = await recordingsDB();
+  try { await new Promise<void>((resolve, reject) => {
+    const tx = db.transaction("takes", "readwrite"), request = tx.objectStore("takes").openCursor();
+    request.onsuccess = () => { const cursor = request.result; if (cursor) { if (String(cursor.key).startsWith(prefix)) cursor.delete(); cursor.continue(); } };
+    tx.oncomplete = () => resolve(); tx.onerror = () => reject(tx.error); tx.onabort = () => reject(tx.error);
+  }); } finally { db.close(); }
 }
 
 const recordingRisks = new Set<string>();

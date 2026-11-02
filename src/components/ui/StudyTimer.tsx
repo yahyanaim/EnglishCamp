@@ -1,4 +1,5 @@
 "use client";
+import { LearningArt } from "@/components/brand/LearningArt";
 import { useState, useEffect, useRef } from "react";
 import { Timer, Play, Pause, RotateCcw } from "lucide-react";
 import { motion } from "framer-motion";
@@ -52,19 +53,19 @@ export function StudyTimer() {
     : (timeLeft / BREAK) * 100;
 
   const accentColor = mode === "focus" ? "var(--color-primary)" : "var(--color-info)";
-  const accentDark = mode === "focus" ? "var(--color-primary-dark)" : "var(--color-info-dark)";
+  const accentDark = mode === "focus" ? "var(--color-text-link)" : "var(--color-text-info)";
   const accentBg = mode === "focus" ? "var(--color-primary-subtle)" : "var(--color-info-bg)";
 
   return (
     <motion.div
       initial={{ opacity: 0, y: 12 }}
       animate={{ opacity: 1, y: 0 }}
-      className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] p-5 border-2 border-[var(--color-border-default)] transition-all duration-200"
-      style={{ boxShadow: "0 3px 0 var(--color-border-default)" }}
+      className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] p-5 border border-[var(--color-border-default)] transition-all duration-200"
+      style={{ boxShadow: "var(--shadow-1)" }}
     >
       <div className="flex items-center justify-between mb-3">
         <div className="flex items-center gap-2">
-          <Timer className="w-4 h-4" style={{ color: "var(--color-text-secondary)" }} />
+          <LearningArt name="Timer" size={16} className="w-4 h-4" />
           <span className="font-display font-bold text-sm" style={{ color: "var(--color-text-primary)" }}>Study Timer</span>
         </div>
         <span

@@ -1,4 +1,6 @@
 "use client";
+import { LearningArt } from "@/components/brand/LearningArt";
+import { PracticeCard, PracticeButton } from "@/components/ui/PracticeSurface";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useProgress } from "@/store/useProgress";
@@ -68,8 +70,8 @@ export function SeparableVerbsTrainer() {
       <div className="text-center py-8">
         <span className="text-5xl block mb-3">{pct >= 80 ? "🏆" : "👍"}</span>
         <h3 className="text-xl font-display font-extrabold text-[var(--color-text-primary)] mb-1">Phrasal Verbs Done!</h3>
-        <p className="text-lg font-display font-extrabold text-[var(--color-primary-dark)]">{score}/{total} ({pct}%)</p>
-        <button onClick={restart} className="text-sm font-medium bg-[var(--color-primary-subtle)] text-[var(--color-primary-dark)] border border-[var(--color-primary)] px-5 py-2 rounded-[var(--radius-lg)] hover:bg-[var(--color-primary)] transition-all mt-4">Play Again 🔄</button>
+        <p className="text-lg font-display font-extrabold text-[var(--color-text-link)]">{score}/{total} ({pct}%)</p>
+        <PracticeButton onClick={restart} className="text-sm font-medium bg-[var(--color-primary-subtle)] text-[var(--color-text-link)] border border-[var(--color-primary)] px-5 py-2 rounded-[var(--radius-lg)] hover:bg-[var(--color-primary)] transition-all mt-4">Play Again <LearningArt name="🔄" size={16} /></PracticeButton>
       </div>
     );
   }
@@ -80,17 +82,17 @@ export function SeparableVerbsTrainer() {
   if (!particles.includes(item.particle)) particles[0] = item.particle;
 
   return (
-    <div className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border-2 border-[var(--color-border-default)] p-6 shadow-sm" style={{ boxShadow: "0 3px 0 var(--color-border-default)" }}>
+    <PracticeCard data-practice-surface="question" className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-6 shadow-sm" style={{ boxShadow: "0 3px 0 var(--color-border-default)" }}>
       <div className="flex items-center justify-between mb-4">
         <span className="text-xs font-semibold text-teal-600 uppercase tracking-wider">Phrasal Verbs</span>
-        <span className="text-xs text-[var(--color-text-disabled)]">{current + 1}/{pool.length}</span>
+        <span className="text-xs text-[var(--color-text-secondary)]">{current + 1}/{pool.length}</span>
       </div>
       <AnimatePresence mode="wait">
         <motion.div key={current} initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="text-center mb-4">
-          <p className="text-xs text-[var(--color-text-disabled)] mb-2">Which particle completes this phrasal verb?</p>
+          <p className="text-xs text-[var(--color-text-secondary)] mb-2">Which particle completes this phrasal verb?</p>
           <div className="flex items-center justify-center gap-2">
             <span className="text-lg font-display font-extrabold text-[var(--color-text-primary)]">{item.verb}</span>
-            <span className="text-xs text-[var(--color-text-disabled)] italic">({item.definition})</span>
+            <span className="text-xs text-[var(--color-text-secondary)] italic">({item.definition})</span>
           </div>
         </motion.div>
       </AnimatePresence>
@@ -98,28 +100,28 @@ export function SeparableVerbsTrainer() {
         {particles.map((p) => {
           let style = "bg-[var(--color-surface-alt)] border-[var(--color-border-default)] hover:bg-[var(--color-primary-subtle)] hover:border-[var(--color-primary)]";
           if (answered) {
-            if (p === item.particle) style = "bg-[var(--color-success)] text-white border-[var(--color-success)] ring-2 ring-[var(--color-success)]";
-            else if (p !== item.particle && answered) style = "bg-[var(--color-error)] text-white border-[var(--color-error)]";
+            if (p === item.particle) style = "bg-[var(--color-success-bg)] text-[var(--color-text-success)] border-[var(--color-success)] ring-2 ring-[var(--color-success)]";
+            else if (p !== item.particle && answered) style = "bg-[var(--color-error-bg)] text-[var(--color-text-error)] border-[var(--color-error)]";
           }
           return (
-            <button key={p} onClick={() => handleAnswer(p)} disabled={answered}
-              className={`p-3 rounded-[var(--radius-lg)] border-2 text-sm font-semibold transition-all ${style}`}>
+            <PracticeButton key={p} onClick={() => handleAnswer(p)} disabled={answered}
+              className={`p-3 rounded-[var(--radius-lg)] border text-sm font-semibold transition-all ${style}`}>
               {p}
-            </button>
+            </PracticeButton>
           );
         })}
       </div>
       {answered && (
         <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className="text-center">
-          <p className={`text-sm font-medium mb-2 ${correct ? "text-[var(--color-success)]" : "text-[var(--color-error)]"}`}>
+          <p className={`text-sm font-medium mb-2 ${correct ? "text-[var(--color-text-success)]" : "text-[var(--color-text-error)]"}`}>
             {correct ? "✓ Correct!" : `✗ Correct particle: "${item.particle}"`}
           </p>
           <p className="text-xs text-[var(--color-text-secondary)] mb-2">{item.example}</p>
-          <button onClick={next} className="text-sm font-medium bg-[var(--color-primary-subtle)] text-[var(--color-primary-dark)] border border-[var(--color-primary)] px-5 py-2 rounded-[var(--radius-lg)] hover:bg-[var(--color-primary)] transition-all">
+          <PracticeButton onClick={next} className="text-sm font-medium bg-[var(--color-primary-subtle)] text-[var(--color-text-link)] border border-[var(--color-primary)] px-5 py-2 rounded-[var(--radius-lg)] hover:bg-[var(--color-primary)] transition-all">
             {current + 1 >= pool.length ? "Results" : "Next →"}
-          </button>
+          </PracticeButton>
         </motion.div>
       )}
-    </div>
+    </PracticeCard>
   );
 }

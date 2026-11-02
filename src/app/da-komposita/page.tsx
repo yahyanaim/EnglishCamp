@@ -1,4 +1,6 @@
 "use client";
+
+import { LearningArt } from "@/components/brand/LearningArt";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { PageWrapper } from "@/components/layout/PageWrapper";
@@ -24,7 +26,7 @@ export default function DaKompositaPage() {
           <ChevronLeft className="w-4 h-4" /> Back to words
         </button>
 
-        <div className="bg-gradient-to-br from-slate-50 to-[var(--color-info)] rounded-[var(--radius-lg)] border-2 border-[var(--color-border-default)]/50 p-6 shadow-sm mb-6">
+        <div className="bg-[var(--color-surface-alt)]    rounded-[var(--radius-lg)] border border-[var(--color-border-default)]/50 p-6 shadow-sm mb-6">
           <div className="flex items-center gap-4 mb-4">
             <span className="text-3xl">{TYPE_LABELS[word.type]?.icon || "📝"}</span>
             <div>
@@ -33,10 +35,10 @@ export default function DaKompositaPage() {
             </div>
           </div>
           <div className="bg-[var(--color-surface)]/60 rounded-[var(--radius-lg)] p-3 mt-2">
-            <p className="text-xs font-bold text-[var(--color-text-disabled)] uppercase tracking-wider mb-1">Example</p>
+            <p className="text-xs font-bold text-[var(--color-text-secondary)] uppercase tracking-wider mb-1">Example</p>
             <p className="text-sm font-mono text-[var(--color-text-primary)]">{word.example}</p>
-            <p className="text-xs text-[var(--color-text-disabled)] italic mt-1">{word.exampleEn}</p>
-            {word.arabic && <p className="text-xs text-[var(--color-text-disabled)] italic font-arabic mt-1" lang="ar">{word.arabic}</p>}
+            <p className="text-xs text-[var(--color-text-secondary)] italic mt-1">{word.exampleEn}</p>
+            {word.arabic && <p className="text-xs text-[var(--color-text-secondary)] italic font-arabic mt-1" lang="ar">{word.arabic}</p>}
           </div>
         </div>
       </PageWrapper>
@@ -58,7 +60,7 @@ export default function DaKompositaPage() {
           return (
             <div key={type}>
               <h2 className="text-sm font-bold text-[var(--color-text-primary)] mb-3 flex items-center gap-2">
-                <span>{meta.icon}</span> {meta.label}
+                <LearningArt name={meta.icon} size={24} className="" /> {meta.label}
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                 {items.map((w, i) => (
@@ -66,10 +68,10 @@ export default function DaKompositaPage() {
                     key={w.word} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.04 }}
                     whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}
                     onClick={() => setSelectedWord(w.word)}
-                    className="text-left bg-[var(--color-surface)] rounded-[var(--radius-lg)] border-2 border-[var(--color-border-default)] p-4 shadow-sm hover:shadow-md transition-all"
+                    className="text-left bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-4 shadow-sm hover:shadow-md transition-all"
                   >
                     <div className="flex items-start gap-3">
-                      <span className="text-2xl">{meta.icon}</span>
+                      <LearningArt name={meta.icon} size={24} className="" />
                       <div>
                         <h3 className="text-sm font-bold text-[var(--color-text-primary)] mb-0.5">{w.word}</h3>
                         <p className="text-xs text-[var(--color-text-secondary)] line-clamp-2">{w.meaning}</p>
@@ -82,7 +84,7 @@ export default function DaKompositaPage() {
           );
         })}
 
-        <div className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border-2 border-[var(--color-border-default)] p-5 shadow-sm">
+        <div className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-5 shadow-sm">
           <h3 className="text-sm font-bold text-[var(--color-text-primary)] mb-3">All Compound Words</h3>
           <div className="overflow-x-auto">
             <table className="w-full text-xs">

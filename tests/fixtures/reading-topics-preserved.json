@@ -1,0 +1,34 @@
+{
+  "articles": {
+    "tech-computers": "37b84080adde2913a30b551e3e704c6523539b3247f2ee3eb2532f53e3975bc0",
+    "env-recycle": "dc778e4e48a9158458275644586a6bb0aec9b19afb79cb97479d6a9f69115e00",
+    "health-stay-healthy": "300221992744a18c722e7a3d9586c8a750efa42dbc20a10874931727f9a377a9",
+    "edu-learning-english": "f2f952ccd80e892caeafe071d10e3202dffad732bedf6cd9272fd4ce7544a732",
+    "science-climate": "ac08874e31921b9568a033e0a7641f65d54becf3642ffedbc61c7251a076a07c",
+    "society-big-cities": "e149fdab5b3ad9a022eb41d99091cd21f656397ef46f3ec8fe4edd22b97a2c69",
+    "work-job-interview": "7ae1d24f4d06c11331d5996ef8d224d0fd552b85f07e043fcd7e3049134f6d49",
+    "tech-artificial-intelligence": "6be4166c7f854bd14d9cfcda311a0b313f8ffff8a03e076f85878f48633e1857",
+    "renewable-energy": "5a8fbdf80f475d8d19a31c678b49d4b0d6862834c074e86f77a96b15525132b2",
+    "mental-health": "46083886a476f2991f47d21fcd4b3046cb59bc88d8fde76a455c00bfbc4f7ade",
+    "impact-of-globalization": "eb726acc7ae2b25f762a8f4767a76926a18f8d348fb7cbece8544ce30d56807a",
+    "online-learning-pros-cons": "f226fa8bace1129dbfceddda13f31eefd0e030d7cf7eccd0c4e65592caf31231",
+    "genetic-engineering": "cf634c942875ddef8b08e81bfda328e7ea43def35b6c28c5dd358a5e5209cb2b",
+    "cultural-diversity": "717fca91e4cd67ae283bf9dcf7178362bc0e2d6041ce3df5225ea694454bc0d3",
+    "cybersecurity-digital-age": "671566f26e9d1a3ced510b211bf6949fb5fa19fc7c43027a40d02ed3ede2e916",
+    "evolution-human-rights": "2318c2e3fe9be4e6d68252c55540fe270b5a483b7b406b8ed031ad51b8d78024"
+  },
+  "topics": {
+    "education": "a8e6b3651472ea5857070ecc9f6b7744aee3e0df0babd292de5347abf2f35ac6",
+    "work": "909d1e6e0abec1ba10242c4f5a869bbf437e72e4cfff449610c7ec0a777a843b",
+    "travel": "c246ada928d1a567e529f375cbd6d8e49bf76882b14f074151e9e7f84ba769ed",
+    "environment": "6b2d683c99edcbec025b9cef3001afa622386a28f9f8d1ff81601e03207564ff",
+    "health": "8854830048609e3b382bb7c05e43ab35ef3ab676774e9cb6ba4c84f8b2451114",
+    "technology": "99c384d7f21502fd74095af0bf9cd4e81ffed9bba89554c1774012b7b0153f07",
+    "media": "d6ebe16c316ae506c70f55ac9411d26a6bf20bf194c41fa3efbd27706cbe352c",
+    "relationships": "e72184892814c554c8aefff37322460d060f7940957f19ba0ea40b652ffc5175",
+    "finance": "4a0b9ca77cac6735e7485d6a5c6768a8a090cf9a14f20c7331e475fe526973f7",
+    "crime": "9237c9a687b49dcadf9d3c7feade0dd14a77a8f51c4f5d06ecd6a29a7d21fc8c",
+    "food": "22f506718b1bf35fa16b2afc033084c72565083d92941b60b39f8b3dc5bb89ed",
+    "fashion": "586568a3d060d2adb8c1f97003db0e856445c1ddfedd3118be17dd61ace2b67d"
+  }
+}

@@ -1,4 +1,7 @@
 "use client";
+
+import { LearningArt } from "@/components/brand/LearningArt";
+import { PageBanner } from "@/components/ui/PageBanner";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { PageWrapper } from "@/components/layout/PageWrapper";
@@ -13,13 +16,13 @@ export default function GrammarComparePage() {
 
   return (
     <PageWrapper>
-      <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}>
+      <PageBanner>
         <div className="flex items-center gap-3 mb-1">
-          <ArrowLeftRight className="w-6 h-6 text-[var(--color-primary)]" />
+          <LearningArt name="ArrowLeftRight" className="w-6 h-6 text-[var(--color-primary)]" />
           <h1 className="font-display text-2xl font-extrabold text-[var(--color-text-primary)]">Grammar Comparison</h1>
         </div>
         <p className="text-sm text-[var(--color-text-secondary)]">Compare commonly confused English grammar concepts side by side</p>
-      </motion.div>
+      </PageBanner>
 
       <div className="flex flex-wrap gap-2 mt-6">
         {GRAMMAR_COMPARE_PAIRS.map((p) => (
@@ -28,8 +31,8 @@ export default function GrammarComparePage() {
             onClick={() => setActiveId(p.id)}
             className={`text-sm font-medium px-3 py-1.5 rounded-[var(--radius-lg)] transition-all ${
               activeId === p.id
-                ? "bg-[var(--color-primary)] text-white shadow-sm"
-                : "bg-[var(--color-surface)] text-[var(--color-text-secondary)] border-2 border-[var(--color-border-default)] hover:ring-brand-200"
+                ? "bg-[var(--color-primary)] text-[var(--color-on-brand)] shadow-sm"
+                : "bg-[var(--color-surface)] text-[var(--color-text-secondary)] border border-[var(--color-border-default)] hover:ring-brand-200"
             }`}
           >
             {p.title}
@@ -38,50 +41,51 @@ export default function GrammarComparePage() {
       </div>
 
       <AnimatePresence mode="wait">
-        <motion.div key={pair.id} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} className="mt-6 space-y-6">
+        <motion.div key={pair.id} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} className="camp-grammar-comparison mt-6 space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="bg-[var(--color-info)] text-white rounded-[var(--radius-lg)] ring-1 ring-blue-100 p-5">
-              <h2 className="text-base font-bold text-[var(--color-info)] mb-2">{pair.conceptA}</h2>
-              <p className="text-sm text-[var(--color-info)] leading-relaxed">{pair.explanation}</p>
+            <div className="bg-[var(--color-info-bg)] text-[var(--color-text-info)] rounded-[var(--radius-lg)] ring-1 ring-blue-100 p-5">
+              <h2 className="text-base font-bold text-[var(--color-text-info)] mb-2">{pair.conceptA}</h2>
+              <p className="text-sm text-[var(--color-text-primary)] leading-relaxed">{pair.examples.find(example => example.side === "a")?.english}</p>
             </div>
-            <div className="bg-[var(--color-success)] text-white rounded-[var(--radius-lg)] p-5 border-2 border-[var(--color-success)]" style={{ boxShadow: "0 3px 0 #1a7a1a" }}>
-              <h2 className="text-base font-display font-extrabold text-white mb-2">{pair.conceptB}</h2>
-              <p className="text-sm text-white/80 leading-relaxed">{pair.explanation}</p>
+            <div className="bg-[var(--color-success-bg)] text-[var(--color-text-success)] rounded-[var(--radius-lg)] p-5 border border-[var(--color-success)]" >
+              <h2 className="text-base font-display font-extrabold text-[var(--color-text-primary)] mb-2">{pair.conceptB}</h2>
+              <p className="text-sm text-[var(--color-text-primary)] leading-relaxed">{pair.examples.find(example => example.side === "b")?.english}</p>
             </div>
           </div>
 
+          <p className="camp-comparison-explanation">{pair.explanation}</p>
           <div>
             <h3 className="text-sm font-semibold text-[var(--color-text-primary)] mb-3">Examples</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               {pair.examples.map((ex, i) => (
                 <div
                   key={i}
-                  className={`rounded-[var(--radius-lg)] p-4 border-2 ${
+                  className={`camp-comparison-example rounded-[var(--radius-lg)] p-4 border ${
                     ex.side === "a"
-                      ? "bg-[var(--color-info)] text-white border-[var(--color-info)]"
-                      : "bg-[var(--color-success)] text-white border-[var(--color-success)]"
+                      ? "bg-[var(--color-info-bg)] text-[var(--color-text-info)] border-[var(--color-info)]"
+                      : "bg-[var(--color-success-bg)] text-[var(--color-text-success)] border-[var(--color-success)]"
                   }`}
-                  style={{ boxShadow: ex.side === "a" ? "0 3px 0 #0a5c8a" : "0 3px 0 #1a7a1a" }}
+
                 >
-                  <p className={`text-sm font-semibold ${ex.side === "a" ? "text-white" : "text-white"}`}>
+                  <p className={`text-sm font-semibold ${ex.side === "a" ? "text-[var(--color-text-primary)]" : "text-[var(--color-text-primary)]"}`}>
                     {ex.english}
                   </p>
-                  <p className="text-xs text-white/70 italic font-arabic mt-1" lang="ar">{ex.arabic}</p>
+                  <p className="text-xs text-[var(--color-text-secondary)] italic font-arabic mt-1" lang="ar">{ex.arabic}</p>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="bg-[var(--color-warning)] text-white rounded-[var(--radius-lg)] ring-1 ring-amber-100 p-4">
-            <button onClick={() => setShowTip(!showTip)} className="flex items-center gap-2 text-sm font-semibold text-[var(--color-warning)]">
-              <Lightbulb className="w-4 h-4" />
+          <div className="bg-[var(--color-warning-bg)] text-[var(--color-text-warning)] rounded-[var(--radius-lg)] ring-1 ring-amber-100 p-4">
+            <button onClick={() => setShowTip(!showTip)} className="flex items-center gap-2 text-sm font-semibold text-[var(--color-text-warning)]">
+              <LearningArt name="Lightbulb" size={16} className="w-4 h-4" />
               Common Mistake
               {showTip ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
             </button>
             <AnimatePresence>
               {showTip && (
                 <motion.p initial={{ height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }} exit={{ height: 0, opacity: 0 }}
-                  className="text-sm text-[var(--color-warning)] mt-2 overflow-hidden">
+                  className="text-sm text-[var(--color-text-warning)] mt-2 overflow-hidden">
                   {pair.commonMistake}
                 </motion.p>
               )}

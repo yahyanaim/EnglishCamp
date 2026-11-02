@@ -1,4 +1,5 @@
 "use client";
+import { LearningArt } from "@/components/brand/LearningArt";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
@@ -22,17 +23,17 @@ export function MobileBottomNav() {
           const active = pathname === item.href || pathname.startsWith(item.href + "/");
           const Icon = item.icon;
           return (
-            <Link
+            <Link prefetch={false}
               key={item.href}
               href={item.href}
               className={cn(
                 "flex flex-1 flex-col items-center justify-center gap-0.5 min-h-11 px-1 sm:px-3 py-1 rounded-[var(--radius-md)] transition-all min-w-0",
                 active
                   ? "text-[var(--color-primary)]"
-                  : "text-[var(--color-text-disabled)] hover:text-[var(--color-text-secondary)]"
+                  : "text-[var(--color-text-secondary)] hover:text-[var(--color-text-secondary)]"
               )}
             >
-              <Icon className={cn("w-5 h-5", active && "drop-shadow-[0_1px_0_var(--color-primary-dark)]")} />
+              <LearningArt name={Icon.displayName || "book"} className={cn("w-5 h-5", active && "drop-shadow-[0_1px_0_var(--color-primary-dark)]")} />
               <span className={cn(
                 "text-[10px] font-display font-bold whitespace-nowrap",
                 active && "text-[var(--color-primary)]"

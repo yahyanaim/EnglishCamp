@@ -1,3 +1,4 @@
+import { learnerStorage } from "@/lib/learnerStorage";
 import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
 
@@ -36,6 +37,6 @@ export const useNotes = create<NotesStore>()(
           .filter(([, v]) => v)
           .map(([k]) => k),
     }),
-    { name: "englishcamp-notes", storage: createJSONStorage(() => localStorage) }
+    { name: "englishcamp-notes", skipHydration: true, storage: createJSONStorage(() => learnerStorage) }
   )
 );

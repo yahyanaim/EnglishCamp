@@ -1,0 +1,16 @@
+"use client";
+import { useEffect,useRef,useState } from "react";
+import type { ReactNode } from "react";
+import { stopNaturalSpeech } from "@/lib/naturalSpeech";
+type Player={playVideo:()=>void;pauseVideo:()=>void;seekTo:(time:number,allow:boolean)=>void;setPlaybackRate:(rate:number)=>void;getAvailablePlaybackRates:()=>number[];destroy:()=>void};
+type Api={Player:new (element:HTMLIFrameElement,options:{events:{onReady:()=>void;onStateChange:(event:{data:number})=>void;onError:()=>void}})=>Player};
+type VideoWindow=Window&{YT?:Api;onYouTubeIframeAPIReady?:()=>void};
+let apiPromise:Promise<Api>|null=null;
+function loadApi(){const win=window as VideoWindow;if(win.YT?.Player)return Promise.resolve(win.YT);if(apiPromise)return apiPromise;apiPromise=new Promise<Api>((resolve,reject)=>{const previous=win.onYouTubeIframeAPIReady;win.onYouTubeIframeAPIReady=()=>{previous?.();if(win.YT)resolve(win.YT);};const script=document.createElement('script');script.src='https://www.youtube.com/iframe_api';script.async=true;script.onerror=()=>{apiPromise=null;reject(new Error('Video unavailable'));};document.head.appendChild(script);});return apiPromise;}
+export type ShadowVideoControls = { ready:boolean; playing:boolean; speed:number; toggle:()=>void; replay:()=>void; setSpeed:(rate:number)=>void };
+export function ShadowVideo({videoId,title,children}:{videoId:string;title:string;children:(controls:ShadowVideoControls)=>ReactNode}){
+ const frame=useRef<HTMLIFrameElement>(null),player=useRef<Player|null>(null);const [ready,setReady]=useState(false),[error,setError]=useState(false),[speed,setSpeed]=useState(1),[playing,setPlaying]=useState(false);
+ useEffect(()=>{let disposed=false;const pause=()=>player.current?.pauseVideo?.();window.addEventListener('camp:natural-audio',pause);loadApi().then(api=>{if(disposed||!frame.current)return;player.current=new api.Player(frame.current,{events:{onReady:()=>{if(!disposed)setReady(true);},onStateChange:event=>{if(disposed)return;setPlaying(event.data===1);if(event.data===1)stopNaturalSpeech();},onError:()=>setError(true)}});}).catch(()=>{if(!disposed)setError(true);});return()=>{disposed=true;window.removeEventListener('camp:natural-audio',pause);player.current?.destroy?.();player.current=null;};},[videoId]);
+ const controls:ShadowVideoControls={ready:ready&&!error,playing,speed,toggle:()=>{if(playing)player.current?.pauseVideo?.();else{stopNaturalSpeech();player.current?.playVideo?.();}},replay:()=>{stopNaturalSpeech();player.current?.seekTo?.(0,true);player.current?.playVideo?.();},setSpeed:next=>{if(player.current?.getAvailablePlaybackRates?.().includes(next)){player.current.setPlaybackRate(next);setSpeed(next);}}};
+ return <section className="camp-shadow-video" aria-label="Shadowing video"><div className="camp-shadow-video-frame"><iframe ref={frame} title={title} src={`https://www.youtube-nocookie.com/embed/${videoId}?enablejsapi=1&playsinline=1&rel=0&hl=en`} referrerPolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen/></div>{children(controls)}{error&&<p role="status">The video could not load here. Open it on YouTube, or use the practice lines below.</p>}</section>;
+}

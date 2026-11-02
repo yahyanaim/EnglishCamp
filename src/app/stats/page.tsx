@@ -1,8 +1,10 @@
 "use client";
+import Link from "next/link";
+import { getLevelInfo } from "@/lib/xp";
 import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
 import { useProgress } from "@/store/useProgress";
-import { levels } from "@/data/content";
+import { courseCatalogue as levels } from "@/data/course-catalogue";
 import { useVocabulary } from "@/store/useVocabulary";
 import { useErrors } from "@/store/useErrors";
 import { ProgressChart } from "@/components/ui/ProgressChart";
@@ -10,13 +12,13 @@ import { ActivityChart } from "@/components/ui/ActivityChart";
 import { Download, BarChart3 } from "lucide-react";
 
 export default function StatsPage() {
-  const { xp, streak, lessons, quizResults, exercisesDone, getLevel } = useProgress();
-  const { getAll } = useVocabulary();
+  const { xp, streak, lessons, quizResults, exercisesDone } = useProgress();
+  const words = useVocabulary(state => state.words);
   const { errors } = useErrors();
-  const { level, title, nextXP } = getLevel();
+  const { level, title, nextXP } = getLevelInfo(xp);
 
   const doneLessons = Object.values(lessons).filter((l) => l.completed).length;
-  const vocab = getAll();
+  const vocab = Object.entries(words);
   const masteredWords = vocab.filter(([, v]) => v.mastery === 3).length;
   const totalQuizzes = Object.values(quizResults).flat().length;
   const bestQuiz = Math.max(0, ...Object.values(quizResults).flat().map((r) => r.score));
@@ -66,10 +68,11 @@ export default function StatsPage() {
         </button>
       </motion.div>
 
+      <Link prefetch={false} href="/my-notes" className="camp-secondary inline-flex items-center px-4 py-2 text-sm min-h-10">My notes →</Link>
       <ProgressChart />
       <ActivityChart />
 
-      <div className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border-2 border-[var(--color-border-default)] p-5 shadow-sm">
+      <div className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-5 shadow-sm">
         <h3 className="text-sm font-medium text-[var(--color-text-primary)] mb-3">Level Breakdown</h3>
         <div className="space-y-3">
           {levelBreakdown.map((lv) => (

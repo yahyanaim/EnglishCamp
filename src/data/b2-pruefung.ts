@@ -720,10 +720,10 @@ export const IELTS_GUIDE_CONTENT: GuideSection[] = [
       {
         title: 'Free Books & PDFs',
         body: [
-          'Cambridge IELTS past papers (Books 1-18) are the most authentic practice materials available.',
-          'IELTS Official Practice Materials are free PDF downloads from British Council and IDP websites.',
+          'Cambridge IELTS practice books are commercial publications. Cambridge English also offers official sample tests that are free to use.',
+          'Official sample questions and practice papers are available free from IELTS.org, British Council and IDP.',
           'IELTS Sample Tests from British Council offer free downloadable practice tests in PDF format.',
-          'IELTS Handbook is a free PDF from IELTS.org explaining format, scoring, and question types.',
+          'IELTS.org provides official information about the test format, scoring and sample questions.',
           'IELTS teachers offer free PDF guides: IELTS Liz, IELTS Advantage provide downloadable resources.',
           'Use Google Scholar to find free academic articles for additional reading practice.'
         ]
@@ -1388,7 +1388,7 @@ export const TOEFL_GUIDE_CONTENT: GuideSection[] = [
           'TOEFL iBT Free Practice Test: full-length test using retired questions on official interface.',
           'TOEFL iBT Interactive Sampler: sample questions with actual test interface for navigation practice.',
           'ETS TOEFL TV YouTube channel: test-taking tips, section overviews, and 2026 format information.',
-          'TOEFL iBT Quick Prep: free PDF with sample questions, passages, audio scripts, and answer keys.',
+          'ETS offers official TOEFL preparation resources. Check that the tasks match the current test before using older PDFs.',
           'Use ETS resources first as they are the most authentic available.',
           'Visit the ETS TOEFL website regularly for new free resources and updates.'
         ]

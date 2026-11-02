@@ -1,4 +1,7 @@
 "use client";
+
+import { LearningArt } from "@/components/brand/LearningArt";
+import { PracticeCard, PracticeButton } from "@/components/ui/PracticeSurface";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useProgress } from "@/store/useProgress";
@@ -15,6 +18,8 @@ const FALLBACK_CARDS = [
   { word: "pink", meaning: "a light red color" }, { word: "queen", meaning: "a female ruler" }, { word: "rain", meaning: "water from the sky" },
   { word: "sun", meaning: "the bright star in daytime" }, { word: "tree", meaning: "a tall plant" },
 ];
+
+const MotionPracticeButton = motion.create(PracticeButton);
 
 export function FlashcardRace() {
   const { completeExercise } = useProgress();
@@ -61,13 +66,13 @@ export function FlashcardRace() {
 
   if (!started) {
     return (
-      <div className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border-2 border-[var(--color-border-default)] p-6 shadow-sm text-center py-10" style={{ boxShadow: "0 3px 0 var(--color-border-default)" }}>
-        <span className="text-5xl block mb-3">⏱️</span>
+      <PracticeCard data-practice-surface="question" className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-6 shadow-sm text-center py-10" style={{ boxShadow: "0 3px 0 var(--color-border-default)" }}>
+        <LearningArt name="⏱️" size={36} className=" block mb-3" />
         <h3 className="text-xl font-display font-extrabold text-[var(--color-text-primary)] mb-2">Flashcard Race</h3>
         <p className="text-sm text-[var(--color-text-secondary)] mb-2">How many cards can you get through in {RACE_DURATION} seconds?</p>
-        <p className="text-xs text-[var(--color-text-disabled)] mb-6">Flip each card, then mark Known or Skip</p>
-        <button onClick={() => setStarted(true)} className="text-sm font-medium bg-[var(--color-primary)] text-white px-6 py-2.5 rounded-[var(--radius-lg)] hover:bg-brand-600 transition-all">Start Race 🏁</button>
-      </div>
+        <p className="text-xs text-[var(--color-text-secondary)] mb-6">Flip each card, then mark Known or Skip</p>
+        <PracticeButton onClick={() => setStarted(true)} className="text-sm font-medium bg-[var(--color-primary)] text-[var(--color-on-brand)] px-6 py-2.5 rounded-[var(--radius-lg)] hover:bg-[var(--color-primary-hover)] transition-all">Start Race 🏁</PracticeButton>
+      </PracticeCard>
     );
   }
 
@@ -76,9 +81,9 @@ export function FlashcardRace() {
       <div className="text-center py-8">
         <span className="text-5xl block mb-3">{score >= 10 ? "🏆" : score >= 5 ? "👍" : "💪"}</span>
         <h3 className="text-xl font-display font-extrabold text-[var(--color-text-primary)] mb-1">Time&apos;s Up!</h3>
-        <p className="text-lg font-display font-extrabold text-[var(--color-primary-dark)] mb-1">{score} cards known</p>
+        <p className="text-lg font-display font-extrabold text-[var(--color-text-link)] mb-1">{score} cards known</p>
         <p className="text-sm text-[var(--color-text-secondary)] mb-6">{score >= 10 ? "Lightning fast!" : score >= 5 ? "Good pace!" : "Speed comes with practice!"}</p>
-        <button onClick={handleRestart} className="text-sm font-medium bg-[var(--color-primary-subtle)] text-[var(--color-primary-dark)] border border-[var(--color-primary)] px-5 py-2 rounded-[var(--radius-lg)] hover:bg-[var(--color-primary)] transition-all">Play Again 🔄</button>
+        <PracticeButton onClick={handleRestart} className="text-sm font-medium bg-[var(--color-primary-subtle)] text-[var(--color-text-link)] border border-[var(--color-primary)] px-5 py-2 rounded-[var(--radius-lg)] hover:bg-[var(--color-primary)] transition-all">Play Again <LearningArt name="🔄" size={16} /></PracticeButton>
       </div>
     );
   }
@@ -86,12 +91,12 @@ export function FlashcardRace() {
   if (!current) return null;
 
   return (
-    <div className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border-2 border-[var(--color-border-default)] p-6 shadow-sm" style={{ boxShadow: "0 3px 0 var(--color-border-default)" }}>
+    <PracticeCard data-practice-surface="question" className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-6 shadow-sm" style={{ boxShadow: "0 3px 0 var(--color-border-default)" }}>
       <div className="flex items-center justify-between mb-4">
         <span className="text-xs font-semibold text-rose-500 uppercase tracking-wider">Flashcard Race</span>
         <div className="flex items-center gap-3">
-          <span className={`text-sm font-mono font-bold ${timeLeft <= 10 ? "text-[var(--color-error)]" : "text-[var(--color-text-secondary)]"}`}>{timeLeft}s</span>
-          <span className="text-xs text-[var(--color-text-disabled)]">{index + 1}/{raceCards.length}</span>
+          <span className={`text-sm font-mono font-bold ${timeLeft <= 10 ? "text-[var(--color-text-error)]" : "text-[var(--color-text-secondary)]"}`}>{timeLeft}s</span>
+          <span className="text-xs text-[var(--color-text-secondary)]">{index + 1}/{raceCards.length}</span>
         </div>
       </div>
 
@@ -102,11 +107,11 @@ export function FlashcardRace() {
         className="mb-4 cursor-pointer"
         onClick={() => setFlipped(true)}
       >
-        <div className={`relative w-full max-w-sm mx-auto h-44 rounded-[var(--radius-lg)] border-2 transition-all duration-300 flex items-center justify-center ${flipped ? "bg-[var(--color-success)] text-white border-[var(--color-success)]" : "bg-[var(--color-surface)] border-[var(--color-border-default)] hover:border-[var(--color-primary)] hover:shadow-md"}`}>
+        <div className={`relative w-full max-w-sm mx-auto h-44 rounded-[var(--radius-lg)] border transition-all duration-300 flex items-center justify-center ${flipped ? "bg-[var(--color-success-bg)] text-[var(--color-text-success)] border-[var(--color-success)]" : "bg-[var(--color-surface)] border-[var(--color-border-default)] hover:border-[var(--color-primary)] hover:shadow-md"}`}>
           {!flipped ? (
             <div className="text-center">
-              <span className="text-4xl block mb-2">🃏</span>
-              <p className="text-sm text-[var(--color-text-disabled)]">Tap to flip</p>
+              <LearningArt name="🃏" size={36} className=" block mb-2" />
+              <p className="text-sm text-[var(--color-text-secondary)]">Tap to flip</p>
             </div>
           ) : (
             <div className="text-center p-4">
@@ -118,12 +123,12 @@ export function FlashcardRace() {
       </motion.div>
 
       <div className="flex justify-center gap-3">
-        <motion.button whileTap={{ scale: 0.95 }} onClick={handleKnown} className="text-sm font-medium bg-[var(--color-success)] text-white  border border-[var(--color-success)] px-5 py-2 rounded-[var(--radius-lg)] hover:bg-emerald-100 transition-all">
+        <MotionPracticeButton whileTap={{ scale: 0.95 }} onClick={handleKnown} className="text-sm font-medium bg-[var(--color-success-bg)] text-[var(--color-text-success)]  border border-[var(--color-success)] px-5 py-2 rounded-[var(--radius-lg)] hover:bg-emerald-100 transition-all">
           ✓ Known
-        </motion.button>
-        <motion.button whileTap={{ scale: 0.95 }} onClick={handleUnknown} className="text-sm font-medium bg-[var(--color-error)] text-white  border border-[var(--color-error)] px-5 py-2 rounded-[var(--radius-lg)] hover:bg-red-100 transition-all">
+        </MotionPracticeButton>
+        <MotionPracticeButton whileTap={{ scale: 0.95 }} onClick={handleUnknown} className="text-sm font-medium bg-[var(--color-error-bg)] text-[var(--color-text-error)]  border border-[var(--color-error)] px-5 py-2 rounded-[var(--radius-lg)] hover:bg-red-100 transition-all">
           ✗ Skip
-        </motion.button>
+        </MotionPracticeButton>
       </div>
 
       <div className="flex justify-center gap-1 mt-4">
@@ -131,6 +136,6 @@ export function FlashcardRace() {
           <div key={i} className={`w-2 h-2 rounded-[var(--radius-pill)] ${i <= index ? "bg-rose-300" : "bg-[var(--color-border-default)]"}`} />
         ))}
       </div>
-    </div>
+    </PracticeCard>
   );
 }

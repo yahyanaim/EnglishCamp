@@ -1,9 +1,9 @@
 interface Props { lessonsDone: number; exercisesDone: number; quizzesTaken: number; }
 
 const items = [
-  { label: "Lessons completed", key: "lessons" as const, color: "var(--color-primary)" },
-  { label: "Exercises done", key: "exercises" as const, color: "var(--color-info)" },
-  { label: "Quizzes taken", key: "quizzes" as const, color: "var(--color-warning)" },
+  { label: "Lessons completed", key: "lessons" as const, color: "var(--color-primary)", textColor: "var(--color-text-link)" },
+  { label: "Exercises done", key: "exercises" as const, color: "var(--color-info)", textColor: "var(--color-text-info)" },
+  { label: "Quizzes taken", key: "quizzes" as const, color: "var(--color-warning)", textColor: "var(--color-text-warning)" },
 ];
 
 const bgMap: Record<string, string> = {
@@ -33,7 +33,7 @@ export function RecentActivity({ lessonsDone, exercisesDone, quizzesTaken }: Pro
             <span
               className="font-display font-bold text-sm px-3 py-0.5 rounded-[var(--radius-pill)]"
               style={{
-                color: item.color,
+                color: item.textColor,
                 backgroundColor: bgMap[item.color],
               }}
             >

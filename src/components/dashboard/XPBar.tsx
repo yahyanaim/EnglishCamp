@@ -1,4 +1,6 @@
 "use client";
+import { LearningArt } from "@/components/brand/LearningArt";
+import { LevelEncouragement } from "@/components/ui/LevelEncouragement";
 import { motion } from "framer-motion";
 import { Zap } from "lucide-react";
 
@@ -9,18 +11,16 @@ export function XPBar({ xp, level, title, nextXP }: Props) {
 
   return (
     <div
-      className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] p-5 border-2 border-[var(--color-border-default)] transition-all duration-200"
-      style={{ boxShadow: "0 3px 0 var(--color-border-default)" }}
+      className="camp-xp-card bg-[var(--color-surface)] rounded-[var(--radius-lg)] p-5 border border-[var(--color-border-default)] transition-all duration-200"
+      style={{ boxShadow: "var(--shadow-1)" }}
     >
       <div className="flex flex-wrap items-center justify-between gap-3 mb-3">
         <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1 min-w-0">
-          <span className="font-display font-extrabold text-[var(--color-text-primary)]" style={{ fontSize: "15px", letterSpacing: "0.5px" }}>
-            Level {level}
-          </span>
-          <span className="font-body text-sm text-[var(--color-text-secondary)]">— {title}</span>
+          <LevelEncouragement level={level} />
+          <span className="font-body text-sm text-[var(--color-text-secondary)]">{title}</span>
         </div>
-        <span className="inline-flex shrink-0 items-center gap-1 whitespace-nowrap font-display font-extrabold text-sm px-3 py-1.5 rounded-[var(--radius-pill)] border-[1.5px] text-[var(--color-warning-dark)] bg-[var(--color-warning-bg)] border-[var(--color-warning)]">
-          <Zap className="w-4 h-4 text-[var(--color-warning)]" />
+        <span className="inline-flex shrink-0 items-center gap-1 whitespace-nowrap font-display font-extrabold text-sm px-3 py-1.5 rounded-[var(--radius-sm)] border text-[var(--color-text-warning)] bg-[var(--color-warning-bg)] border-[var(--color-warning)]">
+          <LearningArt name="Zap" size={16} className="w-4 h-4 text-[var(--color-warning)]" />
           {xp.toLocaleString()} XP
         </span>
       </div>

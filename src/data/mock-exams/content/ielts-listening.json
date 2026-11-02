@@ -1,0 +1,1090 @@
+[
+  {
+    "id": "il2-p1",
+    "title": "Listening part 1",
+    "subtitle": "Questions 1–10 · Workshop booking",
+    "part": 1,
+    "skill": "listening",
+    "instructions": "Listen once. Questions follow the recording. Complete each answer within its stated word limit. The recording includes preview and checking pauses.",
+    "questions": [
+      {
+        "number": 1,
+        "kind": "completion",
+        "prompt": "Surname: Nadia _____ Write NO MORE THAN ONE WORD AND/OR A NUMBER.",
+        "answers": [
+          "Mercer"
+        ],
+        "evidence": "The resident spells M-E-R-C-E-R.",
+        "explanation": "The resident spells M-E-R-C-E-R.",
+        "marks": 1,
+        "maxWords": 1,
+        "id": "il2-p1-q1"
+      },
+      {
+        "number": 2,
+        "kind": "completion",
+        "prompt": "Address: 18 _____ Lane Write NO MORE THAN ONE WORD AND/OR A NUMBER.",
+        "answers": [
+          "Willow"
+        ],
+        "evidence": "She gives eighteen Willow Lane.",
+        "explanation": "She gives eighteen Willow Lane.",
+        "marks": 1,
+        "maxWords": 1,
+        "id": "il2-p1-q2"
+      },
+      {
+        "number": 3,
+        "kind": "completion",
+        "prompt": "First class: _____ October Write NO MORE THAN ONE WORD AND/OR A NUMBER.",
+        "answers": [
+          "12",
+          "12th",
+          "twelfth"
+        ],
+        "evidence": "The fifth is an open afternoon; the course starts on the twelfth.",
+        "explanation": "The fifth is an open afternoon; the course starts on the twelfth.",
+        "marks": 1,
+        "maxWords": 1,
+        "id": "il2-p1-q3"
+      },
+      {
+        "number": 4,
+        "kind": "completion",
+        "prompt": "Class begins at _____ Write NO MORE THAN TWO WORDS AND/OR A NUMBER.",
+        "answers": [
+          "6.30",
+          "6:30",
+          "18:30",
+          "six thirty"
+        ],
+        "evidence": "The six o’clock poster belongs to another group.",
+        "explanation": "The six o’clock poster belongs to another group.",
+        "marks": 1,
+        "maxWords": 2,
+        "id": "il2-p1-q4"
+      },
+      {
+        "number": 5,
+        "kind": "completion",
+        "prompt": "Total course fee: £_____ Write NO MORE THAN TWO WORDS AND/OR A NUMBER.",
+        "answers": [
+          "64",
+          "sixty-four",
+          "sixty four"
+        ],
+        "evidence": "The old £48 excluded materials; the current fee is £64.",
+        "explanation": "The old £48 excluded materials; the current fee is £64.",
+        "marks": 1,
+        "maxWords": 2,
+        "id": "il2-p1-q5"
+      },
+      {
+        "number": 6,
+        "kind": "completion",
+        "prompt": "Bring an _____ to protect clothing. Write NO MORE THAN ONE WORD AND/OR A NUMBER.",
+        "answers": [
+          "apron"
+        ],
+        "evidence": "An apron is listed on the joining form.",
+        "explanation": "An apron is listed on the joining form.",
+        "marks": 1,
+        "maxWords": 1,
+        "id": "il2-p1-q6"
+      },
+      {
+        "number": 7,
+        "kind": "completion",
+        "prompt": "Meeting room: the _____ Write NO MORE THAN ONE WORD AND/OR A NUMBER.",
+        "answers": [
+          "studio"
+        ],
+        "evidence": "The choir uses the hall; the course uses the studio.",
+        "explanation": "The choir uses the hall; the course uses the studio.",
+        "marks": 1,
+        "maxWords": 1,
+        "id": "il2-p1-q7"
+      },
+      {
+        "number": 8,
+        "kind": "completion",
+        "prompt": "Use the _____ entrance. Write NO MORE THAN ONE WORD AND/OR A NUMBER.",
+        "answers": [
+          "side"
+        ],
+        "evidence": "The coordinator specifies the side entrance from Orchard Street.",
+        "explanation": "The coordinator specifies the side entrance from Orchard Street.",
+        "marks": 1,
+        "maxWords": 1,
+        "id": "il2-p1-q8"
+      },
+      {
+        "number": 9,
+        "kind": "completion",
+        "prompt": "Unfinished work can be left in a _____. Write NO MORE THAN ONE WORD AND/OR A NUMBER.",
+        "answers": [
+          "cabinet"
+        ],
+        "evidence": "The workshop has a cabinet for unfinished work.",
+        "explanation": "The workshop has a cabinet for unfinished work.",
+        "marks": 1,
+        "maxWords": 1,
+        "id": "il2-p1-q9"
+      },
+      {
+        "number": 10,
+        "kind": "completion",
+        "prompt": "Payment deadline: _____ Write NO MORE THAN ONE WORD AND/OR A NUMBER.",
+        "answers": [
+          "Friday"
+        ],
+        "evidence": "Payment is due by Friday.",
+        "explanation": "Payment is due by Friday.",
+        "marks": 1,
+        "maxWords": 1,
+        "id": "il2-p1-q10"
+      }
+    ],
+    "segments": [
+      {
+        "role": "narrator",
+        "text": "Part one. You will hear a conversation between a resident and the coordinator of a community workshop. First look at questions one to five.",
+        "pauseAfter": 30
+      },
+      {
+        "role": "coordinator",
+        "text": "Good morning, Brookside Workshop. How can I help?",
+        "pauseAfter": 0
+      },
+      {
+        "role": "student",
+        "text": "Hello. I saw your leaflet at the library. I have just moved into a flat and I would like to join the beginners furniture repair course. I have a small wooden table with a loose leg. Before I book, could I check whether that would be suitable?",
+        "pauseAfter": 0
+      },
+      {
+        "role": "coordinator",
+        "text": "Certainly. We start with simple wooden furniture, rather than upholstery or electrical items. Your table sounds ideal, as long as you can carry it safely. We have benches and tools here, but bringing something small gives you a chance to practise on an object you actually use.",
+        "pauseAfter": 0
+      },
+      {
+        "role": "student",
+        "text": "That is what I hoped. My name is Nadia Mercer. Would you like me to spell the surname?",
+        "pauseAfter": 0
+      },
+      {
+        "role": "coordinator",
+        "text": "Yes, please. We sometimes get bookings with similar names.",
+        "pauseAfter": 0
+      },
+      {
+        "role": "student",
+        "text": "Mercer. M, E, R, C, E, R. I have not attended one of your sessions before. Do I need to join the workshop first?",
+        "pauseAfter": 0
+      },
+      {
+        "role": "coordinator",
+        "text": "No separate membership is required for this course. We ask for an address so that we can send the joining information, but you can choose email instead of a letter. What is your street?",
+        "pauseAfter": 0
+      },
+      {
+        "role": "student",
+        "text": "Eighteen Willow Lane. That is Willow, like the tree. I do not always get post quickly in the new building, so email would be better for the instructions.",
+        "pauseAfter": 0
+      },
+      {
+        "role": "coordinator",
+        "text": "I will mark that. The course has six meetings, starting on the twelfth of October. There is also an open afternoon on the fifth, but that is an introduction to the building and not the first lesson.",
+        "pauseAfter": 0
+      },
+      {
+        "role": "student",
+        "text": "The twelfth works for me. Does it begin at six, as the poster outside suggests?",
+        "pauseAfter": 0
+      },
+      {
+        "role": "coordinator",
+        "text": "That poster is for our Thursday group. The beginners course starts at six thirty and finishes at eight thirty. Please arrive ten minutes early for the first meeting, so we can show you where to leave coats and bags.",
+        "pauseAfter": 0
+      },
+      {
+        "role": "student",
+        "text": "Fine. I saw a price of forty-eight pounds on an older leaflet. Has that changed?",
+        "pauseAfter": 0
+      },
+      {
+        "role": "coordinator",
+        "text": "It has. The old fee did not include materials. This term the full course is sixty-four pounds, including the wood glue and replacement screws used in class. You will not need to buy a toolkit.",
+        "pauseAfter": 0
+      },
+      {
+        "role": "narrator",
+        "text": "Now look at questions six to ten.",
+        "pauseAfter": 30
+      },
+      {
+        "role": "student",
+        "text": "Good. Is there anything I should bring besides the table? I have some gloves at home, although they are rather thick gardening gloves.",
+        "pauseAfter": 0
+      },
+      {
+        "role": "coordinator",
+        "text": "We supply the protective equipment you need. Bring an apron if you have one, because the water-based finishes can still mark clothing. An old shirt is a reasonable alternative, but we list an apron on the joining form.",
+        "pauseAfter": 0
+      },
+      {
+        "role": "student",
+        "text": "I will bring that. Where will the group meet? Is it in the main hall?",
+        "pauseAfter": 0
+      },
+      {
+        "role": "coordinator",
+        "text": "The hall is being used by the choir. We will be in the studio, behind reception. You should use the side entrance from Orchard Street; the front doors are locked in the evening. The studio is all on one level.",
+        "pauseAfter": 0
+      },
+      {
+        "role": "student",
+        "text": "That is helpful. I will come by bus. Can I leave the table there after each meeting? Taking it home before the glue dries could be awkward.",
+        "pauseAfter": 0
+      },
+      {
+        "role": "coordinator",
+        "text": "Yes. We have a cabinet for unfinished work, provided the item is small enough. Your table should fit if the legs can be removed. Attach a card with your name so that the next group does not mistake it for demonstration furniture.",
+        "pauseAfter": 0
+      },
+      {
+        "role": "student",
+        "text": "And how do I secure the booking? Can I pay when I arrive for the first lesson?",
+        "pauseAfter": 0
+      },
+      {
+        "role": "coordinator",
+        "text": "For this course, places are limited, so payment is needed before we confirm one. I can send a secure card link by email. Please complete payment by Friday. After that, an unpaid reservation goes back to the waiting list.",
+        "pauseAfter": 0
+      },
+      {
+        "role": "student",
+        "text": "Friday is fine. I will do it tonight. One last question: if I miss a session because of work, can I attend a different evening?",
+        "pauseAfter": 0
+      },
+      {
+        "role": "coordinator",
+        "text": "Sometimes, but it depends on space and which technique the other group is practising. Email us as early as you can rather than arriving without checking. We can usually provide the written notes even when a replacement session is not possible.",
+        "pauseAfter": 0
+      },
+      {
+        "role": "student",
+        "text": "Thank you. Please send the payment link and I will look out for the joining email.",
+        "pauseAfter": 0
+      },
+      {
+        "role": "narrator",
+        "text": "That is the end of part one. Check your answers.",
+        "pauseAfter": 30
+      }
+    ],
+    "plays": 1
+  },
+  {
+    "id": "il2-p2",
+    "title": "Listening part 2",
+    "subtitle": "Questions 11–20 · Discovery centre orientation",
+    "part": 2,
+    "skill": "listening",
+    "instructions": "Listen once. Questions follow the recording. Complete each answer within its stated word limit. The recording includes preview and checking pauses.",
+    "questions": [
+      {
+        "number": 11,
+        "kind": "matching",
+        "prompt": "Label the plan: Reception. Choose the correct letter A–H.",
+        "answers": [
+          "D"
+        ],
+        "evidence": "First building on the left when walking north from the south entrance.",
+        "explanation": "First building on the left when walking north from the south entrance.",
+        "marks": 1,
+        "options": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F",
+          "G",
+          "H"
+        ],
+        "id": "il2-p2-q11"
+      },
+      {
+        "number": 12,
+        "kind": "matching",
+        "prompt": "Label the plan: Cafe. Choose the correct letter A–H.",
+        "answers": [
+          "E"
+        ],
+        "evidence": "Opposite reception on the right.",
+        "explanation": "Opposite reception on the right.",
+        "marks": 1,
+        "options": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F",
+          "G",
+          "H"
+        ],
+        "id": "il2-p2-q12"
+      },
+      {
+        "number": 13,
+        "kind": "matching",
+        "prompt": "Label the plan: Workshop. Choose the correct letter A–H.",
+        "answers": [
+          "B"
+        ],
+        "evidence": "West side of the middle crossing.",
+        "explanation": "West side of the middle crossing.",
+        "marks": 1,
+        "options": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F",
+          "G",
+          "H"
+        ],
+        "id": "il2-p2-q13"
+      },
+      {
+        "number": 14,
+        "kind": "matching",
+        "prompt": "Label the plan: Picnic lawn. Choose the correct letter A–H.",
+        "answers": [
+          "C"
+        ],
+        "evidence": "East of the crossing between path and river.",
+        "explanation": "East of the crossing between path and river.",
+        "marks": 1,
+        "options": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F",
+          "G",
+          "H"
+        ],
+        "id": "il2-p2-q14"
+      },
+      {
+        "number": 15,
+        "kind": "matching",
+        "prompt": "Label the plan: Exhibition hall. Choose the correct letter A–H.",
+        "answers": [
+          "A"
+        ],
+        "evidence": "At the northern end of the central path.",
+        "explanation": "At the northern end of the central path.",
+        "marks": 1,
+        "options": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F",
+          "G",
+          "H"
+        ],
+        "id": "il2-p2-q15"
+      },
+      {
+        "number": 16,
+        "kind": "choice",
+        "prompt": "Why must visitors book the river walk?",
+        "answers": [
+          "The guide needs to know the size of the group."
+        ],
+        "evidence": "The guide explicitly needs the group size.",
+        "explanation": "The guide explicitly needs the group size.",
+        "marks": 1,
+        "options": [
+          "The guide needs to know the size of the group.",
+          "They must buy a separate river ticket.",
+          "Only adults may attend."
+        ],
+        "id": "il2-p2-q16"
+      },
+      {
+        "number": 17,
+        "kind": "choice",
+        "prompt": "What happens if the path is flooded?",
+        "answers": [
+          "An illustrated talk replaces the walk."
+        ],
+        "evidence": "A talk in the hall is the alternative.",
+        "explanation": "A talk in the hall is the alternative.",
+        "marks": 1,
+        "options": [
+          "The centre closes for the whole day.",
+          "An illustrated talk replaces the walk.",
+          "Visitors walk along the railway."
+        ],
+        "id": "il2-p2-q17"
+      },
+      {
+        "number": 18,
+        "kind": "choice",
+        "prompt": "What is said about the bridge demonstration?",
+        "answers": [
+          "It is repeated, so visitors can drop in."
+        ],
+        "evidence": "Short demonstrations run repeatedly between three and four.",
+        "explanation": "Short demonstrations run repeatedly between three and four.",
+        "marks": 1,
+        "options": [
+          "Visitors must attend from the beginning.",
+          "Visitors should bring their own tools.",
+          "It is repeated, so visitors can drop in."
+        ],
+        "id": "il2-p2-q18"
+      },
+      {
+        "number": 19,
+        "kind": "choice",
+        "prompt": "What may visitors keep from an activity pack?",
+        "answers": [
+          "The paper observation sheet."
+        ],
+        "evidence": "The reusable pieces are returned; the paper sheet can be kept.",
+        "explanation": "The reusable pieces are returned; the paper sheet can be kept.",
+        "marks": 1,
+        "options": [
+          "The paper observation sheet.",
+          "All the reusable pieces.",
+          "The centre’s tools."
+        ],
+        "id": "il2-p2-q19"
+      },
+      {
+        "number": 20,
+        "kind": "choice",
+        "prompt": "What feedback is especially useful?",
+        "answers": [
+          "An explanation of which information was unclear."
+        ],
+        "evidence": "Specific unclear explanations help staff revise signs.",
+        "explanation": "Specific unclear explanations help staff revise signs.",
+        "marks": 1,
+        "options": [
+          "The number of facts a visitor memorised.",
+          "An explanation of which information was unclear.",
+          "A request to grade visitors."
+        ],
+        "id": "il2-p2-q20"
+      }
+    ],
+    "segments": [
+      {
+        "role": "narrator",
+        "text": "Part two. You will hear a guide welcoming visitors to a riverside discovery centre. Look at the plan and questions eleven to fifteen. North is at the top of the plan.",
+        "pauseAfter": 35
+      },
+      {
+        "role": "guide",
+        "text": "Welcome to the Westbank Discovery Centre. We are a small site, so you will not need a shuttle or a guide to find your way around, but a few directions will help you make the most of your visit. You are standing at the south entrance, beside the bus stop. Keep the plan in front of you with north at the top. The river runs along the eastern boundary, on the right of the plan. The railway is outside the western fence, so you cannot enter the centre from that side.",
+        "pauseAfter": 0
+      },
+      {
+        "role": "guide",
+        "text": "From the entrance, walk straight north along the central path. The first building on your left is reception. That is where you can borrow an activity pack and ask about access arrangements. There is a small waiting area outside, but the building itself is not a place for picnics. Directly opposite reception, on the right-hand side of the path, is the cafe. Its windows face the river, and it serves drinks until four thirty. An old map marks a shop there; the shop has moved, so please use the current plan.",
+        "pauseAfter": 0
+      },
+      {
+        "role": "guide",
+        "text": "Continue north and you will reach a path crossing. The building to the left of that crossing, in the middle of the western side, is the workshop. School groups use it on weekday mornings. Today you can watch staff prepare materials through the viewing window, although the working area is closed to visitors. The open area directly east of the crossing, between the main path and the river, is the picnic lawn. It is the only place where visitors may eat food they have brought with them. Please take packaging to the bins beside reception rather than leaving it on the grass.",
+        "pauseAfter": 0
+      },
+      {
+        "role": "guide",
+        "text": "Finally, follow the central path to its northern end. The building facing you, at the top centre of the plan, is the exhibition hall. It contains the temporary display about bridges. The two remaining buildings at the far north-west and north-east are staff facilities, and the small block south-west of the workshop is a store. None of those three is open to the public. If you lose your way, the main path always leads back to the south entrance.",
+        "pauseAfter": 0
+      },
+      {
+        "role": "narrator",
+        "text": "Now look at questions sixteen to twenty.",
+        "pauseAfter": 30
+      },
+      {
+        "role": "guide",
+        "text": "There are several activities this afternoon. The river walk starts at two o’clock from reception, rather than the cafe where it began last year. Please book a place before one thirty because the guide needs to know the group size. The walk is included in your admission ticket, so there is no additional fee. Children are welcome, but an adult must accompany them. Parts of the route can be muddy even after several dry days, so shoes with a firm sole are advisable. If the riverside path is flooded, the guide will give an illustrated talk in the hall instead. We do not cancel simply because the weather is cloudy.",
+        "pauseAfter": 0
+      },
+      {
+        "role": "guide",
+        "text": "The bridge-building demonstration is different: you do not need to reserve a place. Drop into the workshop viewing area between three and four and stay as long as you wish. Staff will explain why changing the arrangement of supports affects a model bridge. Please do not bring your own tools; all the materials are already prepared. We run short demonstrations repeatedly, so arriving at three thirty will not mean missing the whole activity.",
+        "pauseAfter": 0
+      },
+      {
+        "role": "guide",
+        "text": "If you borrowed an activity pack, return it to reception before you leave. The reusable pieces are counted for the next group, but you may keep the paper observation sheet. We would also welcome your comments. There is a short feedback form by the exit, and telling us which explanation was unclear is more helpful than simply saying that there should be more information. We use those comments to revise our signs, not to grade visitors on how much they have learned. Enjoy your visit.",
+        "pauseAfter": 0
+      },
+      {
+        "role": "narrator",
+        "text": "That is the end of part two. Check your answers.",
+        "pauseAfter": 30
+      }
+    ],
+    "plays": 1,
+    "visual": {
+      "src": "/media/mock-exams/v2/discovery-plan.svg",
+      "alt": "Lettered plan with north at the top, entrance at the south and river to the east. A is north-centre; B middle-west; C middle-east; D south-west; E south-east; F north-west; G north-east; H west below B."
+    }
+  },
+  {
+    "id": "il2-p3",
+    "title": "Listening part 3",
+    "subtitle": "Questions 21–30 · Research proposal discussion",
+    "part": 3,
+    "skill": "listening",
+    "instructions": "Listen once. Questions follow the recording. Complete each answer within its stated word limit. The recording includes preview and checking pauses.",
+    "questions": [
+      {
+        "number": 21,
+        "kind": "matching",
+        "prompt": "Match the method to its main contribution: Online questionnaire.",
+        "answers": [
+          "A. Broad patterns in reported preferences"
+        ],
+        "evidence": "The questionnaire asks the same questions across a large group.",
+        "explanation": "The questionnaire asks the same questions across a large group.",
+        "marks": 1,
+        "options": [
+          "A. Broad patterns in reported preferences",
+          "B. Arrival and departure patterns",
+          "C. Detailed explanations of reasons",
+          "D. Changes within one person over time",
+          "E. Historical demand for group rooms",
+          "F. Direct evidence of improved grades",
+          "G. The cost of rebuilding the library"
+        ],
+        "id": "il2-p3-q21"
+      },
+      {
+        "number": 22,
+        "kind": "matching",
+        "prompt": "Match the method to its main contribution: Entrance observation.",
+        "answers": [
+          "B. Arrival and departure patterns"
+        ],
+        "evidence": "Counts show arrivals and departures, not motives.",
+        "explanation": "Counts show arrivals and departures, not motives.",
+        "marks": 1,
+        "options": [
+          "A. Broad patterns in reported preferences",
+          "B. Arrival and departure patterns",
+          "C. Detailed explanations of reasons",
+          "D. Changes within one person over time",
+          "E. Historical demand for group rooms",
+          "F. Direct evidence of improved grades",
+          "G. The cost of rebuilding the library"
+        ],
+        "id": "il2-p3-q22"
+      },
+      {
+        "number": 23,
+        "kind": "matching",
+        "prompt": "Match the method to its main contribution: Interviews.",
+        "answers": [
+          "C. Detailed explanations of reasons"
+        ],
+        "evidence": "Interviews explore reasons through follow-up questions.",
+        "explanation": "Interviews explore reasons through follow-up questions.",
+        "marks": 1,
+        "options": [
+          "A. Broad patterns in reported preferences",
+          "B. Arrival and departure patterns",
+          "C. Detailed explanations of reasons",
+          "D. Changes within one person over time",
+          "E. Historical demand for group rooms",
+          "F. Direct evidence of improved grades",
+          "G. The cost of rebuilding the library"
+        ],
+        "id": "il2-p3-q23"
+      },
+      {
+        "number": 24,
+        "kind": "matching",
+        "prompt": "Match the method to its main contribution: Diary.",
+        "answers": [
+          "D. Changes within one person over time"
+        ],
+        "evidence": "Diaries track one person across a week.",
+        "explanation": "Diaries track one person across a week.",
+        "marks": 1,
+        "options": [
+          "A. Broad patterns in reported preferences",
+          "B. Arrival and departure patterns",
+          "C. Detailed explanations of reasons",
+          "D. Changes within one person over time",
+          "E. Historical demand for group rooms",
+          "F. Direct evidence of improved grades",
+          "G. The cost of rebuilding the library"
+        ],
+        "id": "il2-p3-q24"
+      },
+      {
+        "number": 25,
+        "kind": "matching",
+        "prompt": "Match the method to its main contribution: Booking records.",
+        "answers": [
+          "E. Historical demand for group rooms"
+        ],
+        "evidence": "Existing records describe group-room demand in the previous term.",
+        "explanation": "Existing records describe group-room demand in the previous term.",
+        "marks": 1,
+        "options": [
+          "A. Broad patterns in reported preferences",
+          "B. Arrival and departure patterns",
+          "C. Detailed explanations of reasons",
+          "D. Changes within one person over time",
+          "E. Historical demand for group rooms",
+          "F. Direct evidence of improved grades",
+          "G. The cost of rebuilding the library"
+        ],
+        "id": "il2-p3-q25"
+      },
+      {
+        "number": 26,
+        "kind": "choice",
+        "prompt": "Which two new methods does the tutor recommend?",
+        "answers": [
+          "Questionnaire and interviews."
+        ],
+        "evidence": "The tutor recommends questionnaire and interviews; records are background.",
+        "explanation": "The tutor recommends questionnaire and interviews; records are background.",
+        "marks": 1,
+        "options": [
+          "Questionnaire and interviews.",
+          "Entrance observation and diaries.",
+          "Interviews and entrance observation."
+        ],
+        "id": "il2-p3-q26"
+      },
+      {
+        "number": 27,
+        "kind": "choice",
+        "prompt": "Why is the library website alone an unsuitable recruiting channel?",
+        "answers": [
+          "It mainly reaches people already interested in the library."
+        ],
+        "evidence": "The tutor wants views from students who choose other spaces.",
+        "explanation": "The tutor wants views from students who choose other spaces.",
+        "marks": 1,
+        "options": [
+          "It cannot display a questionnaire.",
+          "It mainly reaches people already interested in the library.",
+          "It would require collecting examination grades."
+        ],
+        "id": "il2-p3-q27"
+      },
+      {
+        "number": 28,
+        "kind": "choice",
+        "prompt": "Why should the noise question be changed?",
+        "answers": [
+          "It assumes that noise is a problem."
+        ],
+        "evidence": "The tutor supports neutral wording rather than a leading question.",
+        "explanation": "The tutor supports neutral wording rather than a leading question.",
+        "marks": 1,
+        "options": [
+          "It is too short for students to understand.",
+          "It asks for a room booking number.",
+          "It assumes that noise is a problem."
+        ],
+        "id": "il2-p3-q28"
+      },
+      {
+        "number": 29,
+        "kind": "choice",
+        "prompt": "What should the report avoid claiming?",
+        "answers": [
+          "That the project proves an effect on grades."
+        ],
+        "evidence": "The methods do not measure changes in academic performance.",
+        "explanation": "The methods do not measure changes in academic performance.",
+        "marks": 1,
+        "options": [
+          "That the project proves an effect on grades.",
+          "That participants have different preferences.",
+          "That the sample has limitations."
+        ],
+        "id": "il2-p3-q29"
+      },
+      {
+        "number": 30,
+        "kind": "choice",
+        "prompt": "What must be submitted next Monday?",
+        "answers": [
+          "The revised question and questionnaire."
+        ],
+        "evidence": "The tutor distinguishes the next submission from the end-of-month report.",
+        "explanation": "The tutor distinguishes the next submission from the end-of-month report.",
+        "marks": 1,
+        "options": [
+          "The final report.",
+          "The revised question and questionnaire.",
+          "All interview recordings."
+        ],
+        "id": "il2-p3-q30"
+      }
+    ],
+    "segments": [
+      {
+        "role": "narrator",
+        "text": "Part three. You will hear two students, Maya and Leo, discussing their research proposal with their tutor. First look at questions twenty-one to twenty-five.",
+        "pauseAfter": 30
+      },
+      {
+        "role": "tutor",
+        "text": "You have both read the feedback on your proposal about study spaces. Before we discuss the methods, tell me what you have changed since the first draft.",
+        "pauseAfter": 0
+      },
+      {
+        "role": "student",
+        "text": "Our original question was whether the library should stay open all night. We realised that we were asking students to make a policy decision before finding out how they actually used the building. We now want to investigate which features make a study space useful at different times.",
+        "pauseAfter": 0
+      },
+      {
+        "role": "partner",
+        "text": "Yes. We were also treating everyone as if they wanted silence. In the pilot interview, a student said she used the library to work with classmates, so a completely silent room would not meet her needs. That made us broaden the question.",
+        "pauseAfter": 0
+      },
+      {
+        "role": "tutor",
+        "text": "Good. You have listed five possible methods. Let us consider what each can contribute, rather than deciding which sounds most scientific.",
+        "pauseAfter": 0
+      },
+      {
+        "role": "student",
+        "text": "The online questionnaire seems useful because we can ask the same questions of a large group. It would show broad patterns in reported preferences, although we cannot assume that a preference always predicts behaviour.",
+        "pauseAfter": 0
+      },
+      {
+        "role": "tutor",
+        "text": "Keep it, but do not make the introduction so long that respondents leave before the questions. What about observing the entrance?",
+        "pauseAfter": 0
+      },
+      {
+        "role": "partner",
+        "text": "We could count arrivals and departures without asking anyone to fill in a form. It would show how busy the building was at each time. But it would not tell us why a person came in or which room they used.",
+        "pauseAfter": 0
+      },
+      {
+        "role": "tutor",
+        "text": "Exactly. Counts are useful for patterns of use, not private motives. You also proposed interviews.",
+        "pauseAfter": 0
+      },
+      {
+        "role": "student",
+        "text": "Those would let us explore reasons in more detail. We would ask people to describe a recent study session and follow up on what they found difficult. It takes longer, so the sample would be smaller.",
+        "pauseAfter": 0
+      },
+      {
+        "role": "partner",
+        "text": "Then there is the diary method. Participants would record where they studied each day for a week. That could show changes within the same person, rather than comparing unrelated people on different days.",
+        "pauseAfter": 0
+      },
+      {
+        "role": "tutor",
+        "text": "Worth considering. Make the entry short enough to complete consistently. And the existing booking records?",
+        "pauseAfter": 0
+      },
+      {
+        "role": "student",
+        "text": "We thought they might show demand for group rooms over the previous term. They are already available in an anonymised summary, so they provide a historical comparison without collecting new personal information.",
+        "pauseAfter": 0
+      },
+      {
+        "role": "tutor",
+        "text": "Good distinction. A booking is not proof that everyone attended, but it can still be informative.",
+        "pauseAfter": 0
+      },
+      {
+        "role": "narrator",
+        "text": "Now look at questions twenty-six to thirty.",
+        "pauseAfter": 30
+      },
+      {
+        "role": "partner",
+        "text": "We cannot do everything in the time available. Maya thinks we should use the questionnaire and interviews. I wondered about the entrance counts instead of interviews because they seem easier to compare.",
+        "pauseAfter": 0
+      },
+      {
+        "role": "student",
+        "text": "My concern is that counts would leave us guessing about reasons. We already have some broad usage information from the booking records. A few interviews would explain things the questionnaire misses.",
+        "pauseAfter": 0
+      },
+      {
+        "role": "tutor",
+        "text": "That is a reasonable argument. For this project, I recommend the questionnaire and interviews, with the booking summary as background. Describe the other methods in your discussion of alternatives rather than promising to carry them all out.",
+        "pauseAfter": 0
+      },
+      {
+        "role": "partner",
+        "text": "For recruiting, could we put a link only on the library website? That would be quick.",
+        "pauseAfter": 0
+      },
+      {
+        "role": "tutor",
+        "text": "It would mostly reach people already interested in the library. You need views from students who choose other spaces too. Ask the student union to distribute the invitation and put paper notices in the cafeteria. The sample still will not be perfectly representative, but it will be less restricted.",
+        "pauseAfter": 0
+      },
+      {
+        "role": "student",
+        "text": "We should revise the question asking whether the library is too noisy. It assumes there is a problem. We could ask respondents to describe the sound level and then whether it suited their activity.",
+        "pauseAfter": 0
+      },
+      {
+        "role": "tutor",
+        "text": "Yes. Neutral wording gives people room to say that conversation helped them, or that sound was not relevant. Also, test the revised questionnaire with a few people outside your own subject. A term that seems obvious to you may confuse another respondent.",
+        "pauseAfter": 0
+      },
+      {
+        "role": "partner",
+        "text": "How should we organise the interviews? We can record them if participants agree, then write up the main points. Is that enough?",
+        "pauseAfter": 0
+      },
+      {
+        "role": "tutor",
+        "text": "State how consent will be obtained and how recordings will be stored and deleted under the university procedure. Do not include names in your report. Explain your analysis too: for example, compare recurring themes while keeping examples that differ from the majority.",
+        "pauseAfter": 0
+      },
+      {
+        "role": "student",
+        "text": "Our first draft said we would prove which environment improved grades. We should remove that claim. We are asking about reported use and preferences, not measuring changes in academic performance.",
+        "pauseAfter": 0
+      },
+      {
+        "role": "tutor",
+        "text": "Exactly. A focused question answered carefully is stronger than a claim your methods cannot support. Send me the revised research question and questionnaire next Monday. The final report is not due until the end of the month, so you have time to respond to feedback before collecting data.",
+        "pauseAfter": 0
+      },
+      {
+        "role": "narrator",
+        "text": "That is the end of part three. Check your answers.",
+        "pauseAfter": 30
+      }
+    ],
+    "plays": 1
+  },
+  {
+    "id": "il2-p4",
+    "title": "Listening part 4",
+    "subtitle": "Questions 31–40 · Reusable packaging lecture",
+    "part": 4,
+    "skill": "listening",
+    "instructions": "Listen once. Questions follow the recording. Complete each answer within its stated word limit. The recording includes preview and checking pauses.",
+    "questions": [
+      {
+        "number": 31,
+        "kind": "completion",
+        "prompt": "The fictional trial used containers made from _____. Write ONE WORD.",
+        "answers": [
+          "polypropylene"
+        ],
+        "evidence": "The lecturer names polypropylene.",
+        "explanation": "The lecturer names polypropylene.",
+        "marks": 1,
+        "maxWords": 1,
+        "id": "il2-p4-q31"
+      },
+      {
+        "number": 32,
+        "kind": "completion",
+        "prompt": "Staff tested the _____ as carefully as the base. Write ONE WORD.",
+        "answers": [
+          "lid"
+        ],
+        "evidence": "A lid can be hard to replace or easily lost.",
+        "explanation": "A lid can be hard to replace or easily lost.",
+        "marks": 1,
+        "maxWords": 1,
+        "id": "il2-p4-q32"
+      },
+      {
+        "number": 33,
+        "kind": "completion",
+        "prompt": "Customers initially paid a refundable _____. Write ONE WORD.",
+        "answers": [
+          "deposit"
+        ],
+        "evidence": "The deposit encouraged return.",
+        "explanation": "The deposit encouraged return.",
+        "marks": 1,
+        "maxWords": 1,
+        "id": "il2-p4-q33"
+      },
+      {
+        "number": 34,
+        "kind": "completion",
+        "prompt": "An additional return point was placed beside the _____. Write ONE WORD.",
+        "answers": [
+          "library"
+        ],
+        "evidence": "The second collection point was beside the library.",
+        "explanation": "The second collection point was beside the library.",
+        "marks": 1,
+        "maxWords": 1,
+        "id": "il2-p4-q34"
+      },
+      {
+        "number": 35,
+        "kind": "completion",
+        "prompt": "Staff separated containers with cracks or damaged _____ before washing. Write ONE WORD.",
+        "answers": [
+          "lids"
+        ],
+        "evidence": "Inspection identified cracks and damaged lids.",
+        "explanation": "Inspection identified cracks and damaged lids.",
+        "marks": 1,
+        "maxWords": 1,
+        "id": "il2-p4-q35"
+      },
+      {
+        "number": 36,
+        "kind": "completion",
+        "prompt": "Nearby collections later used a cargo _____. Write ONE WORD.",
+        "answers": [
+          "bicycle"
+        ],
+        "evidence": "The cargo bicycle replaced some short van collections.",
+        "explanation": "The cargo bicycle replaced some short van collections.",
+        "marks": 1,
+        "maxWords": 1,
+        "id": "il2-p4-q36"
+      },
+      {
+        "number": 37,
+        "kind": "completion",
+        "prompt": "A _____ on each container recorded completed cycles. Write ONE WORD.",
+        "answers": [
+          "code"
+        ],
+        "evidence": "The lecturer says a code tracked cycles.",
+        "explanation": "The lecturer says a code tracked cycles.",
+        "marks": 1,
+        "maxWords": 1,
+        "id": "il2-p4-q37"
+      },
+      {
+        "number": 38,
+        "kind": "completion",
+        "prompt": "The report included _____ items instead of counting only the best examples. Write ONE WORD.",
+        "answers": [
+          "missing"
+        ],
+        "evidence": "Missing items remained in the distribution.",
+        "explanation": "Missing items remained in the distribution.",
+        "marks": 1,
+        "maxWords": 1,
+        "id": "il2-p4-q38"
+      },
+      {
+        "number": 39,
+        "kind": "completion",
+        "prompt": "Several comparison _____ were used rather than one universal figure. Write ONE WORD.",
+        "answers": [
+          "scenarios"
+        ],
+        "evidence": "Alternative situations required several scenarios.",
+        "explanation": "Alternative situations required several scenarios.",
+        "marks": 1,
+        "maxWords": 1,
+        "id": "il2-p4-q39"
+      },
+      {
+        "number": 40,
+        "kind": "completion",
+        "prompt": "The contract allowed replacement _____ to be bought separately. Write ONE WORD.",
+        "answers": [
+          "lids"
+        ],
+        "evidence": "Replacement lids could be purchased separately.",
+        "explanation": "Replacement lids could be purchased separately.",
+        "marks": 1,
+        "maxWords": 1,
+        "id": "il2-p4-q40"
+      }
+    ],
+    "segments": [
+      {
+        "role": "narrator",
+        "text": "Part four. You will hear a lecture about the design of reusable packaging systems. First look at questions thirty-one to thirty-five.",
+        "pauseAfter": 30
+      },
+      {
+        "role": "lecturer",
+        "text": "Today we will examine reusable packaging as a system rather than as a single product. Imagine a takeaway container that is designed to circulate between a cafe, its customers and a washing facility. It may look similar to a disposable box, but evaluating it requires different questions. We need to know how it is returned, how it is cleaned and how often it is actually used. Merely making a container thicker does not create a successful reuse system. For clarity, the examples in this lecture describe a fictional campus trial, so the figures are illustrations of the design problem rather than universal industry averages.",
+        "pauseAfter": 0
+      },
+      {
+        "role": "lecturer",
+        "text": "The campus trial began with a container made from polypropylene. The material was selected because the team could obtain a suitable durable design and clean it using the available equipment. They did not claim that one material was the best choice for every food service. A container had to withstand repeated washing, stack in a limited storage area and close securely. Staff tested the lid as carefully as the base. If a lid was difficult to replace or easily lost, an otherwise usable base could remain out of circulation.",
+        "pauseAfter": 0
+      },
+      {
+        "role": "lecturer",
+        "text": "Customers paid a small deposit when they borrowed a container. Returning it to a collection point triggered a refund. The deposit was intended to encourage return, not to make a profit on unreturned containers. In the pilot, however, interviews revealed that some people could afford to ignore a small deposit, while others found even that temporary cost inconvenient. The team therefore studied participation rather than assuming that everyone would respond identically to a financial incentive. A technically simple payment rule could have different effects across the customer group.",
+        "pauseAfter": 0
+      },
+      {
+        "role": "lecturer",
+        "text": "At first, the only collection point was beside the cafe till. Customers who had bought lunch before travelling across campus rarely returned there in the evening. The team added a collection point beside the library. Return rates improved, although the trial could not separate the effect of location from publicity about the new system. The broader design lesson was that convenience affected circulation. A clean container stored in a student room was not available for another lunch service. Counting it as successfully reusable because it had not broken would miss that practical problem.",
+        "pauseAfter": 0
+      },
+      {
+        "role": "lecturer",
+        "text": "Returned containers were taken to a central washing facility. Staff checked for cracks and damaged lids before washing. Items that failed the inspection were separated, so they could not accidentally rejoin clean stock. Washing used water, energy and detergent, all of which belonged in the evaluation. Hygiene checks were essential and were not reduced merely to improve an environmental estimate. The cleaning process was planned around safe operation first; the team then examined how to avoid running equipment with almost empty loads.",
+        "pauseAfter": 0
+      },
+      {
+        "role": "narrator",
+        "text": "Now look at questions thirty-six to forty.",
+        "pauseAfter": 30
+      },
+      {
+        "role": "lecturer",
+        "text": "Transport introduced another variable. Early collections used a van that also served unrelated deliveries. Estimating the packaging system’s share of that journey was difficult. Later, small collections between nearby campus buildings used a cargo bicycle. This changed the logistics but did not remove the need to count the effort of collection. A return point that was convenient for customers could still create an inefficient route for staff if it was placed without considering the rest of the network. Customer convenience and operational efficiency had to be considered together.",
+        "pauseAfter": 0
+      },
+      {
+        "role": "lecturer",
+        "text": "The team attached a code to each container to record completed cycles. A cycle meant that the container had been issued, returned, inspected and made ready for another use. It did not mean merely that someone had registered for the scheme. The records showed wide variation: some containers circulated regularly, whereas others disappeared after one lunch. Reporting only the most frequently used container would therefore give a misleading impression. The report presented the distribution and included missing items, rather than describing the best case as if it were typical.",
+        "pauseAfter": 0
+      },
+      {
+        "role": "lecturer",
+        "text": "Comparing the system with disposable packaging required an assumption about the alternative. If customers would otherwise bring their own lunch boxes, the comparison differed from one in which every lunch required a new disposable container. The researchers used several scenarios rather than a single universal break-even figure. They also kept the actual trial data separate from projections about a larger future service. A proposed improvement might be sensible, but it could not be counted as a benefit already achieved.",
+        "pauseAfter": 0
+      },
+      {
+        "role": "lecturer",
+        "text": "Finally, the campus changed its procurement contract to keep replacement lids available separately. This was a small administrative decision with a significant practical effect: a missing lid no longer meant replacing an entire container. The trial illustrates why reuse is a relationship between design, behaviour and organisation. Material durability matters, but so do collection locations, washing, transport and access to spare parts. When you evaluate such a proposal, ask whether the available evidence describes the whole cycle or merely the attractive object at its centre.",
+        "pauseAfter": 0
+      },
+      {
+        "role": "narrator",
+        "text": "That is the end of part four. You now have two minutes to check your listening answers.",
+        "pauseAfter": 120
+      }
+    ],
+    "plays": 1
+  }
+]

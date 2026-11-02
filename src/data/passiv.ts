@@ -55,7 +55,7 @@ export const PASSIVE_RULES: PassiveRule[] = [
     title: "Passive in All Tenses",
     icon: "🔄",
     color: "text-purple-600",
-    explanation: "Every tense in English has a passive form. The tense is shown by the auxiliary verb 'be' (conjugated), followed by the past participle. The agent is introduced with 'by'.",
+    explanation: "Many transitive verb constructions have passive forms using be + past participle; the auxiliary carries tense and aspect. Some extended forms are rare and are usually reworded. Intransitive verbs such as arrive do not normally form a passive. A by-phrase may identify the agent when relevant.",
     formation: "be (in required tense) + past participle",
     examples: [
       { de: "The report is being written now.", en: "The report is being written now. (present continuous passive)", ar: "التقرير يُكتب الآن." },

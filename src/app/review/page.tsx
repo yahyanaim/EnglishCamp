@@ -1,4 +1,7 @@
 "use client";
+import { learnerStorage } from "@/lib/learnerStorage";
+import { LearningArt } from "@/components/brand/LearningArt";
+import { PageBanner } from "@/components/ui/PageBanner";
 import { useState, useEffect, useMemo, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { PageWrapper } from "@/components/layout/PageWrapper";
@@ -50,7 +53,7 @@ export default function ReviewPage() {
   const [schedule, setSchedule] = useState<Record<string, { ease: number; interval: number; nextReview: number }>>({});
 
   useEffect(() => {
-    const stored = localStorage.getItem("englishcamp-review-schedule");
+    const stored = learnerStorage.getItem("englishcamp-review-schedule");
     if (stored) {
       try { setSchedule(JSON.parse(stored)); } catch {}
     }
@@ -58,7 +61,7 @@ export default function ReviewPage() {
 
   useEffect(() => {
     if (Object.keys(schedule).length > 0) {
-      localStorage.setItem("englishcamp-review-schedule", JSON.stringify(schedule));
+      learnerStorage.setItem("englishcamp-review-schedule", JSON.stringify(schedule));
     }
   }, [schedule]);
 
@@ -158,23 +161,24 @@ export default function ReviewPage() {
   if (sessionComplete) {
     return (
       <PageWrapper>
-        <div className="text-center py-16 space-y-6">
-          <div className="w-20 h-20 rounded-3xl bg-[var(--color-success)] text-white flex items-center justify-center mx-auto">
-            <Brain className="w-10 h-10 text-[var(--color-success)]" />
+        <PageBanner><h1>Review Queue</h1><p>Revisit saved vocabulary and mistakes when they are ready for review.</p></PageBanner>
+        <div className="text-center py-8 space-y-6">
+          <div className="w-20 h-20 rounded-3xl bg-[var(--color-success-bg)] text-[var(--color-text-success)] flex items-center justify-center mx-auto">
+            <LearningArt name="review" size={36} />
           </div>
           <h2 className="text-2xl font-display font-extrabold text-[var(--color-text-primary)]">Session Complete!</h2>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-xs mx-auto">
-            <div className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] p-4 border-2 border-[var(--color-border-default)]">
-              <p className="text-2xl font-display font-extrabold text-[var(--color-success)]">{stats.correct}</p>
-              <p className="text-[10px] text-[var(--color-text-disabled)]">Correct</p>
+            <div className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] p-4 border border-[var(--color-border-default)]">
+              <p className="text-2xl font-display font-extrabold text-[var(--color-text-success)]">{stats.correct}</p>
+              <p className="text-[10px] text-[var(--color-text-secondary)]">Correct</p>
             </div>
-            <div className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] p-4 border-2 border-[var(--color-border-default)]">
-              <p className="text-2xl font-display font-extrabold text-[var(--color-error)]">{stats.wrong}</p>
-              <p className="text-[10px] text-[var(--color-text-disabled)]">Wrong</p>
+            <div className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] p-4 border border-[var(--color-border-default)]">
+              <p className="text-2xl font-display font-extrabold text-[var(--color-text-error)]">{stats.wrong}</p>
+              <p className="text-[10px] text-[var(--color-text-secondary)]">Wrong</p>
             </div>
-            <div className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] p-4 border-2 border-[var(--color-border-default)]">
+            <div className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] p-4 border border-[var(--color-border-default)]">
               <p className="text-2xl font-display font-extrabold text-[var(--color-text-secondary)]">{stats.total}</p>
-              <p className="text-[10px] text-[var(--color-text-disabled)]">Total</p>
+              <p className="text-[10px] text-[var(--color-text-secondary)]">Total</p>
             </div>
           </div>
           {stats.total > 0 && (
@@ -182,7 +186,7 @@ export default function ReviewPage() {
               {Math.round((stats.correct / stats.total) * 100)}% accuracy
             </p>
           )}
-          <button onClick={startSession} className="inline-flex items-center gap-2 px-6 py-3 bg-[var(--color-primary)] text-white rounded-[var(--radius-lg)] font-semibold hover:bg-brand-600 transition-colors">
+          <button onClick={startSession} className="inline-flex items-center gap-2 px-6 py-3 bg-[var(--color-primary)] text-[var(--color-on-brand)] rounded-[var(--radius-lg)] font-semibold hover:bg-[var(--color-primary-hover)] transition-colors">
             <RotateCcw className="w-4 h-4" /> Start New Session
           </button>
         </div>
@@ -195,11 +199,11 @@ export default function ReviewPage() {
       <PageWrapper>
         <div className="text-center py-16 space-y-6">
           <div className="w-20 h-20 rounded-3xl bg-[var(--color-surface-alt)] flex items-center justify-center mx-auto">
-            <Brain className="w-10 h-10 text-[var(--color-text-disabled)]" />
+            <LearningArt name="review" size={36} />
           </div>
           <h2 className="text-xl font-bold text-[var(--color-text-primary)]">Nothing to Review</h2>
           <p className="text-sm text-[var(--color-text-secondary)]">Complete lessons, exercises, and add vocabulary to build your review queue.</p>
-          <button onClick={startSession} className="inline-flex items-center gap-2 px-6 py-3 bg-[var(--color-primary)] text-white rounded-[var(--radius-lg)] font-semibold hover:bg-brand-600 transition-colors">
+          <button onClick={startSession} className="inline-flex items-center gap-2 px-6 py-3 bg-[var(--color-primary)] text-[var(--color-on-brand)] rounded-[var(--radius-lg)] font-semibold hover:bg-[var(--color-primary-hover)] transition-colors">
             <RotateCcw className="w-4 h-4" /> Check Again
           </button>
         </div>
@@ -217,7 +221,7 @@ export default function ReviewPage() {
           </div>
           <div className="flex items-center gap-2">
             <Badge variant="info">{current.type}</Badge>
-            <span className="text-xs text-[var(--color-text-disabled)]">
+            <span className="text-xs text-[var(--color-text-secondary)]">
               Interval: {current.interval}d | Ease: {current.ease.toFixed(1)}
             </span>
           </div>
@@ -238,18 +242,18 @@ export default function ReviewPage() {
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -40 }}
-            className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] p-8 shadow-sm border-2 border-[var(--color-border-default)]"
+            className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] p-5 sm:p-6 shadow-sm border border-[var(--color-border-default)]"
           >
             <div className="text-center space-y-6">
               <div>
-                <p className="text-xs font-semibold text-[var(--color-text-disabled)] uppercase tracking-wider mb-2">
+                <p className="text-xs font-semibold text-[var(--color-text-secondary)] uppercase tracking-wider mb-2">
                   {current.type === "error" ? "Question" : "Word"}
                 </p>
                 <p className="text-xl font-bold text-[var(--color-text-primary)] leading-relaxed">{current.front}</p>
               </div>
 
               {current.type === "vocab" && (
-                <button onClick={() => speak(current.front)} className="inline-flex items-center gap-1.5 text-sm text-[var(--color-text-disabled)] hover:text-[var(--color-primary)] transition-colors">
+                <button onClick={() => speak(current.front)} className="inline-flex items-center gap-1.5 text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors">
                   <Volume2 className="w-4 h-4" /> Listen
                 </button>
               )}
@@ -257,7 +261,7 @@ export default function ReviewPage() {
               {!showAnswer ? (
                 <button
                   onClick={() => setShowAnswer(true)}
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-[var(--color-primary)] text-white rounded-[var(--radius-lg)] font-display font-extrabold hover:bg-[var(--color-primary-dark)] transition-all active:translate-y-0.5" style={{ boxShadow: "0 4px 0 var(--color-primary-dark)" }}
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-[var(--color-primary)] text-[var(--color-on-brand)] rounded-[var(--radius-lg)] font-display font-extrabold hover:bg-[var(--color-primary-dark)] transition-all active:translate-y-0.5" style={{ boxShadow: "0 4px 0 var(--color-primary-dark)" }}
                 >
                   Show Answer <ChevronRight className="w-4 h-4" />
                 </button>
@@ -268,19 +272,19 @@ export default function ReviewPage() {
                   className="space-y-4"
                 >
                   <div className="bg-[var(--color-surface-alt)] rounded-[var(--radius-lg)] p-4">
-                    <p className="text-xs font-semibold text-[var(--color-text-disabled)] uppercase tracking-wider mb-1">
+                    <p className="text-xs font-semibold text-[var(--color-text-secondary)] uppercase tracking-wider mb-1">
                       {current.type === "error" ? "Correct Answer" : "English"}
                     </p>
-                    <p className="text-lg font-semibold text-[var(--color-success)]">{current.back}</p>
+                    <p className="text-lg font-semibold text-[var(--color-text-success)]">{current.back}</p>
                   </div>
 
                   {current.type === "vocab" && (
-                    <button onClick={() => speak(current.back, "en-US")} className="inline-flex items-center gap-1.5 text-sm text-[var(--color-text-disabled)] hover:text-[var(--color-primary)] transition-colors">
+                    <button onClick={() => speak(current.back, "en-US")} className="inline-flex items-center gap-1.5 text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors">
                       <Volume2 className="w-4 h-4" /> Listen (English)
                     </button>
                   )}
 
-                  <p className="text-xs font-semibold text-[var(--color-text-disabled)] uppercase tracking-wider">How well did you know this?</p>
+                  <p className="text-xs font-semibold text-[var(--color-text-secondary)] uppercase tracking-wider">How well did you know this?</p>
                   <div className="flex flex-wrap gap-2 justify-center">
                     {[
                       { q: 1, label: "Forgot", emoji: "😵", color: "red" },
@@ -293,11 +297,11 @@ export default function ReviewPage() {
                         key={btn.q}
                         onClick={() => handleAnswer(btn.q)}
                         className={`px-4 py-2 rounded-[var(--radius-lg)] text-sm font-semibold transition-all hover:scale-105 ${
-                          btn.color === "red" ? "bg-[var(--color-error)] text-white text-red-700 hover:bg-[var(--color-error)] text-white" :
-                          btn.color === "orange" ? "bg-[var(--color-warning)] text-white hover:bg-orange-100" :
-                          btn.color === "amber" ? "bg-[var(--color-warning)] text-white hover:bg-amber-100" :
-                          btn.color === "emerald" ? "bg-[var(--color-success)] text-white hover:bg-[var(--color-success)] text-white" :
-                          "bg-[var(--color-primary-subtle)] text-[var(--color-primary-dark)] hover:bg-[var(--color-primary)]"
+                          btn.color === "red" ? "bg-[var(--color-error-bg)] text-[var(--color-text-error)] text-[var(--color-text-error)] hover:bg-[var(--color-error-bg)] text-[var(--color-text-error)]" :
+                          btn.color === "orange" ? "bg-[var(--color-warning-bg)] text-[var(--color-text-warning)] hover:bg-orange-100" :
+                          btn.color === "amber" ? "bg-[var(--color-warning-bg)] text-[var(--color-text-warning)] hover:bg-amber-100" :
+                          btn.color === "emerald" ? "bg-[var(--color-success-bg)] text-[var(--color-text-success)] hover:bg-[var(--color-success-bg)] text-[var(--color-text-success)]" :
+                          "bg-[var(--color-primary-subtle)] text-[var(--color-text-link)] hover:bg-[var(--color-primary)]"
                         }`}
                       >
                         {btn.emoji} {btn.label}
@@ -310,7 +314,7 @@ export default function ReviewPage() {
           </motion.div>
         </AnimatePresence>
 
-        <div className="flex items-center justify-between text-xs text-[var(--color-text-disabled)]">
+        <div className="flex items-center justify-between text-xs text-[var(--color-text-secondary)]">
           <span>Correct: {stats.correct} | Wrong: {stats.wrong}</span>
           <button onClick={startSession} className="flex items-center gap-1 text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors">
             <RotateCcw className="w-3 h-3" /> Restart

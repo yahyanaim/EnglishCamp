@@ -1,4 +1,6 @@
 "use client";
+
+import { LearningArt } from "@/components/brand/LearningArt";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useProgress } from "@/store/useProgress";
@@ -82,10 +84,10 @@ export default function DailyChallengePage() {
   if (todayDone && phase === "done") {
     return (
       <div className="text-center py-12">
-        <span className="text-7xl block mb-4">✅</span>
+        <LearningArt name="✅" size={24} className="text-7xl block mb-4" />
         <h1 className="font-display text-2xl font-extrabold text-[var(--color-text-primary)] mb-2">Today&apos;s Challenge Complete!</h1>
         <p className="text-[var(--color-text-secondary)] mb-2">You already completed today&apos;s challenge. Come back tomorrow!</p>
-        <p className="text-lg font-semibold text-[var(--color-primary-dark)]">+{xpEarned} XP earned</p>
+        <p className="text-lg font-semibold text-[var(--color-text-link)]">+{xpEarned} XP earned</p>
       </div>
     );
   }
@@ -96,7 +98,7 @@ export default function DailyChallengePage() {
       <div className="text-center py-8">
         <span className="text-6xl block mb-4">{pct >= 80 ? "🏆" : pct >= 50 ? "👍" : "💪"}</span>
         <h1 className="font-display text-2xl font-extrabold text-[var(--color-text-primary)] mb-1">Daily Challenge Done!</h1>
-        <p className="text-lg font-semibold text-[var(--color-primary-dark)] mb-1">{score}/{total} correct ({pct}%)</p>
+        <p className="text-lg font-semibold text-[var(--color-text-link)] mb-1">{score}/{total} correct ({pct}%)</p>
         <p className="text-sm text-[var(--color-text-secondary)] mb-2">+{xpEarned} XP earned (includes {score} streak bonus!)</p>
         <div className="flex justify-center gap-2 mt-4">
           <Button onClick={() => window.location.reload()}>
@@ -113,13 +115,13 @@ export default function DailyChallengePage() {
     return (
       <div className="text-center py-12">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-          <span className="text-7xl block mb-4">⚡</span>
+          <LearningArt name="⚡" size={24} className="text-7xl block mb-4" />
           <h1 className="font-display text-2xl font-extrabold text-[var(--color-text-primary)] mb-2">Daily Challenge</h1>
           <p className="text-[var(--color-text-secondary)] mb-6">
             Answer {dailyQuestions.length} mixed questions for bonus XP!
           </p>
           <Button onClick={() => setPhase("playing")} size="lg">
-            <Zap className="w-5 h-5" /> Start Challenge
+            <LearningArt name="Zap" size={20} className="w-5 h-5" /> Start Challenge
           </Button>
         </motion.div>
       </div>
@@ -134,8 +136,8 @@ export default function DailyChallengePage() {
           <p className="text-xs text-[var(--color-text-secondary)]">Question {currentQ + 1} of {dailyQuestions.length}</p>
         </div>
         <div className="flex items-center gap-1">
-          <Zap className="w-4 h-4 text-[var(--color-warning)]" />
-          <span className="text-sm font-bold text-[var(--color-warning)]">{xpEarned} XP</span>
+          <LearningArt name="Zap" size={16} className="w-4 h-4 text-[var(--color-text-warning)]" />
+          <span className="text-sm font-bold text-[var(--color-text-warning)]">{xpEarned} XP</span>
         </div>
       </div>
 
@@ -156,7 +158,7 @@ export default function DailyChallengePage() {
           initial={{ opacity: 0, x: 30 }}
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: -30 }}
-          className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border-2 border-[var(--color-border-default)] p-6 shadow-sm"
+          className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-6 shadow-sm"
         >
           <h2 className="text-lg font-semibold text-[var(--color-text-primary)] mb-6">{q?.question}</h2>
 
@@ -164,8 +166,8 @@ export default function DailyChallengePage() {
             {q?.options.map((option, i) => {
               let style = "bg-[var(--color-surface-alt)] border-[var(--color-border-default)] hover:border-[var(--color-primary)] hover:bg-[var(--color-primary-subtle)]";
               if (answered) {
-                if (i === q.correct) style = "bg-[var(--color-success)] text-white border-emerald-300 ring-2 ring-[var(--color-success)]";
-                else if (i === selected) style = "bg-[var(--color-error)] text-white border-[var(--color-error)]";
+                if (i === q.correct) style = "bg-[var(--color-success-bg)] text-[var(--color-text-success)] border-emerald-300 ring-2 ring-[var(--color-success)]";
+                else if (i === selected) style = "bg-[var(--color-error-bg)] text-[var(--color-text-error)] border-[var(--color-error)]";
                 else style = "bg-[var(--color-surface-alt)] border-[var(--color-border-default)] opacity-50";
               }
               return (
@@ -187,13 +189,13 @@ export default function DailyChallengePage() {
               animate={{ opacity: 1, y: 0 }}
               className="mt-4"
             >
-              <p className={`text-sm font-medium mb-1 ${answerCorrect ? "text-[var(--color-success)]" : "text-[var(--color-error)]"}`}>
+              <p className={`text-sm font-medium mb-1 ${answerCorrect ? "text-[var(--color-text-success)]" : "text-[var(--color-text-error)]"}`}>
                 {answerCorrect ? "✓ Correct!" : "✗ Wrong"}
               </p>
               <p className="text-xs text-[var(--color-text-secondary)] mb-3">{q?.explain}</p>
               <button
                 onClick={next}
-                className="text-sm font-medium bg-[var(--color-primary-subtle)] text-[var(--color-primary-dark)] border border-[var(--color-primary)] px-5 py-2 rounded-[var(--radius-lg)] hover:bg-[var(--color-primary)] transition-all"
+                className="text-sm font-medium bg-[var(--color-primary-subtle)] text-[var(--color-text-link)] border border-[var(--color-primary)] px-5 py-2 rounded-[var(--radius-lg)] hover:bg-[var(--color-primary)] transition-all"
               >
                 {currentQ + 1 >= dailyQuestions.length ? "See Results" : "Next →"}
               </button>

@@ -1,4 +1,6 @@
 "use client";
+
+import { LearningArt } from "@/components/brand/LearningArt";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { PageWrapper } from "@/components/layout/PageWrapper";
@@ -23,9 +25,9 @@ export default function B2PruefungPage() {
           <ChevronLeft className="w-4 h-4" /> Back to writing section
         </button>
 
-        <div className="bg-gradient-to-br from-purple-50 to-indigo-50 rounded-[var(--radius-lg)] ring-1 ring-purple-200/50 p-6 shadow-sm mb-6">
+        <div className="bg-[var(--color-surface-alt)]    rounded-[var(--radius-lg)] ring-1 ring-purple-200/50 p-6 shadow-sm mb-6">
           <div className="flex items-center gap-4">
-            <span className="text-3xl">{template.icon}</span>
+            <LearningArt name={template.icon} size={24} className="" />
             <div>
               <h2 className="text-xl font-bold text-[var(--color-text-primary)]">{template.title}</h2>
               <p className="text-sm text-[var(--color-text-secondary)]">{template.desc}</p>
@@ -33,7 +35,7 @@ export default function B2PruefungPage() {
           </div>
         </div>
 
-        <div className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border-2 border-[var(--color-border-default)] p-5 shadow-sm mb-6">
+        <div className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-5 shadow-sm mb-6">
           <h3 className="text-xs font-bold text-[var(--color-text-secondary)] uppercase tracking-wider mb-3">Template Structure</h3>
           <div className="space-y-2">
             {template.template.map((line, i) => (
@@ -44,12 +46,12 @@ export default function B2PruefungPage() {
           </div>
         </div>
 
-        <div className="bg-[var(--color-warning)] text-white rounded-[var(--radius-lg)] ring-1 ring-[var(--color-warning)] p-5 shadow-sm">
-          <h3 className="text-xs font-bold text-[var(--color-warning)] uppercase tracking-wider mb-2">Tips</h3>
+        <div className="bg-[var(--color-warning-bg)] text-[var(--color-text-warning)] rounded-[var(--radius-lg)] ring-1 ring-[var(--color-warning)] p-5 shadow-sm">
+          <h3 className="text-xs font-bold text-[var(--color-text-warning)] uppercase tracking-wider mb-2">Tips</h3>
           <ul className="space-y-1">
             {template.notes.map((note, i) => (
-              <li key={i} className="text-sm text-[var(--color-warning)] flex items-start gap-2">
-                <span className="text-[var(--color-warning)] mt-0.5 shrink-0">•</span>
+              <li key={i} className="text-sm text-[var(--color-text-warning)] flex items-start gap-2">
+                <span className="text-[var(--color-text-warning)] mt-0.5 shrink-0">•</span>
                 <div>
                   <span>{note}</span>
                 </div>
@@ -69,9 +71,9 @@ export default function B2PruefungPage() {
         </button>
 
         <div className="space-y-6">
-          <div className={`bg-gradient-to-br from-slate-50 to-[var(--color-info)] rounded-[var(--radius-lg)] border-2 border-[var(--color-border-default)]/50 p-6 shadow-sm`}>
+          <div className={`bg-[var(--color-surface-alt)]    rounded-[var(--radius-lg)] border border-[var(--color-border-default)]/50 p-6 shadow-sm`}>
             <div className="flex items-center gap-4">
-              <span className="text-3xl">{section.icon}</span>
+              <LearningArt name={section.icon} size={24} className="" />
               <div>
                 <h2 className={`text-xl font-bold ${section.color}`}>{section.title}</h2>
                 <p className="text-sm text-[var(--color-text-secondary)] mt-1">{section.subtitle}</p>
@@ -80,7 +82,7 @@ export default function B2PruefungPage() {
           </div>
 
           {section.details.map((detail, i) => (
-            <div key={i} className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border-2 border-[var(--color-border-default)] p-5 shadow-sm">
+            <div key={i} className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-5 shadow-sm">
               <p className="text-sm text-[var(--color-text-secondary)]">{detail}</p>
             </div>
           ))}
@@ -92,13 +94,13 @@ export default function B2PruefungPage() {
                 {WRITING_TEMPLATES.map((t) => (
                   <motion.button key={t.id} whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}
                     onClick={() => setSelectedTemplate(t.id)}
-                    className="text-left bg-[var(--color-surface)] rounded-[var(--radius-lg)] border-2 border-[var(--color-border-default)] p-4 shadow-sm hover:shadow-md transition-all"
+                    className="text-left bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-4 shadow-sm hover:shadow-md transition-all"
                   >
                     <div className="flex items-center gap-3 mb-1">
-                      <span className="text-xl">{t.icon}</span>
+                      <LearningArt name={t.icon} size={24} className="" />
                       <div>
                         <h4 className="text-sm font-bold text-[var(--color-text-primary)]">{t.title}</h4>
-                        <p className="text-xs text-[var(--color-text-disabled)]">{t.desc}</p>
+                        <p className="text-xs text-[var(--color-text-secondary)]">{t.desc}</p>
                       </div>
                     </div>
                   </motion.button>
@@ -124,10 +126,10 @@ export default function B2PruefungPage() {
             <motion.button key={s.id} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.05 }}
               whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}
               onClick={() => setSelectedSection(s.id)}
-              className="text-left bg-[var(--color-surface)] rounded-[var(--radius-lg)] border-2 border-[var(--color-border-default)] p-4 shadow-sm hover:shadow-md transition-all"
+              className="text-left bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-4 shadow-sm hover:shadow-md transition-all"
             >
               <div className="flex items-start gap-3">
-                <span className="text-2xl">{s.icon}</span>
+                <LearningArt name={s.icon} size={24} className="" />
                 <div>
                   <h3 className={`text-sm font-bold ${s.color}`}>{s.title}</h3>
                   <p className="text-xs text-[var(--color-text-secondary)] mt-1 line-clamp-2">{s.subtitle}</p>
@@ -139,7 +141,7 @@ export default function B2PruefungPage() {
 
         <div className="bg-gradient-to-br from-[var(--color-warning)] to-[#FFD700] rounded-[var(--radius-lg)] ring-1 ring-[var(--color-warning)] p-5 shadow-sm">
           <div className="flex items-start gap-3">
-            <span className="text-xl">🎯</span>
+            <LearningArt name="🎯" size={24} className="" />
             <div>
               <h3 className="text-sm font-bold text-[var(--color-text-primary)]">Quick Overview</h3>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-3">

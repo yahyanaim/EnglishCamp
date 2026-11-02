@@ -1,4 +1,9 @@
 "use client";
+
+import { LearningArt } from "@/components/brand/LearningArt";
+import { SelectField } from "@/components/ui/shadcn/select-field";
+import { Button } from "@/components/ui/shadcn/button";
+import { Textarea } from "@/components/ui/shadcn/textarea";
 import { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { PageWrapper } from "@/components/layout/PageWrapper";
@@ -6,7 +11,7 @@ import { WRITING_PROMPTS, type WritingPrompt } from "@/data/writing";
 import { useProgress } from "@/store/useProgress";
 import { levels } from "@/data/content";
 import { playCorrect, playXP } from "@/lib/audio";
-import { FileText, Lightbulb, AlertCircle, RotateCcw, Send, ChevronDown, ChevronUp, CheckCircle2, Clock, Sparkles, ArrowLeft } from "lucide-react";
+import { RotateCcw, Send, ChevronDown, ChevronUp, CheckCircle2, ArrowLeft, ArrowUpRight } from "lucide-react";
 
 const TYPE_LABELS: Record<string, string> = {
   essay: "Essays", email: "Emails", letter: "Letters", description: "Descriptions",
@@ -14,8 +19,8 @@ const TYPE_LABELS: Record<string, string> = {
 };
 
 const TYPE_ICONS: Record<string, string> = {
-  essay: "📝", email: "✉️", letter: "📨", description: "🖼️",
-  argumentation: "💬", summary: "📋", report: "📊", dialogue: "🎭",
+  essay: "note", email: "chat", letter: "document", description: "book",
+  argumentation: "compare", summary: "plan", report: "table", dialogue: "chat",
 };
 
 function countWords(text: string): number {
@@ -88,11 +93,11 @@ export default function WritingPage() {
 
   return (
     <PageWrapper>
-      <motion.div variants={container} initial="hidden" animate="show" className="space-y-6">
+      <motion.div variants={container} initial="hidden" animate="show" className="camp-writing space-y-6">
         {/* Header */}
         <motion.div variants={itemAnim} className="flex items-center gap-3">
-          <div className="inline-flex items-center justify-center w-8 h-8 rounded-[var(--radius-md)] bg-[var(--color-amethyst)]" style={{ background: "#9B59B6" }}>
-            <FileText className="w-4.5 h-4.5 text-white" />
+          <div className="camp-writing-symbol">
+            <LearningArt name="note" size={22} />
           </div>
           <div>
             <h1 className="font-display font-extrabold text-[var(--color-text-primary)]" style={{ fontSize: "26px", letterSpacing: "0.3px" }}>
@@ -105,52 +110,48 @@ export default function WritingPage() {
         {!selectedPrompt ? (
           <>
             {/* Filters */}
-            <motion.div variants={itemAnim} className="flex flex-wrap gap-2 items-center">
-              <select value={levelFilter} onChange={(e) => setLevelFilter(e.target.value)}
-                className="max-w-full min-w-0 font-body text-sm bg-[var(--color-surface)] border-2 border-[var(--color-border-default)] rounded-[var(--radius-md)] px-3 py-2.5 outline-none text-[var(--color-text-primary)] transition-all duration-150"
-                style={{ boxShadow: "0 2px 0 var(--color-border-default)" }}>
+            <motion.div variants={itemAnim} className="camp-writing-filters">
+              <SelectField value={levelFilter} onValueChange={value => setLevelFilter(value)}
+                aria-label="Filter writing prompts by level">
                 <option value="all">All Levels</option>
                 {levels.map((lv) => <option key={lv.id} value={lv.id}>{lv.title}</option>)}
-              </select>
-              <select value={typeFilter} onChange={(e) => setTypeFilter(e.target.value)}
-                className="max-w-full min-w-0 font-body text-sm bg-[var(--color-surface)] border-2 border-[var(--color-border-default)] rounded-[var(--radius-md)] px-3 py-2.5 outline-none text-[var(--color-text-primary)] transition-all duration-150"
-                style={{ boxShadow: "0 2px 0 var(--color-border-default)" }}>
+              </SelectField>
+              <SelectField value={typeFilter} onValueChange={value => setTypeFilter(value)}
+                aria-label="Filter writing prompts by type">
                 <option value="all">All Types</option>
                 {types.map((t) => <option key={t} value={t}>{TYPE_LABELS[t] || t}</option>)}
-              </select>
-              <span className="font-body text-xs text-[var(--color-text-secondary)] ml-auto">{filtered.length} prompts</span>
+              </SelectField>
+              <span className="camp-writing-count" aria-live="polite">{filtered.length} prompts</span>
             </motion.div>
 
             {/* Prompts grid */}
-            <motion.div variants={itemAnim} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+            <motion.div variants={itemAnim} className="camp-writing-grid">
               {filtered.map((prompt, i) => (
                 <motion.button
                   key={prompt.id}
                   initial={{ opacity: 0, y: 8 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: i * 0.03 }}
-                  whileHover={{ y: -3 }}
+                  whileHover={{ y: -2 }}
                   whileTap={{ scale: 0.98 }}
                   onClick={() => handleSelect(prompt)}
-                  className="text-left bg-[var(--color-surface)] rounded-[var(--radius-lg)] p-4 border-2 border-[var(--color-border-default)] transition-all duration-200 hover:border-[var(--color-border-strong)]"
-                  style={{ boxShadow: "0 3px 0 var(--color-border-default)" }}
+                  className="camp-writing-card"
                 >
-                  <div className="flex items-start gap-3">
-                    <span className="text-xl">{TYPE_ICONS[prompt.type] || "📄"}</span>
-                    <div className="min-w-0 flex-1">
-                      <div className="flex items-center gap-2">
-                        <h3 className="font-display font-bold text-sm text-[var(--color-text-primary)]">{prompt.titleEn}</h3>
-                        {prompt.titleAr && <p className="text-xs font-arabic text-[var(--color-text-secondary)]" lang="ar">{prompt.titleAr}</p>}
-                        <span className="font-display font-extrabold text-[10px] uppercase text-[var(--color-text-secondary)] bg-[var(--color-surface-alt)] px-1.5 py-0.5 rounded-[var(--radius-pill)]">{prompt.levelId.toUpperCase()}</span>
-                      </div>
-                      <p className="font-body text-xs text-[var(--color-text-secondary)] mt-0.5">{prompt.titleDe}</p>
-                      <p className="font-body text-xs text-[var(--color-text-disabled)] mt-1">{prompt.wordCount.min}–{prompt.wordCount.max} words · {TYPE_LABELS[prompt.type]}</p>
-                      <div className="flex flex-wrap gap-1 mt-2">
-                        {prompt.tags.slice(0, 3).map((t) => (
-                          <span key={t} className="font-body text-[10px] font-semibold text-[var(--color-primary-dark)] bg-[var(--color-primary-subtle)] px-1.5 py-0.5 rounded-[var(--radius-pill)]">{t}</span>
-                        ))}
-                      </div>
-                    </div>
+                  <div className="camp-writing-card-top">
+                    <span className="camp-writing-kind"><LearningArt name={TYPE_ICONS[prompt.type] || "document"} size={22} />{TYPE_LABELS[prompt.type]}</span>
+                    <span className="camp-writing-level">{prompt.levelId.replace("band", "Band ").replace("-", "–")}</span>
+                  </div>
+                  <div className="camp-writing-card-copy">
+                    <h3>{prompt.titleEn}</h3>
+                    {prompt.titleAr && <p className="font-arabic" lang="ar" dir="rtl">{prompt.titleAr}</p>}
+                    {prompt.titleDe !== prompt.titleEn && <p>{prompt.titleDe}</p>}
+                  </div>
+                  <div className="camp-writing-tags">
+                    {prompt.tags.slice(0, 3).map((t) => <span key={t}>{t}</span>)}
+                  </div>
+                  <div className="camp-writing-card-footer">
+                    <span>{prompt.wordCount.min}–{prompt.wordCount.max} words</span>
+                    <span>Open prompt <ArrowUpRight size={14} aria-hidden="true" /></span>
                   </div>
                 </motion.button>
               ))}
@@ -158,26 +159,24 @@ export default function WritingPage() {
           </>
         ) : (
           <AnimatePresence mode="wait">
-            <motion.div key={selectedPrompt.id} variants={itemAnim} className="space-y-5">
+            <motion.div key={selectedPrompt.id} variants={itemAnim} className="camp-writing-detail space-y-5">
               {/* Back & title */}
-              <div className="flex items-center justify-between">
-                <div>
-                  <button onClick={handleReset}
-                    className="inline-flex items-center gap-1.5 font-display font-extrabold text-sm px-4 py-2 rounded-[var(--radius-md)] border-2 border-[var(--color-border-default)] text-[var(--color-text-primary)] bg-[var(--color-surface)] transition-all duration-150 hover:border-[var(--color-border-strong)] active:translate-y-0.5 mb-2"
-                    style={{ boxShadow: "0 2px 0 var(--color-border-default)" }}>
+              <div className="camp-writing-detail-heading">
+                <div className="min-w-0">
+                  <Button variant="outline" onClick={handleReset} className="mb-3">
                     <ArrowLeft className="w-4 h-4" /> Back
-                  </button>
+                  </Button>
                   <h2 className="font-display font-extrabold text-lg text-[var(--color-text-primary)]">{selectedPrompt.titleEn}</h2>
-                  {selectedPrompt.titleAr && <p className="font-body text-sm text-[var(--color-text-secondary)]" lang="ar">{selectedPrompt.titleAr}</p>}
-                  <p className="font-body text-sm text-[var(--color-text-secondary)]">{selectedPrompt.titleDe}</p>
+                  {selectedPrompt.titleAr && <p className="font-arabic text-sm text-[var(--color-text-secondary)] mt-2" lang="ar" dir="rtl">{selectedPrompt.titleAr}</p>}
+                  {selectedPrompt.titleDe !== selectedPrompt.titleEn && <p className="font-body text-sm text-[var(--color-text-secondary)]">{selectedPrompt.titleDe}</p>}
                 </div>
-                <span className="font-display font-extrabold text-[10px] uppercase text-[var(--color-text-secondary)] bg-[var(--color-surface-alt)] px-2 py-1 rounded-[var(--radius-pill)]">{selectedPrompt.levelId.toUpperCase()}</span>
+                <span className="camp-writing-level">{selectedPrompt.levelId.replace("band", "Band ").replace("-", "–")}</span>
               </div>
 
               {/* Instructions */}
-              <div className="bg-[var(--color-info-bg)] rounded-[var(--radius-lg)] p-4 border-2 border-[var(--color-info)]" style={{ boxShadow: "0 3px 0 var(--color-info)" }}>
+              <div className="camp-writing-panel camp-writing-instructions">
                 <div className="flex items-start gap-3">
-                  <FileText className="w-5 h-5 text-[var(--color-info)] mt-0.5 shrink-0" />
+                  <LearningArt name="FileText" size={20} className="w-5 h-5 text-[var(--color-text-info)] mt-0.5 shrink-0" />
                   <div>
                     <p className="font-display font-extrabold text-sm text-[var(--color-info-dark)]">Instructions</p>
                     <p className="font-body text-sm text-[var(--color-text-primary)] mt-1">{selectedPrompt.instructions}</p>
@@ -188,22 +187,22 @@ export default function WritingPage() {
 
               {/* Hints */}
               <div>
-                <button onClick={() => setShowHints(!showHints)}
-                  className="flex items-center gap-2 font-display font-bold text-sm text-[var(--color-warning-dark)] hover:text-[var(--color-warning)] transition-colors">
-                  <Lightbulb className="w-4 h-4" />
+                <Button variant="ghost" onClick={() => setShowHints(!showHints)} aria-expanded={showHints}
+                  className="camp-writing-hint-toggle">
+                  <LearningArt name="Lightbulb" size={16} className="w-4 h-4" />
                   {showHints ? "Hide" : "Show"} hints ({selectedPrompt.hints.length})
                   {showHints ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
-                </button>
+                </Button>
                 <AnimatePresence>
                   {showHints && (
                     <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }} exit={{ height: 0, opacity: 0 }} className="overflow-hidden">
                       <div className="mt-2 space-y-1.5">
                         {selectedPrompt.hints.map((hint, i) => (
-                          <div key={i} className="flex items-start gap-2 font-body text-sm text-[var(--color-warning-dark)] bg-[var(--color-warning-bg)] rounded-[var(--radius-md)] px-3 py-2 border border-[var(--color-warning)]/30">
-                            <span className="font-display font-extrabold text-[var(--color-warning)] shrink-0">{i + 1}.</span>
+                          <div key={i} className="camp-writing-hint">
+                            <span className="camp-writing-hint-number">{i + 1}.</span>
                             <div>
                               <span>{hint}</span>
-                              {selectedPrompt.hintsAr?.[i] && <p className="text-sm text-[var(--color-warning-dark)] font-arabic mt-0.5" lang="ar">{selectedPrompt.hintsAr[i]}</p>}
+                              {selectedPrompt.hintsAr?.[i] && <p className="text-sm text-[var(--color-text-secondary)] font-arabic mt-1" lang="ar" dir="rtl">{selectedPrompt.hintsAr[i]}</p>}
                             </div>
                           </div>
                         ))}
@@ -215,26 +214,25 @@ export default function WritingPage() {
 
               {/* Textarea */}
               <div className="relative">
-                <textarea
+                <label htmlFor="writing-response" className="sr-only">Your response</label>
+                <Textarea
+                  id="writing-response"
                   value={text}
                   onChange={(e) => { if (!submitted) setText(e.target.value); }}
                   placeholder="Write your text here..."
                   disabled={submitted}
                   rows={10}
-                  className="w-full bg-[var(--color-surface)] border-2 border-[var(--color-border-default)] rounded-[var(--radius-lg)] p-4 font-body text-sm text-[var(--color-text-primary)] outline-none transition-all duration-150 resize-y disabled:bg-[var(--color-surface-alt)] disabled:text-[var(--color-text-disabled)]"
-                  style={{ boxShadow: "0 2px 0 var(--color-border-default)" }}
-                  onFocus={(e) => { e.target.style.borderColor = "var(--color-border-focus)"; e.target.style.boxShadow = "0 2px 0 var(--color-border-focus), 0 0 0 3px rgba(28,176,246,0.15)"; }}
-                  onBlur={(e) => { e.target.style.borderColor = "var(--color-border-default)"; e.target.style.boxShadow = "0 2px 0 var(--color-border-default)"; }}
+                  className="camp-writing-response p-4 font-body resize-y disabled:bg-[var(--color-surface-alt)]"
                 />
-                <div className="flex items-center justify-between mt-2 px-1">
-                  <div className="flex items-center gap-3 font-body text-xs">
+                <div className="camp-writing-editor-footer">
+                  <div className="camp-writing-word-count font-body text-xs" aria-live="polite">
                     {selectedPrompt && (
                       <>
-                        <span className="text-[var(--color-text-disabled)]">Min requirement: {selectedPrompt.wordCount.min} words (Target: {selectedPrompt.wordCount.min}–{selectedPrompt.wordCount.max})</span>
+                        <span className="text-[var(--color-text-secondary)]">Min requirement: {selectedPrompt.wordCount.min} words (Target: {selectedPrompt.wordCount.min}–{selectedPrompt.wordCount.max})</span>
                         <span className={`font-bold ${
                           wordStatus === "good" ? "text-[var(--color-success-dark)]" : wordStatus === "extended" ? "text-[var(--color-primary)]" : "text-[var(--color-warning-dark)]"
                         }`}>
-                          <Clock className="w-3.5 h-3.5 inline mr-1" />
+                          <LearningArt name="Clock" size={14} className="w-3.5 h-3.5 inline mr-1" />
                           {wordCount} words
                         </span>
                         {wordStatus === "too-short" && <span className="text-[var(--color-warning-dark)] font-medium">({selectedPrompt.wordCount.min - wordCount} more words needed to submit)</span>}
@@ -245,19 +243,17 @@ export default function WritingPage() {
                   </div>
                   <div className="flex items-center gap-2">
                     {text && !submitted && (
-                      <button onClick={() => setText("")} className="font-body text-xs text-[var(--color-text-disabled)] hover:text-[var(--color-text-secondary)] transition-colors flex items-center gap-1">
+                      <Button variant="ghost" onClick={() => setText("")}>
                         <RotateCcw className="w-3 h-3" /> Clear
-                      </button>
+                      </Button>
                     )}
                     {!submitted && (
-                      <button
+                      <Button
                         onClick={handleSubmit}
                         disabled={!canSubmit}
-                        className="inline-flex items-center gap-1.5 font-display font-extrabold text-xs bg-[var(--color-primary)] text-white px-5 py-2.5 rounded-[var(--radius-md)] border-2 border-[var(--color-primary-dark)] disabled:opacity-40 disabled:cursor-not-allowed transition-all duration-150 active:translate-y-0.5"
-                        style={{ boxShadow: canSubmit ? "0 3px 0 var(--color-primary-dark)" : undefined }}
                       >
                         <Send className="w-3.5 h-3.5" /> Submit Response
-                      </button>
+                      </Button>
                     )}
                   </div>
                 </div>
@@ -267,25 +263,21 @@ export default function WritingPage() {
               <div>
                 <div className="flex gap-2">
                   {!showCorrection ? (
-                    <button onClick={() => setShowCorrection(true)}
-                      className="inline-flex items-center gap-1.5 font-display font-extrabold text-sm px-4 py-2 rounded-[var(--radius-md)] bg-[var(--color-success-bg)] text-[var(--color-success-dark)] border-2 border-[var(--color-success)] transition-all duration-150 active:translate-y-0.5"
-                      style={{ boxShadow: "0 3px 0 var(--color-success)" }}>
-                      <Sparkles className="w-4 h-4" /> Show correction
-                    </button>
+                    <Button variant="outline" onClick={() => setShowCorrection(true)} aria-expanded={false}>
+                      <LearningArt name="Sparkles" size={16} className="w-4 h-4" /> Show correction
+                    </Button>
                   ) : (
-                    <button onClick={() => setShowCorrection(false)}
-                      className="inline-flex items-center gap-1.5 font-display font-extrabold text-sm px-4 py-2 rounded-[var(--radius-md)] bg-[var(--color-warning-bg)] text-[var(--color-warning-dark)] border-2 border-[var(--color-warning)] transition-all duration-150 active:translate-y-0.5"
-                      style={{ boxShadow: "0 3px 0 var(--color-warning)" }}>
+                    <Button variant="outline" onClick={() => setShowCorrection(false)} aria-expanded={true}>
                       Hide correction
-                    </button>
+                    </Button>
                   )}
                 </div>
                 <AnimatePresence>
                   {showCorrection && (
                     <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} exit={{ opacity: 0, height: 0 }} className="overflow-hidden mt-4">
-                      <div className="bg-[var(--color-success-bg)] rounded-[var(--radius-lg)] border-2 border-[var(--color-success)] p-5" style={{ boxShadow: "0 3px 0 var(--color-success)" }}>
+                      <div className="camp-writing-panel camp-writing-model">
                         <div className="flex items-center gap-2 mb-3">
-                          <Sparkles className="w-4 h-4 text-[var(--color-success)]" />
+                          <LearningArt name="Sparkles" className="w-4 h-4 text-[var(--color-text-success)]" />
                           <h4 className="font-display font-extrabold text-xs text-[var(--color-success-dark)] uppercase tracking-wider">Model Answer</h4>
                         </div>
                         <div className="space-y-3">
@@ -308,9 +300,9 @@ export default function WritingPage() {
               {/* Submitted state */}
               <AnimatePresence>
                 {submitted && (
-                  <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} className="bg-[var(--color-success-bg)] rounded-[var(--radius-lg)] border-2 border-[var(--color-success)] p-5" style={{ boxShadow: "0 3px 0 var(--color-success)" }}>
+                  <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} className="bg-[var(--color-success-bg)] rounded-[var(--radius-lg)] border border-[var(--color-success)] p-5" style={{ boxShadow: "0 3px 0 var(--color-success)" }}>
                     <div className="flex items-start gap-3">
-                      <Sparkles className="w-6 h-6 text-[var(--color-success)] shrink-0" />
+                      <LearningArt name="Sparkles" size={24} className="w-6 h-6 text-[var(--color-text-success)] shrink-0" />
                       <div>
                         <h3 className="font-display font-extrabold text-sm text-[var(--color-success-dark)]">Submission received!</h3>
                         <p className="font-body text-sm text-[var(--color-text-primary)] mt-1">
@@ -321,7 +313,7 @@ export default function WritingPage() {
                             <CheckCircle2 className="w-4 h-4" /> Word count target met
                           </div>
                           <div className="flex items-center gap-1.5 text-[var(--color-success-dark)]">
-                            <Sparkles className="w-4 h-4" /> XP awarded
+                            <LearningArt name="Sparkles" size={16} className="w-4 h-4" /> XP awarded
                           </div>
                           <span className="font-display font-extrabold text-[var(--color-success-dark)]">+{
                             selectedPrompt.levelId === "band4-5" ? 20 : selectedPrompt.levelId === "band5-6" ? 30 : selectedPrompt.levelId === "band6-7" ? 40 : 50
@@ -329,21 +321,17 @@ export default function WritingPage() {
                         </div>
                       </div>
                     </div>
-                    <div className="mt-4 bg-[var(--color-surface)] rounded-[var(--radius-lg)] p-4 border-2 border-[var(--color-border-default)]" style={{ boxShadow: "0 2px 0 var(--color-border-default)" }}>
+                    <div className="mt-4 bg-[var(--color-surface)] rounded-[var(--radius-lg)] p-4 border border-[var(--color-border-default)]" style={{ boxShadow: "0 2px 0 var(--color-border-default)" }}>
                       <p className="font-display font-bold text-xs text-[var(--color-text-secondary)] mb-2">Your text:</p>
                       <p className="font-body text-sm text-[var(--color-text-primary)] whitespace-pre-wrap leading-relaxed">{text}</p>
                     </div>
-                    <div className="flex gap-2 mt-4">
-                      <button onClick={handleReset}
-                        className="inline-flex items-center gap-1.5 font-display font-extrabold text-sm px-4 py-2 rounded-[var(--radius-md)] border-2 border-[var(--color-border-default)] text-[var(--color-text-primary)] bg-[var(--color-surface)] transition-all duration-150 active:translate-y-0.5"
-                        style={{ boxShadow: "0 2px 0 var(--color-border-default)" }}>
+                    <div className="flex flex-wrap gap-2 mt-4">
+                      <Button variant="outline" onClick={handleReset}>
                         Try another prompt
-                      </button>
-                      <button onClick={() => { setSubmitted(false); }}
-                        className="inline-flex items-center gap-1.5 font-display font-extrabold text-sm px-5 py-2.5 rounded-[var(--radius-md)] bg-[var(--color-primary)] text-white border-2 border-[var(--color-primary-dark)] transition-all duration-150 active:translate-y-0.5"
-                        style={{ boxShadow: "0 3px 0 var(--color-primary-dark)" }}>
+                      </Button>
+                      <Button onClick={() => { setSubmitted(false); }}>
                         Revise this text
-                      </button>
+                      </Button>
                     </div>
                   </motion.div>
                 )}

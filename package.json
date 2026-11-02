@@ -7,11 +7,17 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "node --test tests/*.test.cjs"
+    "test": "node --test tests/*.test.cjs",
+    "prebuild": "node scripts/collect-speech-catalogue.cjs",
+    "voice:catalogue": "node scripts/collect-speech-catalogue.cjs"
   },
   "dependencies": {
+    "@radix-ui/react-dialog": "1.1.15",
     "@radix-ui/react-progress": "^1.0.3",
+    "@radix-ui/react-select": "2.4.1",
+    "@radix-ui/react-slot": "1.2.3",
     "@radix-ui/react-tooltip": "^1.0.7",
+    "class-variance-authority": "0.7.1",
     "clsx": "^2.1.0",
     "cmdk": "^1.1.1",
     "framer-motion": "^11.0.0",

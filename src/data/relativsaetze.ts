@@ -103,7 +103,7 @@ export const RELATIVE_RULES: RelativeRule[] = [
     titleAr: "Which مقابل That (محددة مقابل غير محددة للأشياء)",
     icon: "🔍",
     color: "text-amber-600",
-    explanation: "Use 'that' ONLY in DEFINING relative clauses (no commas). Use 'which' in NON-DEFINING clauses (with commas). In defining clauses, both 'which' and 'that' are possible, but 'that' is preferred in British English and 'which' is also common in American English for defining clauses.",
+    explanation: "Use 'that' ONLY in DEFINING relative clauses (no commas). Use 'which' in NON-DEFINING clauses (with commas). In defining clauses about things, both which and that are possible. Some American editorial styles prefer that for defining clauses; British English commonly permits either. Non-defining clauses about things use which, not that.",
     explanationAr: "استخدم 'that' فقط في جمل الوصل المُحَدِّدة (بدون فاصلة). استخدم 'which' في الجمل غير المُحَدِّدة (مع فاصلة). في الجمل المحددة، كلا 'which' و 'that' ممكنان، لكن 'that' مفضل في الإنجليزية البريطانية و 'which' شائع أيضاً في الإنجليزية الأمريكية للجمل المحددة.",
     formation: "Defining: noun + that/which + clause / Non-defining: noun + , + which + clause + ,",
     formationAr: "محددة: اسم + that/which + جملة / غير محددة: اسم + , + which + جملة + ,",

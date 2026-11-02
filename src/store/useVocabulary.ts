@@ -1,3 +1,4 @@
+import { learnerStorage } from "@/lib/learnerStorage";
 import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
 
@@ -110,6 +111,6 @@ export const useVocabulary = create<VocabStore>()(
 
       exportWords: () => JSON.stringify(get().words, null, 2),
     }),
-    { name: "englishcamp-vocabulary", storage: createJSONStorage(() => localStorage) }
+    { name: "englishcamp-vocabulary", skipHydration: true, storage: createJSONStorage(() => learnerStorage) }
   )
 );

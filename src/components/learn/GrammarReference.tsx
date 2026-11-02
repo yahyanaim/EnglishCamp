@@ -1,4 +1,6 @@
 "use client";
+import { LearningArt } from "@/components/brand/LearningArt";
+import { PracticeButton } from "@/components/ui/PracticeSurface";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, BookOpen, Languages } from "lucide-react";
@@ -7,8 +9,8 @@ function T({ de, en }: { de: string; en: string }) {
   return (
     <span className="group relative inline-flex items-baseline cursor-help border-b border-dotted border-[var(--color-border-default)] hover:border-brand-400 transition-colors">
       <span className="group-hover:hidden">{de}</span>
-      <span className="hidden group-hover:inline text-[var(--color-primary-dark)] font-medium">{en}</span>
-      <Languages className="w-2.5 h-2.5 ml-0.5 text-[var(--color-text-disabled)] group-hover:text-brand-400 inline-block -translate-y-px" />
+      <span className="hidden group-hover:inline text-[var(--color-text-link)] font-medium">{en}</span>
+      <LearningArt name="Languages" size={10} className="w-2.5 h-2.5 ml-0.5 text-[var(--color-text-secondary)] group-hover:text-brand-400 inline-block -translate-y-px" />
     </span>
   );
 }
@@ -44,8 +46,8 @@ const SECTIONS: Section[] = [
             </tbody>
           </table>
         </div>
-        <div className="bg-[var(--color-warning)] text-white border border-[var(--color-warning)] rounded-[var(--radius-lg)] p-3 text-sm">
-          <strong>💡 Tip:</strong> Use <strong>the</strong> when both speaker and listener know what is being referred to. Use <strong>a/an</strong> when mentioning something for the first time. Do NOT use articles with names of people, most countries, or meals: <T de="I had lunch." en="I had lunch." /> (not &quot;a lunch&quot;).
+        <div className="bg-[var(--color-warning-bg)] text-[var(--color-text-warning)] border border-[var(--color-warning)] rounded-[var(--radius-lg)] p-3 text-sm">
+          <strong>Tip:</strong> Use <strong>the</strong> when both speaker and listener know what is being referred to. Use <strong>a/an</strong> when mentioning something for the first time. Do NOT use articles with names of people, most countries, or meals: <T de="I had lunch." en="I had lunch." /> (not &quot;a lunch&quot;).
         </div>
       </div>
     ),
@@ -73,8 +75,8 @@ const SECTIONS: Section[] = [
             </tbody>
           </table>
         </div>
-        <div className="bg-[var(--color-info)] text-white rounded-[var(--radius-lg)] p-3 text-sm">
-          <strong>💡 Tip:</strong> Stative verbs (know, believe, love, hate, want, need) are NOT used in continuous forms. Say <T de="I know the answer." en="I know the answer." /> — NOT &quot;I am knowing the answer.&quot;
+        <div className="bg-[var(--color-info-bg)] text-[var(--color-text-info)] rounded-[var(--radius-lg)] p-3 text-sm">
+          <strong>Tip:</strong> Stative verbs (know, believe, love, hate, want, need) are NOT used in continuous forms. Say <T de="I know the answer." en="I know the answer." /> — NOT &quot;I am knowing the answer.&quot;
         </div>
       </div>
     ),
@@ -102,8 +104,8 @@ const SECTIONS: Section[] = [
             </tbody>
           </table>
         </div>
-        <div className="bg-[var(--color-warning)] text-white border border-[var(--color-warning)] rounded-[var(--radius-lg)] p-3 text-sm">
-          <strong>💡 Tip:</strong> If the time is mentioned (yesterday, last week, in 2010), you MUST use Past Simple. If the time is not important or the action continues, use Present Perfect.
+        <div className="bg-[var(--color-warning-bg)] text-[var(--color-text-warning)] border border-[var(--color-warning)] rounded-[var(--radius-lg)] p-3 text-sm">
+          <strong>Tip:</strong> If the time is mentioned (yesterday, last week, in 2010), you MUST use Past Simple. If the time is not important or the action continues, use Present Perfect.
         </div>
       </div>
     ),
@@ -131,17 +133,17 @@ const SECTIONS: Section[] = [
           </table>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-          <div className="bg-[var(--color-success)] text-white rounded-[var(--radius-lg)] p-3">
-            <h4 className="text-sm font-semibold text-white mb-1"><T de="will" en="will" /></h4>
-            <p className="text-xs text-white/80">
+          <div className="bg-[var(--color-success-bg)] text-[var(--color-text-success)] rounded-[var(--radius-lg)] p-3">
+            <h4 className="text-sm font-semibold text-[var(--color-text-primary)] mb-1"><T de="will" en="will" /></h4>
+            <p className="text-xs text-[var(--color-text-secondary)]">
               <T de="قرار فوري: I will answer the phone." en="Spontaneous: I will answer the phone." /><br />
               <T de="وعد: I will always love you." en="Promise: I will always love you." /><br />
               <T de="توقع بدون دليل: I think it will rain." en="Prediction without evidence: I think it will rain." />
             </p>
           </div>
-          <div className="bg-[var(--color-info)] text-white rounded-[var(--radius-lg)] p-3">
-            <h4 className="text-sm font-semibold text-white mb-1"><T de="going to" en="going to" /></h4>
-            <p className="text-xs text-white/80">
+          <div className="bg-[var(--color-info-bg)] text-[var(--color-text-info)] rounded-[var(--radius-lg)] p-3">
+            <h4 className="text-sm font-semibold text-[var(--color-text-primary)] mb-1"><T de="going to" en="going to" /></h4>
+            <p className="text-xs text-[var(--color-text-secondary)]">
               <T de="خطة مسبقة: We are going to buy a house." en="Prior plan: We are going to buy a house." /><br />
               <T de="توقع مع دليل: The sky is dark. It is going to rain." en="Prediction with evidence: The sky is dark. It is going to rain." />
             </p>
@@ -174,8 +176,8 @@ const SECTIONS: Section[] = [
             </tbody>
           </table>
         </div>
-        <div className="bg-[var(--color-warning)] text-white border border-[var(--color-warning)] rounded-[var(--radius-lg)] p-3 text-sm">
-          <strong>💡 Tip:</strong> In Second Conditional, use <strong>were</strong> for all subjects (not &quot;was&quot;): <T de="If I were you, I would go." en="If I were you, I would go." /> In First Conditional, the if-clause uses present tense, NOT <strong>will</strong>.
+        <div className="bg-[var(--color-warning-bg)] text-[var(--color-text-warning)] border border-[var(--color-warning)] rounded-[var(--radius-lg)] p-3 text-sm">
+          <strong>Tip:</strong> In Second Conditional, use <strong>were</strong> for all subjects (not &quot;was&quot;): <T de="If I were you, I would go." en="If I were you, I would go." /> In First Conditional, the if-clause uses present tense, NOT <strong>will</strong>.
         </div>
       </div>
     ),
@@ -204,8 +206,8 @@ const SECTIONS: Section[] = [
             </tbody>
           </table>
         </div>
-        <div className="bg-[var(--color-info)] text-white rounded-[var(--radius-lg)] p-3 text-sm">
-          <strong>💡 Tip:</strong> Use <strong>by</strong> to mention the agent: <T de="The room was cleaned by Mohamed." en="The room was cleaned by Mohamed." /> If the agent is unknown or unimportant, omit it: <T de="My phone was stolen." en="My phone was stolen." />
+        <div className="bg-[var(--color-info-bg)] text-[var(--color-text-info)] rounded-[var(--radius-lg)] p-3 text-sm">
+          <strong>Tip:</strong> Use <strong>by</strong> to mention the agent: <T de="The room was cleaned by Mohamed." en="The room was cleaned by Mohamed." /> If the agent is unknown or unimportant, omit it: <T de="My phone was stolen." en="My phone was stolen." />
         </div>
       </div>
     ),
@@ -217,30 +219,30 @@ const SECTIONS: Section[] = [
       <div className="space-y-3">
         <p className="text-sm text-[var(--color-text-secondary)]">The prepositions <strong>in</strong>, <strong>at</strong>, and <strong>on</strong> are used for both time and place in specific ways:</p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-          <div className="bg-[var(--color-info)] text-white rounded-[var(--radius-lg)] p-3">
-            <h4 className="text-sm font-semibold text-white mb-2"><T de="الوقت" en="TIME" /></h4>
+          <div className="bg-[var(--color-info-bg)] text-[var(--color-text-info)] rounded-[var(--radius-lg)] p-3">
+            <h4 className="text-sm font-semibold text-[var(--color-text-primary)] mb-2"><T de="الوقت" en="TIME" /></h4>
             <div className="space-y-1.5">
-              <p className="text-xs text-white/80"><strong className="text-white">at</strong> — precise time: <span className="font-mono"><T de="at 5 o'clock" en="at 5 o'clock" />, <T de="at midnight" en="at midnight" /></span></p>
-              <p className="text-xs text-white/80"><strong className="text-white">on</strong> — days/dates: <span className="font-mono"><T de="on Monday" en="on Monday" />, <T de="on March 3rd" en="on March 3rd" /></span></p>
-              <p className="text-xs text-white/80"><strong className="text-white">in</strong> — months/years/seasons/longer periods: <span className="font-mono"><T de="in July" en="in July" />, <T de="in 2024" en="in 2024" />, <T de="in summer" en="in summer" /></span></p>
+              <p className="text-xs text-[var(--color-text-secondary)]"><strong className="text-[var(--color-text-primary)]">at</strong> — precise time: <span className="font-mono"><T de="at 5 o'clock" en="at 5 o'clock" />, <T de="at midnight" en="at midnight" /></span></p>
+              <p className="text-xs text-[var(--color-text-secondary)]"><strong className="text-[var(--color-text-primary)]">on</strong> — days/dates: <span className="font-mono"><T de="on Monday" en="on Monday" />, <T de="on March 3rd" en="on March 3rd" /></span></p>
+              <p className="text-xs text-[var(--color-text-secondary)]"><strong className="text-[var(--color-text-primary)]">in</strong> — months/years/seasons/longer periods: <span className="font-mono"><T de="in July" en="in July" />, <T de="in 2024" en="in 2024" />, <T de="in summer" en="in summer" /></span></p>
             </div>
           </div>
-          <div className="bg-[var(--color-success)] text-white rounded-[var(--radius-lg)] p-3">
-            <h4 className="text-sm font-semibold text-white mb-2"><T de="المكان" en="PLACE" /></h4>
+          <div className="bg-[var(--color-success-bg)] text-[var(--color-text-success)] rounded-[var(--radius-lg)] p-3">
+            <h4 className="text-sm font-semibold text-[var(--color-text-primary)] mb-2"><T de="المكان" en="PLACE" /></h4>
             <div className="space-y-1.5">
-              <p className="text-xs text-white/80"><strong className="text-white">at</strong> — specific point/address: <span className="font-mono"><T de="at the bus stop" en="at the bus stop" />, <T de="at 10 Main St" en="at 10 Main St" /></span></p>
-              <p className="text-xs text-white/80"><strong className="text-white">on</strong> — surface/street: <span className="font-mono"><T de="on the table" en="on the table" />, <T de="on Oxford Street" en="on Oxford Street" /></span></p>
-              <p className="text-xs text-white/80"><strong className="text-white">in</strong> — enclosed space/city/country: <span className="font-mono"><T de="in the room" en="in the room" />, <T de="in Cairo" en="in Cairo" /></span></p>
+              <p className="text-xs text-[var(--color-text-secondary)]"><strong className="text-[var(--color-text-primary)]">at</strong> — specific point/address: <span className="font-mono"><T de="at the bus stop" en="at the bus stop" />, <T de="at 10 Main St" en="at 10 Main St" /></span></p>
+              <p className="text-xs text-[var(--color-text-secondary)]"><strong className="text-[var(--color-text-primary)]">on</strong> — surface/street: <span className="font-mono"><T de="on the table" en="on the table" />, <T de="on Oxford Street" en="on Oxford Street" /></span></p>
+              <p className="text-xs text-[var(--color-text-secondary)]"><strong className="text-[var(--color-text-primary)]">in</strong> — enclosed space/city/country: <span className="font-mono"><T de="in the room" en="in the room" />, <T de="in Cairo" en="in Cairo" /></span></p>
             </div>
           </div>
-          <div className="bg-[var(--color-warning)] text-white rounded-[var(--radius-lg)] p-3 md:col-span-2">
-            <h4 className="text-sm font-semibold text-white mb-2"><T de="استثناءات مهمة" en="Important exceptions" /></h4>
-            <div className="flex flex-wrap gap-x-4 gap-y-1 text-xs text-white/80">
-              <span><strong className="text-white">at night</strong> — <T de="في الليل" en="at night" /></span>
-              <span><strong className="text-white">at home</strong> — <T de="في المنزل" en="at home" /></span>
-              <span><strong className="text-white">at work</strong> — <T de="في العمل" en="at work" /></span>
-              <span><strong className="text-white">on time</strong> — <T de="في الموعد" en="on time" /></span>
-              <span><strong className="text-white">in the morning/afternoon/evening</strong> — <T de="في الصباح/بعد الظهر/المساء" en="in the morning/afternoon/evening" /></span>
+          <div className="bg-[var(--color-warning-bg)] text-[var(--color-text-warning)] rounded-[var(--radius-lg)] p-3 md:col-span-2">
+            <h4 className="text-sm font-semibold text-[var(--color-text-primary)] mb-2"><T de="استثناءات مهمة" en="Important exceptions" /></h4>
+            <div className="flex flex-wrap gap-x-4 gap-y-1 text-xs text-[var(--color-text-secondary)]">
+              <span><strong className="text-[var(--color-text-primary)]">at night</strong> — <T de="في الليل" en="at night" /></span>
+              <span><strong className="text-[var(--color-text-primary)]">at home</strong> — <T de="في المنزل" en="at home" /></span>
+              <span><strong className="text-[var(--color-text-primary)]">at work</strong> — <T de="في العمل" en="at work" /></span>
+              <span><strong className="text-[var(--color-text-primary)]">on time</strong> — <T de="في الموعد" en="on time" /></span>
+              <span><strong className="text-[var(--color-text-primary)]">in the morning/afternoon/evening</strong> — <T de="في الصباح/بعد الظهر/المساء" en="in the morning/afternoon/evening" /></span>
             </div>
           </div>
         </div>
@@ -273,8 +275,8 @@ const SECTIONS: Section[] = [
             </tbody>
           </table>
         </div>
-        <div className="bg-[var(--color-warning)] text-white border border-[var(--color-warning)] rounded-[var(--radius-lg)] p-3 text-sm">
-          <strong>💡 Tip:</strong> Modals are followed by the base verb (no <strong>to</strong>): <T de="You must go." en="You must go." /> NOT &quot;You must to go.&quot; The negative of <strong>must</strong> is <strong>must not / mustn&apos;t</strong> (prohibition). The negative of <strong>have to</strong> is <strong>don&apos;t have to</strong> (no obligation — different meaning!).
+        <div className="bg-[var(--color-warning-bg)] text-[var(--color-text-warning)] border border-[var(--color-warning)] rounded-[var(--radius-lg)] p-3 text-sm">
+          <strong>Tip:</strong> Modals are followed by the base verb (no <strong>to</strong>): <T de="You must go." en="You must go." /> NOT &quot;You must to go.&quot; The negative of <strong>must</strong> is <strong>must not / mustn&apos;t</strong> (prohibition). The negative of <strong>have to</strong> is <strong>don&apos;t have to</strong> (no obligation — different meaning!).
         </div>
       </div>
     ),
@@ -303,17 +305,17 @@ const SECTIONS: Section[] = [
           </table>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-          <div className="bg-[var(--color-success)] text-white rounded-[var(--radius-lg)] p-3">
-            <h4 className="text-sm font-semibold text-white mb-1"><T de="المقارن" en="Comparative structure" /></h4>
-            <p className="text-xs text-white/80 font-mono"><T de="adjective-er than" en="adjective-er than" /></p>
-            <p className="text-xs text-white/80 mt-1"><T de="Ahmed is taller than Ali." en="Ahmed is taller than Ali." /></p>
-            <p className="text-xs text-white/80"><T de="She is more intelligent than him." en="She is more intelligent than him." /></p>
+          <div className="bg-[var(--color-success-bg)] text-[var(--color-text-success)] rounded-[var(--radius-lg)] p-3">
+            <h4 className="text-sm font-semibold text-[var(--color-text-primary)] mb-1"><T de="المقارن" en="Comparative structure" /></h4>
+            <p className="text-xs text-[var(--color-text-secondary)] font-mono"><T de="adjective-er than" en="adjective-er than" /></p>
+            <p className="text-xs text-[var(--color-text-secondary)] mt-1"><T de="Ahmed is taller than Ali." en="Ahmed is taller than Ali." /></p>
+            <p className="text-xs text-[var(--color-text-secondary)]"><T de="She is more intelligent than him." en="She is more intelligent than him." /></p>
           </div>
-          <div className="bg-[var(--color-info)] text-white rounded-[var(--radius-lg)] p-3">
-            <h4 className="text-sm font-semibold text-white mb-1"><T de="التفضيل" en="Superlative structure" /></h4>
-            <p className="text-xs text-white/80 font-mono"><T de="the adjective-est / the most adjective" en="the adjective-est / the most adjective" /></p>
-            <p className="text-xs text-white/80 mt-1"><T de="He is the tallest in the class." en="He is the tallest in the class." /></p>
-            <p className="text-xs text-white/80"><T de="This is the most expensive car." en="This is the most expensive car." /></p>
+          <div className="bg-[var(--color-info-bg)] text-[var(--color-text-info)] rounded-[var(--radius-lg)] p-3">
+            <h4 className="text-sm font-semibold text-[var(--color-text-primary)] mb-1"><T de="التفضيل" en="Superlative structure" /></h4>
+            <p className="text-xs text-[var(--color-text-secondary)] font-mono"><T de="the adjective-est / the most adjective" en="the adjective-est / the most adjective" /></p>
+            <p className="text-xs text-[var(--color-text-secondary)] mt-1"><T de="He is the tallest in the class." en="He is the tallest in the class." /></p>
+            <p className="text-xs text-[var(--color-text-secondary)]"><T de="This is the most expensive car." en="This is the most expensive car." /></p>
           </div>
         </div>
       </div>
@@ -343,21 +345,21 @@ const SECTIONS: Section[] = [
             </tbody>
           </table>
         </div>
-        <div className="bg-[var(--color-warning)] text-white border border-[var(--color-warning)] rounded-[var(--radius-lg)] p-3 text-sm">
-          <strong>💡 Tip:</strong> Other changes: <strong>today</strong> → <strong>that day</strong>, <strong>now</strong> → <strong>then</strong>, <strong>here</strong> → <strong>there</strong>, <strong>this</strong> → <strong>that</strong>, <strong>tomorrow</strong> → <strong>the next day</strong>, <strong>yesterday</strong> → <strong>the day before</strong>. If the reporting verb is present tense (He says...), no backshift is needed.
+        <div className="bg-[var(--color-warning-bg)] text-[var(--color-text-warning)] border border-[var(--color-warning)] rounded-[var(--radius-lg)] p-3 text-sm">
+          <strong>Tip:</strong> Other changes: <strong>today</strong> → <strong>that day</strong>, <strong>now</strong> → <strong>then</strong>, <strong>here</strong> → <strong>there</strong>, <strong>this</strong> → <strong>that</strong>, <strong>tomorrow</strong> → <strong>the next day</strong>, <strong>yesterday</strong> → <strong>the day before</strong>. If the reporting verb is present tense (He says...), no backshift is needed.
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-          <div className="bg-[var(--color-success)] text-white rounded-[var(--radius-lg)] p-3">
-            <h4 className="text-sm font-semibold text-white mb-1"><T de="الأسئلة" en="Reported Questions" /></h4>
-            <p className="text-xs text-white/80">Use <strong>if/whether</strong> for yes/no questions, keep the question word for wh-questions. Word order changes to <strong>subject + verb</strong>.</p>
-            <p className="text-xs text-white/80 mt-1 font-mono"><T de={'"Are you happy? → He asked if I was happy."'} en={'"Are you happy? → He asked if I was happy."'} /></p>
-            <p className="text-xs text-white/80 font-mono"><T de={'"Where do you live? → She asked where I lived."'} en={'"Where do you live? → She asked where I lived."'} /></p>
+          <div className="bg-[var(--color-success-bg)] text-[var(--color-text-success)] rounded-[var(--radius-lg)] p-3">
+            <h4 className="text-sm font-semibold text-[var(--color-text-primary)] mb-1"><T de="الأسئلة" en="Reported Questions" /></h4>
+            <p className="text-xs text-[var(--color-text-secondary)]">Use <strong>if/whether</strong> for yes/no questions, keep the question word for wh-questions. Word order changes to <strong>subject + verb</strong>.</p>
+            <p className="text-xs text-[var(--color-text-secondary)] mt-1 font-mono"><T de={'"Are you happy? → He asked if I was happy."'} en={'"Are you happy? → He asked if I was happy."'} /></p>
+            <p className="text-xs text-[var(--color-text-secondary)] font-mono"><T de={'"Where do you live? → She asked where I lived."'} en={'"Where do you live? → She asked where I lived."'} /></p>
           </div>
-          <div className="bg-[var(--color-info)] text-white rounded-[var(--radius-lg)] p-3">
-            <h4 className="text-sm font-semibold text-white mb-1"><T de="الأوامر" en="Reported Commands" /></h4>
-            <p className="text-xs text-white/80">Use <strong>told + object + to + infinitive</strong> or <strong>asked + object + to + infinitive</strong>.</p>
-            <p className="text-xs text-white/80 mt-1 font-mono"><T de={'"Sit down. → He told me to sit down."'} en={'"Sit down. → He told me to sit down."'} /></p>
-            <p className="text-xs text-white/80 font-mono"><T de={'"Don\'t go. → She told me not to go."'} en={'"Don\'t go. → She told me not to go."'} /></p>
+          <div className="bg-[var(--color-info-bg)] text-[var(--color-text-info)] rounded-[var(--radius-lg)] p-3">
+            <h4 className="text-sm font-semibold text-[var(--color-text-primary)] mb-1"><T de="الأوامر" en="Reported Commands" /></h4>
+            <p className="text-xs text-[var(--color-text-secondary)]">Use <strong>told + object + to + infinitive</strong> or <strong>asked + object + to + infinitive</strong>.</p>
+            <p className="text-xs text-[var(--color-text-secondary)] mt-1 font-mono"><T de={'"Sit down. → He told me to sit down."'} en={'"Sit down. → He told me to sit down."'} /></p>
+            <p className="text-xs text-[var(--color-text-secondary)] font-mono"><T de={'"Don\'t go. → She told me not to go."'} en={'"Don\'t go. → She told me not to go."'} /></p>
           </div>
         </div>
       </div>
@@ -369,28 +371,28 @@ export function GrammarReference() {
   const [openSection, setOpenSection] = useState<string | null>("articles");
 
   return (
-    <div className="space-y-2">
+    <div className="camp-grammar-reference space-y-2">
       {SECTIONS.map((section) => {
         const isOpen = openSection === section.id;
         return (
           <div
             key={section.id}
-            className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border-2 border-[var(--color-border-default)] overflow-hidden shadow-sm" style={{ boxShadow: "0 3px 0 var(--color-border-default)" }}
+            className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] overflow-hidden shadow-sm" style={{ boxShadow: "0 3px 0 var(--color-border-default)" }}
           >
-            <button
+            <PracticeButton
               onClick={() => setOpenSection(isOpen ? null : section.id)}
               className="w-full flex items-center justify-between p-4 text-left hover:bg-[var(--color-surface-alt)] transition-colors"
             >
               <div className="flex items-center gap-2">
-                <BookOpen className="w-4 h-4 text-[var(--color-primary)]" />
+                <LearningArt name="BookOpen" size={16} className="w-4 h-4 text-[var(--color-primary)]" />
                 <span className="text-sm font-semibold text-[var(--color-text-primary)]">{section.title}</span>
               </div>
               <ChevronDown
-                className={`w-4 h-4 text-[var(--color-text-disabled)] transition-transform duration-200 ${
+                className={`w-4 h-4 text-[var(--color-text-secondary)] transition-transform duration-200 ${
                   isOpen ? "rotate-180" : ""
                 }`}
               />
-            </button>
+            </PracticeButton>
             <AnimatePresence initial={false}>
               {isOpen && (
                 <motion.div

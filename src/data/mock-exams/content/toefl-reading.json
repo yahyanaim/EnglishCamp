@@ -1,0 +1,1382 @@
+[
+  {
+    "id": "tf2-r-router-1",
+    "title": "Complete the Words — Community gardens",
+    "subtitle": "Module 1",
+    "part": 1,
+    "skill": "reading",
+    "instructions": "Complete each word by typing only its missing letters.",
+    "passage": "Community gardens provide places where neighbours can grow food together. A ga[1] may occupy a small space behind a building or a larger piece of la[2]. People often sh[3] tools and exchange advice. Some plants need plenty of su[4], while others grow better in partial shade. Regular wa[5] is important, especially during dry weather. The work can also create oppor[6] for people to meet. However, successful projects require cl[7] agreements about responsibilities. Members need to decide who will look af[8] shared areas and how produce will be distr[9]. Planning these details helps the group continue even when individual members mo[10] away.",
+    "questions": [
+      {
+        "number": 1,
+        "kind": "word-ending",
+        "prompt": "Gap 1: ga… — type only the missing letters.",
+        "answers": [
+          "rden"
+        ],
+        "evidence": "Garden is the singular noun after “A”.",
+        "explanation": "Garden is the singular noun after “A”.",
+        "marks": 1,
+        "prefix": "ga",
+        "id": "tf2-r-router-1-q1"
+      },
+      {
+        "number": 2,
+        "kind": "word-ending",
+        "prompt": "Gap 2: la… — type only the missing letters.",
+        "answers": [
+          "nd"
+        ],
+        "evidence": "A piece of land is the location for cultivation.",
+        "explanation": "A piece of land is the location for cultivation.",
+        "marks": 1,
+        "prefix": "la",
+        "id": "tf2-r-router-1-q2"
+      },
+      {
+        "number": 3,
+        "kind": "word-ending",
+        "prompt": "Gap 3: sh… — type only the missing letters.",
+        "answers": [
+          "are"
+        ],
+        "evidence": "People share tools with one another.",
+        "explanation": "People share tools with one another.",
+        "marks": 1,
+        "prefix": "sh",
+        "id": "tf2-r-router-1-q3"
+      },
+      {
+        "number": 4,
+        "kind": "word-ending",
+        "prompt": "Gap 4: su… — type only the missing letters.",
+        "answers": [
+          "nlight"
+        ],
+        "evidence": "Sunlight contrasts with partial shade.",
+        "explanation": "Sunlight contrasts with partial shade.",
+        "marks": 1,
+        "prefix": "su",
+        "id": "tf2-r-router-1-q4"
+      },
+      {
+        "number": 5,
+        "kind": "word-ending",
+        "prompt": "Gap 5: wa… — type only the missing letters.",
+        "answers": [
+          "tering"
+        ],
+        "evidence": "Regular watering is important during dry weather.",
+        "explanation": "Regular watering is important during dry weather.",
+        "marks": 1,
+        "prefix": "wa",
+        "id": "tf2-r-router-1-q5"
+      },
+      {
+        "number": 6,
+        "kind": "word-ending",
+        "prompt": "Gap 6: oppor… — type only the missing letters.",
+        "answers": [
+          "tunities"
+        ],
+        "evidence": "Create opportunities for people to meet.",
+        "explanation": "Create opportunities for people to meet.",
+        "marks": 1,
+        "prefix": "oppor",
+        "id": "tf2-r-router-1-q6"
+      },
+      {
+        "number": 7,
+        "kind": "word-ending",
+        "prompt": "Gap 7: cl… — type only the missing letters.",
+        "answers": [
+          "ear"
+        ],
+        "evidence": "Clear agreements specify responsibility.",
+        "explanation": "Clear agreements specify responsibility.",
+        "marks": 1,
+        "prefix": "cl",
+        "id": "tf2-r-router-1-q7"
+      },
+      {
+        "number": 8,
+        "kind": "word-ending",
+        "prompt": "Gap 8: af… — type only the missing letters.",
+        "answers": [
+          "ter"
+        ],
+        "evidence": "The phrasal verb is look after.",
+        "explanation": "The phrasal verb is look after.",
+        "marks": 1,
+        "prefix": "af",
+        "id": "tf2-r-router-1-q8"
+      },
+      {
+        "number": 9,
+        "kind": "word-ending",
+        "prompt": "Gap 9: distr… — type only the missing letters.",
+        "answers": [
+          "ibuted"
+        ],
+        "evidence": "Produce will be distributed among members.",
+        "explanation": "Produce will be distributed among members.",
+        "marks": 1,
+        "prefix": "distr",
+        "id": "tf2-r-router-1-q9"
+      },
+      {
+        "number": 10,
+        "kind": "word-ending",
+        "prompt": "Gap 10: mo… — type only the missing letters.",
+        "answers": [
+          "ve"
+        ],
+        "evidence": "Members may move away.",
+        "explanation": "Members may move away.",
+        "marks": 1,
+        "prefix": "mo",
+        "id": "tf2-r-router-1-q10"
+      }
+    ],
+    "stage": "router"
+  },
+  {
+    "id": "tf2-r-router-2",
+    "title": "Read in Daily Life — Room change",
+    "subtitle": "Module 1",
+    "part": 2,
+    "skill": "reading",
+    "instructions": "Choose the best answer using information in the text. You can revisit questions in this module until you submit it.",
+    "passage": "To: Student film club\nFrom: Activities office\nSubject: Thursday screening\nThe film club's screening on Thursday will take place in Lecture Room 4, not the media studio. The projector in the studio is being replaced. The start time remains 6 pm. Please bring your student card because the lecture building's doors will be locked after 5.30. A club volunteer will admit registered members until 6.10. If you expect to arrive later, email the club secretary before noon on Thursday so that another arrangement can be made.",
+    "questions": [
+      {
+        "number": 11,
+        "kind": "choice",
+        "prompt": "Why has the location changed?",
+        "answers": [
+          "A projector is being replaced."
+        ],
+        "evidence": "The media-studio projector is being replaced.",
+        "explanation": "The media-studio projector is being replaced.",
+        "marks": 1,
+        "options": [
+          "A projector is being replaced.",
+          "The film has been cancelled.",
+          "The club has too many volunteers.",
+          "The lecture building is being demolished."
+        ],
+        "id": "tf2-r-router-2-q1"
+      },
+      {
+        "number": 12,
+        "kind": "choice",
+        "prompt": "What has stayed the same?",
+        "answers": [
+          "The start time."
+        ],
+        "evidence": "The screening still begins at 6 pm.",
+        "explanation": "The screening still begins at 6 pm.",
+        "marks": 1,
+        "options": [
+          "The room.",
+          "The start time.",
+          "The door-opening policy.",
+          "The projector."
+        ],
+        "id": "tf2-r-router-2-q2"
+      },
+      {
+        "number": 13,
+        "kind": "choice",
+        "prompt": "What should a member arriving after 6.10 do?",
+        "answers": [
+          "Email the secretary in advance."
+        ],
+        "evidence": "Late arrivals should email before noon on Thursday.",
+        "explanation": "Late arrivals should email before noon on Thursday.",
+        "marks": 1,
+        "options": [
+          "Wait outside without contacting anyone.",
+          "Bring a new projector.",
+          "Email the secretary in advance.",
+          "Attend a different film."
+        ],
+        "id": "tf2-r-router-2-q3"
+      }
+    ],
+    "stage": "router"
+  },
+  {
+    "id": "tf2-r-router-3",
+    "title": "Read in Daily Life — Workshop offer",
+    "subtitle": "Module 1",
+    "part": 3,
+    "skill": "reading",
+    "instructions": "Choose the best answer using information in the text. You can revisit questions in this module until you submit it.",
+    "passage": "Repair Lab: introductory bicycle session\nSaturday 10 am–noon, east courtyard. Learn to check tyre pressure and adjust a saddle. This session is for people who have not previously maintained a bicycle. Bring your own bicycle if possible; two demonstration bicycles will be available for participants who cannot bring one. Tools are supplied. The session is free, but booking is required because space is limited. If heavy rain is forecast, registered participants will receive an email with the indoor venue by Friday evening.",
+    "questions": [
+      {
+        "number": 14,
+        "kind": "choice",
+        "prompt": "Who is the session intended for?",
+        "answers": [
+          "Beginners in bicycle maintenance."
+        ],
+        "evidence": "It is for people who have not previously maintained a bicycle.",
+        "explanation": "It is for people who have not previously maintained a bicycle.",
+        "marks": 1,
+        "options": [
+          "Professional mechanics.",
+          "Experienced race organisers.",
+          "People selling new bicycles.",
+          "Beginners in bicycle maintenance."
+        ],
+        "id": "tf2-r-router-3-q1"
+      },
+      {
+        "number": 15,
+        "kind": "choice",
+        "prompt": "What is provided?",
+        "answers": [
+          "Tools."
+        ],
+        "evidence": "Tools are supplied; only two demonstration bicycles are available.",
+        "explanation": "Tools are supplied; only two demonstration bicycles are available.",
+        "marks": 1,
+        "options": [
+          "Tools.",
+          "A bicycle for every person.",
+          "Transport to the venue.",
+          "Replacement bicycles to keep."
+        ],
+        "id": "tf2-r-router-3-q2"
+      },
+      {
+        "number": 16,
+        "kind": "choice",
+        "prompt": "How will participants learn of a weather-related venue change?",
+        "answers": [
+          "An email on Friday evening."
+        ],
+        "evidence": "Registered participants receive the indoor venue by email.",
+        "explanation": "Registered participants receive the indoor venue by email.",
+        "marks": 1,
+        "options": [
+          "A newspaper advertisement.",
+          "An email on Friday evening.",
+          "A sign after the event.",
+          "A telephone call from every instructor."
+        ],
+        "id": "tf2-r-router-3-q3"
+      }
+    ],
+    "stage": "router"
+  },
+  {
+    "id": "tf2-r-router-4",
+    "title": "Read in Daily Life — Library equipment",
+    "subtitle": "Module 1",
+    "part": 4,
+    "skill": "reading",
+    "instructions": "Choose the best answer using information in the text. You can revisit questions in this module until you submit it.",
+    "passage": "Library equipment lending\nPortable chargers may be borrowed for up to four hours and must remain inside the library. Laptops may be borrowed for one day and taken off site by registered students. Both require a valid student card. Return equipment to the service desk, not the book-return box. Report faults at the time of return. Renewals are possible only if nobody else has reserved the item. The service desk closes at 8 pm on weekdays. Equipment due after that time must be returned before closing or renewed in advance if eligible.",
+    "questions": [
+      {
+        "number": 17,
+        "kind": "choice",
+        "prompt": "Which item may be taken outside the library?",
+        "answers": [
+          "A borrowed laptop."
+        ],
+        "evidence": "Laptops may be taken off site by registered students.",
+        "explanation": "Laptops may be taken off site by registered students.",
+        "marks": 1,
+        "options": [
+          "Any charger.",
+          "Only a broken item.",
+          "A borrowed laptop.",
+          "No equipment."
+        ],
+        "id": "tf2-r-router-4-q1"
+      },
+      {
+        "number": 18,
+        "kind": "choice",
+        "prompt": "Where must equipment be returned?",
+        "answers": [
+          "The service desk."
+        ],
+        "evidence": "The notice explicitly excludes the book-return box.",
+        "explanation": "The notice explicitly excludes the book-return box.",
+        "marks": 1,
+        "options": [
+          "A classroom.",
+          "A student locker.",
+          "The book-return box.",
+          "The service desk."
+        ],
+        "id": "tf2-r-router-4-q2"
+      },
+      {
+        "number": 19,
+        "kind": "choice",
+        "prompt": "When is a renewal possible?",
+        "answers": [
+          "When there is no reservation for the item."
+        ],
+        "evidence": "Renewal depends on no other reservation.",
+        "explanation": "Renewal depends on no other reservation.",
+        "marks": 1,
+        "options": [
+          "When there is no reservation for the item.",
+          "Whenever a card has expired.",
+          "Only after closing.",
+          "Only when an item is faulty."
+        ],
+        "id": "tf2-r-router-4-q3"
+      },
+      {
+        "number": 20,
+        "kind": "choice",
+        "prompt": "What should someone with equipment due at 9 pm do?",
+        "answers": [
+          "Return before 8 pm or arrange an eligible renewal."
+        ],
+        "evidence": "The desk closes at 8; return before closing or renew in advance.",
+        "explanation": "The desk closes at 8; return before closing or renew in advance.",
+        "marks": 1,
+        "options": [
+          "Leave it outside the locked library.",
+          "Return before 8 pm or arrange an eligible renewal.",
+          "Wait until the next week automatically.",
+          "Put it in the book-return box."
+        ],
+        "id": "tf2-r-router-4-q4"
+      }
+    ],
+    "stage": "router"
+  },
+  {
+    "id": "tf2-r-router-5",
+    "title": "Read an Academic Passage — Learning from feedback",
+    "subtitle": "Module 1",
+    "part": 5,
+    "skill": "reading",
+    "instructions": "Choose the best answer using information in the text. You can revisit questions in this module until you submit it.",
+    "passage": "Feedback tells a learner something about a performance, but information alone does not guarantee improvement. A student may receive a detailed explanation and still repeat the same error if there is no opportunity to use the advice. For this reason, educational researchers distinguish between delivering feedback and designing a feedback process. The latter includes a task, information about the result and a later opportunity to act.\nConsider an original classroom example. After a short presentation, students receive comments on how clearly they supported their main point. In one group, the comments are filed away before a new topic begins. In another, students revise the same presentation and explain which comment informed the revision. The second arrangement makes the use of feedback visible. It does not establish that every revision is better, but it allows the teacher to examine what changed.\nFeedback also needs to be understandable. A technically correct comment may be too general to guide action. “Develop your argument” can mean little until linked to a specific unsupported claim. Conversely, correcting every detail may overwhelm a beginner. Effective feedback therefore depends on selection, explanation and timing, together with a learner who has a realistic chance to respond.",
+    "questions": [
+      {
+        "number": 21,
+        "kind": "choice",
+        "prompt": "What is the main idea?",
+        "answers": [
+          "A feedback process requires opportunities to use advice."
+        ],
+        "evidence": "The passage distinguishes delivering information from a process that includes action.",
+        "explanation": "The passage distinguishes delivering information from a process that includes action.",
+        "marks": 1,
+        "options": [
+          "Detailed comments always produce learning.",
+          "A feedback process requires opportunities to use advice.",
+          "Teachers should stop giving written comments.",
+          "Every revised presentation is necessarily better."
+        ],
+        "id": "tf2-r-router-5-q1"
+      },
+      {
+        "number": 22,
+        "kind": "choice",
+        "prompt": "Why is the classroom example included?",
+        "answers": [
+          "To illustrate different opportunities to apply feedback."
+        ],
+        "evidence": "One group revises using comments, while the other files them away.",
+        "explanation": "One group revises using comments, while the other files them away.",
+        "marks": 1,
+        "options": [
+          "To compare two presentation topics.",
+          "To prove comments should be private.",
+          "To illustrate different opportunities to apply feedback.",
+          "To show teachers cannot observe revisions."
+        ],
+        "id": "tf2-r-router-5-q2"
+      },
+      {
+        "number": 23,
+        "kind": "choice",
+        "prompt": "What does “the latter” refer to?",
+        "answers": [
+          "Designing a feedback process."
+        ],
+        "evidence": "The latter is the second of the two approaches named.",
+        "explanation": "The latter is the second of the two approaches named.",
+        "marks": 1,
+        "options": [
+          "Information alone.",
+          "Repeating an error.",
+          "Delivering feedback.",
+          "Designing a feedback process."
+        ],
+        "id": "tf2-r-router-5-q3"
+      },
+      {
+        "number": 24,
+        "kind": "choice",
+        "prompt": "Why might “Develop your argument” be unhelpful?",
+        "answers": [
+          "It may be too general without a specific example."
+        ],
+        "evidence": "The phrase needs a link to a specific unsupported claim.",
+        "explanation": "The phrase needs a link to a specific unsupported claim.",
+        "marks": 1,
+        "options": [
+          "It may be too general without a specific example.",
+          "It always contains incorrect information.",
+          "It is necessarily too long.",
+          "It tells learners exactly what to change."
+        ],
+        "id": "tf2-r-router-5-q4"
+      },
+      {
+        "number": 25,
+        "kind": "choice",
+        "prompt": "What can be inferred about correcting every detail?",
+        "answers": [
+          "It can make advice difficult for a beginner to manage."
+        ],
+        "evidence": "The last paragraph says correcting everything may overwhelm a beginner.",
+        "explanation": "The last paragraph says correcting everything may overwhelm a beginner.",
+        "marks": 1,
+        "options": [
+          "It is always the best beginner strategy.",
+          "It can make advice difficult for a beginner to manage.",
+          "It removes the need for a later task.",
+          "It guarantees a better presentation."
+        ],
+        "id": "tf2-r-router-5-q5"
+      }
+    ],
+    "stage": "router"
+  },
+  {
+    "id": "tf2-r-lower-1",
+    "title": "Complete the Words — Public transport",
+    "subtitle": "Module 2 · Foundation route",
+    "part": 1,
+    "skill": "reading",
+    "instructions": "Complete each word by typing only its missing letters.",
+    "passage": "A bus network connects different parts of a town. Passengers usually wait at a st[1] and check a timetable before travelling. Some services run every ten min[2], while others are less frequent. A ticket may cover a single journey or allow several tr[3] during one day. Clear signs help people fi[4] the right platform. Drivers and station staff can answer que[5] about routes. When a road is closed, a bus may follow a different pa[6]. Notices should explain the change so that passengers do not wa[7] in the wrong place. Reliable information is especially useful to people who are vis[8] the town for the first time. It helps them plan their journey with greater conf[9] and avoid unnecessary de[10].",
+    "questions": [
+      {
+        "number": 1,
+        "kind": "word-ending",
+        "prompt": "Gap 1: st… — type only the missing letters.",
+        "answers": [
+          "op"
+        ],
+        "evidence": "Passengers wait at a bus stop.",
+        "explanation": "Passengers wait at a bus stop.",
+        "marks": 1,
+        "prefix": "st",
+        "id": "tf2-r-lower-1-q1"
+      },
+      {
+        "number": 2,
+        "kind": "word-ending",
+        "prompt": "Gap 2: min… — type only the missing letters.",
+        "answers": [
+          "utes"
+        ],
+        "evidence": "Ten minutes is a frequency.",
+        "explanation": "Ten minutes is a frequency.",
+        "marks": 1,
+        "prefix": "min",
+        "id": "tf2-r-lower-1-q2"
+      },
+      {
+        "number": 3,
+        "kind": "word-ending",
+        "prompt": "Gap 3: tr… — type only the missing letters.",
+        "answers": [
+          "ips"
+        ],
+        "evidence": "Several trips can be covered by a day ticket.",
+        "explanation": "Several trips can be covered by a day ticket.",
+        "marks": 1,
+        "prefix": "tr",
+        "id": "tf2-r-lower-1-q3"
+      },
+      {
+        "number": 4,
+        "kind": "word-ending",
+        "prompt": "Gap 4: fi… — type only the missing letters.",
+        "answers": [
+          "nd"
+        ],
+        "evidence": "Signs help people find the platform.",
+        "explanation": "Signs help people find the platform.",
+        "marks": 1,
+        "prefix": "fi",
+        "id": "tf2-r-lower-1-q4"
+      },
+      {
+        "number": 5,
+        "kind": "word-ending",
+        "prompt": "Gap 5: que… — type only the missing letters.",
+        "answers": [
+          "stions"
+        ],
+        "evidence": "Staff answer questions.",
+        "explanation": "Staff answer questions.",
+        "marks": 1,
+        "prefix": "que",
+        "id": "tf2-r-lower-1-q5"
+      },
+      {
+        "number": 6,
+        "kind": "word-ending",
+        "prompt": "Gap 6: pa… — type only the missing letters.",
+        "answers": [
+          "th"
+        ],
+        "evidence": "A bus may follow a different path.",
+        "explanation": "A bus may follow a different path.",
+        "marks": 1,
+        "prefix": "pa",
+        "id": "tf2-r-lower-1-q6"
+      },
+      {
+        "number": 7,
+        "kind": "word-ending",
+        "prompt": "Gap 7: wa… — type only the missing letters.",
+        "answers": [
+          "it"
+        ],
+        "evidence": "Passengers should not wait at the wrong place.",
+        "explanation": "Passengers should not wait at the wrong place.",
+        "marks": 1,
+        "prefix": "wa",
+        "id": "tf2-r-lower-1-q7"
+      },
+      {
+        "number": 8,
+        "kind": "word-ending",
+        "prompt": "Gap 8: vis… — type only the missing letters.",
+        "answers": [
+          "iting"
+        ],
+        "evidence": "People are visiting the town.",
+        "explanation": "People are visiting the town.",
+        "marks": 1,
+        "prefix": "vis",
+        "id": "tf2-r-lower-1-q8"
+      },
+      {
+        "number": 9,
+        "kind": "word-ending",
+        "prompt": "Gap 9: conf… — type only the missing letters.",
+        "answers": [
+          "idence"
+        ],
+        "evidence": "The phrase is greater confidence.",
+        "explanation": "The phrase is greater confidence.",
+        "marks": 1,
+        "prefix": "conf",
+        "id": "tf2-r-lower-1-q9"
+      },
+      {
+        "number": 10,
+        "kind": "word-ending",
+        "prompt": "Gap 10: de… — type only the missing letters.",
+        "answers": [
+          "lays"
+        ],
+        "evidence": "Planning helps avoid unnecessary delays.",
+        "explanation": "Planning helps avoid unnecessary delays.",
+        "marks": 1,
+        "prefix": "de",
+        "id": "tf2-r-lower-1-q10"
+      }
+    ],
+    "stage": "lower"
+  },
+  {
+    "id": "tf2-r-lower-2",
+    "title": "Read in Daily Life — Volunteer meeting",
+    "subtitle": "Module 2 · Foundation route",
+    "part": 2,
+    "skill": "reading",
+    "instructions": "Choose the best answer using information in the text. You can revisit questions in this module until you submit it.",
+    "passage": "Hello volunteers,\nOur garden planning meeting has moved from Tuesday to Wednesday at 4 pm. We will meet in the cafeteria because the garden shelter is being painted. Please bring one idea for the spring planting plan. There is no need to buy seeds yet; we will agree on the plan first and order them together next month. If you cannot attend, send your idea to me by Wednesday morning and I will include it in the discussion.\nThanks, Elena",
+    "questions": [
+      {
+        "number": 11,
+        "kind": "choice",
+        "prompt": "When is the meeting?",
+        "answers": [
+          "Wednesday at 4 pm."
+        ],
+        "evidence": "The meeting has moved to Wednesday at 4 pm.",
+        "explanation": "The meeting has moved to Wednesday at 4 pm.",
+        "marks": 1,
+        "options": [
+          "Tuesday morning.",
+          "Wednesday at 4 pm.",
+          "Next month.",
+          "Tuesday at 4 pm."
+        ],
+        "id": "tf2-r-lower-2-q1"
+      },
+      {
+        "number": 12,
+        "kind": "choice",
+        "prompt": "Why is the cafeteria being used?",
+        "answers": [
+          "The shelter is being painted."
+        ],
+        "evidence": "The usual shelter is being painted.",
+        "explanation": "The usual shelter is being painted.",
+        "marks": 1,
+        "options": [
+          "It sells seeds.",
+          "It is beside every volunteer’s home.",
+          "The shelter is being painted.",
+          "The group has cancelled planting."
+        ],
+        "id": "tf2-r-lower-2-q2"
+      },
+      {
+        "number": 13,
+        "kind": "choice",
+        "prompt": "What should someone who cannot attend do?",
+        "answers": [
+          "Send an idea before Wednesday afternoon."
+        ],
+        "evidence": "Ideas should be sent by Wednesday morning.",
+        "explanation": "Ideas should be sent by Wednesday morning.",
+        "marks": 1,
+        "options": [
+          "Buy seeds immediately.",
+          "Visit the shelter alone.",
+          "Wait until spring.",
+          "Send an idea before Wednesday afternoon."
+        ],
+        "id": "tf2-r-lower-2-q3"
+      }
+    ],
+    "stage": "lower"
+  },
+  {
+    "id": "tf2-r-lower-3",
+    "title": "Read in Daily Life — Museum visit",
+    "subtitle": "Module 2 · Foundation route",
+    "part": 3,
+    "skill": "reading",
+    "instructions": "Choose the best answer using information in the text. You can revisit questions in this module until you submit it.",
+    "passage": "Museum student visit\nMeet outside the history building at 9.20 on Friday. The coach leaves at 9.30 and cannot wait for late arrivals. Admission to the museum is included in the course fee, but lunch is not. You may bring a packed lunch or use the museum cafe. Large bags must be left in the museum lockers. A small notebook is useful because you will choose one object to discuss in next week's seminar. Photography is allowed in the main collection, but not in the temporary exhibition.",
+    "questions": [
+      {
+        "number": 14,
+        "kind": "choice",
+        "prompt": "What must students pay for separately if they do not bring it?",
+        "answers": [
+          "Lunch."
+        ],
+        "evidence": "Lunch is not included.",
+        "explanation": "Lunch is not included.",
+        "marks": 1,
+        "options": [
+          "Museum admission.",
+          "Coach travel.",
+          "A locker key to keep.",
+          "Lunch."
+        ],
+        "id": "tf2-r-lower-3-q1"
+      },
+      {
+        "number": 15,
+        "kind": "choice",
+        "prompt": "Why is a notebook recommended?",
+        "answers": [
+          "Students will choose an object for a later discussion."
+        ],
+        "evidence": "An object will be discussed in next week’s seminar.",
+        "explanation": "An object will be discussed in next week’s seminar.",
+        "marks": 1,
+        "options": [
+          "Students will choose an object for a later discussion.",
+          "The museum requires a written entrance test.",
+          "Cameras are prohibited everywhere.",
+          "Students must copy all the labels."
+        ],
+        "id": "tf2-r-lower-3-q2"
+      },
+      {
+        "number": 16,
+        "kind": "choice",
+        "prompt": "Where is photography prohibited?",
+        "answers": [
+          "The temporary exhibition."
+        ],
+        "evidence": "Photography is not allowed in the temporary exhibition.",
+        "explanation": "Photography is not allowed in the temporary exhibition.",
+        "marks": 1,
+        "options": [
+          "The coach.",
+          "The temporary exhibition.",
+          "The main collection.",
+          "The history building entrance."
+        ],
+        "id": "tf2-r-lower-3-q3"
+      }
+    ],
+    "stage": "lower"
+  },
+  {
+    "id": "tf2-r-lower-4",
+    "title": "Read in Daily Life — Shared kitchen",
+    "subtitle": "Module 2 · Foundation route",
+    "part": 4,
+    "skill": "reading",
+    "instructions": "Choose the best answer using information in the text. You can revisit questions in this module until you submit it.",
+    "passage": "Residence kitchen update\nThe kitchen on floor two will be closed on Monday and Tuesday while the cooker is replaced. Residents may use the floor-three kitchen during this period. Label food with your name and room number. Food already in the floor-two refrigerator will be moved to a labelled shelf on floor three by staff on Monday morning. Please collect personal cooking equipment from the cupboards before Sunday evening. Staff will not move pots or plates. Both kitchens will receive a safety check on Wednesday; the expected reopening time will be posted after the check.",
+    "questions": [
+      {
+        "number": 17,
+        "kind": "choice",
+        "prompt": "Why will the kitchen close?",
+        "answers": [
+          "The cooker is being replaced."
+        ],
+        "evidence": "The cooker is being replaced.",
+        "explanation": "The cooker is being replaced.",
+        "marks": 1,
+        "options": [
+          "A refrigerator has disappeared.",
+          "All residents are leaving.",
+          "The cooker is being replaced.",
+          "The building is being sold."
+        ],
+        "id": "tf2-r-lower-4-q1"
+      },
+      {
+        "number": 18,
+        "kind": "choice",
+        "prompt": "Who will move food from the refrigerator?",
+        "answers": [
+          "Residence staff."
+        ],
+        "evidence": "Staff move the food on Monday morning.",
+        "explanation": "Staff move the food on Monday morning.",
+        "marks": 1,
+        "options": [
+          "Visitors.",
+          "Only floor-three residents.",
+          "Nobody.",
+          "Residence staff."
+        ],
+        "id": "tf2-r-lower-4-q2"
+      },
+      {
+        "number": 19,
+        "kind": "choice",
+        "prompt": "What should residents remove themselves?",
+        "answers": [
+          "Their cooking equipment."
+        ],
+        "evidence": "Staff will not move pots or plates.",
+        "explanation": "Staff will not move pots or plates.",
+        "marks": 1,
+        "options": [
+          "Their cooking equipment.",
+          "The new cooker.",
+          "The floor-three shelves.",
+          "The safety notices."
+        ],
+        "id": "tf2-r-lower-4-q3"
+      },
+      {
+        "number": 20,
+        "kind": "choice",
+        "prompt": "When will a reopening time be announced?",
+        "answers": [
+          "After the safety check."
+        ],
+        "evidence": "The time is posted after Wednesday’s check.",
+        "explanation": "The time is posted after Wednesday’s check.",
+        "marks": 1,
+        "options": [
+          "Before Sunday evening.",
+          "After the safety check.",
+          "Automatically on Monday morning.",
+          "After the next term."
+        ],
+        "id": "tf2-r-lower-4-q4"
+      }
+    ],
+    "stage": "lower"
+  },
+  {
+    "id": "tf2-r-lower-5",
+    "title": "Read an Academic Passage — Seed storage",
+    "subtitle": "Module 2 · Foundation route",
+    "part": 5,
+    "skill": "reading",
+    "instructions": "Choose the best answer using information in the text. You can revisit questions in this module until you submit it.",
+    "passage": "Seeds allow many plants to begin growing when conditions become suitable. A seed contains a young plant and a supply of stored material that supports its earliest development. However, keeping a seed alive for future use requires attention to storage conditions. Moisture and temperature can affect how long it remains capable of growing.\nSeed collections are maintained for several reasons. A gardener may save seeds from a familiar vegetable, while a research collection may preserve a wide range of plant varieties. These purposes require records. Without information about where a sample came from, a collection of apparently similar seeds can lose much of its usefulness. Labels therefore belong to the scientific work, rather than being a minor administrative detail.\nNot all seeds respond to storage in the same way. Conditions suitable for one kind may damage another. Collections test samples periodically to see whether they will still germinate, meaning begin to grow. A test uses only part of a sample so that the rest can remain available. Results help staff decide when fresh material is needed. Thus, successful storage is an ongoing process of monitoring and documentation, not simply a matter of putting seeds into a cupboard and leaving them there.",
+    "questions": [
+      {
+        "number": 21,
+        "kind": "choice",
+        "prompt": "What is the main purpose of the passage?",
+        "answers": [
+          "To explain why seed storage requires continuing care."
+        ],
+        "evidence": "The passage emphasises conditions, records and monitoring.",
+        "explanation": "The passage emphasises conditions, records and monitoring.",
+        "marks": 1,
+        "options": [
+          "To argue gardeners should never save seeds.",
+          "To explain why seed storage requires continuing care.",
+          "To compare vegetable prices.",
+          "To describe only how flowers are coloured."
+        ],
+        "id": "tf2-r-lower-5-q1"
+      },
+      {
+        "number": 22,
+        "kind": "choice",
+        "prompt": "Why are labels important?",
+        "answers": [
+          "They preserve information about each sample’s origin."
+        ],
+        "evidence": "Origin information helps retain the collection’s usefulness.",
+        "explanation": "Origin information helps retain the collection’s usefulness.",
+        "marks": 1,
+        "options": [
+          "They make all seeds grow faster.",
+          "They replace suitable storage conditions.",
+          "They preserve information about each sample’s origin.",
+          "They prevent staff from testing samples."
+        ],
+        "id": "tf2-r-lower-5-q2"
+      },
+      {
+        "number": 23,
+        "kind": "choice",
+        "prompt": "What does “germinate” mean in the passage?",
+        "answers": [
+          "Begin to grow."
+        ],
+        "evidence": "The text explicitly defines germinate.",
+        "explanation": "The text explicitly defines germinate.",
+        "marks": 1,
+        "options": [
+          "Become dry.",
+          "Change colour.",
+          "Be labelled.",
+          "Begin to grow."
+        ],
+        "id": "tf2-r-lower-5-q3"
+      },
+      {
+        "number": 24,
+        "kind": "choice",
+        "prompt": "Why is only part of a sample tested?",
+        "answers": [
+          "So the remaining seeds stay available."
+        ],
+        "evidence": "The rest of the sample remains available.",
+        "explanation": "The rest of the sample remains available.",
+        "marks": 1,
+        "options": [
+          "So the remaining seeds stay available.",
+          "Because labels are always incorrect.",
+          "Because every seed must be destroyed.",
+          "To avoid keeping any records."
+        ],
+        "id": "tf2-r-lower-5-q4"
+      },
+      {
+        "number": 25,
+        "kind": "choice",
+        "prompt": "What can be inferred about storage conditions?",
+        "answers": [
+          "They may need to differ between kinds of seed."
+        ],
+        "evidence": "The third paragraph says conditions for one kind may damage another.",
+        "explanation": "The third paragraph says conditions for one kind may damage another.",
+        "marks": 1,
+        "options": [
+          "One method is guaranteed for all species.",
+          "They may need to differ between kinds of seed.",
+          "They have no effect on survival.",
+          "They matter only for home gardeners."
+        ],
+        "id": "tf2-r-lower-5-q5"
+      }
+    ],
+    "stage": "lower"
+  },
+  {
+    "id": "tf2-r-upper-1",
+    "title": "Complete the Words — Collective observation",
+    "subtitle": "Module 2 · Challenge route",
+    "part": 1,
+    "skill": "reading",
+    "instructions": "Complete each word by typing only its missing letters.",
+    "passage": "Citizen observation projects invite non-specialists to contribute records of their surroundings. Their value de[1] on more than the number of submissions. Participants must interpret instructions cons[2] so that observations can be compared. A record without a date or loca[3] may be impossible to verify. Researchers therefore design forms that make essential det[4] difficult to overlook. They also explain why an observation that seems ord[5] can be useful. If volunteers report only unusual events, the data may misrep[6] everyday conditions. Feedback encourages continued parti[7], but it should not imply that every submitted record is equally rel[8]. A transparent process for checking uncertain cases helps protect both scientific quality and public tr[9]. The aim is collaboration supported by appropriate evi[10].",
+    "questions": [
+      {
+        "number": 1,
+        "kind": "word-ending",
+        "prompt": "Gap 1: de… — type only the missing letters.",
+        "answers": [
+          "pends"
+        ],
+        "evidence": "Value depends on quality as well as quantity.",
+        "explanation": "Value depends on quality as well as quantity.",
+        "marks": 1,
+        "prefix": "de",
+        "id": "tf2-r-upper-1-q1"
+      },
+      {
+        "number": 2,
+        "kind": "word-ending",
+        "prompt": "Gap 2: cons… — type only the missing letters.",
+        "answers": [
+          "istently"
+        ],
+        "evidence": "Comparable observations require consistent interpretation.",
+        "explanation": "Comparable observations require consistent interpretation.",
+        "marks": 1,
+        "prefix": "cons",
+        "id": "tf2-r-upper-1-q2"
+      },
+      {
+        "number": 3,
+        "kind": "word-ending",
+        "prompt": "Gap 3: loca… — type only the missing letters.",
+        "answers": [
+          "tion"
+        ],
+        "evidence": "A date and location allow verification.",
+        "explanation": "A date and location allow verification.",
+        "marks": 1,
+        "prefix": "loca",
+        "id": "tf2-r-upper-1-q3"
+      },
+      {
+        "number": 4,
+        "kind": "word-ending",
+        "prompt": "Gap 4: det… — type only the missing letters.",
+        "answers": [
+          "ails"
+        ],
+        "evidence": "Essential details belong in the form.",
+        "explanation": "Essential details belong in the form.",
+        "marks": 1,
+        "prefix": "det",
+        "id": "tf2-r-upper-1-q4"
+      },
+      {
+        "number": 5,
+        "kind": "word-ending",
+        "prompt": "Gap 5: ord… — type only the missing letters.",
+        "answers": [
+          "inary"
+        ],
+        "evidence": "Ordinary observations contrast with unusual events.",
+        "explanation": "Ordinary observations contrast with unusual events.",
+        "marks": 1,
+        "prefix": "ord",
+        "id": "tf2-r-upper-1-q5"
+      },
+      {
+        "number": 6,
+        "kind": "word-ending",
+        "prompt": "Gap 6: misrep… — type only the missing letters.",
+        "answers": [
+          "resent"
+        ],
+        "evidence": "Reporting only unusual events can misrepresent conditions.",
+        "explanation": "Reporting only unusual events can misrepresent conditions.",
+        "marks": 1,
+        "prefix": "misrep",
+        "id": "tf2-r-upper-1-q6"
+      },
+      {
+        "number": 7,
+        "kind": "word-ending",
+        "prompt": "Gap 7: parti… — type only the missing letters.",
+        "answers": [
+          "cipation"
+        ],
+        "evidence": "Feedback encourages continued participation.",
+        "explanation": "Feedback encourages continued participation.",
+        "marks": 1,
+        "prefix": "parti",
+        "id": "tf2-r-upper-1-q7"
+      },
+      {
+        "number": 8,
+        "kind": "word-ending",
+        "prompt": "Gap 8: rel… — type only the missing letters.",
+        "answers": [
+          "iable"
+        ],
+        "evidence": "Reliability varies between submitted records.",
+        "explanation": "Reliability varies between submitted records.",
+        "marks": 1,
+        "prefix": "rel",
+        "id": "tf2-r-upper-1-q8"
+      },
+      {
+        "number": 9,
+        "kind": "word-ending",
+        "prompt": "Gap 9: tr… — type only the missing letters.",
+        "answers": [
+          "ust"
+        ],
+        "evidence": "Transparent checking protects public trust.",
+        "explanation": "Transparent checking protects public trust.",
+        "marks": 1,
+        "prefix": "tr",
+        "id": "tf2-r-upper-1-q9"
+      },
+      {
+        "number": 10,
+        "kind": "word-ending",
+        "prompt": "Gap 10: evi… — type only the missing letters.",
+        "answers": [
+          "dence"
+        ],
+        "evidence": "Evidence supports collaboration.",
+        "explanation": "Evidence supports collaboration.",
+        "marks": 1,
+        "prefix": "evi",
+        "id": "tf2-r-upper-1-q10"
+      }
+    ],
+    "stage": "upper"
+  },
+  {
+    "id": "tf2-r-upper-2",
+    "title": "Read in Daily Life — Research access",
+    "subtitle": "Module 2 · Challenge route",
+    "part": 2,
+    "skill": "reading",
+    "instructions": "Choose the best answer using information in the text. You can revisit questions in this module until you submit it.",
+    "passage": "To: Visiting researchers\nSubject: Archive appointments\nFrom next month, requests for uncatalogued material must reach us five working days before an appointment. Requests for catalogued items still require only two. The change gives staff time to assess condition and prepare handling instructions; it does not extend the length of appointments. Readers who already have confirmation for next month need not reapply. However, adding uncatalogued items to an existing request will bring the new notice period into effect. Contact the archive desk if the online form does not allow you to describe the material adequately.",
+    "questions": [
+      {
+        "number": 11,
+        "kind": "choice",
+        "prompt": "What is the purpose of the longer notice period?",
+        "answers": [
+          "To assess and prepare fragile or unprocessed material."
+        ],
+        "evidence": "Staff need time to assess condition and prepare handling instructions.",
+        "explanation": "Staff need time to assess condition and prepare handling instructions.",
+        "marks": 1,
+        "options": [
+          "To assess and prepare fragile or unprocessed material.",
+          "To shorten all research appointments.",
+          "To eliminate catalogued items.",
+          "To require all confirmed visitors to reapply."
+        ],
+        "id": "tf2-r-upper-2-q1"
+      },
+      {
+        "number": 12,
+        "kind": "choice",
+        "prompt": "Who may be affected despite having a confirmed appointment?",
+        "answers": [
+          "Someone adding uncatalogued material."
+        ],
+        "evidence": "Adding uncatalogued items activates the new period.",
+        "explanation": "Adding uncatalogued items activates the new period.",
+        "marks": 1,
+        "options": [
+          "Someone using only already requested catalogued items.",
+          "Someone adding uncatalogued material.",
+          "Anyone who has read the notice.",
+          "A visitor asking where the desk is."
+        ],
+        "id": "tf2-r-upper-2-q2"
+      },
+      {
+        "number": 13,
+        "kind": "choice",
+        "prompt": "What does the notice imply about the online form?",
+        "answers": [
+          "It may not suit every request."
+        ],
+        "evidence": "Readers should contact staff if the form cannot describe material adequately.",
+        "explanation": "Readers should contact staff if the form cannot describe material adequately.",
+        "marks": 1,
+        "options": [
+          "It contains every possible description.",
+          "It has been withdrawn permanently.",
+          "It may not suit every request.",
+          "It automatically assesses an item’s condition."
+        ],
+        "id": "tf2-r-upper-2-q3"
+      }
+    ],
+    "stage": "upper"
+  },
+  {
+    "id": "tf2-r-upper-3",
+    "title": "Read in Daily Life — Project message",
+    "subtitle": "Module 2 · Challenge route",
+    "part": 3,
+    "skill": "reading",
+    "instructions": "Choose the best answer using information in the text. You can revisit questions in this module until you submit it.",
+    "passage": "Priya: The exhibition panels are ready, but the supplier cannot deliver the stands until Thursday. We can keep Friday's opening if we install on Thursday afternoon.\nJon: The hall is booked for a debate until six. I can ask whether we can store the panels in the side room earlier, but installation in the main hall must wait.\nPriya: Please do. We should keep the opening date provisional until the supplier confirms the delivery window.\nJon: Agreed. I'll ask two volunteers to keep Thursday evening available, without promising that installation will definitely happen then.",
+    "questions": [
+      {
+        "number": 14,
+        "kind": "choice",
+        "prompt": "What is preventing a firm opening confirmation?",
+        "answers": [
+          "Uncertain delivery timing."
+        ],
+        "evidence": "The date remains provisional until the supplier confirms a window.",
+        "explanation": "The date remains provisional until the supplier confirms a window.",
+        "marks": 1,
+        "options": [
+          "A decision to cancel all exhibitions.",
+          "A lack of finished panels.",
+          "An inability to contact volunteers.",
+          "Uncertain delivery timing."
+        ],
+        "id": "tf2-r-upper-3-q1"
+      },
+      {
+        "number": 15,
+        "kind": "choice",
+        "prompt": "What might be possible before six on Thursday?",
+        "answers": [
+          "Storing panels in a side room."
+        ],
+        "evidence": "Jon proposes asking about side-room storage.",
+        "explanation": "Jon proposes asking about side-room storage.",
+        "marks": 1,
+        "options": [
+          "Storing panels in a side room.",
+          "Installing in the occupied main hall.",
+          "Holding the Friday opening.",
+          "Finishing the debate early without asking."
+        ],
+        "id": "tf2-r-upper-3-q2"
+      },
+      {
+        "number": 16,
+        "kind": "choice",
+        "prompt": "What is Jon’s attitude towards the volunteers?",
+        "answers": [
+          "He wants them available while explaining uncertainty."
+        ],
+        "evidence": "He asks them to keep the evening free without a definite promise.",
+        "explanation": "He asks them to keep the evening free without a definite promise.",
+        "marks": 1,
+        "options": [
+          "He guarantees an installation time.",
+          "He wants them available while explaining uncertainty.",
+          "He asks them to collect the stands immediately.",
+          "He excludes them from the project."
+        ],
+        "id": "tf2-r-upper-3-q3"
+      }
+    ],
+    "stage": "upper"
+  },
+  {
+    "id": "tf2-r-upper-4",
+    "title": "Read in Daily Life — Funding decision",
+    "subtitle": "Module 2 · Challenge route",
+    "part": 4,
+    "skill": "reading",
+    "instructions": "Choose the best answer using information in the text. You can revisit questions in this module until you submit it.",
+    "passage": "Community project fund: decision notice\nThe panel supports your proposal in principle and has reserved up to £1,800, subject to receipt of a revised budget by 18 May. The revised version must separate essential access costs from optional publicity spending. This reservation is not permission to incur expenses. Once the coordinator confirms acceptance of the revision in writing, approved expenses may be claimed against receipts. Any unspent balance returns to the fund after 30 September. A request to change the project scope must be agreed before the change is made, even if it would reduce the total cost.",
+    "questions": [
+      {
+        "number": 17,
+        "kind": "choice",
+        "prompt": "What does the notice communicate?",
+        "answers": [
+          "Conditional support pending a revised budget."
+        ],
+        "evidence": "Support is in principle and conditional on the revised budget.",
+        "explanation": "Support is in principle and conditional on the revised budget.",
+        "marks": 1,
+        "options": [
+          "An unconditional payment already made.",
+          "A requirement to spend the whole balance.",
+          "Conditional support pending a revised budget.",
+          "A rejection with no possibility of revision."
+        ],
+        "id": "tf2-r-upper-4-q1"
+      },
+      {
+        "number": 18,
+        "kind": "choice",
+        "prompt": "When may approved expenses begin to be incurred?",
+        "answers": [
+          "After written acceptance of the revision."
+        ],
+        "evidence": "The reservation itself is not permission to incur costs.",
+        "explanation": "The reservation itself is not permission to incur costs.",
+        "marks": 1,
+        "options": [
+          "When the applicant first reads the notice.",
+          "After 30 September.",
+          "Whenever costs decrease.",
+          "After written acceptance of the revision."
+        ],
+        "id": "tf2-r-upper-4-q2"
+      },
+      {
+        "number": 19,
+        "kind": "choice",
+        "prompt": "What must the revised budget distinguish?",
+        "answers": [
+          "Essential access costs and optional publicity."
+        ],
+        "evidence": "The notice states the required distinction.",
+        "explanation": "The notice states the required distinction.",
+        "marks": 1,
+        "options": [
+          "Essential access costs and optional publicity.",
+          "All previous applicants.",
+          "Only the cost of receipts.",
+          "The panel members’ personal expenses."
+        ],
+        "id": "tf2-r-upper-4-q3"
+      },
+      {
+        "number": 20,
+        "kind": "choice",
+        "prompt": "What if a scope change would save money?",
+        "answers": [
+          "It still needs advance agreement."
+        ],
+        "evidence": "Advance agreement is required even when cost decreases.",
+        "explanation": "Advance agreement is required even when cost decreases.",
+        "marks": 1,
+        "options": [
+          "It can always be made without notice.",
+          "It still needs advance agreement.",
+          "The grant automatically doubles.",
+          "The September deadline disappears."
+        ],
+        "id": "tf2-r-upper-4-q4"
+      }
+    ],
+    "stage": "upper"
+  },
+  {
+    "id": "tf2-r-upper-5",
+    "title": "Read an Academic Passage — Measuring a proxy",
+    "subtitle": "Module 2 · Challenge route",
+    "part": 5,
+    "skill": "reading",
+    "instructions": "Choose the best answer using information in the text. You can revisit questions in this module until you submit it.",
+    "passage": "Researchers often measure something observable as a substitute, or proxy, for a quality that is difficult to observe directly. Library entrance counts, for example, may help describe use of a building. They do not by themselves reveal the quality of learning inside. A rise in visits could reflect a popular cafe, a longer opening schedule or improved study facilities. The number is real, but its interpretation depends on the question being asked.\nA proxy can become particularly misleading when it becomes a target. Imagine a fictional programme judged entirely by the number of workshops delivered. Staff might divide one substantial session into several brief events, increasing the count without improving the experience. This does not mean that counts are worthless. It means that incentives can alter the relationship between a measure and the underlying goal.\nOne response is to combine evidence: attendance, participant accounts and examples of subsequent work may illuminate different aspects of an activity. Yet adding measures also adds effort and cannot remove every judgement. The strongest evaluation explains why each measure is relevant, how it may be distorted and which conclusions remain uncertain. Precision in reporting a number should therefore be accompanied by restraint in claiming what the number proves.",
+    "questions": [
+      {
+        "number": 21,
+        "kind": "choice",
+        "prompt": "What is the central argument?",
+        "answers": [
+          "Observable measures require careful interpretation."
+        ],
+        "evidence": "The passage distinguishes a real number from its interpretation.",
+        "explanation": "The passage distinguishes a real number from its interpretation.",
+        "marks": 1,
+        "options": [
+          "Numerical evidence should never be used.",
+          "Observable measures require careful interpretation.",
+          "Learning quality equals entrance counts.",
+          "Combining measures removes every judgement."
+        ],
+        "id": "tf2-r-upper-5-q1"
+      },
+      {
+        "number": 22,
+        "kind": "choice",
+        "prompt": "Why does the author mention the cafe?",
+        "answers": [
+          "To provide an alternative explanation for increased visits."
+        ],
+        "evidence": "The cafe is one possible cause of increased entrance counts.",
+        "explanation": "The cafe is one possible cause of increased entrance counts.",
+        "marks": 1,
+        "options": [
+          "To recommend library catering.",
+          "To prove visits are always recreational.",
+          "To provide an alternative explanation for increased visits.",
+          "To replace every other form of evaluation."
+        ],
+        "id": "tf2-r-upper-5-q2"
+      },
+      {
+        "number": 23,
+        "kind": "choice",
+        "prompt": "What problem does the workshop example illustrate?",
+        "answers": [
+          "A target can encourage changes that inflate a proxy."
+        ],
+        "evidence": "Dividing a session increases the count without improving experience.",
+        "explanation": "Dividing a session increases the count without improving experience.",
+        "marks": 1,
+        "options": [
+          "Staff cannot count events.",
+          "Short workshops are necessarily better.",
+          "All evaluation is impossible.",
+          "A target can encourage changes that inflate a proxy."
+        ],
+        "id": "tf2-r-upper-5-q3"
+      },
+      {
+        "number": 24,
+        "kind": "choice",
+        "prompt": "What does “restraint” most nearly mean here?",
+        "answers": [
+          "Caution."
+        ],
+        "evidence": "The author advises caution about what a number proves.",
+        "explanation": "The author advises caution about what a number proves.",
+        "marks": 1,
+        "options": [
+          "Caution.",
+          "Speed.",
+          "Certainty.",
+          "Repetition."
+        ],
+        "id": "tf2-r-upper-5-q4"
+      },
+      {
+        "number": 25,
+        "kind": "choice",
+        "prompt": "What is implied about combining evidence?",
+        "answers": [
+          "It can help while still leaving limitations."
+        ],
+        "evidence": "Different evidence helps, but increases effort and retains judgement.",
+        "explanation": "Different evidence helps, but increases effort and retains judgement.",
+        "marks": 1,
+        "options": [
+          "It guarantees a single perfect conclusion.",
+          "It can help while still leaving limitations.",
+          "It eliminates the cost of evaluation.",
+          "It makes participant accounts unnecessary."
+        ],
+        "id": "tf2-r-upper-5-q5"
+      }
+    ],
+    "stage": "upper"
+  }
+]

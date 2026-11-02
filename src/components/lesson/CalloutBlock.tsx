@@ -1,3 +1,4 @@
+import { LearningArt } from "@/components/brand/LearningArt";
 import { Lightbulb, BookOpen, Info, AlertTriangle } from "lucide-react";
 
 interface Props { tone?: "tip" | "rule" | "note" | "warning"; title?: string; text: string }
@@ -14,10 +15,10 @@ export function CalloutBlock({ tone = "note", title, text }: Props) {
   const Icon = s.icon;
 
   return (
-    <div className="rounded-[var(--radius-lg)] p-5 border-2" style={{ backgroundColor: s.bg, borderColor: s.border, boxShadow: `0 3px 0 ${s.border}` }}>
-      <div className="flex gap-4">
-        <div className="w-9 h-9 rounded-[var(--radius-md)] bg-[var(--color-surface)] flex items-center justify-center flex-shrink-0 border-2 border-[var(--color-border-default)]" style={{ boxShadow: "0 2px 0 var(--color-border-default)" }}>
-          <Icon className="w-5 h-5" style={{ color: s.color }} />
+    <div className="rounded-[var(--radius-lg)] p-4 border" style={{ backgroundColor: s.bg, borderColor: s.border, boxShadow: "var(--shadow-1)" }}>
+      <div className="flex gap-3">
+        <div className="w-9 h-9 rounded-[var(--radius-md)] bg-[var(--color-surface)] flex items-center justify-center flex-shrink-0 border border-[var(--color-border-default)]" style={{ boxShadow: "none" }}>
+          <LearningArt name={Icon.displayName || "book"} size={20} className="w-5 h-5" />
         </div>
         <div className="flex-1">
           {title && <p className="font-display font-extrabold mb-1.5 text-sm" style={{ color: s.color }}>{title}</p>}

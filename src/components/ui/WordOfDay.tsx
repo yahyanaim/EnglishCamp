@@ -1,4 +1,5 @@
 "use client";
+import { LearningArt } from "@/components/brand/LearningArt";
 import { useState, useEffect } from "react";
 import { useVocabulary } from "@/store/useVocabulary";
 import { SpeakerButton } from "./SpeakerButton";
@@ -62,13 +63,13 @@ export function WordOfDay() {
     <motion.div
       initial={{ opacity: 0, y: 12 }}
       animate={{ opacity: 1, y: 0 }}
-      className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] p-5 border-2 border-[var(--color-border-default)] transition-all duration-200"
-      style={{ boxShadow: "0 3px 0 var(--color-border-default)" }}
+      className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] p-5 border border-[var(--color-border-default)] transition-all duration-200"
+      style={{ boxShadow: "var(--shadow-1)" }}
     >
       <div className="flex items-center justify-between mb-2">
         <div className="flex items-center gap-2">
-          <BookOpen className="w-4 h-4" style={{ color: "var(--color-info)" }} />
-          <span className="font-body font-semibold text-[10px] uppercase tracking-wider" style={{ color: "var(--color-info-dark)" }}>
+          <LearningArt name="BookOpen" size={16} className="w-4 h-4" />
+          <span className="font-body font-semibold text-[10px] uppercase tracking-wider" style={{ color: "var(--color-text-info)" }}>
             Word of the Day
           </span>
         </div>
@@ -76,7 +77,7 @@ export function WordOfDay() {
           <button
             onClick={() => setRevealed(true)}
             className="font-body text-xs font-semibold inline-flex items-center gap-0.5 transition-all duration-150"
-            style={{ color: "var(--color-info-dark)" }}
+            style={{ color: "var(--color-text-info)" }}
           >
             Reveal <ChevronRight className="w-3 h-3" />
           </button>
@@ -95,15 +96,15 @@ export function WordOfDay() {
           className="mt-2"
         >
           <p className="font-body text-sm italic" style={{ color: "var(--color-text-secondary)" }}>{word.en}</p>
-          {word.ar && <p className="font-body text-sm mt-0.5" style={{ color: "var(--color-text-disabled)" }}>{word.ar}</p>}
+          {word.ar && <p className="font-body text-sm mt-0.5" style={{ color: "var(--color-text-secondary)" }}>{word.ar}</p>}
           <div className="flex gap-2 mt-3">
             <button
               onClick={handleAdd}
               disabled={added}
-              className="font-body text-xs font-semibold px-3 py-1.5 rounded-[var(--radius-pill)] border-2 transition-all duration-150"
+              className="font-body text-xs font-semibold px-3 py-1.5 rounded-[var(--radius-pill)] border transition-all duration-150"
               style={{
                 backgroundColor: added ? "var(--color-success-bg)" : "var(--color-primary-subtle)",
-                color: added ? "var(--color-success-dark)" : "var(--color-primary-dark)",
+                color: added ? "var(--color-text-success)" : "var(--color-text-link)",
                 borderColor: added ? "var(--color-success)" : "var(--color-primary)",
               }}
             >

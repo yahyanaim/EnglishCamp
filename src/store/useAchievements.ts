@@ -1,3 +1,4 @@
+import { learnerStorage } from "@/lib/learnerStorage";
 import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
 import { useProgress } from "./useProgress";
@@ -175,6 +176,6 @@ export const useAchievements = create<AchievementState & AchievementActions>()(
         return { current, target, pct: Math.min(100, Math.round((current / target) * 100)) };
       },
     }),
-    { name: "englishcamp-achievements", storage: createJSONStorage(() => localStorage) }
+    { name: "englishcamp-achievements", skipHydration: true, storage: createJSONStorage(() => learnerStorage) }
   )
 );

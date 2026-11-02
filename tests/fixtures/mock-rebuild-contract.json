@@ -1,0 +1,71 @@
+{
+  "scope": "User-authorised mock content, delivery, assessment and local recording rebuild. Course content, visual tokens, layout shell, old sample data and old neural recordings preserved.",
+  "integration": {
+    "src/app/mock-exam/page.tsx": {
+      "before": "a91aa8504290119d319c7e9e66d67dd811ca005c2f35a65867752ba627a5742f",
+      "after": "1f76817bce15dfb3818fc7b20d5dfefda11859655f0e3bc7f8697cb395665597"
+    },
+    "src/components/layout/Sidebar.tsx": {
+      "before": "58bd070b5501639e739be9d964cb6c22c58eaa241b4d88da72400c28027f3732",
+      "after": "0333283e8c537d36d5187a9ce30514c1a42ab1b690344bd3de01da2ede85e598"
+    },
+    "src/components/layout/CommandPalette.tsx": {
+      "before": "5255979bbb1ba3122b5bdbfe84c2f36085a1d9b28a439115f243a8c3c2e8456c",
+      "after": "a4a8ecbea2ba9eae8c16258e01478b168450cb9a07fe9507531ab49cc8ab0af6"
+    },
+    "src/data/content.ts": {
+      "before": "1236600504362f0d453e578fc247eeaf3b3d71ade4b8c96884703235548cb814",
+      "after": "812b65fe4f559006dca76f80291ede7f62817aa7cac4000f0560c149d6a2e3de"
+    },
+    "src/data/course-catalogue.ts": {
+      "before": "d3acd4982d988218f2ed6a52d92e411017a7cd1b4ae18ad99e45fcfd7e560a25",
+      "after": "c10c0532a6d05539351d531b9c2ef743f725179c96c08536346374e2c157fb39"
+    }
+  },
+  "protectedUI": {
+    "src/app/globals.css": "e2168ade61b1587c3532b81f49fef01b36c4ad8dbea63a25a6a23abbfb193ed1",
+    "src/components/layout/Navbar.tsx": "5f1a41f2278defb74176caf3fea342342620d74fbbe2f88d04a182a61ca17693",
+    "src/components/layout/TopBar.tsx": "20771c2e624a39a9f0325c11bd890c2e41ea272d715a265baae47abe37a9e7c0",
+    "src/components/layout/MobileBottomNav.tsx": "1913f4ed1b2c44c3d4ae07efd7d3cd1f5c6d1a83445ef3c388f238757ee9431e",
+    "src/components/layout/PageWrapper.tsx": "084f43b61e566b8b2056d246f1eb63119c3ff753bb766b58f4dcdf84ed69eeed",
+    "src/components/layout/LayoutShell.tsx": "d3bddd8d745c633cb9282d089d68edad845915daa09f8a1f918ce6ef15d0e3e0"
+  },
+  "routingOnly": {
+    "src/components/layout/Sidebar.tsx": {
+      "oldUrl": "/b2-pruefung",
+      "newUrl": "/mock-exam?exam=b2-first",
+      "textReplacements": [
+        {
+          "before": "badge: \"Band 9\"",
+          "after": "badge: \"Academic\""
+        },
+        {
+          "before": "badge: \"120 Pts\"",
+          "after": "badge: \"2026\""
+        }
+      ]
+    },
+    "src/components/layout/CommandPalette.tsx": {
+      "oldUrl": "/b2-pruefung",
+      "newUrl": "/mock-exam?exam=b2-first",
+      "textReplacements": [
+        {
+          "before": "badge: \"Band 9\"",
+          "after": "badge: \"Academic\""
+        },
+        {
+          "before": "badge: \"120 Pts\"",
+          "after": "badge: \"2026\""
+        }
+      ]
+    },
+    "src/data/content.ts": {
+      "oldUrl": "/b2-pruefung",
+      "newUrl": "/mock-exam?exam=b2-first"
+    },
+    "src/data/course-catalogue.ts": {
+      "oldUrl": "/b2-pruefung",
+      "newUrl": "/mock-exam?exam=b2-first"
+    }
+  }
+}

@@ -1,4 +1,5 @@
 "use client";
+import { LearningArt } from "@/components/brand/LearningArt";
 import { useDrillAttempt } from "@/hooks/useDrillAttempt";
 import { motion, AnimatePresence, Reorder } from "framer-motion";
 import { useProgress } from "@/store/useProgress";
@@ -115,7 +116,7 @@ export function ReorderExercise({ data }: { data: ReorderData }) {
 
                 {grammarNote && (
                   <div className="flex items-start gap-3 p-4 rounded-[var(--radius-lg)] bg-[var(--color-warning-bg)] text-[var(--color-text-warning)] border-2 border-[var(--color-warning)]" style={{ boxShadow: "0 2px 0 var(--color-warning)" }}>
-                    <BookOpen className="w-5 h-5 shrink-0 mt-0.5 text-[var(--color-warning)]" />
+                    <LearningArt name="BookOpen" size={20} className="w-5 h-5 shrink-0 mt-0.5 text-[var(--color-warning)]" />
                     <div>
                       <p className="font-display font-extrabold text-sm">Word Order Tip</p>
                       <p className="font-body text-sm mt-1">{grammarNote}</p>

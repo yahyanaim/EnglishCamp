@@ -40,10 +40,18 @@ export const CULTURE_QUESTIONS: CultureQuestion[] = [
     category: "uk", difficulty: "easy",
   },
   {
-    id: "cq-6", question: "What is the national dish of England?",
-    options: ["Fish and chips", "Haggis", "Shepherd's pie", "Full English breakfast"], correctIndex: 0,
-    explanation: "Fish and chips is widely considered England's national dish, consisting of battered fish and deep-fried chips.",
-    category: "uk", difficulty: "medium",
+    "id": "cq-6",
+    "question": "Which dish consists of battered fish served with deep-fried chips?",
+    "options": [
+      "Fish and chips",
+      "Haggis",
+      "Shepherd's pie",
+      "Full English breakfast"
+    ],
+    "correctIndex": 0,
+    "explanation": "Fish and chips combines battered fish with fried potato chips. Several foods are associated with England; this question does not assign one official national dish.",
+    "category": "uk",
+    "difficulty": "medium"
   },
   {
     id: "cq-7", question: "What is the traditional Scottish instrument?",
@@ -106,10 +114,18 @@ export const CULTURE_QUESTIONS: CultureQuestion[] = [
     category: "usa", difficulty: "easy",
   },
   {
-    id: "cq-17", question: "Which president is known for ending slavery in the US?",
-    options: ["George Washington", "Thomas Jefferson", "Abraham Lincoln", "Franklin D. Roosevelt"], correctIndex: 2,
-    explanation: "Abraham Lincoln, the 16th president, issued the Emancipation Proclamation in 1863 and led the US through the Civil War.",
-    category: "usa", difficulty: "medium",
+    "id": "cq-17",
+    "question": "Which US president issued the Emancipation Proclamation in 1863?",
+    "options": [
+      "George Washington",
+      "Thomas Jefferson",
+      "Abraham Lincoln",
+      "Franklin D. Roosevelt"
+    ],
+    "correctIndex": 2,
+    "explanation": "Abraham Lincoln issued the Emancipation Proclamation in 1863. The Thirteenth Amendment abolished slavery in the United States in 1865, with an exception for punishment for crime.",
+    "category": "usa",
+    "difficulty": "medium"
   },
   {
     id: "cq-18", question: "What is the most famous annual American football event?",
@@ -142,10 +158,18 @@ export const CULTURE_QUESTIONS: CultureQuestion[] = [
     category: "canada", difficulty: "easy",
   },
   {
-    id: "cq-23", question: "Which Canadian landmark is a massive rock formation in Alberta?",
-    options: ["Banff National Park", "Niagara Falls", "Rocky Mountains", "CN Tower"], correctIndex: 2,
-    explanation: "The Rocky Mountains stretch across British Columbia and Alberta, with famous parks like Banff and Jasper.",
-    category: "canada", difficulty: "medium",
+    "id": "cq-23",
+    "question": "Which mountain range extends through Alberta and British Columbia?",
+    "options": [
+      "Banff National Park",
+      "Niagara Falls",
+      "Rocky Mountains",
+      "CN Tower"
+    ],
+    "correctIndex": 2,
+    "explanation": "The Canadian Rocky Mountains extend through Alberta and British Columbia. They are a mountain range, not a single rock formation.",
+    "category": "canada",
+    "difficulty": "medium"
   },
   {
     id: "cq-24", question: "Which two languages are official in Canada?",
@@ -154,10 +178,18 @@ export const CULTURE_QUESTIONS: CultureQuestion[] = [
     category: "canada", difficulty: "easy",
   },
   {
-    id: "cq-25", question: "What is the national sport of Canada?",
-    options: ["Ice hockey", "Lacrosse", "Curling", "Basketball"], correctIndex: 0,
-    explanation: "Ice hockey is the official winter sport of Canada. Lacrosse is the official summer sport. Hockey is by far the most popular.",
-    category: "canada", difficulty: "medium",
+    "id": "cq-25",
+    "question": "Which is the official national winter sport of Canada?",
+    "options": [
+      "Ice hockey",
+      "Lacrosse",
+      "Curling",
+      "Basketball"
+    ],
+    "correctIndex": 0,
+    "explanation": "The National Sports of Canada Act recognises ice hockey as the national winter sport and lacrosse as the national summer sport. Both are national sports.",
+    "category": "canada",
+    "difficulty": "medium"
   },
   {
     id: "cq-26", question: "Which famous Canadian landmark is a set of waterfalls on the US-Canada border?",
@@ -190,10 +222,18 @@ export const CULTURE_QUESTIONS: CultureQuestion[] = [
     category: "australia", difficulty: "medium",
   },
   {
-    id: "cq-31", question: "What is the national animal of Australia?",
-    options: ["Kangaroo", "Koala", "Platypus", "Wombat"], correctIndex: 0,
-    explanation: "The red kangaroo is Australia's national animal and appears on the Australian coat of arms alongside the emu.",
-    category: "australia", difficulty: "easy",
+    "id": "cq-31",
+    "question": "Which of these animals appears beside the emu on Australia’s Commonwealth Coat of Arms?",
+    "options": [
+      "Kangaroo",
+      "Koala",
+      "Platypus",
+      "Wombat"
+    ],
+    "correctIndex": 0,
+    "explanation": "A kangaroo and an emu support the shield on Australia’s Commonwealth Coat of Arms.",
+    "category": "australia",
+    "difficulty": "easy"
   },
   {
     id: "cq-32", question: "Which city hosted the 2000 Summer Olympics in Australia?",
@@ -214,16 +254,32 @@ export const CULTURE_QUESTIONS: CultureQuestion[] = [
     category: "newzealand", difficulty: "easy",
   },
   {
-    id: "cq-35", question: "What are the indigenous people of New Zealand called?",
-    options: ["Aboriginals", "Maori", "Polynesians", "Pakeha"], correctIndex: 1,
-    explanation: "The Maori are the indigenous Polynesian people of New Zealand, arriving around 1300 AD.",
-    category: "newzealand", difficulty: "medium",
+    "id": "cq-35",
+    "question": "What are the indigenous people of New Zealand called?",
+    "options": [
+      "Māori",
+      "Aboriginal Australians",
+      "Inuit",
+      "Sámi"
+    ],
+    "correctIndex": 1,
+    "explanation": "Māori are the Indigenous people of Aotearoa New Zealand.",
+    "category": "newzealand",
+    "difficulty": "medium"
   },
   {
-    id: "cq-36", question: "What is the national sport of New Zealand?",
-    options: ["Cricket", "Rugby union", "Netball", "Sailing"], correctIndex: 1,
-    explanation: "Rugby union is the national sport of New Zealand. The All Blacks are one of the most successful teams in the world.",
-    category: "newzealand", difficulty: "medium",
+    "id": "cq-36",
+    "question": "In which sport does New Zealand’s All Blacks team compete?",
+    "options": [
+      "Cricket",
+      "Rugby union",
+      "Netball",
+      "Sailing"
+    ],
+    "correctIndex": 1,
+    "explanation": "The All Blacks are New Zealand’s national men’s rugby union team. This identifies the team’s sport without claiming a legally designated national sport.",
+    "category": "newzealand",
+    "difficulty": "medium"
   },
   {
     id: "cq-37", question: "Which New Zealand bird cannot fly?",
@@ -244,10 +300,18 @@ export const CULTURE_QUESTIONS: CultureQuestion[] = [
     category: "ireland", difficulty: "easy",
   },
   {
-    id: "cq-40", question: "What is the national symbol of Ireland?",
-    options: ["Rose", "Shamrock", "Thistle", "Daffodil"], correctIndex: 1,
-    explanation: "The shamrock (three-leaf clover) is the national symbol of Ireland, associated with St. Patrick who used it to explain the Holy Trinity.",
-    category: "ireland", difficulty: "medium",
+    "id": "cq-40",
+    "question": "Which plant is traditionally associated with St Patrick’s Day in Ireland?",
+    "options": [
+      "Rose",
+      "Shamrock",
+      "Thistle",
+      "Daffodil"
+    ],
+    "correctIndex": 1,
+    "explanation": "The shamrock is traditionally associated with St Patrick and Ireland. The harp is also an official emblem of the Irish state; Ireland has more than one important symbol.",
+    "category": "ireland",
+    "difficulty": "medium"
   },
   {
     id: "cq-41", question: "Which famous Irish writer wrote 'Ulysses'?",
@@ -268,22 +332,46 @@ export const CULTURE_QUESTIONS: CultureQuestion[] = [
     category: "mixed", difficulty: "medium",
   },
   {
-    id: "cq-44", question: "Which English-speaking country has the most official languages?",
-    options: ["USA", "Canada", "Australia", "United Kingdom"], correctIndex: 1,
-    explanation: "Canada has two official languages at federal level (English and French), but officially recognises many more at the territorial level.",
-    category: "mixed", difficulty: "hard",
+    "id": "cq-44",
+    "question": "Which country has both English and French as official languages at federal level?",
+    "options": [
+      "USA",
+      "Canada",
+      "Australia",
+      "United Kingdom"
+    ],
+    "correctIndex": 1,
+    "explanation": "English and French are Canada’s two official languages at federal level. This is not a ranking of all English-speaking countries by their number of official languages.",
+    "category": "mixed",
+    "difficulty": "hard"
   },
   {
-    id: "cq-45", question: "Which English-speaking country has a king as head of state?",
-    options: ["USA", "Canada", "Australia", "All of the above"], correctIndex: 3,
-    explanation: "King Charles III is head of state of the United Kingdom, Canada, Australia, and New Zealand.",
-    category: "mixed", difficulty: "medium",
+    "id": "cq-45",
+    "question": "Which of these countries is a constitutional monarchy?",
+    "options": [
+      "United States",
+      "Canada",
+      "Republic of Ireland",
+      "France"
+    ],
+    "correctIndex": 1,
+    "explanation": "Canada is a constitutional monarchy. The United States, the Republic of Ireland and France are republics.",
+    "category": "mixed",
+    "difficulty": "medium"
   },
   {
-    id: "cq-46", question: "Which country invented the internet?",
-    options: ["United Kingdom", "United States", "Canada", "Australia"], correctIndex: 1,
-    explanation: "The internet (ARPANET) was developed in the United States by the Advanced Research Projects Agency (ARPA) in the late 1960s.",
-    category: "mixed", difficulty: "medium",
+    "id": "cq-46",
+    "question": "In which country was the first ARPANET connection established in 1969?",
+    "options": [
+      "United Kingdom",
+      "United States",
+      "Canada",
+      "Australia"
+    ],
+    "correctIndex": 1,
+    "explanation": "The first ARPANET nodes were in the United States. ARPANET was one precursor of today’s internet, whose development also involved international research; no single country or person invented every part of it.",
+    "category": "mixed",
+    "difficulty": "medium"
   },
   {
     id: "cq-47", question: "In which country would you find the Hollywood sign?",

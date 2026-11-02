@@ -1,4 +1,6 @@
 "use client";
+import { LearningArt } from "@/components/brand/LearningArt";
+import { PracticeCard, PracticeButton } from "@/components/ui/PracticeSurface";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useProgress } from "@/store/useProgress";
@@ -221,32 +223,32 @@ export function ImperativeTrainer() {
         <h3 className="text-xl font-display font-extrabold text-[var(--color-text-primary)] mb-1">
           Imperatives Practice Complete!
         </h3>
-        <p className="text-lg font-display font-extrabold text-[var(--color-primary-dark)] mb-1">
+        <p className="text-lg font-display font-extrabold text-[var(--color-text-link)] mb-1">
           {score}/{total} correct ({pct}%)
         </p>
         <p className="text-sm text-[var(--color-text-secondary)] mb-6">
           {pct >= 80 ? "Outstanding mastery of English commands & requests!" : "Keep practicing English imperatives!"}
         </p>
-        <button
+        <PracticeButton
           onClick={handleRestart}
-          className="text-sm font-medium bg-[var(--color-primary-subtle)] text-[var(--color-primary-dark)] border border-[var(--color-primary)] px-5 py-2 rounded-[var(--radius-lg)] hover:bg-[var(--color-primary)] transition-all"
+          className="text-sm font-medium bg-[var(--color-primary-subtle)] text-[var(--color-text-link)] border border-[var(--color-primary)] px-5 py-2 rounded-[var(--radius-lg)] hover:bg-[var(--color-primary)] transition-all"
         >
-          Practice Again 🔄
-        </button>
+          Practice Again <LearningArt name="🔄" size={16} />
+        </PracticeButton>
       </div>
     );
   }
 
   return (
-    <div
-      className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border-2 border-[var(--color-border-default)] p-6 shadow-sm"
+    <PracticeCard data-practice-surface="question"
+      className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-6 shadow-sm"
       style={{ boxShadow: "0 3px 0 var(--color-border-default)" }}
     >
       <div className="flex items-center justify-between mb-4">
         <span className="text-xs font-semibold text-cyan-600 uppercase tracking-wider">
           English Imperative Trainer • {current.category}
         </span>
-        <span className="text-xs text-[var(--color-text-disabled)]">
+        <span className="text-xs text-[var(--color-text-secondary)]">
           {index + 1}/{pool.length}
         </span>
       </div>
@@ -260,7 +262,7 @@ export function ImperativeTrainer() {
           className="text-center mb-5"
         >
           <p className="text-xs font-bold text-[var(--color-text-secondary)] uppercase tracking-wider mb-2">
-            Verb: <span className="text-[var(--color-primary-dark)] font-mono">{current.verb}</span> ({current.meaning})
+            Verb: <span className="text-[var(--color-text-link)] font-mono">{current.verb}</span> ({current.meaning})
           </p>
           <p className="text-xl font-display font-extrabold text-[var(--color-text-primary)] mb-1 leading-snug">
             {current.prompt}
@@ -274,22 +276,22 @@ export function ImperativeTrainer() {
             "bg-[var(--color-surface-alt)] border-[var(--color-border-default)] text-[var(--color-text-primary)] hover:bg-cyan-50 hover:border-cyan-300 hover:text-cyan-700";
           if (selected) {
             if (opt === current.correct) {
-              style = "bg-[var(--color-success)] text-white border-[var(--color-success)] ring-2 ring-[var(--color-success)]";
+              style = "bg-[var(--color-success-bg)] text-[var(--color-text-success)] border-[var(--color-success)] ring-2 ring-[var(--color-success)]";
             } else if (opt === selected) {
-              style = "bg-[var(--color-error)] text-white border-[var(--color-error)]";
+              style = "bg-[var(--color-error-bg)] text-[var(--color-text-error)] border-[var(--color-error)]";
             } else {
               style = "opacity-40";
             }
           }
           return (
-            <button
+            <PracticeButton
               key={opt}
               onClick={() => handleSelect(opt)}
               disabled={!!selected}
-              className={`text-sm font-medium px-4 py-3 rounded-[var(--radius-lg)] border-2 transition-all duration-200 ${style}`}
+              className={`text-sm font-medium px-4 py-3 rounded-[var(--radius-lg)] border transition-all duration-200 ${style}`}
             >
               <span className="font-mono">{opt}</span>
-            </button>
+            </PracticeButton>
           );
         })}
       </div>
@@ -298,18 +300,18 @@ export function ImperativeTrainer() {
         <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className="text-center">
           <p
             className={`text-sm font-medium mb-1 ${
-              selected === current.correct ? "text-[var(--color-success)]" : "text-[var(--color-error)]"
+              selected === current.correct ? "text-[var(--color-text-success)]" : "text-[var(--color-text-error)]"
             }`}
           >
             {selected === current.correct ? "✓ Correct! +5 XP" : `✗ Correct: ${current.correct}`}
           </p>
           <p className="text-xs text-[var(--color-text-secondary)] mb-3">{current.explanation}</p>
-          <button
+          <PracticeButton
             onClick={handleNext}
-            className="text-sm font-medium bg-[var(--color-primary-subtle)] text-[var(--color-primary-dark)] border border-[var(--color-primary)] px-5 py-2 rounded-[var(--radius-lg)] hover:bg-[var(--color-primary)] transition-all"
+            className="text-sm font-medium bg-[var(--color-primary-subtle)] text-[var(--color-text-link)] border border-[var(--color-primary)] px-5 py-2 rounded-[var(--radius-lg)] hover:bg-[var(--color-primary)] transition-all"
           >
             {index + 1 >= pool.length ? "See Results" : "Next →"}
-          </button>
+          </PracticeButton>
         </motion.div>
       )}
 
@@ -323,6 +325,6 @@ export function ImperativeTrainer() {
           />
         ))}
       </div>
-    </div>
+    </PracticeCard>
   );
 }

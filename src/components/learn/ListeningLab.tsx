@@ -1,4 +1,7 @@
 "use client";
+
+import { LearningArt } from "@/components/brand/LearningArt";
+import { PracticeCard, PracticeButton } from "@/components/ui/PracticeSurface";
 import { useState, useMemo, useCallback, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { playCorrect, playWrong, playXP } from "@/lib/audio";
@@ -6,15 +9,7 @@ import { useProgress } from "@/store/useProgress";
 import { FLASHCARDS } from "@/data/flashcards";
 import { NOUN_VERB_COLLOCATIONS } from "@/data/nomen-verb-verbindungen";
 import { Volume2, SkipForward, RefreshCw, Target, BarChart3, Ear, CheckCircle2, XCircle, Sparkles } from "lucide-react";
-
-function speak(text: string, rate: number = 0.85) {
-  if (typeof window === "undefined") return;
-  const u = new SpeechSynthesisUtterance(text);
-  u.lang = "en-US";
-  u.rate = rate;
-  window.speechSynthesis.cancel();
-  window.speechSynthesis.speak(u);
-}
+import { playPracticeText, stopNaturalSpeech, type SpeechState } from "@/lib/naturalSpeech";
 
 type Difficulty = "words" | "phrases";
 
@@ -42,6 +37,8 @@ function shuffle<T>(a: T[]): T[] {
   return arr;
 }
 
+const MotionPracticeButton = motion.create(PracticeButton);
+
 export function ListeningLab() {
   const { addXP } = useProgress();
   const [difficulty, setDifficulty] = useState<Difficulty>("words");
@@ -49,12 +46,14 @@ export function ListeningLab() {
   const [selected, setSelected] = useState<string | null>(null);
   const [results, setResults] = useState<{ correct: boolean }[]>([]);
   const [phase, setPhase] = useState<"ready" | "playing" | "done">("ready");
-  const [speed, setSpeed] = useState<0.85 | 0.6>(0.85);
+  const [speed, setSpeed] = useState<1 | 0.8>(1);
+  const [audioError, setAudioError] = useState(false);
+  const [audioState, setAudioState] = useState<SpeechState>("stopped");
   const [autoAdvance, setAutoAdvance] = useState(false);
 
   const [items, setItems] = useState<ListenItem[]>([]);
   const advanceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  useEffect(() => () => { if (advanceRef.current) clearTimeout(advanceRef.current); window.speechSynthesis?.cancel(); }, []);
+  useEffect(() => () => { if (advanceRef.current) clearTimeout(advanceRef.current); stopNaturalSpeech(); }, []);
   function startGame() {
     if (advanceRef.current) clearTimeout(advanceRef.current);
     setItems(shuffle(buildItems(difficulty)).slice(0, 10));
@@ -72,13 +71,13 @@ export function ListeningLab() {
 
   useEffect(() => {
     if (phase === "playing" && current) {
-      const t = setTimeout(() => speak(current.de, speed), 300);
+      const t = setTimeout(() => { setAudioError(false); void playPracticeText(current.de, speed, setAudioState).catch(() => setAudioError(true)); }, 300);
       return () => clearTimeout(t);
     }
   }, [current, phase, speed]);
 
   function handlePlay() {
-    if (current) speak(current.de, speed);
+    if (current) { setAudioError(false); void playPracticeText(current.de, speed, setAudioState).catch(() => setAudioError(true)); }
   }
 
   function handleSelect(opt: string) {
@@ -118,20 +117,20 @@ export function ListeningLab() {
 
   if (phase === "ready") {
     return (
-      <div className="bg-[var(--color-surface)] rounded-[24px] border-2 border-[var(--color-border-default)] p-10 text-center shadow-[0_4px_16px_rgba(0,0,0,0.08)] max-w-lg mx-auto">
-        <Ear className="w-14 h-14 text-[var(--color-primary)] mx-auto mb-4" />
+      <PracticeCard data-practice-surface="intro" className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-5 sm:p-6 text-center shadow-[var(--shadow-1)] max-w-lg mx-auto">
+        <LearningArt name="Ear" className="w-14 h-14 text-[var(--color-primary)] mx-auto mb-4" />
         <h2 className="text-xl font-display font-extrabold text-[var(--color-text-primary)]">Listening Lab</h2>
         <p className="text-sm text-[var(--color-text-secondary)] mt-2">Hear English words and phrases, then choose the correct translation</p>
 
         <div className="flex gap-2 justify-center mt-5">
           {(["words", "phrases"] as const).map((d) => (
-            <button key={d} onClick={() => setDifficulty(d)}
+            <PracticeButton key={d} onClick={() => setDifficulty(d)}
               className={`rounded-[10px] px-4 py-2 text-xs font-bold transition-all ${
                 difficulty === d ? "bg-[var(--color-primary)] text-[var(--color-on-brand)]" : "bg-[var(--color-surface-alt)] text-[var(--color-text-secondary)] hover:bg-[var(--color-border-default)]"
               }`}
             >
               {d === "words" ? "Words" : "Phrases"}
-            </button>
+            </PracticeButton>
           ))}
         </div>
 
@@ -141,28 +140,28 @@ export function ListeningLab() {
             Auto-advance
           </label>
           <label className="flex items-center gap-1.5 cursor-pointer">
-            <input type="checkbox" checked={speed === 0.6} onChange={(e) => setSpeed(e.target.checked ? 0.6 : 0.85)} className="rounded" />
+            <input type="checkbox" checked={speed === 0.8} onChange={(e) => setSpeed(e.target.checked ? 0.8 : 1)} className="rounded" />
             Slow
           </label>
         </div>
 
-        <button onClick={startGame}
-          className="mt-6 px-8 py-3 rounded-[14px] bg-[var(--color-primary)] text-[var(--color-on-brand)] font-bold text-sm hover:bg-brand-600 transition-all inline-flex items-center gap-2 shadow-[0_4px_0_rgba(28,176,246,0.3)]"
+        <PracticeButton onClick={startGame}
+          className="mt-6 px-8 py-3 rounded-[14px] bg-[var(--color-primary)] text-[var(--color-on-brand)] font-bold text-sm hover:bg-[var(--color-primary-hover)] transition-all inline-flex items-center gap-2 shadow-[var(--shadow-1)]"
         >
-          <Ear className="w-4 h-4" /> Start Listening
-        </button>
-      </div>
+          <LearningArt name="Ear" size={16} className="w-4 h-4" /> Start Listening
+        </PracticeButton>
+      </PracticeCard>
     );
   }
 
   if (phase === "done") {
     return (
-      <div className="bg-[var(--color-surface)] rounded-[24px] border-2 border-[var(--color-border-default)] p-10 text-center shadow-[0_4px_16px_rgba(0,0,0,0.08)] max-w-lg mx-auto">
-        <span className="text-5xl block mb-4">{accuracy >= 80 ? "🎉" : "💪"}</span>
+      <PracticeCard data-practice-surface="result" className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-5 sm:p-6 text-center shadow-[var(--shadow-1)] max-w-lg mx-auto">
+        <span className="text-5xl block mb-4"><LearningArt name={accuracy >= 80 ? "🎉" : "💪"} size={28} /></span>
         <h2 className="text-xl font-display font-extrabold text-[var(--color-text-primary)]">Session complete!</h2>
         <div className="flex items-center justify-center gap-6 mt-4">
           <div>
-            <p className="text-3xl font-display font-extrabold text-[var(--color-success)]">{correct}<span className="text-lg text-[var(--color-text-disabled)]">/{items.length}</span></p>
+            <p className="text-3xl font-display font-extrabold text-[var(--color-text-success)]">{correct}<span className="text-lg text-[var(--color-text-secondary)]">/{items.length}</span></p>
             <p className="text-xs text-[var(--color-text-secondary)]">Correct</p>
           </div>
           <div className="w-px h-10 bg-[var(--color-border-default)]" />
@@ -172,30 +171,30 @@ export function ListeningLab() {
           </div>
         </div>
         <p className="mt-4 text-sm font-bold bg-amber-500 text-[var(--color-on-brand)] font-extrabold shadow-sm px-4 py-2 rounded-[10px] inline-flex items-center gap-1.5">
-          <Sparkles className="w-4 h-4" /> +{correct * 5 + (accuracy >= 80 ? 10 : 0)} XP
+          <LearningArt name="Sparkles" size={16} className="w-4 h-4" /> +{correct * 5 + (accuracy >= 80 ? 10 : 0)} XP
         </p>
-        <button onClick={handleRestart}
-          className="mt-6 px-8 py-3 rounded-[14px] bg-[var(--color-primary)] text-[var(--color-on-brand)] font-bold text-sm hover:bg-brand-600 transition-all inline-flex items-center gap-2"
+        <PracticeButton onClick={handleRestart}
+          className="mt-6 px-8 py-3 rounded-[14px] bg-[var(--color-primary)] text-[var(--color-on-brand)] font-bold text-sm hover:bg-[var(--color-primary-hover)] transition-all inline-flex items-center gap-2"
         >
           <RefreshCw className="w-4 h-4" /> New session
-        </button>
-      </div>
+        </PracticeButton>
+      </PracticeCard>
     );
   }
 
   return (
     <div className="space-y-4 max-w-lg mx-auto">
-      <div className="flex items-center justify-between">
+      <div className="camp-quiz-status flex items-center justify-between">
         <span className="inline-flex items-center gap-1.5 rounded-[10px] bg-[var(--color-primary-subtle)] px-3 py-1 text-xs font-semibold text-[var(--color-text-link)]">
-          <Ear className="w-3 h-3" />
+          <LearningArt name="Ear" size={12} className="w-3 h-3" />
           {index + 1}/{items.length}
         </span>
         <div className="flex items-center gap-2">
           <span className="inline-flex items-center gap-1.5 rounded-[10px] bg-[var(--color-surface-alt)] px-3 py-1 text-xs font-semibold text-[var(--color-text-secondary)]">
-            <BarChart3 className="w-3 h-3" />
+            <LearningArt name="BarChart3" size={12} className="w-3 h-3" />
             {correct}/{results.length}
           </span>
-          <span className="text-[10px] text-[var(--color-text-disabled)] bg-[var(--color-surface-alt)] px-2 py-1 rounded-[var(--radius-pill)]">{difficulty === "words" ? "Word" : "Phrase"}</span>
+          <span className="text-[10px] text-[var(--color-text-secondary)] bg-[var(--color-surface-alt)] px-2 py-1 rounded-[var(--radius-pill)]">{difficulty === "words" ? "Word" : "Phrase"}</span>
         </div>
       </div>
 
@@ -203,57 +202,61 @@ export function ListeningLab() {
         <motion.div initial={{ width: 0 }} animate={{ width: `${pct}%` }} transition={{ duration: 0.3 }} className="h-full rounded-[var(--radius-pill)] bg-[var(--color-primary)]" />
       </div>
 
-      <div className="bg-[var(--color-surface)] rounded-[24px] border-2 border-[var(--color-border-default)] p-8 shadow-[0_4px_16px_rgba(0,0,0,0.08)] text-center">
+      <PracticeCard data-practice-surface="question" className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-5 sm:p-6 shadow-[var(--shadow-1)] text-center">
         <div className="flex items-center justify-center gap-3 mb-6">
-          <button onClick={handlePlay}
-            className="w-14 h-14 rounded-[var(--radius-pill)] bg-[var(--color-primary)] text-[var(--color-on-brand)] flex items-center justify-center hover:bg-brand-600 transition-all shadow-[0_4px_0_rgba(28,176,246,0.3)]"
-            title="Play audio"
+          <PracticeButton onClick={() => audioState === "playing" || audioState === "loading" ? stopNaturalSpeech() : handlePlay()}
+            className="w-14 h-14 rounded-[var(--radius-pill)] bg-[var(--color-primary)] text-[var(--color-on-brand)] flex items-center justify-center hover:bg-[var(--color-primary-hover)] transition-all shadow-[var(--shadow-1)]"
+            title={audioState === "playing" || audioState === "loading" ? "Stop audio" : "Play audio"}
+            aria-label={audioState === "playing" || audioState === "loading" ? "Stop audio" : "Play audio"}
           >
             <Volume2 className="w-6 h-6" />
-          </button>
-          <button onClick={() => speak(current.de, speed)}
-            className="text-xs text-[var(--color-text-disabled)] hover:text-[var(--color-text-secondary)] px-2 py-1 rounded bg-[var(--color-surface-alt)]"
+          </PracticeButton>
+          <PracticeButton onClick={handlePlay}
+            className="text-xs text-[var(--color-text-secondary)] hover:text-[var(--color-text-secondary)] px-2 py-1 rounded bg-[var(--color-surface-alt)]"
           >
             Repeat
-          </button>
+          </PracticeButton>
         </div>
 
-        <p className="text-xs text-[var(--color-text-disabled)] mb-5">What did you hear? Choose the correct translation</p>
+        {(audioState === "loading" || audioState === "playing") && <p role="status" className="text-xs text-[var(--camp-control-ink)] mb-3">{audioState === "loading" ? "Loading audio…" : "Playing audio…"}</p>}
+        {audioError && <p role="alert" className="text-sm text-[var(--color-text-error)] mb-3">Audio could not load. Press Play to retry.</p>}
+
+        <p className="text-xs text-[var(--color-text-secondary)] mb-5">What did you hear? Choose the correct translation</p>
 
         <div className="space-y-2">
           {options.map((opt) => {
-            let cls = "bg-[var(--color-surface)] border-2 border-[var(--color-border-default)] text-[var(--color-text-primary)] hover:ring-[var(--color-primary)] hover:bg-[var(--color-primary-subtle)]";
-            if (selected === opt && opt === current.en) cls = "bg-[var(--color-success)] text-[var(--color-on-brand)] ring-2 ring-[var(--color-success)]";
-            else if (selected === opt && opt !== current.en) cls = "bg-[var(--color-error)] text-[var(--color-on-brand)] ring-2 ring-[var(--color-error)]";
-            else if (selected !== null && opt === current.en) cls = "bg-[var(--color-success)] text-[var(--color-on-brand)] ring-1 ring-[var(--color-success)]";
+            let cls = "bg-[var(--color-surface)] border border-[var(--color-border-default)] text-[var(--color-text-primary)] hover:ring-[var(--color-primary)] hover:bg-[var(--color-primary-subtle)]";
+            if (selected === opt && opt === current.en) cls = "bg-[var(--color-success-bg)] text-[var(--color-text-success)] ring-2 ring-[var(--color-success)]";
+            else if (selected === opt && opt !== current.en) cls = "bg-[var(--color-error-bg)] text-[var(--color-text-error)] ring-2 ring-[var(--color-error)]";
+            else if (selected !== null && opt === current.en) cls = "bg-[var(--color-success-bg)] text-[var(--color-text-success)] ring-1 ring-[var(--color-success)]";
 
             return (
-              <motion.button key={opt} layout initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }}
+              <MotionPracticeButton key={opt} layout initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }}
                 onClick={() => handleSelect(opt)} disabled={selected !== null}
                 className={`flex items-center gap-2 w-full px-4 py-3 rounded-[14px] text-sm font-medium transition-all ${cls}`}
               >
                 {selected !== null && opt === current.en && <CheckCircle2 className="w-4 h-4 text-current shrink-0" />}
                 {selected === opt && opt !== current.en && <XCircle className="w-4 h-4 text-current shrink-0" />}
                 <span>{opt}</span>
-              </motion.button>
+              </MotionPracticeButton>
             );
           })}
         </div>
 
         {selected !== null && (
-          <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className="mt-4 text-xs text-[var(--color-text-disabled)]">
+          <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className="mt-4 text-xs text-[var(--color-text-secondary)]">
             <span className="font-medium text-[var(--color-text-secondary)]">Heard:</span> {current.de}
           </motion.div>
         )}
-      </div>
+      </PracticeCard>
 
       {selected !== null && (!autoAdvance || index + 1 >= items.length) && (
-        <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className="flex justify-center">
-          <button onClick={handleNext}
-            className="px-8 py-3 rounded-[14px] bg-[var(--color-primary)] text-[var(--color-on-brand)] font-bold text-sm hover:bg-brand-600 transition-all shadow-[0_4px_0_rgba(28,176,246,0.3)]"
+        <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className="camp-quiz-actions flex justify-center">
+          <PracticeButton onClick={handleNext}
+            className="px-8 py-3 rounded-[14px] bg-[var(--color-primary)] text-[var(--color-on-brand)] font-bold text-sm hover:bg-[var(--color-primary-hover)] transition-all shadow-[var(--shadow-1)]"
           >
             {index + 1 >= items.length ? "See results" : "Next"}
-          </button>
+          </PracticeButton>
         </motion.div>
       )}
     </div>

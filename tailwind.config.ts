@@ -1,5 +1,7 @@
 import type { Config } from "tailwindcss";
 
+const violet = { 50: "#FAF5FF", 100: "#F3E8FF", 200: "#E9D5FF", 300: "#D8B4FE", 400: "#C084FC", 500: "#A855F7", 600: "#9333EA", 700: "#7E22CE", 800: "#6B21A8", 900: "#581C87", 950: "#3B0764" };
+
 const config: Config = {
   darkMode: "class",
   content: ["./src/**/*.{ts,tsx}"],
@@ -12,6 +14,18 @@ const config: Config = {
         arabic:  ["var(--font-arabic)", "Noto Naskh Arabic", "Geeza Pro", "Traditional Arabic", "sans-serif"],
       },
       colors: {
+        blue: violet, sky: violet, cyan: violet, indigo: violet,
+        background: "var(--background)",
+        foreground: "var(--foreground)",
+        border: "var(--border)",
+        input: "var(--input)",
+        ring: "var(--ring)",
+        card: { DEFAULT: "var(--card)", foreground: "var(--card-foreground)" },
+        popover: { DEFAULT: "var(--popover)", foreground: "var(--popover-foreground)" },
+        primary: { DEFAULT: "var(--primary)", foreground: "var(--primary-foreground)" },
+        muted: { DEFAULT: "var(--muted)", foreground: "var(--muted-foreground)" },
+        accent: { DEFAULT: "var(--accent)", foreground: "var(--accent-foreground)" },
+        destructive: { DEFAULT: "var(--destructive)", foreground: "var(--destructive-foreground)" },
         slate: {
           50:  "#F7F7F7",
           100: "#EFEFEF",
@@ -37,6 +51,8 @@ const config: Config = {
           900: "#1A3D00",
         },
         secondary: {
+          DEFAULT: "var(--secondary)",
+          foreground: "var(--secondary-foreground)",
           50:  "#FFF6CC",
           100: "#FFED99",
           200: "#FFE566",
@@ -58,7 +74,7 @@ const config: Config = {
           a1: "#FF4B4B",
           a2: "#FFC800",
           b1: "#58CC02",
-          b2: "#1CB0F6",
+          b2: "#7E22CE",
         },
       },
       animation: {

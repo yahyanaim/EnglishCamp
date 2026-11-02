@@ -1,4 +1,7 @@
 "use client";
+
+import { LearningArt } from "@/components/brand/LearningArt";
+import { PracticeCard, PracticeButton } from "@/components/ui/PracticeSurface";
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useProgress } from "@/store/useProgress";
@@ -105,31 +108,31 @@ export function Dictation() {
       <div className="text-center py-8">
         <span className="text-5xl block mb-3">{pct >= 80 ? "🏆" : pct >= 50 ? "👍" : "💪"}</span>
         <h3 className="text-xl font-display font-extrabold text-[var(--color-text-primary)] mb-1">Dictation Complete!</h3>
-        <p className="text-lg font-display font-extrabold text-[var(--color-primary-dark)] mb-1">{score}/{total} correct ({pct}%)</p>
+        <p className="text-lg font-display font-extrabold text-[var(--color-text-link)] mb-1">{score}/{total} correct ({pct}%)</p>
         <p className="text-sm text-[var(--color-text-secondary)] mb-6">{pct >= 80 ? "Excellent listening skills!" : "Keep practicing!"}</p>
-        <button onClick={handleRestart} className="text-sm font-medium bg-[var(--color-primary-subtle)] text-[var(--color-primary-dark)] border border-[var(--color-primary)] px-5 py-2 rounded-[var(--radius-lg)] hover:bg-[var(--color-primary)] transition-all">Play Again 🔄</button>
+        <PracticeButton onClick={handleRestart} className="text-sm font-medium bg-[var(--color-primary-subtle)] text-[var(--color-text-link)] border border-[var(--color-primary)] px-5 py-2 rounded-[var(--radius-lg)] hover:bg-[var(--color-primary)] transition-all">Play Again <LearningArt name="🔄" size={16} /></PracticeButton>
       </div>
     );
   }
 
   return (
-    <div className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border-2 border-[var(--color-border-default)] p-6 shadow-sm" style={{ boxShadow: "0 3px 0 var(--color-border-default)" }}>
+    <PracticeCard data-practice-surface="question" className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-6 shadow-sm" style={{ boxShadow: "0 3px 0 var(--color-border-default)" }}>
       <div className="flex items-center justify-between mb-4">
-        <span className="text-xs font-semibold text-[var(--color-warning)] uppercase tracking-wider">Dictation</span>
-        <span className="text-xs text-[var(--color-text-disabled)]">{index + 1}/{pool.length}</span>
+        <span className="text-xs font-semibold text-[var(--color-text-warning)] uppercase tracking-wider">Dictation</span>
+        <span className="text-xs text-[var(--color-text-secondary)]">{index + 1}/{pool.length}</span>
       </div>
 
       <div className="text-center mb-6">
         <div className="flex items-center justify-center gap-3 mb-2">
-          <button onClick={playAudio} className="w-14 h-14 rounded-[var(--radius-pill)] bg-[var(--color-primary-subtle)] hover:bg-[var(--color-primary)] border-2 border-[var(--color-primary)] flex items-center justify-center transition-all hover:scale-105">
-            <span className="text-2xl">🔊</span>
-          </button>
-          <button onClick={() => setAutoPlay(!autoPlay)} className={`text-xs font-medium px-3 py-1 rounded-[var(--radius-pill)] border transition-all ${autoPlay ? "bg-[var(--color-primary-subtle)] border-[var(--color-primary)] text-[var(--color-primary-dark)]" : "bg-[var(--color-surface-alt)] border-[var(--color-border-default)] text-[var(--color-text-disabled)]"}`}>
+          <PracticeButton onClick={playAudio} className="w-14 h-14 rounded-[var(--radius-pill)] bg-[var(--color-primary-subtle)] hover:bg-[var(--color-primary)] border border-[var(--color-primary)] flex items-center justify-center transition-all hover:scale-105">
+            <LearningArt name="🔊" size={24} className="" />
+          </PracticeButton>
+          <PracticeButton onClick={() => setAutoPlay(!autoPlay)} className={`text-xs font-medium px-3 py-1 rounded-[var(--radius-pill)] border transition-all ${autoPlay ? "bg-[var(--color-primary-subtle)] border-[var(--color-primary)] text-[var(--color-text-link)]" : "bg-[var(--color-surface-alt)] border-[var(--color-border-default)] text-[var(--color-text-secondary)]"}`}>
             Auto
-          </button>
+          </PracticeButton>
         </div>
         <p className="text-sm text-[var(--color-text-secondary)]">Type what you hear</p>
-        <p className="text-xs text-[var(--color-text-disabled)] italic mt-1">({current.hint})</p>
+        <p className="text-xs text-[var(--color-text-secondary)] italic mt-1">({current.hint})</p>
       </div>
 
       <div className="flex items-center justify-center gap-2 mb-4">
@@ -139,28 +142,28 @@ export function Dictation() {
           onKeyDown={(e) => { if (e.key === "Enter") handleSubmit(); }}
           placeholder="Type what you hear..."
           disabled={!!result}
-          className="w-full max-w-md px-4 py-3 text-center text-lg font-medium border-2 border-[var(--color-border-default)] rounded-[var(--radius-lg)] bg-[var(--color-surface)] text-[var(--color-text-primary)] placeholder:text-[var(--color-text-disabled)] focus:border-brand-400 focus:ring-2 focus:ring-brand-100 outline-none transition-all disabled:opacity-60"
+          className="w-full max-w-md px-4 py-3 text-center text-lg font-medium border border-[var(--color-border-default)] rounded-[var(--radius-lg)] bg-[var(--color-surface)] text-[var(--color-text-primary)] placeholder:text-[var(--color-text-secondary)] focus:border-brand-400 focus:ring-2 focus:ring-brand-100 outline-none transition-all disabled:opacity-60"
         />
-        <button onClick={() => { setHintUsed(true); playAudio(); }} className="text-xs font-medium text-[var(--color-text-disabled)] hover:text-[var(--color-text-secondary)] px-2 py-1 rounded hover:bg-[var(--color-surface-alt)] transition-all">🔁</button>
+        <PracticeButton onClick={() => { setHintUsed(true); playAudio(); }} className="text-xs font-medium text-[var(--color-text-secondary)] hover:text-[var(--color-text-secondary)] px-2 py-1 rounded hover:bg-[var(--color-surface-alt)] transition-all"><LearningArt name="🔁" size={16} /></PracticeButton>
       </div>
 
       {!result && input.trim() && (
         <div className="text-center">
-          <button onClick={handleSubmit} className="text-sm font-medium bg-[var(--color-primary)] text-white px-6 py-2.5 rounded-[var(--radius-lg)] hover:bg-brand-600 transition-all">
+          <PracticeButton onClick={handleSubmit} className="text-sm font-medium bg-[var(--color-primary)] text-[var(--color-on-brand)] px-6 py-2.5 rounded-[var(--radius-lg)] hover:bg-[var(--color-primary-hover)] transition-all">
             Check
-          </button>
+          </PracticeButton>
         </div>
       )}
 
       {result && (
         <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className="text-center">
-          <p className={`text-sm font-medium mb-1 ${result === "correct" ? "text-[var(--color-success)]" : "text-[var(--color-error)]"}`}>
+          <p className={`text-sm font-medium mb-1 ${result === "correct" ? "text-[var(--color-text-success)]" : "text-[var(--color-text-error)]"}`}>
             {result === "correct" ? "✓ Correct! +10 XP" : `✗ Correct: "${current.word}"`}
           </p>
-          <p className="text-xs text-[var(--color-text-disabled)] mb-3">{current.hint}</p>
-          <button onClick={handleNext} className="text-sm font-medium bg-[var(--color-primary-subtle)] text-[var(--color-primary-dark)] border border-[var(--color-primary)] px-5 py-2 rounded-[var(--radius-lg)] hover:bg-[var(--color-primary)] transition-all">
+          <p className="text-xs text-[var(--color-text-secondary)] mb-3">{current.hint}</p>
+          <PracticeButton onClick={handleNext} className="text-sm font-medium bg-[var(--color-primary-subtle)] text-[var(--color-text-link)] border border-[var(--color-primary)] px-5 py-2 rounded-[var(--radius-lg)] hover:bg-[var(--color-primary)] transition-all">
             {index + 1 >= pool.length ? "See Results" : "Next →"}
-          </button>
+          </PracticeButton>
         </motion.div>
       )}
 
@@ -169,6 +172,6 @@ export function Dictation() {
           <div key={i} className={`w-2 h-2 rounded-[var(--radius-pill)] ${i < index ? "bg-orange-300" : i === index ? "bg-orange-500" : "bg-[var(--color-border-default)]"}`} />
         ))}
       </div>
-    </div>
+    </PracticeCard>
   );
 }

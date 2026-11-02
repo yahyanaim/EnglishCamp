@@ -1,0 +1,842 @@
+[
+  {
+    "id": "b22-l1-1",
+    "title": "Part 1 · Extract 1 — A cyclist describes a change in routine.",
+    "subtitle": "Listening part 1",
+    "part": 1,
+    "skill": "listening",
+    "instructions": "You will hear this recording twice. Read the questions before starting. Choose the best answer or follow the stated word limit.",
+    "questions": [
+      {
+        "number": 1,
+        "kind": "choice",
+        "prompt": "What does the speaker value most about cycling now?",
+        "answers": [
+          "The reliable travel time."
+        ],
+        "evidence": "The speaker identifies predictable journey time as the reason to continue.",
+        "explanation": "The speaker identifies predictable journey time as the reason to continue.",
+        "marks": 1,
+        "options": [
+          "The reliable travel time.",
+          "The chance to compete.",
+          "The cost of specialist equipment."
+        ],
+        "id": "b22-l1-1-q1"
+      }
+    ],
+    "segments": [
+      {
+        "role": "guide",
+        "text": "I used to drive to work because I thought cycling would leave me exhausted. Then the roadworks made the drive so slow that I tried the bicycle just once. I was surprised by how much calmer I felt on arrival. I still take the bus in heavy rain, and I have not become interested in racing or buying expensive equipment. What keeps me cycling is the predictable journey. I no longer have to allow an extra half hour just in case the traffic is bad.",
+        "pauseAfter": 0.3
+      }
+    ],
+    "plays": 2
+  },
+  {
+    "id": "b22-l1-2",
+    "title": "Part 1 · Extract 2 — Two friends discuss a cooking course.",
+    "subtitle": "Listening part 1",
+    "part": 1,
+    "skill": "listening",
+    "instructions": "You will hear this recording twice. Read the questions before starting. Choose the best answer or follow the stated word limit.",
+    "questions": [
+      {
+        "number": 2,
+        "kind": "choice",
+        "prompt": "How did the speaker’s opinion change?",
+        "answers": [
+          "She recognised the value of basic techniques."
+        ],
+        "evidence": "Initial doubt is replaced by appreciation of useful techniques.",
+        "explanation": "Initial doubt is replaced by appreciation of useful techniques.",
+        "marks": 1,
+        "options": [
+          "She decided beginners should not attend.",
+          "She recognised the value of basic techniques.",
+          "She wanted to stop cooking at home."
+        ],
+        "id": "b22-l1-2-q2"
+      }
+    ],
+    "segments": [
+      {
+        "role": "guide",
+        "text": "I thought we would learn several impressive recipes, but we spent the first evening practising how to cut vegetables safely. At first I wondered whether I had chosen a class that was too basic. Then, at home, I realised I could prepare ordinary meals more easily. I do not need to impress anyone with restaurant dishes. Having a few reliable techniques has made the difference. I would still like more ideas later in the course, but I understand why the tutor began there.",
+        "pauseAfter": 0.3
+      }
+    ],
+    "plays": 2
+  },
+  {
+    "id": "b22-l1-3",
+    "title": "Part 1 · Extract 3 — A volunteer talks about an event.",
+    "subtitle": "Listening part 1",
+    "part": 1,
+    "skill": "listening",
+    "instructions": "You will hear this recording twice. Read the questions before starting. Choose the best answer or follow the stated word limit.",
+    "questions": [
+      {
+        "number": 3,
+        "kind": "choice",
+        "prompt": "What did the volunteer learn?",
+        "answers": [
+          "A small group can achieve a useful, focused result."
+        ],
+        "evidence": "The small group completed one path well; numbers were not the only measure.",
+        "explanation": "The small group completed one path well; numbers were not the only measure.",
+        "marks": 1,
+        "options": [
+          "Publicity never affects attendance.",
+          "The council should do every task.",
+          "A small group can achieve a useful, focused result."
+        ],
+        "id": "b22-l1-3-q3"
+      }
+    ],
+    "segments": [
+      {
+        "role": "guide",
+        "text": "We had advertised the clean-up for weeks, so when only twelve people arrived I was disappointed. But they knew the area and suggested a better way to organise the work. Instead of spreading out everywhere, we dealt with one path thoroughly and made a list of problems the council needed to address. By lunchtime we could point to something definite we had achieved. Next time I will still invite more people, but I will not judge the morning only by the number who turn up.",
+        "pauseAfter": 0.3
+      }
+    ],
+    "plays": 2
+  },
+  {
+    "id": "b22-l1-4",
+    "title": "Part 1 · Extract 4 — A student explains a choice of accommodation.",
+    "subtitle": "Listening part 1",
+    "part": 1,
+    "skill": "listening",
+    "instructions": "You will hear this recording twice. Read the questions before starting. Choose the best answer or follow the stated word limit.",
+    "questions": [
+      {
+        "number": 4,
+        "kind": "choice",
+        "prompt": "Why did the student choose the second flat?",
+        "answers": [
+          "It offered a quieter study environment."
+        ],
+        "evidence": "Concentration mattered more than distance or price.",
+        "explanation": "Concentration mattered more than distance or price.",
+        "marks": 1,
+        "options": [
+          "It offered a quieter study environment.",
+          "It was next to the university.",
+          "It cost less than every alternative."
+        ],
+        "id": "b22-l1-4-q4"
+      }
+    ],
+    "segments": [
+      {
+        "role": "guide",
+        "text": "The first flat was closer to the university and looked lovely in the photographs. When I visited, though, the room faced a busy road and the windows did not close properly. The second place meant a longer bus journey, but I could imagine studying there in the evening. It was not cheaper, so money did not decide it. I chose the second because I needed somewhere I could concentrate, even if that meant leaving home earlier each morning.",
+        "pauseAfter": 0.3
+      }
+    ],
+    "plays": 2
+  },
+  {
+    "id": "b22-l1-5",
+    "title": "Part 1 · Extract 5 — An artist discusses online teaching.",
+    "subtitle": "Listening part 1",
+    "part": 1,
+    "skill": "listening",
+    "instructions": "You will hear this recording twice. Read the questions before starting. Choose the best answer or follow the stated word limit.",
+    "questions": [
+      {
+        "number": 5,
+        "kind": "choice",
+        "prompt": "What benefit does the artist identify?",
+        "answers": [
+          "It encouraged clearer explanations in all classes."
+        ],
+        "evidence": "Explaining thinking explicitly improved teaching beyond the online setting.",
+        "explanation": "Explaining thinking explicitly improved teaching beyond the online setting.",
+        "marks": 1,
+        "options": [
+          "Online teaching removed every practical difficulty.",
+          "It encouraged clearer explanations in all classes.",
+          "Learners no longer needed demonstrations."
+        ],
+        "id": "b22-l1-5-q5"
+      }
+    ],
+    "segments": [
+      {
+        "role": "guide",
+        "text": "At first I missed being able to look over a learner’s shoulder and point to a detail. Online, I had to ask people to explain what they were doing, and sometimes that revealed a misunderstanding I might otherwise have missed. I still think some techniques are easier to demonstrate in a shared studio. Yet I now use short explanations before demonstrations in both settings. The online classes forced me to make my thinking more explicit, which has improved my teaching generally.",
+        "pauseAfter": 0.3
+      }
+    ],
+    "plays": 2
+  },
+  {
+    "id": "b22-l1-6",
+    "title": "Part 1 · Extract 6 — A traveller talks about a guidebook.",
+    "subtitle": "Listening part 1",
+    "part": 1,
+    "skill": "listening",
+    "instructions": "You will hear this recording twice. Read the questions before starting. Choose the best answer or follow the stated word limit.",
+    "questions": [
+      {
+        "number": 6,
+        "kind": "choice",
+        "prompt": "What is the traveller’s opinion of the guidebook?",
+        "answers": [
+          "It was useful, but practical details needed checking."
+        ],
+        "evidence": "The traveller separates useful ideas and background from changeable opening times.",
+        "explanation": "The traveller separates useful ideas and background from changeable opening times.",
+        "marks": 1,
+        "options": [
+          "It should replace all direct enquiries.",
+          "It contained no useful information.",
+          "It was useful, but practical details needed checking."
+        ],
+        "id": "b22-l1-6-q6"
+      }
+    ],
+    "segments": [
+      {
+        "role": "guide",
+        "text": "The book recommended a tiny museum near our hotel. We might never have found it without that suggestion. But the opening times were wrong, and we waited outside for nearly an hour. I would not say the whole book was useless; its background chapters helped me understand places we visited. I just learned to check practical details with the venue itself. A printed guide can provide ideas without being the final authority on what is open today.",
+        "pauseAfter": 0.3
+      }
+    ],
+    "plays": 2
+  },
+  {
+    "id": "b22-l1-7",
+    "title": "Part 1 · Extract 7 — A manager talks about a workplace change.",
+    "subtitle": "Listening part 1",
+    "part": 1,
+    "skill": "listening",
+    "instructions": "You will hear this recording twice. Read the questions before starting. Choose the best answer or follow the stated word limit.",
+    "questions": [
+      {
+        "number": 7,
+        "kind": "choice",
+        "prompt": "What does the manager conclude?",
+        "answers": [
+          "Different tasks need different communication methods."
+        ],
+        "evidence": "Announcements suit notes; discussion suits selected meetings.",
+        "explanation": "Announcements suit notes; discussion suits selected meetings.",
+        "marks": 1,
+        "options": [
+          "Different tasks need different communication methods.",
+          "Written updates should never be used.",
+          "Every weekly meeting should last longer."
+        ],
+        "id": "b22-l1-7-q7"
+      }
+    ],
+    "segments": [
+      {
+        "role": "guide",
+        "text": "We moved the weekly update from a meeting to a written note because people said the meeting interrupted their work. The note was efficient for announcements, but difficult decisions still generated long email exchanges. We now keep the note and hold a shorter meeting only when there is something to discuss. I am pleased we tried the change, even though the first version was not the complete solution. It helped us see which kind of communication each task actually needed.",
+        "pauseAfter": 0.3
+      }
+    ],
+    "plays": 2
+  },
+  {
+    "id": "b22-l1-8",
+    "title": "Part 1 · Extract 8 — A reader describes joining a book club.",
+    "subtitle": "Listening part 1",
+    "part": 1,
+    "skill": "listening",
+    "instructions": "You will hear this recording twice. Read the questions before starting. Choose the best answer or follow the stated word limit.",
+    "questions": [
+      {
+        "number": 8,
+        "kind": "choice",
+        "prompt": "What surprised the reader?",
+        "answers": [
+          "Different interpretations were welcomed."
+        ],
+        "evidence": "The club welcomed differing observations rather than a single correct reading.",
+        "explanation": "The club welcomed differing observations rather than a single correct reading.",
+        "marks": 1,
+        "options": [
+          "Everyone had read the same review.",
+          "Different interpretations were welcomed.",
+          "The organiser gave marks for answers."
+        ],
+        "id": "b22-l1-8-q8"
+      }
+    ],
+    "segments": [
+      {
+        "role": "guide",
+        "text": "I was worried the discussion would feel like a school examination, with everyone searching for the correct interpretation. In fact, people noticed different things and asked each other why. I sometimes changed my mind, but nobody expected agreement on every character. Preparing a few thoughts beforehand helped me join in. I now read more carefully because I am curious about what others might see, rather than because I want to produce the perfect answer.",
+        "pauseAfter": 0.3
+      }
+    ],
+    "plays": 2
+  },
+  {
+    "id": "b22-l2",
+    "title": "Part 2 · Organising a walking festival",
+    "subtitle": "Listening part 2",
+    "part": 2,
+    "skill": "listening",
+    "instructions": "You will hear this recording twice. Read the questions before starting. Choose the best answer or follow the stated word limit.",
+    "questions": [
+      {
+        "number": 9,
+        "kind": "completion",
+        "prompt": "The festival is held in _____. Write NO MORE THAN ONE WORD.",
+        "answers": [
+          "April"
+        ],
+        "evidence": "The coordinator specifies April.",
+        "explanation": "The coordinator specifies April.",
+        "marks": 1,
+        "maxWords": 1,
+        "id": "b22-l2-q9"
+      },
+      {
+        "number": 10,
+        "kind": "completion",
+        "prompt": "The first planning document is a _____. Write NO MORE THAN ONE WORD.",
+        "answers": [
+          "calendar"
+        ],
+        "evidence": "The calendar combines routes and availability.",
+        "explanation": "The calendar combines routes and availability.",
+        "marks": 1,
+        "maxWords": 1,
+        "id": "b22-l2-q10"
+      },
+      {
+        "number": 11,
+        "kind": "completion",
+        "prompt": "One route changed because a _____ was closed. Write NO MORE THAN ONE WORD.",
+        "answers": [
+          "bridge"
+        ],
+        "evidence": "Bridge repairs required a route change.",
+        "explanation": "Bridge repairs required a route change.",
+        "marks": 1,
+        "maxWords": 1,
+        "id": "b22-l2-q11"
+      },
+      {
+        "number": 12,
+        "kind": "completion",
+        "prompt": "Volunteers receive a _____. Write NO MORE THAN ONE WORD.",
+        "answers": [
+          "handbook"
+        ],
+        "evidence": "The handbook covers arrangements, not specialist qualification.",
+        "explanation": "The handbook covers arrangements, not specialist qualification.",
+        "marks": 1,
+        "maxWords": 1,
+        "id": "b22-l2-q12"
+      },
+      {
+        "number": 13,
+        "kind": "completion",
+        "prompt": "The person at the rear is the _____. Write NO MORE THAN TWO WORDS.",
+        "answers": [
+          "tail walker"
+        ],
+        "evidence": "The rear role is explicitly named tail walker.",
+        "explanation": "The rear role is explicitly named tail walker.",
+        "marks": 1,
+        "maxWords": 2,
+        "id": "b22-l2-q13"
+      },
+      {
+        "number": 14,
+        "kind": "completion",
+        "prompt": "Bookings are handled by the _____. Write NO MORE THAN TWO WORDS.",
+        "answers": [
+          "visitor centre"
+        ],
+        "evidence": "The visitor centre handles bookings.",
+        "explanation": "The visitor centre handles bookings.",
+        "marks": 1,
+        "maxWords": 2,
+        "id": "b22-l2-q14"
+      },
+      {
+        "number": 15,
+        "kind": "completion",
+        "prompt": "Some routes require participants to bring a _____. Write NO MORE THAN TWO WORDS.",
+        "answers": [
+          "packed lunch"
+        ],
+        "evidence": "Some routes have no shops or cafe.",
+        "explanation": "Some routes have no shops or cafe.",
+        "marks": 1,
+        "maxWords": 2,
+        "id": "b22-l2-q15"
+      },
+      {
+        "number": 16,
+        "kind": "completion",
+        "prompt": "Immediate observations are written in a small _____. Write NO MORE THAN ONE WORD.",
+        "answers": [
+          "notebook"
+        ],
+        "evidence": "A small notebook records immediate feedback.",
+        "explanation": "A small notebook records immediate feedback.",
+        "marks": 1,
+        "maxWords": 1,
+        "id": "b22-l2-q16"
+      },
+      {
+        "number": 17,
+        "kind": "completion",
+        "prompt": "The next priority is to improve the booking _____. Write NO MORE THAN ONE WORD.",
+        "answers": [
+          "map"
+        ],
+        "evidence": "The map needs clearer meeting-point and route information.",
+        "explanation": "The map needs clearer meeting-point and route information.",
+        "marks": 1,
+        "maxWords": 1,
+        "id": "b22-l2-q17"
+      },
+      {
+        "number": 18,
+        "kind": "completion",
+        "prompt": "Reliable organisation encourages people to _____. Write NO MORE THAN ONE WORD.",
+        "answers": [
+          "return"
+        ],
+        "evidence": "The final sentence links experience to returning.",
+        "explanation": "The final sentence links experience to returning.",
+        "marks": 1,
+        "maxWords": 1,
+        "id": "b22-l2-q18"
+      }
+    ],
+    "segments": [
+      {
+        "role": "lecturer",
+        "text": "When I became coordinator of the town's walking festival, I assumed that choosing attractive routes would be the main task. I soon discovered that clear information and reliable arrangements mattered just as much as scenery. The festival takes place in April, before the busiest visitor season, and offers walks for people with different levels of experience. Some cover only a short distance around the town centre; others spend most of the day in the hills. We describe the ground conditions as well as the length, because a short route with steps may be unsuitable for someone who could comfortably manage a longer level path.\nOur first planning document is a calendar. It shows proposed walks, guide availability and local events that might affect access. Last year, one route had to change because a bridge was closed for repairs. Knowing that early meant we could publish the alternative rather than explain it to a disappointed group on the morning. We ask every guide to walk the route again shortly before the festival, even if they know it well. Conditions change, and an old memory is not a safety check.\nVolunteers receive a handbook covering practical arrangements and how to contact the coordinator. The handbook does not turn an inexperienced person into a qualified mountain guide. We match responsibilities to skills and use appropriate specialists for demanding routes. Every group has someone at the back, called the tail walker, so a participant who pauses is not simply left behind. The leader and tail walker agree how to communicate before setting off.\nBooking is handled through the visitor centre. A place is confirmed by email, but printed confirmations are available for people who prefer them. Participants receive a reminder to bring water, suitable footwear and any personal items they need. We do not promise that every walk will have a cafe stop. Some routes pass no shops, so the description makes clear when a packed lunch is needed. Accurate expectations reduce avoidable problems.\nWe also record feedback after each walk. A useful comment might identify an unclear meeting point or a pace that did not match the description. We keep a small notebook for immediate observations, then transfer relevant points to the planning record. A successful festival is not simply one with the largest attendance. We want participants to feel that the walk they chose matched the information provided, and that they could ask questions without embarrassment.\nFor the next festival, our priority is improving the map that accompanies each booking. It will show the meeting point more clearly and distinguish the walking route from nearby roads. We are not adding more routes until the existing arrangements work consistently. Attractive publicity can encourage a first booking, but a well-organised experience is what makes people return.",
+        "pauseAfter": 0.3
+      }
+    ],
+    "plays": 2
+  },
+  {
+    "id": "b22-l3-1",
+    "title": "Part 3 · Speaker 1",
+    "subtitle": "Listening part 3",
+    "part": 3,
+    "skill": "listening",
+    "instructions": "You will hear this recording twice. Read the questions before starting. Choose the best answer or follow the stated word limit.",
+    "questions": [
+      {
+        "number": 19,
+        "kind": "matching",
+        "prompt": "What does this speaker value most about the activity? Use each chosen option once.",
+        "answers": [
+          "A. Receiving individual feedback"
+        ],
+        "evidence": "The speaker values feedback on a specific mistake.",
+        "explanation": "The speaker values feedback on a specific mistake.",
+        "marks": 1,
+        "options": [
+          "A. Receiving individual feedback",
+          "B. Having a regular commitment",
+          "C. Meeting people outside an existing circle",
+          "D. Producing something useful",
+          "E. Discovering an unexpected strength",
+          "F. Saving money on travel",
+          "G. Winning a competition",
+          "H. Avoiding all difficult tasks"
+        ],
+        "id": "b22-l3-1-q19"
+      }
+    ],
+    "segments": [
+      {
+        "role": "student",
+        "text": "I had watched several videos about repairing furniture, and they made everything look straightforward. But when my first joint did not fit, I could not see why. At the class, the tutor watched how I held the tool and pointed out a small angle I had missed. Once I changed that, the pieces fitted. The finished shelf was pleasant to have, but the important part was someone noticing the particular mistake I was making. A general explanation could not have given me that in the same way.",
+        "pauseAfter": 0.3
+      }
+    ],
+    "plays": 2
+  },
+  {
+    "id": "b22-l3-2",
+    "title": "Part 3 · Speaker 2",
+    "subtitle": "Listening part 3",
+    "part": 3,
+    "skill": "listening",
+    "instructions": "You will hear this recording twice. Read the questions before starting. Choose the best answer or follow the stated word limit.",
+    "questions": [
+      {
+        "number": 20,
+        "kind": "matching",
+        "prompt": "What does this speaker value most about the activity? Use each chosen option once.",
+        "answers": [
+          "B. Having a regular commitment"
+        ],
+        "evidence": "A fixed weekly commitment supports regular practice.",
+        "explanation": "A fixed weekly commitment supports regular practice.",
+        "marks": 1,
+        "options": [
+          "A. Receiving individual feedback",
+          "B. Having a regular commitment",
+          "C. Meeting people outside an existing circle",
+          "D. Producing something useful",
+          "E. Discovering an unexpected strength",
+          "F. Saving money on travel",
+          "G. Winning a competition",
+          "H. Avoiding all difficult tasks"
+        ],
+        "id": "b22-l3-2-q20"
+      }
+    ],
+    "segments": [
+      {
+        "role": "partner",
+        "text": "I meant to practise drawing at home, but other things always seemed more urgent. Signing up for a class gave the activity a place in my week. I still had to make the effort to go, especially on dark evenings, but knowing the group expected me helped. I am not trying to become a professional artist. I simply wanted to stop treating something I enjoyed as the first thing to cancel. The fixed appointment has made that possible.",
+        "pauseAfter": 0.3
+      }
+    ],
+    "plays": 2
+  },
+  {
+    "id": "b22-l3-3",
+    "title": "Part 3 · Speaker 3",
+    "subtitle": "Listening part 3",
+    "part": 3,
+    "skill": "listening",
+    "instructions": "You will hear this recording twice. Read the questions before starting. Choose the best answer or follow the stated word limit.",
+    "questions": [
+      {
+        "number": 21,
+        "kind": "matching",
+        "prompt": "What does this speaker value most about the activity? Use each chosen option once.",
+        "answers": [
+          "C. Meeting people outside an existing circle"
+        ],
+        "evidence": "The speaker values contact beyond the existing professional circle.",
+        "explanation": "The speaker values contact beyond the existing professional circle.",
+        "marks": 1,
+        "options": [
+          "A. Receiving individual feedback",
+          "B. Having a regular commitment",
+          "C. Meeting people outside an existing circle",
+          "D. Producing something useful",
+          "E. Discovering an unexpected strength",
+          "F. Saving money on travel",
+          "G. Winning a competition",
+          "H. Avoiding all difficult tasks"
+        ],
+        "id": "b22-l3-3-q21"
+      }
+    ],
+    "segments": [
+      {
+        "role": "student",
+        "text": "Working from home, I could spend days speaking only to colleagues on a screen. The gardening course brought me into contact with people whose jobs and interests were completely different. We had a practical task to begin with, so conversation did not feel forced. I have learned useful things about plants, but I could probably have read much of that in a book. What makes me continue is hearing about lives outside my usual small professional world.",
+        "pauseAfter": 0.3
+      }
+    ],
+    "plays": 2
+  },
+  {
+    "id": "b22-l3-4",
+    "title": "Part 3 · Speaker 4",
+    "subtitle": "Listening part 3",
+    "part": 3,
+    "skill": "listening",
+    "instructions": "You will hear this recording twice. Read the questions before starting. Choose the best answer or follow the stated word limit.",
+    "questions": [
+      {
+        "number": 22,
+        "kind": "matching",
+        "prompt": "What does this speaker value most about the activity? Use each chosen option once.",
+        "answers": [
+          "D. Producing something useful"
+        ],
+        "evidence": "The value comes from making something that serves a real purpose.",
+        "explanation": "The value comes from making something that serves a real purpose.",
+        "marks": 1,
+        "options": [
+          "A. Receiving individual feedback",
+          "B. Having a regular commitment",
+          "C. Meeting people outside an existing circle",
+          "D. Producing something useful",
+          "E. Discovering an unexpected strength",
+          "F. Saving money on travel",
+          "G. Winning a competition",
+          "H. Avoiding all difficult tasks"
+        ],
+        "id": "b22-l3-4-q22"
+      }
+    ],
+    "segments": [
+      {
+        "role": "partner",
+        "text": "My first sewing projects were samples that stayed in a drawer. Then we made simple bags for a local community event. Knowing someone would actually use what I made changed how carefully I worked. It did not have to look luxurious; the handles needed to be strong and the seams reliable. I enjoyed the practical purpose more than receiving a compliment about the design. Since then I have chosen projects by asking who needs them and what they need to do.",
+        "pauseAfter": 0.3
+      }
+    ],
+    "plays": 2
+  },
+  {
+    "id": "b22-l3-5",
+    "title": "Part 3 · Speaker 5",
+    "subtitle": "Listening part 3",
+    "part": 3,
+    "skill": "listening",
+    "instructions": "You will hear this recording twice. Read the questions before starting. Choose the best answer or follow the stated word limit.",
+    "questions": [
+      {
+        "number": 23,
+        "kind": "matching",
+        "prompt": "What does this speaker value most about the activity? Use each chosen option once.",
+        "answers": [
+          "E. Discovering an unexpected strength"
+        ],
+        "evidence": "The speaker discovers an unanticipated ability in narration.",
+        "explanation": "The speaker discovers an unanticipated ability in narration.",
+        "marks": 1,
+        "options": [
+          "A. Receiving individual feedback",
+          "B. Having a regular commitment",
+          "C. Meeting people outside an existing circle",
+          "D. Producing something useful",
+          "E. Discovering an unexpected strength",
+          "F. Saving money on travel",
+          "G. Winning a competition",
+          "H. Avoiding all difficult tasks"
+        ],
+        "id": "b22-l3-5-q23"
+      }
+    ],
+    "segments": [
+      {
+        "role": "student",
+        "text": "I joined the drama group because a friend asked me to come along. I expected to be comfortable helping with scenery and terrified of reading a line. During an exercise, though, the director said I had a clear voice and asked me to narrate a short scene. I would never have volunteered without that encouragement. I still enjoy painting scenery, but discovering that I could contribute in another way was the surprise. It changed my view of what I might be able to learn.",
+        "pauseAfter": 0.3
+      }
+    ],
+    "plays": 2
+  },
+  {
+    "id": "b22-l4",
+    "title": "Part 4 · Interview with a repair cafe organiser",
+    "subtitle": "Listening part 4",
+    "part": 4,
+    "skill": "listening",
+    "instructions": "You will hear this recording twice. Read the questions before starting. Choose the best answer or follow the stated word limit.",
+    "questions": [
+      {
+        "number": 24,
+        "kind": "choice",
+        "prompt": "What first motivated the project?",
+        "answers": [
+          "Providing a useful focus for community meetings."
+        ],
+        "evidence": "Leila says restoring useful community activity was the immediate reason.",
+        "explanation": "Leila says restoring useful community activity was the immediate reason.",
+        "marks": 1,
+        "options": [
+          "Providing a useful focus for community meetings.",
+          "Winning an environmental prize.",
+          "Replacing every professional repair service."
+        ],
+        "id": "b22-l4-q24"
+      },
+      {
+        "number": 25,
+        "kind": "choice",
+        "prompt": "Why were organisational jobs shared?",
+        "answers": [
+          "The event had depended too heavily on one volunteer."
+        ],
+        "evidence": "One skilled volunteer initially organised everything.",
+        "explanation": "One skilled volunteer initially organised everything.",
+        "marks": 1,
+        "options": [
+          "Skilled repair was no longer needed.",
+          "The event had depended too heavily on one volunteer.",
+          "Visitors refused to complete forms."
+        ],
+        "id": "b22-l4-q25"
+      },
+      {
+        "number": 26,
+        "kind": "choice",
+        "prompt": "What does Leila say about watching a repair?",
+        "answers": [
+          "It should not be confused with full practical competence."
+        ],
+        "evidence": "Confidence needs to match understanding.",
+        "explanation": "Confidence needs to match understanding.",
+        "marks": 1,
+        "options": [
+          "It automatically qualifies a visitor to repeat it alone.",
+          "It is never useful to a visitor.",
+          "It should not be confused with full practical competence."
+        ],
+        "id": "b22-l4-q26"
+      },
+      {
+        "number": 27,
+        "kind": "choice",
+        "prompt": "Why did the publicity change?",
+        "answers": [
+          "It had not described practical limits clearly."
+        ],
+        "evidence": "The vague invitation led to unsuitable large items.",
+        "explanation": "The vague invitation led to unsuitable large items.",
+        "marks": 1,
+        "options": [
+          "It had not described practical limits clearly.",
+          "It had contained too many precise size limits.",
+          "It had discouraged every visitor."
+        ],
+        "id": "b22-l4-q27"
+      },
+      {
+        "number": 28,
+        "kind": "choice",
+        "prompt": "Why are outcomes recorded separately?",
+        "answers": [
+          "To understand what was actually achieved and what is needed."
+        ],
+        "evidence": "Separate categories support accurate understanding and planning.",
+        "explanation": "Separate categories support accurate understanding and planning.",
+        "marks": 1,
+        "options": [
+          "To make every referral count as a repair.",
+          "To understand what was actually achieved and what is needed.",
+          "To avoid recording unsuccessful visits."
+        ],
+        "id": "b22-l4-q28"
+      },
+      {
+        "number": 29,
+        "kind": "choice",
+        "prompt": "What is Leila’s view of expansion?",
+        "answers": [
+          "It should depend on realistic volunteer capacity."
+        ],
+        "evidence": "A second date needs enough committed volunteers.",
+        "explanation": "A second date needs enough committed volunteers.",
+        "marks": 1,
+        "options": [
+          "It must happen immediately at any cost.",
+          "It can remove the need for maintenance.",
+          "It should depend on realistic volunteer capacity."
+        ],
+        "id": "b22-l4-q29"
+      },
+      {
+        "number": 30,
+        "kind": "choice",
+        "prompt": "What advice does she give new organisers?",
+        "answers": [
+          "Adapt plans to their own skills and space."
+        ],
+        "evidence": "She recommends understanding local capacity and boundaries.",
+        "explanation": "She recommends understanding local capacity and boundaries.",
+        "marks": 1,
+        "options": [
+          "Adapt plans to their own skills and space.",
+          "Copy another group’s equipment list exactly.",
+          "Promise to repair everything before opening."
+        ],
+        "id": "b22-l4-q30"
+      }
+    ],
+    "segments": [
+      {
+        "role": "coordinator",
+        "text": "Today I am talking to Leila, who runs a small repair cafe. Leila, did the project begin with an environmental campaign?",
+        "pauseAfter": 0.3
+      },
+      {
+        "role": "student",
+        "text": "That came into it, but the immediate reason was practical. Our community centre had lost several regular activities, and people wanted somewhere to meet while doing something useful. Repairing objects gave the meetings a focus. We did not begin with a promise about how many items we would save.",
+        "pauseAfter": 0.3
+      },
+      {
+        "role": "coordinator",
+        "text": "How did you find volunteers with the right skills?",
+        "pauseAfter": 0.3
+      },
+      {
+        "role": "student",
+        "text": "We asked locally, but not only for people who could repair electrical equipment. Someone who can welcome visitors and keep clear records is important too. At first, one very skilled volunteer tried to organise everything. She was generous, but it made the whole event depend on her. We now share the organisational jobs.",
+        "pauseAfter": 0.3
+      },
+      {
+        "role": "coordinator",
+        "text": "Do visitors usually want to learn the repair themselves?",
+        "pauseAfter": 0.3
+      },
+      {
+        "role": "student",
+        "text": "Some do. Others mainly want the object working, and we should not pretend those are identical aims. We explain what can be done safely and invite questions. If a visitor watches once, we do not announce that they are now qualified to repeat the procedure alone. Confidence is useful, but it needs to match understanding.",
+        "pauseAfter": 0.3
+      },
+      {
+        "role": "coordinator",
+        "text": "Was anything unexpectedly difficult at the beginning?",
+        "pauseAfter": 0.3
+      },
+      {
+        "role": "student",
+        "text": "Yes: deciding what to accept. People brought very large objects that we had nowhere to store. Our publicity had said bring a broken item, which sounded welcoming but was too vague. We changed it to describe the kinds and sizes of objects we could handle. Saying no clearly in advance was kinder than disappointing someone after a difficult journey.",
+        "pauseAfter": 0.3
+      },
+      {
+        "role": "coordinator",
+        "text": "How do you measure the project’s success?",
+        "pauseAfter": 0.3
+      },
+      {
+        "role": "student",
+        "text": "We record completed repairs, but also referrals and useful advice. Those are separate categories. I do not combine them into one grand success rate. An object that needs a professional repair is not the same as one we fixed, even if the owner found the visit helpful. Keeping the categories separate helps us see where training or equipment might be needed.",
+        "pauseAfter": 0.3
+      },
+      {
+        "role": "coordinator",
+        "text": "Have you considered expanding to every weekend?",
+        "pauseAfter": 0.3
+      },
+      {
+        "role": "student",
+        "text": "People ask, and I understand the demand. But the volunteers have other responsibilities. More frequent events could mean losing the careful preparation that makes the current ones work. We are discussing a second monthly date, provided enough people can commit to it. A busy-looking calendar is not an achievement if nobody has time to maintain the tools.",
+        "pauseAfter": 0.3
+      },
+      {
+        "role": "coordinator",
+        "text": "What would you advise someone starting a similar group?",
+        "pauseAfter": 0.3
+      },
+      {
+        "role": "student",
+        "text": "Begin by finding out what skills and space are actually available. Do not buy a room full of tools because a successful group elsewhere uses them. Agree safety boundaries, keep the first event small and tell visitors what to expect. You can learn from another group without copying an arrangement that does not suit your own neighbourhood.",
+        "pauseAfter": 0.3
+      },
+      {
+        "role": "coordinator",
+        "text": "And what do you personally enjoy most?",
+        "pauseAfter": 0.3
+      },
+      {
+        "role": "student",
+        "text": "Seeing a visitor return, not necessarily with another broken object, but with a question or an offer to help. It suggests the cafe has become a place where asking about a practical problem feels normal. We cannot solve every problem, and that is fine. A reliable, modest service can be valuable without pretending to be a complete alternative to professional repair.",
+        "pauseAfter": 0.3
+      }
+    ],
+    "plays": 2
+  }
+]

@@ -36,6 +36,7 @@ const arabicFont = Noto_Naskh_Arabic({
 export const metadata: Metadata = {
   title: "EnglishCamp — A1 to B2 English",
   description: "Interactive English learning platform A1 to B2 for Arabic speakers",
+  icons: { icon: [{ url: "/media/brand/englishcamp-icon-32.png", sizes: "32x32", type: "image/png" }, { url: "/favicon.ico", sizes: "32x32" }], apple: [{ url: "/media/brand/englishcamp-icon-180.png", sizes: "180x180", type: "image/png" }] },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

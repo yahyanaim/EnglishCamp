@@ -1,4 +1,5 @@
 "use client";
+import { LearningArt } from "@/components/brand/LearningArt";
 import { motion } from "framer-motion";
 import { useProgress } from "@/store/useProgress";
 import { BarChart3 } from "lucide-react";
@@ -29,7 +30,7 @@ export function ActivityChart() {
       style={{ boxShadow: "0 3px 0 var(--color-border-default)" }}
     >
       <div className="flex items-center gap-2 mb-4">
-        <BarChart3 className="w-4 h-4" style={{ color: "var(--color-text-secondary)" }} />
+        <LearningArt name="BarChart3" size={16} className="w-4 h-4" />
         <h3 className="font-display font-bold text-sm" style={{ color: "var(--color-text-primary)" }}>Activity (28 days)</h3>
       </div>
       <div className="flex gap-[3px] items-end h-16">

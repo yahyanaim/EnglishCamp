@@ -1,4 +1,6 @@
 "use client";
+import { LearningArt } from "@/components/brand/LearningArt";
+import { PracticeCard, PracticeButton } from "@/components/ui/PracticeSurface";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useProgress } from "@/store/useProgress";
@@ -141,10 +143,10 @@ export function ConjugationTrainer() {
       <div className="text-center py-8">
         <span className="text-5xl block mb-3">{pct >= 80 ? "🏆" : pct >= 50 ? "👍" : "💪"}</span>
         <h3 className="text-xl font-display font-extrabold text-[var(--color-text-primary)] mb-1">Conjugation Practice Done!</h3>
-        <p className="text-lg font-display font-extrabold text-[var(--color-primary-dark)] mb-1">{score}/{total} correct ({pct}%)</p>
-        <button onClick={restart} className="text-sm font-medium bg-[var(--color-primary-subtle)] text-[var(--color-primary-dark)] border border-[var(--color-primary)] px-5 py-2 rounded-[var(--radius-lg)] hover:bg-[var(--color-primary)] transition-all mt-4">
-          Play Again 🔄
-        </button>
+        <p className="text-lg font-display font-extrabold text-[var(--color-text-link)] mb-1">{score}/{total} correct ({pct}%)</p>
+        <PracticeButton onClick={restart} className="text-sm font-medium bg-[var(--color-primary-subtle)] text-[var(--color-text-link)] border border-[var(--color-primary)] px-5 py-2 rounded-[var(--radius-lg)] hover:bg-[var(--color-primary)] transition-all mt-4">
+          Play Again <LearningArt name="🔄" size={16} />
+        </PracticeButton>
       </div>
     );
   }
@@ -152,10 +154,10 @@ export function ConjugationTrainer() {
   if (!item) return null;
 
   return (
-    <div className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border-2 border-[var(--color-border-default)] p-6 shadow-sm" style={{ boxShadow: "0 3px 0 var(--color-border-default)" }}>
+    <PracticeCard data-practice-surface="question" className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-6 shadow-sm" style={{ boxShadow: "0 3px 0 var(--color-border-default)" }}>
       <div className="flex items-center justify-between mb-4">
-        <span className="text-xs font-semibold text-[var(--color-success)] uppercase tracking-wider">Conjugation Trainer</span>
-        <span className="text-xs text-[var(--color-text-disabled)]">{current + 1} / {pool.length}</span>
+        <span className="text-xs font-semibold text-[var(--color-text-success)] uppercase tracking-wider">Conjugation Trainer</span>
+        <span className="text-xs text-[var(--color-text-secondary)]">{current + 1} / {pool.length}</span>
       </div>
 
       <AnimatePresence mode="wait">
@@ -170,11 +172,11 @@ export function ConjugationTrainer() {
             <span className="text-sm text-[var(--color-text-secondary)]">Conjugate:</span>
             <span className="text-lg font-display font-extrabold text-[var(--color-text-primary)]">{item.verb.infinitive}</span>
             <SpeakerButton text={item.verb.infinitive} />
-            <span className="text-xs text-[var(--color-text-disabled)] italic">({item.verb.en})</span>
+            <span className="text-xs text-[var(--color-text-secondary)] italic">({item.verb.en})</span>
           </div>
 
           <div className="flex items-center gap-2 text-lg">
-            <span className="font-semibold text-[var(--color-primary-dark)]">{item.pronoun}</span>
+            <span className="font-semibold text-[var(--color-text-link)]">{item.pronoun}</span>
             <div className="flex-1 flex items-center gap-2">
               <input
                 type="text"
@@ -198,13 +200,13 @@ export function ConjugationTrainer() {
       </AnimatePresence>
 
       {!answered && (
-        <button
+        <PracticeButton
           onClick={handleSubmit}
           disabled={!input.trim()}
-          className="text-sm font-medium bg-[var(--color-primary-subtle)] text-[var(--color-primary-dark)] border border-[var(--color-primary)] px-5 py-2 rounded-[var(--radius-lg)] hover:bg-[var(--color-primary)] transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+          className="text-sm font-medium bg-[var(--color-primary-subtle)] text-[var(--color-text-link)] border border-[var(--color-primary)] px-5 py-2 rounded-[var(--radius-lg)] hover:bg-[var(--color-primary)] transition-all disabled:opacity-50 disabled:cursor-not-allowed"
         >
           Check ✓
-        </button>
+        </PracticeButton>
       )}
 
       {answered && (
@@ -214,21 +216,21 @@ export function ConjugationTrainer() {
           className="mt-3"
         >
           {isCorrect ? (
-            <p className="text-sm font-medium text-[var(--color-success)]">✓ Correct! +5 XP</p>
+            <p className="text-sm font-medium text-[var(--color-text-success)]">✓ Correct! +5 XP</p>
           ) : (
             <div className="space-y-2">
-              <p className="text-sm font-medium text-[var(--color-error)]">✗ Correct: {item.pronoun} {item.verb.conjugations[item.pronoun]}</p>
+              <p className="text-sm font-medium text-[var(--color-text-error)]">✗ Correct: {item.pronoun} {item.verb.conjugations[item.pronoun]}</p>
 
-              <div className="flex items-start gap-3 p-4 rounded-[var(--radius-lg)] bg-[var(--color-warning)] text-white ring-1 ring-[var(--color-warning)]">
-                <Lightbulb className="w-5 h-5 shrink-0 mt-0.5 text-[var(--color-warning)]" />
+              <div className="flex items-start gap-3 p-4 rounded-[var(--radius-lg)] bg-[var(--color-warning-bg)] text-[var(--color-text-warning)] ring-1 ring-[var(--color-warning)]">
+                <LearningArt name="Lightbulb" size={20} className="w-5 h-5 shrink-0 mt-0.5 text-[var(--color-text-warning)]" />
                 <div>
                   <p className="font-semibold text-sm">Astuce (Tip)</p>
                   <p className="text-sm mt-1">{getConjTip(item.verb, item.pronoun).tip}</p>
                 </div>
               </div>
 
-              <div className="flex items-start gap-3 p-4 rounded-[var(--radius-lg)] bg-[var(--color-info)] text-white ring-1 ring-[var(--color-info)]">
-                <BookOpen className="w-5 h-5 shrink-0 mt-0.5 text-[var(--color-info)]" />
+              <div className="flex items-start gap-3 p-4 rounded-[var(--radius-lg)] bg-[var(--color-info-bg)] text-[var(--color-text-info)] ring-1 ring-[var(--color-info)]">
+                <LearningArt name="BookOpen" size={20} className="w-5 h-5 shrink-0 mt-0.5 text-[var(--color-text-info)]" />
                 <div>
                   <p className="font-semibold text-sm">Suggestion</p>
                   <p className="text-sm mt-1">{getConjTip(item.verb, item.pronoun).suggest}</p>
@@ -237,15 +239,15 @@ export function ConjugationTrainer() {
             </div>
           )}
           <div className="mt-3">
-            <button
+            <PracticeButton
               onClick={next}
-              className="text-sm font-medium bg-[var(--color-primary-subtle)] text-[var(--color-primary-dark)] border border-[var(--color-primary)] px-5 py-2 rounded-[var(--radius-lg)] hover:bg-[var(--color-primary)] transition-all"
+              className="text-sm font-medium bg-[var(--color-primary-subtle)] text-[var(--color-text-link)] border border-[var(--color-primary)] px-5 py-2 rounded-[var(--radius-lg)] hover:bg-[var(--color-primary)] transition-all"
             >
               {current + 1 >= pool.length ? "See Results" : "Next →"}
-            </button>
+            </PracticeButton>
           </div>
         </motion.div>
       )}
-    </div>
+    </PracticeCard>
   );
 }

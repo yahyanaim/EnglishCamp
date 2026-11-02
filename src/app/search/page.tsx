@@ -1,4 +1,5 @@
 "use client";
+import { LearningArt } from "@/components/brand/LearningArt";
 import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
 import { levels } from "@/data/content";
@@ -82,14 +83,14 @@ export default function SearchPage() {
       </motion.div>
 
       <div className="relative">
-        <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[var(--color-text-disabled)]" />
+        <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[var(--color-text-secondary)]" />
         <input
           type="text"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder='Search for English words, grammar topics...'
           autoFocus
-          className="w-full h-[52px] pl-11 pr-10 bg-[var(--color-surface)] rounded-[var(--radius-md)] border-2 border-[var(--color-border-default)] text-[16px] font-body font-medium text-[var(--color-text-secondary)] placeholder:text-[var(--color-text-disabled)] placeholder:italic outline-none transition-all duration-150 focus:border-[#1CB0F6] focus:shadow-[0_0_0_3px_rgba(28,176,246,0.15)]"
+          className="w-full h-[52px] pl-11 pr-10 bg-[var(--color-surface)] rounded-[var(--radius-md)] border border-[var(--color-border-default)] text-[16px] font-body font-medium text-[var(--color-text-secondary)] placeholder:text-[var(--color-text-secondary)] placeholder:italic outline-none transition-all duration-150 focus:border-[#7E22CE] focus:shadow-[0_0_0_3px_rgba(126,34,206,0.15)]"
         />
       </div>
 
@@ -97,13 +98,13 @@ export default function SearchPage() {
         <div className="flex items-center justify-between">
           <p className="text-sm text-[var(--color-text-secondary)]">
             Found {filtered.length} match{filtered.length !== 1 ? "es" : ""}
-            {tab === "all" && <span className="text-[var(--color-text-disabled)]"> ({lessonCount} in lessons, {grammarCount} in grammar)</span>}
+            {tab === "all" && <span className="text-[var(--color-text-secondary)]"> ({lessonCount} in lessons, {grammarCount} in grammar)</span>}
           </p>
           <div className="flex gap-1 bg-[var(--color-surface-alt)] rounded-[var(--radius-pill)] p-0.5">
             {(["all", "lessons", "grammar"] as const).map((t) => (
               <button key={t} onClick={() => setTab(t)}
 className={`text-xs font-semibold px-4 py-1.5 rounded-[var(--radius-pill)] transition-all ${
-                   tab === t ? "bg-[var(--color-primary)] text-white shadow-sm" : "text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]"
+                   tab === t ? "bg-[var(--color-primary)] text-[var(--color-on-brand)] shadow-sm" : "text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]"
                 }`}>
                 {t === "all" ? "All" : t === "lessons" ? "Lessons" : "Grammar"}
               </button>
@@ -114,7 +115,7 @@ className={`text-xs font-semibold px-4 py-1.5 rounded-[var(--radius-pill)] trans
 
       <div className="space-y-2">
         {query && filtered.length === 0 && (
-          <div className="text-center py-12 text-[var(--color-text-disabled)]">
+          <div className="text-center py-12 text-[var(--color-text-secondary)]">
             <Search className="w-12 h-12 mx-auto mb-3 opacity-30" />
             <p className="text-sm">No results for &ldquo;{query}&rdquo;</p>
             <p className="text-xs mt-1">Try a different search term</p>
@@ -129,17 +130,17 @@ className={`text-xs font-semibold px-4 py-1.5 rounded-[var(--radius-pill)] trans
                 <motion.div
                   initial={{ opacity: 0, y: 8 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border-2 border-[var(--color-border-default)] p-4 shadow-sm hover:ring-brand-200 hover:shadow-md transition-all cursor-pointer"
+                  className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-4 shadow-sm hover:ring-brand-200 hover:shadow-md transition-all cursor-pointer"
                 >
                   <div className="flex items-center justify-between mb-1">
                     <div className="flex items-center gap-2">
-                      <BookOpen className="w-4 h-4 text-[var(--color-primary)]" />
+                      <LearningArt name="BookOpen" size={16} className="w-4 h-4 text-[var(--color-primary)]" />
                       <span className="text-sm font-semibold text-[var(--color-text-primary)]">{result.lessonTitle}</span>
-                      <span className="text-[10px] font-medium uppercase text-[var(--color-text-disabled)] bg-[var(--color-surface-alt)] px-2 py-0.5 rounded-full">
+                      <span className="text-[10px] font-medium uppercase text-[var(--color-text-secondary)] bg-[var(--color-surface-alt)] px-2 py-0.5 rounded-full">
                         {result.levelId.toUpperCase()}
                       </span>
                     </div>
-                    <ChevronRight className="w-4 h-4 text-[var(--color-text-disabled)]" />
+                    <ChevronRight className="w-4 h-4 text-[var(--color-text-secondary)]" />
                   </div>
                   <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed" dangerouslySetInnerHTML={{
                     __html: highlightMatch(result.text, query)
@@ -154,17 +155,17 @@ className={`text-xs font-semibold px-4 py-1.5 rounded-[var(--radius-pill)] trans
               <motion.div
                 initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border-2 border-[var(--color-border-default)] p-4 shadow-sm hover:ring-violet-200 hover:shadow-md transition-all cursor-pointer"
+                className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-4 shadow-sm hover:ring-violet-200 hover:shadow-md transition-all cursor-pointer"
               >
                 <div className="flex items-center justify-between mb-1">
                   <div className="flex items-center gap-2">
-                    <BookMarked className="w-4 h-4 text-[#9B59B6]" />
+                    <LearningArt name="BookMarked" size={16} className="w-4 h-4 text-[#9B59B6]" />
                     <span className="text-sm font-semibold text-[var(--color-text-primary)]">{result.title}</span>
                     <span className="text-[10px] font-medium text-[#9B59B6] bg-[#9B59B6] text-white px-2 py-0.5 rounded-full">
                       {result.sourceLabel}
                     </span>
                   </div>
-                  <ChevronRight className="w-4 h-4 text-[var(--color-text-disabled)]" />
+                  <ChevronRight className="w-4 h-4 text-[var(--color-text-secondary)]" />
                 </div>
                 <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed" dangerouslySetInnerHTML={{
                   __html: highlightMatch(result.text, query)
@@ -191,5 +192,5 @@ function extractSnippet(text: string, query: string): string {
 
 function highlightMatch(text: string, query: string): string {
   const regex = new RegExp(`(${query.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")})`, "gi");
-  return text.replace(regex, "<mark class='bg-amber-100 text-[var(--color-warning)] px-0.5 rounded'>$1</mark>");
+  return text.replace(regex, "<mark class='bg-[var(--color-warning-bg)] text-[var(--color-text-warning)] px-0.5 rounded'>$1</mark>");
 }

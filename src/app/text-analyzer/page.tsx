@@ -1,4 +1,6 @@
 "use client";
+
+import { LearningArt } from "@/components/brand/LearningArt";
 import { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { PageWrapper } from "@/components/layout/PageWrapper";
@@ -73,7 +75,7 @@ export default function TextAnalyzerPage() {
     <PageWrapper>
       <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}>
         <div className="flex items-center gap-3 mb-1">
-          <FileText className="w-6 h-6 text-[var(--color-primary)]" />
+          <LearningArt name="FileText" className="w-6 h-6 text-[var(--color-primary)]" />
           <h1 className="font-display text-2xl font-extrabold text-[var(--color-text-primary)]">Text Analyzer</h1>
         </div>
         <p className="text-sm text-[var(--color-text-secondary)]">Paste text to analyze its complexity and structure</p>
@@ -88,9 +90,9 @@ export default function TextAnalyzerPage() {
           className="w-full bg-[var(--color-surface)] border border-[var(--color-border-default)] rounded-[var(--radius-lg)] p-4 text-sm text-[var(--color-text-primary)] outline-none focus:ring-2 focus:ring-brand-100 focus:border-brand-300 shadow-sm resize-y transition-all"
         />
         <div className="flex items-center justify-between">
-          <p className="text-xs text-[var(--color-text-disabled)]">{analysis?.wordCount ?? 0} words, {analysis?.chars ?? 0} characters</p>
+          <p className="text-xs text-[var(--color-text-secondary)]">{analysis?.wordCount ?? 0} words, {analysis?.chars ?? 0} characters</p>
           {text && (
-            <button onClick={() => setText("")} className="text-xs text-[var(--color-text-disabled)] hover:text-[var(--color-text-secondary)] transition-colors flex items-center gap-1">
+            <button onClick={() => setText("")} className="text-xs text-[var(--color-text-secondary)] hover:text-[var(--color-text-secondary)] transition-colors flex items-center gap-1">
               <RotateCcw className="w-3 h-3" /> Clear
             </button>
           )}
@@ -100,13 +102,13 @@ export default function TextAnalyzerPage() {
       <AnimatePresence>
         {analysis && (
           <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} className="mt-6 space-y-6">
-            <div className="bg-gradient-to-r from-[var(--color-primary-subtle)]0 to-brand-700 rounded-[var(--radius-lg)] p-5 text-white">
+            <div className="camp-analyzer-difficulty">
               <div className="flex items-center gap-2 mb-1">
-                <Sparkles className="w-5 h-5" />
-                <span className="text-sm font-semibold opacity-90">Estimated Difficulty</span>
+                <LearningArt name="Sparkles" size={20} className="w-5 h-5" />
+                <span className="text-sm font-semibold">Estimated Difficulty</span>
               </div>
               <p className="text-2xl font-display font-extrabold">{analysis.difficulty}</p>
-              <p className="text-sm opacity-80 mt-1">
+              <p className="text-sm mt-1">
                 Based on avg sentence length ({analysis.avgWordsPerSentence} words) and avg syllables per word ({analysis.avgSyllablesPerWord})
               </p>
             </div>
@@ -118,9 +120,9 @@ export default function TextAnalyzerPage() {
                 { icon: AlignLeft, label: "Sentences", value: analysis.sentenceCount.toString() },
                 { icon: BarChart3, label: "Unique Words", value: `${analysis.uniqueWords} (${Math.round((analysis.uniqueWords / analysis.wordCount) * 100)}%)` },
               ].map((s) => (
-                <div key={s.label} className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border-2 border-[var(--color-border-default)] p-4 shadow-sm">
+                <div key={s.label} className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-4 shadow-sm">
                   <div className="flex items-center gap-2 mb-1">
-                    <s.icon className="w-4 h-4 text-[var(--color-primary)]" />
+                    <LearningArt name={s.icon.displayName || "book"} className="w-4 h-4 text-[var(--color-primary)]" />
                     <span className="text-xs text-[var(--color-text-secondary)]">{s.label}</span>
                   </div>
                   <p className="text-lg font-bold text-[var(--color-text-primary)]">{s.value}</p>
@@ -128,24 +130,24 @@ export default function TextAnalyzerPage() {
               ))}
             </div>
 
-            <div className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border-2 border-[var(--color-border-default)] p-5 shadow-sm">
+            <div className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-5 shadow-sm">
               <h3 className="text-sm font-semibold text-[var(--color-text-primary)] mb-3 flex items-center gap-2">
                 <PieChart className="w-4 h-4 text-[var(--color-primary)]" />
                 Grammar Structure Detected
               </h3>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 {[
-                  { label: "Articles", value: analysis.articles, color: "bg-[var(--color-info)]" },
-                  { label: "Prepositions", value: analysis.prepositions, color: "bg-[var(--color-success)]" },
+                  { label: "Articles", value: analysis.articles, color: "bg-[var(--color-info-bg)]" },
+                  { label: "Prepositions", value: analysis.prepositions, color: "bg-[var(--color-success-bg)]" },
                   { label: "Conjunctions", value: analysis.conjunctions, color: "bg-[#9B59B6]" },
-                  { label: "Modal Verbs", value: analysis.modals, color: "bg-[var(--color-warning)]" },
+                  { label: "Modal Verbs", value: analysis.modals, color: "bg-[var(--color-warning-bg)]" },
                 ].map((s) => {
                   const pct = analysis.wordCount > 0 ? Math.round((s.value / analysis.wordCount) * 100) : 0;
                   return (
                     <div key={s.label}>
                       <div className="flex justify-between text-xs mb-1">
                         <span className="text-[var(--color-text-secondary)]">{s.label}</span>
-                        <span className="text-[var(--color-text-disabled)]">{s.value} ({pct}%)</span>
+                        <span className="text-[var(--color-text-secondary)]">{s.value} ({pct}%)</span>
                       </div>
                       <div className="w-full h-2 bg-[var(--color-surface-alt)] rounded-full overflow-hidden">
                         <div className={`h-full rounded-full ${s.color} transition-all duration-500`} style={{ width: `${Math.min(pct, 100)}%` }} />
@@ -157,26 +159,26 @@ export default function TextAnalyzerPage() {
             </div>
 
             {analysis.sentenceFeatures.length > 0 && (
-              <div className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border-2 border-[var(--color-border-default)] p-5 shadow-sm">
+              <div className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-5 shadow-sm">
                 <h3 className="text-sm font-semibold text-[var(--color-text-primary)] mb-2 flex items-center gap-2">
-                  <BookOpen className="w-4 h-4 text-[var(--color-primary)]" />
+                  <LearningArt name="BookOpen" className="w-4 h-4 text-[var(--color-primary)]" />
                   Sentence Structure Analysis
                 </h3>
                 <div className="flex flex-wrap gap-2">
                   {analysis.sentenceFeatures.map((f, i) => (
-                    <span key={i} className="text-xs font-medium text-[#9B59B6] bg-[#9B59B6] text-white px-2.5 py-1 rounded-full">{f}</span>
+                    <span key={i} className="camp-analyzer-feature">{f}</span>
                   ))}
                 </div>
               </div>
             )}
 
-            <div className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border-2 border-[var(--color-border-default)] p-5 shadow-sm">
+            <div className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-5 shadow-sm">
               <h3 className="text-sm font-semibold text-[var(--color-text-primary)] mb-2">Readability Metrics</h3>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
-                <div><span className="text-[var(--color-text-disabled)]">Avg word length:</span> <span className="font-semibold text-[var(--color-text-primary)]">{analysis.avgWordLength} chars</span></div>
-                <div><span className="text-[var(--color-text-disabled)]">Avg syllables/word:</span> <span className="font-semibold text-[var(--color-text-primary)]">{analysis.avgSyllablesPerWord}</span></div>
-                <div><span className="text-[var(--color-text-disabled)]">Avg words/sentence:</span> <span className="font-semibold text-[var(--color-text-primary)]">{analysis.avgWordsPerSentence}</span></div>
-                <div><span className="text-[var(--color-text-disabled)]">Lexical diversity:</span> <span className="font-semibold text-[var(--color-text-primary)]">{Math.round((analysis.uniqueWords / analysis.wordCount) * 100)}%</span></div>
+                <div><span className="text-[var(--color-text-secondary)]">Avg word length:</span> <span className="font-semibold text-[var(--color-text-primary)]">{analysis.avgWordLength} chars</span></div>
+                <div><span className="text-[var(--color-text-secondary)]">Avg syllables/word:</span> <span className="font-semibold text-[var(--color-text-primary)]">{analysis.avgSyllablesPerWord}</span></div>
+                <div><span className="text-[var(--color-text-secondary)]">Avg words/sentence:</span> <span className="font-semibold text-[var(--color-text-primary)]">{analysis.avgWordsPerSentence}</span></div>
+                <div><span className="text-[var(--color-text-secondary)]">Lexical diversity:</span> <span className="font-semibold text-[var(--color-text-primary)]">{Math.round((analysis.uniqueWords / analysis.wordCount) * 100)}%</span></div>
               </div>
             </div>
           </motion.div>

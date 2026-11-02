@@ -1,4 +1,5 @@
 "use client";
+import { LearningArt } from "@/components/brand/LearningArt";
 import Link from "next/link";
 import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
@@ -68,11 +69,11 @@ export default function WeakAreasPage() {
             onClick={() => setFilter(s.id)}
             className={`inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1.5 rounded-[var(--radius-pill)] border transition-all ${
               filter === s.id
-                ? "bg-[var(--color-primary)] text-white border-[#58CC02]"
+                ? "bg-[var(--color-primary)] text-[var(--color-on-brand)] border-[#58CC02]"
                 : "bg-[var(--color-surface)] text-[var(--color-text-secondary)] border-[var(--color-border-default)] hover:bg-[var(--color-surface-alt)]"
             }`}
           >
-            {s.id === "quiz" && <Zap className="w-3 h-3" />}
+            {s.id === "quiz" && <LearningArt name="Zap" size={12} className="w-3 h-3" />}
             {s.label}
             <span className={`text-[10px] px-1.5 py-0.5 rounded-full ${
               filter === s.id ? "bg-[var(--color-primary)]/20" : "bg-[var(--color-surface-alt)]"
@@ -86,7 +87,7 @@ export default function WeakAreasPage() {
       {/* Error list */}
       <div className="space-y-2">
         {filtered.length === 0 && (
-          <div className="text-center py-12 text-[var(--color-text-disabled)]">
+          <div className="text-center py-12 text-[var(--color-text-secondary)]">
             <CheckCircle className="w-12 h-12 mx-auto mb-3 text-emerald-300" />
             <p className="text-sm">No errors found!</p>
             <p className="text-xs mt-1">Keep up the great work 🌟</p>
@@ -100,26 +101,26 @@ export default function WeakAreasPage() {
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.03 }}
-              className={`bg-[var(--color-surface)] rounded-[var(--radius-lg)] border-2 border-[var(--color-border-default)] p-4 shadow-sm ${
+              className={`bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-4 shadow-sm ${
                 err.reviewed ? "opacity-60" : ""
               }`}
             >
               <div className="flex items-start justify-between gap-4">
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2 mb-1">
-                    <AlertCircle className="w-4 h-4 text-[var(--color-error)] flex-shrink-0" />
+                    <AlertCircle className="w-4 h-4 text-[var(--color-text-error)] flex-shrink-0" />
                     <p className="text-sm font-medium text-[var(--color-text-primary)]">{err.question}</p>
                   </div>
                   <div className="flex flex-wrap gap-x-4 gap-y-1 text-xs mt-1">
-                    <span className="text-[var(--color-error)]">You: {err.userAnswer}</span>
-                    <span className="text-[var(--color-success)] font-medium">Correct: {err.correctAnswer}</span>
+                    <span className="text-[var(--color-text-error)]">You: {err.userAnswer}</span>
+                    <span className="text-[var(--color-text-success)] font-medium">Correct: {err.correctAnswer}</span>
                   </div>
                   <p className="text-xs text-[var(--color-text-secondary)] mt-1">{err.explanation}</p>
                   {err.source === "course-activity" && <Link className="text-xs text-[var(--color-text-link)] underline inline-block mt-2" href={`/exercises/${err.sourceId}`}>Revise this course activity</Link>}
-                  <div className="flex items-center gap-2 mt-2 text-[10px] text-[var(--color-text-disabled)]">
+                  <div className="flex items-center gap-2 mt-2 text-[10px] text-[var(--color-text-secondary)]">
                     <span className="bg-[var(--color-surface-alt)] px-2 py-0.5 rounded-full capitalize">{err.source}</span>
                     <span>{new Date(err.timestamp).toLocaleDateString()}</span>
-                    {err.reviewed && <span className="text-[var(--color-success)]">✓ Reviewed</span>}
+                    {err.reviewed && <span className="text-[var(--color-text-success)]">✓ Reviewed</span>}
                   </div>
                 </div>
                 {!err.reviewed && (

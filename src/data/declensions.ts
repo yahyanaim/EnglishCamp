@@ -103,12 +103,12 @@ export const PREPOSITION_TIPS: PrepositionTip[] = [
   },
   {
     id: "in-on-to-nothing",
-    topic: "Arrive IN / ON / AT — No Preposition with 'Arrive Home'",
-    topicAr: "Arrive IN / ON / AT — لا حرف جر مع arrive home",
-    tip: "Use arrive IN for cities/countries (arrive in London), arrive AT for specific places (arrive at the airport), arrive ON for islands/continents (arrive on the island). Say 'arrive home' with NO preposition!",
-    tipAr: "استخدم arrive IN للمدن/البلدان (arrive in London)، arrive AT للأماكن المحددة (arrive at the airport)، arrive ON للجزر/القارات (arrive on the island). قل arrive home بدون حرف جر!",
-    suggest: "Practice: 'I arrived ___ Cairo.', 'She arrived ___ the party.', 'We arrived ___ the beach.'",
-    suggestAr: "تدرب: 'I arrived ___ Cairo.'، 'She arrived ___ the party.'، 'We arrived ___ the beach.'",
+    topic: "Arrive in / at — arrive home",
+    topicAr: "arrive in / at — دون حرف جر قبل home",
+    tip: "Use arrive in for a city or country (arrive in Cairo) and arrive at for a specific point (arrive at the station). Say arrive home without a preposition. On can introduce an arrival day (arrive on Monday); it is not a general rule for continents.",
+    tipAr: "استخدم arrive in مع مدينة أو بلد، وarrive at مع مكان محدد مثل المحطة. قل arrive home دون حرف جر. يمكن أن تأتي on قبل يوم الوصول مثل on Monday، وليست قاعدة عامة للقارات.",
+    suggest: "Complete: We arrived ___ Cairo, then arrived ___ the station. We arrived ___ Monday and went home. Compare: in, at, on.",
+    suggestAr: "أكمل: We arrived ___ Cairo, then arrived ___ the station. We arrived ___ Monday and went home. قارن الإجابات: in، at، on.",
   },
   {
     id: "preposition-verbs",
@@ -130,12 +130,12 @@ export const PREPOSITION_TIPS: PrepositionTip[] = [
   },
   {
     id: "phrasal-verbs",
-    topic: "Phrasal Verbs = Verb + Preposition",
-    topicAr: "الأفعال المركبة = فعل + حرف جر",
-    tip: "Phrasal verbs change meaning entirely: give UP (quit), look AFTER (take care of), run OUT OF (finish supply), put UP WITH (tolerate), get OVER (recover from), take OFF (remove / depart).",
-    tipAr: "الأفعال المركبة تغير المعنى تماماً: give UP (يستقيل)، look AFTER (يعتني بـ)، run OUT OF (ينفد)، put UP WITH (يتحمل)، get OVER (يتعافى من)، take OFF (يخلع / يقلع).",
-    suggest: "Learn 3 new phrasal verbs each week and use them in sentences.",
-    suggestAr: "تعلم 3 أفعال مركبة جديدة كل أسبوع واستخدمها في جمل.",
+    topic: "Multi-word verbs: particles and prepositions",
+    topicAr: "الأفعال متعددة الكلمات: الجزيئات وحروف الجر",
+    tip: "Multi-word verbs can contain particles, prepositions, or both. Compare give up (stop trying), look after someone (care for them), and put up with something (tolerate it). Meanings can be literal or idiomatic. With a separable verb and an object pronoun, put the pronoun inside: turn it off, not turn off it.",
+    tipAr: "قد تحتوي الأفعال متعددة الكلمات على جزيئات أو حروف جر أو كليهما. قد يكون المعنى حرفياً أو اصطلاحياً. مع فعل قابل للفصل وضمير مفعول به، ضع الضمير في الوسط: turn it off وليس turn off it.",
+    suggest: "Compare turn the light off / turn it off with look after the child / look after her. Notice which expression permits the object in the middle.",
+    suggestAr: "قارن turn the light off وturn it off مع look after the child وlook after her. لاحظ أي تعبير يسمح بوضع المفعول به في الوسط.",
   },
 ];
 

@@ -1,31 +1,9 @@
 "use client";
-import { useState } from "react";
-import { speak } from "@/lib/audio";
-import { Volume2 } from "lucide-react";
-
-export function SpeakerButton({ text, className = "" }: { text: string; className?: string }) {
-  const [playing, setPlaying] = useState(false);
-
-  function handleClick(e: React.MouseEvent) {
-    e.stopPropagation();
-    if (playing) return;
-    setPlaying(true);
-    speak(text);
-    setTimeout(() => setPlaying(false), 1500);
-  }
-
-  return (
-    <button
-      onClick={handleClick}
-      className={`inline-flex items-center justify-center w-7 h-7 rounded-[var(--radius-md)] transition-all duration-200 ${
-        playing
-          ? "bg-[var(--color-primary)] text-[var(--color-primary-dark)] scale-110"
-          : "text-[var(--color-text-disabled)] hover:bg-[var(--color-surface-alt)] hover:text-[var(--color-primary)]"
-      } ${className}`}
-      title="Hear pronunciation"
-      aria-label="Play audio"
-    >
-      <Volume2 className={`w-3.5 h-3.5 ${playing ? "animate-pulse" : ""}`} />
-    </button>
-  );
+import { useEffect,useState } from "react";
+import { Volume2,Square,Loader2 } from "lucide-react";
+import { playNaturalText,stopNaturalSpeech,wordRecording,speechKey,type SpeechState } from "@/lib/naturalSpeech";
+export function SpeakerButton({text,className=""}:{text:string;className?:string}){
+  const [state,setState]=useState<SpeechState>("stopped");const busy=state==="loading"||state==="playing";
+  useEffect(()=>()=>stopNaturalSpeech(wordRecording(text)||"speech:"+speechKey(text)),[text]);
+  return <span className="camp-pronunciation-control"><button type="button" onClick={event=>{event.stopPropagation();if(busy){stopNaturalSpeech();return;}void playNaturalText(text,{onState:setState}).catch(()=>{});}} className={`camp-speaker-button ${className}`} title={busy?"Stop audio":"Hear pronunciation"} aria-label={busy?"Stop audio":"Play audio"} aria-busy={state==="loading"}>{state==="loading"?<Loader2 size={15} className="animate-spin"/>:state==="playing"?<Square size={14}/>:<Volume2 size={15}/>}</button>{state==="error"&&<small role="alert">Audio could not load. Try again.</small>}</span>;
 }

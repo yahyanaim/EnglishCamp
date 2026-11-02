@@ -12,7 +12,7 @@ interface Props { blocks: Block[] }
 
 export function LessonContent({ blocks }: Props) {
   return (
-    <div className="space-y-8">
+    <div className="space-y-5">
       {blocks.map((block, i) => (
         <motion.div key={i} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.3, delay: i * 0.05 }}>
           <BlockRenderer block={block} />
@@ -25,7 +25,7 @@ export function LessonContent({ blocks }: Props) {
 function BlockRenderer({ block }: { block: Block }) {
   switch (block.kind) {
     case "p":
-      return <p className="font-body leading-relaxed text-lg text-[var(--color-text-primary)]">{block.text}</p>;
+      return <p className="font-body leading-7 text-lg text-[var(--color-text-primary)]">{block.text}</p>;
     case "callout":
       return <CalloutBlock tone={block.tone} title={block.title} text={block.text} />;
     case "list":

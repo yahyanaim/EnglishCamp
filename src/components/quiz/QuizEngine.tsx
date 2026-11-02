@@ -1,4 +1,5 @@
 "use client";
+import { LearningArt } from "@/components/brand/LearningArt";
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useProgress } from "@/store/useProgress";
@@ -208,11 +209,11 @@ export function QuizEngine({ levelId }: Props) {
     : null;
 
   return (
-    <div className="px-4 sm:px-6 lg:px-8">
-      <div className="flex items-center justify-between mb-6">
+    <div className="camp-level-quiz">
+      <div className="camp-quiz-status flex items-center justify-between mb-4">
         <span className="font-body text-sm" style={{ color: "var(--color-text-secondary)" }}>Question {index + 1} of {questions.length}</span>
         <div className="flex items-center gap-2 rounded-[var(--radius-pill)] px-4 py-1.5 border-2" style={{ backgroundColor: "var(--color-surface-alt)", borderColor: "var(--color-border-default)", boxShadow: "0 2px 0 var(--color-border-default)" }}>
-          <Clock className={`w-4 h-4 ${timeLeft <= 5 ? "text-[var(--color-error)]" : "text-[var(--color-text-disabled)]"}`} />
+          <LearningArt name="Clock" size={16} className={`w-4 h-4 ${timeLeft <= 5 ? "text-[var(--color-error)]" : "text-[var(--color-text-disabled)]"}`} />
           <span className={`font-display font-extrabold text-sm ${timeLeft <= 5 ? "text-[var(--color-error)]" : "text-[var(--color-text-primary)]"}`}>{timeLeft}s</span>
         </div>
       </div>
@@ -234,37 +235,25 @@ export function QuizEngine({ levelId }: Props) {
       </div>
 
       <AnimatePresence mode="wait">
-        <motion.div key={index} initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -30 }} transition={{ duration: 0.3 }}>
-          <h2 className="font-display font-extrabold" style={{ fontSize: "24px", color: "var(--color-text-primary)", marginBottom: "32px", lineHeight: "1.625" }}>
+        <motion.div className="practice-card" data-practice-surface="question" key={index} initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -30 }} transition={{ duration: 0.3 }}>
+          <h2 className="camp-quiz-question-heading font-display font-extrabold">
             {current.question}
           </h2>
 
           <div className="grid grid-cols-1 gap-3">
             {current.options.map((option, i) => {
               let cardStyle = "border-2";
-              let bgColor = "var(--color-surface)";
-              let borderColor = "var(--color-border-default)";
-              let shadowColor = "var(--color-border-default)";
               let icon = null;
 
               if (answered) {
                 if (i === current.correct) {
                   cardStyle = "border-2";
-                  bgColor = "var(--color-success)";
-                  borderColor = "var(--color-success)";
-                  shadowColor = "#1a7a1a";
-                  icon = <CheckCircle className="w-5 h-5 text-white flex-shrink-0" />;
+                  icon = <CheckCircle className="w-5 h-5 text-inherit flex-shrink-0" />;
                 } else if (i === selected && selected !== current.correct) {
                   cardStyle = "border-2";
-                  bgColor = "var(--color-error)";
-                  borderColor = "var(--color-error)";
-                  shadowColor = "#8b0000";
-                  icon = <XCircle className="w-5 h-5 text-white flex-shrink-0" />;
+                  icon = <XCircle className="w-5 h-5 text-inherit flex-shrink-0" />;
                 } else {
                   cardStyle = "border-2";
-                  bgColor = "var(--color-surface)";
-                  borderColor = "var(--color-border-default)";
-                  shadowColor = "var(--color-border-default)";
                 }
               } else {
                 cardStyle = "border-2 hover:border-[var(--color-primary)]";
@@ -273,14 +262,8 @@ export function QuizEngine({ levelId }: Props) {
               return (
                 <motion.button key={i} onClick={() => handleAnswer(i)} disabled={answered}
                   whileHover={!answered ? { scale: 1.01 } : {}} whileTap={!answered ? { scale: 0.99 } : {}}
-                  className={`flex items-center gap-4 w-full text-left p-4 rounded-[var(--radius-lg)] transition-all duration-200 active:translate-y-0.5 ${cardStyle}`}
-                  style={{
-                    backgroundColor: bgColor,
-                    borderColor: borderColor,
-                    boxShadow: answered && (i === current.correct || (i === selected && selected !== current.correct))
-                      ? "none"
-                      : `0 3px 0 ${shadowColor}`,
-                  }}
+                  data-answer-state={answered ? i === current.correct ? "correct" : i === selected ? "incorrect" : "neutral" : "available"}
+                  className={`camp-level-answer flex items-center gap-4 w-full text-left p-4 rounded-[var(--radius-lg)] transition-all duration-200 active:translate-y-0.5 ${cardStyle}`}
                 >
                   <span className="w-9 h-9 rounded-[var(--radius-md)] flex items-center justify-center text-sm font-display font-extrabold flex-shrink-0 border-2"
                     style={{
@@ -291,11 +274,7 @@ export function QuizEngine({ levelId }: Props) {
                   >
                     {String.fromCharCode(65 + i)}
                   </span>
-                  <span className="font-body font-semibold flex-1" style={{
-                    color: answered && (i === current.correct || (i === selected && selected !== current.correct))
-                      ? "#FFFFFF"
-                      : "var(--color-text-primary)",
-                  }}>{option}</span>
+                  <span className="font-body font-semibold flex-1">{option}</span>
                   {icon}
                 </motion.button>
               );
@@ -306,72 +285,48 @@ export function QuizEngine({ levelId }: Props) {
             {answered && (
               <motion.div initial={{ opacity: 0, y: -8 }} animate={{ opacity: 1, y: 0 }} className="space-y-3 mt-4">
                 {selected === current.correct ? (
-                  <div className="flex items-start gap-3 p-4 rounded-[var(--radius-lg)] border-2"
-                    style={{
-                      backgroundColor: "var(--color-success)",
-                      borderColor: "var(--color-success)",
-                      color: "#FFFFFF",
-                      boxShadow: "0 3px 0 #1a7a1a",
-                    }}
+                  <div className="camp-level-feedback camp-level-feedback--correct"
                   >
-                    <CheckCircle className="w-5 h-5 shrink-0 mt-0.5 text-white" />
+                    <CheckCircle className="w-5 h-5 shrink-0 mt-0.5 text-inherit" />
                     <div>
                       <p className="font-display font-extrabold">Correct! +{current.xpReward} XP</p>
-                      <p className="font-body text-sm mt-1 text-white/80">{current.explain}</p>
+                      <p className="font-body text-sm mt-1 text-inherit">{current.explain}</p>
                     </div>
                   </div>
                 ) : (
                   <div className="space-y-2">
-                    <div className="flex items-start gap-3 p-4 rounded-[var(--radius-lg)] border-2"
-                      style={{
-                        backgroundColor: "var(--color-error)",
-                        borderColor: "var(--color-error)",
-                        color: "#FFFFFF",
-                        boxShadow: "0 3px 0 #8b0000",
-                      }}
+                    <div className="camp-level-feedback camp-level-feedback--incorrect"
                     >
-                      <XCircle className="w-5 h-5 shrink-0 mt-0.5 text-white" />
+                      <XCircle className="w-5 h-5 shrink-0 mt-0.5 text-inherit" />
                       <div>
                         <p className="font-display font-extrabold">Not quite</p>
-                        <p className="font-body text-sm mt-1 text-white/80">
-                          Your choice: <span className="line-through text-white/60">{selected === -1 ? "(no answer)" : current.options[selected!]}</span>
+                        <p className="font-body text-sm mt-1 text-inherit">
+                          Your choice: <span className="line-through text-inherit">{selected === -1 ? "(no answer)" : current.options[selected!]}</span>
                         </p>
-                        <p className="font-body text-sm text-white/90">
-                          Correct answer: <span className="font-display font-extrabold text-white">{current.options[current.correct]}</span>
+                        <p className="font-body text-sm text-inherit">
+                          Correct answer: <span className="font-display font-extrabold text-inherit">{current.options[current.correct]}</span>
                         </p>
-                        <p className="font-body text-sm mt-2 text-white/70">{current.explain}</p>
+                        <p className="font-body text-sm mt-2 text-inherit">{current.explain}</p>
                       </div>
                     </div>
 
                     {astuce && (
                       <>
-                        <div className="flex items-start gap-3 p-4 rounded-[var(--radius-lg)] border-2"
-                          style={{
-                            backgroundColor: "var(--color-warning)",
-                            borderColor: "#b8860b",
-                            color: "#FFFFFF",
-                            boxShadow: "0 3px 0 #8B6914",
-                          }}
+                        <div className="camp-level-feedback camp-level-feedback--tip"
                         >
-                          <Lightbulb className="w-5 h-5 shrink-0 mt-0.5 text-white" />
+                          <LearningArt name="Lightbulb" size={20} className="w-5 h-5 shrink-0 mt-0.5 text-inherit" />
                           <div>
                             <p className="font-display font-extrabold text-sm">Astuce (Tip)</p>
-                            <p className="font-body text-sm mt-1 text-white/80">{astuce.tip}</p>
+                            <p className="font-body text-sm mt-1 text-inherit">{astuce.tip}</p>
                           </div>
                         </div>
 
-                        <div className="flex items-start gap-3 p-4 rounded-[var(--radius-lg)] border-2"
-                          style={{
-                            backgroundColor: "var(--color-info)",
-                            borderColor: "#0d7ab8",
-                            color: "#FFFFFF",
-                            boxShadow: "0 3px 0 #0a5c8a",
-                          }}
+                        <div className="camp-level-feedback camp-level-feedback--tip"
                         >
-                          <BookOpen className="w-5 h-5 shrink-0 mt-0.5 text-white" />
+                          <LearningArt name="BookOpen" size={20} className="w-5 h-5 shrink-0 mt-0.5 text-inherit" />
                           <div>
                             <p className="font-display font-extrabold text-sm">Suggestion</p>
-                            <p className="font-body text-sm mt-1 text-white/80">{astuce.suggest}</p>
+                            <p className="font-body text-sm mt-1 text-inherit">{astuce.suggest}</p>
                           </div>
                         </div>
                       </>

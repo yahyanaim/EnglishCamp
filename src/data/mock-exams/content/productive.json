@@ -1,0 +1,882 @@
+{
+  "academic": [
+    {
+      "id": "ia2-w1",
+      "title": "Task 1 · Bicycle travel in three towns",
+      "instructions": "The graph shows the percentage of journeys to work made by bicycle in three fictional towns between 2005 and 2025. Summarise the information by selecting and reporting the main features, and make comparisons where relevant. Write at least 150 words. Spend about 20 minutes on this task.",
+      "minimumWords": 150,
+      "model": "The line graph compares the proportion of journeys to work made by bicycle in three towns over a twenty-year period. Overall, cycling became more common in Alder and Brook, whereas Cedar experienced a gradual decline. Alder recorded the largest increase and finished with the highest percentage.\nIn 2005, Cedar led the three towns at 30%, followed by Alder at 10% and Brook at 5%. Alder's figure then rose steadily, reaching 20% in 2015 and 35% by 2025. This represented a gain of twenty-five percentage points across the period. Brook also increased throughout, although more slowly, from 5% to 20%.\nBy contrast, the share in Cedar fell to 25% in 2015 and 20% in the final year. Alder overtook Cedar between 2015 and 2020, while Brook caught up with Cedar only at the end. Thus, despite starting with the lowest proportion, Brook matched the former leader in 2025, and Alder finished fifteen percentage points ahead of both.",
+      "analysis": "The overview identifies both directions and the final ranking. Comparisons use percentage points correctly. No cause is invented for the trends.",
+      "rubric": [
+        "Task achievement / response: address the task and develop relevant material.",
+        "Coherence and cohesion: organise and connect ideas clearly.",
+        "Lexical resource: select precise, appropriate vocabulary.",
+        "Grammar: use a useful range of structures with control."
+      ],
+      "visual": {
+        "src": "/media/mock-exams/v2/cycling-chart.svg",
+        "alt": "Line graph of bicycle commuting. Years 2005, 2010, 2015, 2020, 2025. Alder: 10,15,20,30,35 percent. Brook: 5,8,12,16,20. Cedar: 30,28,25,22,20."
+      }
+    },
+    {
+      "id": "ia2-w2",
+      "title": "Task 2 · University learning",
+      "instructions": "Some people believe universities should require every student to study a subject outside their main area of specialisation. Others think students should focus entirely on their chosen subject. Discuss both views and give your own opinion. Give reasons and relevant examples. Write at least 250 words. Spend about 40 minutes on this task.",
+      "minimumWords": 250,
+      "model": "Universities must decide how to balance depth of knowledge with a broader education. Requiring students to take a subject outside their main specialisation can widen their perspective, while a fully focused programme leaves more time for demanding professional knowledge. In my view, a limited and carefully designed requirement offers the better balance.\nThere are sound reasons to protect specialist study time. Some programmes already contain a large amount of essential material, and students need opportunities to practise rather than merely encounter it. An engineering student, for example, may benefit more from completing a substantial design project than from attending an unrelated introductory course chosen only to satisfy a rule. Additional requirements can also create timetable conflicts and financial pressure if they extend the length of a degree.\nNevertheless, another field can help students recognise assumptions within their own. A computing student who studies ethics may ask more careful questions about the consequences of collecting personal data. Equally, a literature student taking an introductory statistics course may become better equipped to assess numerical claims. Such learning is valuable when the connection is explained and the course is accessible to non-specialists. It is less useful if students enter an advanced class without the necessary background.\nI would therefore support one modest requirement with a range of suitable choices. Universities should ensure that it fits within the normal programme and invite students to explain how the additional subject informs their main work. This would preserve depth while creating a real opportunity for broader thought. The goal should be meaningful intellectual contact between fields, rather than simply adding another examination to an already crowded schedule.",
+      "analysis": "Both views receive a reasoned paragraph. The position is qualified and consistent. The examples illustrate reasoning rather than claim research findings.",
+      "rubric": [
+        "Task achievement / response: address the task and develop relevant material.",
+        "Coherence and cohesion: organise and connect ideas clearly.",
+        "Lexical resource: select precise, appropriate vocabulary.",
+        "Grammar: use a useful range of structures with control."
+      ]
+    }
+  ],
+  "general": [
+    {
+      "id": "ig2-w1",
+      "title": "Task 1 · Letter to a course coordinator",
+      "instructions": "You recently completed an evening course at a local centre. The practical sessions were useful, but a change to the timetable caused difficulties. Write a letter to the course coordinator. Describe what you found useful; explain the problem caused by the timetable change; suggest an improvement for future courses. Begin “Dear Sir or Madam”. Write at least 150 words. Do not write an address. Spend about 20 minutes.",
+      "minimumWords": 150,
+      "model": "Dear Sir or Madam,\nI am writing about the beginners' bicycle maintenance course that I completed at your centre last week. I found the practical sessions particularly valuable because the tutor allowed us to work on our own bicycles and checked each stage of the process. I now feel more confident carrying out basic checks safely.\nHowever, moving the last two meetings from Wednesday to Monday caused a difficulty. I work until seven on Mondays, so I missed the beginning of both sessions. The change was announced only a few days beforehand, which gave me little opportunity to rearrange my shifts. As a result, I had to ask classmates to explain material they had already practised.\nFor future courses, I would suggest keeping the advertised timetable wherever possible. If a change is unavoidable, please give participants more notice and offer a short replacement session or clear demonstration notes. These arrangements would help learners benefit fully from an otherwise excellent course.\nYours faithfully,\nAlex Morgan",
+      "analysis": "All three bullet points are covered with concrete detail. The formal opening and closing match an unknown recipient. The suggestion is realistic rather than a demand for an unrelated benefit.",
+      "rubric": [
+        "Task achievement / response: address the task and develop relevant material.",
+        "Coherence and cohesion: organise and connect ideas clearly.",
+        "Lexical resource: select precise, appropriate vocabulary.",
+        "Grammar: use a useful range of structures with control."
+      ]
+    },
+    {
+      "id": "ig2-w2",
+      "title": "Task 2 · Local facilities",
+      "instructions": "Some people think local authorities should spend more money on public parks, while others believe indoor sports facilities should be the priority. Discuss both views and give your own opinion. Write at least 250 words. Spend about 40 minutes.",
+      "minimumWords": 250,
+      "model": "Local authorities often have to choose between several worthwhile uses of a limited leisure budget. Public parks provide flexible outdoor space, while indoor sports facilities support activities that depend on equipment or protection from the weather. I believe existing access and local needs should guide the choice, with basic public park provision protected in every neighbourhood.\nParks can serve many purposes without requiring visitors to join an organised activity. People may walk, rest, play with children or meet friends. A well-maintained park can therefore benefit residents whose ages, incomes and interests differ. Free entry is particularly important where households cannot afford regular membership fees. However, an attractive space still needs ongoing care, safe paths and suitable access; simply setting aside land does not guarantee a useful park.\nIndoor facilities also have a strong case. A swimming pool, for instance, cannot be replaced by an open field, and a sports hall can host activities throughout a wet winter. Such places may provide structured lessons and opportunities for people to develop specific skills. Their limitations are cost and reach. Construction and operation can be expensive, and a facility with high charges may serve a relatively narrow group unless affordable sessions are available.\nIn my opinion, councils should first examine which residents currently lack usable facilities. In an area with little green space, improving a local park may be more urgent than constructing another hall. Elsewhere, an accessible indoor centre may fill a genuine gap. Funding decisions should also include maintenance and affordable access, rather than focus only on an impressive opening. A balanced programme based on actual need is more defensible than treating one type of facility as the automatic priority everywhere.",
+      "analysis": "The essay compares practical benefits and limits, then gives a conditional position. Each paragraph develops a point; the conclusion does not introduce a new claim.",
+      "rubric": [
+        "Task achievement / response: address the task and develop relevant material.",
+        "Coherence and cohesion: organise and connect ideas clearly.",
+        "Lexical resource: select precise, appropriate vocabulary.",
+        "Grammar: use a useful range of structures with control."
+      ]
+    }
+  ],
+  "toefl": [
+    {
+      "id": "tf2-email",
+      "title": "Write an Email · Room booking problem",
+      "instructions": "You lead a student project group. A room you reserved for Thursday at 4 pm has become unavailable. Your group needs a quiet room with a screen for a visiting adviser. Write an email to the activities coordinator, Ms Patel. Explain the situation, describe what the group needs, and propose a workable alternative or ask about availability. You have 7 minutes. Write in complete sentences; no official minimum word count is imposed in this practice task.",
+      "minimumWords": 0,
+      "model": "Dear Ms Patel,\nI am writing about the room our project group reserved for Thursday at 4 pm. We have been told that it is no longer available, but our visiting adviser has already arranged to meet us at that time.\nWe need a quiet space for six people with a screen so that we can show our draft design. Could you check whether another room with these facilities is free? If none is available at four, we could begin at four thirty, provided the adviser agrees. We would need to confirm that change with her today.\nPlease let me know which option is possible and whether we should make a new booking ourselves. Thank you for helping us find an alternative.\nBest regards,\nSam Lee",
+      "analysis": "The email covers all three communicative requirements, distinguishes a possible alternative from a confirmed change, and makes an actionable request.",
+      "rubric": [
+        "Communicative purpose: address all three email requirements with appropriate requests and register.",
+        "Elaboration: include relevant, useful details and make the next action clear.",
+        "Organisation: connect the message clearly for its intended reader.",
+        "Language: control grammar, word choice, spelling and conventions while using an appropriate range."
+      ],
+      "seconds": 420
+    },
+    {
+      "id": "tf2-discussion",
+      "title": "Write for an Academic Discussion · Campus funding",
+      "instructions": "Professor Chen: A university has a small fund for improving student life. Should it spend the money on extending library hours or supporting more student-led social activities? Explain your view.\n\nMina: Longer library hours would help students who work during the day and need a quiet place in the evening.\n\nCarlos: Social activities help new students build relationships, so I would fund groups that welcome people who do not already know one another.\n\nContribute your own supported opinion to the discussion. An effective response will generally contain at least 100 words. You have 10 minutes.",
+      "minimumWords": 100,
+      "model": "I would prioritise longer library hours if the university can first show that students are being turned away from suitable study space. Mina makes a strong point about students with daytime jobs: an evening opening could improve access without requiring them to change their work schedule. However, opening an entire building may be expensive. The university could begin by extending access to one staffed study area and review how it is used. I agree with Carlos that social connections matter, but student groups might receive practical support, such as free rooms and publicity, even without a large cash grant. A small trial would allow the university to respond to evidence rather than assume that either option benefits everyone equally.",
+      "analysis": "The contribution engages with both classmates while adding a practical, supported proposal. It is an illustrative response, not an awarded ETS score.",
+      "rubric": [
+        "Contribution: express a relevant, supported opinion in the discussion.",
+        "Elaboration: develop reasons or examples and add your own contribution rather than copying classmates.",
+        "Organisation: connect ideas clearly within the available response.",
+        "Language: use varied syntax and precise vocabulary with appropriate control."
+      ],
+      "seconds": 600
+    }
+  ],
+  "b2": [
+    {
+      "id": "b22-w1",
+      "title": "Part 1 · Compulsory essay",
+      "instructions": "Your English class has discussed how towns can encourage people to walk more. Your teacher asks you to write an essay.\nQuestion: What is the best way to encourage people to walk for everyday journeys?\nWrite about: 1. safe routes; 2. public information; 3. your own idea.\nGive reasons for your opinion. Write 140–190 words in an appropriate style.",
+      "minimumWords": 140,
+      "model": "Encouraging people to walk requires more than telling them that walking is beneficial. In my view, safe and convenient routes should be the first priority, supported by useful information.\nFirstly, people are unlikely to walk regularly if a journey involves narrow pavements or a dangerous crossing. Improving these basic conditions can make an everyday trip feel realistic, especially for families and older residents. An attractive campaign cannot compensate for a route that people are afraid to use.\nSecondly, information can help when it answers practical questions. A clear map showing walking times and suitable crossings is more useful than a general slogan. However, it must reflect the actual condition of the streets.\nMy own suggestion is to provide places to rest. A bench can make a longer route manageable for someone who needs a pause, and it also makes the street more welcoming.\nOverall, towns should remove practical barriers before expecting publicity to change habits. Safe paths, clear guidance and resting places can work together to make walking an ordinary choice.",
+      "analysis": "All three required points, including an original third idea, are developed in an essay register.",
+      "rubric": [
+        "Content: address the task and inform the target reader.",
+        "Communicative achievement: use an appropriate register and genre.",
+        "Organisation: connect and structure the text.",
+        "Language: use a range of vocabulary and grammar with control."
+      ],
+      "maximumWords": 190
+    },
+    {
+      "id": "b22-w2a",
+      "title": "Part 2 · Article",
+      "instructions": "A local English-language magazine asks: “A useful skill”. Write an article describing a practical skill you have learned. Explain how you learned it and why other people might enjoy trying it. Give your article a title. Write 140–190 words.",
+      "minimumWords": 140,
+      "model": "A repair worth learning\nWhat do you do when a favourite shirt loses a button? Until recently, I put it in a drawer and promised to deal with it later. Learning a little sewing finally changed that habit.\nI began at a community class, where the tutor showed us how to make a secure stitch. Watching was helpful, but actually trying it revealed the difficult parts. My first button was attached at a strange angle. After some advice and another attempt, it sat properly. I practised on an old shirt before touching anything valuable.\nThe pleasure is not only saving money. A small repair allows you to keep using something you like, and the result is easy to see. You do not need a whole room of equipment to begin.\nIf you would like to try, choose a simple project and ask an experienced person to check your method. One successful repair will not make you an expert, but it may rescue a garment and give you the confidence to learn the next step.",
+      "analysis": "The title, direct question and engaging register suit a magazine article; both required explanations are present.",
+      "rubric": [
+        "Content: address the task and inform the target reader.",
+        "Communicative achievement: use an appropriate register and genre.",
+        "Organisation: connect and structure the text.",
+        "Language: use a range of vocabulary and grammar with control."
+      ],
+      "maximumWords": 190,
+      "choiceGroup": "part2"
+    },
+    {
+      "id": "b22-w2b",
+      "title": "Part 2 · Email",
+      "instructions": "You receive an email from your English-speaking friend Jamie: “I am visiting your town for a day next month. What could we do together? I like being outdoors, but we need a plan if it rains. Let me know what you suggest and what I should bring.” Write your email. Write 140–190 words.",
+      "minimumWords": 140,
+      "model": "Hi Jamie,\nIt is great that you are coming next month! I would love to spend the day with you. If the weather is dry, we could walk along the river and have a picnic in the park. The path is fairly level, and there are plenty of places to stop, so we would have time to talk rather than rush.\nIf it rains, there is a small local museum near the station. It has an interesting display about how the town developed, and the cafe next door would be a good place for lunch. I will check the opening times before your visit so we do not arrive at a closed door.\nBring comfortable shoes and a light waterproof jacket. You will not need to carry picnic food because I can prepare that here. Let me know what time your train arrives, and I will meet you outside the main entrance.\nI am really looking forward to seeing you!\nBest,\nAlex",
+      "analysis": "The informal register suits a friend. It proposes both weather options, gives reasons and answers what to bring.",
+      "rubric": [
+        "Content: address the task and inform the target reader.",
+        "Communicative achievement: use an appropriate register and genre.",
+        "Organisation: connect and structure the text.",
+        "Language: use a range of vocabulary and grammar with control."
+      ],
+      "maximumWords": 190,
+      "choiceGroup": "part2"
+    },
+    {
+      "id": "b22-w2c",
+      "title": "Part 2 · Review",
+      "instructions": "An English-language website wants reviews of places where people can spend a free afternoon. Review a place you know. Describe what visitors can do, explain one limitation and say who would enjoy it most. Give your review a title. Write 140–190 words.",
+      "minimumWords": 140,
+      "model": "A quiet afternoon at the town museum\nIf you want an interesting afternoon without buying an expensive ticket, the town museum is worth considering. Its permanent collection is free, and it is small enough to explore without feeling overwhelmed.\nThe best section shows photographs of streets as they looked a century ago. You can compare them with a modern map and discover familiar places behind very different shopfronts. There are also recordings of residents describing work and family life. I found these personal accounts more memorable than the display of old tools.\nThe main limitation is the lack of space to sit. Visitors who want to listen to every recording may need a break in the cafe next door, where food and drinks are charged separately. Checking the current opening hours is also sensible.\nI would recommend the museum especially to people who enjoy local history and careful observation. It may not suit someone seeking an active or noisy afternoon, but it offers plenty to discuss afterwards.",
+      "analysis": "The review balances specific description, a limitation and a target audience rather than only listing attractions.",
+      "rubric": [
+        "Content: address the task and inform the target reader.",
+        "Communicative achievement: use an appropriate register and genre.",
+        "Organisation: connect and structure the text.",
+        "Language: use a range of vocabulary and grammar with control."
+      ],
+      "maximumWords": 190,
+      "choiceGroup": "part2"
+    }
+  ],
+  "ieltsSpeaking": [
+    {
+      "id": "is2-p1",
+      "title": "Part 1 · Familiar topics",
+      "instructions": "Answer the questions naturally. This is a solo rehearsal of an examiner-led part; individual answers are not assigned automatic scores.",
+      "prompts": [
+        "Where do you live, and what do you like about the area?",
+        "What do you usually do at the weekend?",
+        "Do you prefer learning alone or with other people? Why?",
+        "Is there a practical skill you would like to learn?",
+        "How do you usually travel around your town?"
+      ],
+      "responseSeconds": 240,
+      "preparationSeconds": 0,
+      "kind": "interview",
+      "model": "I live in a fairly quiet part of the city, close to a small park. What I like most is being able to walk to ordinary shops without planning a special trip. The area is not very lively at night, but that suits me because I usually want somewhere calm after work.",
+      "analysis": "This is a sample answer to the first question, not a script for all five. Extend with a reason or concrete detail, without memorising a speech.",
+      "rubric": [
+        "Fluency and coherence: sustain a connected and relevant response.",
+        "Vocabulary: communicate precise meaning and paraphrase when needed.",
+        "Grammar: vary structures with control.",
+        "Pronunciation: use intelligible sounds, stress, rhythm and intonation."
+      ],
+      "stimulus": [
+        {
+          "role": "coordinator",
+          "text": "Part one. Let us talk about where you live, your free time and learning. Answer the questions on your screen."
+        }
+      ]
+    },
+    {
+      "id": "is2-p2",
+      "title": "Part 2 · Long turn",
+      "instructions": "You have one minute to prepare and up to two minutes to speak. Make brief notes during preparation.",
+      "prompts": [
+        "Describe a time when you learned something useful from another person.",
+        "Say who the person was, what you learned, and how the learning happened.",
+        "Explain why the experience was useful to you."
+      ],
+      "responseSeconds": 120,
+      "preparationSeconds": 60,
+      "kind": "long-turn",
+      "model": "I would like to describe learning how to maintain my bicycle from a neighbour. I had used the bicycle for months, but I did not know how to check it properly. When the chain began making a noise, I assumed I needed an expensive repair.\nMy neighbour first asked me to explain when the noise happened. Then he showed me a few simple checks and let me do them while he watched. That was more useful than just watching him fix it, because I discovered which steps I did not understand. He also explained which problems I should leave to a qualified mechanic.\nAfterwards, I wrote a short checklist and used it the following weekend without help. The experience was useful because it made me more confident without making me overconfident. I could handle basic care and describe a problem clearly when I needed advice. It also changed how I learn practical things: I now try to practise a step myself and ask for feedback rather than assume that understanding a demonstration means I can do it.",
+      "analysis": "The answer establishes a specific event, develops the process and reflects on its value. It is an illustrative long turn, not an examiner-awarded band.",
+      "rubric": [
+        "Fluency and coherence: sustain a connected and relevant response.",
+        "Vocabulary: communicate precise meaning and paraphrase when needed.",
+        "Grammar: vary structures with control.",
+        "Pronunciation: use intelligible sounds, stress, rhythm and intonation."
+      ],
+      "stimulus": [
+        {
+          "role": "coordinator",
+          "text": "Describe a time when you learned something useful from another person. You have one minute to prepare. You may then speak for up to two minutes."
+        }
+      ]
+    },
+    {
+      "id": "is2-p3",
+      "title": "Part 3 · Learning and society",
+      "instructions": "Discuss the broader questions. In a live IELTS test an examiner selects and follows up questions; this timed solo set cannot assess interactive performance.",
+      "prompts": [
+        "What makes an explanation easy to understand?",
+        "How do practical skills and academic knowledge support each other?",
+        "Should schools teach more everyday skills? Why?",
+        "Can videos replace learning from a teacher?",
+        "How might adults be encouraged to continue learning?"
+      ],
+      "responseSeconds": 270,
+      "preparationSeconds": 0,
+      "kind": "discussion",
+      "model": "Videos can be very useful for reviewing a familiar procedure because the learner can pause or replay them. However, they cannot always diagnose why a particular learner is struggling. A teacher can observe an attempt and adapt the explanation. I would therefore combine the two when possible: use a clear video for preparation, then practise with feedback. The balance depends on the skill and the consequences of making a mistake. A simple craft project and a hazardous technical procedure should not be treated in the same way.",
+      "analysis": "This sample develops one discussion question by distinguishing cases and supporting a qualified view.",
+      "rubric": [
+        "Fluency and coherence: sustain a connected and relevant response.",
+        "Vocabulary: communicate precise meaning and paraphrase when needed.",
+        "Grammar: vary structures with control.",
+        "Pronunciation: use intelligible sounds, stress, rhythm and intonation."
+      ],
+      "stimulus": [
+        {
+          "role": "coordinator",
+          "text": "We have talked about a useful learning experience. Now consider some broader questions about explanations, education and continued learning."
+        }
+      ]
+    }
+  ],
+  "toeflSpeaking": [
+    {
+      "id": "tf2-repeat-1",
+      "title": "Listen and Repeat · Sentence 1 of 7",
+      "instructions": "You are learning to guide visitors around a student centre. Listen once and repeat exactly what you hear as soon as the response window opens. The written sentence is available only after submission.",
+      "prompts": [],
+      "responseSeconds": 8,
+      "preparationSeconds": 0,
+      "kind": "repeat",
+      "model": "Welcome to the student centre.",
+      "analysis": "Compare the actual recording with the target for omitted or changed words and intelligibility. A human assessor is needed for a defensible speaking score.",
+      "rubric": [
+        "Repetition accuracy: preserve target words, function words, endings and word order; do not paraphrase.",
+        "Intelligibility: judge whether the spoken words can be understood from the actual recording.",
+        "Completeness: identify omitted, added or substituted material.",
+        "Delivery: maintain clear, sufficiently fluent rhythm and stress while preserving the target."
+      ],
+      "stimulus": [
+        {
+          "role": "coordinator",
+          "text": "Welcome to the student centre."
+        }
+      ]
+    },
+    {
+      "id": "tf2-repeat-2",
+      "title": "Listen and Repeat · Sentence 2 of 7",
+      "instructions": "You are learning to guide visitors around a student centre. Listen once and repeat exactly what you hear as soon as the response window opens. The written sentence is available only after submission.",
+      "prompts": [],
+      "responseSeconds": 8,
+      "preparationSeconds": 0,
+      "kind": "repeat",
+      "model": "The information desk is beside the entrance.",
+      "analysis": "Compare the actual recording with the target for omitted or changed words and intelligibility. A human assessor is needed for a defensible speaking score.",
+      "rubric": [
+        "Repetition accuracy: preserve target words, function words, endings and word order; do not paraphrase.",
+        "Intelligibility: judge whether the spoken words can be understood from the actual recording.",
+        "Completeness: identify omitted, added or substituted material.",
+        "Delivery: maintain clear, sufficiently fluent rhythm and stress while preserving the target."
+      ],
+      "stimulus": [
+        {
+          "role": "coordinator",
+          "text": "The information desk is beside the entrance."
+        }
+      ]
+    },
+    {
+      "id": "tf2-repeat-3",
+      "title": "Listen and Repeat · Sentence 3 of 7",
+      "instructions": "You are learning to guide visitors around a student centre. Listen once and repeat exactly what you hear as soon as the response window opens. The written sentence is available only after submission.",
+      "prompts": [],
+      "responseSeconds": 10,
+      "preparationSeconds": 0,
+      "kind": "repeat",
+      "model": "You can borrow a laptop from the equipment counter.",
+      "analysis": "Compare the actual recording with the target for omitted or changed words and intelligibility. A human assessor is needed for a defensible speaking score.",
+      "rubric": [
+        "Repetition accuracy: preserve target words, function words, endings and word order; do not paraphrase.",
+        "Intelligibility: judge whether the spoken words can be understood from the actual recording.",
+        "Completeness: identify omitted, added or substituted material.",
+        "Delivery: maintain clear, sufficiently fluent rhythm and stress while preserving the target."
+      ],
+      "stimulus": [
+        {
+          "role": "coordinator",
+          "text": "You can borrow a laptop from the equipment counter."
+        }
+      ]
+    },
+    {
+      "id": "tf2-repeat-4",
+      "title": "Listen and Repeat · Sentence 4 of 7",
+      "instructions": "You are learning to guide visitors around a student centre. Listen once and repeat exactly what you hear as soon as the response window opens. The written sentence is available only after submission.",
+      "prompts": [],
+      "responseSeconds": 10,
+      "preparationSeconds": 0,
+      "kind": "repeat",
+      "model": "Please return any borrowed equipment before the building closes.",
+      "analysis": "Compare the actual recording with the target for omitted or changed words and intelligibility. A human assessor is needed for a defensible speaking score.",
+      "rubric": [
+        "Repetition accuracy: preserve target words, function words, endings and word order; do not paraphrase.",
+        "Intelligibility: judge whether the spoken words can be understood from the actual recording.",
+        "Completeness: identify omitted, added or substituted material.",
+        "Delivery: maintain clear, sufficiently fluent rhythm and stress while preserving the target."
+      ],
+      "stimulus": [
+        {
+          "role": "coordinator",
+          "text": "Please return any borrowed equipment before the building closes."
+        }
+      ]
+    },
+    {
+      "id": "tf2-repeat-5",
+      "title": "Listen and Repeat · Sentence 5 of 7",
+      "instructions": "You are learning to guide visitors around a student centre. Listen once and repeat exactly what you hear as soon as the response window opens. The written sentence is available only after submission.",
+      "prompts": [],
+      "responseSeconds": 10,
+      "preparationSeconds": 0,
+      "kind": "repeat",
+      "model": "The quiet study rooms upstairs can be reserved through the website.",
+      "analysis": "Compare the actual recording with the target for omitted or changed words and intelligibility. A human assessor is needed for a defensible speaking score.",
+      "rubric": [
+        "Repetition accuracy: preserve target words, function words, endings and word order; do not paraphrase.",
+        "Intelligibility: judge whether the spoken words can be understood from the actual recording.",
+        "Completeness: identify omitted, added or substituted material.",
+        "Delivery: maintain clear, sufficiently fluent rhythm and stress while preserving the target."
+      ],
+      "stimulus": [
+        {
+          "role": "coordinator",
+          "text": "The quiet study rooms upstairs can be reserved through the website."
+        }
+      ]
+    },
+    {
+      "id": "tf2-repeat-6",
+      "title": "Listen and Repeat · Sentence 6 of 7",
+      "instructions": "You are learning to guide visitors around a student centre. Listen once and repeat exactly what you hear as soon as the response window opens. The written sentence is available only after submission.",
+      "prompts": [],
+      "responseSeconds": 12,
+      "preparationSeconds": 0,
+      "kind": "repeat",
+      "model": "If the room you requested is unavailable, the receptionist can suggest another suitable space.",
+      "analysis": "Compare the actual recording with the target for omitted or changed words and intelligibility. A human assessor is needed for a defensible speaking score.",
+      "rubric": [
+        "Repetition accuracy: preserve target words, function words, endings and word order; do not paraphrase.",
+        "Intelligibility: judge whether the spoken words can be understood from the actual recording.",
+        "Completeness: identify omitted, added or substituted material.",
+        "Delivery: maintain clear, sufficiently fluent rhythm and stress while preserving the target."
+      ],
+      "stimulus": [
+        {
+          "role": "coordinator",
+          "text": "If the room you requested is unavailable, the receptionist can suggest another suitable space."
+        }
+      ]
+    },
+    {
+      "id": "tf2-repeat-7",
+      "title": "Listen and Repeat · Sentence 7 of 7",
+      "instructions": "You are learning to guide visitors around a student centre. Listen once and repeat exactly what you hear as soon as the response window opens. The written sentence is available only after submission.",
+      "prompts": [],
+      "responseSeconds": 12,
+      "preparationSeconds": 0,
+      "kind": "repeat",
+      "model": "Before leaving the centre, check that you have collected your belongings and returned the key to the desk.",
+      "analysis": "Compare the actual recording with the target for omitted or changed words and intelligibility. A human assessor is needed for a defensible speaking score.",
+      "rubric": [
+        "Repetition accuracy: preserve target words, function words, endings and word order; do not paraphrase.",
+        "Intelligibility: judge whether the spoken words can be understood from the actual recording.",
+        "Completeness: identify omitted, added or substituted material.",
+        "Delivery: maintain clear, sufficiently fluent rhythm and stress while preserving the target."
+      ],
+      "stimulus": [
+        {
+          "role": "coordinator",
+          "text": "Before leaving the centre, check that you have collected your belongings and returned the key to the desk."
+        }
+      ]
+    },
+    {
+      "id": "tf2-interview-1",
+      "title": "Take an Interview · Question 1 of 4",
+      "instructions": "You are taking part in a student study-habits interview. Listen to the question and respond immediately. No preparation time is provided.",
+      "prompts": [],
+      "responseSeconds": 45,
+      "preparationSeconds": 0,
+      "kind": "interview",
+      "model": "I usually study at a desk in my bedroom. It is not large, but I can leave my books there and return to the same task without setting everything up again. The main advantage is quiet. If I need to discuss a project, though, I use a shared room at the library because speaking at home would disturb other people.",
+      "analysis": "Answer the question directly, develop a relevant reason or example and sustain intelligible speech. This original prompt has no official ETS score.",
+      "rubric": [
+        "Task fulfilment: answer the specific question with relevant explanation or support.",
+        "Intelligibility: maintain understandable pronunciation and a workable speaking pace.",
+        "Development: sustain a connected response without excessive empty repetition.",
+        "Language control: use suitable vocabulary and grammatical range with sufficient accuracy."
+      ],
+      "stimulus": [
+        {
+          "role": "coordinator",
+          "text": "Tell me about a place where you usually study. What makes it suitable for you?"
+        }
+      ]
+    },
+    {
+      "id": "tf2-interview-2",
+      "title": "Take an Interview · Question 2 of 4",
+      "instructions": "You are taking part in a student study-habits interview. Listen to the question and respond immediately. No preparation time is provided.",
+      "prompts": [],
+      "responseSeconds": 45,
+      "preparationSeconds": 0,
+      "kind": "interview",
+      "model": "Last term I stopped trying to complete every assignment late at night. I noticed I spent a long time rereading the same page when I was tired. I began doing the most demanding work in the morning and leaving short review tasks for the evening. It did not give me more hours, but it made better use of the time I already had.",
+      "analysis": "Answer the question directly, develop a relevant reason or example and sustain intelligible speech. This original prompt has no official ETS score.",
+      "rubric": [
+        "Task fulfilment: answer the specific question with relevant explanation or support.",
+        "Intelligibility: maintain understandable pronunciation and a workable speaking pace.",
+        "Development: sustain a connected response without excessive empty repetition.",
+        "Language control: use suitable vocabulary and grammatical range with sufficient accuracy."
+      ],
+      "stimulus": [
+        {
+          "role": "coordinator",
+          "text": "Describe a time when you changed your study routine. Why did you make the change?"
+        }
+      ]
+    },
+    {
+      "id": "tf2-interview-3",
+      "title": "Take an Interview · Question 3 of 4",
+      "instructions": "You are taking part in a student study-habits interview. Listen to the question and respond immediately. No preparation time is provided.",
+      "prompts": [],
+      "responseSeconds": 45,
+      "preparationSeconds": 0,
+      "kind": "interview",
+      "model": "I would provide a mix, with clear zones rather than one rule for the whole library. Quiet space is important for concentrated reading, but group projects need conversation. If a university creates only one type, students with the other need may have nowhere suitable. The exact balance should reflect observed use and student feedback rather than the assumption that all study looks the same.",
+      "analysis": "Answer the question directly, develop a relevant reason or example and sustain intelligible speech. This original prompt has no official ETS score.",
+      "rubric": [
+        "Task fulfilment: answer the specific question with relevant explanation or support.",
+        "Intelligibility: maintain understandable pronunciation and a workable speaking pace.",
+        "Development: sustain a connected response without excessive empty repetition.",
+        "Language control: use suitable vocabulary and grammatical range with sufficient accuracy."
+      ],
+      "stimulus": [
+        {
+          "role": "coordinator",
+          "text": "Some students prefer shared study spaces, while others prefer working alone. Which arrangement do you think universities should prioritise, and why?"
+        }
+      ]
+    },
+    {
+      "id": "tf2-interview-4",
+      "title": "Take an Interview · Question 4 of 4",
+      "instructions": "You are taking part in a student study-habits interview. Listen to the question and respond immediately. No preparation time is provided.",
+      "prompts": [],
+      "responseSeconds": 45,
+      "preparationSeconds": 0,
+      "kind": "interview",
+      "model": "Technology may make it easier to work between home and campus, but I do not think physical study spaces will become unnecessary. Some students need equipment or reliable internet, and others benefit from separating study from home life. Universities may need flexible rooms that support online collaboration without disturbing quiet work nearby. Good planning would consider access and sound, rather than simply adding screens everywhere.",
+      "analysis": "Answer the question directly, develop a relevant reason or example and sustain intelligible speech. This original prompt has no official ETS score.",
+      "rubric": [
+        "Task fulfilment: answer the specific question with relevant explanation or support.",
+        "Intelligibility: maintain understandable pronunciation and a workable speaking pace.",
+        "Development: sustain a connected response without excessive empty repetition.",
+        "Language control: use suitable vocabulary and grammatical range with sufficient accuracy."
+      ],
+      "stimulus": [
+        {
+          "role": "coordinator",
+          "text": "How might technology change the way students use university study spaces in the future?"
+        }
+      ]
+    }
+  ],
+  "b2Speaking": [
+    {
+      "id": "b22-s1",
+      "title": "Part 1 · Interview",
+      "instructions": "Practise with another candidate or tutor if available. Each person answers the examiner’s questions. The two-minute window covers the pair. Solo mode is a rehearsal only.",
+      "prompts": [
+        "Where are you from?",
+        "What do you enjoy doing in your free time?",
+        "Is there something you would like to learn in the future?",
+        "Do you prefer spending free time outdoors or indoors?"
+      ],
+      "responseSeconds": 120,
+      "preparationSeconds": 0,
+      "kind": "interview",
+      "model": "I enjoy spending time outdoors because it gives me a break from sitting at a desk. I do not need an exciting activity; a walk with a friend is often enough. If the weather is bad, I usually choose a book or a film instead.",
+      "analysis": "Develop short answers naturally. This example addresses one question; a partner should answer independently.",
+      "rubric": [
+        "Grammar and vocabulary: use an appropriate range with control.",
+        "Discourse management: extend relevant answers and connect ideas coherently.",
+        "Pronunciation: communicate intelligibly with appropriate stress and intonation.",
+        "Interactive communication: initiate, respond and develop the discussion with another candidate; solo audio cannot establish this.",
+        "Global achievement: communicate effectively across the tasks at the intended level."
+      ]
+    },
+    {
+      "id": "b22-s2a",
+      "title": "Part 2 · Candidate A long turn",
+      "instructions": "Candidate A: compare the photographs and say what skills the people need for these activities. Speak for one minute. Candidate B listens.",
+      "prompts": [
+        "Compare the photographs rather than describing each separately.",
+        "What skills might the people need?"
+      ],
+      "responseSeconds": 60,
+      "preparationSeconds": 0,
+      "kind": "long-turn",
+      "model": "Both photographs show people taking part in an activity together, but the kind of coordination seems different. Chess involves careful planning and responding to another person’s choices, while dance requires physical timing and awareness of the group. In both cases, practising a familiar pattern may help, but people also need to react when something changes.",
+      "analysis": "An illustrative comparison links both photographs to the question and uses cautious language for inference.",
+      "rubric": [
+        "Grammar and vocabulary: use an appropriate range with control.",
+        "Discourse management: extend relevant answers and connect ideas coherently.",
+        "Pronunciation: communicate intelligibly with appropriate stress and intonation.",
+        "Interactive communication: initiate, respond and develop the discussion with another candidate; solo audio cannot establish this.",
+        "Global achievement: communicate effectively across the tasks at the intended level."
+      ],
+      "visual": {
+        "src": "pair-a",
+        "alt": "Photographs of people playing chess outdoors and dancers at a rehearsal."
+      }
+    },
+    {
+      "id": "b22-s2b-follow",
+      "title": "Part 2 · Candidate B response",
+      "instructions": "Candidate B: answer the follow-up in about thirty seconds.",
+      "prompts": [
+        "Which of these activities would you prefer to learn, and why?"
+      ],
+      "responseSeconds": 30,
+      "preparationSeconds": 0,
+      "kind": "interview",
+      "model": "I would probably choose chess because I enjoy working out possible solutions. I could also practise a little at home between meetings, although playing with another person would make it more interesting.",
+      "analysis": "This is a short follow-up, not another one-minute comparison.",
+      "rubric": [
+        "Grammar and vocabulary: use an appropriate range with control.",
+        "Discourse management: extend relevant answers and connect ideas coherently.",
+        "Pronunciation: communicate intelligibly with appropriate stress and intonation.",
+        "Interactive communication: initiate, respond and develop the discussion with another candidate; solo audio cannot establish this.",
+        "Global achievement: communicate effectively across the tasks at the intended level."
+      ]
+    },
+    {
+      "id": "b22-s2b",
+      "title": "Part 2 · Candidate B long turn",
+      "instructions": "Candidate B: compare the photographs and say why these people might enjoy spending time in these places. Speak for one minute. Candidate A listens.",
+      "prompts": [
+        "Compare the photographs.",
+        "Why might people enjoy these places?"
+      ],
+      "responseSeconds": 60,
+      "preparationSeconds": 0,
+      "kind": "long-turn",
+      "model": "The photographs suggest two different ways of spending time outside. The group on the picnic blanket can relax together in one place, while the walkers are moving through a landscape. Both activities could be social, but the picnic may allow longer conversations without physical effort. The walk might appeal to people who enjoy exploring and being active together.",
+      "analysis": "The comparison addresses reasons for enjoyment without inventing identities or claiming private feelings as facts.",
+      "rubric": [
+        "Grammar and vocabulary: use an appropriate range with control.",
+        "Discourse management: extend relevant answers and connect ideas coherently.",
+        "Pronunciation: communicate intelligibly with appropriate stress and intonation.",
+        "Interactive communication: initiate, respond and develop the discussion with another candidate; solo audio cannot establish this.",
+        "Global achievement: communicate effectively across the tasks at the intended level."
+      ],
+      "visual": {
+        "src": "pair-b",
+        "alt": "Photographs of a group on a picnic blanket and a group of walkers outdoors."
+      }
+    },
+    {
+      "id": "b22-s2a-follow",
+      "title": "Part 2 · Candidate A response",
+      "instructions": "Candidate A: answer the follow-up in about thirty seconds.",
+      "prompts": [
+        "Which of these places would you choose for an afternoon with friends?"
+      ],
+      "responseSeconds": 30,
+      "preparationSeconds": 0,
+      "kind": "interview",
+      "model": "I would choose the picnic if the weather was dry because we could stay for a while without needing to order more food. A cafe would be easier if we had very little time to prepare.",
+      "analysis": "A direct preference is supported with a relevant reason.",
+      "rubric": [
+        "Grammar and vocabulary: use an appropriate range with control.",
+        "Discourse management: extend relevant answers and connect ideas coherently.",
+        "Pronunciation: communicate intelligibly with appropriate stress and intonation.",
+        "Interactive communication: initiate, respond and develop the discussion with another candidate; solo audio cannot establish this.",
+        "Global achievement: communicate effectively across the tasks at the intended level."
+      ]
+    },
+    {
+      "id": "b22-s3-discuss",
+      "title": "Part 3 · Collaborative discussion",
+      "instructions": "Work with a partner. Discuss the question for two minutes, then use the next one-minute stage to reach a decision. In solo rehearsal, practise possible contributions; interaction remains unassessed.",
+      "prompts": [
+        "A town wants to help new residents get to know one another. How useful might these ideas be?",
+        "A community picnic; a practical skills class; a local walking group; a sports event; a neighbourhood website."
+      ],
+      "responseSeconds": 120,
+      "preparationSeconds": 0,
+      "kind": "collaborative",
+      "model": "A practical class might help because people have a task to talk about, so conversation could feel easier. What do you think about the walking group? It might be more accessible financially, although the route would need to suit different abilities.",
+      "analysis": "Examples show a contribution, an invitation to respond and a qualification. A monologue cannot demonstrate interactive communication.",
+      "rubric": [
+        "Grammar and vocabulary: use an appropriate range with control.",
+        "Discourse management: extend relevant answers and connect ideas coherently.",
+        "Pronunciation: communicate intelligibly with appropriate stress and intonation.",
+        "Interactive communication: initiate, respond and develop the discussion with another candidate; solo audio cannot establish this.",
+        "Global achievement: communicate effectively across the tasks at the intended level."
+      ]
+    },
+    {
+      "id": "b22-s3-decide",
+      "title": "Part 3 · Decision",
+      "instructions": "With your partner, spend one minute deciding which idea would be most effective. Refer to the preceding discussion.",
+      "prompts": [
+        "Which idea would be most effective for helping new residents meet?"
+      ],
+      "responseSeconds": 60,
+      "preparationSeconds": 0,
+      "kind": "collaborative",
+      "model": "Shall we choose the practical class? We both thought a shared task would help people begin talking. I agree that the walk is cheaper, but perhaps a simple class could use a free community room and inexpensive materials.",
+      "analysis": "A decision should respond to the partner’s contribution; this text is only one possible exchange.",
+      "rubric": [
+        "Grammar and vocabulary: use an appropriate range with control.",
+        "Discourse management: extend relevant answers and connect ideas coherently.",
+        "Pronunciation: communicate intelligibly with appropriate stress and intonation.",
+        "Interactive communication: initiate, respond and develop the discussion with another candidate; solo audio cannot establish this.",
+        "Global achievement: communicate effectively across the tasks at the intended level."
+      ]
+    },
+    {
+      "id": "b22-s4",
+      "title": "Part 4 · Further discussion",
+      "instructions": "Discuss these questions with a partner or tutor for about four minutes. Solo rehearsal does not provide an interactive-communication score.",
+      "prompts": [
+        "Why can it be difficult to meet people after moving?",
+        "Do organised activities help everyone equally?",
+        "How can local groups make newcomers feel welcome?",
+        "Is meeting online as useful as meeting in person?",
+        "Who should support community activities?"
+      ],
+      "responseSeconds": 240,
+      "preparationSeconds": 0,
+      "kind": "discussion",
+      "model": "Organised activities can help because they provide a reason to start talking. However, people may be unable to attend at the advertised time or may feel uncertain about the activity. Offering clear information, a friendly first contact and a choice of events could make participation easier.",
+      "analysis": "Develop answers and engage with another speaker. A tutor should assess discourse management and interactive communication as well as language.",
+      "rubric": [
+        "Grammar and vocabulary: use an appropriate range with control.",
+        "Discourse management: extend relevant answers and connect ideas coherently.",
+        "Pronunciation: communicate intelligibly with appropriate stress and intonation.",
+        "Interactive communication: initiate, respond and develop the discussion with another candidate; solo audio cannot establish this.",
+        "Global achievement: communicate effectively across the tasks at the intended level."
+      ]
+    }
+  ],
+  "sentenceBuilding": [
+    {
+      "number": 1,
+      "kind": "sentence-build",
+      "prompt": "I need to borrow a camera. Arrange all the chunks to make an appropriate grammatical sentence.",
+      "answers": [
+        "where is the equipment desk"
+      ],
+      "evidence": "A complete grammatical arrangement using every supplied chunk is required. Terminal punctuation and capitalisation are ignored.",
+      "explanation": "A complete grammatical arrangement using every supplied chunk is required. Terminal punctuation and capitalisation are ignored.",
+      "marks": 1,
+      "id": "tf2-build-1",
+      "chunks": [
+        "the equipment desk",
+        "is",
+        "where"
+      ],
+      "component": "writing"
+    },
+    {
+      "number": 2,
+      "kind": "sentence-build",
+      "prompt": "The lecture time may have changed. Arrange all the chunks to make an appropriate grammatical sentence.",
+      "answers": [
+        "do you know when it starts"
+      ],
+      "evidence": "A complete grammatical arrangement using every supplied chunk is required. Terminal punctuation and capitalisation are ignored.",
+      "explanation": "A complete grammatical arrangement using every supplied chunk is required. Terminal punctuation and capitalisation are ignored.",
+      "marks": 1,
+      "id": "tf2-build-2",
+      "chunks": [
+        "when",
+        "it",
+        "starts",
+        "do you know"
+      ],
+      "component": "writing"
+    },
+    {
+      "number": 3,
+      "kind": "sentence-build",
+      "prompt": "I have not chosen a project topic. Arrange all the chunks to make an appropriate grammatical sentence.",
+      "answers": [
+        "have you checked the list yet"
+      ],
+      "evidence": "A complete grammatical arrangement using every supplied chunk is required. Terminal punctuation and capitalisation are ignored.",
+      "explanation": "A complete grammatical arrangement using every supplied chunk is required. Terminal punctuation and capitalisation are ignored.",
+      "marks": 1,
+      "id": "tf2-build-3",
+      "chunks": [
+        "have",
+        "you",
+        "the list",
+        "checked",
+        "yet"
+      ],
+      "component": "writing"
+    },
+    {
+      "number": 4,
+      "kind": "sentence-build",
+      "prompt": "The room is already booked. Arrange all the chunks to make an appropriate grammatical sentence.",
+      "answers": [
+        "could we use another room"
+      ],
+      "evidence": "A complete grammatical arrangement using every supplied chunk is required. Terminal punctuation and capitalisation are ignored.",
+      "explanation": "A complete grammatical arrangement using every supplied chunk is required. Terminal punctuation and capitalisation are ignored.",
+      "marks": 1,
+      "id": "tf2-build-4",
+      "chunks": [
+        "we",
+        "another room",
+        "could",
+        "use"
+      ],
+      "component": "writing"
+    },
+    {
+      "number": 5,
+      "kind": "sentence-build",
+      "prompt": "I am trying to contact the tutor. Arrange all the chunks to make an appropriate grammatical sentence.",
+      "answers": [
+        "I have already sent an email",
+        "I have sent an email already"
+      ],
+      "evidence": "A complete grammatical arrangement using every supplied chunk is required. Terminal punctuation and capitalisation are ignored.",
+      "explanation": "A complete grammatical arrangement using every supplied chunk is required. Terminal punctuation and capitalisation are ignored.",
+      "marks": 1,
+      "id": "tf2-build-5",
+      "chunks": [
+        "sent",
+        "I",
+        "an email",
+        "have",
+        "already"
+      ],
+      "component": "writing"
+    },
+    {
+      "number": 6,
+      "kind": "sentence-build",
+      "prompt": "The form cannot be submitted. Arrange all the chunks to make an appropriate grammatical sentence.",
+      "answers": [
+        "you need to complete every section"
+      ],
+      "evidence": "A complete grammatical arrangement using every supplied chunk is required. Terminal punctuation and capitalisation are ignored.",
+      "explanation": "A complete grammatical arrangement using every supplied chunk is required. Terminal punctuation and capitalisation are ignored.",
+      "marks": 1,
+      "id": "tf2-build-6",
+      "chunks": [
+        "to complete",
+        "need",
+        "you",
+        "every section"
+      ],
+      "component": "writing"
+    },
+    {
+      "number": 7,
+      "kind": "sentence-build",
+      "prompt": "Our report is due next week. Arrange all the chunks to make an appropriate grammatical sentence.",
+      "answers": [
+        "we should compare the results before writing"
+      ],
+      "evidence": "A complete grammatical arrangement using every supplied chunk is required. Terminal punctuation and capitalisation are ignored.",
+      "explanation": "A complete grammatical arrangement using every supplied chunk is required. Terminal punctuation and capitalisation are ignored.",
+      "marks": 1,
+      "id": "tf2-build-7",
+      "chunks": [
+        "we",
+        "should",
+        "the results",
+        "compare",
+        "before writing"
+      ],
+      "component": "writing"
+    },
+    {
+      "number": 8,
+      "kind": "sentence-build",
+      "prompt": "The library has a new booking system. Arrange all the chunks to make an appropriate grammatical sentence.",
+      "answers": [
+        "I wonder how it works"
+      ],
+      "evidence": "A complete grammatical arrangement using every supplied chunk is required. Terminal punctuation and capitalisation are ignored.",
+      "explanation": "A complete grammatical arrangement using every supplied chunk is required. Terminal punctuation and capitalisation are ignored.",
+      "marks": 1,
+      "id": "tf2-build-8",
+      "chunks": [
+        "how",
+        "works",
+        "I wonder",
+        "it"
+      ],
+      "component": "writing"
+    },
+    {
+      "number": 9,
+      "kind": "sentence-build",
+      "prompt": "This source seems useful. Arrange all the chunks to make an appropriate grammatical sentence.",
+      "answers": [
+        "could you tell me where you found it"
+      ],
+      "evidence": "A complete grammatical arrangement using every supplied chunk is required. Terminal punctuation and capitalisation are ignored.",
+      "explanation": "A complete grammatical arrangement using every supplied chunk is required. Terminal punctuation and capitalisation are ignored.",
+      "marks": 1,
+      "id": "tf2-build-9",
+      "chunks": [
+        "you",
+        "tell me",
+        "could",
+        "found it",
+        "where you"
+      ],
+      "component": "writing"
+    },
+    {
+      "number": 10,
+      "kind": "sentence-build",
+      "prompt": "The equipment must be returned today. Arrange all the chunks to make an appropriate grammatical sentence.",
+      "answers": [
+        "make sure everything is in the case"
+      ],
+      "evidence": "A complete grammatical arrangement using every supplied chunk is required. Terminal punctuation and capitalisation are ignored.",
+      "explanation": "A complete grammatical arrangement using every supplied chunk is required. Terminal punctuation and capitalisation are ignored.",
+      "marks": 1,
+      "id": "tf2-build-10",
+      "chunks": [
+        "is",
+        "the case",
+        "everything",
+        "make sure",
+        "in"
+      ],
+      "component": "writing"
+    }
+  ]
+}

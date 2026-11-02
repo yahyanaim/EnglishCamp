@@ -5,7 +5,8 @@ import { PageWrapper } from "@/components/layout/PageWrapper";
 import { useProgress } from "@/store/useProgress";
 import { CONVERSATIONS, type ConversationScenario } from "@/data/conversations";
 import { Badge } from "@/components/ui/Badge";
-import { speak } from "@/lib/audio";
+import { conversationRecording, stopNaturalSpeech } from "@/lib/naturalSpeech";
+import { NaturalSpeechButton } from "@/components/ui/NaturalSpeechButton";
 import { MessageSquare, Volume2, Check, X, RotateCcw } from "lucide-react";
 
 
@@ -20,6 +21,7 @@ export default function ConversationPage() {
   const [earnedXP, setEarnedXP] = useState(0);
   const [xpAwarded, setXpAwarded] = useState(false);
   const chatEndRef = useRef<HTMLDivElement>(null);
+  useEffect(() => () => stopNaturalSpeech(), []);
 
   const scenario = selectedScenario;
 
@@ -101,24 +103,24 @@ export default function ConversationPage() {
                 transition={{ delay: i * 0.05 }}
                 whileHover={{ y: -2 }}
                 onClick={() => startScenario(s)}
-                className="text-left bg-[var(--color-surface)] rounded-[var(--radius-lg)] p-5 shadow-sm border-2 border-[var(--color-border-default)] hover:shadow-md hover:ring-brand-200 transition-all"
+                className="text-left bg-[var(--color-surface)] rounded-[var(--radius-lg)] p-5 shadow-sm border border-[var(--color-border-default)] hover:shadow-md hover:ring-brand-200 transition-all"
               >
                 <div className="flex items-start gap-3">
                   <div className="w-10 h-10 rounded-[var(--radius-lg)] bg-[var(--color-primary-subtle)] flex items-center justify-center flex-shrink-0">
-                    <MessageSquare className="w-5 h-5 text-[var(--color-primary-dark)]" />
+                    <MessageSquare className="w-5 h-5 text-[var(--color-text-link)]" />
                   </div>
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2 mb-0.5">
                       <h3 className="text-sm font-bold text-[var(--color-text-primary)]">{s.title}</h3>
                       <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded-full ${
-                        s.level === "A1" ? "bg-[var(--color-success)] text-white text-green-700" :
-                        s.level === "A2" ? "bg-[var(--color-success)] text-white" :
-                        s.level === "B1" ? "bg-[var(--color-warning)] text-white" :
-                        "bg-[var(--color-warning)] text-white"
+                        s.level === "A1" ? "bg-[var(--color-success-bg)] text-[var(--color-text-success)] text-green-700" :
+                        s.level === "A2" ? "bg-[var(--color-success-bg)] text-[var(--color-text-success)]" :
+                        s.level === "B1" ? "bg-[var(--color-warning-bg)] text-[var(--color-text-warning)]" :
+                        "bg-[var(--color-warning-bg)] text-[var(--color-text-warning)]"
                       }`}>{s.level}</span>
                     </div>
                     <p className="text-xs text-[var(--color-text-secondary)]">{s.subtitle}</p>
-                    <p className="text-xs text-[var(--color-text-disabled)] mt-1 line-clamp-1">{s.context}</p>
+                    <p className="text-xs text-[var(--color-text-secondary)] mt-1 line-clamp-1">{s.context}</p>
                   </div>
                 </div>
               </motion.button>
@@ -133,26 +135,26 @@ export default function ConversationPage() {
     return (
       <PageWrapper>
         <div className="text-center py-12 space-y-6">
-          <div className="w-16 h-16 rounded-[var(--radius-lg)] bg-[var(--color-success)] text-white flex items-center justify-center mx-auto">
-            <Check className="w-8 h-8 text-[var(--color-success)]" />
+          <div className="w-16 h-16 rounded-[var(--radius-lg)] bg-[var(--color-success-bg)] text-[var(--color-text-success)] flex items-center justify-center mx-auto">
+            <Check className="w-8 h-8 text-[var(--color-text-success)]" />
           </div>
           <h2 className="text-2xl font-display font-extrabold text-[var(--color-text-primary)]">Conversation Complete!</h2>
           <p className="text-[var(--color-text-secondary)]">{scenario.title}</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-xs mx-auto">
-            <div className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] p-4 border-2 border-[var(--color-border-default)]">
-              <p className="text-2xl font-display font-extrabold text-[var(--color-success)]">{score}/{scenario.blanks.length}</p>
-              <p className="text-[10px] text-[var(--color-text-disabled)]">Correct</p>
+            <div className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] p-4 border border-[var(--color-border-default)]">
+              <p className="text-2xl font-display font-extrabold text-[var(--color-text-success)]">{score}/{scenario.blanks.length}</p>
+              <p className="text-[10px] text-[var(--color-text-secondary)]">Correct</p>
             </div>
-            <div className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] p-4 border-2 border-[var(--color-border-default)]">
-              <p className="text-2xl font-display font-extrabold text-[var(--color-primary-dark)]">+{earnedXP}</p>
-              <p className="text-[10px] text-[var(--color-text-disabled)]">XP earned</p>
+            <div className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] p-4 border border-[var(--color-border-default)]">
+              <p className="text-2xl font-display font-extrabold text-[var(--color-text-link)]">+{earnedXP}</p>
+              <p className="text-[10px] text-[var(--color-text-secondary)]">XP earned</p>
             </div>
           </div>
           <div className="flex gap-3 justify-center">
             <button onClick={() => startScenario(scenario)} className="inline-flex items-center gap-2 px-5 py-2.5 bg-slate-800 text-white rounded-[var(--radius-lg)] font-semibold text-sm hover:bg-slate-700 transition-colors">
               <RotateCcw className="w-4 h-4" /> Practice Again
             </button>
-            <button onClick={reset} className="inline-flex items-center gap-2 px-5 py-2.5 bg-[var(--color-surface)] border-2 border-[var(--color-border-default)] rounded-[var(--radius-lg)] font-semibold text-sm hover:bg-[var(--color-surface-alt)] transition-colors">
+            <button onClick={reset} className="inline-flex items-center gap-2 px-5 py-2.5 bg-[var(--color-surface)] border border-[var(--color-border-default)] rounded-[var(--radius-lg)] font-semibold text-sm hover:bg-[var(--color-surface-alt)] transition-colors">
               All Scenarios
             </button>
           </div>
@@ -181,12 +183,12 @@ export default function ConversationPage() {
         </div>
 
         {scenario.tips.length > 0 && currentLine === 0 && (
-          <div className="bg-[var(--color-warning)] text-white rounded-[var(--radius-lg)] p-4 ring-1 ring-amber-200">
-            <p className="text-xs font-bold text-[var(--color-warning)] uppercase tracking-wider mb-2">Tips</p>
+          <div className="bg-[var(--color-warning-bg)] text-[var(--color-text-warning)] rounded-[var(--radius-lg)] p-4 ring-1 ring-amber-200">
+            <p className="text-xs font-bold text-[var(--color-text-warning)] uppercase tracking-wider mb-2">Tips</p>
             <ul className="space-y-1">
               {scenario.tips.map((tip, i) => (
-                <li key={i} className="text-xs text-[var(--color-warning)] flex items-start gap-1.5">
-                  <span className="text-[var(--color-warning)] mt-0.5">•</span>
+                <li key={i} className="text-xs text-[var(--color-text-warning)] flex items-start gap-1.5">
+                  <span className="text-[var(--color-text-warning)] mt-0.5">•</span>
                   {tip}
                 </li>
               ))}
@@ -194,7 +196,7 @@ export default function ConversationPage() {
           </div>
         )}
 
-        <div className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] p-6 shadow-sm border-2 border-[var(--color-border-default)]">
+        <div className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] p-6 shadow-sm border border-[var(--color-border-default)]">
           <div className="space-y-4 max-h-[60vh] overflow-y-auto pr-2">
             {scenario.lines.slice(0, currentLine + 1).map((l, i) => {
               const isCurrent = i === currentLine;
@@ -210,7 +212,7 @@ export default function ConversationPage() {
                   <div className={`flex ${isUserLine ? "justify-end" : "justify-start"}`}>
                     <div className={`max-w-[80%] rounded-[var(--radius-lg)] p-4 ${
                       isUserLine
-                        ? "bg-[var(--color-primary)] text-white"
+                        ? "bg-[var(--color-primary)] text-[var(--color-on-brand)]"
                         : "bg-[var(--color-surface-alt)] text-[var(--color-text-primary)]"
                     }`}>
                       <p className="text-xs font-semibold opacity-70 mb-1">
@@ -220,15 +222,10 @@ export default function ConversationPage() {
                     </div>
                   </div>
                   <div className="flex items-center gap-2">
-                    <button
-                      onClick={() => speak(l.text)}
-                      className="inline-flex items-center gap-1.5 text-xs text-[var(--color-text-disabled)] hover:text-[var(--color-primary)] transition-colors"
-                    >
-                      <Volume2 className="w-3.5 h-3.5" /> Listen
-                    </button>
+                    <NaturalSpeechButton src={conversationRecording(scenario.id, i)} />
                     <button
                       onClick={() => setShowTranslation(showTranslation === i ? null : i)}
-                      className="inline-flex items-center gap-1.5 text-xs text-[var(--color-text-disabled)] hover:text-[var(--color-text-secondary)] transition-colors"
+                      className="inline-flex items-center gap-1.5 text-xs text-[var(--color-text-secondary)] hover:text-[var(--color-text-secondary)] transition-colors"
                     >
                       {showTranslation === i ? "Hide" : "Show"} translation
                     </button>
@@ -251,7 +248,7 @@ export default function ConversationPage() {
                           <button
                             key={opt}
                             onClick={() => handleSelectAnswer(opt)}
-                            className="px-4 py-2 rounded-[var(--radius-lg)] text-sm font-medium bg-[var(--color-surface)] border-2 border-[var(--color-border-default)] hover:ring-[var(--color-primary)] hover:bg-[var(--color-primary-subtle)] transition-all"
+                            className="px-4 py-2 rounded-[var(--radius-lg)] text-sm font-medium bg-[var(--color-surface)] border border-[var(--color-border-default)] hover:ring-[var(--color-primary)] hover:bg-[var(--color-primary-subtle)] transition-all"
                           >
                             {opt}
                           </button>
@@ -262,7 +259,7 @@ export default function ConversationPage() {
                   {isCurrent && !blank && (
                     <div className="pt-2">
                       <button onClick={advanceLine}
-                        className="text-xs font-medium bg-[var(--color-primary-subtle)] text-[var(--color-primary-dark)] border border-[var(--color-primary)] px-4 py-2 rounded-[var(--radius-lg)] hover:bg-[var(--color-primary)] transition-all inline-flex items-center gap-1"
+                        className="text-xs font-medium bg-[var(--color-primary-subtle)] text-[var(--color-text-link)] border border-[var(--color-primary)] px-4 py-2 rounded-[var(--radius-lg)] hover:bg-[var(--color-primary)] transition-all inline-flex items-center gap-1"
                       >
                         Continue →
                       </button>
@@ -271,8 +268,8 @@ export default function ConversationPage() {
                   {isCurrent && blank && selectedAnswer && (
                     <div className={`flex items-center gap-2 p-3 rounded-[var(--radius-lg)] ${
                       selectedAnswer === blank.correctAnswer
-                        ? "bg-[var(--color-success)] text-white"
-                        : "bg-[var(--color-error)] text-white text-red-700"
+                        ? "bg-[var(--color-success-bg)] text-[var(--color-text-success)]"
+                        : "bg-[var(--color-error-bg)] text-[var(--color-text-error)] text-[var(--color-text-error)]"
                     }`}>
                       {selectedAnswer === blank.correctAnswer ? (
                         <><Check className="w-4 h-4" /> Correct!</>

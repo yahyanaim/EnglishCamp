@@ -1,4 +1,6 @@
 "use client";
+import { LearningArt } from "@/components/brand/LearningArt";
+import { PracticeCard, PracticeButton } from "@/components/ui/PracticeSurface";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useProgress } from "@/store/useProgress";
@@ -98,8 +100,8 @@ export function NumbersTrainer() {
       <div className="text-center py-8">
         <span className="text-5xl block mb-3">{pct >= 80 ? "🏆" : "👍"}</span>
         <h3 className="text-xl font-display font-extrabold text-[var(--color-text-primary)] mb-1">Numbers Done!</h3>
-        <p className="text-lg font-display font-extrabold text-[var(--color-primary-dark)]">{score}/{total} ({pct}%)</p>
-        <button onClick={restart} className="text-sm font-medium bg-[var(--color-primary-subtle)] text-[var(--color-primary-dark)] border border-[var(--color-primary)] px-5 py-2 rounded-[var(--radius-lg)] hover:bg-[var(--color-primary)] transition-all mt-4">Play Again 🔄</button>
+        <p className="text-lg font-display font-extrabold text-[var(--color-text-link)]">{score}/{total} ({pct}%)</p>
+        <PracticeButton onClick={restart} className="text-sm font-medium bg-[var(--color-primary-subtle)] text-[var(--color-text-link)] border border-[var(--color-primary)] px-5 py-2 rounded-[var(--radius-lg)] hover:bg-[var(--color-primary)] transition-all mt-4">Play Again <LearningArt name="🔄" size={16} /></PracticeButton>
       </div>
     );
   }
@@ -107,46 +109,46 @@ export function NumbersTrainer() {
   if (!item) return null;
 
   return (
-    <div className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border-2 border-[var(--color-border-default)] p-6 shadow-sm" style={{ boxShadow: "0 3px 0 var(--color-border-default)" }}>
+    <PracticeCard data-practice-surface="question" className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-6 shadow-sm" style={{ boxShadow: "0 3px 0 var(--color-border-default)" }}>
       <div className="flex items-center justify-between mb-4">
-        <span className="text-xs font-semibold text-[var(--color-warning)] uppercase tracking-wider">Numbers Trainer</span>
-        <span className="text-xs text-[var(--color-text-disabled)]">{current + 1}/{pool.length}</span>
+        <span className="text-xs font-semibold text-[var(--color-text-warning)] uppercase tracking-wider">Numbers Trainer</span>
+        <span className="text-xs text-[var(--color-text-secondary)]">{current + 1}/{pool.length}</span>
       </div>
       <AnimatePresence mode="wait">
         <motion.div key={current} initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="text-center mb-4">
-          <p className="text-xs text-[var(--color-text-disabled)] mb-2">Write this number in English:</p>
+          <p className="text-xs text-[var(--color-text-secondary)] mb-2">Write this number in English:</p>
           <span className="text-5xl font-display font-extrabold text-[var(--color-text-primary)]">{item.prompt}</span>
         </motion.div>
       </AnimatePresence>
       <input type="text" value={input} onChange={(e) => setInput(e.target.value)} onKeyDown={(e) => e.key === "Enter" && !answered && handleSubmit()} disabled={answered}
         placeholder="e.g. twenty-three"
         className={`w-full px-3 py-2 rounded-[var(--radius-lg)] border font-mono text-center text-sm bg-[var(--color-surface-alt)] outline-none transition-all ${
-          answered ? (isCorrect ? "border-[var(--color-success)] text-[var(--color-success)]" : "border-red-300 text-[var(--color-error)]") : "border-[var(--color-border-default)] text-[var(--color-text-primary)] focus:border-[var(--color-primary)] focus:ring-2 focus:ring-brand-100"
+          answered ? (isCorrect ? "border-[var(--color-success)] text-[var(--color-text-success)]" : "border-red-300 text-[var(--color-text-error)]") : "border-[var(--color-border-default)] text-[var(--color-text-primary)] focus:border-[var(--color-primary)] focus:ring-2 focus:ring-brand-100"
         }`}
       />
       {!answered && (
         <div className="flex justify-center mt-3">
-          <button onClick={handleSubmit} disabled={!input.trim()} className="text-sm font-medium bg-[var(--color-primary-subtle)] text-[var(--color-primary-dark)] border border-[var(--color-primary)] px-5 py-2 rounded-[var(--radius-lg)] hover:bg-[var(--color-primary)] transition-all disabled:opacity-50">Check ✓</button>
+          <PracticeButton onClick={handleSubmit} disabled={!input.trim()} className="text-sm font-medium bg-[var(--color-primary-subtle)] text-[var(--color-text-link)] border border-[var(--color-primary)] px-5 py-2 rounded-[var(--radius-lg)] hover:bg-[var(--color-primary)] transition-all disabled:opacity-50">Check ✓</PracticeButton>
         </div>
       )}
       {answered && (
         <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className="mt-3">
           {isCorrect ? (
-            <p className="text-sm font-medium text-[var(--color-success)] text-center mb-2">✓ Correct!</p>
+            <p className="text-sm font-medium text-[var(--color-text-success)] text-center mb-2">✓ Correct!</p>
           ) : (
             <div className="space-y-2">
-              <p className="text-sm font-medium text-[var(--color-error)] text-center mb-2">✗ Correct: {'\u201C'}{item.answer}{'\u201D'}</p>
+              <p className="text-sm font-medium text-[var(--color-text-error)] text-center mb-2">✗ Correct: {'\u201C'}{item.answer}{'\u201D'}</p>
 
-              <div className="flex items-start gap-3 p-4 rounded-[var(--radius-lg)] bg-[var(--color-warning)] text-white ring-1 ring-[var(--color-warning)]">
-                <Lightbulb className="w-5 h-5 shrink-0 mt-0.5 text-[var(--color-warning)]" />
+              <div className="flex items-start gap-3 p-4 rounded-[var(--radius-lg)] bg-[var(--color-warning-bg)] text-[var(--color-text-warning)] ring-1 ring-[var(--color-warning)]">
+                <LearningArt name="Lightbulb" size={20} className="w-5 h-5 shrink-0 mt-0.5 text-[var(--color-text-warning)]" />
                 <div>
                   <p className="font-semibold text-sm">Astuce (Tip)</p>
                   <p className="text-sm mt-1">{getNumberTip(item.prompt, item.answer).tip}</p>
                 </div>
               </div>
 
-              <div className="flex items-start gap-3 p-4 rounded-[var(--radius-lg)] bg-[var(--color-info)] text-white ring-1 ring-[var(--color-info)]">
-                <BookOpen className="w-5 h-5 shrink-0 mt-0.5 text-[var(--color-info)]" />
+              <div className="flex items-start gap-3 p-4 rounded-[var(--radius-lg)] bg-[var(--color-info-bg)] text-[var(--color-text-info)] ring-1 ring-[var(--color-info)]">
+                <LearningArt name="BookOpen" size={20} className="w-5 h-5 shrink-0 mt-0.5 text-[var(--color-text-info)]" />
                 <div>
                   <p className="font-semibold text-sm">Suggestion</p>
                   <p className="text-sm mt-1">{getNumberTip(item.prompt, item.answer).suggest}</p>
@@ -155,12 +157,12 @@ export function NumbersTrainer() {
             </div>
           )}
           <div className="text-center mt-3">
-            <button onClick={next} className="text-sm font-medium bg-[var(--color-primary-subtle)] text-[var(--color-primary-dark)] border border-[var(--color-primary)] px-5 py-2 rounded-[var(--radius-lg)] hover:bg-[var(--color-primary)] transition-all">
+            <PracticeButton onClick={next} className="text-sm font-medium bg-[var(--color-primary-subtle)] text-[var(--color-text-link)] border border-[var(--color-primary)] px-5 py-2 rounded-[var(--radius-lg)] hover:bg-[var(--color-primary)] transition-all">
               {current + 1 >= pool.length ? "Results" : "Next →"}
-            </button>
+            </PracticeButton>
           </div>
         </motion.div>
       )}
-    </div>
+    </PracticeCard>
   );
 }

@@ -1,0 +1,10 @@
+{
+  "sourceSha256": "be5ceae82ab62cf0f4c12c3a0bb965200674eeac2f36b0f406c7ea9d99eea9fa",
+  "pdfSha256": "62acf657273f79246e43d41d5db91f20efd7644474468583cd776ecb2d4e54ac",
+  "sections": 11,
+  "fonts": [
+    "Nunito",
+    "DM Sans"
+  ],
+  "language": "English; online reference retains Arabic examples"
+}

@@ -1,4 +1,7 @@
 "use client";
+
+import { LearningArt } from "@/components/brand/LearningArt";
+import { PracticeCard, PracticeButton } from "@/components/ui/PracticeSurface";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useProgress } from "@/store/useProgress";
@@ -107,15 +110,15 @@ export function VerbPuzzle() {
   if (done) {
     const pct = total > 0 ? Math.round((score / total) * 100) : 0;
     return (
-      <div className="bg-[var(--color-surface)] rounded-[24px] border-2 border-[var(--color-border-default)] p-10 text-center shadow-[0_4px_16px_rgba(0,0,0,0.08)]">
-        <CheckCircle2 className="w-14 h-14 text-[var(--color-success)] mx-auto mb-4" />
+      <PracticeCard data-practice-surface="result" className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-5 sm:p-6 text-center shadow-[var(--shadow-1)]">
+        <LearningArt name="CheckCircle2" className="w-14 h-14 text-[var(--color-text-success)] mx-auto mb-4" />
         <h3 className="text-xl font-display font-extrabold text-[var(--color-text-primary)] mb-1">Verb-Puzzle Complete!</h3>
-        <p className="text-lg font-display font-extrabold text-[var(--color-primary-dark)]">{score}/{total} ({pct}%)</p>
+        <p className="text-lg font-display font-extrabold text-[var(--color-text-link)]">{score}/{total} ({pct}%)</p>
         <p className="text-sm text-[var(--color-text-secondary)] mt-2">{pct >= 80 ? "Great conjugation skills!" : pct >= 50 ? "Getting there! Keep practicing." : "Practice more to master English verb forms."}</p>
-        <button onClick={restart} className="mt-4 text-sm font-medium bg-[var(--color-primary-subtle)] text-[var(--color-primary-dark)] border border-[var(--color-primary)] px-5 py-2 rounded-[var(--radius-lg)] hover:bg-[var(--color-primary)] transition-all">
+        <PracticeButton onClick={restart} className="mt-4 text-sm font-medium bg-[var(--color-primary-subtle)] text-[var(--color-text-link)] border border-[var(--color-primary)] px-5 py-2 rounded-[var(--radius-lg)] hover:bg-[var(--color-primary)] transition-all">
           Play Again \u21ba
-        </button>
-      </div>
+        </PracticeButton>
+      </PracticeCard>
     );
   }
 
@@ -124,10 +127,10 @@ export function VerbPuzzle() {
   const forms: string[] = current.tense === "present" ? current.verb.present : [current.verb.past];
 
   return (
-    <div className="bg-[var(--color-surface)] rounded-[24px] border-2 border-[var(--color-border-default)] p-6 shadow-[0_4px_16px_rgba(0,0,0,0.08)] max-w-2xl mx-auto">
+    <PracticeCard data-practice-surface="question" className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-6 shadow-[var(--shadow-1)] max-w-2xl mx-auto">
       <div className="flex items-center justify-between mb-4">
         <span className="text-xs font-semibold text-[#9B59B6] uppercase tracking-wider">Verb-Puzzle</span>
-        <span className="text-xs text-[var(--color-text-disabled)]">{index + 1}/{round.length}</span>
+        <span className="text-xs text-[var(--color-text-secondary)]">{index + 1}/{round.length}</span>
       </div>
 
       <div className="flex gap-1.5 mb-6">
@@ -140,14 +143,14 @@ export function VerbPuzzle() {
         <motion.div key={`${current.verb.infinitive}-${current.tense}-${index}`} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} className="space-y-4">
           <div className="text-center mb-4">
             <span className="text-2xl font-display font-extrabold text-[var(--color-text-primary)]">{current.verb.infinitive}</span>
-            <span className="text-sm text-[var(--color-text-disabled)] ml-2">({current.verb.english})</span>
+            <span className="text-sm text-[var(--color-text-secondary)] ml-2">({current.verb.english})</span>
             <div className="inline-flex items-center gap-2 mt-2">
-              <span className="text-[10px] font-semibold bg-violet-100 text-violet-700 px-2.5 py-1 rounded-[var(--radius-pill)]">{TENSE_LABELS[current.tense]}</span>
+              <span className="text-[10px] font-semibold bg-[var(--color-info-bg)] text-violet-700 px-2.5 py-1 rounded-[var(--radius-pill)]">{TENSE_LABELS[current.tense]}</span>
               <span className="text-[10px] font-semibold bg-[var(--color-surface-alt)] text-[var(--color-text-secondary)] px-2.5 py-1 rounded-[var(--radius-pill)]">{current.verb.thirdPerson}</span>
             </div>
           </div>
 
-          <div className="bg-[var(--color-surface-alt)] rounded-[var(--radius-lg)] border-2 border-[var(--color-border-default)] overflow-hidden">
+          <div className="bg-[var(--color-surface-alt)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] overflow-hidden">
             <div className="grid grid-cols-3 gap-px bg-[var(--color-border-default)]">
               <div className="bg-[var(--color-surface-alt)] px-3 py-2 text-[10px] font-bold uppercase tracking-wider text-[var(--color-text-secondary)] text-center">Pronoun</div>
               <div className="bg-[var(--color-surface-alt)] px-3 py-2 text-[10px] font-bold uppercase tracking-wider text-[var(--color-text-secondary)] text-center">{TENSE_EN[current.tense]}</div>
@@ -161,7 +164,7 @@ export function VerbPuzzle() {
 
                 let rowClass = "bg-[var(--color-surface)]";
                 if (revealed && isBlank) {
-                  rowClass = isCorrect ? "bg-[var(--color-success)] text-white" : "bg-[var(--color-error)] text-white";
+                  rowClass = isCorrect ? "bg-[var(--color-success-bg)] text-[var(--color-text-success)]" : "bg-[var(--color-error-bg)] text-[var(--color-text-error)]";
                 }
 
                 return (
@@ -175,11 +178,11 @@ export function VerbPuzzle() {
                           onChange={(e) => handleInputChange(pi, e.target.value)}
                           disabled={revealed}
                           placeholder="..."
-                          className={`w-full px-2 py-1 rounded-[var(--radius-md)] text-sm font-mono text-center border-2 outline-none transition-all ${
+                          className={`w-full px-2 py-1 rounded-[var(--radius-md)] text-sm font-mono text-center border outline-none transition-all ${
                             revealed
                               ? isCorrect
-                                ? "border-[var(--color-success)] bg-[var(--color-success)] text-white "
-                                : "border-red-300 bg-[var(--color-error)] text-white "
+                                ? "border-[var(--color-success)] bg-[var(--color-success-bg)] text-[var(--color-text-success)] "
+                                : "border-red-300 bg-[var(--color-error-bg)] text-[var(--color-text-error)] "
                               : "border-[var(--color-border-default)] bg-[var(--color-surface)] text-[var(--color-text-primary)] focus:border-violet-400"
                           }`}
                         />
@@ -187,11 +190,11 @@ export function VerbPuzzle() {
                         <span className="text-sm font-mono text-[var(--color-text-secondary)]">{forms[pi]}</span>
                       )}
                     </div>
-                    <div className="px-3 py-2.5 text-sm text-[var(--color-text-disabled)] italic">
+                    <div className="px-3 py-2.5 text-sm text-[var(--color-text-secondary)] italic">
                       {revealed && isBlank && !isCorrect && (
-                        <span className="text-[var(--color-success)] font-medium">{forms[pi]}</span>
+                        <span className="text-[var(--color-text-success)] font-medium">{forms[pi]}</span>
                       )}
-                      {revealed && isBlank && isCorrect && <CheckCircle2 className="w-4 h-4 text-[var(--color-success)]" />}
+                      {revealed && isBlank && isCorrect && <CheckCircle2 className="w-4 h-4 text-[var(--color-text-success)]" />}
                       {(!revealed || !isBlank) && <span className="text-xs">({current.verb.english})</span>}
                     </div>
                   </div>
@@ -201,28 +204,28 @@ export function VerbPuzzle() {
           </div>
 
           {!revealed ? (
-            <div className="flex justify-center">
-              <button
+            <div className="camp-quiz-actions flex justify-center">
+              <PracticeButton
                 onClick={handleCheck}
                 disabled={current.cells.some((c) => !inputs[c.pronounIdx]?.trim())}
                 className="flex items-center gap-2 px-6 py-2.5 bg-violet-600 text-white rounded-[var(--radius-lg)] font-semibold text-sm hover:bg-violet-700 disabled:opacity-50 transition-all"
               >
                 <CheckCircle2 className="w-4 h-4" /> Check Answers
-              </button>
+              </PracticeButton>
             </div>
           ) : (
             <div className="space-y-3">
               {current.cells.filter((c) => !results[c.pronounIdx]).length > 0 && (
                 <>
-                  <div className="flex items-start gap-3 p-4 rounded-[var(--radius-lg)] bg-[var(--color-warning)] text-white ring-1 ring-[var(--color-warning)]">
-                    <Lightbulb className="w-5 h-5 shrink-0 mt-0.5 text-[var(--color-warning)]" />
+                  <div className="flex items-start gap-3 p-4 rounded-[var(--radius-lg)] bg-[var(--color-warning-bg)] text-[var(--color-text-warning)] ring-1 ring-[var(--color-warning)]">
+                    <LearningArt name="Lightbulb" size={20} className="w-5 h-5 shrink-0 mt-0.5 text-[var(--color-text-warning)]" />
                     <div>
                       <p className="font-semibold text-sm">Astuce (Tip)</p>
                       <p className="text-sm mt-1">{getVerbTip(current.verb, current.tense).tip}</p>
                     </div>
                   </div>
-                  <div className="flex items-start gap-3 p-4 rounded-[var(--radius-lg)] bg-[var(--color-info)] text-white ring-1 ring-[var(--color-info)]">
-                    <BookOpen className="w-5 h-5 shrink-0 mt-0.5 text-[var(--color-info)]" />
+                  <div className="flex items-start gap-3 p-4 rounded-[var(--radius-lg)] bg-[var(--color-info-bg)] text-[var(--color-text-info)] ring-1 ring-[var(--color-info)]">
+                    <LearningArt name="BookOpen" size={20} className="w-5 h-5 shrink-0 mt-0.5 text-[var(--color-text-info)]" />
                     <div>
                       <p className="font-semibold text-sm">Suggestion</p>
                       <p className="text-sm mt-1">{getVerbTip(current.verb, current.tense).suggest}</p>
@@ -231,17 +234,17 @@ export function VerbPuzzle() {
                 </>
               )}
               <div className="flex justify-end">
-                <button
+                <PracticeButton
                   onClick={next}
                   className="flex items-center gap-2 px-6 py-2.5 bg-violet-600 text-white rounded-[var(--radius-lg)] font-semibold text-sm hover:bg-violet-700 transition-all"
                 >
                   {index + 1 >= round.length ? "See Results" : "Next"} \u2192
-                </button>
+                </PracticeButton>
               </div>
             </div>
           )}
         </motion.div>
       </AnimatePresence>
-    </div>
+    </PracticeCard>
   );
 }

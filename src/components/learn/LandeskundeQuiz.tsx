@@ -1,4 +1,8 @@
 "use client";
+
+import { LearningArt } from "@/components/brand/LearningArt";
+import { PracticeCard, PracticeButton } from "@/components/ui/PracticeSurface";
+import { StudyTips } from "@/components/ui/StudyTips";
 import { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { playCorrect, playWrong, playXP } from "@/lib/audio";
@@ -27,6 +31,8 @@ function shuffle<T>(a: T[]): T[] {
   }
   return arr;
 }
+
+const MotionPracticeButton = motion.create(PracticeButton);
 
 export function LandeskundeQuiz() {
   const { addXP } = useProgress();
@@ -65,7 +71,7 @@ export function LandeskundeQuiz() {
   function handleNext() {
     if (index + 1 >= items.length) {
       setPhase("done");
-      addXP(score + (score >= 80 ? 20 : 0));
+      addXP(score + (score >= items.length * 8 ? 20 : 0));
       playXP();
       return;
     }
@@ -75,79 +81,29 @@ export function LandeskundeQuiz() {
 
   if (phase === "ready") {
     return (
-      <div className="bg-[var(--color-surface)] rounded-[24px] border-2 border-[var(--color-border-default)] p-8 text-center shadow-[0_4px_16px_rgba(0,0,0,0.08)] max-w-lg mx-auto">
-        <Globe className="w-14 h-14 text-[var(--color-primary)] mx-auto mb-4" />
+      <PracticeCard data-practice-surface="intro" className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-5 sm:p-6 text-center shadow-[var(--shadow-1)] camp-quiz-setup">
+        <LearningArt name="Globe" className="w-14 h-14 text-[var(--color-primary)] mx-auto mb-4" />
         <h2 className="text-xl font-display font-extrabold text-[var(--color-text-primary)]">Culture Quiz</h2>
         <p className="text-sm text-[var(--color-text-secondary)] mt-2">Test your knowledge about English-speaking countries, their culture, history, and more</p>
         <div className="flex flex-wrap gap-1.5 justify-center mt-5">
-          <button onClick={() => setCatFilter("all")}
-            className={`rounded-[8px] px-3 py-1.5 text-xs font-bold transition-all ${catFilter === "all" ? "bg-slate-800 text-white" : "bg-[var(--color-surface-alt)] text-[var(--color-text-secondary)] hover:bg-[var(--color-border-default)]"}`}
-          >All</button>
+          <PracticeButton onClick={() => setCatFilter("all")}
+            className={`rounded-[8px] px-3 py-1.5 text-xs font-bold transition-all ${catFilter === "all" ? "bg-[var(--camp-purple)] text-white" : "bg-[var(--color-surface-alt)] text-[var(--color-text-secondary)] hover:bg-[var(--color-border-default)]"}`}
+          >All</PracticeButton>
           {(Object.entries(CATEGORY_META) as [LKCategory, { label: string; icon: string }][]).map(([id, meta]) => (
-            <button key={id} onClick={() => setCatFilter(id)}
-              className={`rounded-[8px] px-3 py-1.5 text-xs font-bold transition-all ${catFilter === id ? "bg-slate-800 text-white" : "bg-[var(--color-surface-alt)] text-[var(--color-text-secondary)] hover:bg-[var(--color-border-default)]"}`}
-            >{meta.icon} {meta.label}</button>
+            <PracticeButton key={id} onClick={() => setCatFilter(id)}
+              className={`rounded-[8px] px-3 py-1.5 text-xs font-bold transition-all ${catFilter === id ? "bg-[var(--camp-purple)] text-white" : "bg-[var(--color-surface-alt)] text-[var(--color-text-secondary)] hover:bg-[var(--color-border-default)]"}`}
+            ><LearningArt name="globe" size={16} /> {meta.label}</PracticeButton>
           ))}
         </div>
-        <button onClick={initGame}
-          className="mt-6 px-8 py-3 rounded-[14px] bg-[var(--color-primary)] text-white font-bold text-sm hover:bg-brand-600 transition-all inline-flex items-center gap-2 shadow-[0_4px_0_rgba(28,176,246,0.3)]"
+        <PracticeButton onClick={initGame}
+          className="mt-6 px-8 py-3 rounded-[14px] bg-[var(--color-primary)] text-[var(--color-on-brand)] font-bold text-sm hover:bg-[var(--color-primary-hover)] transition-all inline-flex items-center gap-2 shadow-[var(--shadow-1)]"
         >
-          <Globe className="w-4 h-4" /> Start Quiz
-        </button>
+          <LearningArt name="Globe" size={16} className="w-4 h-4" /> Start Quiz
+        </PracticeButton>
 
-          <div className="mt-8 space-y-6 text-left">
-            <div>
-              <h3 className="text-sm font-bold text-[var(--color-text-primary)] mb-3 flex items-center gap-2">
-                <Lightbulb className="w-4 h-4 text-[var(--color-primary)]" />
-                Tips &amp; Topic Suggestions
-              </h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                {CULTURE_TIPS.map((ast) => (
-                <motion.div key={ast.id} layout className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border-2 border-[var(--color-border-default)] shadow-sm overflow-hidden" style={{ boxShadow: "0 3px 0 var(--color-border-default)" }}>
-                  <button
-                    onClick={() => setExpandedAstuce(expandedAstuce === ast.id ? null : ast.id)}
-                    className="w-full text-left p-3 hover:bg-[var(--color-surface-alt)] transition-colors flex items-start gap-2.5"
-                  >
-                    <span className="text-lg shrink-0">{ast.icon}</span>
-                    <div className="flex-1 min-w-0">
-                      <h4 className="text-xs font-bold text-[var(--color-text-primary)]">{ast.topic}</h4>
+        <StudyTips title="Explore the countries" items={CULTURE_TIPS} />
 
-                      <p className="text-[10px] text-[var(--color-text-disabled)] mt-0.5 line-clamp-2">{ast.tip}</p>
-                    </div>
-                  </button>
-                  <AnimatePresence>
-                    {expandedAstuce === ast.id && (
-                      <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }} exit={{ height: 0, opacity: 0 }}
-                        className="border-t border-[var(--color-border-default)]"
-                      >
-                        <div className="p-3 space-y-2">
-                          <div className="flex items-start gap-2">
-                            <Lightbulb className="w-3.5 h-3.5 text-[var(--color-warning)] mt-0.5 shrink-0" />
-                            <div>
-                              <p className="text-[10px] font-semibold text-[var(--color-text-secondary)] mb-0.5">Astuce (Tip)</p>
-                              <p className="text-[10px] text-[var(--color-text-secondary)] leading-relaxed">{ast.tip}</p>
-
-                            </div>
-                          </div>
-                          <div className="flex items-start gap-2">
-                            <BookOpen className="w-3.5 h-3.5 text-[var(--color-info)] mt-0.5 shrink-0" />
-                            <div>
-                              <p className="text-[10px] font-semibold text-[var(--color-text-secondary)] mb-0.5">Suggestion</p>
-                              <p className="text-[10px] text-[var(--color-text-secondary)] leading-relaxed">{ast.suggest}</p>
-
-                            </div>
-                          </div>
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-
-        </div>
-      </div>
+      </PracticeCard>
     );
   }
 
@@ -155,29 +111,29 @@ export function LandeskundeQuiz() {
     const maxScore = items.length * 10;
     const pct = Math.round((score / maxScore) * 100);
     return (
-      <div className="bg-[var(--color-surface)] rounded-[24px] border-2 border-[var(--color-border-default)] p-10 text-center shadow-[0_4px_16px_rgba(0,0,0,0.08)] max-w-lg mx-auto">
-        <span className="text-5xl block mb-4">{pct >= 80 ? "🎉" : pct >= 50 ? "💪" : "📚"}</span>
+      <PracticeCard data-practice-surface="result" className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-5 sm:p-6 text-center shadow-[var(--shadow-1)] camp-quiz-setup">
+        <span className="text-5xl block mb-4"><LearningArt name={pct >= 80 ? "🎉" : pct >= 50 ? "💪" : "📚"} size={28} /></span>
         <h2 className="text-xl font-display font-extrabold text-[var(--color-text-primary)]">Quiz Complete!</h2>
         <div className="flex items-center justify-center gap-6 mt-4">
           <div>
-            <p className="text-3xl font-display font-extrabold text-[var(--color-success)]">{score}<span className="text-lg text-[var(--color-text-disabled)]">/{maxScore}</span></p>
+            <p className="text-3xl font-display font-extrabold text-[var(--color-text-success)]">{score}<span className="text-lg text-[var(--color-text-secondary)]">/{maxScore}</span></p>
             <p className="text-xs text-[var(--color-text-secondary)]">Points</p>
           </div>
           <div className="w-px h-10 bg-[var(--color-border-default)]" />
           <div>
-            <p className="text-3xl font-display font-extrabold text-[var(--color-primary-dark)]">{pct}%</p>
+            <p className="text-3xl font-display font-extrabold text-[var(--color-text-link)]">{pct}%</p>
             <p className="text-xs text-[var(--color-text-secondary)]">Accuracy</p>
           </div>
         </div>
-        <p className="mt-4 text-sm font-bold bg-amber-500 text-white font-extrabold shadow-sm px-4 py-2 rounded-[10px] inline-flex items-center gap-1.5">
-          <Sparkles className="w-4 h-4" /> +{score + (pct >= 80 ? 20 : 0)} XP
+        <p className="mt-4 text-sm font-bold bg-[var(--color-warning-bg)] text-[var(--color-text-warning)] font-extrabold shadow-sm px-4 py-2 rounded-[10px] inline-flex items-center gap-1.5">
+          <LearningArt name="Sparkles" size={16} className="w-4 h-4" /> +{score + (pct >= 80 ? 20 : 0)} XP
         </p>
-        <button onClick={() => setPhase("ready")}
-          className="mt-6 px-8 py-3 rounded-[14px] bg-[var(--color-primary)] text-white font-bold text-sm hover:bg-brand-600 transition-all inline-flex items-center gap-2"
+        <PracticeButton onClick={() => setPhase("ready")}
+          className="mt-6 px-8 py-3 rounded-[14px] bg-[var(--color-primary)] text-[var(--color-on-brand)] font-bold text-sm hover:bg-[var(--color-primary-hover)] transition-all inline-flex items-center gap-2"
         >
           <RefreshCw className="w-4 h-4" /> Play Again
-        </button>
-      </div>
+        </PracticeButton>
+      </PracticeCard>
     );
   }
 
@@ -188,15 +144,15 @@ export function LandeskundeQuiz() {
 
   return (
     <div className="space-y-4 max-w-lg mx-auto">
-      <div className="flex items-center justify-between">
-        <span className="inline-flex items-center gap-1.5 rounded-[10px] bg-[var(--color-primary-subtle)] px-3 py-1 text-xs font-semibold text-[var(--color-primary-dark)]">
-          <Globe className="w-3 h-3" /> {index + 1}/{items.length}
+      <div className="camp-quiz-status flex items-center justify-between">
+        <span className="inline-flex items-center gap-1.5 rounded-[10px] bg-[var(--color-primary-subtle)] px-3 py-1 text-xs font-semibold text-[var(--color-text-link)]">
+          <LearningArt name="Globe" size={12} className="w-3 h-3" /> {index + 1}/{items.length}
         </span>
         <div className="flex items-center gap-2">
-          <span className="inline-flex items-center gap-1.5 rounded-[10px] bg-[var(--color-success)] text-white px-3 py-1 text-xs font-semibold">
-            <Sparkles className="w-3 h-3" /> {score}
+          <span className="inline-flex items-center gap-1.5 rounded-[10px] bg-[var(--color-success-bg)] text-[var(--color-text-success)] px-3 py-1 text-xs font-semibold">
+            <LearningArt name="Sparkles" size={12} className="w-3 h-3" /> {score}
           </span>
-          {meta && <span className="text-xs bg-[var(--color-surface-alt)] px-2 py-1 rounded-[var(--radius-pill)]">{meta.icon} {meta.label}</span>}
+          {meta && <span className="text-xs bg-[var(--color-surface-alt)] px-2 py-1 rounded-[var(--radius-pill)]"><LearningArt name="globe" size={16} /> {meta.label}</span>}
         </div>
       </div>
 
@@ -204,9 +160,9 @@ export function LandeskundeQuiz() {
         <motion.div initial={{ width: 0 }} animate={{ width: `${pct}%` }} transition={{ duration: 0.3 }} className="h-full rounded-[var(--radius-pill)] bg-[var(--color-primary)]" />
       </div>
 
-      <div className="bg-[var(--color-surface)] rounded-[24px] border-2 border-[var(--color-border-default)] p-8 shadow-[0_4px_16px_rgba(0,0,0,0.08)]">
+      <PracticeCard data-practice-surface="question" className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-5 sm:p-6 shadow-[var(--shadow-1)]">
         <div className="mb-1">
-          <span className="text-xs text-[var(--color-text-disabled)] font-medium uppercase tracking-wide">Choose the correct answer</span>
+          <span className="text-xs text-[var(--color-text-secondary)] font-medium uppercase tracking-wide">Choose the correct answer</span>
         </div>
 
         <p className="text-base font-bold text-[var(--color-text-primary)] mb-6">{current.question}</p>
@@ -214,28 +170,28 @@ export function LandeskundeQuiz() {
 
         <div className="space-y-2">
           {current.options.map((opt, i) => {
-            let cls = "bg-[var(--color-surface)] border-2 border-[var(--color-border-default)] text-[var(--color-text-primary)] hover:ring-[var(--color-primary)] hover:bg-[var(--color-primary-subtle)]";
-            if (selected === i && i === current.correctIndex) cls = "bg-[var(--color-success)] text-white ring-2 ring-emerald-400 text-emerald-800";
-            else if (selected === i && i !== current.correctIndex) cls = "bg-[var(--color-error)] text-white ring-2 ring-red-300 text-red-700";
-            else if (selected !== null && i === current.correctIndex) cls = "bg-emerald-50/50 ring-1 ring-[var(--color-success)] text-[var(--color-success)]";
+            let cls = "bg-[var(--color-surface)] border border-[var(--color-border-default)] text-[var(--color-text-primary)] hover:ring-[var(--color-primary)] hover:bg-[var(--color-primary-subtle)]";
+            if (selected === i && i === current.correctIndex) cls = "bg-[var(--color-success-bg)] text-[var(--color-text-success)] ring-2 ring-emerald-400 text-[var(--color-text-success)]";
+            else if (selected === i && i !== current.correctIndex) cls = "bg-[var(--color-error-bg)] text-[var(--color-text-error)] ring-2 ring-red-300 text-[var(--color-text-error)]";
+            else if (selected !== null && i === current.correctIndex) cls = "bg-[var(--color-success-bg)] ring-1 ring-[var(--color-success)] text-[var(--color-text-success)]";
 
             return (
-              <motion.button key={i} layout initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }}
+              <MotionPracticeButton key={i} layout initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }}
                 onClick={() => handleSelect(i)} disabled={selected !== null}
                 className={`flex items-center gap-3 w-full px-4 py-3 rounded-[14px] text-sm font-medium transition-all text-left ${cls}`}
               >
                 <span className={`w-6 h-6 rounded-[var(--radius-pill)] flex items-center justify-center text-[11px] font-bold shrink-0 ${
-                  selected === i && i === current.correctIndex ? "bg-[var(--color-success)] text-white" :
-                  selected === i && i !== current.correctIndex ? "bg-[var(--color-error)] text-white" :
+                  selected === i && i === current.correctIndex ? "bg-[var(--color-success-bg)] text-[var(--color-text-success)]" :
+                  selected === i && i !== current.correctIndex ? "bg-[var(--color-error-bg)] text-[var(--color-text-error)]" :
                   "bg-[var(--color-surface-alt)] text-[var(--color-text-secondary)]"
                 }`}>{String.fromCharCode(65 + i)}</span>
                 <div>
                   <span>{opt}</span>
 
                 </div>
-                {selected !== null && i === current.correctIndex && <CheckCircle2 className="w-4 h-4 text-[var(--color-success)] ml-auto shrink-0" />}
-                {selected === i && i !== current.correctIndex && <XCircle className="w-4 h-4 text-[var(--color-error)] ml-auto shrink-0" />}
-              </motion.button>
+                {selected !== null && i === current.correctIndex && <CheckCircle2 className="w-4 h-4 text-[var(--color-text-success)] ml-auto shrink-0" />}
+                {selected === i && i !== current.correctIndex && <XCircle className="w-4 h-4 text-[var(--color-text-error)] ml-auto shrink-0" />}
+              </MotionPracticeButton>
             );
           })}
         </div>
@@ -243,9 +199,9 @@ export function LandeskundeQuiz() {
         <AnimatePresence>
           {selected !== null && (
             <motion.div initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }}
-              className="mt-4 p-3 rounded-[10px] bg-[var(--color-info)] text-white text-xs flex items-start gap-2"
+              className="mt-4 p-3 rounded-[10px] bg-[var(--color-info-bg)] text-[var(--color-text-info)] text-xs flex items-start gap-2"
             >
-              <Info className="w-3.5 h-3.5 text-[var(--color-info)] shrink-0 mt-0.5" />
+              <Info className="w-3.5 h-3.5 text-[var(--color-text-info)] shrink-0 mt-0.5" />
               <div>
                 <p className="text-xs text-[var(--color-text-secondary)]">{current.explanation}</p>
 
@@ -253,15 +209,15 @@ export function LandeskundeQuiz() {
             </motion.div>
           )}
         </AnimatePresence>
-      </div>
+      </PracticeCard>
 
       {selected !== null && (
-        <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className="flex justify-center">
-          <button onClick={handleNext}
-            className="px-8 py-3 rounded-[14px] bg-[var(--color-primary)] text-white font-bold text-sm hover:bg-brand-600 transition-all shadow-[0_4px_0_rgba(28,176,246,0.3)] inline-flex items-center gap-1.5"
+        <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className="camp-quiz-actions flex justify-center">
+          <PracticeButton onClick={handleNext}
+            className="px-8 py-3 rounded-[14px] bg-[var(--color-primary)] text-[var(--color-on-brand)] font-bold text-sm hover:bg-[var(--color-primary-hover)] transition-all shadow-[var(--shadow-1)] inline-flex items-center gap-1.5"
           >
             {index + 1 >= items.length ? "See results" : "Next"} <ArrowRight className="w-4 h-4" />
-          </button>
+          </PracticeButton>
         </motion.div>
       )}
     </div>

@@ -2,7 +2,7 @@
 
 **Project version: 1.0.0**
 
-**Documentation updated: 29 October 2026**
+**Documentation updated: 1 November 2026**
 
 EnglishCamp is an English-learning web application with four structured exam-preparation courses, interactive practice, vocabulary tools and local learning progress. This README describes the current working tree, including the curriculum reconstruction, mobile fixes and neural course narration.
 
@@ -52,7 +52,7 @@ The Foundation & B2 First course assumes learners can already understand everyda
 - Study explanations, worked examples and short reasoning/application checks.
 - Complete the module's guided, independent and assessment stages.
 - Use objective answer feedback, or self-review productive work against the supplied criteria.
-- Revisit saved attempts, errors, drafts and lesson notes.
+- Revisit saved attempts, errors and drafts. Add notes under lesson videos and find them in **Progress → My notes**, grouped by course and lesson, with search and editing.
 - Practise with vocabulary, flashcards, pronunciation tools, trainers and games.
 - Use the existing responsive layouts and light/dark themes.
 
@@ -70,9 +70,11 @@ All **100 modules** now include an additional original worked example, a three-r
 
 **All 100 modules include a visible video lesson**, using **59 distinct videos from 14 channels**, including Oxford Online English, BBC Learning English, TST Prep TOEFL, IELTS Advantage, IELTS Official, Cambridge English Spain, English with Cambridge, IELTS by IDP, Academic English UK, Fastrack IELTS, English Too, Khan Academy, Wireless Philosophy and CFR Education. The player appears near the beginning of the module, before expanded written theory, in both study and focused-practice routes. Existing worked-example links also provide a direct link back to the video.
 
+A **Lesson recap** below every player presents the lesson’s existing teaching rule, example and interpretation. These recaps describe the lesson focus; they are not newly obtained video transcripts. A compact **Add a note** editor below each recap saves to the existing local notes store. See [the notes, selector and artwork report](docs/lesson-notes-and-brand-assets.md).
+
 Videos are matched to the module's topic or a clearly labelled supporting skill, with a specific viewing focus, preparation question, follow-up and written alternative. Some videos are reused with different application goals; this is not a claim of 100 unique filmed lessons. The word-formation module starts at the publisher's word-formation chapter at **7:36**. Current TOEFL guides cover 2026 listening, reading, sentence-building, email, repetition and interview tasks. An earlier Academic Discussion explanation is explicitly labelled as technique for the retained task; current course directions define the overall format.
 
-The embedded frame is rendered directly, uses native lazy loading and `youtube-nocookie.com`, and does not autoplay. A separate Load button is no longer required. Loading the frame connects to YouTube; privacy-enhanced mode does not eliminate third-party data processing or advertising. Direct viewing and publisher links remain available if embedding is blocked or a video becomes unavailable. Videos are supplementary and never gate completion or XP.
+The lesson player uses a violet frame and a local preview with no remote thumbnail. Select **Load lesson video** to create the `youtube-nocookie.com` iframe; it does not autoplay. Loading the frame connects to YouTube; privacy-enhanced mode does not eliminate third-party data processing or advertising. Direct viewing and publisher links remain available if embedding is blocked or a video becomes unavailable. Videos are supplementary and never gate completion or XP.
 
 The **29 October alignment audit replaced 26 weaker video associations**, including general study tips previously used for map listening, graph prepositions, hedging and scientific vocabulary. Mixed modules have an explicit coverage note where a video teaches only one part or supplies a supporting skill. The [module-by-module media audit](docs/course-media-audit.md) records each match and its scope.
 
@@ -81,6 +83,16 @@ The **29 October alignment audit replaced 26 weaker video associations**, includ
 Video sources and attribution are recorded per resource in `src/data/course-enrichment/video-catalogue.ts`. Publisher lesson pages and YouTube oEmbed were used to check topics, channel identities and embedding availability on 28–29 October 2026; availability can change. Teacher strategies and aspirational band-score titles are not official score guarantees or an endorsement of EnglishCamp.
 
 The application's existing fonts, colour tokens, navigation and activity interfaces are retained. Teaching additions are stored separately in `src/data/course-enrichment/` and rendered alongside the original lesson content.
+
+## Shadowing and consistent practice UI
+
+`/shadowing-english` provides A1–B2 starter practice with four short YouTube clips. A video/practice column sits beside transcript and clip choices, stacking on phones. It includes Arabic meanings, word spelling, local dictation, independent video/model speed controls and optional local recording replay. Practice cards use small centered vector icons. Vocabulary, Flashcards, Partner Challenges and Study Strategies follow the shared violet styling; strategies include an interactive learning journey.
+
+All synthetic pronunciation controls use Microsoft neural speech. Missing clips use the Python helper configured in `.env.example`; install `requirements-voice.txt` in that environment. Fixed lesson text can generate on demand; personal text requires the learner’s approval. See [setup, sources and scope](docs/shadowing-and-ui-consistency.md).
+
+## Illustrated reading and practice voices
+
+Read & Listen at `/vocabulary` now includes 22 illustrated bilingual articles with local narration, synchronized text and word replay. Topic Vocabulary includes 18 topics and 264 contextual entries. Conversation and Listening Lab use the same natural voice family as the courses. The [reading and practice audio notes](docs/practice-reading-audio.md) explain coverage and timing.
 
 ## Course narration
 
@@ -93,15 +105,26 @@ The courses include **99 AI-generated neural recordings**, approximately **33.7 
 - Playback does not require a Microsoft speech-service connection or API key.
 - `audio-manifest.json` records scripts, voices, durations, checksums and provenance.
 
-These are original educational recordings generated with Microsoft neural voices, not human performances or examination-board recordings. Browser pronunciation buttons elsewhere in the app still use the device/browser speech system and are separate from these course recordings.
+These are original educational recordings generated with Microsoft neural voices, not human performances or examination-board recordings. All other synthetic pronunciation buttons also use Microsoft neural speech: existing clips play locally and missing clips generate through the configured Python helper.
+
+## Full mock papers — content version 2026.2
+
+The mock area now contains one complete original practice form for each of IELTS Academic, IELTS General Training, TOEFL iBT 2026 and adult Cambridge B2 First. IELTS has 40 listening and 40 reading questions per paper. TOEFL includes both follow-up branches for two-stage practice, ten sentence-building items, email/discussion and eleven speaking responses. B2 includes all seven Reading/Use of English parts, all four listening parts, writing choices and paired speaking tasks.
+
+The bank contains **358 distinct objective items**, **10 writing prompts**, **22 speaking stages** and **77 new local neural recordings**. IELTS Academic/General intentionally share listening and speaking. Section clocks, committed navigation, versioned local drafts, submitted history and real microphone capture replace the earlier abbreviated runner. Existing colours, fonts, layout patterns and course content are preserved.
+
+Results show objective marks and retain writing/recordings for an assessor. They do not invent productive scores, an overall band or score concordance. TOEFL routing is an explicitly labelled EnglishCamp practice rule. The first forms need independent teacher review and learner pilots before expansion to twelve unseen papers or any score-validity claim. See [the content, implementation and limitations report](docs/mock-exam-upgrade.md).
 
 ## Local data and privacy
 
-Progress, drafts and lesson notes use browser storage. Speaking takes use local IndexedDB. Course microphone recordings are not uploaded by the recording component.
+**Name-only session sign-in:** the top-left sign-in uses a name and an original local fruit avatar. XP, course progress, badges, vocabulary, notes and saved attempts belong to that name within this tab's session. Signing out keeps them; entering the same name restores them. Another name has separate learning records. The first named session inherits a copy of existing guest progress without deleting the original. A centered congratulations popup appears when newly earned XP reaches another learning level.
+
+Names and named text records use `sessionStorage` and survive reloads. Deleting the learning session or closing the tab removes them, subject to the browser's session-restore behavior. No profile data is sent to EnglishCamp. This is local name-only access, not a password-protected account or cross-device backup. Course/mock takes remain in local IndexedDB with separate named namespaces; the shadowing replay lasts only for its current line unless downloaded. Nothing is uploaded by the recording components. See [workspace and storage details](docs/shadowing-workspace-and-learners.md).
+
 
 Data is specific to the browser, device and site origin. Changing the host or port creates a different storage context; clearing browser/site data can remove saved work. Save copies of important writing and recordings. The current implementation does not provide account-based cloud synchronization.
 
-The existing course scripts were sent to Microsoft with the project owner's approval to generate the bundled narration. Learner answers, notes and microphone recordings were not part of that generation process.
+The existing course scripts and the new fixed mock-exam scripts were sent to Microsoft with the project owner's approval to generate the bundled narration. Learner answers, notes and microphone recordings were not part of that generation process.
 
 ## Run locally
 
@@ -138,7 +161,7 @@ npm run lint
 npm run build
 ```
 
-At the last recorded validation, **90 tests passed**, TypeScript checking and the isolated production build passed, and lint completed with **25 existing warnings**. These are technical checks, not evidence of educational effectiveness.
+At the last recorded validation, **142 tests passed**, TypeScript checking and the isolated production build passed, and lint completed with existing warnings. These are technical checks, not evidence of educational effectiveness.
 
 The narration checks cover all 99 WAVs and 163 generated voice segments, including script/word metadata, PCM integrity, duration and clipping. All 300 activity fingerprints were preserved. Representative listening and speaking playback was checked in the browser, and all 99 audio assets passed media/byte-range serving checks.
 
@@ -170,3 +193,15 @@ The application also uses Zustand for local state, Framer Motion for animation a
 | `src/store/` | Progress and other local state |
 | `public/media/courses/` | Bundled course audio, diagrams and audio provenance |
 | `tests/` | Content, state, recording, narration and regression checks |
+
+## Styling system
+
+The application keeps Tailwind CSS 3 and its existing Nunito, DM Sans, JetBrains Mono and Arabic font configuration. The shadcn/ui primitives live in `src/components/ui/shadcn`, with project configuration in `components.json`. Semantic theme roles map to the existing EnglishCamp colour variables in `globals.css`; both light and dark palettes are preserved.
+
+Existing shared buttons, cards and badges adapt these primitives without adding layout wrappers. The shared modal export uses the shadcn/Radix dialog foundation. All 14 selectors use a shared violet Radix Select adapter while retaining their original options and state updates. The dashboard has compact faceted vector artwork, an original violet reading-fox mascot and matching favicons. Signed-in greetings use the local profile name. Course and mock-exam text fields retain their existing values, labels, events and saved-state keys. Page spacing, lesson block spacing and card padding were tightened; content data, section order, grid structure and media remain unchanged. See [the styling report](docs/styling-refinement.md).
+
+## Site consistency and practice corrections — 31 October 2026
+
+The shared violet artwork now covers page headings, practice cards, navigation and course filters. Course cards and study tips share the existing interface style, with phone layouts checked across all public pages. The requested conjunction, word-pair, culture, cloze and letter activities received targeted content and interaction corrections. Linking Words contains 77 contextual entries. All 100 lesson recaps now explain the rule, analyse a worked application and offer a self-check.
+
+The Grammar Cheat Sheet includes 11 populated topics and a downloadable nine-page A4 reference using the website fonts. See [the complete audit, corrections, verification and sources](docs/site-consistency-and-practice-audit.md).

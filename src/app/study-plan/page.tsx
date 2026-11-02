@@ -1,4 +1,7 @@
 "use client";
+import { learnerStorage } from "@/lib/learnerStorage";
+
+import { LearningArt } from "@/components/brand/LearningArt";
 import { useMemo } from "react";
 import { motion } from "framer-motion";
 import { PageWrapper } from "@/components/layout/PageWrapper";
@@ -46,7 +49,7 @@ export default function StudyPlanPage() {
     const today = new Date().toISOString().split("T")[0];
     let lastActive: string | null = null;
     if (typeof window !== "undefined") {
-      try { lastActive = localStorage.getItem("englishcamp-progress"); } catch {}
+      try { lastActive = learnerStorage.getItem("englishcamp-progress"); } catch {}
     }
     if (lastActive) {
       try {
@@ -96,7 +99,7 @@ export default function StudyPlanPage() {
     <PageWrapper>
       <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}>
         <div className="flex items-center gap-3 mb-1">
-          <Target className="w-6 h-6 text-[var(--color-primary)]" />
+          <LearningArt name="Target" className="w-6 h-6 text-[var(--color-primary)]" />
           <h1 className="font-display text-2xl font-extrabold text-[var(--color-text-primary)]">Study Plan</h1>
         </div>
         <p className="text-sm text-[var(--color-text-secondary)]">Personalized recommendations based on your progress</p>
@@ -109,9 +112,9 @@ export default function StudyPlanPage() {
           { icon: CheckCircle2, label: "Lessons Done", value: `${doneLessons} / ${totalLessons}` },
           { icon: Sparkles, label: "Vocabulary", value: `${vocab.length} words (${masteredWords} mastered)` },
         ].map((s) => (
-          <div key={s.label} className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border-2 border-[var(--color-border-default)] p-4 shadow-sm">
+          <div key={s.label} className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-4 shadow-sm">
             <div className="flex items-center gap-2 mb-1">
-              <s.icon className="w-4 h-4 text-[var(--color-primary)]" />
+              <LearningArt name={s.icon.displayName || "book"} className="w-4 h-4 text-[var(--color-primary)]" />
               <span className="text-xs text-[var(--color-text-secondary)]">{s.label}</span>
             </div>
             <p className="text-sm font-bold text-[var(--color-text-primary)] truncate">{s.value}</p>
@@ -120,31 +123,31 @@ export default function StudyPlanPage() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
-        <div className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border-2 border-[var(--color-border-default)] p-5 shadow-sm">
+        <div className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-5 shadow-sm">
           <div className="flex items-center justify-between mb-2">
             <span className="text-sm font-semibold text-[var(--color-text-primary)]">Weekly XP Goal</span>
-            <span className="text-xs text-[var(--color-text-disabled)]">{xpPct}%</span>
+            <span className="text-xs text-[var(--color-text-secondary)]">{xpPct}%</span>
           </div>
           <div className="w-full h-3 bg-[var(--color-surface-alt)] rounded-full overflow-hidden">
             <div className="h-full rounded-full bg-[var(--color-primary)] transition-all duration-500" style={{ width: `${xpPct}%` }} />
           </div>
-          <p className="text-xs text-[var(--color-text-disabled)] mt-1">{xpThisWeek} / {weeklyXpGoal} XP this week</p>
+          <p className="text-xs text-[var(--color-text-secondary)] mt-1">{xpThisWeek} / {weeklyXpGoal} XP this week</p>
         </div>
-        <div className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border-2 border-[var(--color-border-default)] p-5 shadow-sm">
+        <div className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-5 shadow-sm">
           <div className="flex items-center justify-between mb-2">
             <span className="text-sm font-semibold text-[var(--color-text-primary)]">Weekly Lesson Goal</span>
-            <span className="text-xs text-[var(--color-text-disabled)]">{lessonPct}%</span>
+            <span className="text-xs text-[var(--color-text-secondary)]">{lessonPct}%</span>
           </div>
           <div className="w-full h-3 bg-[var(--color-surface-alt)] rounded-full overflow-hidden">
             <div className="h-full rounded-full bg-[#9B59B6] transition-all duration-500" style={{ width: `${lessonPct}%` }} />
           </div>
-          <p className="text-xs text-[var(--color-text-disabled)] mt-1">{lessonsThisWeek} / {weeklyLessonGoal} lessons this week</p>
+          <p className="text-xs text-[var(--color-text-secondary)] mt-1">{lessonsThisWeek} / {weeklyLessonGoal} lessons this week</p>
         </div>
       </div>
 
       <div className="mt-6">
         <h2 className="text-base font-bold text-[var(--color-text-primary)] mb-4 flex items-center gap-2">
-          <Sparkles className="w-5 h-5 text-[var(--color-primary)]" />
+          <LearningArt name="Sparkles" className="w-5 h-5 text-[var(--color-primary)]" />
           Recommended for You
         </h2>
         <div className="space-y-2">
@@ -161,20 +164,20 @@ export default function StudyPlanPage() {
                 }`}
               >
                 <div className={`w-10 h-10 rounded-[var(--radius-lg)] flex items-center justify-center shrink-0 ${
-                  rec.priority === "high" ? "bg-[var(--color-primary)] text-[var(--color-primary-dark)]" : "bg-[var(--color-surface-alt)] text-[var(--color-text-secondary)]"
+                  rec.priority === "high" ? "bg-[var(--color-primary)] text-[var(--color-text-link)]" : "bg-[var(--color-surface-alt)] text-[var(--color-text-secondary)]"
                 }`}>
-                  <rec.icon className="w-5 h-5" />
+                  <LearningArt name={rec.icon.displayName || "book"} className="w-5 h-5" />
                 </div>
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2">
                     <span className="text-sm font-semibold text-[var(--color-text-primary)]">{rec.label}</span>
                     {rec.priority === "high" && (
-                      <span className="text-[10px] font-bold text-[var(--color-primary-dark)] bg-[var(--color-primary-subtle)] px-1.5 py-0.5 rounded-full">Priority</span>
+                      <span className="text-[10px] font-bold text-[var(--color-text-link)] bg-[var(--color-primary-subtle)] px-1.5 py-0.5 rounded-full">Priority</span>
                     )}
                   </div>
                   <p className="text-xs text-[var(--color-text-secondary)] mt-0.5">{rec.desc}</p>
                 </div>
-                <ArrowRight className="w-4 h-4 text-[var(--color-text-disabled)] shrink-0" />
+                <ArrowRight className="w-4 h-4 text-[var(--color-text-secondary)] shrink-0" />
               </motion.div>
             </Link>
           ))}
@@ -182,10 +185,10 @@ export default function StudyPlanPage() {
       </div>
 
       {unreviewed.length === 0 && xpPct >= 100 && lessonPct >= 100 && doneLessons >= totalLessons && (
-        <div className="mt-6 bg-gradient-to-r from-emerald-50 to-brand-50 rounded-[var(--radius-lg)] ring-1 ring-emerald-100 p-6 text-center">
-          <Sparkles className="w-10 h-10 text-[var(--color-success)] mx-auto mb-2" />
-          <h3 className="text-lg font-bold text-emerald-800">All caught up!</h3>
-          <p className="text-sm text-[var(--color-success)] mt-1">You&apos;ve completed everything. Try exploring new topics or revisiting challenging areas.</p>
+        <div className="bg-[var(--color-surface-alt)] mt-6    rounded-[var(--radius-lg)] ring-1 ring-emerald-100 p-6 text-center">
+          <LearningArt name="Sparkles" className="w-10 h-10 text-[var(--color-text-success)] mx-auto mb-2" />
+          <h3 className="text-lg font-bold text-[var(--color-text-success)]">All caught up!</h3>
+          <p className="text-sm text-[var(--color-text-success)] mt-1">You&apos;ve completed everything. Try exploring new topics or revisiting challenging areas.</p>
         </div>
       )}
     </PageWrapper>

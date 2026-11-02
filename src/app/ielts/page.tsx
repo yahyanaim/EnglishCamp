@@ -1,4 +1,7 @@
 'use client';
+
+import { LearningArt } from "@/components/brand/LearningArt";
+
 import { motion } from 'framer-motion';
 import { PageWrapper } from '@/components/layout/PageWrapper';
 import { IELTS_GUIDE_CONTENT, IELTS_COMPARISON, WRITING_TEMPLATES } from '@/data/b2-pruefung';
@@ -8,29 +11,29 @@ import Link from 'next/link';
 import { ExternalLink, GraduationCap, ChevronRight, BookOpen, Headphones, Pen, Mic, TrendingUp, Calendar, Target, AlertTriangle } from 'lucide-react';
 
 const sectionIcons: Record<string, React.ReactNode> = {
-  overview: <GraduationCap className="w-5 h-5" />,
-  listening: <Headphones className="w-5 h-5" />,
-  reading: <BookOpen className="w-5 h-5" />,
+  overview: <LearningArt name="GraduationCap" size={20} className="w-5 h-5" />,
+  listening: <LearningArt name="Headphones" size={20} className="w-5 h-5" />,
+  reading: <LearningArt name="BookOpen" size={20} className="w-5 h-5" />,
   'writing-task1': <Pen className="w-5 h-5" />,
   'writing-task2': <Pen className="w-5 h-5" />,
   speaking: <Mic className="w-5 h-5" />,
   'band-guide': <TrendingUp className="w-5 h-5" />,
-  'study-plans': <Calendar className="w-5 h-5" />,
-  'free-resources': <Target className="w-5 h-5" />,
+  'study-plans': <LearningArt name="Calendar" size={20} className="w-5 h-5" />,
+  'free-resources': <LearningArt name="Target" size={20} className="w-5 h-5" />,
   'common-mistakes': <AlertTriangle className="w-5 h-5" />,
 };
 
 export default function IELTSPage() {
   return (
     <PageWrapper>
-      <div className="space-y-8">
+      <div className="space-y-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="bg-gradient-to-br from-blue-600 to-indigo-800 rounded-[var(--radius-lg)] p-8 text-white"
+          className="bg-gradient-to-br from-blue-600 to-indigo-800 rounded-[var(--radius-lg)] p-5 sm:p-6 text-white"
         >
           <div className="flex items-center gap-3 mb-4">
-            <GraduationCap className="w-8 h-8" />
+            <LearningArt name="GraduationCap" className="w-8 h-8" />
             <h1 className="font-display text-3xl font-extrabold">IELTS Academic</h1>
           </div>
           <p className="text-white/80 max-w-2xl">
@@ -66,10 +69,10 @@ export default function IELTSPage() {
           >
             <Card>
               <div className="flex items-center gap-3 mb-4">
-                <span className="text-2xl">{section.icon}</span>
+                <LearningArt name={section.icon} size={24} className="" />
                 <div>
                   <h2 className="font-display text-xl font-extrabold">{section.title}</h2>
-                  <p className="text-sm text-[var(--color-text-disabled)]">{section.subtitle}</p>
+                  <p className="text-sm text-[var(--color-text-secondary)]">{section.subtitle}</p>
                 </div>
               </div>
               <p className="text-sm text-[var(--color-text-secondary)] mb-6 leading-relaxed">{section.description}</p>
@@ -78,7 +81,7 @@ export default function IELTSPage() {
                 {section.topics.map((topic, ti) => (
                   <details key={ti} className="group">
                     <summary className="flex items-center gap-2 cursor-pointer p-3 rounded-[var(--radius-lg)] hover:bg-[var(--color-surface-alt)] transition-colors">
-                      <ChevronRight className="w-4 h-4 text-[var(--color-text-disabled)] transition-transform group-open:rotate-90" />
+                      <ChevronRight className="w-4 h-4 text-[var(--color-text-secondary)] transition-transform group-open:rotate-90" />
                       <span className="font-display font-bold text-sm">{topic.title}</span>
                     </summary>
                     <div className="pl-6 pr-3 pb-4 space-y-2">
@@ -99,10 +102,10 @@ export default function IELTSPage() {
             {WRITING_TEMPLATES.filter((t) => t.id.startsWith('ielts')).map((tpl) => (
               <details key={tpl.id} className="group">
                 <summary className="flex items-center gap-3 cursor-pointer p-3 rounded-[var(--radius-lg)] hover:bg-[var(--color-surface-alt)] transition-colors">
-                  <span className="text-xl">{tpl.icon}</span>
+                  <LearningArt name={tpl.icon} size={24} className="" />
                   <div className="flex-1">
                     <p className="font-display font-bold text-sm">{tpl.title}</p>
-                    <p className="text-xs text-[var(--color-text-disabled)]">{tpl.desc}</p>
+                    <p className="text-xs text-[var(--color-text-secondary)]">{tpl.desc}</p>
                   </div>
                   <ChevronRight className="w-4 h-4 transition-transform group-open:rotate-90" />
                 </summary>
@@ -148,12 +151,12 @@ export default function IELTSPage() {
 
         <div className="flex gap-4">
           <Link href="/levels/band4-5">
-            <span className="inline-flex items-center gap-2 px-6 py-3 bg-[var(--color-primary)] text-white rounded-[var(--radius-lg)] font-display font-extrabold hover:bg-[var(--color-primary-dark)] transition-all">
+            <span className="inline-flex items-center gap-2 px-6 py-3 bg-[var(--color-primary)] text-[var(--color-on-brand)] rounded-[var(--radius-lg)] font-display font-extrabold hover:bg-[var(--color-primary-dark)] transition-all">
               Start IELTS Preparation <ChevronRight className="w-4 h-4" />
             </span>
           </Link>
           <Link href="/mock-exam">
-            <span className="inline-flex items-center gap-2 px-6 py-3 bg-[var(--color-surface)] text-[var(--color-text-primary)] rounded-[var(--radius-lg)] font-display font-extrabold border-2 border-[var(--color-border-default)] hover:border-[var(--color-primary)] transition-all">
+            <span className="inline-flex items-center gap-2 px-6 py-3 bg-[var(--color-surface)] text-[var(--color-text-primary)] rounded-[var(--radius-lg)] font-display font-extrabold border border-[var(--color-border-default)] hover:border-[var(--color-primary)] transition-all">
               Take IELTS Mock Test <ExternalLink className="w-4 h-4" />
             </span>
           </Link>

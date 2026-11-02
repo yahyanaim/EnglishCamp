@@ -1,4 +1,6 @@
 "use client";
+import { LearningArt } from "@/components/brand/LearningArt";
+import { PracticeCard, PracticeButton } from "@/components/ui/PracticeSurface";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useProgress } from "@/store/useProgress";
@@ -99,8 +101,8 @@ export function PluralTrainer() {
       <div className="text-center py-8">
         <span className="text-5xl block mb-3">{pct >= 80 ? "🏆" : "👍"}</span>
         <h3 className="text-xl font-display font-extrabold text-[var(--color-text-primary)] mb-1">Plurals Done!</h3>
-        <p className="text-lg font-display font-extrabold text-[var(--color-primary-dark)]">{score}/{total} ({pct}%)</p>
-        <button onClick={restart} className="text-sm font-medium bg-[var(--color-primary-subtle)] text-[var(--color-primary-dark)] border border-[var(--color-primary)] px-5 py-2 rounded-[var(--radius-lg)] hover:bg-[var(--color-primary)] transition-all mt-4">Play Again 🔄</button>
+        <p className="text-lg font-display font-extrabold text-[var(--color-text-link)]">{score}/{total} ({pct}%)</p>
+        <PracticeButton onClick={restart} className="text-sm font-medium bg-[var(--color-primary-subtle)] text-[var(--color-text-link)] border border-[var(--color-primary)] px-5 py-2 rounded-[var(--radius-lg)] hover:bg-[var(--color-primary)] transition-all mt-4">Play Again <LearningArt name="🔄" size={16} /></PracticeButton>
       </div>
     );
   }
@@ -108,14 +110,14 @@ export function PluralTrainer() {
   if (!item) return null;
 
   return (
-    <div className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border-2 border-[var(--color-border-default)] p-6 shadow-sm" style={{ boxShadow: "0 3px 0 var(--color-border-default)" }}>
+    <PracticeCard data-practice-surface="question" className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-6 shadow-sm" style={{ boxShadow: "0 3px 0 var(--color-border-default)" }}>
       <div className="flex items-center justify-between mb-4">
         <span className="text-xs font-display font-extrabold text-[#E0115F] uppercase tracking-wider">Plural Trainer</span>
-        <span className="text-xs text-[var(--color-text-disabled)]">{current + 1}/{pool.length}</span>
+        <span className="text-xs text-[var(--color-text-secondary)]">{current + 1}/{pool.length}</span>
       </div>
       <AnimatePresence mode="wait">
         <motion.div key={current} initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }}>
-          <p className="text-xs text-[var(--color-text-disabled)] mb-2">Write the plural form:</p>
+          <p className="text-xs text-[var(--color-text-secondary)] mb-2">Write the plural form:</p>
           <div className="flex items-center justify-center gap-2 mb-1">
             <span className="text-xl font-display font-extrabold text-[var(--color-text-primary)]">{item.singular}</span>
           </div>
@@ -128,28 +130,28 @@ export function PluralTrainer() {
         </motion.div>
       </AnimatePresence>
       {!answered && (
-        <button onClick={handleSubmit} disabled={!input.trim()} className="mt-3 text-sm font-medium bg-[var(--color-primary-subtle)] text-[var(--color-primary-dark)] border border-[var(--color-primary)] px-5 py-2 rounded-[var(--radius-lg)] hover:bg-[var(--color-primary)] transition-all disabled:opacity-50">
+        <PracticeButton onClick={handleSubmit} disabled={!input.trim()} className="mt-3 text-sm font-medium bg-[var(--color-primary-subtle)] text-[var(--color-text-link)] border border-[var(--color-primary)] px-5 py-2 rounded-[var(--radius-lg)] hover:bg-[var(--color-primary)] transition-all disabled:opacity-50">
           Check ✓
-        </button>
+        </PracticeButton>
       )}
       {answered && (
         <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className="mt-3">
           {isCorrect ? (
-            <p className="text-sm font-medium text-[var(--color-success)]">✓ Correct!</p>
+            <p className="text-sm font-medium text-[var(--color-text-success)]">✓ Correct!</p>
           ) : (
             <div className="space-y-2">
-              <p className="text-sm font-medium text-[var(--color-error)]">✗ Correct: {item.plural} ({item.pattern})</p>
+              <p className="text-sm font-medium text-[var(--color-text-error)]">✗ Correct: {item.plural} ({item.pattern})</p>
 
-              <div className="flex items-start gap-3 p-4 rounded-[var(--radius-lg)] bg-[var(--color-warning)] text-white ring-1 ring-[var(--color-warning)]">
-                <Lightbulb className="w-5 h-5 shrink-0 mt-0.5 text-[var(--color-warning)]" />
+              <div className="flex items-start gap-3 p-4 rounded-[var(--radius-lg)] bg-[var(--color-warning-bg)] text-[var(--color-text-warning)] ring-1 ring-[var(--color-warning)]">
+                <LearningArt name="Lightbulb" size={20} className="w-5 h-5 shrink-0 mt-0.5 text-[var(--color-text-warning)]" />
                 <div>
                   <p className="font-semibold text-sm">Astuce (Tip)</p>
                   <p className="text-sm mt-1">{getPluralTip(item).tip}</p>
                 </div>
               </div>
 
-              <div className="flex items-start gap-3 p-4 rounded-[var(--radius-lg)] bg-[var(--color-info)] text-white ring-1 ring-[var(--color-info)]">
-                <BookOpen className="w-5 h-5 shrink-0 mt-0.5 text-[var(--color-info)]" />
+              <div className="flex items-start gap-3 p-4 rounded-[var(--radius-lg)] bg-[var(--color-info-bg)] text-[var(--color-text-info)] ring-1 ring-[var(--color-info)]">
+                <LearningArt name="BookOpen" size={20} className="w-5 h-5 shrink-0 mt-0.5 text-[var(--color-text-info)]" />
                 <div>
                   <p className="font-semibold text-sm">Suggestion</p>
                   <p className="text-sm mt-1">{getPluralTip(item).suggest}</p>
@@ -158,12 +160,12 @@ export function PluralTrainer() {
             </div>
           )}
           <div className="mt-3">
-            <button onClick={next} className="text-sm font-medium bg-[var(--color-primary-subtle)] text-[var(--color-primary-dark)] border border-[var(--color-primary)] px-5 py-2 rounded-[var(--radius-lg)] hover:bg-[var(--color-primary)] transition-all">
+            <PracticeButton onClick={next} className="text-sm font-medium bg-[var(--color-primary-subtle)] text-[var(--color-text-link)] border border-[var(--color-primary)] px-5 py-2 rounded-[var(--radius-lg)] hover:bg-[var(--color-primary)] transition-all">
               {current + 1 >= pool.length ? "Results" : "Next →"}
-            </button>
+            </PracticeButton>
           </div>
         </motion.div>
       )}
-    </div>
+    </PracticeCard>
   );
 }

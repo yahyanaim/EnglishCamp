@@ -26,9 +26,9 @@ export function IllustratedLessonContent({ blocks, diagram, images }: { blocks: 
   // Where both support one section, show the concrete image before its conceptual diagram.
   inserts.sort((a, b) => a.at - b.at || (a.key === "images" ? -1 : 1));
   let cursor = 0;
-  return <div className="space-y-8">{inserts.map(insert => {
+  return <div className="space-y-6">{inserts.map(insert => {
     const segment = blocks.slice(cursor, insert.at);
     cursor = insert.at;
-    return <div key={insert.key} className="space-y-8"><LessonContent blocks={segment} />{insert.content}</div>;
+    return <div key={insert.key} className="space-y-6"><LessonContent blocks={segment} />{insert.content}</div>;
   })}<LessonContent blocks={blocks.slice(cursor)} /></div>;
 }

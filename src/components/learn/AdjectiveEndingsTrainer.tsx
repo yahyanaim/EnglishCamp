@@ -1,4 +1,7 @@
 "use client";
+
+import { LearningArt } from "@/components/brand/LearningArt";
+import { PracticeCard, PracticeButton } from "@/components/ui/PracticeSurface";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useProgress } from "@/store/useProgress";
@@ -54,22 +57,22 @@ export function AdjectiveEndingsTrainer() {
 
   function restart() { setPool([...ADJ].sort(() => Math.random() - 0.5).slice(0, 10)); setCurrent(0); setScore(0); setTotal(0); setAnswered(false); setCorrect(false); setDone(false); }
 
-  if (done) return <div className="text-center py-8"><span className="text-5xl block mb-3">🏆</span><h3 className="text-xl font-display font-extrabold text-[var(--color-text-primary)] mb-1">Adjective Forms Done!</h3><p className="text-lg font-display font-extrabold text-[var(--color-primary-dark)]">{score}/{total}</p><button onClick={restart} className="text-sm font-medium bg-[var(--color-primary-subtle)] text-[var(--color-primary-dark)] border border-[var(--color-primary)] px-5 py-2 rounded-[var(--radius-lg)] hover:bg-[var(--color-primary)] transition-all mt-4">Play Again 🔄</button></div>;
+  if (done) return <div data-practice-surface="result" className="practice-card text-center py-8"><LearningArt name="🏆" size={36} className=" block mb-3" /><h3 className="text-xl font-display font-extrabold text-[var(--color-text-primary)] mb-1">Adjective Forms Done!</h3><p className="text-lg font-display font-extrabold text-[var(--color-text-link)]">{score}/{total}</p><PracticeButton onClick={restart} className="text-sm font-medium bg-[var(--color-primary-subtle)] text-[var(--color-text-link)] border border-[var(--color-primary)] px-5 py-2 rounded-[var(--radius-lg)] hover:bg-[var(--color-primary)] transition-all mt-4">Play Again <LearningArt name="🔄" size={16} /></PracticeButton></div>;
   if (!item) return null;
 
   return (
-    <div className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border-2 border-[var(--color-border-default)] p-6 shadow-sm" style={{ boxShadow: "0 3px 0 var(--color-border-default)" }}>
+    <PracticeCard data-practice-surface="question" className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-6 shadow-sm" style={{ boxShadow: "0 3px 0 var(--color-border-default)" }}>
       <div className="flex items-center justify-between mb-4">
         <span className="text-xs font-semibold text-fuchsia-600 uppercase tracking-wider">Adjective Endings</span>
-        <span className="text-xs text-[var(--color-text-disabled)]">{current + 1}/{pool.length}</span>
+        <span className="text-xs text-[var(--color-text-secondary)]">{current + 1}/{pool.length}</span>
       </div>
       <AnimatePresence mode="wait">
         <motion.div key={current} initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="text-center mb-4">
-          <p className="text-xs text-[var(--color-text-disabled)] mb-2">Choose the correct adjective form:</p>
+          <p className="text-xs text-[var(--color-text-secondary)] mb-2">Choose the correct adjective form:</p>
           <p className="text-lg font-display font-extrabold text-[var(--color-text-primary)]">
-            {item.context} <span className="text-[var(--color-primary-dark)]">{item.adj}</span>___{item.noun}
+            {item.context} <span className="text-[var(--color-text-link)]">{item.adj}</span>___{item.noun}
           </p>
-          <p className="text-xs text-[var(--color-text-disabled)] italic">{item.hint}</p>
+          <p className="text-xs text-[var(--color-text-secondary)] italic">{item.hint}</p>
         </motion.div>
       </AnimatePresence>
       <div className="grid grid-cols-5 gap-2 mb-4">
@@ -78,27 +81,27 @@ export function AdjectiveEndingsTrainer() {
           let style = "bg-[var(--color-surface-alt)] border-[var(--color-border-default)] hover:bg-[var(--color-primary-subtle)] hover:border-[var(--color-primary)]";
           if (answered) {
             const isThisCorrect = (item.adj + e) === item.correct || e === item.correct;
-            if (isThisCorrect) style = "bg-[var(--color-success)] text-white border-[var(--color-success)] ring-2 ring-[var(--color-success)]";
-            else style = "bg-[var(--color-error)] text-white border-[var(--color-error)] opacity-50";
+            if (isThisCorrect) style = "bg-[var(--color-success-bg)] text-[var(--color-text-success)] border-[var(--color-success)] ring-2 ring-[var(--color-success)]";
+            else style = "bg-[var(--color-error-bg)] text-[var(--color-text-error)] border-[var(--color-error)] opacity-50";
           }
           return (
-            <button key={e} onClick={() => handleAnswer(e)} disabled={answered}
-              className={`p-3 rounded-[var(--radius-lg)] border-2 text-sm font-mono font-bold transition-all ${style}`}>
+            <PracticeButton key={e} onClick={() => handleAnswer(e)} disabled={answered}
+              className={`p-3 rounded-[var(--radius-lg)] border text-sm font-mono font-bold transition-all ${style}`}>
               {e}
-            </button>
+            </PracticeButton>
           );
         })}
       </div>
       {answered && (
         <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className="text-center">
-          <p className={`text-sm font-medium mb-2 ${correct ? "text-[var(--color-success)]" : "text-[var(--color-error)]"}`}>
+          <p className={`text-sm font-medium mb-2 ${correct ? "text-[var(--color-text-success)]" : "text-[var(--color-text-error)]"}`}>
               {correct ? "✓ Correct!" : `✗ Correct: "${item.context} ${item.correct} ${item.noun}"`}
           </p>
-          <button onClick={next} className="text-sm font-medium bg-[var(--color-primary-subtle)] text-[var(--color-primary-dark)] border border-[var(--color-primary)] px-5 py-2 rounded-[var(--radius-lg)] hover:bg-[var(--color-primary)] transition-all">
+          <PracticeButton onClick={next} className="text-sm font-medium bg-[var(--color-primary-subtle)] text-[var(--color-text-link)] border border-[var(--color-primary)] px-5 py-2 rounded-[var(--radius-lg)] hover:bg-[var(--color-primary)] transition-all">
             {current + 1 >= pool.length ? "Results" : "Next →"}
-          </button>
+          </PracticeButton>
         </motion.div>
       )}
-    </div>
+    </PracticeCard>
   );
 }

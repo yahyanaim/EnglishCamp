@@ -1,3 +1,7 @@
+const consistency=require('./fixtures/consistency-content-contract.json');
+const notesBrand=require('./fixtures/notes-brand-contract.json');
+const violet=require('./fixtures/violet-session-contract.json');
+const fullsize=require('./fixtures/fullsize-ui-contract.json');
 require('./register.cjs');
 const {test}=require('node:test');
 const assert=require('node:assert/strict');
@@ -8,11 +12,16 @@ const {courseActivities}=require('../src/data/course-activities.ts');
 const {courseEnrichment}=require('../src/data/course-enrichment/index.ts');
 const {CourseEnrichment}=require('../src/components/course/CourseEnrichment.tsx');
 const {CourseVideoLesson}=require('../src/components/course/CourseVideoLesson.tsx');
+const {courseVideoUrls}=require('../src/lib/courseVideo.ts');
 const {videoCatalogue}=require('../src/data/course-enrichment/video-catalogue.ts');
 const {getModuleData}=require('../src/lib/courseData.ts');
 const {taskSignature}=require('../src/lib/activityState.ts');
 const contract=require('./fixtures/course-enrichment-contract.json');
 const principles=require('./fixtures/lesson-principles-contract.json');
+const mockRebuild=require('./fixtures/mock-rebuild-contract.json');
+const styling=require('./fixtures/style-refinement-contract.json');
+const recovery=require('./fixtures/ui-recovery-contract.json');
+const reference=require('./fixtures/reference-ui-contract.json');
 const root=path.join(__dirname,'..');
 
 test('all 100 live modules have distinct additive examples, complete tables and new transfer checks on both routes',()=>{
@@ -37,7 +46,7 @@ test('all 100 live modules have distinct additive examples, complete tables and 
 
 test('teaching-only additions preserve all original lessons, activities, saved-attempt fingerprints and narration bytes',()=>{
  const hash=b=>crypto.createHash('sha256').update(b).digest('hex');
- for(const [name,expected]of Object.entries(contract.preserved))assert.equal(hash(fs.readFileSync(path.join(root,name))),principles.integration[name]?.after??contract.integration[name]?.after??expected,name);
+ for(const [name,expected]of Object.entries(contract.preserved))assert.equal(hash(fs.readFileSync(path.join(root,name))),consistency.files[name]?.after??notesBrand.files[name]?.after??violet.files[name]?.after??fullsize.files[name]?.after??reference.files[name]?.after??recovery.files[name]?.after??styling.files[name]?.after??mockRebuild.integration[name]?.after??principles.integration[name]?.after??contract.integration[name]?.after??expected,name);
  assert.deepEqual(Object.fromEntries(courseActivities.flatMap(a=>a.data.tasks.map(t=>[t.id,taskSignature(t)]))),contract.signatures);
 });
 
@@ -54,7 +63,7 @@ test('12 new teaching diagrams have local assets, meaningful alternatives and va
  }
 });
 
-test('all 100 modules expose a directly rendered, non-autoplay video lesson with publisher attribution and written alternatives',()=>{
+test('all 100 modules expose an opt-in, non-autoplay video lesson with identical sources and written alternatives',()=>{
  const entries=Object.values(courseEnrichment).filter(e=>e.video);
  assert.equal(entries.length,100);assert.equal(new Set(entries.map(e=>e.video.id)).size,59);
  assert.equal(Object.keys(videoCatalogue).length,59);
@@ -63,9 +72,12 @@ test('all 100 modules expose a directly rendered, non-autoplay video lesson with
   assert.ok(['IELTS Official','English with Cambridge','Oxford Online English','BBC Learning English','TST Prep TOEFL','IELTS Advantage','Cambridge English Spain','English Too','Fastrack IELTS','Academic English UK','Wireless Philosophy','Khan Academy','CFR Education','IELTS by IDP'].includes(v.publisher));
   for(const field of ['source','reviewed','segment','before','notice','after','alternative'])assert.ok(v[field],v.id+' '+field);
   const html=renderToStaticMarkup(React.createElement(CourseVideoLesson,{video:v}));
-  assert.equal((html.match(/<iframe /g)||[]).length,1);assert.match(html,/youtube-nocookie\.com\/embed\//);
-  assert.match(html,/autoplay=0/);assert.match(html,/loading="lazy"/);assert.match(html,/referrerPolicy="strict-origin-when-cross-origin"/);
-  assert.ok(!html.includes('Load optional YouTube video'));assert.match(html,/Written alternative:/);
+  assert.equal((html.match(/<iframe /g)||[]).length,0,'no third-party player before the learner opts in');
+  assert.match(html,/Load lesson video/);assert.match(html,/Written alternative:/);
+  const {watchUrl,embedUrl}=courseVideoUrls(v),player=new URL(embedUrl);
+  assert.equal(player.hostname,'www.youtube-nocookie.com');assert.equal(player.pathname,'/embed/'+v.id);
+  assert.equal(player.searchParams.get('start'),String(v.start));assert.equal(player.searchParams.get('end'),v.end?String(v.end):null);
+  assert.equal(player.searchParams.get('autoplay'),'0');assert.ok(html.includes(watchUrl.replaceAll('&','&amp;')));
   const extra=renderToStaticMarkup(React.createElement(CourseEnrichment,{content:item}));
   assert.ok(!extra.includes('<iframe'));assert.match(extra,/href="#video-lesson"/);
  }

@@ -1,3 +1,4 @@
+import { learnerStorage } from "@/lib/learnerStorage";
 import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
 
@@ -60,6 +61,6 @@ export const useDailyChallenge = create<DailyChallengeStore>()(
         }
       },
     }),
-    { name: "englishcamp-daily-challenge", storage: createJSONStorage(() => localStorage) }
+    { name: "englishcamp-daily-challenge", skipHydration: true, storage: createJSONStorage(() => learnerStorage) }
   )
 );

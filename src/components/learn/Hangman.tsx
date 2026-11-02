@@ -1,4 +1,7 @@
 "use client";
+
+import { LearningArt } from "@/components/brand/LearningArt";
+import { PracticeCard, PracticeButton } from "@/components/ui/PracticeSurface";
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useProgress } from "@/store/useProgress";
@@ -102,25 +105,25 @@ export function Hangman() {
   if (finished) {
     return (
       <div className="text-center py-8">
-        <span className="text-5xl block mb-3">🎮</span>
+        <LearningArt name="🎮" size={36} className=" block mb-3" />
         <h3 className="text-xl font-display font-extrabold text-[var(--color-text-primary)] mb-1">Hangman Complete!</h3>
         <p className="text-sm text-[var(--color-text-secondary)] mb-6">Great job with all words!</p>
-        <button onClick={handleRestart} className="text-sm font-medium bg-[var(--color-primary-subtle)] text-[var(--color-primary-dark)] border border-[var(--color-primary)] px-5 py-2 rounded-[var(--radius-lg)] hover:bg-[var(--color-primary)] transition-all">Play Again 🔄</button>
+        <PracticeButton onClick={handleRestart} className="text-sm font-medium bg-[var(--color-primary-subtle)] text-[var(--color-text-link)] border border-[var(--color-primary)] px-5 py-2 rounded-[var(--radius-lg)] hover:bg-[var(--color-primary)] transition-all">Play Again <LearningArt name="🔄" size={16} /></PracticeButton>
       </div>
     );
   }
 
   return (
-    <div className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border-2 border-[var(--color-border-default)] p-6 shadow-sm" style={{ boxShadow: "0 3px 0 var(--color-border-default)" }}>
+    <PracticeCard data-practice-surface="question" className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-6 shadow-sm" style={{ boxShadow: "0 3px 0 var(--color-border-default)" }}>
       <div className="flex items-center justify-between mb-4">
-        <span className="text-xs font-semibold text-[var(--color-warning)] uppercase tracking-wider">Hangman</span>
-        <span className="text-xs text-[var(--color-text-disabled)]">{wordIndex + 1}/{pool.length}</span>
+        <span className="text-xs font-semibold text-[var(--color-text-warning)] uppercase tracking-wider">Hangman</span>
+        <span className="text-xs text-[var(--color-text-secondary)]">{wordIndex + 1}/{pool.length}</span>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="flex flex-col items-center justify-center">
           <pre className="font-mono text-sm text-[var(--color-text-secondary)] leading-tight bg-[var(--color-surface-alt)] p-4 rounded-[var(--radius-md)] border border-[var(--color-border-default)]">{STAGES[wrongCount]}</pre>
-          <p className="text-xs text-[var(--color-text-disabled)] mt-2">Wrong: {wrongCount}/6</p>
+          <p className="text-xs text-[var(--color-text-secondary)] mt-2">Wrong: {wrongCount}/6</p>
         </div>
 
         <div>
@@ -131,7 +134,7 @@ export function Hangman() {
 
           <div className="flex items-center justify-center gap-1 mb-4">
             {revealed.map((ch, i) => (
-              <span key={i} className={`w-8 h-10 flex items-center justify-center border-b-2 text-xl font-display font-extrabold font-mono ${ch !== "_" ? "border-[var(--color-primary)] text-[var(--color-primary-dark)]" : "border-[var(--color-border-default)] text-[var(--color-text-disabled)]"}`}>
+              <span key={i} className={`w-8 h-10 flex items-center justify-center border-b-2 text-xl font-display font-extrabold font-mono ${ch !== "_" ? "border-[var(--color-primary)] text-[var(--color-text-link)]" : "border-[var(--color-border-default)] text-[var(--color-text-secondary)]"}`}>
                 {ch}
               </span>
             ))}
@@ -140,13 +143,13 @@ export function Hangman() {
           {gameOver && (
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-center mb-4">
               {won ? (
-                <p className="text-sm font-medium text-[var(--color-success)]">🎉 Correct! The word was <strong>{current.word}</strong> +15 XP</p>
+                <p className="text-sm font-medium text-[var(--color-text-success)]"><LearningArt name="🎉" size={16} /> Correct! The word was <strong>{current.word}</strong> +15 XP</p>
               ) : (
-                <p className="text-sm font-medium text-[var(--color-error)]">Game Over! The word was <strong>{current.word}</strong></p>
+                <p className="text-sm font-medium text-[var(--color-text-error)]">Game Over! The word was <strong>{current.word}</strong></p>
               )}
-              <button onClick={handleNext} className="mt-2 text-sm font-medium bg-[var(--color-primary-subtle)] text-[var(--color-primary-dark)] border border-[var(--color-primary)] px-5 py-2 rounded-[var(--radius-lg)] hover:bg-[var(--color-primary)] transition-all">
+              <PracticeButton onClick={handleNext} className="mt-2 text-sm font-medium bg-[var(--color-primary-subtle)] text-[var(--color-text-link)] border border-[var(--color-primary)] px-5 py-2 rounded-[var(--radius-lg)] hover:bg-[var(--color-primary)] transition-all">
                 {wordIndex + 1 >= pool.length ? "See Results" : "Next Word →"}
-              </button>
+              </PracticeButton>
             </motion.div>
           )}
 
@@ -156,14 +159,14 @@ export function Hangman() {
               const isCorrect = used && wordSet.has(ch);
               const isWrong = used && !wordSet.has(ch);
               return (
-                <button key={ch} onClick={() => handleGuess(ch)} disabled={used || gameOver} className={`w-8 h-8 text-xs font-bold rounded-[var(--radius-md)] border transition-all duration-150 ${isCorrect ? "bg-emerald-100 border-[var(--color-success)] text-[var(--color-success)]" : isWrong ? "bg-red-100 border-[var(--color-error)] text-[var(--color-error)] line-through" : used ? "bg-[var(--color-surface-alt)] border-[var(--color-border-default)] text-[var(--color-text-disabled)] cursor-not-allowed" : "bg-[var(--color-surface)] border-[var(--color-border-default)] text-[var(--color-text-primary)] hover:bg-[var(--color-primary-subtle)] hover:border-[var(--color-primary)] hover:text-[var(--color-primary-dark)]"}`}>
+                <PracticeButton key={ch} onClick={() => handleGuess(ch)} disabled={used || gameOver} className={`w-8 h-8 text-xs font-bold rounded-[var(--radius-md)] border transition-all duration-150 ${isCorrect ? "bg-[var(--color-success-bg)] border-[var(--color-success)] text-[var(--color-text-success)]" : isWrong ? "bg-[var(--color-error-bg)] border-[var(--color-error)] text-[var(--color-text-error)] line-through" : used ? "bg-[var(--color-surface-alt)] border-[var(--color-border-default)] text-[var(--color-text-secondary)] cursor-not-allowed" : "bg-[var(--color-surface)] border-[var(--color-border-default)] text-[var(--color-text-primary)] hover:bg-[var(--color-primary-subtle)] hover:border-[var(--color-primary)] hover:text-[var(--color-text-link)]"}`}>
                   {ch}
-                </button>
+                </PracticeButton>
               );
             })}
           </div>
         </div>
       </div>
-    </div>
+    </PracticeCard>
   );
 }

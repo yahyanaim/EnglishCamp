@@ -1,0 +1,2146 @@
+[
+  {
+    "id": "il2-p1",
+    "src": "/media/mock-exams/v2/il2-p1.wav",
+    "duration": 370.536,
+    "sha256": "e67a26befebaff54b3b2b01c4f97e735069418b34e596b9e3e56d10f01241dbe",
+    "scriptSha256": "76fea2dcf2654e985bc8d0b208a12144e92780fb5b35776b3c31177ead2e48aa",
+    "segments": [
+      {
+        "role": "narrator",
+        "text": "Part one. You will hear a conversation between a resident and the coordinator of a community workshop. First look at questions one to five.",
+        "pauseAfter": 30,
+        "voice": "en-GB-SoniaNeural"
+      },
+      {
+        "role": "coordinator",
+        "text": "Good morning, Brookside Workshop. How can I help?",
+        "pauseAfter": 0,
+        "voice": "en-GB-SoniaNeural"
+      },
+      {
+        "role": "student",
+        "text": "Hello. I saw your leaflet at the library. I have just moved into a flat and I would like to join the beginners furniture repair course. I have a small wooden table with a loose leg. Before I book, could I check whether that would be suitable?",
+        "pauseAfter": 0,
+        "voice": "en-CA-ClaraNeural"
+      },
+      {
+        "role": "coordinator",
+        "text": "Certainly. We start with simple wooden furniture, rather than upholstery or electrical items. Your table sounds ideal, as long as you can carry it safely. We have benches and tools here, but bringing something small gives you a chance to practise on an object you actually use.",
+        "pauseAfter": 0,
+        "voice": "en-GB-SoniaNeural"
+      },
+      {
+        "role": "student",
+        "text": "That is what I hoped. My name is Nadia Mercer. Would you like me to spell the surname?",
+        "pauseAfter": 0,
+        "voice": "en-CA-ClaraNeural"
+      },
+      {
+        "role": "coordinator",
+        "text": "Yes, please. We sometimes get bookings with similar names.",
+        "pauseAfter": 0,
+        "voice": "en-GB-SoniaNeural"
+      },
+      {
+        "role": "student",
+        "text": "Mercer. M, E, R, C, E, R. I have not attended one of your sessions before. Do I need to join the workshop first?",
+        "pauseAfter": 0,
+        "voice": "en-CA-ClaraNeural"
+      },
+      {
+        "role": "coordinator",
+        "text": "No separate membership is required for this course. We ask for an address so that we can send the joining information, but you can choose email instead of a letter. What is your street?",
+        "pauseAfter": 0,
+        "voice": "en-GB-SoniaNeural"
+      },
+      {
+        "role": "student",
+        "text": "Eighteen Willow Lane. That is Willow, like the tree. I do not always get post quickly in the new building, so email would be better for the instructions.",
+        "pauseAfter": 0,
+        "voice": "en-CA-ClaraNeural"
+      },
+      {
+        "role": "coordinator",
+        "text": "I will mark that. The course has six meetings, starting on the twelfth of October. There is also an open afternoon on the fifth, but that is an introduction to the building and not the first lesson.",
+        "pauseAfter": 0,
+        "voice": "en-GB-SoniaNeural"
+      },
+      {
+        "role": "student",
+        "text": "The twelfth works for me. Does it begin at six, as the poster outside suggests?",
+        "pauseAfter": 0,
+        "voice": "en-CA-ClaraNeural"
+      },
+      {
+        "role": "coordinator",
+        "text": "That poster is for our Thursday group. The beginners course starts at six thirty and finishes at eight thirty. Please arrive ten minutes early for the first meeting, so we can show you where to leave coats and bags.",
+        "pauseAfter": 0,
+        "voice": "en-GB-SoniaNeural"
+      },
+      {
+        "role": "student",
+        "text": "Fine. I saw a price of forty-eight pounds on an older leaflet. Has that changed?",
+        "pauseAfter": 0,
+        "voice": "en-CA-ClaraNeural"
+      },
+      {
+        "role": "coordinator",
+        "text": "It has. The old fee did not include materials. This term the full course is sixty-four pounds, including the wood glue and replacement screws used in class. You will not need to buy a toolkit.",
+        "pauseAfter": 0,
+        "voice": "en-GB-SoniaNeural"
+      },
+      {
+        "role": "narrator",
+        "text": "Now look at questions six to ten.",
+        "pauseAfter": 30,
+        "voice": "en-GB-SoniaNeural"
+      },
+      {
+        "role": "student",
+        "text": "Good. Is there anything I should bring besides the table? I have some gloves at home, although they are rather thick gardening gloves.",
+        "pauseAfter": 0,
+        "voice": "en-CA-ClaraNeural"
+      },
+      {
+        "role": "coordinator",
+        "text": "We supply the protective equipment you need. Bring an apron if you have one, because the water-based finishes can still mark clothing. An old shirt is a reasonable alternative, but we list an apron on the joining form.",
+        "pauseAfter": 0,
+        "voice": "en-GB-SoniaNeural"
+      },
+      {
+        "role": "student",
+        "text": "I will bring that. Where will the group meet? Is it in the main hall?",
+        "pauseAfter": 0,
+        "voice": "en-CA-ClaraNeural"
+      },
+      {
+        "role": "coordinator",
+        "text": "The hall is being used by the choir. We will be in the studio, behind reception. You should use the side entrance from Orchard Street; the front doors are locked in the evening. The studio is all on one level.",
+        "pauseAfter": 0,
+        "voice": "en-GB-SoniaNeural"
+      },
+      {
+        "role": "student",
+        "text": "That is helpful. I will come by bus. Can I leave the table there after each meeting? Taking it home before the glue dries could be awkward.",
+        "pauseAfter": 0,
+        "voice": "en-CA-ClaraNeural"
+      },
+      {
+        "role": "coordinator",
+        "text": "Yes. We have a cabinet for unfinished work, provided the item is small enough. Your table should fit if the legs can be removed. Attach a card with your name so that the next group does not mistake it for demonstration furniture.",
+        "pauseAfter": 0,
+        "voice": "en-GB-SoniaNeural"
+      },
+      {
+        "role": "student",
+        "text": "And how do I secure the booking? Can I pay when I arrive for the first lesson?",
+        "pauseAfter": 0,
+        "voice": "en-CA-ClaraNeural"
+      },
+      {
+        "role": "coordinator",
+        "text": "For this course, places are limited, so payment is needed before we confirm one. I can send a secure card link by email. Please complete payment by Friday. After that, an unpaid reservation goes back to the waiting list.",
+        "pauseAfter": 0,
+        "voice": "en-GB-SoniaNeural"
+      },
+      {
+        "role": "student",
+        "text": "Friday is fine. I will do it tonight. One last question: if I miss a session because of work, can I attend a different evening?",
+        "pauseAfter": 0,
+        "voice": "en-CA-ClaraNeural"
+      },
+      {
+        "role": "coordinator",
+        "text": "Sometimes, but it depends on space and which technique the other group is practising. Email us as early as you can rather than arriving without checking. We can usually provide the written notes even when a replacement session is not possible.",
+        "pauseAfter": 0,
+        "voice": "en-GB-SoniaNeural"
+      },
+      {
+        "role": "student",
+        "text": "Thank you. Please send the payment link and I will look out for the joining email.",
+        "pauseAfter": 0,
+        "voice": "en-CA-ClaraNeural"
+      },
+      {
+        "role": "narrator",
+        "text": "That is the end of part one. Check your answers.",
+        "pauseAfter": 30,
+        "voice": "en-GB-SoniaNeural"
+      }
+    ],
+    "rms": 0.08779697674894554,
+    "clippedFraction": 0.0,
+    "engine": "Microsoft neural TTS / edge-tts 7.3.1",
+    "rate": "-3%",
+    "provenance": "Original EnglishCamp fixed exam text. AI-generated natural voices. Authorised by user on 30 October 2026. No learner data sent. Playback is local."
+  },
+  {
+    "id": "il2-p2",
+    "src": "/media/mock-exams/v2/il2-p2.wav",
+    "duration": 340.256,
+    "sha256": "cd07ea28a39b42698dddb1ebd96dc60a758b2f1c43ef008494c8ad00fbaf5f38",
+    "scriptSha256": "024d22a29764d5c967258e06c452c3e69f6a89e38d3203ad99fd612aeb892a69",
+    "segments": [
+      {
+        "role": "narrator",
+        "text": "Part two. You will hear a guide welcoming visitors to a riverside discovery centre. Look at the plan and questions eleven to fifteen. North is at the top of the plan.",
+        "pauseAfter": 35,
+        "voice": "en-GB-SoniaNeural"
+      },
+      {
+        "role": "guide",
+        "text": "Welcome to the Westbank Discovery Centre. We are a small site, so you will not need a shuttle or a guide to find your way around, but a few directions will help you make the most of your visit. You are standing at the south entrance, beside the bus stop. Keep the plan in front of you with north at the top. The river runs along the eastern boundary, on the right of the plan. The railway is outside the western fence, so you cannot enter the centre from that side.",
+        "pauseAfter": 0,
+        "voice": "en-GB-RyanNeural"
+      },
+      {
+        "role": "guide",
+        "text": "From the entrance, walk straight north along the central path. The first building on your left is reception. That is where you can borrow an activity pack and ask about access arrangements. There is a small waiting area outside, but the building itself is not a place for picnics. Directly opposite reception, on the right-hand side of the path, is the cafe. Its windows face the river, and it serves drinks until four thirty. An old map marks a shop there; the shop has moved, so please use the current plan.",
+        "pauseAfter": 0,
+        "voice": "en-GB-RyanNeural"
+      },
+      {
+        "role": "guide",
+        "text": "Continue north and you will reach a path crossing. The building to the left of that crossing, in the middle of the western side, is the workshop. School groups use it on weekday mornings. Today you can watch staff prepare materials through the viewing window, although the working area is closed to visitors. The open area directly east of the crossing, between the main path and the river, is the picnic lawn. It is the only place where visitors may eat food they have brought with them. Please take packaging to the bins beside reception rather than leaving it on the grass.",
+        "pauseAfter": 0,
+        "voice": "en-GB-RyanNeural"
+      },
+      {
+        "role": "guide",
+        "text": "Finally, follow the central path to its northern end. The building facing you, at the top centre of the plan, is the exhibition hall. It contains the temporary display about bridges. The two remaining buildings at the far north-west and north-east are staff facilities, and the small block south-west of the workshop is a store. None of those three is open to the public. If you lose your way, the main path always leads back to the south entrance.",
+        "pauseAfter": 0,
+        "voice": "en-GB-RyanNeural"
+      },
+      {
+        "role": "narrator",
+        "text": "Now look at questions sixteen to twenty.",
+        "pauseAfter": 30,
+        "voice": "en-GB-SoniaNeural"
+      },
+      {
+        "role": "guide",
+        "text": "There are several activities this afternoon. The river walk starts at two o’clock from reception, rather than the cafe where it began last year. Please book a place before one thirty because the guide needs to know the group size. The walk is included in your admission ticket, so there is no additional fee. Children are welcome, but an adult must accompany them. Parts of the route can be muddy even after several dry days, so shoes with a firm sole are advisable. If the riverside path is flooded, the guide will give an illustrated talk in the hall instead. We do not cancel simply because the weather is cloudy.",
+        "pauseAfter": 0,
+        "voice": "en-GB-RyanNeural"
+      },
+      {
+        "role": "guide",
+        "text": "The bridge-building demonstration is different: you do not need to reserve a place. Drop into the workshop viewing area between three and four and stay as long as you wish. Staff will explain why changing the arrangement of supports affects a model bridge. Please do not bring your own tools; all the materials are already prepared. We run short demonstrations repeatedly, so arriving at three thirty will not mean missing the whole activity.",
+        "pauseAfter": 0,
+        "voice": "en-GB-RyanNeural"
+      },
+      {
+        "role": "guide",
+        "text": "If you borrowed an activity pack, return it to reception before you leave. The reusable pieces are counted for the next group, but you may keep the paper observation sheet. We would also welcome your comments. There is a short feedback form by the exit, and telling us which explanation was unclear is more helpful than simply saying that there should be more information. We use those comments to revise our signs, not to grade visitors on how much they have learned. Enjoy your visit.",
+        "pauseAfter": 0,
+        "voice": "en-GB-RyanNeural"
+      },
+      {
+        "role": "narrator",
+        "text": "That is the end of part two. Check your answers.",
+        "pauseAfter": 30,
+        "voice": "en-GB-SoniaNeural"
+      }
+    ],
+    "rms": 0.07236936804438897,
+    "clippedFraction": 0.0,
+    "engine": "Microsoft neural TTS / edge-tts 7.3.1",
+    "rate": "-3%",
+    "provenance": "Original EnglishCamp fixed exam text. AI-generated natural voices. Authorised by user on 30 October 2026. No learner data sent. Playback is local."
+  },
+  {
+    "id": "il2-p3",
+    "src": "/media/mock-exams/v2/il2-p3.wav",
+    "duration": 413.736,
+    "sha256": "f96299d63493cd9ea90535af5cc029f97bb147e5700ba9ad8d5bc466b11702be",
+    "scriptSha256": "e73a1e10d148ef909d99e7588df77d64c3809bf4fdd8dfe4679215c526ef6368",
+    "segments": [
+      {
+        "role": "narrator",
+        "text": "Part three. You will hear two students, Maya and Leo, discussing their research proposal with their tutor. First look at questions twenty-one to twenty-five.",
+        "pauseAfter": 30,
+        "voice": "en-GB-SoniaNeural"
+      },
+      {
+        "role": "tutor",
+        "text": "You have both read the feedback on your proposal about study spaces. Before we discuss the methods, tell me what you have changed since the first draft.",
+        "pauseAfter": 0,
+        "voice": "en-GB-RyanNeural"
+      },
+      {
+        "role": "student",
+        "text": "Our original question was whether the library should stay open all night. We realised that we were asking students to make a policy decision before finding out how they actually used the building. We now want to investigate which features make a study space useful at different times.",
+        "pauseAfter": 0,
+        "voice": "en-CA-ClaraNeural"
+      },
+      {
+        "role": "partner",
+        "text": "Yes. We were also treating everyone as if they wanted silence. In the pilot interview, a student said she used the library to work with classmates, so a completely silent room would not meet her needs. That made us broaden the question.",
+        "pauseAfter": 0,
+        "voice": "en-CA-LiamNeural"
+      },
+      {
+        "role": "tutor",
+        "text": "Good. You have listed five possible methods. Let us consider what each can contribute, rather than deciding which sounds most scientific.",
+        "pauseAfter": 0,
+        "voice": "en-GB-RyanNeural"
+      },
+      {
+        "role": "student",
+        "text": "The online questionnaire seems useful because we can ask the same questions of a large group. It would show broad patterns in reported preferences, although we cannot assume that a preference always predicts behaviour.",
+        "pauseAfter": 0,
+        "voice": "en-CA-ClaraNeural"
+      },
+      {
+        "role": "tutor",
+        "text": "Keep it, but do not make the introduction so long that respondents leave before the questions. What about observing the entrance?",
+        "pauseAfter": 0,
+        "voice": "en-GB-RyanNeural"
+      },
+      {
+        "role": "partner",
+        "text": "We could count arrivals and departures without asking anyone to fill in a form. It would show how busy the building was at each time. But it would not tell us why a person came in or which room they used.",
+        "pauseAfter": 0,
+        "voice": "en-CA-LiamNeural"
+      },
+      {
+        "role": "tutor",
+        "text": "Exactly. Counts are useful for patterns of use, not private motives. You also proposed interviews.",
+        "pauseAfter": 0,
+        "voice": "en-GB-RyanNeural"
+      },
+      {
+        "role": "student",
+        "text": "Those would let us explore reasons in more detail. We would ask people to describe a recent study session and follow up on what they found difficult. It takes longer, so the sample would be smaller.",
+        "pauseAfter": 0,
+        "voice": "en-CA-ClaraNeural"
+      },
+      {
+        "role": "partner",
+        "text": "Then there is the diary method. Participants would record where they studied each day for a week. That could show changes within the same person, rather than comparing unrelated people on different days.",
+        "pauseAfter": 0,
+        "voice": "en-CA-LiamNeural"
+      },
+      {
+        "role": "tutor",
+        "text": "Worth considering. Make the entry short enough to complete consistently. And the existing booking records?",
+        "pauseAfter": 0,
+        "voice": "en-GB-RyanNeural"
+      },
+      {
+        "role": "student",
+        "text": "We thought they might show demand for group rooms over the previous term. They are already available in an anonymised summary, so they provide a historical comparison without collecting new personal information.",
+        "pauseAfter": 0,
+        "voice": "en-CA-ClaraNeural"
+      },
+      {
+        "role": "tutor",
+        "text": "Good distinction. A booking is not proof that everyone attended, but it can still be informative.",
+        "pauseAfter": 0,
+        "voice": "en-GB-RyanNeural"
+      },
+      {
+        "role": "narrator",
+        "text": "Now look at questions twenty-six to thirty.",
+        "pauseAfter": 30,
+        "voice": "en-GB-SoniaNeural"
+      },
+      {
+        "role": "partner",
+        "text": "We cannot do everything in the time available. Maya thinks we should use the questionnaire and interviews. I wondered about the entrance counts instead of interviews because they seem easier to compare.",
+        "pauseAfter": 0,
+        "voice": "en-CA-LiamNeural"
+      },
+      {
+        "role": "student",
+        "text": "My concern is that counts would leave us guessing about reasons. We already have some broad usage information from the booking records. A few interviews would explain things the questionnaire misses.",
+        "pauseAfter": 0,
+        "voice": "en-CA-ClaraNeural"
+      },
+      {
+        "role": "tutor",
+        "text": "That is a reasonable argument. For this project, I recommend the questionnaire and interviews, with the booking summary as background. Describe the other methods in your discussion of alternatives rather than promising to carry them all out.",
+        "pauseAfter": 0,
+        "voice": "en-GB-RyanNeural"
+      },
+      {
+        "role": "partner",
+        "text": "For recruiting, could we put a link only on the library website? That would be quick.",
+        "pauseAfter": 0,
+        "voice": "en-CA-LiamNeural"
+      },
+      {
+        "role": "tutor",
+        "text": "It would mostly reach people already interested in the library. You need views from students who choose other spaces too. Ask the student union to distribute the invitation and put paper notices in the cafeteria. The sample still will not be perfectly representative, but it will be less restricted.",
+        "pauseAfter": 0,
+        "voice": "en-GB-RyanNeural"
+      },
+      {
+        "role": "student",
+        "text": "We should revise the question asking whether the library is too noisy. It assumes there is a problem. We could ask respondents to describe the sound level and then whether it suited their activity.",
+        "pauseAfter": 0,
+        "voice": "en-CA-ClaraNeural"
+      },
+      {
+        "role": "tutor",
+        "text": "Yes. Neutral wording gives people room to say that conversation helped them, or that sound was not relevant. Also, test the revised questionnaire with a few people outside your own subject. A term that seems obvious to you may confuse another respondent.",
+        "pauseAfter": 0,
+        "voice": "en-GB-RyanNeural"
+      },
+      {
+        "role": "partner",
+        "text": "How should we organise the interviews? We can record them if participants agree, then write up the main points. Is that enough?",
+        "pauseAfter": 0,
+        "voice": "en-CA-LiamNeural"
+      },
+      {
+        "role": "tutor",
+        "text": "State how consent will be obtained and how recordings will be stored and deleted under the university procedure. Do not include names in your report. Explain your analysis too: for example, compare recurring themes while keeping examples that differ from the majority.",
+        "pauseAfter": 0,
+        "voice": "en-GB-RyanNeural"
+      },
+      {
+        "role": "student",
+        "text": "Our first draft said we would prove which environment improved grades. We should remove that claim. We are asking about reported use and preferences, not measuring changes in academic performance.",
+        "pauseAfter": 0,
+        "voice": "en-CA-ClaraNeural"
+      },
+      {
+        "role": "tutor",
+        "text": "Exactly. A focused question answered carefully is stronger than a claim your methods cannot support. Send me the revised research question and questionnaire next Monday. The final report is not due until the end of the month, so you have time to respond to feedback before collecting data.",
+        "pauseAfter": 0,
+        "voice": "en-GB-RyanNeural"
+      },
+      {
+        "role": "narrator",
+        "text": "That is the end of part three. Check your answers.",
+        "pauseAfter": 30,
+        "voice": "en-GB-SoniaNeural"
+      }
+    ],
+    "rms": 0.07281831214977899,
+    "clippedFraction": 0.0,
+    "engine": "Microsoft neural TTS / edge-tts 7.3.1",
+    "rate": "-3%",
+    "provenance": "Original EnglishCamp fixed exam text. AI-generated natural voices. Authorised by user on 30 October 2026. No learner data sent. Playback is local."
+  },
+  {
+    "id": "il2-p4",
+    "src": "/media/mock-exams/v2/il2-p4.wav",
+    "duration": 493.08,
+    "sha256": "31b6a123297d441b42ca6b6bafe541da49f161213baedecd15d1b72559d03fd9",
+    "scriptSha256": "fa72e154e242d39577fa6e408e7d2bcf141bb9fa53f9b9c8a02f67eda49b82c4",
+    "segments": [
+      {
+        "role": "narrator",
+        "text": "Part four. You will hear a lecture about the design of reusable packaging systems. First look at questions thirty-one to thirty-five.",
+        "pauseAfter": 30,
+        "voice": "en-GB-SoniaNeural"
+      },
+      {
+        "role": "lecturer",
+        "text": "Today we will examine reusable packaging as a system rather than as a single product. Imagine a takeaway container that is designed to circulate between a cafe, its customers and a washing facility. It may look similar to a disposable box, but evaluating it requires different questions. We need to know how it is returned, how it is cleaned and how often it is actually used. Merely making a container thicker does not create a successful reuse system. For clarity, the examples in this lecture describe a fictional campus trial, so the figures are illustrations of the design problem rather than universal industry averages.",
+        "pauseAfter": 0,
+        "voice": "en-AU-WilliamNeural"
+      },
+      {
+        "role": "lecturer",
+        "text": "The campus trial began with a container made from polypropylene. The material was selected because the team could obtain a suitable durable design and clean it using the available equipment. They did not claim that one material was the best choice for every food service. A container had to withstand repeated washing, stack in a limited storage area and close securely. Staff tested the lid as carefully as the base. If a lid was difficult to replace or easily lost, an otherwise usable base could remain out of circulation.",
+        "pauseAfter": 0,
+        "voice": "en-AU-WilliamNeural"
+      },
+      {
+        "role": "lecturer",
+        "text": "Customers paid a small deposit when they borrowed a container. Returning it to a collection point triggered a refund. The deposit was intended to encourage return, not to make a profit on unreturned containers. In the pilot, however, interviews revealed that some people could afford to ignore a small deposit, while others found even that temporary cost inconvenient. The team therefore studied participation rather than assuming that everyone would respond identically to a financial incentive. A technically simple payment rule could have different effects across the customer group.",
+        "pauseAfter": 0,
+        "voice": "en-AU-WilliamNeural"
+      },
+      {
+        "role": "lecturer",
+        "text": "At first, the only collection point was beside the cafe till. Customers who had bought lunch before travelling across campus rarely returned there in the evening. The team added a collection point beside the library. Return rates improved, although the trial could not separate the effect of location from publicity about the new system. The broader design lesson was that convenience affected circulation. A clean container stored in a student room was not available for another lunch service. Counting it as successfully reusable because it had not broken would miss that practical problem.",
+        "pauseAfter": 0,
+        "voice": "en-AU-WilliamNeural"
+      },
+      {
+        "role": "lecturer",
+        "text": "Returned containers were taken to a central washing facility. Staff checked for cracks and damaged lids before washing. Items that failed the inspection were separated, so they could not accidentally rejoin clean stock. Washing used water, energy and detergent, all of which belonged in the evaluation. Hygiene checks were essential and were not reduced merely to improve an environmental estimate. The cleaning process was planned around safe operation first; the team then examined how to avoid running equipment with almost empty loads.",
+        "pauseAfter": 0,
+        "voice": "en-AU-WilliamNeural"
+      },
+      {
+        "role": "narrator",
+        "text": "Now look at questions thirty-six to forty.",
+        "pauseAfter": 30,
+        "voice": "en-GB-SoniaNeural"
+      },
+      {
+        "role": "lecturer",
+        "text": "Transport introduced another variable. Early collections used a van that also served unrelated deliveries. Estimating the packaging system’s share of that journey was difficult. Later, small collections between nearby campus buildings used a cargo bicycle. This changed the logistics but did not remove the need to count the effort of collection. A return point that was convenient for customers could still create an inefficient route for staff if it was placed without considering the rest of the network. Customer convenience and operational efficiency had to be considered together.",
+        "pauseAfter": 0,
+        "voice": "en-AU-WilliamNeural"
+      },
+      {
+        "role": "lecturer",
+        "text": "The team attached a code to each container to record completed cycles. A cycle meant that the container had been issued, returned, inspected and made ready for another use. It did not mean merely that someone had registered for the scheme. The records showed wide variation: some containers circulated regularly, whereas others disappeared after one lunch. Reporting only the most frequently used container would therefore give a misleading impression. The report presented the distribution and included missing items, rather than describing the best case as if it were typical.",
+        "pauseAfter": 0,
+        "voice": "en-AU-WilliamNeural"
+      },
+      {
+        "role": "lecturer",
+        "text": "Comparing the system with disposable packaging required an assumption about the alternative. If customers would otherwise bring their own lunch boxes, the comparison differed from one in which every lunch required a new disposable container. The researchers used several scenarios rather than a single universal break-even figure. They also kept the actual trial data separate from projections about a larger future service. A proposed improvement might be sensible, but it could not be counted as a benefit already achieved.",
+        "pauseAfter": 0,
+        "voice": "en-AU-WilliamNeural"
+      },
+      {
+        "role": "lecturer",
+        "text": "Finally, the campus changed its procurement contract to keep replacement lids available separately. This was a small administrative decision with a significant practical effect: a missing lid no longer meant replacing an entire container. The trial illustrates why reuse is a relationship between design, behaviour and organisation. Material durability matters, but so do collection locations, washing, transport and access to spare parts. When you evaluate such a proposal, ask whether the available evidence describes the whole cycle or merely the attractive object at its centre.",
+        "pauseAfter": 0,
+        "voice": "en-AU-WilliamNeural"
+      },
+      {
+        "role": "narrator",
+        "text": "That is the end of part four. You now have two minutes to check your listening answers.",
+        "pauseAfter": 120,
+        "voice": "en-GB-SoniaNeural"
+      }
+    ],
+    "rms": 0.07317927145846184,
+    "clippedFraction": 0.0,
+    "engine": "Microsoft neural TTS / edge-tts 7.3.1",
+    "rate": "-3%",
+    "provenance": "Original EnglishCamp fixed exam text. AI-generated natural voices. Authorised by user on 30 October 2026. No learner data sent. Playback is local."
+  },
+  {
+    "id": "tf2-l-router-1",
+    "src": "/media/mock-exams/v2/tf2-l-router-1.wav",
+    "duration": 2.89,
+    "sha256": "8542ac3381a8a5627a3a3b81c3f4893baefd6fa6b1d1f8126c6cf61c187e0f4a",
+    "scriptSha256": "138eda1b8ad45b97b9ca1edcbc04073112c0877bcc2b2345a7f2e74fe13c584e",
+    "segments": [
+      {
+        "role": "student",
+        "text": "Could you tell me where the orientation desk is?",
+        "pauseAfter": 0.25,
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "rms": 0.0964643488134114,
+    "clippedFraction": 0.0,
+    "engine": "Microsoft neural TTS / edge-tts 7.3.1",
+    "rate": "-3%",
+    "provenance": "Original EnglishCamp fixed exam text. AI-generated natural voices. Authorised by user on 30 October 2026. No learner data sent. Playback is local."
+  },
+  {
+    "id": "tf2-l-router-2",
+    "src": "/media/mock-exams/v2/tf2-l-router-2.wav",
+    "duration": 2.242,
+    "sha256": "aef7cde507feb0812a746618fb6416768e014882b5fef34810efa0102315f835",
+    "scriptSha256": "c2b4fc74e09f677fb4ddb5706cb14851effd1a878ceab0acda889bed1c38d350",
+    "segments": [
+      {
+        "role": "student",
+        "text": "I cannot open the file you sent.",
+        "pauseAfter": 0.25,
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "rms": 0.09555743877992905,
+    "clippedFraction": 0.0,
+    "engine": "Microsoft neural TTS / edge-tts 7.3.1",
+    "rate": "-3%",
+    "provenance": "Original EnglishCamp fixed exam text. AI-generated natural voices. Authorised by user on 30 October 2026. No learner data sent. Playback is local."
+  },
+  {
+    "id": "tf2-l-router-3",
+    "src": "/media/mock-exams/v2/tf2-l-router-3.wav",
+    "duration": 2.554,
+    "sha256": "82a5cb02cccbf5ec790690a5613f632bd1ccb4d3115731c30823024b563180b3",
+    "scriptSha256": "c89129d7bfdf1e836a80ce928b6235a89227bb8007a176cd75393f6d407aafef",
+    "segments": [
+      {
+        "role": "student",
+        "text": "Would you mind moving your bag from this chair?",
+        "pauseAfter": 0.25,
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "rms": 0.10014281613685364,
+    "clippedFraction": 0.0,
+    "engine": "Microsoft neural TTS / edge-tts 7.3.1",
+    "rate": "-3%",
+    "provenance": "Original EnglishCamp fixed exam text. AI-generated natural voices. Authorised by user on 30 October 2026. No learner data sent. Playback is local."
+  },
+  {
+    "id": "tf2-l-router-4",
+    "src": "/media/mock-exams/v2/tf2-l-router-4.wav",
+    "duration": 2.29,
+    "sha256": "d4cf6583655e5f7d0a922998c91bf45e767976e27fb8ebfa45c791f88d761ad2",
+    "scriptSha256": "4df2444fc9df8bc5f116fdbdad2fea671a4e8eab884dddc92f50ddf5e037856f",
+    "segments": [
+      {
+        "role": "student",
+        "text": "Has the seminar been postponed?",
+        "pauseAfter": 0.25,
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "rms": 0.0939841742968333,
+    "clippedFraction": 0.0,
+    "engine": "Microsoft neural TTS / edge-tts 7.3.1",
+    "rate": "-3%",
+    "provenance": "Original EnglishCamp fixed exam text. AI-generated natural voices. Authorised by user on 30 October 2026. No learner data sent. Playback is local."
+  },
+  {
+    "id": "tf2-l-router-5",
+    "src": "/media/mock-exams/v2/tf2-l-router-5.wav",
+    "duration": 2.626,
+    "sha256": "889c4914d874cbf67c219d0c8224b13b9a2d38f162f117e4f12bcbe97427311b",
+    "scriptSha256": "8f15a3ac288689be1edac5bb3e4540ffa94149c10f450fc08e3d22b3ea0cabf0",
+    "segments": [
+      {
+        "role": "student",
+        "text": "I thought the application was due tomorrow.",
+        "pauseAfter": 0.25,
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "rms": 0.09829877848602539,
+    "clippedFraction": 0.0,
+    "engine": "Microsoft neural TTS / edge-tts 7.3.1",
+    "rate": "-3%",
+    "provenance": "Original EnglishCamp fixed exam text. AI-generated natural voices. Authorised by user on 30 October 2026. No learner data sent. Playback is local."
+  },
+  {
+    "id": "tf2-l-router-6",
+    "src": "/media/mock-exams/v2/tf2-l-router-6.wav",
+    "duration": 2.002,
+    "sha256": "797e35d6c8fda7306c2908fd06adfe80d45fd4dd3db6bc9d884573e1c1e4e5a0",
+    "scriptSha256": "9ec7358b9d6c6b5dd626b1046d519921e918b91c2c9ed59945a6fd669499762e",
+    "segments": [
+      {
+        "role": "student",
+        "text": "How did your presentation go?",
+        "pauseAfter": 0.25,
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "rms": 0.10338582081455941,
+    "clippedFraction": 0.0,
+    "engine": "Microsoft neural TTS / edge-tts 7.3.1",
+    "rate": "-3%",
+    "provenance": "Original EnglishCamp fixed exam text. AI-generated natural voices. Authorised by user on 30 October 2026. No learner data sent. Playback is local."
+  },
+  {
+    "id": "tf2-l-router-7",
+    "src": "/media/mock-exams/v2/tf2-l-router-7.wav",
+    "duration": 1.978,
+    "sha256": "26bfb647f9951131dedf1a0f93213212a5c8d90c4bf00a0f3c89f5866586a07d",
+    "scriptSha256": "9c51626f952db39b6e62974f657eb6339205c6c4e52d7ec52a8fdd33134d1e60",
+    "segments": [
+      {
+        "role": "student",
+        "text": "Can we meet somewhere quieter?",
+        "pauseAfter": 0.25,
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "rms": 0.1096248872003637,
+    "clippedFraction": 0.0,
+    "engine": "Microsoft neural TTS / edge-tts 7.3.1",
+    "rate": "-3%",
+    "provenance": "Original EnglishCamp fixed exam text. AI-generated natural voices. Authorised by user on 30 October 2026. No learner data sent. Playback is local."
+  },
+  {
+    "id": "tf2-l-router-8",
+    "src": "/media/mock-exams/v2/tf2-l-router-8.wav",
+    "duration": 2.506,
+    "sha256": "648d8f408a3a294832f47a302ddfa9b315588843ad5fd92132c8daf815e03065",
+    "scriptSha256": "5793f63ee29905c713bdd97160678c5e07f7c4596a8d41f0569dedd380324271",
+    "segments": [
+      {
+        "role": "student",
+        "text": "You have not returned the lab key, have you?",
+        "pauseAfter": 0.25,
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "rms": 0.11278937471653373,
+    "clippedFraction": 0.0,
+    "engine": "Microsoft neural TTS / edge-tts 7.3.1",
+    "rate": "-3%",
+    "provenance": "Original EnglishCamp fixed exam text. AI-generated natural voices. Authorised by user on 30 October 2026. No learner data sent. Playback is local."
+  },
+  {
+    "id": "tf2-l-router-9",
+    "src": "/media/mock-exams/v2/tf2-l-router-9.wav",
+    "duration": 2.434,
+    "sha256": "d57ed25061d69697d3de3bad390a7b38e5ec803f40d8460428b10a5479ffbef7",
+    "scriptSha256": "be60fc86e5b74fd003b2f8b5b8821f12873b81e75e79b9e145383e826d3387b6",
+    "segments": [
+      {
+        "role": "student",
+        "text": "Why not ask the librarian for help?",
+        "pauseAfter": 0.25,
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "rms": 0.08874025383421398,
+    "clippedFraction": 0.0,
+    "engine": "Microsoft neural TTS / edge-tts 7.3.1",
+    "rate": "-3%",
+    "provenance": "Original EnglishCamp fixed exam text. AI-generated natural voices. Authorised by user on 30 October 2026. No learner data sent. Playback is local."
+  },
+  {
+    "id": "tf2-l-router-10",
+    "src": "/media/mock-exams/v2/tf2-l-router-10.wav",
+    "duration": 2.218,
+    "sha256": "dc84ae7d180510147ab18a84fc61ae39ccfc9b6110c8523da8ab546b36a56da5",
+    "scriptSha256": "d9fb3252960b1f66fada7743fc9a0e640d45408b69ffe9fdc97f293d8e1fd81a",
+    "segments": [
+      {
+        "role": "student",
+        "text": "Do you know if there are any seats left?",
+        "pauseAfter": 0.25,
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "rms": 0.10744939281445512,
+    "clippedFraction": 0.0,
+    "engine": "Microsoft neural TTS / edge-tts 7.3.1",
+    "rate": "-3%",
+    "provenance": "Original EnglishCamp fixed exam text. AI-generated natural voices. Authorised by user on 30 October 2026. No learner data sent. Playback is local."
+  },
+  {
+    "id": "tf2-l-router-11",
+    "src": "/media/mock-exams/v2/tf2-l-router-11.wav",
+    "duration": 2.458,
+    "sha256": "d5cfc1af57251a1b24babb9b226be79f2795b6b48c133bd46a2742d541a833d0",
+    "scriptSha256": "f9236e8046b352b5ab7dc19ea3d910200d66983f2bb8a354c83b3b9cc7c813f9",
+    "segments": [
+      {
+        "role": "student",
+        "text": "Thanks for covering my shift yesterday.",
+        "pauseAfter": 0.25,
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "rms": 0.09537111219413365,
+    "clippedFraction": 0.0,
+    "engine": "Microsoft neural TTS / edge-tts 7.3.1",
+    "rate": "-3%",
+    "provenance": "Original EnglishCamp fixed exam text. AI-generated natural voices. Authorised by user on 30 October 2026. No learner data sent. Playback is local."
+  },
+  {
+    "id": "tf2-l-lower-1",
+    "src": "/media/mock-exams/v2/tf2-l-lower-1.wav",
+    "duration": 2.098,
+    "sha256": "2153b139ff8f48a2e009d0cdc3ce11e9141d03b041a62ab9f518e831fb9cad33",
+    "scriptSha256": "1279371d231e8847c9ce69aaa3433d32fc3fe67650156d9901207a6ae2bba022",
+    "segments": [
+      {
+        "role": "student",
+        "text": "What time does the cafe open?",
+        "pauseAfter": 0.25,
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "rms": 0.08715586442732037,
+    "clippedFraction": 0.0,
+    "engine": "Microsoft neural TTS / edge-tts 7.3.1",
+    "rate": "-3%",
+    "provenance": "Original EnglishCamp fixed exam text. AI-generated natural voices. Authorised by user on 30 October 2026. No learner data sent. Playback is local."
+  },
+  {
+    "id": "tf2-l-lower-2",
+    "src": "/media/mock-exams/v2/tf2-l-lower-2.wav",
+    "duration": 2.122,
+    "sha256": "fa0dc6fc4eb6ff3dc48d418fc4c768c1731bc8b066b54ac629e1157e2514fcd2",
+    "scriptSha256": "f323d51637dd450e25606bbfebf8bea81d02a6af2ad958a87c48ec023060c8c2",
+    "segments": [
+      {
+        "role": "student",
+        "text": "Is this seat taken?",
+        "pauseAfter": 0.25,
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "rms": 0.07262278184808167,
+    "clippedFraction": 0.0,
+    "engine": "Microsoft neural TTS / edge-tts 7.3.1",
+    "rate": "-3%",
+    "provenance": "Original EnglishCamp fixed exam text. AI-generated natural voices. Authorised by user on 30 October 2026. No learner data sent. Playback is local."
+  },
+  {
+    "id": "tf2-l-lower-3",
+    "src": "/media/mock-exams/v2/tf2-l-lower-3.wav",
+    "duration": 2.122,
+    "sha256": "7fd0b130ff6b9a4a0b23950127ad338c756cf319d14bb80f4d8894f5f2cde8a8",
+    "scriptSha256": "6e87e08fd5165e52a53f902b09f5ba78e51e476d74f0e4ba0ae5ac0f0aa83275",
+    "segments": [
+      {
+        "role": "student",
+        "text": "Where should I return this book?",
+        "pauseAfter": 0.25,
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "rms": 0.09507942294163058,
+    "clippedFraction": 0.0,
+    "engine": "Microsoft neural TTS / edge-tts 7.3.1",
+    "rate": "-3%",
+    "provenance": "Original EnglishCamp fixed exam text. AI-generated natural voices. Authorised by user on 30 October 2026. No learner data sent. Playback is local."
+  },
+  {
+    "id": "tf2-l-lower-4",
+    "src": "/media/mock-exams/v2/tf2-l-lower-4.wav",
+    "duration": 2.002,
+    "sha256": "600c92a29fb8e55c69b85e810f51892f8a6fe33aa5ae3a537f28f124fffdc8cb",
+    "scriptSha256": "b4b9b47d2781f3cab22110e734fd19d5c5d478bb4bf8cb329f49aca3fd65378a",
+    "segments": [
+      {
+        "role": "student",
+        "text": "I have lost my student card.",
+        "pauseAfter": 0.25,
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "rms": 0.08431585650430139,
+    "clippedFraction": 0.0,
+    "engine": "Microsoft neural TTS / edge-tts 7.3.1",
+    "rate": "-3%",
+    "provenance": "Original EnglishCamp fixed exam text. AI-generated natural voices. Authorised by user on 30 October 2026. No learner data sent. Playback is local."
+  },
+  {
+    "id": "tf2-l-lower-5",
+    "src": "/media/mock-exams/v2/tf2-l-lower-5.wav",
+    "duration": 1.666,
+    "sha256": "9afb94762c21368322eee343c3737780ff90bb245b6dbc8d7421e08fbbfd52e3",
+    "scriptSha256": "6818dc877be5c179ebe3855257010876c2fff568f5c9beca08d8b0abd905d148",
+    "segments": [
+      {
+        "role": "student",
+        "text": "Would you like some water?",
+        "pauseAfter": 0.25,
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "rms": 0.07655779224466762,
+    "clippedFraction": 0.0,
+    "engine": "Microsoft neural TTS / edge-tts 7.3.1",
+    "rate": "-3%",
+    "provenance": "Original EnglishCamp fixed exam text. AI-generated natural voices. Authorised by user on 30 October 2026. No learner data sent. Playback is local."
+  },
+  {
+    "id": "tf2-l-lower-6",
+    "src": "/media/mock-exams/v2/tf2-l-lower-6.wav",
+    "duration": 2.17,
+    "sha256": "e3a7ec7edbac861df75e74b3c09b84438eb449df0d8244936fcb4a76e9fe5156",
+    "scriptSha256": "d1109ef937f86bf257a4677d733f70d89a3f17833c72eddbee01bad7d5cdd0fc",
+    "segments": [
+      {
+        "role": "student",
+        "text": "Can you help me carry this box?",
+        "pauseAfter": 0.25,
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "rms": 0.10497650921115066,
+    "clippedFraction": 0.0,
+    "engine": "Microsoft neural TTS / edge-tts 7.3.1",
+    "rate": "-3%",
+    "provenance": "Original EnglishCamp fixed exam text. AI-generated natural voices. Authorised by user on 30 October 2026. No learner data sent. Playback is local."
+  },
+  {
+    "id": "tf2-l-lower-7",
+    "src": "/media/mock-exams/v2/tf2-l-lower-7.wav",
+    "duration": 2.122,
+    "sha256": "52a2bd78dd5ce3f5325fa9785cf8585ff9429d87859f983561934771ece173ee",
+    "scriptSha256": "884c2c4e9c32cc31c0205c8e6838b9d8bc8161e37f9830ec304d4ad403dfae94",
+    "segments": [
+      {
+        "role": "student",
+        "text": "Are you going to the meeting?",
+        "pauseAfter": 0.25,
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "rms": 0.07517839715525565,
+    "clippedFraction": 0.0,
+    "engine": "Microsoft neural TTS / edge-tts 7.3.1",
+    "rate": "-3%",
+    "provenance": "Original EnglishCamp fixed exam text. AI-generated natural voices. Authorised by user on 30 October 2026. No learner data sent. Playback is local."
+  },
+  {
+    "id": "tf2-l-lower-8",
+    "src": "/media/mock-exams/v2/tf2-l-lower-8.wav",
+    "duration": 2.122,
+    "sha256": "bb9b06a9991d1e7bc8191d62fe78fdbfb3d6c384597c1ab5854a75302b566955",
+    "scriptSha256": "5d4f5741d58294cb2896c92e299e5ab59cf7dc3b4e508ff4ea3fcad3852b237f",
+    "segments": [
+      {
+        "role": "student",
+        "text": "How often does the bus run?",
+        "pauseAfter": 0.25,
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "rms": 0.08299603715511178,
+    "clippedFraction": 0.0,
+    "engine": "Microsoft neural TTS / edge-tts 7.3.1",
+    "rate": "-3%",
+    "provenance": "Original EnglishCamp fixed exam text. AI-generated natural voices. Authorised by user on 30 October 2026. No learner data sent. Playback is local."
+  },
+  {
+    "id": "tf2-l-lower-9",
+    "src": "/media/mock-exams/v2/tf2-l-lower-9.wav",
+    "duration": 1.786,
+    "sha256": "e3d1e211d206fc1750156927fc31d4a0b8e79392a67e6ca8cad51c59ac10d8b3",
+    "scriptSha256": "65bee2fde666b4c4d5ce7e21b51ee8bb520744e3d97b03dbd8dcc8f9d13f5064",
+    "segments": [
+      {
+        "role": "student",
+        "text": "Please close the window.",
+        "pauseAfter": 0.25,
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "rms": 0.08920441203767893,
+    "clippedFraction": 0.0,
+    "engine": "Microsoft neural TTS / edge-tts 7.3.1",
+    "rate": "-3%",
+    "provenance": "Original EnglishCamp fixed exam text. AI-generated natural voices. Authorised by user on 30 October 2026. No learner data sent. Playback is local."
+  },
+  {
+    "id": "tf2-l-lower-10",
+    "src": "/media/mock-exams/v2/tf2-l-lower-10.wav",
+    "duration": 1.882,
+    "sha256": "0a45eb44da0bed6792ac5abd96973184e204fccf307826f20b0a79d141417dbb",
+    "scriptSha256": "11bcf8008f07f8085c26bcd8866940e4697f6a559f39bfd90b904d6bbdecf9aa",
+    "segments": [
+      {
+        "role": "student",
+        "text": "Did you enjoy the concert?",
+        "pauseAfter": 0.25,
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "rms": 0.08513656366679384,
+    "clippedFraction": 0.0,
+    "engine": "Microsoft neural TTS / edge-tts 7.3.1",
+    "rate": "-3%",
+    "provenance": "Original EnglishCamp fixed exam text. AI-generated natural voices. Authorised by user on 30 October 2026. No learner data sent. Playback is local."
+  },
+  {
+    "id": "tf2-l-lower-11",
+    "src": "/media/mock-exams/v2/tf2-l-lower-11.wav",
+    "duration": 2.122,
+    "sha256": "3dde70b20d9df634da18a9c1b3c32e9b6f2ad937d501094016132289abb6c733",
+    "scriptSha256": "f53514f78befe730ba6c2952f76c42d51645ac35eef43e9f990924677d7ed8a9",
+    "segments": [
+      {
+        "role": "student",
+        "text": "I am sorry I am late.",
+        "pauseAfter": 0.25,
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "rms": 0.0829213856777459,
+    "clippedFraction": 0.0,
+    "engine": "Microsoft neural TTS / edge-tts 7.3.1",
+    "rate": "-3%",
+    "provenance": "Original EnglishCamp fixed exam text. AI-generated natural voices. Authorised by user on 30 October 2026. No learner data sent. Playback is local."
+  },
+  {
+    "id": "tf2-l-lower-12",
+    "src": "/media/mock-exams/v2/tf2-l-lower-12.wav",
+    "duration": 1.906,
+    "sha256": "07e0153d57b549e73206925681757cc2651dce80cd7fabc6478408caab027ce2",
+    "scriptSha256": "a00e015be9bb925c7de4079689df419c9ed8a800d528016eeebb49ca54a59817",
+    "segments": [
+      {
+        "role": "student",
+        "text": "Which room is the class in?",
+        "pauseAfter": 0.25,
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "rms": 0.09555509873858085,
+    "clippedFraction": 0.0,
+    "engine": "Microsoft neural TTS / edge-tts 7.3.1",
+    "rate": "-3%",
+    "provenance": "Original EnglishCamp fixed exam text. AI-generated natural voices. Authorised by user on 30 October 2026. No learner data sent. Playback is local."
+  },
+  {
+    "id": "tf2-l-upper-1",
+    "src": "/media/mock-exams/v2/tf2-l-upper-1.wav",
+    "duration": 3.658,
+    "sha256": "2975692ce62509a029c6867f027e93e636972b60ad238b6d6ec559292fba1b2e",
+    "scriptSha256": "59e84c8f7f3c5ed11ce23e84834e92d7947dbe7a3f2871717e37e3d02fb02498",
+    "segments": [
+      {
+        "role": "student",
+        "text": "I am not sure the evidence supports such a strong conclusion.",
+        "pauseAfter": 0.25,
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "rms": 0.08895374360073982,
+    "clippedFraction": 0.0,
+    "engine": "Microsoft neural TTS / edge-tts 7.3.1",
+    "rate": "-3%",
+    "provenance": "Original EnglishCamp fixed exam text. AI-generated natural voices. Authorised by user on 30 October 2026. No learner data sent. Playback is local."
+  },
+  {
+    "id": "tf2-l-upper-2",
+    "src": "/media/mock-exams/v2/tf2-l-upper-2.wav",
+    "duration": 3.826,
+    "sha256": "720940fbce9d3a21109c744c4d6b6daf26e97cb8700875c976573a19c7d79e16",
+    "scriptSha256": "21fb42c569e775141e7619908145b0341feb3c88d40ac5801fe5f1d5bbf014cb",
+    "segments": [
+      {
+        "role": "student",
+        "text": "Would it be too much trouble to circulate the revised schedule?",
+        "pauseAfter": 0.25,
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "rms": 0.09760307557518452,
+    "clippedFraction": 0.0,
+    "engine": "Microsoft neural TTS / edge-tts 7.3.1",
+    "rate": "-3%",
+    "provenance": "Original EnglishCamp fixed exam text. AI-generated natural voices. Authorised by user on 30 October 2026. No learner data sent. Playback is local."
+  },
+  {
+    "id": "tf2-l-upper-3",
+    "src": "/media/mock-exams/v2/tf2-l-upper-3.wav",
+    "duration": 2.506,
+    "sha256": "8ce95367dd6a5414c08479365bca71c46c42a82bcdc0ca112cca4e969aac1366",
+    "scriptSha256": "fa2d2048dbc107385ad86851b3913e832079d4857dab0c636cdd2ed6afabaf94",
+    "segments": [
+      {
+        "role": "student",
+        "text": "So much for finishing before lunch.",
+        "pauseAfter": 0.25,
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "rms": 0.09230937029767841,
+    "clippedFraction": 0.0,
+    "engine": "Microsoft neural TTS / edge-tts 7.3.1",
+    "rate": "-3%",
+    "provenance": "Original EnglishCamp fixed exam text. AI-generated natural voices. Authorised by user on 30 October 2026. No learner data sent. Playback is local."
+  },
+  {
+    "id": "tf2-l-upper-4",
+    "src": "/media/mock-exams/v2/tf2-l-upper-4.wav",
+    "duration": 3.442,
+    "sha256": "8fc93e9af6a7c9bd1b068c6758ffa8b4cce970ccc5ea780a1213f49a1b81faad",
+    "scriptSha256": "89c939fc7858e0156b8e1a74e3b5de74066afedc1ef035f296a6da2c608ac543",
+    "segments": [
+      {
+        "role": "student",
+        "text": "Could we hold off on publishing until the figures are checked?",
+        "pauseAfter": 0.25,
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "rms": 0.0968578093383612,
+    "clippedFraction": 0.0,
+    "engine": "Microsoft neural TTS / edge-tts 7.3.1",
+    "rate": "-3%",
+    "provenance": "Original EnglishCamp fixed exam text. AI-generated natural voices. Authorised by user on 30 October 2026. No learner data sent. Playback is local."
+  },
+  {
+    "id": "tf2-l-upper-5",
+    "src": "/media/mock-exams/v2/tf2-l-upper-5.wav",
+    "duration": 3.034,
+    "sha256": "71bdd8f08c74f3d47f3880115ad4ddd66341c4abddb39229d5160c61f9b07d7e",
+    "scriptSha256": "77f1025cdac343f1d9577d370ae2752d5f0de6b47389fa4fd1cc68ebd82bf128",
+    "segments": [
+      {
+        "role": "student",
+        "text": "You would not happen to have a spare charger, would you?",
+        "pauseAfter": 0.25,
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "rms": 0.09224969885195336,
+    "clippedFraction": 0.0,
+    "engine": "Microsoft neural TTS / edge-tts 7.3.1",
+    "rate": "-3%",
+    "provenance": "Original EnglishCamp fixed exam text. AI-generated natural voices. Authorised by user on 30 October 2026. No learner data sent. Playback is local."
+  },
+  {
+    "id": "tf2-l-upper-6",
+    "src": "/media/mock-exams/v2/tf2-l-upper-6.wav",
+    "duration": 3.01,
+    "sha256": "0f4eebdeb2ab8926bbc92858089d60b9e02dd01bcc32cb63670e28d629ccade1",
+    "scriptSha256": "53a864561371870aaeaf68e2df5bbed7cefaa97ab54a29becd880cf96ef60e02",
+    "segments": [
+      {
+        "role": "student",
+        "text": "I would have joined you if I had known about the change.",
+        "pauseAfter": 0.25,
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "rms": 0.10256346154779043,
+    "clippedFraction": 0.0,
+    "engine": "Microsoft neural TTS / edge-tts 7.3.1",
+    "rate": "-3%",
+    "provenance": "Original EnglishCamp fixed exam text. AI-generated natural voices. Authorised by user on 30 October 2026. No learner data sent. Playback is local."
+  },
+  {
+    "id": "tf2-l-upper-7",
+    "src": "/media/mock-exams/v2/tf2-l-upper-7.wav",
+    "duration": 2.554,
+    "sha256": "a816bbe10b156ca5d6fa60fc6ed578f2983323bc4fd3dccce75b636303358c4d",
+    "scriptSha256": "996160753cfcde9ed130ecddc978faca96ad54a8b33f0eff02bbcba24ae2c35d",
+    "segments": [
+      {
+        "role": "student",
+        "text": "Do you think we are getting ahead of ourselves?",
+        "pauseAfter": 0.25,
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "rms": 0.08908583214520543,
+    "clippedFraction": 0.0,
+    "engine": "Microsoft neural TTS / edge-tts 7.3.1",
+    "rate": "-3%",
+    "provenance": "Original EnglishCamp fixed exam text. AI-generated natural voices. Authorised by user on 30 October 2026. No learner data sent. Playback is local."
+  },
+  {
+    "id": "tf2-l-upper-8",
+    "src": "/media/mock-exams/v2/tf2-l-upper-8.wav",
+    "duration": 3.682,
+    "sha256": "f5ee9ff6e0e27d16a85e4f6c5690224242a24531ba647ffd4d3e3b278e9de008",
+    "scriptSha256": "fef4f6189d476d2f7da52ab88df6e560cb6579d1079f4afc8f6321c958197da5",
+    "segments": [
+      {
+        "role": "student",
+        "text": "That explanation leaves a few questions unanswered.",
+        "pauseAfter": 0.25,
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "rms": 0.09718516274980145,
+    "clippedFraction": 0.0,
+    "engine": "Microsoft neural TTS / edge-tts 7.3.1",
+    "rate": "-3%",
+    "provenance": "Original EnglishCamp fixed exam text. AI-generated natural voices. Authorised by user on 30 October 2026. No learner data sent. Playback is local."
+  },
+  {
+    "id": "tf2-l-upper-9",
+    "src": "/media/mock-exams/v2/tf2-l-upper-9.wav",
+    "duration": 3.01,
+    "sha256": "f7fc320d4653290a95d17e6345f9a9560057c8871c9810c8bef0adcd0811749f",
+    "scriptSha256": "76679d49d3dde56d8a1e6a8980d9a1d2a84f3556b28efa58056024fdcfa0b04d",
+    "segments": [
+      {
+        "role": "student",
+        "text": "It is not as though we have unlimited storage.",
+        "pauseAfter": 0.25,
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "rms": 0.09782659705172775,
+    "clippedFraction": 0.0,
+    "engine": "Microsoft neural TTS / edge-tts 7.3.1",
+    "rate": "-3%",
+    "provenance": "Original EnglishCamp fixed exam text. AI-generated natural voices. Authorised by user on 30 October 2026. No learner data sent. Playback is local."
+  },
+  {
+    "id": "tf2-l-upper-10",
+    "src": "/media/mock-exams/v2/tf2-l-upper-10.wav",
+    "duration": 2.674,
+    "sha256": "fac2853003ffd050165499dcd5db998ab8253c8692ff3cced37580ac5db7e974",
+    "scriptSha256": "0dca29dba792f73c364774951eddc50c565a01a7ef124dd42c6ccd3339a38224",
+    "segments": [
+      {
+        "role": "student",
+        "text": "I take it the deadline is still negotiable.",
+        "pauseAfter": 0.25,
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "rms": 0.08544056796271483,
+    "clippedFraction": 0.0,
+    "engine": "Microsoft neural TTS / edge-tts 7.3.1",
+    "rate": "-3%",
+    "provenance": "Original EnglishCamp fixed exam text. AI-generated natural voices. Authorised by user on 30 October 2026. No learner data sent. Playback is local."
+  },
+  {
+    "id": "tf2-l-upper-11",
+    "src": "/media/mock-exams/v2/tf2-l-upper-11.wav",
+    "duration": 2.674,
+    "sha256": "4cb9c049a94cae0bd3d99b2c35fe1527babfd41a667fd8bcd3c024a40ff35fae",
+    "scriptSha256": "60d57b71059006da3e239e2cce00b49ef4ffb302b1f2c57ece6719ded9a6441e",
+    "segments": [
+      {
+        "role": "student",
+        "text": "Could you talk me through the revised procedure?",
+        "pauseAfter": 0.25,
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "rms": 0.08763384619395252,
+    "clippedFraction": 0.0,
+    "engine": "Microsoft neural TTS / edge-tts 7.3.1",
+    "rate": "-3%",
+    "provenance": "Original EnglishCamp fixed exam text. AI-generated natural voices. Authorised by user on 30 October 2026. No learner data sent. Playback is local."
+  },
+  {
+    "id": "tf2-l-upper-12",
+    "src": "/media/mock-exams/v2/tf2-l-upper-12.wav",
+    "duration": 2.746,
+    "sha256": "796934ccdf618e9685ff77af0ebf236cf8282ef91c81cabd07c40711e1ebc74d",
+    "scriptSha256": "bd1f9c21e0536c269c94dfdce09794127178164b33fa258adf1fd444523c3add",
+    "segments": [
+      {
+        "role": "student",
+        "text": "We may need to rethink the venue after all.",
+        "pauseAfter": 0.25,
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "rms": 0.1004930300340084,
+    "clippedFraction": 0.0,
+    "engine": "Microsoft neural TTS / edge-tts 7.3.1",
+    "rate": "-3%",
+    "provenance": "Original EnglishCamp fixed exam text. AI-generated natural voices. Authorised by user on 30 October 2026. No learner data sent. Playback is local."
+  },
+  {
+    "id": "tf2-l-router-12",
+    "src": "/media/mock-exams/v2/tf2-l-router-12.wav",
+    "duration": 57.78,
+    "sha256": "ca5ecf6c422583cd2bd06bead8f1032e130d3cdcd7b5a67aa70d2266ab330736",
+    "scriptSha256": "d55612a2c1d1a0f649262ca9f46f335859668af4bcc264df27f1bccb118dbbde",
+    "segments": [
+      {
+        "role": "student",
+        "text": "I booked a recorder for our field project, but the confirmation says I must collect it before eleven. Our class does not finish until noon. Could I pick it up afterwards?",
+        "pauseAfter": 0.25,
+        "voice": "en-US-AndrewNeural"
+      },
+      {
+        "role": "coordinator",
+        "text": "Normally uncollected equipment is released at eleven. Let me see whether another group has reserved it. There is no later booking today, so I can extend your collection time to one. Please bring your student card.",
+        "pauseAfter": 0.25,
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "role": "student",
+        "text": "Thank you. Do I need to buy batteries? We will be outside all afternoon.",
+        "pauseAfter": 0.25,
+        "voice": "en-US-AndrewNeural"
+      },
+      {
+        "role": "coordinator",
+        "text": "The recorder has a rechargeable battery. We include a charged spare, but test both before you leave. The quick-start sheet explains how to switch them. If anything is missing from the case, tell us at the desk rather than after you reach the field site.",
+        "pauseAfter": 0.25,
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "role": "student",
+        "text": "We were hoping to return it tomorrow morning.",
+        "pauseAfter": 0.25,
+        "voice": "en-US-AndrewNeural"
+      },
+      {
+        "role": "coordinator",
+        "text": "That is fine, as long as it is here by ten. Another group needs it shortly afterwards. Delete your recordings only after you have copied them safely to your own storage.",
+        "pauseAfter": 0.25,
+        "voice": "en-US-AvaNeural"
+      }
+    ],
+    "rms": 0.09202734624721451,
+    "clippedFraction": 0.0,
+    "engine": "Microsoft neural TTS / edge-tts 7.3.1",
+    "rate": "-3%",
+    "provenance": "Original EnglishCamp fixed exam text. AI-generated natural voices. Authorised by user on 30 October 2026. No learner data sent. Playback is local."
+  },
+  {
+    "id": "tf2-l-router-13",
+    "src": "/media/mock-exams/v2/tf2-l-router-13.wav",
+    "duration": 30.922,
+    "sha256": "bd3336f5690a38059a473b241c77f5cd4a321e6d48f0fdbe7be372609662af47",
+    "scriptSha256": "933680a54d5be2ad508b3b7f207925ece25bf142cd11e553c12226791f8c21bc",
+    "segments": [
+      {
+        "role": "guide",
+        "text": "A notice for passengers using the north campus bus. From Monday, the stop outside the science building will move to the sports centre while pavement repairs are carried out. The timetable is unchanged. Follow the temporary signs from the old stop; the walk takes about five minutes. The driver cannot pick up passengers from the closed area. Repairs are expected to last two weeks, but please check the transport website for confirmation before returning to the original stop.",
+        "pauseAfter": 0.25,
+        "voice": "en-GB-RyanNeural"
+      }
+    ],
+    "rms": 0.08240169869565714,
+    "clippedFraction": 0.0,
+    "engine": "Microsoft neural TTS / edge-tts 7.3.1",
+    "rate": "-3%",
+    "provenance": "Original EnglishCamp fixed exam text. AI-generated natural voices. Authorised by user on 30 October 2026. No learner data sent. Playback is local."
+  },
+  {
+    "id": "tf2-l-router-14",
+    "src": "/media/mock-exams/v2/tf2-l-router-14.wav",
+    "duration": 71.746,
+    "sha256": "4bff5013072ce26e604adb11d2293f5e0d0a3924d2b361323cd18f014ac3f26b",
+    "scriptSha256": "65c7218e0f66731563b579cb0945b393357755fac53bc25c6a97ef6f2a7cb449",
+    "segments": [
+      {
+        "role": "lecturer",
+        "text": "Working memory is often described as a mental workspace. It allows us to hold information briefly while doing something with it, such as remembering numbers while calculating a total. This differs from simply storing information for a long period. The workspace is limited, so a task can become difficult when it requires several unfamiliar steps at once. Consider learning a new route. At first, a traveller may need to remember street names, directions and landmarks separately. With experience, parts of the route can become familiar units, reducing the effort needed to manage each detail. This organisation is sometimes called chunking. It does not make every limit disappear; it changes how information is grouped. In teaching, presenting a complex procedure in meaningful stages can therefore help a beginner. However, a stage that seems obvious to an expert may contain several unknown steps for a novice. The design should be checked with the learner, rather than based only on what the teacher finds easy. The practical question is not merely how much information appears on a page, but how much unfamiliar processing a task requires at one time.",
+        "pauseAfter": 0.25,
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "rms": 0.1017791993814809,
+    "clippedFraction": 0.0,
+    "engine": "Microsoft neural TTS / edge-tts 7.3.1",
+    "rate": "-3%",
+    "provenance": "Original EnglishCamp fixed exam text. AI-generated natural voices. Authorised by user on 30 October 2026. No learner data sent. Playback is local."
+  },
+  {
+    "id": "tf2-l-lower-13",
+    "src": "/media/mock-exams/v2/tf2-l-lower-13.wav",
+    "duration": 40.774,
+    "sha256": "2233dd7b67dad22e42dd82fd8af61e1973e687a5db0790490484f856a7a94eb7",
+    "scriptSha256": "e8332725d7d513d9ca8094207a3026831ff844845eebb8045b95c32351e38491",
+    "segments": [
+      {
+        "role": "student",
+        "text": "I want to join the chemistry study group. Is it still meeting in the library on Wednesdays?",
+        "pauseAfter": 0.25,
+        "voice": "en-US-AndrewNeural"
+      },
+      {
+        "role": "coordinator",
+        "text": "It is, but the time has changed from four to five because the room is being used for another event earlier. Have you registered?",
+        "pauseAfter": 0.25,
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "role": "student",
+        "text": "Not yet. I thought I could just arrive.",
+        "pauseAfter": 0.25,
+        "voice": "en-US-AndrewNeural"
+      },
+      {
+        "role": "coordinator",
+        "text": "You can attend the first meeting without registering, but email the organiser if you plan to continue. That way she can send you the questions in advance.",
+        "pauseAfter": 0.25,
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "role": "student",
+        "text": "Should I bring my textbook?",
+        "pauseAfter": 0.25,
+        "voice": "en-US-AndrewNeural"
+      },
+      {
+        "role": "coordinator",
+        "text": "Yes, and a calculator. The group works through problems together; it is not another lecture. If a question is difficult, you can compare methods with other students.",
+        "pauseAfter": 0.25,
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "role": "student",
+        "text": "That sounds useful. I will come this Wednesday.",
+        "pauseAfter": 0.25,
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "rms": 0.08791565021284573,
+    "clippedFraction": 0.0,
+    "engine": "Microsoft neural TTS / edge-tts 7.3.1",
+    "rate": "-3%",
+    "provenance": "Original EnglishCamp fixed exam text. AI-generated natural voices. Authorised by user on 30 October 2026. No learner data sent. Playback is local."
+  },
+  {
+    "id": "tf2-l-lower-14",
+    "src": "/media/mock-exams/v2/tf2-l-lower-14.wav",
+    "duration": 29.962,
+    "sha256": "eedadba528d57fe2652345bf44b54849c193ae3afa7398a5eecfc212a3df8e61",
+    "scriptSha256": "5309be70f8cdf3a969bff116e97eff77f3a12ebb1fad94c2cb2c3c7b95de3c58",
+    "segments": [
+      {
+        "role": "guide",
+        "text": "If you left an item in the lecture hall during yesterday’s event, please contact the information desk. A blue backpack and two umbrellas were handed in. You will be asked to describe the item before collecting it. The desk is open until six this evening and from nine tomorrow. Please do not email photographs of identification documents; bring your student card when you come. Items not collected within a month will be handled under the college’s lost-property procedure.",
+        "pauseAfter": 0.25,
+        "voice": "en-GB-RyanNeural"
+      }
+    ],
+    "rms": 0.08195737172546408,
+    "clippedFraction": 0.0,
+    "engine": "Microsoft neural TTS / edge-tts 7.3.1",
+    "rate": "-3%",
+    "provenance": "Original EnglishCamp fixed exam text. AI-generated natural voices. Authorised by user on 30 October 2026. No learner data sent. Playback is local."
+  },
+  {
+    "id": "tf2-l-lower-15",
+    "src": "/media/mock-exams/v2/tf2-l-lower-15.wav",
+    "duration": 63.85,
+    "sha256": "d33fdc52276c6fce162230c1846f6bc6ace9ee914f63620026d3846ca9ce7a6f",
+    "scriptSha256": "7db0c35042a8f4295e7ad0e1229520dcf6737fff0b771b673785842235264748",
+    "segments": [
+      {
+        "role": "lecturer",
+        "text": "A museum label is a short text beside an object. It might seem easy to write because it contains few words. In fact, selecting those words requires decisions about the visitor’s knowledge and interests. A label that lists specialist terms may be accurate but difficult for a new visitor to understand. Another that says only an object is beautiful may tell the visitor very little. One useful approach is to connect a visible feature to a larger idea. For example, a mark on a handmade bowl could introduce a discussion of how it was produced. The visitor can look back at the object and check the connection. Labels also work together. An introductory panel may explain the topic of a room, while individual labels focus on particular objects. Repeating the whole room introduction beside every object wastes space and attention. Testing draft labels with visitors helps reveal unfamiliar words and confusing references. The aim is not to explain everything, but to give someone a clear starting point for looking more closely.",
+        "pauseAfter": 0.25,
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "rms": 0.10247397374603319,
+    "clippedFraction": 0.0,
+    "engine": "Microsoft neural TTS / edge-tts 7.3.1",
+    "rate": "-3%",
+    "provenance": "Original EnglishCamp fixed exam text. AI-generated natural voices. Authorised by user on 30 October 2026. No learner data sent. Playback is local."
+  },
+  {
+    "id": "tf2-l-upper-13",
+    "src": "/media/mock-exams/v2/tf2-l-upper-13.wav",
+    "duration": 51.396,
+    "sha256": "d4f81a1765b10b1e9b0690ea1c9836b7de381f0218a4ccbe284cfce8f2957294",
+    "scriptSha256": "599d6db89eb321b3bb5d93bd921b00d659b213c6b57700a3b2807c3d87acb20c",
+    "segments": [
+      {
+        "role": "student",
+        "text": "I have revised the exhibition proposal, but I am worried that the new floor plan leaves too little room for the audio station.",
+        "pauseAfter": 0.25,
+        "voice": "en-US-AndrewNeural"
+      },
+      {
+        "role": "coordinator",
+        "text": "I noticed that too. We could move the entrance panel, although that might make the route through the room less clear.",
+        "pauseAfter": 0.25,
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "role": "student",
+        "text": "What if we shorten the panel and put the background information in a leaflet? Visitors who want detail could still have it.",
+        "pauseAfter": 0.25,
+        "voice": "en-US-AndrewNeural"
+      },
+      {
+        "role": "coordinator",
+        "text": "Possibly. But printing a leaflet introduces a cost we have not budgeted for. Could the extended text go on the existing website instead?",
+        "pauseAfter": 0.25,
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "role": "student",
+        "text": "That would avoid printing. I would rather not make a phone essential, though. Could we keep a large-print copy at the desk as well?",
+        "pauseAfter": 0.25,
+        "voice": "en-US-AndrewNeural"
+      },
+      {
+        "role": "coordinator",
+        "text": "That seems a workable compromise. Check the desk staff can manage it, then send me the revised plan with the dimensions marked. Do not order the audio equipment until we know the accessible route remains clear.",
+        "pauseAfter": 0.25,
+        "voice": "en-US-AvaNeural"
+      }
+    ],
+    "rms": 0.0926710803930382,
+    "clippedFraction": 0.0,
+    "engine": "Microsoft neural TTS / edge-tts 7.3.1",
+    "rate": "-3%",
+    "provenance": "Original EnglishCamp fixed exam text. AI-generated natural voices. Authorised by user on 30 October 2026. No learner data sent. Playback is local."
+  },
+  {
+    "id": "tf2-l-upper-14",
+    "src": "/media/mock-exams/v2/tf2-l-upper-14.wav",
+    "duration": 31.066,
+    "sha256": "e7b84737dd68ca4b9fa475dbe86a31a315d13eeb0c5a61d3c6c3dff4a166f5cb",
+    "scriptSha256": "b4de51010644d4b9d429b0bab2dc91647a0f87070978edc5fe52cf7aeda3e407",
+    "segments": [
+      {
+        "role": "guide",
+        "text": "A correction to tomorrow’s research seminar notice: the speaker will discuss preliminary findings rather than final results. The data collection is continuing, so the session will focus on the method and the questions still unresolved. Attendees who downloaded the earlier handout should replace it with the version now on the department website. The room and start time are unchanged. Please send methodological questions in advance if possible, so the speaker can select examples relevant to the audience.",
+        "pauseAfter": 0.25,
+        "voice": "en-GB-RyanNeural"
+      }
+    ],
+    "rms": 0.0844326034763172,
+    "clippedFraction": 0.0,
+    "engine": "Microsoft neural TTS / edge-tts 7.3.1",
+    "rate": "-3%",
+    "provenance": "Original EnglishCamp fixed exam text. AI-generated natural voices. Authorised by user on 30 October 2026. No learner data sent. Playback is local."
+  },
+  {
+    "id": "tf2-l-upper-15",
+    "src": "/media/mock-exams/v2/tf2-l-upper-15.wav",
+    "duration": 73.618,
+    "sha256": "1871bc28a3ca4de1f8cdc13f781c79c3473a30c04a506deb337f179e54c0b844",
+    "scriptSha256": "fb42ba5af72bb404863a5c0a41a1c20b742c1431013aa2960ad75c8626b0e4c5",
+    "segments": [
+      {
+        "role": "lecturer",
+        "text": "An absent observation can sometimes be evidence, but only if we had a reasonable opportunity to observe what was missing. Suppose a fictional field team searches a pond for a particular insect. Finding none during a brief winter visit does not necessarily show the species is absent. The insect might be active at another season, or the sampling method might miss it. The conclusion depends partly on detectability: the chance of recording the organism if it is actually there. Researchers may repeat surveys at suitable times and use complementary methods to improve that chance. Even then, they usually describe the strength of evidence rather than claim absolute certainty. This reasoning applies outside ecology. An archive may contain no letters about an event, yet that silence means little if most letters from the period were never preserved. Before treating absence as informative, we must ask what records would be expected and how they could have survived. Negative evidence is strongest when the observation process is understood. The lesson is not that absence never matters, but that a missing result cannot be interpreted independently of the conditions that could have produced a positive one.",
+        "pauseAfter": 0.25,
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "rms": 0.10030321372158205,
+    "clippedFraction": 0.0,
+    "engine": "Microsoft neural TTS / edge-tts 7.3.1",
+    "rate": "-3%",
+    "provenance": "Original EnglishCamp fixed exam text. AI-generated natural voices. Authorised by user on 30 October 2026. No learner data sent. Playback is local."
+  },
+  {
+    "id": "b22-l1-1",
+    "src": "/media/mock-exams/v2/b22-l1-1.wav",
+    "duration": 28.932,
+    "sha256": "fcd5ab280712a9f7197e7bd54b8d504e15a35b737d3655f1e6e7e85d78232c8a",
+    "scriptSha256": "05bdb702ed662e1fb2e17f2636b2b7ac67965ef107d3cb5855138677d4fab963",
+    "segments": [
+      {
+        "role": "guide",
+        "text": "I used to drive to work because I thought cycling would leave me exhausted. Then the roadworks made the drive so slow that I tried the bicycle just once. I was surprised by how much calmer I felt on arrival. I still take the bus in heavy rain, and I have not become interested in racing or buying expensive equipment. What keeps me cycling is the predictable journey. I no longer have to allow an extra half hour just in case the traffic is bad.",
+        "pauseAfter": 0.3,
+        "voice": "en-GB-RyanNeural"
+      }
+    ],
+    "rms": 0.08517148655936763,
+    "clippedFraction": 0.0,
+    "engine": "Microsoft neural TTS / edge-tts 7.3.1",
+    "rate": "-3%",
+    "provenance": "Original EnglishCamp fixed exam text. AI-generated natural voices. Authorised by user on 30 October 2026. No learner data sent. Playback is local."
+  },
+  {
+    "id": "b22-l1-2",
+    "src": "/media/mock-exams/v2/b22-l1-2.wav",
+    "duration": 30.612,
+    "sha256": "5e88683515c9b03beb600dbc3971772dc5cda9b8c4542ccd966f804b84a9c399",
+    "scriptSha256": "a327633383ea787a11b65244afa239fec87469431d55064e44d8bbd456d538d8",
+    "segments": [
+      {
+        "role": "guide",
+        "text": "I thought we would learn several impressive recipes, but we spent the first evening practising how to cut vegetables safely. At first I wondered whether I had chosen a class that was too basic. Then, at home, I realised I could prepare ordinary meals more easily. I do not need to impress anyone with restaurant dishes. Having a few reliable techniques has made the difference. I would still like more ideas later in the course, but I understand why the tutor began there.",
+        "pauseAfter": 0.3,
+        "voice": "en-GB-RyanNeural"
+      }
+    ],
+    "rms": 0.08659711415006721,
+    "clippedFraction": 0.0,
+    "engine": "Microsoft neural TTS / edge-tts 7.3.1",
+    "rate": "-3%",
+    "provenance": "Original EnglishCamp fixed exam text. AI-generated natural voices. Authorised by user on 30 October 2026. No learner data sent. Playback is local."
+  },
+  {
+    "id": "b22-l1-3",
+    "src": "/media/mock-exams/v2/b22-l1-3.wav",
+    "duration": 28.788,
+    "sha256": "d07bb7ead03b1e078db6a149c66ad9dc18e245b25aefb61e6070c00d383618d6",
+    "scriptSha256": "0d64781ba5d5e1b781b63e3ab4f166091ac7e907d91802f309d100ddb253a074",
+    "segments": [
+      {
+        "role": "guide",
+        "text": "We had advertised the clean-up for weeks, so when only twelve people arrived I was disappointed. But they knew the area and suggested a better way to organise the work. Instead of spreading out everywhere, we dealt with one path thoroughly and made a list of problems the council needed to address. By lunchtime we could point to something definite we had achieved. Next time I will still invite more people, but I will not judge the morning only by the number who turn up.",
+        "pauseAfter": 0.3,
+        "voice": "en-GB-RyanNeural"
+      }
+    ],
+    "rms": 0.08734358011474615,
+    "clippedFraction": 0.0,
+    "engine": "Microsoft neural TTS / edge-tts 7.3.1",
+    "rate": "-3%",
+    "provenance": "Original EnglishCamp fixed exam text. AI-generated natural voices. Authorised by user on 30 October 2026. No learner data sent. Playback is local."
+  },
+  {
+    "id": "b22-l1-4",
+    "src": "/media/mock-exams/v2/b22-l1-4.wav",
+    "duration": 27.564,
+    "sha256": "9c8efc234c2b86772884332a248aca44ebfbe3c7b112600239e8a8576007ff75",
+    "scriptSha256": "308f019eb317c31904dcbc1366a7d5ebc055892bfa048d0f6b45482d36bdacbb",
+    "segments": [
+      {
+        "role": "guide",
+        "text": "The first flat was closer to the university and looked lovely in the photographs. When I visited, though, the room faced a busy road and the windows did not close properly. The second place meant a longer bus journey, but I could imagine studying there in the evening. It was not cheaper, so money did not decide it. I chose the second because I needed somewhere I could concentrate, even if that meant leaving home earlier each morning.",
+        "pauseAfter": 0.3,
+        "voice": "en-GB-RyanNeural"
+      }
+    ],
+    "rms": 0.08683542918170925,
+    "clippedFraction": 0.0,
+    "engine": "Microsoft neural TTS / edge-tts 7.3.1",
+    "rate": "-3%",
+    "provenance": "Original EnglishCamp fixed exam text. AI-generated natural voices. Authorised by user on 30 October 2026. No learner data sent. Playback is local."
+  },
+  {
+    "id": "b22-l1-5",
+    "src": "/media/mock-exams/v2/b22-l1-5.wav",
+    "duration": 29.748,
+    "sha256": "bb89ca21e36678312814e817dfe520cfac1bfe41664246d8d57b1eb7c6182b8f",
+    "scriptSha256": "e2b013a432aa13d259ca39fc6a96143b776650d2bfd834f6acea2ab76a46adb2",
+    "segments": [
+      {
+        "role": "guide",
+        "text": "At first I missed being able to look over a learner’s shoulder and point to a detail. Online, I had to ask people to explain what they were doing, and sometimes that revealed a misunderstanding I might otherwise have missed. I still think some techniques are easier to demonstrate in a shared studio. Yet I now use short explanations before demonstrations in both settings. The online classes forced me to make my thinking more explicit, which has improved my teaching generally.",
+        "pauseAfter": 0.3,
+        "voice": "en-GB-RyanNeural"
+      }
+    ],
+    "rms": 0.08635215239429433,
+    "clippedFraction": 0.0,
+    "engine": "Microsoft neural TTS / edge-tts 7.3.1",
+    "rate": "-3%",
+    "provenance": "Original EnglishCamp fixed exam text. AI-generated natural voices. Authorised by user on 30 October 2026. No learner data sent. Playback is local."
+  },
+  {
+    "id": "b22-l1-6",
+    "src": "/media/mock-exams/v2/b22-l1-6.wav",
+    "duration": 29.196,
+    "sha256": "91d3a839cfce538f1355389eb9b4437c040441a51755dfb14a14170de68f068e",
+    "scriptSha256": "c9d1958bf0aa5b60eeb396a5a00bd2cbd35391b2ec25adc68a69243d0517fc75",
+    "segments": [
+      {
+        "role": "guide",
+        "text": "The book recommended a tiny museum near our hotel. We might never have found it without that suggestion. But the opening times were wrong, and we waited outside for nearly an hour. I would not say the whole book was useless; its background chapters helped me understand places we visited. I just learned to check practical details with the venue itself. A printed guide can provide ideas without being the final authority on what is open today.",
+        "pauseAfter": 0.3,
+        "voice": "en-GB-RyanNeural"
+      }
+    ],
+    "rms": 0.0838224688873902,
+    "clippedFraction": 0.0,
+    "engine": "Microsoft neural TTS / edge-tts 7.3.1",
+    "rate": "-3%",
+    "provenance": "Original EnglishCamp fixed exam text. AI-generated natural voices. Authorised by user on 30 October 2026. No learner data sent. Playback is local."
+  },
+  {
+    "id": "b22-l1-7",
+    "src": "/media/mock-exams/v2/b22-l1-7.wav",
+    "duration": 28.356,
+    "sha256": "63e4acdb71007174275719e14cb7a59b604bc7309ec43730ba68f8d1d7f60bec",
+    "scriptSha256": "8420e1b5323213dc15e58e5bdb0ffbe6fc870de20a8664aa30f41f76aba2fd26",
+    "segments": [
+      {
+        "role": "guide",
+        "text": "We moved the weekly update from a meeting to a written note because people said the meeting interrupted their work. The note was efficient for announcements, but difficult decisions still generated long email exchanges. We now keep the note and hold a shorter meeting only when there is something to discuss. I am pleased we tried the change, even though the first version was not the complete solution. It helped us see which kind of communication each task actually needed.",
+        "pauseAfter": 0.3,
+        "voice": "en-GB-RyanNeural"
+      }
+    ],
+    "rms": 0.08295522432696915,
+    "clippedFraction": 0.0,
+    "engine": "Microsoft neural TTS / edge-tts 7.3.1",
+    "rate": "-3%",
+    "provenance": "Original EnglishCamp fixed exam text. AI-generated natural voices. Authorised by user on 30 October 2026. No learner data sent. Playback is local."
+  },
+  {
+    "id": "b22-l1-8",
+    "src": "/media/mock-exams/v2/b22-l1-8.wav",
+    "duration": 28.644,
+    "sha256": "0ddd946eac9b26d4c2cf34bf3817f5ef87fb6748768e8298835cb88115ea2eb4",
+    "scriptSha256": "766676ab4484d706b014944dffe8a283375f26c5e60dcd770c67a646dc651833",
+    "segments": [
+      {
+        "role": "guide",
+        "text": "I was worried the discussion would feel like a school examination, with everyone searching for the correct interpretation. In fact, people noticed different things and asked each other why. I sometimes changed my mind, but nobody expected agreement on every character. Preparing a few thoughts beforehand helped me join in. I now read more carefully because I am curious about what others might see, rather than because I want to produce the perfect answer.",
+        "pauseAfter": 0.3,
+        "voice": "en-GB-RyanNeural"
+      }
+    ],
+    "rms": 0.08510592251284535,
+    "clippedFraction": 0.0,
+    "engine": "Microsoft neural TTS / edge-tts 7.3.1",
+    "rate": "-3%",
+    "provenance": "Original EnglishCamp fixed exam text. AI-generated natural voices. Authorised by user on 30 October 2026. No learner data sent. Playback is local."
+  },
+  {
+    "id": "b22-l2",
+    "src": "/media/mock-exams/v2/b22-l2.wav",
+    "duration": 169.116,
+    "sha256": "f5457e9c4d8a097f95badf59e79bb2588e0241d14f8ff5db3a5aec2863e4d036",
+    "scriptSha256": "0e58bccb61194f9aecac0cbe730c12afc30854cc2e0a339a9cb4e0c9f64d974f",
+    "segments": [
+      {
+        "role": "lecturer",
+        "text": "When I became coordinator of the town's walking festival, I assumed that choosing attractive routes would be the main task. I soon discovered that clear information and reliable arrangements mattered just as much as scenery. The festival takes place in April, before the busiest visitor season, and offers walks for people with different levels of experience. Some cover only a short distance around the town centre; others spend most of the day in the hills. We describe the ground conditions as well as the length, because a short route with steps may be unsuitable for someone who could comfortably manage a longer level path.\nOur first planning document is a calendar. It shows proposed walks, guide availability and local events that might affect access. Last year, one route had to change because a bridge was closed for repairs. Knowing that early meant we could publish the alternative rather than explain it to a disappointed group on the morning. We ask every guide to walk the route again shortly before the festival, even if they know it well. Conditions change, and an old memory is not a safety check.\nVolunteers receive a handbook covering practical arrangements and how to contact the coordinator. The handbook does not turn an inexperienced person into a qualified mountain guide. We match responsibilities to skills and use appropriate specialists for demanding routes. Every group has someone at the back, called the tail walker, so a participant who pauses is not simply left behind. The leader and tail walker agree how to communicate before setting off.\nBooking is handled through the visitor centre. A place is confirmed by email, but printed confirmations are available for people who prefer them. Participants receive a reminder to bring water, suitable footwear and any personal items they need. We do not promise that every walk will have a cafe stop. Some routes pass no shops, so the description makes clear when a packed lunch is needed. Accurate expectations reduce avoidable problems.\nWe also record feedback after each walk. A useful comment might identify an unclear meeting point or a pace that did not match the description. We keep a small notebook for immediate observations, then transfer relevant points to the planning record. A successful festival is not simply one with the largest attendance. We want participants to feel that the walk they chose matched the information provided, and that they could ask questions without embarrassment.\nFor the next festival, our priority is improving the map that accompanies each booking. It will show the meeting point more clearly and distinguish the walking route from nearby roads. We are not adding more routes until the existing arrangements work consistently. Attractive publicity can encourage a first booking, but a well-organised experience is what makes people return.",
+        "pauseAfter": 0.3,
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "rms": 0.10128867754663158,
+    "clippedFraction": 0.0,
+    "engine": "Microsoft neural TTS / edge-tts 7.3.1",
+    "rate": "-3%",
+    "provenance": "Original EnglishCamp fixed exam text. AI-generated natural voices. Authorised by user on 30 October 2026. No learner data sent. Playback is local."
+  },
+  {
+    "id": "b22-l3-1",
+    "src": "/media/mock-exams/v2/b22-l3-1.wav",
+    "duration": 30.66,
+    "sha256": "72c33e9310366a6517ddd718e80cbf455a9673b8213b71c634ffab289e1218d8",
+    "scriptSha256": "7b1822f5744914480ee46b851ca18e604fee5bc5f3fd4946cde2c81d6070c3f4",
+    "segments": [
+      {
+        "role": "student",
+        "text": "I had watched several videos about repairing furniture, and they made everything look straightforward. But when my first joint did not fit, I could not see why. At the class, the tutor watched how I held the tool and pointed out a small angle I had missed. Once I changed that, the pieces fitted. The finished shelf was pleasant to have, but the important part was someone noticing the particular mistake I was making. A general explanation could not have given me that in the same way.",
+        "pauseAfter": 0.3,
+        "voice": "en-GB-RyanNeural"
+      }
+    ],
+    "rms": 0.08084355398547877,
+    "clippedFraction": 0.0,
+    "engine": "Microsoft neural TTS / edge-tts 7.3.1",
+    "rate": "-3%",
+    "provenance": "Original EnglishCamp fixed exam text. AI-generated natural voices. Authorised by user on 30 October 2026. No learner data sent. Playback is local."
+  },
+  {
+    "id": "b22-l3-2",
+    "src": "/media/mock-exams/v2/b22-l3-2.wav",
+    "duration": 27.324,
+    "sha256": "7a54ffeafee8a728bc985814c7a95d0c0778deff48638c78538dda3bc795d9fa",
+    "scriptSha256": "2d96f057144f7a58b07384377c6f895a3711dfc4ab36f0322cae9621752847c7",
+    "segments": [
+      {
+        "role": "partner",
+        "text": "I meant to practise drawing at home, but other things always seemed more urgent. Signing up for a class gave the activity a place in my week. I still had to make the effort to go, especially on dark evenings, but knowing the group expected me helped. I am not trying to become a professional artist. I simply wanted to stop treating something I enjoyed as the first thing to cancel. The fixed appointment has made that possible.",
+        "pauseAfter": 0.3,
+        "voice": "en-GB-SoniaNeural"
+      }
+    ],
+    "rms": 0.10985662256474939,
+    "clippedFraction": 0.0,
+    "engine": "Microsoft neural TTS / edge-tts 7.3.1",
+    "rate": "-3%",
+    "provenance": "Original EnglishCamp fixed exam text. AI-generated natural voices. Authorised by user on 30 October 2026. No learner data sent. Playback is local."
+  },
+  {
+    "id": "b22-l3-3",
+    "src": "/media/mock-exams/v2/b22-l3-3.wav",
+    "duration": 30.78,
+    "sha256": "778952b4e7bb46b2fdba989ef78b8dd8b0769a37b26e818307f18694e640434e",
+    "scriptSha256": "326cba9ef7aea09e5b9ad3efbb9fd2715253b96ef588110d56fd6ef6c91614e7",
+    "segments": [
+      {
+        "role": "student",
+        "text": "Working from home, I could spend days speaking only to colleagues on a screen. The gardening course brought me into contact with people whose jobs and interests were completely different. We had a practical task to begin with, so conversation did not feel forced. I have learned useful things about plants, but I could probably have read much of that in a book. What makes me continue is hearing about lives outside my usual small professional world.",
+        "pauseAfter": 0.3,
+        "voice": "en-AU-NatashaNeural"
+      }
+    ],
+    "rms": 0.08634806344627566,
+    "clippedFraction": 0.0,
+    "engine": "Microsoft neural TTS / edge-tts 7.3.1",
+    "rate": "-3%",
+    "provenance": "Original EnglishCamp fixed exam text. AI-generated natural voices. Authorised by user on 30 October 2026. No learner data sent. Playback is local."
+  },
+  {
+    "id": "b22-l3-4",
+    "src": "/media/mock-exams/v2/b22-l3-4.wav",
+    "duration": 27.132,
+    "sha256": "8ad464bdbfd624d9cbcc6b26a7d08034986d8e5101104b999e78cf537407cc2b",
+    "scriptSha256": "68e992ff03c896e97a25d9341e13e97d02c784a7e6344a15a6459df73e464b94",
+    "segments": [
+      {
+        "role": "partner",
+        "text": "My first sewing projects were samples that stayed in a drawer. Then we made simple bags for a local community event. Knowing someone would actually use what I made changed how carefully I worked. It did not have to look luxurious; the handles needed to be strong and the seams reliable. I enjoyed the practical purpose more than receiving a compliment about the design. Since then I have chosen projects by asking who needs them and what they need to do.",
+        "pauseAfter": 0.3,
+        "voice": "en-CA-LiamNeural"
+      }
+    ],
+    "rms": 0.07369743737478991,
+    "clippedFraction": 0.0,
+    "engine": "Microsoft neural TTS / edge-tts 7.3.1",
+    "rate": "-3%",
+    "provenance": "Original EnglishCamp fixed exam text. AI-generated natural voices. Authorised by user on 30 October 2026. No learner data sent. Playback is local."
+  },
+  {
+    "id": "b22-l3-5",
+    "src": "/media/mock-exams/v2/b22-l3-5.wav",
+    "duration": 27.348,
+    "sha256": "eb81807f7d252ac992a18f4cbec4e5ee08adbbe46d58688502c7b2c44c0c9810",
+    "scriptSha256": "45caf56c84063b2ddb86006811e2dd170ea494935b0fdd8a25f2d90e03fa626a",
+    "segments": [
+      {
+        "role": "student",
+        "text": "I joined the drama group because a friend asked me to come along. I expected to be comfortable helping with scenery and terrified of reading a line. During an exercise, though, the director said I had a clear voice and asked me to narrate a short scene. I would never have volunteered without that encouragement. I still enjoy painting scenery, but discovering that I could contribute in another way was the surprise. It changed my view of what I might be able to learn.",
+        "pauseAfter": 0.3,
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "rms": 0.1012439591691692,
+    "clippedFraction": 0.0,
+    "engine": "Microsoft neural TTS / edge-tts 7.3.1",
+    "rate": "-3%",
+    "provenance": "Original EnglishCamp fixed exam text. AI-generated natural voices. Authorised by user on 30 October 2026. No learner data sent. Playback is local."
+  },
+  {
+    "id": "b22-l4",
+    "src": "/media/mock-exams/v2/b22-l4.wav",
+    "duration": 195.456,
+    "sha256": "df104e7599265952db702c5c1163dfab3656b55c6d3014710c8e5690a14d79f9",
+    "scriptSha256": "fd4155a737463ba2afa9c328e884feae486783b5cc7b8290c32c448e151d7b8e",
+    "segments": [
+      {
+        "role": "coordinator",
+        "text": "Today I am talking to Leila, who runs a small repair cafe. Leila, did the project begin with an environmental campaign?",
+        "pauseAfter": 0.3,
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "role": "student",
+        "text": "That came into it, but the immediate reason was practical. Our community centre had lost several regular activities, and people wanted somewhere to meet while doing something useful. Repairing objects gave the meetings a focus. We did not begin with a promise about how many items we would save.",
+        "pauseAfter": 0.3,
+        "voice": "en-US-AndrewNeural"
+      },
+      {
+        "role": "coordinator",
+        "text": "How did you find volunteers with the right skills?",
+        "pauseAfter": 0.3,
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "role": "student",
+        "text": "We asked locally, but not only for people who could repair electrical equipment. Someone who can welcome visitors and keep clear records is important too. At first, one very skilled volunteer tried to organise everything. She was generous, but it made the whole event depend on her. We now share the organisational jobs.",
+        "pauseAfter": 0.3,
+        "voice": "en-US-AndrewNeural"
+      },
+      {
+        "role": "coordinator",
+        "text": "Do visitors usually want to learn the repair themselves?",
+        "pauseAfter": 0.3,
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "role": "student",
+        "text": "Some do. Others mainly want the object working, and we should not pretend those are identical aims. We explain what can be done safely and invite questions. If a visitor watches once, we do not announce that they are now qualified to repeat the procedure alone. Confidence is useful, but it needs to match understanding.",
+        "pauseAfter": 0.3,
+        "voice": "en-US-AndrewNeural"
+      },
+      {
+        "role": "coordinator",
+        "text": "Was anything unexpectedly difficult at the beginning?",
+        "pauseAfter": 0.3,
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "role": "student",
+        "text": "Yes: deciding what to accept. People brought very large objects that we had nowhere to store. Our publicity had said bring a broken item, which sounded welcoming but was too vague. We changed it to describe the kinds and sizes of objects we could handle. Saying no clearly in advance was kinder than disappointing someone after a difficult journey.",
+        "pauseAfter": 0.3,
+        "voice": "en-US-AndrewNeural"
+      },
+      {
+        "role": "coordinator",
+        "text": "How do you measure the project’s success?",
+        "pauseAfter": 0.3,
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "role": "student",
+        "text": "We record completed repairs, but also referrals and useful advice. Those are separate categories. I do not combine them into one grand success rate. An object that needs a professional repair is not the same as one we fixed, even if the owner found the visit helpful. Keeping the categories separate helps us see where training or equipment might be needed.",
+        "pauseAfter": 0.3,
+        "voice": "en-US-AndrewNeural"
+      },
+      {
+        "role": "coordinator",
+        "text": "Have you considered expanding to every weekend?",
+        "pauseAfter": 0.3,
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "role": "student",
+        "text": "People ask, and I understand the demand. But the volunteers have other responsibilities. More frequent events could mean losing the careful preparation that makes the current ones work. We are discussing a second monthly date, provided enough people can commit to it. A busy-looking calendar is not an achievement if nobody has time to maintain the tools.",
+        "pauseAfter": 0.3,
+        "voice": "en-US-AndrewNeural"
+      },
+      {
+        "role": "coordinator",
+        "text": "What would you advise someone starting a similar group?",
+        "pauseAfter": 0.3,
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "role": "student",
+        "text": "Begin by finding out what skills and space are actually available. Do not buy a room full of tools because a successful group elsewhere uses them. Agree safety boundaries, keep the first event small and tell visitors what to expect. You can learn from another group without copying an arrangement that does not suit your own neighbourhood.",
+        "pauseAfter": 0.3,
+        "voice": "en-US-AndrewNeural"
+      },
+      {
+        "role": "coordinator",
+        "text": "And what do you personally enjoy most?",
+        "pauseAfter": 0.3,
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "role": "student",
+        "text": "Seeing a visitor return, not necessarily with another broken object, but with a question or an offer to help. It suggests the cafe has become a place where asking about a practical problem feels normal. We cannot solve every problem, and that is fine. A reliable, modest service can be valuable without pretending to be a complete alternative to professional repair.",
+        "pauseAfter": 0.3,
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "rms": 0.09728421994078322,
+    "clippedFraction": 0.0,
+    "engine": "Microsoft neural TTS / edge-tts 7.3.1",
+    "rate": "-3%",
+    "provenance": "Original EnglishCamp fixed exam text. AI-generated natural voices. Authorised by user on 30 October 2026. No learner data sent. Playback is local."
+  },
+  {
+    "id": "is2-p1",
+    "src": "/media/mock-exams/v2/is2-p1.wav",
+    "duration": 7.944,
+    "sha256": "a4761e8be8f11d4c035b82c374946748ed0627a478f06bfcabdac8dbeefc5895",
+    "scriptSha256": "3d49b7efe13cc36df7dd3a07e8cab68290e953fec3ae17561222f1fd012cf639",
+    "segments": [
+      {
+        "role": "coordinator",
+        "text": "Part one. Let us talk about where you live, your free time and learning. Answer the questions on your screen.",
+        "voice": "en-GB-SoniaNeural"
+      }
+    ],
+    "rms": 0.10592177712679117,
+    "clippedFraction": 0.0,
+    "engine": "Microsoft neural TTS / edge-tts 7.3.1",
+    "rate": "-3%",
+    "provenance": "Original EnglishCamp fixed exam text. AI-generated natural voices. Authorised by user on 30 October 2026. No learner data sent. Playback is local."
+  },
+  {
+    "id": "is2-p2",
+    "src": "/media/mock-exams/v2/is2-p2.wav",
+    "duration": 9.504,
+    "sha256": "019ba4a962f6fae1d7cccbca017073959bd590e0323c03001f5e89c1f83b13b6",
+    "scriptSha256": "2d4c95246194dcade8afb29152f7a446a39536e80a84e1e0650e110193556c6c",
+    "segments": [
+      {
+        "role": "coordinator",
+        "text": "Describe a time when you learned something useful from another person. You have one minute to prepare. You may then speak for up to two minutes.",
+        "voice": "en-GB-SoniaNeural"
+      }
+    ],
+    "rms": 0.12270788083807507,
+    "clippedFraction": 0.0,
+    "engine": "Microsoft neural TTS / edge-tts 7.3.1",
+    "rate": "-3%",
+    "provenance": "Original EnglishCamp fixed exam text. AI-generated natural voices. Authorised by user on 30 October 2026. No learner data sent. Playback is local."
+  },
+  {
+    "id": "is2-p3",
+    "src": "/media/mock-exams/v2/is2-p3.wav",
+    "duration": 9.792,
+    "sha256": "ef7573693dbe6e162e286f01fd1d5b6c6131d1c9c5701dcd733e387cbdf2c3cd",
+    "scriptSha256": "21f6fa66036fe614d44cd91dd33cdc8f3dba0b24496ee8c7f2fc9fd356d33a0c",
+    "segments": [
+      {
+        "role": "coordinator",
+        "text": "We have talked about a useful learning experience. Now consider some broader questions about explanations, education and continued learning.",
+        "voice": "en-GB-SoniaNeural"
+      }
+    ],
+    "rms": 0.10965974244916062,
+    "clippedFraction": 0.0,
+    "engine": "Microsoft neural TTS / edge-tts 7.3.1",
+    "rate": "-3%",
+    "provenance": "Original EnglishCamp fixed exam text. AI-generated natural voices. Authorised by user on 30 October 2026. No learner data sent. Playback is local."
+  },
+  {
+    "id": "tf2-repeat-1",
+    "src": "/media/mock-exams/v2/tf2-repeat-1.wav",
+    "duration": 2.4,
+    "sha256": "84105ae5dd7aa9c83a0067f77492fbc1dc1e90031888416f7d6616982ec03554",
+    "scriptSha256": "08dceccec12da0bee94bdc23a03dd6175a5c94e5c1eed8a075f4f858df10ce91",
+    "segments": [
+      {
+        "role": "coordinator",
+        "text": "Welcome to the student centre.",
+        "voice": "en-US-AvaNeural"
+      }
+    ],
+    "rms": 0.07646952607451743,
+    "clippedFraction": 0.0,
+    "engine": "Microsoft neural TTS / edge-tts 7.3.1",
+    "rate": "-3%",
+    "provenance": "Original EnglishCamp fixed exam text. AI-generated natural voices. Authorised by user on 30 October 2026. No learner data sent. Playback is local."
+  },
+  {
+    "id": "tf2-repeat-2",
+    "src": "/media/mock-exams/v2/tf2-repeat-2.wav",
+    "duration": 3.384,
+    "sha256": "4386024e6e8b755537aaf98a14c0801e93df81fc581ada7846f3d3e513a8bc46",
+    "scriptSha256": "96642712f99ed033cb76913ffce48e6a33e915973c198bb37fbbf779366eff9b",
+    "segments": [
+      {
+        "role": "coordinator",
+        "text": "The information desk is beside the entrance.",
+        "voice": "en-US-AvaNeural"
+      }
+    ],
+    "rms": 0.07850474402019658,
+    "clippedFraction": 0.0,
+    "engine": "Microsoft neural TTS / edge-tts 7.3.1",
+    "rate": "-3%",
+    "provenance": "Original EnglishCamp fixed exam text. AI-generated natural voices. Authorised by user on 30 October 2026. No learner data sent. Playback is local."
+  },
+  {
+    "id": "tf2-repeat-3",
+    "src": "/media/mock-exams/v2/tf2-repeat-3.wav",
+    "duration": 3.096,
+    "sha256": "103077d8d0c1435f0ac292796f67c94c30db9cd98b0939c5c6e8ab8a3b924f07",
+    "scriptSha256": "15df80040daa5b1be154030ab7b04687c93672755bce35c47e3094ee3b5f840c",
+    "segments": [
+      {
+        "role": "coordinator",
+        "text": "You can borrow a laptop from the equipment counter.",
+        "voice": "en-US-AvaNeural"
+      }
+    ],
+    "rms": 0.09156995698721859,
+    "clippedFraction": 0.0,
+    "engine": "Microsoft neural TTS / edge-tts 7.3.1",
+    "rate": "-3%",
+    "provenance": "Original EnglishCamp fixed exam text. AI-generated natural voices. Authorised by user on 30 October 2026. No learner data sent. Playback is local."
+  },
+  {
+    "id": "tf2-repeat-4",
+    "src": "/media/mock-exams/v2/tf2-repeat-4.wav",
+    "duration": 4.488,
+    "sha256": "a11020254bf35c4ea1a422eeddb0bffeccde875fe7ae016c91b71c3d088ab796",
+    "scriptSha256": "25cba61f1109b44483f515e178c4da7dc3e3f3970d805233b34226c597c722c2",
+    "segments": [
+      {
+        "role": "coordinator",
+        "text": "Please return any borrowed equipment before the building closes.",
+        "voice": "en-US-AvaNeural"
+      }
+    ],
+    "rms": 0.08792586714384618,
+    "clippedFraction": 0.0,
+    "engine": "Microsoft neural TTS / edge-tts 7.3.1",
+    "rate": "-3%",
+    "provenance": "Original EnglishCamp fixed exam text. AI-generated natural voices. Authorised by user on 30 October 2026. No learner data sent. Playback is local."
+  },
+  {
+    "id": "tf2-repeat-5",
+    "src": "/media/mock-exams/v2/tf2-repeat-5.wav",
+    "duration": 4.32,
+    "sha256": "2c01f7baed4cb474f0e5305076a7e96b74100226b23b619fa6f3041b6500ee96",
+    "scriptSha256": "401efd2abce61be9c393360124d0107bbba4dff22fc77775295dc49a351b72f4",
+    "segments": [
+      {
+        "role": "coordinator",
+        "text": "The quiet study rooms upstairs can be reserved through the website.",
+        "voice": "en-US-AvaNeural"
+      }
+    ],
+    "rms": 0.08074060268208157,
+    "clippedFraction": 0.0,
+    "engine": "Microsoft neural TTS / edge-tts 7.3.1",
+    "rate": "-3%",
+    "provenance": "Original EnglishCamp fixed exam text. AI-generated natural voices. Authorised by user on 30 October 2026. No learner data sent. Playback is local."
+  },
+  {
+    "id": "tf2-repeat-6",
+    "src": "/media/mock-exams/v2/tf2-repeat-6.wav",
+    "duration": 6.48,
+    "sha256": "a9105cfc093f864bca97587faecc441d18fc30e28807d2176214c37513ee2a76",
+    "scriptSha256": "b764b096b76f0ca300cbd0859ba2f2894c4fdd34f8c6b92cbb91f327d9b3453c",
+    "segments": [
+      {
+        "role": "coordinator",
+        "text": "If the room you requested is unavailable, the receptionist can suggest another suitable space.",
+        "voice": "en-US-AvaNeural"
+      }
+    ],
+    "rms": 0.08726496379957896,
+    "clippedFraction": 0.0,
+    "engine": "Microsoft neural TTS / edge-tts 7.3.1",
+    "rate": "-3%",
+    "provenance": "Original EnglishCamp fixed exam text. AI-generated natural voices. Authorised by user on 30 October 2026. No learner data sent. Playback is local."
+  },
+  {
+    "id": "tf2-repeat-7",
+    "src": "/media/mock-exams/v2/tf2-repeat-7.wav",
+    "duration": 6.36,
+    "sha256": "687ec7de43b0abebce1a6d2d7fc84d0af7fcf10e854547de347211c0164c7970",
+    "scriptSha256": "fa4b8800514f03a1297824f250cd580bb0cc27d0661e2f575a41d87c7cf0b713",
+    "segments": [
+      {
+        "role": "coordinator",
+        "text": "Before leaving the centre, check that you have collected your belongings and returned the key to the desk.",
+        "voice": "en-US-AvaNeural"
+      }
+    ],
+    "rms": 0.08407248908712767,
+    "clippedFraction": 0.0,
+    "engine": "Microsoft neural TTS / edge-tts 7.3.1",
+    "rate": "-3%",
+    "provenance": "Original EnglishCamp fixed exam text. AI-generated natural voices. Authorised by user on 30 October 2026. No learner data sent. Playback is local."
+  },
+  {
+    "id": "tf2-interview-1",
+    "src": "/media/mock-exams/v2/tf2-interview-1.wav",
+    "duration": 4.8,
+    "sha256": "35de5d9f9639d4d3a22dce5d571f9ebef0f7451794896540dcad9eca7949793d",
+    "scriptSha256": "dd1ebc3fc666e0d81f6cb3bebc080aeb01c0668fa1da15cc6049ff8277aaf581",
+    "segments": [
+      {
+        "role": "coordinator",
+        "text": "Tell me about a place where you usually study. What makes it suitable for you?",
+        "voice": "en-US-AvaNeural"
+      }
+    ],
+    "rms": 0.08899893070796605,
+    "clippedFraction": 0.0,
+    "engine": "Microsoft neural TTS / edge-tts 7.3.1",
+    "rate": "-3%",
+    "provenance": "Original EnglishCamp fixed exam text. AI-generated natural voices. Authorised by user on 30 October 2026. No learner data sent. Playback is local."
+  },
+  {
+    "id": "tf2-interview-2",
+    "src": "/media/mock-exams/v2/tf2-interview-2.wav",
+    "duration": 5.136,
+    "sha256": "310dcd9c6d176685bbc1beb8e9ee0d7a3bea5e172527b070fbcde63d7a0c19ec",
+    "scriptSha256": "eaf19af8965eaa596bc3664aa07a578392f6bbe140b4d4aa05913e4bf3acade9",
+    "segments": [
+      {
+        "role": "coordinator",
+        "text": "Describe a time when you changed your study routine. Why did you make the change?",
+        "voice": "en-US-AvaNeural"
+      }
+    ],
+    "rms": 0.08412146868324143,
+    "clippedFraction": 0.0,
+    "engine": "Microsoft neural TTS / edge-tts 7.3.1",
+    "rate": "-3%",
+    "provenance": "Original EnglishCamp fixed exam text. AI-generated natural voices. Authorised by user on 30 October 2026. No learner data sent. Playback is local."
+  },
+  {
+    "id": "tf2-interview-3",
+    "src": "/media/mock-exams/v2/tf2-interview-3.wav",
+    "duration": 9.72,
+    "sha256": "2559b92fc047a098cc5233ee36166fd0698ba954406ef87d00d22e19775e470e",
+    "scriptSha256": "bade4f3edf5f1502ff919dd4237ab83cf4be2595cdedc8a82ab8fb237f55061a",
+    "segments": [
+      {
+        "role": "coordinator",
+        "text": "Some students prefer shared study spaces, while others prefer working alone. Which arrangement do you think universities should prioritise, and why?",
+        "voice": "en-US-AvaNeural"
+      }
+    ],
+    "rms": 0.09246880954816196,
+    "clippedFraction": 0.0,
+    "engine": "Microsoft neural TTS / edge-tts 7.3.1",
+    "rate": "-3%",
+    "provenance": "Original EnglishCamp fixed exam text. AI-generated natural voices. Authorised by user on 30 October 2026. No learner data sent. Playback is local."
+  },
+  {
+    "id": "tf2-interview-4",
+    "src": "/media/mock-exams/v2/tf2-interview-4.wav",
+    "duration": 5.616,
+    "sha256": "abac718ad8c1c4f23a64993b4f7f163dbb1fe170e598faeec5fb7291ac753b4f",
+    "scriptSha256": "dc3bd55bf721f9cebb4b26821217dd781b4fd8d960882629a98b45f8b556c1db",
+    "segments": [
+      {
+        "role": "coordinator",
+        "text": "How might technology change the way students use university study spaces in the future?",
+        "voice": "en-US-AvaNeural"
+      }
+    ],
+    "rms": 0.08074968744854781,
+    "clippedFraction": 0.0,
+    "engine": "Microsoft neural TTS / edge-tts 7.3.1",
+    "rate": "-3%",
+    "provenance": "Original EnglishCamp fixed exam text. AI-generated natural voices. Authorised by user on 30 October 2026. No learner data sent. Playback is local."
+  }
+]

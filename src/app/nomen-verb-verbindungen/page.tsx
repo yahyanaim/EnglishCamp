@@ -1,4 +1,6 @@
 "use client";
+
+import { LearningArt } from "@/components/brand/LearningArt";
 import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
 import { PageWrapper } from "@/components/layout/PageWrapper";
@@ -26,9 +28,9 @@ export default function NomenVerbVerbindungenPage() {
           <ChevronLeft className="w-4 h-4" /> Back to all expressions
         </button>
 
-        <div className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border-2 border-[var(--color-border-default)] p-6 mb-6" style={{ boxShadow: "0 3px 0 var(--color-border-default)" }}>
+        <div className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-6 mb-6" style={{ boxShadow: "0 3px 0 var(--color-border-default)" }}>
           <div className="flex items-center gap-4 mb-3">
-            <span className="text-3xl">🔗</span>
+            <LearningArt name="🔗" size={24} className="" />
             <div>
               <h2 className="text-xl font-bold text-[var(--color-text-primary)] font-display">{selectedEntry.verb} {selectedEntry.noun}</h2>
               <p className="text-sm text-[var(--color-text-secondary)] italic mt-0.5 font-body">{selectedEntry.meaning}</p>
@@ -37,7 +39,7 @@ export default function NomenVerbVerbindungenPage() {
           </div>
         </div>
 
-        <div className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border-2 border-[var(--color-border-default)] p-5" style={{ boxShadow: "0 3px 0 var(--color-border-default)" }}>
+        <div className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-5" style={{ boxShadow: "0 3px 0 var(--color-border-default)" }}>
           <h3 className="text-xs font-bold text-[var(--color-text-secondary)] uppercase tracking-wider mb-3">Example</h3>
           <div className="p-3 rounded-[var(--radius-md)] bg-[var(--color-surface-alt)]">
             <p className="text-sm font-medium text-[var(--color-text-primary)]">{selectedEntry.example}</p>
@@ -53,7 +55,7 @@ export default function NomenVerbVerbindungenPage() {
       <div className="space-y-6">
         <div>
           <div className="flex items-center gap-3 mb-2">
-            <span className="inline-flex items-center justify-center w-10 h-10 rounded-[var(--radius-md)] bg-[var(--color-primary-subtle)] text-lg">🔗</span>
+            <LearningArt name="🔗" size={24} className="inline-flex items-center justify-center w-10 h-10 rounded-[var(--radius-md)] bg-[var(--color-primary-subtle)] " />
             <h1 className="font-display text-2xl font-extrabold text-[var(--color-text-primary)]">Nomen-Verb-Verbindungen</h1>
           </div>
           <p className="text-sm text-[var(--color-text-secondary)] font-body">
@@ -66,7 +68,7 @@ export default function NomenVerbVerbindungenPage() {
           <input
             type="text" value={search} onChange={(e) => setSearch(e.target.value)}
             placeholder="Search expressions..."
-            className="w-full h-12 pl-11 pr-10 bg-[var(--color-surface)] rounded-[var(--radius-md)] border-2 border-[var(--color-border-default)] text-[16px] font-body font-medium text-[var(--color-text-primary)] placeholder:text-[var(--color-text-disabled)] placeholder:italic outline-none transition-all duration-150 focus:border-[var(--color-info)]"
+            className="w-full h-12 pl-11 pr-10 bg-[var(--color-surface)] rounded-[var(--radius-md)] border border-[var(--color-border-default)] text-[16px] font-body font-medium text-[var(--color-text-primary)] placeholder:text-[var(--color-text-secondary)] placeholder:italic outline-none transition-all duration-150 focus:border-[var(--color-info)]"
             style={{ boxShadow: "0 2px 0 var(--color-border-default)" }}
           />
           {search && <button onClick={() => setSearch("")} className="absolute right-3.5 top-1/2 -translate-y-1/2"><X className="w-4 h-4 text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]" /></button>}
@@ -89,7 +91,7 @@ export default function NomenVerbVerbindungenPage() {
                 const idx = NOUN_VERB_COLLOCATIONS.indexOf(n);
                 setSelected(idx);
               }}
-              className="text-left bg-[var(--color-surface)] rounded-[var(--radius-lg)] border-2 border-[var(--color-border-default)] p-3.5 transition-all"
+              className="text-left bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-3.5 transition-all"
               style={{ boxShadow: "0 3px 0 var(--color-border-default)" }}
             >
               <div className="flex items-center gap-2 mb-1">
@@ -101,7 +103,7 @@ export default function NomenVerbVerbindungenPage() {
           ))}
           {filtered.length === 0 && (
             <div className="col-span-full text-center py-16">
-              <span className="text-4xl block mb-3">🔍</span>
+              <LearningArt name="🔍" size={36} className=" block mb-3" />
               <p className="text-sm font-medium text-[var(--color-text-secondary)] font-body">No expressions found</p>
             </div>
           )}

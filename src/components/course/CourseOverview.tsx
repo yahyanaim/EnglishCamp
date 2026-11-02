@@ -1,4 +1,5 @@
 "use client";
+import { LearningArt } from "@/components/brand/LearningArt";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
@@ -17,12 +18,12 @@ export function CourseOverview({ level }: { level: CourseSummary }) {
   const hasHistory = ready && level.lessons.some(l => modules[l.id]?.lastActiveAt || isLessonDone(l.id));
   const practiceCount = ready ? level.lessons.filter(l => cycleComplete(modules[l.id])).length : 0;
   const progress = !ready ? 0 : getLevelProgress(level.id, level.lessons.length, (id) => isLessonDone(id), level.lessons.map(l => l.id));
-  const bestQuiz = getBestScore(level.id as any);
+  const bestQuiz = ready ? getBestScore(level.id as any) : 0;
 
   const filteredLessons = level.lessons.filter(lesson => filter === "all" || lesson.skills.includes(filter));
 
   return (
-    <div className="space-y-8">
+    <div className="camp-section-stack space-y-6">
       {/* Practice Courses Switcher Bar */}
       {level.examBadge && (
         <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none text-xs">
@@ -30,13 +31,13 @@ export function CourseOverview({ level }: { level: CourseSummary }) {
           {levels.filter((l) => l.examBadge).map((lvl) => {
             const isCurrent = lvl.id === level.id;
             return (
-              <Link
+              <Link prefetch={false}
                 key={lvl.id}
                 href={`/levels/${lvl.id}`}
                 aria-current={isCurrent ? "page" : undefined}
                 className={`px-3 py-1.5 rounded-full font-bold transition-all shrink-0 border ${
                   isCurrent
-                    ? "bg-blue-500 text-[var(--color-on-brand)] border-blue-500 shadow-sm"
+                    ? "bg-[var(--camp-purple)] text-white border-[var(--camp-purple)] shadow-sm"
                     : "bg-[var(--color-surface)] text-[var(--color-text-secondary)] border-[var(--color-border-default)] hover:border-blue-400 hover:text-[var(--color-text-primary)]"
                 }`}
               >
@@ -48,46 +49,46 @@ export function CourseOverview({ level }: { level: CourseSummary }) {
       )}
 
       {/* Header Banner */}
-      <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
-        className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] p-5 sm:p-8 shadow-sm border-2 border-[var(--color-border-default)] border-l-4"
-        style={{ borderLeftColor: level.accent }}
+      <motion.div initial={false} animate={{ opacity: 1, y: 0 }}
+        className="camp-course-hero"
+
       >
-        <div className="flex flex-col md:flex-row md:items-center gap-6">
-          <div className="flex-1 min-w-0">
+        <div className="camp-course-hero-body">
+          <div className="camp-course-hero-copy min-w-0">
             <div className="flex items-center gap-2 mb-2">
               {level.examBadge && (
-                <span className="text-xs font-bold px-2.5 py-0.5 rounded-full bg-blue-500/10 text-[var(--color-text-link)] border border-blue-500/20">
+                <span className="camp-course-type">
                   {level.examBadge}
                 </span>
               )}
-              <span className="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-indigo-500/10 text-[var(--color-text-info)] border border-indigo-500/20">
+              <span className="camp-course-type camp-course-count">
                 {level.lessons.length} Modules
               </span>
             </div>
-            <h1 className="font-display text-4xl sm:text-5xl font-extrabold text-[var(--color-text-primary)] mb-2">
+            <h1 className="camp-course-hero-title">
               {level.title}
             </h1>
-            <p className="text-lg text-[var(--color-text-secondary)] mb-3">{level.subtitle}</p>
-            <p className="text-[var(--color-text-secondary)] text-sm mb-5 leading-relaxed">{level.intro}</p>
-            <Progress value={progress} color={level.accent} size="lg" label />
+            <p className="camp-course-hero-subtitle">{level.subtitle}</p>
+            <p className="camp-course-description">{level.intro}</p>
+            <Progress value={progress} color="var(--camp-purple)" size="lg" label />
             <p className="text-xs text-[var(--color-text-secondary)] mt-3">{practiceCount}/25 current practice cycles completed. Course credit includes retained historical completions. Writing and Speaking are self-reviewed; this percentage is not an exam score.</p>
           </div>
-          <div className="flex flex-col gap-3 shrink-0 sm:w-56">
-            <Link href={`/levels/${level.id}/lessons/${resume}`} className="inline-flex justify-center items-center gap-2 rounded-[var(--radius-pill)] px-6 py-2.5 font-display font-bold text-sm uppercase tracking-wider bg-indigo-600 hover:bg-indigo-700 text-white shadow-sm">
+          <div className="camp-course-hero-actions">
+            <Link prefetch={false} href={`/levels/${level.id}/lessons/${resume}`} className="camp-course-action inline-flex justify-center items-center gap-2 rounded-[var(--radius-md)] px-4 py-2.5 font-display font-semibold text-sm bg-[var(--camp-purple)] hover:bg-[var(--camp-purple-hover)] text-white shadow-sm">
               <Dumbbell className="w-4 h-4" /> {hasHistory ? "Resume module" : "Start course"}
             </Link>
-            <Link href={level.examHref || "/mock-exam"} className="inline-flex justify-center items-center gap-2 rounded-[var(--radius-pill)] px-6 py-2.5 font-display font-bold text-sm uppercase tracking-wider border-2 border-[var(--color-border-strong)] text-[var(--color-text-secondary)]">
-              <Zap className="w-4 h-4 text-amber-500" /> Full Mock Exam
+            <Link prefetch={false} href={level.examHref || "/mock-exam"} className="camp-course-action inline-flex justify-center items-center gap-2 rounded-[var(--radius-md)] px-4 py-2.5 font-display font-semibold text-sm border border-[var(--color-border-strong)] text-[var(--color-text-secondary)]">
+              <LearningArt name="Zap" size={16} className="w-4 h-4 text-amber-500" /> Full Mock Exam
             </Link>
-            <Link href="/flashcards" className="inline-flex justify-center items-center gap-2 rounded-[var(--radius-pill)] px-6 py-2.5 font-display font-bold text-sm uppercase tracking-wider border-2 border-[var(--color-border-strong)] text-[var(--color-text-secondary)]">
-              <BookOpen className="w-4 h-4 text-[var(--color-text-link)]" /> Flashcards
+            <Link prefetch={false} href="/flashcards" className="camp-course-action inline-flex justify-center items-center gap-2 rounded-[var(--radius-md)] px-4 py-2.5 font-display font-semibold text-sm border border-[var(--color-border-strong)] text-[var(--color-text-secondary)]">
+              <LearningArt name="BookOpen" size={16} className="w-4 h-4 text-[var(--color-text-link)]" /> Flashcards
             </Link>
           </div>
         </div>
 
-        <div className="flex flex-wrap gap-2 mt-6">
+        <div className="camp-course-goals">
           {level.goals.slice(0, 4).map((g, i) => (
-            <span key={i} className="inline-flex items-center rounded-full bg-[var(--color-primary-subtle)] px-3 py-1 text-xs font-medium text-[var(--color-text-link)] border border-blue-200 dark:border-blue-900">
+            <span key={i} className="camp-course-goal">
               ✓ {g}
             </span>
           ))}
@@ -97,16 +98,16 @@ export function CourseOverview({ level }: { level: CourseSummary }) {
       {level.id === "band4-5" && <div className="text-sm text-[var(--color-text-primary)] bg-[var(--color-surface)] border border-[var(--color-border-default)] rounded-2xl p-5 space-y-3">
         <p className="font-bold">Core language support before exam tasks</p>
         <p>If you are comfortable with everyday connected English but need grammar support, use these existing modules before returning to Module 1. This course does not provide beginner placement.</p>
-        <div className="flex flex-wrap gap-4">{[3,18,19,1].map(number => <Link key={number} className="text-[var(--color-text-link)] underline" href={`/levels/${level.id}/lessons/${level.lessons[number - 1].id}`}>Module {number}: {level.lessons[number - 1].title}</Link>)}</div>
+        <div className="flex flex-wrap gap-4">{[3,18,19,1].map(number => <Link prefetch={false} key={number} className="text-[var(--color-text-link)] underline" href={`/levels/${level.id}/lessons/${level.lessons[number - 1].id}`}>Module {number}: {level.lessons[number - 1].title}</Link>)}</div>
       </div>}
       {level.id === "band7-8" && <div className="text-sm text-[var(--color-text-primary)] bg-[var(--color-surface)] border border-[var(--color-border-default)] rounded-2xl p-5 space-y-3">
         <p className="font-bold">Shared IELTS Listening and Speaking practice</p>
         <p>These skills are shared by General Training and Academic IELTS. The links open existing shared-skill modules; General Training letters and Reading remain in this course. Synthetic voices provide focused practice rather than an accent-coverage guarantee.</p>
-        <div className="flex flex-wrap gap-4"><Link className="text-[var(--color-text-link)] underline" href="/exercises/band2-listening-maps">Plans, directions and facilities matching</Link><Link className="text-[var(--color-text-link)] underline" href="/exercises/band2-speaking-cue-card">Part 1 answers and Part 2 planning</Link><Link className="text-[var(--color-text-link)] underline" href="/exercises/band4-mock-ielts-listening">GT plan-labelling checkpoint</Link></div>
+        <div className="flex flex-wrap gap-4"><Link prefetch={false} className="text-[var(--color-text-link)] underline" href="/exercises/band2-listening-maps">Plans, directions and facilities matching</Link><Link prefetch={false} className="text-[var(--color-text-link)] underline" href="/exercises/band2-speaking-cue-card">Part 1 answers and Part 2 planning</Link><Link prefetch={false} className="text-[var(--color-text-link)] underline" href="/exercises/band4-mock-ielts-listening">GT plan-labelling checkpoint</Link></div>
       </div>}
 
       {bestQuiz > 0 && (
-        <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }}
+        <motion.div initial={false} animate={{ opacity: 1, x: 0 }}
           className="bg-amber-500/10 border border-amber-500/30 rounded-[var(--radius-lg)] p-5 flex items-center gap-4"
         >
           <span className="text-2xl">🏆</span>
@@ -119,7 +120,7 @@ export function CourseOverview({ level }: { level: CourseSummary }) {
 
       {/* Course Curriculum & Fast Navigation Filter */}
       <div className="space-y-4">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b-2 border-[var(--color-border-default)] pb-4">
+        <div className="camp-module-toolbar">
           <div>
             <h2 className="font-display text-2xl font-extrabold text-[var(--color-text-primary)]">
               Course Modules ({filteredLessons.length})
@@ -130,7 +131,7 @@ export function CourseOverview({ level }: { level: CourseSummary }) {
           </div>
 
           {/* Skill Filter Pills */}
-          <div className="flex items-center flex-wrap gap-1.5 p-1 rounded-xl bg-[var(--color-surface-alt)] border border-[var(--color-border-default)]">
+          <div className="camp-course-filters flex items-center flex-wrap gap-1.5 p-1 rounded-xl bg-[var(--color-surface-alt)] border border-[var(--color-border-default)]">
             {[
               { id: "all", label: "All", count: level.lessons.length },
               { id: "listening", label: "Listening", icon: Headphones },
@@ -146,11 +147,11 @@ export function CourseOverview({ level }: { level: CourseSummary }) {
                 onClick={() => setFilter(tab.id)}
                 className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 ${
                   filter === tab.id
-                    ? "bg-[var(--color-surface)] text-[var(--color-text-primary)] shadow-sm border border-[var(--color-border-default)]"
+                    ? "bg-[var(--camp-purple)] text-white shadow-sm border border-[var(--camp-purple)]"
                     : "text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]"
                 }`}
               >
-                {tab.icon && <tab.icon className="w-3.5 h-3.5" />}
+                <LearningArt name={tab.id} size={18} />
                 <span>{tab.label}</span>
               </button>
             ))}
@@ -163,8 +164,8 @@ export function CourseOverview({ level }: { level: CourseSummary }) {
             const done = ready && isLessonDone(lesson.id);
 
             return (
-              <motion.div key={lesson.id} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: Math.min(i * 0.03, 0.3) }}>
-                <div className={`bg-[var(--color-surface)] rounded-2xl p-4 sm:p-5 border-2 transition-all flex flex-col md:flex-row md:items-center justify-between gap-4 ${
+              <motion.div key={lesson.id} initial={false} animate={{ opacity: 1, y: 0 }} transition={{ delay: Math.min(i * 0.03, 0.3) }}>
+                <div className={`camp-module-card bg-[var(--color-surface)] border transition-all ${
                   done ? "border-emerald-500/40 bg-emerald-500/5" : "border-[var(--color-border-default)] hover:border-blue-400/50"
                 }`}>
                   <div className="flex items-start sm:items-center gap-3.5 min-w-0 flex-1">
@@ -179,7 +180,7 @@ export function CourseOverview({ level }: { level: CourseSummary }) {
                           Module {lesson.moduleNumber}
                         </span>
                         <span className="text-[10px] font-bold text-[var(--color-text-warning)] flex items-center gap-1">
-                          <Zap className="w-3 h-3 text-amber-500" /> +{lesson.xpReward} module XP
+                          <LearningArt name="Zap" size={12} className="w-3 h-3 text-amber-500" /> +{lesson.xpReward} module XP
                         </span>
                       </div>
                       <h3 className="font-display font-bold text-base text-[var(--color-text-primary)] break-words">
@@ -195,17 +196,17 @@ export function CourseOverview({ level }: { level: CourseSummary }) {
                   </div>
 
                   {/* Dual Action Buttons */}
-                  <div className="flex items-center gap-2 shrink-0 self-end md:self-auto">
-                    <Link
+                  <div className="camp-module-actions">
+                    <Link prefetch={false}
                       href={`/levels/${level.id}/lessons/${lesson.id}`}
-                      className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-bold bg-[var(--color-surface-alt)] hover:bg-[var(--color-neutral-100)] border border-[var(--color-border-default)] text-[var(--color-text-primary)] transition-all"
+                      className="camp-course-action inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-bold bg-[var(--color-surface-alt)] hover:bg-[var(--color-neutral-100)] border border-[var(--color-border-default)] text-[var(--color-text-primary)] transition-all"
                     >
-                      <BookOpen className="w-3.5 h-3.5 text-[var(--color-text-link)]" />
+                      <LearningArt name="BookOpen" size={14} className="w-3.5 h-3.5 text-[var(--color-text-link)]" />
                       <span>Study Lesson</span>
                     </Link>
-                    <Link
+                    <Link prefetch={false}
                       href={`/exercises/${lesson.id}`}
-                      className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold bg-indigo-600 hover:bg-indigo-700 text-white shadow-sm transition-all"
+                      className="camp-course-action inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold bg-[var(--camp-purple)] hover:bg-[var(--camp-purple-hover)] text-white shadow-sm transition-all"
                     >
                       <Dumbbell className="w-3.5 h-3.5" />
                       <span>Practice Drills</span>

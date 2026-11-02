@@ -1,88 +1,93 @@
 "use client";
-import { useState } from "react";
+
+import { LearningArt } from "@/components/brand/LearningArt";
+import { PracticeBanner as PageBanner } from "@/components/ui/PracticeBanner";
+import dynamic from "next/dynamic";
+import { useState, type ComponentType } from "react";
 import { motion } from "framer-motion";
 import { PageWrapper } from "@/components/layout/PageWrapper";
-import { NounGenderTrainer } from "@/components/learn/NounGenderTrainer";
-import { ConjugationTrainer } from "@/components/learn/ConjugationTrainer";
-import { SentenceBuilder } from "@/components/learn/SentenceBuilder";
-import { NumbersTrainer } from "@/components/learn/NumbersTrainer";
-import { PluralTrainer } from "@/components/learn/PluralTrainer";
-import { PossessivesTrainer } from "@/components/learn/PossessivesTrainer";
-import { SeparableVerbsTrainer } from "@/components/learn/SeparableVerbsTrainer";
-import { PrepositionsTrainer } from "@/components/learn/PrepositionsTrainer";
-import { CaseTrainer } from "@/components/learn/CaseTrainer";
-import { AdjectiveEndingsTrainer } from "@/components/learn/AdjectiveEndingsTrainer";
-import { ModalVerbsTrainer } from "@/components/learn/ModalVerbsTrainer";
-import { NegationTrainer } from "@/components/learn/NegationTrainer";
-import { TwoWayPrepositionsTrainer } from "@/components/learn/TwoWayPrepositionsTrainer";
-import { WordOrderTrainer } from "@/components/learn/WordOrderTrainer";
-import { ComparativeTrainer } from "@/components/learn/ComparativeTrainer";
-import { DialogueCompletionTrainer } from "@/components/learn/DialogueCompletionTrainer";
-import { ReflexiveVerbsTrainer } from "@/components/learn/ReflexiveVerbsTrainer";
-import { Hangman } from "@/components/learn/Hangman";
-import { ImperativeTrainer } from "@/components/learn/ImperativeTrainer";
-import { PassiveVoiceTrainer } from "@/components/learn/PassiveVoiceTrainer";
-import { CoordinatingConjunctionsTrainer } from "@/components/learn/CoordinatingConjunctionsTrainer";
-import { GenitiveTrainer } from "@/components/learn/GenitiveTrainer";
-import { DaCompoundsTrainer } from "@/components/learn/DaCompoundsTrainer";
-import { MemoryMatchGame } from "@/components/learn/MemoryMatchGame";
-import { WordSearch } from "@/components/learn/WordSearch";
-import { CrosswordPuzzle } from "@/components/learn/CrosswordPuzzle";
-import { Dictation } from "@/components/learn/Dictation";
-import { RelativeClausesTrainer } from "@/components/learn/RelativeClausesTrainer";
-import { KonjunktivIITrainer } from "@/components/learn/KonjunktivIITrainer";
-import { PrefixVerbsTrainer } from "@/components/learn/PrefixVerbsTrainer";
-import { InfinitivMitZuTrainer } from "@/components/learn/InfinitivMitZuTrainer";
-import { WeakNounsTrainer } from "@/components/learn/WeakNounsTrainer";
-import { EnglishContractionsTrainer } from "@/components/learn/PrepositionalContractionsTrainer";
-import { ModalParticlesTrainer } from "@/components/learn/ModalParticlesTrainer";
-import { FutureTenseTrainer } from "@/components/learn/FutureTenseTrainer";
-import { FragewörterTrainer } from "@/components/learn/FragewörterTrainer";
-import { CompoundNounTrainer } from "@/components/learn/CompoundNounTrainer";
-import { DoubleInfinitiveTrainer } from "@/components/learn/DoubleInfinitiveTrainer";
-import { FalseFriendsTrainer } from "@/components/learn/FalseFriendsTrainer";
-import { FlashcardRace } from "@/components/learn/FlashcardRace";
-import { ClozeTextTrainer } from "@/components/learn/ClozeTextTrainer";
-import { CollocationTrainer } from "@/components/learn/CollocationTrainer";
-import { ErrorReview } from "@/components/learn/ErrorReview";
-import { GrammarReference } from "@/components/learn/GrammarReference";
-import { IdiomsTrainer } from "@/components/learn/IdiomsTrainer";
-import { ReadingComprehension } from "@/components/learn/ReadingComprehension";
-import { SpellingTrainer } from "@/components/learn/SpellingTrainer";
-import { SynonymTrainer } from "@/components/learn/SynonymTrainer";
-import { TimedChallenge } from "@/components/learn/TimedChallenge";
-import { VerbExplorer } from "@/components/learn/VerbExplorer";
-import { SpeedMatch } from "@/components/learn/SpeedMatch";
-import { WordScramble } from "@/components/learn/Buchstabensalat";
-import { Sprint } from "@/components/learn/Sprint";
-import { ConnectorsChallenge } from "@/components/learn/KonjunktionenChallenge";
-import { TensesQuiz } from "@/components/learn/TensesQuiz";
-import { BriefeSchreiben } from "@/components/learn/BriefeSchreiben";
-import { LandeskundeQuiz } from "@/components/learn/LandeskundeQuiz";
-import { ArtikelMeister } from "@/components/learn/ArtikelMeister";
-import { RedemittelPraxis } from "@/components/learn/RedemittelPraxis";
-import { SatzUebersetzer } from "@/components/learn/SatzUebersetzer";
-import { TopicVocabulary } from "@/components/learn/ThemenVokabeln";
-import { RedewendungenUebersetzer } from "@/components/learn/RewendungenUebersetzer";
-import { KollokationenUebersetzer } from "@/components/learn/KollokationenUebersetzer";
-import { DialogeUebersetzer } from "@/components/learn/DialogeUebersetzer";
-import { ModalpartikelUebersetzer } from "@/components/learn/ModalpartikelUebersetzer";
-import { NVVUebersetzer } from "@/components/learn/NVVUebersetzer";
-import { VerbPrepUebersetzer } from "@/components/learn/VerbPrepUebersetzer";
-import { DaKompositaUebersetzer } from "@/components/learn/DaKompositaUebersetzer";
-import { SatzmusterUebersetzer } from "@/components/learn/SatzmusterUebersetzer";
-import { WordPairQuiz } from "@/components/learn/WortpaareQuiz";
-import { VergleicheUebersetzer } from "@/components/learn/VergleicheUebersetzer";
-import { FalseFriendsUebersetzer } from "@/components/learn/FalseFriendsUebersetzer";
-import { FragenUebersetzer } from "@/components/learn/FragenUebersetzer";
-import { PraeteritumUebersetzer } from "@/components/learn/PraeteritumUebersetzer";
-import { WordFormationTrainer } from "@/components/learn/WordFormationTrainer";
-import { NarrativePastTrainer } from "@/components/learn/NarrativePastTrainer";
-import { SubordinateClausesTrainer } from "@/components/learn/SubordinateClausesTrainer";
-import { QuestionFormationTrainer } from "@/components/learn/QuestionFormationTrainer";
-import { Proofreading } from "@/components/learn/Korrekturlesen";
-import { VerbPuzzle } from "@/components/learn/VerbPuzzle";
-import { IdiomMatch } from "@/components/learn/IdiomMatch";
+import { PracticeFrame } from "@/components/ui/PracticeFrame";
+const NounGenderTrainer = dynamic(() => import("@/components/learn/NounGenderTrainer").then(module => module.NounGenderTrainer), { ssr: false, loading: () => <div className="camp-loading" role="status">Loading practice…</div> });
+const ConjugationTrainer = dynamic(() => import("@/components/learn/ConjugationTrainer").then(module => module.ConjugationTrainer), { ssr: false, loading: () => <div className="camp-loading" role="status">Loading practice…</div> });
+const SentenceBuilder = dynamic(() => import("@/components/learn/SentenceBuilder").then(module => module.SentenceBuilder), { ssr: false, loading: () => <div className="camp-loading" role="status">Loading practice…</div> });
+const NumbersTrainer = dynamic(() => import("@/components/learn/NumbersTrainer").then(module => module.NumbersTrainer), { ssr: false, loading: () => <div className="camp-loading" role="status">Loading practice…</div> });
+const PluralTrainer = dynamic(() => import("@/components/learn/PluralTrainer").then(module => module.PluralTrainer), { ssr: false, loading: () => <div className="camp-loading" role="status">Loading practice…</div> });
+const PossessivesTrainer = dynamic(() => import("@/components/learn/PossessivesTrainer").then(module => module.PossessivesTrainer), { ssr: false, loading: () => <div className="camp-loading" role="status">Loading practice…</div> });
+const SeparableVerbsTrainer = dynamic(() => import("@/components/learn/SeparableVerbsTrainer").then(module => module.SeparableVerbsTrainer), { ssr: false, loading: () => <div className="camp-loading" role="status">Loading practice…</div> });
+const PrepositionsTrainer = dynamic(() => import("@/components/learn/PrepositionsTrainer").then(module => module.PrepositionsTrainer), { ssr: false, loading: () => <div className="camp-loading" role="status">Loading practice…</div> });
+const CaseTrainer = dynamic(() => import("@/components/learn/CaseTrainer").then(module => module.CaseTrainer), { ssr: false, loading: () => <div className="camp-loading" role="status">Loading practice…</div> });
+const AdjectiveEndingsTrainer = dynamic(() => import("@/components/learn/AdjectiveEndingsTrainer").then(module => module.AdjectiveEndingsTrainer), { ssr: false, loading: () => <div className="camp-loading" role="status">Loading practice…</div> });
+const ModalVerbsTrainer = dynamic(() => import("@/components/learn/ModalVerbsTrainer").then(module => module.ModalVerbsTrainer), { ssr: false, loading: () => <div className="camp-loading" role="status">Loading practice…</div> });
+const NegationTrainer = dynamic(() => import("@/components/learn/NegationTrainer").then(module => module.NegationTrainer), { ssr: false, loading: () => <div className="camp-loading" role="status">Loading practice…</div> });
+const TwoWayPrepositionsTrainer = dynamic(() => import("@/components/learn/TwoWayPrepositionsTrainer").then(module => module.TwoWayPrepositionsTrainer), { ssr: false, loading: () => <div className="camp-loading" role="status">Loading practice…</div> });
+const WordOrderTrainer = dynamic(() => import("@/components/learn/WordOrderTrainer").then(module => module.WordOrderTrainer), { ssr: false, loading: () => <div className="camp-loading" role="status">Loading practice…</div> });
+const ComparativeTrainer = dynamic(() => import("@/components/learn/ComparativeTrainer").then(module => module.ComparativeTrainer), { ssr: false, loading: () => <div className="camp-loading" role="status">Loading practice…</div> });
+const DialogueCompletionTrainer = dynamic(() => import("@/components/learn/DialogueCompletionTrainer").then(module => module.DialogueCompletionTrainer), { ssr: false, loading: () => <div className="camp-loading" role="status">Loading practice…</div> });
+const ReflexiveVerbsTrainer = dynamic(() => import("@/components/learn/ReflexiveVerbsTrainer").then(module => module.ReflexiveVerbsTrainer), { ssr: false, loading: () => <div className="camp-loading" role="status">Loading practice…</div> });
+const Hangman = dynamic(() => import("@/components/learn/Hangman").then(module => module.Hangman), { ssr: false, loading: () => <div className="camp-loading" role="status">Loading practice…</div> });
+const ImperativeTrainer = dynamic(() => import("@/components/learn/ImperativeTrainer").then(module => module.ImperativeTrainer), { ssr: false, loading: () => <div className="camp-loading" role="status">Loading practice…</div> });
+const PassiveVoiceTrainer = dynamic(() => import("@/components/learn/PassiveVoiceTrainer").then(module => module.PassiveVoiceTrainer), { ssr: false, loading: () => <div className="camp-loading" role="status">Loading practice…</div> });
+const CoordinatingConjunctionsTrainer = dynamic(() => import("@/components/learn/CoordinatingConjunctionsTrainer").then(module => module.CoordinatingConjunctionsTrainer), { ssr: false, loading: () => <div className="camp-loading" role="status">Loading practice…</div> });
+const GenitiveTrainer = dynamic(() => import("@/components/learn/GenitiveTrainer").then(module => module.GenitiveTrainer), { ssr: false, loading: () => <div className="camp-loading" role="status">Loading practice…</div> });
+const DaCompoundsTrainer = dynamic(() => import("@/components/learn/DaCompoundsTrainer").then(module => module.DaCompoundsTrainer), { ssr: false, loading: () => <div className="camp-loading" role="status">Loading practice…</div> });
+const MemoryMatchGame = dynamic(() => import("@/components/learn/MemoryMatchGame").then(module => module.MemoryMatchGame), { ssr: false, loading: () => <div className="camp-loading" role="status">Loading practice…</div> });
+const WordSearch = dynamic(() => import("@/components/learn/WordSearch").then(module => module.WordSearch), { ssr: false, loading: () => <div className="camp-loading" role="status">Loading practice…</div> });
+const CrosswordPuzzle = dynamic(() => import("@/components/learn/CrosswordPuzzle").then(module => module.CrosswordPuzzle), { ssr: false, loading: () => <div className="camp-loading" role="status">Loading practice…</div> });
+const Dictation = dynamic(() => import("@/components/learn/Dictation").then(module => module.Dictation), { ssr: false, loading: () => <div className="camp-loading" role="status">Loading practice…</div> });
+const RelativeClausesTrainer = dynamic(() => import("@/components/learn/RelativeClausesTrainer").then(module => module.RelativeClausesTrainer), { ssr: false, loading: () => <div className="camp-loading" role="status">Loading practice…</div> });
+const KonjunktivIITrainer = dynamic(() => import("@/components/learn/KonjunktivIITrainer").then(module => module.KonjunktivIITrainer), { ssr: false, loading: () => <div className="camp-loading" role="status">Loading practice…</div> });
+const PrefixVerbsTrainer = dynamic(() => import("@/components/learn/PrefixVerbsTrainer").then(module => module.PrefixVerbsTrainer), { ssr: false, loading: () => <div className="camp-loading" role="status">Loading practice…</div> });
+const InfinitivMitZuTrainer = dynamic(() => import("@/components/learn/InfinitivMitZuTrainer").then(module => module.InfinitivMitZuTrainer), { ssr: false, loading: () => <div className="camp-loading" role="status">Loading practice…</div> });
+const WeakNounsTrainer = dynamic(() => import("@/components/learn/WeakNounsTrainer").then(module => module.WeakNounsTrainer), { ssr: false, loading: () => <div className="camp-loading" role="status">Loading practice…</div> });
+const EnglishContractionsTrainer = dynamic(() => import("@/components/learn/PrepositionalContractionsTrainer").then(module => module.EnglishContractionsTrainer), { ssr: false, loading: () => <div className="camp-loading" role="status">Loading practice…</div> });
+const ModalParticlesTrainer = dynamic(() => import("@/components/learn/ModalParticlesTrainer").then(module => module.ModalParticlesTrainer), { ssr: false, loading: () => <div className="camp-loading" role="status">Loading practice…</div> });
+const FutureTenseTrainer = dynamic(() => import("@/components/learn/FutureTenseTrainer").then(module => module.FutureTenseTrainer), { ssr: false, loading: () => <div className="camp-loading" role="status">Loading practice…</div> });
+const FragewörterTrainer = dynamic(() => import("@/components/learn/FragewörterTrainer").then(module => module.FragewörterTrainer), { ssr: false, loading: () => <div className="camp-loading" role="status">Loading practice…</div> });
+const CompoundNounTrainer = dynamic(() => import("@/components/learn/CompoundNounTrainer").then(module => module.CompoundNounTrainer), { ssr: false, loading: () => <div className="camp-loading" role="status">Loading practice…</div> });
+const DoubleInfinitiveTrainer = dynamic(() => import("@/components/learn/DoubleInfinitiveTrainer").then(module => module.DoubleInfinitiveTrainer), { ssr: false, loading: () => <div className="camp-loading" role="status">Loading practice…</div> });
+const FalseFriendsTrainer = dynamic(() => import("@/components/learn/FalseFriendsTrainer").then(module => module.FalseFriendsTrainer), { ssr: false, loading: () => <div className="camp-loading" role="status">Loading practice…</div> });
+const FlashcardRace = dynamic(() => import("@/components/learn/FlashcardRace").then(module => module.FlashcardRace), { ssr: false, loading: () => <div className="camp-loading" role="status">Loading practice…</div> });
+const ClozeTextTrainer = dynamic(() => import("@/components/learn/ClozeTextTrainer").then(module => module.ClozeTextTrainer), { ssr: false, loading: () => <div className="camp-loading" role="status">Loading practice…</div> });
+const CollocationTrainer = dynamic(() => import("@/components/learn/CollocationTrainer").then(module => module.CollocationTrainer), { ssr: false, loading: () => <div className="camp-loading" role="status">Loading practice…</div> });
+const ErrorReview = dynamic(() => import("@/components/learn/ErrorReview").then(module => module.ErrorReview), { ssr: false, loading: () => <div className="camp-loading" role="status">Loading practice…</div> });
+const GrammarReference = dynamic(() => import("@/components/learn/GrammarReference").then(module => module.GrammarReference), { ssr: false, loading: () => <div className="camp-loading" role="status">Loading practice…</div> });
+const IdiomsTrainer = dynamic(() => import("@/components/learn/IdiomsTrainer").then(module => module.IdiomsTrainer), { ssr: false, loading: () => <div className="camp-loading" role="status">Loading practice…</div> });
+const ReadingComprehension = dynamic(() => import("@/components/learn/ReadingComprehension").then(module => module.ReadingComprehension), { ssr: false, loading: () => <div className="camp-loading" role="status">Loading practice…</div> });
+const SpellingTrainer = dynamic(() => import("@/components/learn/SpellingTrainer").then(module => module.SpellingTrainer), { ssr: false, loading: () => <div className="camp-loading" role="status">Loading practice…</div> });
+const SynonymTrainer = dynamic(() => import("@/components/learn/SynonymTrainer").then(module => module.SynonymTrainer), { ssr: false, loading: () => <div className="camp-loading" role="status">Loading practice…</div> });
+const TimedChallenge = dynamic(() => import("@/components/learn/TimedChallenge").then(module => module.TimedChallenge), { ssr: false, loading: () => <div className="camp-loading" role="status">Loading practice…</div> });
+const VerbExplorer = dynamic(() => import("@/components/learn/VerbExplorer").then(module => module.VerbExplorer), { ssr: false, loading: () => <div className="camp-loading" role="status">Loading practice…</div> });
+const SpeedMatch = dynamic(() => import("@/components/learn/SpeedMatch").then(module => module.SpeedMatch), { ssr: false, loading: () => <div className="camp-loading" role="status">Loading practice…</div> });
+const WordScramble = dynamic(() => import("@/components/learn/Buchstabensalat").then(module => module.WordScramble), { ssr: false, loading: () => <div className="camp-loading" role="status">Loading practice…</div> });
+const Sprint = dynamic(() => import("@/components/learn/Sprint").then(module => module.Sprint), { ssr: false, loading: () => <div className="camp-loading" role="status">Loading practice…</div> });
+const ConnectorsChallenge = dynamic(() => import("@/components/learn/KonjunktionenChallenge").then(module => module.ConnectorsChallenge), { ssr: false, loading: () => <div className="camp-loading" role="status">Loading practice…</div> });
+const TensesQuiz = dynamic(() => import("@/components/learn/TensesQuiz").then(module => module.TensesQuiz), { ssr: false, loading: () => <div className="camp-loading" role="status">Loading practice…</div> });
+const BriefeSchreiben = dynamic(() => import("@/components/learn/BriefeSchreiben").then(module => module.BriefeSchreiben), { ssr: false, loading: () => <div className="camp-loading" role="status">Loading practice…</div> });
+const LandeskundeQuiz = dynamic(() => import("@/components/learn/LandeskundeQuiz").then(module => module.LandeskundeQuiz), { ssr: false, loading: () => <div className="camp-loading" role="status">Loading practice…</div> });
+const ArtikelMeister = dynamic(() => import("@/components/learn/ArtikelMeister").then(module => module.ArtikelMeister), { ssr: false, loading: () => <div className="camp-loading" role="status">Loading practice…</div> });
+const RedemittelPraxis = dynamic(() => import("@/components/learn/RedemittelPraxis").then(module => module.RedemittelPraxis), { ssr: false, loading: () => <div className="camp-loading" role="status">Loading practice…</div> });
+const SatzUebersetzer = dynamic(() => import("@/components/learn/SatzUebersetzer").then(module => module.SatzUebersetzer), { ssr: false, loading: () => <div className="camp-loading" role="status">Loading practice…</div> });
+const TopicVocabulary = dynamic(() => import("@/components/learn/ThemenVokabeln").then(module => module.TopicVocabulary), { ssr: false, loading: () => <div className="camp-loading" role="status">Loading practice…</div> });
+const RedewendungenUebersetzer = dynamic(() => import("@/components/learn/RewendungenUebersetzer").then(module => module.RedewendungenUebersetzer), { ssr: false, loading: () => <div className="camp-loading" role="status">Loading practice…</div> });
+const KollokationenUebersetzer = dynamic(() => import("@/components/learn/KollokationenUebersetzer").then(module => module.KollokationenUebersetzer), { ssr: false, loading: () => <div className="camp-loading" role="status">Loading practice…</div> });
+const DialogeUebersetzer = dynamic(() => import("@/components/learn/DialogeUebersetzer").then(module => module.DialogeUebersetzer), { ssr: false, loading: () => <div className="camp-loading" role="status">Loading practice…</div> });
+const ModalpartikelUebersetzer = dynamic(() => import("@/components/learn/ModalpartikelUebersetzer").then(module => module.ModalpartikelUebersetzer), { ssr: false, loading: () => <div className="camp-loading" role="status">Loading practice…</div> });
+const NVVUebersetzer = dynamic(() => import("@/components/learn/NVVUebersetzer").then(module => module.NVVUebersetzer), { ssr: false, loading: () => <div className="camp-loading" role="status">Loading practice…</div> });
+const VerbPrepUebersetzer = dynamic(() => import("@/components/learn/VerbPrepUebersetzer").then(module => module.VerbPrepUebersetzer), { ssr: false, loading: () => <div className="camp-loading" role="status">Loading practice…</div> });
+const DaKompositaUebersetzer = dynamic(() => import("@/components/learn/DaKompositaUebersetzer").then(module => module.DaKompositaUebersetzer), { ssr: false, loading: () => <div className="camp-loading" role="status">Loading practice…</div> });
+const SatzmusterUebersetzer = dynamic(() => import("@/components/learn/SatzmusterUebersetzer").then(module => module.SatzmusterUebersetzer), { ssr: false, loading: () => <div className="camp-loading" role="status">Loading practice…</div> });
+const WordPairQuiz = dynamic(() => import("@/components/learn/WortpaareQuiz").then(module => module.WordPairQuiz), { ssr: false, loading: () => <div className="camp-loading" role="status">Loading practice…</div> });
+const VergleicheUebersetzer = dynamic(() => import("@/components/learn/VergleicheUebersetzer").then(module => module.VergleicheUebersetzer), { ssr: false, loading: () => <div className="camp-loading" role="status">Loading practice…</div> });
+const FalseFriendsUebersetzer = dynamic(() => import("@/components/learn/FalseFriendsUebersetzer").then(module => module.FalseFriendsUebersetzer), { ssr: false, loading: () => <div className="camp-loading" role="status">Loading practice…</div> });
+const FragenUebersetzer = dynamic(() => import("@/components/learn/FragenUebersetzer").then(module => module.FragenUebersetzer), { ssr: false, loading: () => <div className="camp-loading" role="status">Loading practice…</div> });
+const PraeteritumUebersetzer = dynamic(() => import("@/components/learn/PraeteritumUebersetzer").then(module => module.PraeteritumUebersetzer), { ssr: false, loading: () => <div className="camp-loading" role="status">Loading practice…</div> });
+const WordFormationTrainer = dynamic(() => import("@/components/learn/WordFormationTrainer").then(module => module.WordFormationTrainer), { ssr: false, loading: () => <div className="camp-loading" role="status">Loading practice…</div> });
+const NarrativePastTrainer = dynamic(() => import("@/components/learn/NarrativePastTrainer").then(module => module.NarrativePastTrainer), { ssr: false, loading: () => <div className="camp-loading" role="status">Loading practice…</div> });
+const SubordinateClausesTrainer = dynamic(() => import("@/components/learn/SubordinateClausesTrainer").then(module => module.SubordinateClausesTrainer), { ssr: false, loading: () => <div className="camp-loading" role="status">Loading practice…</div> });
+const QuestionFormationTrainer = dynamic(() => import("@/components/learn/QuestionFormationTrainer").then(module => module.QuestionFormationTrainer), { ssr: false, loading: () => <div className="camp-loading" role="status">Loading practice…</div> });
+const Proofreading = dynamic(() => import("@/components/learn/Korrekturlesen").then(module => module.Proofreading), { ssr: false, loading: () => <div className="camp-loading" role="status">Loading practice…</div> });
+const VerbPuzzle = dynamic(() => import("@/components/learn/VerbPuzzle").then(module => module.VerbPuzzle), { ssr: false, loading: () => <div className="camp-loading" role="status">Loading practice…</div> });
+const IdiomMatch = dynamic(() => import("@/components/learn/IdiomMatch").then(module => module.IdiomMatch), { ssr: false, loading: () => <div className="camp-loading" role="status">Loading practice…</div> });
 import { Brain, ArrowLeft, Sparkles } from "lucide-react";
 
 type TrainerId =
@@ -221,7 +226,7 @@ const CATEGORIES: { id: string; label: string; trainers: { id: TrainerId; label:
       { id: "verbprep-ubersetzer", label: "Verbs+Preps Practice", desc: "Translate verbs with prepositions", icon: "🔄" },
       { id: "dakomp-ubersetzer", label: "Compound Adverbs Practice", desc: "Practice formal compound adverbs (thereof, whereby)", icon: "🔗" },
       { id: "satzmuster-ubersetzer", label: "Patterns Practice", desc: "Translate sentence pattern examples", icon: "📐" },
-      { id: "wortpaare-quiz", label: "Word Pairs Quiz", desc: "Choose the right word (since/for, if/when)", icon: "🔀" },
+      { id: "wortpaare-quiz", label: "Word Pairs Quiz", desc: "Choose between commonly confused words (affect/effect, their/there)", icon: "🔀" },
       { id: "vergleiche-ubersetzer", label: "Comparisons Practice", desc: "Translate comparison sentences", icon: "⚖️" },
       { id: "false-friends-ubersetzer", label: "False Friends Practice", desc: "Words that look similar but differ in meaning", icon: "⚠️" },
       { id: "fragen-ubersetzer", label: "Questions Practice", desc: "Translate questions between English and Arabic", icon: "❓" },
@@ -231,7 +236,7 @@ const CATEGORIES: { id: string; label: string; trainers: { id: TrainerId; label:
   },
 ];
 
-const TRAINER_COMPONENTS: Record<TrainerId, () => JSX.Element | null> = {
+const TRAINER_COMPONENTS: Record<TrainerId, ComponentType> = {
   "noun-gender": NounGenderTrainer,
   "conjugation": ConjugationTrainer,
   "sentence-builder": SentenceBuilder,
@@ -336,7 +341,7 @@ export default function PracticePage() {
         <div className="flex flex-wrap items-center gap-3 mb-6">
           <button
             onClick={() => setActiveTrainer(null)}
-            className="inline-flex shrink-0 min-h-11 items-center gap-1.5 font-display font-extrabold text-sm px-4 py-2 rounded-[var(--radius-md)] border-2 border-[var(--color-border-default)] text-[var(--color-text-primary)] bg-[var(--color-surface)] transition-all duration-150 hover:border-[var(--color-border-strong)] active:translate-y-0.5"
+            className="camp-secondary inline-flex shrink-0 min-h-11 items-center gap-1.5 font-display font-extrabold text-sm px-4 py-2 rounded-[var(--radius-md)] border border-[var(--color-border-default)] text-[var(--color-text-primary)] bg-[var(--color-surface)] transition-all duration-150 hover:border-[var(--color-border-strong)] active:translate-y-0.5"
             style={{ boxShadow: "0 2px 0 var(--color-border-default)" }}
           >
             <ArrowLeft className="w-4 h-4" />
@@ -344,11 +349,11 @@ export default function PracticePage() {
           </button>
           {cat && (
             <span className="basis-full sm:basis-auto min-w-0 font-body text-sm text-[var(--color-text-secondary)]">
-              / {cat.icon} {cat.label}
+              / <LearningArt name={cat.icon} size={18} /> {cat.label}
             </span>
           )}
         </div>
-        <Component />
+        <PracticeFrame illustration="none" topic={activeTrainer} layout={activeTrainer === "grammar-reference" || activeTrainer === "verb-explorer" ? "reference" : ["speed-match", "memory-match", "word-search", "crossword", "verb-puzzle", "idiom-match"].includes(activeTrainer) ? "matching" : activeTrainer === "briefe" ? "writing" : "quiz"}><Component /></PracticeFrame>
       </PageWrapper>
     );
   }
@@ -357,12 +362,12 @@ export default function PracticePage() {
 
   return (
     <PageWrapper>
-      <motion.div variants={container} initial="hidden" animate="show" className="space-y-8">
+      <motion.div variants={container} initial={false} animate="show" className="camp-section-stack space-y-6">
         {/* Header */}
-        <motion.div variants={itemAnim}>
+        <PageBanner>
           <div className="flex items-center gap-3 mb-1">
             <div className="inline-flex items-center justify-center w-8 h-8 rounded-[var(--radius-md)] bg-[var(--color-primary)]">
-              <Brain className="w-4.5 h-4.5 text-white" />
+              <LearningArt name="Brain" className="w-4.5 h-4.5 text-white" />
             </div>
             <h1
               className="font-display font-extrabold text-[var(--color-text-primary)]"
@@ -376,11 +381,11 @@ export default function PracticePage() {
               {totalTrainers} trainers and games to practice your English
             </p>
             <span className="inline-flex items-center gap-1 font-display font-extrabold text-[10px] px-2.5 py-1 rounded-[var(--radius-pill)] border-[1.5px] text-[var(--color-text-warning)] bg-[var(--color-warning-bg)] border-[var(--color-warning)]">
-              <Sparkles className="w-3 h-3 text-[var(--color-warning)]" />
+              <LearningArt name="Sparkles" size={12} className="w-3 h-3 text-[var(--color-text-warning)]" />
               {CATEGORIES.length} categories
             </span>
           </div>
-        </motion.div>
+        </PageBanner>
 
         {/* Categories */}
         {CATEGORIES.map((cat, ci) => (
@@ -388,18 +393,18 @@ export default function PracticePage() {
             <h2 className="font-display font-extrabold text-[var(--color-text-primary)] mb-3" style={{ fontSize: "17px", letterSpacing: "0.2px" }}>
               {cat.label}
             </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2.5">
+            <div className="camp-trainer-grid">
               {cat.trainers.map((trainer) => (
                 <motion.button
                   key={trainer.id}
                   whileHover={{ y: -3 }}
                   whileTap={{ scale: 0.98 }}
                   onClick={() => setActiveTrainer(trainer.id)}
-                  className="text-left bg-[var(--color-surface)] rounded-[var(--radius-lg)] p-4 border-2 border-[var(--color-border-default)] transition-all duration-200 hover:border-[var(--color-border-strong)]"
+                  className="text-left bg-[var(--color-surface)] rounded-[var(--radius-lg)] p-4 border border-[var(--color-border-default)] transition-all duration-200 hover:border-[var(--color-border-strong)]"
                   style={{ boxShadow: "0 3px 0 var(--color-border-default)" }}
                 >
                   <div className="flex items-start gap-3">
-                    <span className="text-2xl shrink-0">{trainer.icon}</span>
+                    <LearningArt name={trainer.icon} size={24} className=" shrink-0" />
                     <div className="min-w-0">
                       <h3 className="font-display font-bold text-sm text-[var(--color-text-primary)]">{trainer.label}</h3>
                       <p className="font-body text-xs text-[var(--color-text-secondary)] mt-0.5 leading-relaxed">{trainer.desc}</p>

@@ -1,5 +1,6 @@
 "use client";
-import { useState, useMemo } from "react";
+import { LearningArt } from "@/components/brand/LearningArt";
+import { useEffect, useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useProgress } from "@/store/useProgress";
 import { useErrors } from "@/store/useErrors";
@@ -34,10 +35,11 @@ export function Matching({ data }: { data: MatchingData }) {
   }, [data.pairs]);
 
   const leftItems = data.pairs.map(([l]) => l);
-  const rightItems = useMemo(
-    () => data.pairs.map(([, r]) => r).sort(() => Math.random() - 0.5),
-    [data.pairs]
-  );
+  // The initial server/client document must match. Shuffle after hydration.
+  const [rightItems, setRightItems] = useState(() => data.pairs.map(([, r]) => r));
+  useEffect(() => {
+    setRightItems(data.pairs.map(([, r]) => r).sort(() => Math.random() - 0.5));
+  }, [data.pairs]);
 
   function selectLeft(item: string) {
     if (matched[item] || checked) return;
@@ -189,7 +191,7 @@ export function Matching({ data }: { data: MatchingData }) {
 
                 {grammarNote && (
                   <div className="flex items-start gap-3 p-4 rounded-[var(--radius-lg)] bg-[var(--color-warning-bg)] text-[var(--color-text-warning)] border-2 border-[var(--color-warning)]" style={{ boxShadow: "0 2px 0 var(--color-warning)" }}>
-                    <BookOpen className="w-5 h-5 shrink-0 mt-0.5 text-[var(--color-warning)]" />
+                    <LearningArt name="BookOpen" size={20} className="w-5 h-5 shrink-0 mt-0.5 text-[var(--color-warning)]" />
                     <div>
                       <p className="font-display font-extrabold text-sm">Study Tip</p>
                       <p className="font-body text-sm mt-1">{grammarNote}</p>

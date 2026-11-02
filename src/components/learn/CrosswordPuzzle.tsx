@@ -1,4 +1,6 @@
 "use client";
+import { LearningArt } from "@/components/brand/LearningArt";
+import { PracticeCard, PracticeButton } from "@/components/ui/PracticeSurface";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { useProgress } from "@/store/useProgress";
@@ -111,7 +113,7 @@ export function CrosswordPuzzle() {
   }
 
   return (
-    <div className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border-2 border-[var(--color-border-default)] p-6 shadow-sm" style={{ boxShadow: "0 3px 0 var(--color-border-default)" }}>
+    <PracticeCard data-practice-surface="question" className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-6 shadow-sm" style={{ boxShadow: "0 3px 0 var(--color-border-default)" }}>
       <div className="flex items-center justify-between mb-4">
         <span className="text-xs font-semibold text-lime-600 uppercase tracking-wider">Crossword Puzzle</span>
       </div>
@@ -126,16 +128,16 @@ export function CrosswordPuzzle() {
                 const isFirstInClue = puzzle.clues.some((cl) => cl.row === r && cl.col === c);
                 return (
                   <div key={key} className="relative w-10 h-10">
-                    {isFirstInClue && <span className="absolute -top-2 -left-1 text-[9px] font-bold text-[var(--color-text-disabled)] z-10">{puzzle.clues.findIndex((cl) => cl.row === r && cl.col === c) + 1}</span>}
+                    {isFirstInClue && <span className="absolute -top-2 -left-1 text-[9px] font-bold text-[var(--color-text-secondary)] z-10">{puzzle.clues.findIndex((cl) => cl.row === r && cl.col === c) + 1}</span>}
                     <input
                       value={inputs[key] || ""}
                       onChange={(e) => handleChange(r, c, e.target.value.slice(-1))}
                       maxLength={1}
-                      className={`w-full h-full text-center text-sm font-bold font-mono uppercase border-2 rounded transition-all duration-150 ${
+                      className={`w-full h-full text-center text-sm font-bold font-mono uppercase border rounded transition-all duration-150 ${
                         checked
                           ? (inputs[key] || "").toUpperCase() === cell.answer
-                            ? "bg-[var(--color-success)] text-white border-[var(--color-success)]"
-                            : "bg-[var(--color-error)] text-white border-[var(--color-error)]"
+                            ? "bg-[var(--color-success-bg)] text-[var(--color-text-success)] border-[var(--color-success)]"
+                            : "bg-[var(--color-error-bg)] text-[var(--color-text-error)] border-[var(--color-error)]"
                           : "bg-[var(--color-surface)] border-[var(--color-border-default)] text-[var(--color-text-primary)] focus:border-brand-400 focus:ring-2 focus:ring-brand-100"
                       }`}
                     />
@@ -153,18 +155,18 @@ export function CrosswordPuzzle() {
               <div key={i} className="text-xs">
                 <span className="font-bold text-[var(--color-text-secondary)]">{i + 1}. </span>
                 <span className="text-[var(--color-text-primary)]">{clue.clue}</span>
-                <span className="text-[var(--color-text-disabled)] ml-1">({clue.dir}, {clue.length})</span>
+                <span className="text-[var(--color-text-secondary)] ml-1">({clue.dir}, {clue.length})</span>
               </div>
             ))}
           </div>
 
           {!checked ? (
-            <button onClick={handleCheck} className="mt-4 text-xs font-medium bg-[var(--color-primary)] text-white px-5 py-2 rounded-[var(--radius-md)] hover:bg-brand-600 transition-all">
+            <PracticeButton onClick={handleCheck} className="mt-4 text-xs font-medium bg-[var(--color-primary)] text-[var(--color-on-brand)] px-5 py-2 rounded-[var(--radius-md)] hover:bg-[var(--color-primary-hover)] transition-all">
               Check Answers
-            </button>
+            </PracticeButton>
           ) : (
             <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className="mt-4 space-y-3">
-              <p className={`text-sm font-medium ${allCorrect ? "text-[var(--color-success)]" : "text-[var(--color-text-secondary)]"}`}>
+              <p className={`text-sm font-medium ${allCorrect ? "text-[var(--color-text-success)]" : "text-[var(--color-text-secondary)]"}`}>
                 {allCorrect ? "🎉 All correct! +10 XP each" : `${score}/${puzzle.clues.length} correct`}
               </p>
 
@@ -175,15 +177,15 @@ export function CrosswordPuzzle() {
                     const wt = getWordTip(clue.answer, clue.clue);
                     return (
                       <div key={ci}>
-                        <div className="flex items-start gap-3 p-4 rounded-[var(--radius-lg)] bg-[var(--color-warning)] text-white ring-1 ring-[var(--color-warning)]">
-                          <Lightbulb className="w-5 h-5 shrink-0 mt-0.5 text-[var(--color-warning)]" />
+                        <div className="flex items-start gap-3 p-4 rounded-[var(--radius-lg)] bg-[var(--color-warning-bg)] text-[var(--color-text-warning)] ring-1 ring-[var(--color-warning)]">
+                          <LearningArt name="Lightbulb" size={20} className="w-5 h-5 shrink-0 mt-0.5 text-[var(--color-text-warning)]" />
                           <div>
                             <p className="font-semibold text-sm">Astuce (Tip) — #{ci + 1}: {clue.answer}</p>
                             <p className="text-sm mt-1">{wt.tip}</p>
                           </div>
                         </div>
-                        <div className="flex items-start gap-3 p-4 rounded-[var(--radius-lg)] bg-[var(--color-info)] text-white ring-1 ring-[var(--color-info)] mt-2">
-                          <BookOpen className="w-5 h-5 shrink-0 mt-0.5 text-[var(--color-info)]" />
+                        <div className="flex items-start gap-3 p-4 rounded-[var(--radius-lg)] bg-[var(--color-info-bg)] text-[var(--color-text-info)] ring-1 ring-[var(--color-info)] mt-2">
+                          <LearningArt name="BookOpen" size={20} className="w-5 h-5 shrink-0 mt-0.5 text-[var(--color-text-info)]" />
                           <div>
                             <p className="font-semibold text-sm">Suggestion</p>
                             <p className="text-sm mt-1">{wt.suggest}</p>
@@ -195,13 +197,13 @@ export function CrosswordPuzzle() {
                 </div>
               )}
 
-              <button onClick={handleReset} className="text-xs font-medium bg-[var(--color-primary-subtle)] text-[var(--color-primary-dark)] border border-[var(--color-primary)] px-4 py-1.5 rounded-[var(--radius-md)] hover:bg-[var(--color-primary)] transition-all">
+              <PracticeButton onClick={handleReset} className="text-xs font-medium bg-[var(--color-primary-subtle)] text-[var(--color-text-link)] border border-[var(--color-primary)] px-4 py-1.5 rounded-[var(--radius-md)] hover:bg-[var(--color-primary)] transition-all">
                 Try Again
-              </button>
+              </PracticeButton>
             </motion.div>
           )}
         </div>
       </div>
-    </div>
+    </PracticeCard>
   );
 }

@@ -1,4 +1,7 @@
 "use client";
+
+import { LearningArt } from "@/components/brand/LearningArt";
+import { PracticeCard, PracticeButton } from "@/components/ui/PracticeSurface";
 import { useState, useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
 import { useProgress } from "@/store/useProgress";
@@ -62,13 +65,13 @@ export function TimedChallenge() {
   const current = questions[index];
   if (!current && !finished) {
     return (
-      <div className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border-2 border-[var(--color-border-default)] p-6 shadow-sm text-center py-10" style={{ boxShadow: "0 3px 0 var(--color-border-default)" }}>
-        <span className="text-5xl block mb-3">⚡</span>
+      <PracticeCard data-practice-surface="question" className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-6 shadow-sm text-center py-10" style={{ boxShadow: "0 3px 0 var(--color-border-default)" }}>
+        <LearningArt name="⚡" size={36} className=" block mb-3" />
         <h3 className="text-xl font-display font-extrabold text-[var(--color-text-primary)] mb-2">Timed Challenge</h3>
         <p className="text-sm text-[var(--color-text-secondary)] mb-2">Answer as many questions as you can in {DURATION} seconds!</p>
-        <p className="text-xs text-[var(--color-text-disabled)] mb-6">Articles, past tense, plurals, prepositions</p>
-        <button onClick={() => { setQuestions(generateQuestions()); setStarted(true); }} className="text-sm font-medium bg-[var(--color-primary)] text-white px-6 py-2.5 rounded-[var(--radius-lg)] hover:bg-brand-600 transition-all">Start Challenge 🏁</button>
-      </div>
+        <p className="text-xs text-[var(--color-text-secondary)] mb-6">Articles, past tense, plurals, prepositions</p>
+        <PracticeButton onClick={() => { setQuestions(generateQuestions()); setStarted(true); }} className="text-sm font-medium bg-[var(--color-primary)] text-[var(--color-on-brand)] px-6 py-2.5 rounded-[var(--radius-lg)] hover:bg-[var(--color-primary-hover)] transition-all">Start Challenge 🏁</PracticeButton>
+      </PracticeCard>
     );
   }
 
@@ -96,20 +99,20 @@ export function TimedChallenge() {
       <div className="text-center py-8">
         <span className="text-5xl block mb-3">{score >= 10 ? "🏆" : score >= 5 ? "👍" : "💪"}</span>
         <h3 className="text-xl font-display font-extrabold text-[var(--color-text-primary)] mb-1">Time&rsquo;s Up!</h3>
-        <p className="text-lg font-display font-extrabold text-[var(--color-primary-dark)] mb-1">{score}/{total} correct</p>
+        <p className="text-lg font-display font-extrabold text-[var(--color-text-link)] mb-1">{score}/{total} correct</p>
         <p className="text-sm text-[var(--color-text-secondary)] mb-6">{score >= 10 ? "Rapid-fire master!" : score >= 5 ? "Good speed!" : "Speed comes with practice!"}</p>
-        <button onClick={() => { setQuestions(generateQuestions()); setIndex(0); setScore(0); setTotal(0); setTimeLeft(DURATION); setStarted(true); setFinished(false); setShowResult(false); }} className="text-sm font-medium bg-[var(--color-primary-subtle)] text-[var(--color-primary-dark)] border border-[var(--color-primary)] px-5 py-2 rounded-[var(--radius-lg)] hover:bg-[var(--color-primary)] transition-all">Play Again 🔄</button>
+        <PracticeButton onClick={() => { setQuestions(generateQuestions()); setIndex(0); setScore(0); setTotal(0); setTimeLeft(DURATION); setStarted(true); setFinished(false); setShowResult(false); }} className="text-sm font-medium bg-[var(--color-primary-subtle)] text-[var(--color-text-link)] border border-[var(--color-primary)] px-5 py-2 rounded-[var(--radius-lg)] hover:bg-[var(--color-primary)] transition-all">Play Again <LearningArt name="🔄" size={16} /></PracticeButton>
       </div>
     );
   }
 
   return (
-    <div className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border-2 border-[var(--color-border-default)] p-6 shadow-sm" style={{ boxShadow: "0 3px 0 var(--color-border-default)" }}>
+    <PracticeCard data-practice-surface="question" className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-6 shadow-sm" style={{ boxShadow: "0 3px 0 var(--color-border-default)" }}>
       <div className="flex items-center justify-between mb-4">
         <span className="text-xs font-semibold text-[#FFD700] uppercase tracking-wider">Timed Challenge</span>
         <div className="flex items-center gap-3">
-          <span className={`text-sm font-mono font-bold ${timeLeft <= 10 ? "text-[var(--color-error)]" : "text-[var(--color-text-secondary)]"}`}>{timeLeft}s</span>
-          <span className="text-xs text-[var(--color-text-disabled)]">Score: {score}/{total}</span>
+          <span className={`text-sm font-mono font-bold ${timeLeft <= 10 ? "text-[var(--color-text-error)]" : "text-[var(--color-text-secondary)]"}`}>{timeLeft}s</span>
+          <span className="text-xs text-[var(--color-text-secondary)]">Score: {score}/{total}</span>
         </div>
       </div>
 
@@ -120,14 +123,14 @@ export function TimedChallenge() {
             {current.options.map((opt, i) => {
               let style = "bg-[var(--color-surface)] border-[var(--color-border-default)] text-[var(--color-text-primary)] hover:bg-yellow-50 hover:border-yellow-300 hover:text-yellow-700";
               if (showResult) {
-                if (i === current.correct) style = "bg-[var(--color-success)] text-white border-[var(--color-success)] ring-2 ring-[var(--color-success)]";
-                else if (i === current.correct) style = "bg-[var(--color-success)] text-white border-[var(--color-success)]";
+                if (i === current.correct) style = "bg-[var(--color-success-bg)] text-[var(--color-text-success)] border-[var(--color-success)] ring-2 ring-[var(--color-success)]";
+                else if (i === current.correct) style = "bg-[var(--color-success-bg)] text-[var(--color-text-success)] border-[var(--color-success)]";
                 else style = "opacity-40";
               }
               return (
-                <button key={i} onClick={() => handleSelect(i)} disabled={showResult} className={`px-4 py-3 text-sm font-medium rounded-[var(--radius-lg)] border-2 transition-all duration-200 ${style}`}>
+                <PracticeButton key={i} onClick={() => handleSelect(i)} disabled={showResult} className={`px-4 py-3 text-sm font-medium rounded-[var(--radius-lg)] border transition-all duration-200 ${style}`}>
                   {opt}
-                </button>
+                </PracticeButton>
               );
             })}
           </div>
@@ -136,12 +139,12 @@ export function TimedChallenge() {
 
       {showResult && (
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-center">
-          <p className="text-xs text-[var(--color-text-disabled)] mb-3">{current.explanation}</p>
-          <button onClick={handleNext} className="text-sm font-medium bg-[var(--color-primary-subtle)] text-[var(--color-primary-dark)] border border-[var(--color-primary)] px-5 py-2 rounded-[var(--radius-lg)] hover:bg-[var(--color-primary)] transition-all">
+          <p className="text-xs text-[var(--color-text-secondary)] mb-3">{current.explanation}</p>
+          <PracticeButton onClick={handleNext} className="text-sm font-medium bg-[var(--color-primary-subtle)] text-[var(--color-text-link)] border border-[var(--color-primary)] px-5 py-2 rounded-[var(--radius-lg)] hover:bg-[var(--color-primary)] transition-all">
             {index + 1 >= questions.length ? "See Results" : "Next →"}
-          </button>
+          </PracticeButton>
         </motion.div>
       )}
-    </div>
+    </PracticeCard>
   );
 }

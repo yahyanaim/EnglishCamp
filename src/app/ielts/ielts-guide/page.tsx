@@ -1,4 +1,7 @@
 "use client";
+
+import { ResourceText } from "@/components/ui/ResourceText";
+import { LearningArt } from "@/components/brand/LearningArt";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { PageWrapper } from "@/components/layout/PageWrapper";
@@ -17,22 +20,23 @@ export default function IELTSGuidePage() {
           <ChevronLeft className="w-4 h-4" /> Back to overview
         </button>
         <div className="space-y-6">
-          <div className="bg-gradient-to-br from-orange-50 to-amber-50 rounded-[var(--radius-lg)] border-2 border-[var(--color-border-default)]/50 p-6 shadow-sm">
+          <div className="bg-[var(--color-surface-alt)]    rounded-[var(--radius-lg)] border border-[var(--color-border-default)]/50 p-6 shadow-sm">
             <div className="flex items-center gap-4">
-              <span className="text-3xl">{section.icon}</span>
+              <LearningArt name={section.icon} size={24} className="" />
               <div>
-                <h2 className="text-xl font-bold text-orange-600">{section.title}</h2>
+                <h2 className="text-xl font-bold text-[var(--camp-control-ink)]">{section.title}</h2>
                 <p className="text-sm text-[var(--color-text-secondary)] mt-1">{section.subtitle}</p>
               </div>
             </div>
             <p className="text-sm text-[var(--color-text-secondary)] mt-4 leading-relaxed">{section.description}</p>
           </div>
+          {section.id === "free-resources" && <p className="text-xs text-[var(--color-text-secondary)]">Some publishers also have paid material; official sample tests are free.</p>}
           {section.topics.map((topic, i) => (
-            <div key={i} className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border-2 border-[var(--color-border-default)] p-5 shadow-sm">
+            <div key={i} className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-5 shadow-sm">
               <h3 className="text-sm font-bold text-[var(--color-text-primary)] mb-3">{topic.title}</h3>
               <div className="space-y-2">
                 {topic.body.map((item, j) => (
-                  <p key={j} className="text-sm text-[var(--color-text-secondary)] leading-relaxed">{item}</p>
+                  <p key={j} className="text-sm text-[var(--color-text-secondary)] leading-relaxed"><ResourceText text={item}/></p>
                 ))}
               </div>
             </div>
@@ -54,12 +58,12 @@ export default function IELTSGuidePage() {
             <motion.button key={s.id} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.05 }}
               whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}
               onClick={() => setSelectedSection(s.id)}
-              className="text-left bg-[var(--color-surface)] rounded-[var(--radius-lg)] border-2 border-[var(--color-border-default)] p-4 shadow-sm hover:shadow-md transition-all"
+              className="text-left bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-4 shadow-sm hover:shadow-md transition-all"
             >
               <div className="flex items-start gap-3">
-                <span className="text-2xl">{s.icon}</span>
+                <LearningArt name={s.icon} size={24} className="" />
                 <div>
-                  <h3 className="text-sm font-bold text-orange-600">{s.title}</h3>
+                  <h3 className="text-sm font-bold text-[var(--camp-control-ink)]">{s.title}</h3>
                   <p className="text-xs text-[var(--color-text-secondary)] mt-1 line-clamp-2">{s.subtitle}</p>
                 </div>
               </div>

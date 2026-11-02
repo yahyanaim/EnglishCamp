@@ -1,7 +1,10 @@
 "use client";
+
+import { LearningArt } from "@/components/brand/LearningArt";
+import { PracticeCard, PracticeButton } from "@/components/ui/PracticeSurface";
 import { useState, useMemo, useCallback, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { playCorrect, playWrong, playXP } from "@/lib/audio";
+import { playCorrect, playWrong, playXP, speak } from "@/lib/audio";
 import { useProgress } from "@/store/useProgress";
 import { FLASHCARDS } from "@/data/flashcards";
 import { HelpCircle, RefreshCw, Sparkles, Volume2, CheckCircle2, XCircle, Lightbulb, ArrowRight } from "lucide-react";
@@ -106,37 +109,32 @@ export function WordScramble() {
 
   function speakWord() {
     if (!current) return;
-    if (typeof window === "undefined" || !window.speechSynthesis) return;
-    window.speechSynthesis.cancel();
-    const u = new SpeechSynthesisUtterance(current.original);
-    u.lang = "en-US";
-    u.rate = 0.8;
-    window.speechSynthesis.speak(u);
+    speak(current.original);
   }
 
   if (phase === "ready") {
     return (
-      <div className="bg-[var(--color-surface)] rounded-[24px] border-2 border-[var(--color-border-default)] p-10 text-center shadow-[0_4px_16px_rgba(0,0,0,0.08)] max-w-lg mx-auto">
-        <span className="text-5xl block mb-4">🔀</span>
+      <PracticeCard data-practice-surface="intro" className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-5 sm:p-6 text-center shadow-[var(--shadow-1)] max-w-lg mx-auto">
+        <LearningArt name="🔀" size={36} className=" block mb-4" />
         <h2 className="text-xl font-display font-extrabold text-[var(--color-text-primary)]">Word Scramble</h2>
         <p className="text-sm text-[var(--color-text-secondary)] mt-2">Unscramble the English word as fast as you can!</p>
 
         <div className="flex items-center justify-center gap-2 mt-5">
           {[5, 10, 15].map((n) => (
-            <button key={n} onClick={() => setRound(n)}
+            <PracticeButton key={n} onClick={() => setRound(n)}
               className={`rounded-[10px] px-4 py-2 text-xs font-bold transition-all ${
-                round === n ? "bg-[var(--color-primary)] text-white" : "bg-[var(--color-surface-alt)] text-[var(--color-text-secondary)] hover:bg-[var(--color-border-default)]"
+                round === n ? "bg-[var(--color-primary)] text-[var(--color-on-brand)]" : "bg-[var(--color-surface-alt)] text-[var(--color-text-secondary)] hover:bg-[var(--color-border-default)]"
               }`}
-            >{n} rounds</button>
+            >{n} rounds</PracticeButton>
           ))}
         </div>
 
-        <button onClick={initGame}
-          className="mt-6 px-8 py-3 rounded-[14px] bg-[var(--color-primary)] text-white font-bold text-sm hover:bg-brand-600 transition-all inline-flex items-center gap-2 shadow-[0_4px_0_rgba(28,176,246,0.3)]"
+        <PracticeButton onClick={initGame}
+          className="mt-6 px-8 py-3 rounded-[14px] bg-[var(--color-primary)] text-[var(--color-on-brand)] font-bold text-sm hover:bg-[var(--color-primary-hover)] transition-all inline-flex items-center gap-2 shadow-[var(--shadow-1)]"
         >
-          <span className="text-lg">🔀</span> Start Game
-        </button>
-      </div>
+          <LearningArt name="🔀" size={24} className="" /> Start Game
+        </PracticeButton>
+      </PracticeCard>
     );
   }
 
@@ -144,29 +142,29 @@ export function WordScramble() {
     const maxScore = totalRounds * 10;
     const pct = Math.round((score / maxScore) * 100);
     return (
-      <div className="bg-[var(--color-surface)] rounded-[24px] border-2 border-[var(--color-border-default)] p-10 text-center shadow-[0_4px_16px_rgba(0,0,0,0.08)] max-w-lg mx-auto">
-        <span className="text-5xl block mb-4">{pct >= 80 ? "🎉" : pct >= 50 ? "💪" : "📚"}</span>
+      <PracticeCard data-practice-surface="result" className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-5 sm:p-6 text-center shadow-[var(--shadow-1)] max-w-lg mx-auto">
+        <span className="text-5xl block mb-4"><LearningArt name={pct >= 80 ? "🎉" : pct >= 50 ? "💪" : "📚"} size={28} /></span>
         <h2 className="text-xl font-display font-extrabold text-[var(--color-text-primary)]">Game Over!</h2>
         <div className="flex items-center justify-center gap-6 mt-4">
           <div>
-            <p className="text-3xl font-display font-extrabold text-[var(--color-success)]">{score}<span className="text-lg text-[var(--color-text-disabled)]">/{maxScore}</span></p>
+            <p className="text-3xl font-display font-extrabold text-[var(--color-text-success)]">{score}<span className="text-lg text-[var(--color-text-secondary)]">/{maxScore}</span></p>
             <p className="text-xs text-[var(--color-text-secondary)]">Points</p>
           </div>
           <div className="w-px h-10 bg-[var(--color-border-default)]" />
           <div>
-            <p className="text-3xl font-display font-extrabold text-[var(--color-primary-dark)]">{pct}%</p>
+            <p className="text-3xl font-display font-extrabold text-[var(--color-text-link)]">{pct}%</p>
             <p className="text-xs text-[var(--color-text-secondary)]">Accuracy</p>
           </div>
         </div>
-        <p className="mt-4 text-sm font-bold bg-amber-500 text-white font-extrabold shadow-sm px-4 py-2 rounded-[10px] inline-flex items-center gap-1.5">
-          <Sparkles className="w-4 h-4" /> +{score + (pct >= 80 ? 15 : pct >= 50 ? 10 : 0)} XP
+        <p className="mt-4 text-sm font-bold bg-[var(--color-warning-bg)] text-[var(--color-text-warning)] font-extrabold shadow-sm px-4 py-2 rounded-[10px] inline-flex items-center gap-1.5">
+          <LearningArt name="Sparkles" size={16} className="w-4 h-4" /> +{score + (pct >= 80 ? 15 : pct >= 50 ? 10 : 0)} XP
         </p>
-        <button onClick={() => setPhase("ready")}
-          className="mt-6 px-8 py-3 rounded-[14px] bg-[var(--color-primary)] text-white font-bold text-sm hover:bg-brand-600 transition-all inline-flex items-center gap-2"
+        <PracticeButton onClick={() => setPhase("ready")}
+          className="mt-6 px-8 py-3 rounded-[14px] bg-[var(--color-primary)] text-[var(--color-on-brand)] font-bold text-sm hover:bg-[var(--color-primary-hover)] transition-all inline-flex items-center gap-2"
         >
           <RefreshCw className="w-4 h-4" /> Play Again
-        </button>
-      </div>
+        </PracticeButton>
+      </PracticeCard>
     );
   }
 
@@ -174,15 +172,15 @@ export function WordScramble() {
 
   return (
     <div className="space-y-4 max-w-lg mx-auto">
-      <div className="flex items-center justify-between">
-        <span className="inline-flex items-center gap-1.5 rounded-[10px] bg-[var(--color-primary-subtle)] px-3 py-1 text-xs font-semibold text-[var(--color-primary-dark)]">
-          🔀 {index + 1}/{items.length}
+      <div className="camp-quiz-status flex items-center justify-between">
+        <span className="inline-flex items-center gap-1.5 rounded-[10px] bg-[var(--color-primary-subtle)] px-3 py-1 text-xs font-semibold text-[var(--color-text-link)]">
+          <LearningArt name="🔀" size={16} /> {index + 1}/{items.length}
         </span>
         <div className="flex items-center gap-2">
-          <span className="inline-flex items-center gap-1.5 rounded-[10px] bg-[var(--color-success)] text-white px-3 py-1 text-xs font-semibold">
-            <Sparkles className="w-3 h-3" /> {score} pts
+          <span className="inline-flex items-center gap-1.5 rounded-[10px] bg-[var(--color-success-bg)] text-[var(--color-text-success)] px-3 py-1 text-xs font-semibold">
+            <LearningArt name="Sparkles" size={12} className="w-3 h-3" /> {score} pts
           </span>
-          <span className="text-[10px] text-[var(--color-text-disabled)] bg-[var(--color-surface-alt)] px-2 py-1 rounded-[var(--radius-pill)]">{current.cat}</span>
+          <span className="text-[10px] text-[var(--color-text-secondary)] bg-[var(--color-surface-alt)] px-2 py-1 rounded-[var(--radius-pill)]">{current.cat}</span>
         </div>
       </div>
 
@@ -195,21 +193,21 @@ export function WordScramble() {
         />
       </div>
 
-      <div className="bg-[var(--color-surface)] rounded-[24px] border-2 border-[var(--color-border-default)] p-8 shadow-[0_4px_16px_rgba(0,0,0,0.08)] text-center">
+      <PracticeCard data-practice-surface="question" className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-5 sm:p-6 shadow-[var(--shadow-1)] text-center">
         <div className="mb-2">
-          <span className="text-xs text-[var(--color-text-disabled)] font-medium uppercase tracking-wide">Unscramble this word</span>
+          <span className="text-xs text-[var(--color-text-secondary)] font-medium uppercase tracking-wide">Unscramble this word</span>
         </div>
 
         <div className="flex items-center justify-center gap-2 mb-6">
           <p className="text-3xl font-display font-extrabold tracking-[0.2em] text-[var(--color-text-primary)] font-mono select-all">
             {current.scrambled}
           </p>
-          <button onClick={speakWord}
+          <PracticeButton onClick={speakWord}
             className="w-8 h-8 rounded-[var(--radius-pill)] bg-[var(--color-surface-alt)] text-[var(--color-text-secondary)] flex items-center justify-center hover:bg-[var(--color-border-default)] transition-all shrink-0"
             title="Hear the word"
           >
             <Volume2 className="w-4 h-4" />
-          </button>
+          </PracticeButton>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-3">
@@ -221,20 +219,20 @@ export function WordScramble() {
             placeholder="Type the unscrambled word..."
             disabled={status !== "idle"}
             autoFocus
-            className="w-full px-4 py-3 rounded-[14px] border-2 border-[var(--color-border-default)] text-center text-lg font-medium text-[var(--color-text-primary)] placeholder:text-[var(--color-text-disabled)] focus:outline-none focus:ring-2 focus:ring-brand-400 transition-all disabled:opacity-50"
+            className="w-full px-4 py-3 rounded-[14px] border border-[var(--color-border-default)] text-center text-lg font-medium text-[var(--color-text-primary)] placeholder:text-[var(--color-text-secondary)] focus:outline-none focus:ring-2 focus:ring-brand-400 transition-all disabled:opacity-50"
           />
           <div className="flex items-center justify-center gap-2">
-            <button type="submit" disabled={status !== "idle" || !input.trim()}
-              className="px-6 py-2.5 rounded-[12px] bg-[var(--color-primary)] text-white font-bold text-sm hover:bg-brand-600 transition-all disabled:opacity-40 shadow-[0_3px_0_rgba(28,176,246,0.3)] inline-flex items-center gap-1.5"
+            <PracticeButton type="submit" disabled={status !== "idle" || !input.trim()}
+              className="px-6 py-2.5 rounded-[12px] bg-[var(--color-primary)] text-[var(--color-on-brand)] font-bold text-sm hover:bg-[var(--color-primary-hover)] transition-all disabled:opacity-40 shadow-[0_3px_0_rgba(126,34,206,0.3)] inline-flex items-center gap-1.5"
             >
               <CheckCircle2 className="w-4 h-4" /> Check
-            </button>
+            </PracticeButton>
             {!hintUsed && status === "idle" && (
-              <button type="button" onClick={handleHint}
-                className="px-4 py-2.5 rounded-[12px] bg-[var(--color-warning)] text-white  font-semibold text-xs hover:bg-amber-100 transition-all inline-flex items-center gap-1.5"
+              <PracticeButton type="button" onClick={handleHint}
+                className="px-4 py-2.5 rounded-[12px] bg-[var(--color-warning-bg)] text-[var(--color-text-warning)]  font-semibold text-xs hover:bg-amber-100 transition-all inline-flex items-center gap-1.5"
               >
-                <Lightbulb className="w-3.5 h-3.5" /> Hint
-              </button>
+                <LearningArt name="Lightbulb" size={14} className="w-3.5 h-3.5" /> Hint
+              </PracticeButton>
             )}
           </div>
         </form>
@@ -242,7 +240,7 @@ export function WordScramble() {
         <AnimatePresence>
           {showHint && (
             <motion.div initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -6 }}
-              className="mt-4 p-3 rounded-[10px] bg-[var(--color-warning)] text-white text-xs"
+              className="mt-4 p-3 rounded-[10px] bg-[var(--color-warning-bg)] text-[var(--color-text-warning)] text-xs"
             >
               <strong>Hint:</strong> starts with &ldquo;{current.original[0]}&rdquo;
               <span> &middot; {current.meaning}</span>
@@ -253,7 +251,7 @@ export function WordScramble() {
         <AnimatePresence>
           {status === "wrong" && (
             <motion.div initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}
-              className="mt-4 p-3 rounded-[10px] bg-[var(--color-error)] text-white text-xs"
+              className="mt-4 p-3 rounded-[10px] bg-[var(--color-error-bg)] text-[var(--color-text-error)] text-xs"
             >
               <XCircle className="w-3.5 h-3.5 inline mr-1" />
               Correct answer: <strong>{current.original}</strong>
@@ -262,22 +260,22 @@ export function WordScramble() {
           )}
           {status === "correct" && (
             <motion.div initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}
-              className="mt-4 p-3 rounded-[10px] bg-[var(--color-success)] text-white text-xs"
+              className="mt-4 p-3 rounded-[10px] bg-[var(--color-success-bg)] text-[var(--color-text-success)] text-xs"
             >
               <CheckCircle2 className="w-3.5 h-3.5 inline mr-1" />
               Correct! +{hintUsed ? 5 : 10} pts
             </motion.div>
           )}
         </AnimatePresence>
-      </div>
+      </PracticeCard>
 
       {status !== "idle" && (
-        <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className="flex justify-center">
-          <button onClick={handleNext}
-            className="px-8 py-3 rounded-[14px] bg-[var(--color-primary)] text-white font-bold text-sm hover:bg-brand-600 transition-all shadow-[0_4px_0_rgba(28,176,246,0.3)] inline-flex items-center gap-1.5"
+        <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className="camp-quiz-actions flex justify-center">
+          <PracticeButton onClick={handleNext}
+            className="px-8 py-3 rounded-[14px] bg-[var(--color-primary)] text-[var(--color-on-brand)] font-bold text-sm hover:bg-[var(--color-primary-hover)] transition-all shadow-[var(--shadow-1)] inline-flex items-center gap-1.5"
           >
             {index + 1 >= items.length ? "See results" : "Next"} <ArrowRight className="w-4 h-4" />
-          </button>
+          </PracticeButton>
         </motion.div>
       )}
     </div>

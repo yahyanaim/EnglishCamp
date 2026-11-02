@@ -1,3 +1,4 @@
+import { learnerStorage } from "@/lib/learnerStorage";
 import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
 
@@ -44,7 +45,7 @@ export const useCustomFlashcards = create<CustomFlashcardsStore>()(
 
       importFromVocab: () => {
         try {
-          const raw = localStorage.getItem("englishcamp-vocabulary");
+          const raw = learnerStorage.getItem("englishcamp-vocabulary");
           if (!raw) return;
           const vocab = JSON.parse(raw);
           const existing = get().cards;
@@ -67,6 +68,6 @@ export const useCustomFlashcards = create<CustomFlashcardsStore>()(
         } catch {}
       },
     }),
-    { name: "englishcamp-custom-flashcards", storage: createJSONStorage(() => localStorage) }
+    { name: "englishcamp-custom-flashcards", skipHydration: true, storage: createJSONStorage(() => learnerStorage) }
   )
 );

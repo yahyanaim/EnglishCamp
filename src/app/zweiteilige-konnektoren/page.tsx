@@ -16,10 +16,10 @@ export default function ZweiteiligeKonnektorenPage() {
           {CORRELATIVE_CONJUNCTIONS.map((k, i) => (
             <motion.div
               key={`${k.conjunction}-${i}`} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.04 }}
-              className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border-2 border-[var(--color-border-default)] p-4 shadow-sm"
+              className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-4 shadow-sm"
             >
               <div className="mb-2">
-                <span className="text-sm font-mono font-bold text-[var(--color-primary-dark)]">{k.conjunction}</span>
+                <span className="text-sm font-mono font-bold text-[var(--color-text-link)]">{k.conjunction}</span>
               </div>
               <p className="text-xs text-[var(--color-text-secondary)] mb-2">{k.usage}</p>
               <div className="bg-[var(--color-surface-alt)] rounded-lg p-3">

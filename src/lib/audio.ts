@@ -1,21 +1,9 @@
 "use client";
 
+import { playNaturalText } from "./naturalSpeech";
+
 export function speak(text: string, lang = "en-US") {
-  if (typeof window === "undefined" || !("speechSynthesis" in window)) return;
-  try {
-    window.speechSynthesis.cancel();
-    const utterance = new SpeechSynthesisUtterance(text);
-    utterance.lang = lang;
-    utterance.rate = 0.88;
-    utterance.pitch = 1;
-    utterance.volume = 1;
-    const voices = window.speechSynthesis.getVoices();
-    const enVoice = voices.find((v) => v.lang.startsWith("en") || v.lang.includes("US") || v.lang.includes("GB"));
-    if (enVoice) utterance.voice = enVoice;
-    window.speechSynthesis.speak(utterance);
-  } catch (err) {
-    console.warn("Speech synthesis notice:", err);
-  }
+  void playNaturalText(text).catch(() => { if (typeof window !== "undefined") window.dispatchEvent(new Event("camp:speech-error")); });
 }
 
 export function playCorrect() {

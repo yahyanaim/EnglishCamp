@@ -1,43 +1,35 @@
 "use client";
-import { useState } from "react";
+import { LearningArt } from "@/components/brand/LearningArt";
+import { useEffect, useRef, useState } from "react";
+import { Textarea } from "@/components/ui/shadcn/textarea";
+import { Button } from "@/components/ui/shadcn/button";
 import { useNotes } from "@/store/useNotes";
-import { StickyNote } from "lucide-react";
-export function NotesEditor({ lessonId }: { lessonId: string }) {
-  const { getNote, setNote } = useNotes();
-  const [text, setText] = useState(getNote(lessonId));
-  const [saved, setSaved] = useState(false);
+import { NotebookPen, Plus, Check } from "lucide-react";
 
-  function handleSave() {
-    setNote(lessonId, text);
-    setSaved(true);
-    setTimeout(() => setSaved(false), 2000);
+export function NotesEditor({ lessonId, lessonTitle, compact = false }: { lessonId: string; lessonTitle?: string; compact?: boolean }) {
+  const note = useNotes(state => state.notes[lessonId] ?? "");
+  const setNote = useNotes(state => state.setNote);
+  const [ready, setReady] = useState(false);
+  const [draft, setDraft] = useState<string | null>(null);
+  const [open, setOpen] = useState(!compact);
+  const [error, setError] = useState("");
+  const textarea = useRef<HTMLTextAreaElement>(null);
+  useEffect(() => setReady(true), []);
+  useEffect(() => { if (compact && open) textarea.current?.focus(); }, [compact, open]);
+  const stored = ready ? note : "";
+  const text = draft ?? stored;
+  const dirty = draft !== null && text !== stored;
+  function save() {
+    try { setNote(lessonId, text); setDraft(null); setError(""); }
+    catch { setError("This browser could not save the note. Keep a copy of your text and try again."); }
   }
-
-  return (
-    <div className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border-2 border-[var(--color-border-default)] p-4" style={{ boxShadow: "0 3px 0 var(--color-border-default)" }}>
-      <div className="flex items-center gap-2 mb-2">
-        <StickyNote className="w-4 h-4 text-[var(--color-text-disabled)]" />
-        <span className="text-sm font-medium text-[var(--color-text-primary)]">Personal Notes</span>
-      </div>
-      <textarea
-        value={text}
-        onChange={(e) => setText(e.target.value)}
-        placeholder="Write your notes about this lesson..."
-        rows={3}
-        className="w-full text-sm text-[var(--color-text-primary)] bg-[var(--color-surface-alt)] border border-[var(--color-border-default)] rounded-[var(--radius-md)] px-3 py-2 resize-y placeholder:text-[var(--color-text-secondary)] focus:outline-none focus:ring-2 focus:ring-brand-200 focus:border-brand-300 transition-all"
-      />
-      <div className="flex justify-end mt-2">
-        <button
-          onClick={handleSave}
-          className={`text-xs font-medium px-3 py-1.5 rounded-[var(--radius-md)] border transition-all ${
-            saved
-              ? "bg-[var(--color-success)] text-[var(--color-on-brand)] border-[var(--color-success)]"
-              : "bg-[var(--color-primary-subtle)] text-[var(--color-text-link)] border-[var(--color-primary)] hover:bg-[var(--color-primary)] hover:text-[var(--color-on-brand)]"
-          }`}
-        >
-          {saved ? "Saved ✓" : "Save Notes"}
-        </button>
-      </div>
-    </div>
-  );
+  return <section className="camp-note-editor" aria-label={lessonTitle ? `Notes for ${lessonTitle}` : "Lesson notes"}>
+    <div className="camp-note-heading"><span><LearningArt name="NotebookPen" size={17}  />My lesson note</span>{compact && <Button variant="ghost" size="sm" disabled={!ready} onClick={() => setOpen(value => !value)}>{open ? "Close" : stored.trim() ? "Edit note" : <><Plus size={15} />Add a note</>}</Button>}</div>
+    {open && <div className="camp-note-body">
+      <label htmlFor={`lesson-note-${lessonId}`}>{lessonTitle || "Personal notes"}</label>
+      <Textarea ref={textarea} id={`lesson-note-${lessonId}`} value={text} disabled={!ready} onChange={event => { setDraft(event.target.value); setError(""); }} onBlur={() => { if (dirty) save(); }} placeholder="Write a rule, example or question to revisit…" rows={4} />
+      <div className="camp-note-actions"><p role="status" className={error ? "text-[var(--color-text-error)]" : ""}>{error || (dirty ? "Unsaved changes" : stored.trim() ? "Saved on this device" : "Your notes stay on this device.")}</p><Button size="sm" disabled={!ready} onClick={save}><Check size={15} />Save note</Button></div>
+      <p className="camp-note-help">Also available in Progress → My notes, under this lesson’s name. No note text is uploaded.</p>
+    </div>}
+  </section>;
 }

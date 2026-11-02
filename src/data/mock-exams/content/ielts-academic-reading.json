@@ -1,0 +1,714 @@
+[
+  {
+    "id": "ia2-r1",
+    "title": "Reading passage 1",
+    "subtitle": "Questions 1–13 · Community innovation",
+    "part": 1,
+    "skill": "reading",
+    "instructions": "Questions 1–5: choose headings i–viii. Some headings are unused; use each selected heading once. Questions 6–9: TRUE agrees with the text, FALSE contradicts it, NOT GIVEN means the text does not establish the claim. Questions 10–13: write no more than TWO WORDS AND/OR A NUMBER from the passage.",
+    "passage": "A. The library of things\nWhen the fictional town of Mereford announced that its public library would begin lending tools, the local newspaper pictured shelves of drills replacing novels. The photograph was misleading. Books remained in their usual rooms, while a former storage area behind the reception desk became the home of a small collection of objects. The proposal had come from residents living in flats, who lacked space for equipment they used only occasionally. They wanted access to useful things without having to own each of them. The first collection contained sewing machines, carpet cleaners and basic gardening tools. It did not include specialist construction equipment, which staff considered unsuitable for a general lending service.\n\nB. A survey before the opening produced an unexpected result. Although respondents supported the environmental aims of sharing, their most common reason for joining was saving storage space. The initial publicity had stressed money saved on purchases. Staff therefore rewrote the leaflets to show how a single cupboard could serve many households. Survey responses were collected online and on paper at the library; the latter option was important because several interested residents did not regularly use the internet. The survey described preferences, however, rather than proving how people would behave once the service began. A resident could express enthusiasm for a sewing machine and never actually borrow one.\n\nC. Borrowing rules were deliberately simple. Adults with a standard library card could reserve an object free of charge, but had to attend a short safety demonstration before taking electrical equipment home. Most loans lasted seven days. A carpet cleaner had a shorter, three-day loan because demand was particularly high. Reservations could be made at the desk as well as online. Staff checked each returned object using a checklist and recorded faults, even minor ones, in a maintenance log. An item with an unresolved fault was removed from circulation. The service did not depend on borrowers being able to diagnose a mechanical problem themselves.\n\nD. Volunteers initially offered to repair everything. This generous proposal proved impractical when an unfamiliar machine required knowledge nobody in the group possessed. The library subsequently arranged for qualified technicians to inspect electrical items at fixed intervals. Volunteers continued to clean cases, replace clearly labelled accessories and explain routine care. This division of responsibility reduced uncertainty, although it added a cost that the original budget had overlooked. The town provided a small annual maintenance fund. Donations bought new objects, but they could not reliably cover the recurring expense of inspections. A cheap donated machine was sometimes more expensive to maintain than a new, simpler model.\n\nE. After six months, staff compared reservations with completed loans. Sewing machines attracted many reservations, yet a substantial proportion were cancelled shortly before collection. Interviews suggested that beginners liked the idea of making clothes but felt unsure about starting alone. A monthly introductory workshop was introduced, and fewer reservations were subsequently cancelled. Staff were careful about interpreting the change: the workshops coincided with a seasonal rise in indoor hobbies, so they could not attribute the whole improvement to teaching. Nevertheless, interviews made clear that access to an object and confidence in using it were separate needs. The lending catalogue had solved only the first.\n\nF. Measuring environmental benefit was harder than counting loans. One borrowed drill might replace a purchase, but it might also enable a project that would otherwise never have happened. Staff began asking borrowers whether they would have bought, hired or simply gone without the object. They did not treat every loan as an avoided purchase. Transport mattered too: a special car journey to collect a small item could reduce the environmental advantage of sharing it. The team discussed adding collection points in neighbourhood centres, while acknowledging that moving equipment between buildings would itself require time and fuel. No claim of a precisely measured reduction in emissions appeared in the annual report.\n\nG. The most important lesson, according to the librarian, was organisational rather than technological. A catalogue could advertise availability, but it could not clean a dirty filter, explain an unfamiliar switch or resolve competing reservations. Those tasks required predictable staff time. When another town requested advice, Mereford recommended beginning with a small collection supported by a realistic maintenance budget. Expanding quickly would produce an impressive launch photograph, but steady service mattered more. The project's success depended less on the number of objects purchased than on whether an ordinary borrower could find a working object, understand it and return it without confusion.",
+    "questions": [
+      {
+        "number": 1,
+        "kind": "matching",
+        "prompt": "Choose the best heading for paragraph A.",
+        "answers": [
+          "iv. A small service starts alongside books"
+        ],
+        "evidence": "A: The collection occupied a former storage area; books stayed in their rooms.",
+        "explanation": "A: The collection occupied a former storage area; books stayed in their rooms.",
+        "marks": 1,
+        "options": [
+          "i. Repair responsibilities become clearer",
+          "ii. A different reason for joining",
+          "iii. The limits of environmental accounting",
+          "iv. A small service starts alongside books",
+          "v. Confidence affects use",
+          "vi. Rules for safe and convenient borrowing",
+          "vii. A national ban on buying tools",
+          "viii. Reliability matters more than rapid expansion"
+        ],
+        "id": "ia2-r1-q1"
+      },
+      {
+        "number": 2,
+        "kind": "matching",
+        "prompt": "Choose the best heading for paragraph B.",
+        "answers": [
+          "ii. A different reason for joining"
+        ],
+        "evidence": "B: Saving storage space was the most common reason.",
+        "explanation": "B: Saving storage space was the most common reason.",
+        "marks": 1,
+        "options": [
+          "i. Repair responsibilities become clearer",
+          "ii. A different reason for joining",
+          "iii. The limits of environmental accounting",
+          "iv. A small service starts alongside books",
+          "v. Confidence affects use",
+          "vi. Rules for safe and convenient borrowing",
+          "vii. A national ban on buying tools",
+          "viii. Reliability matters more than rapid expansion"
+        ],
+        "id": "ia2-r1-q2"
+      },
+      {
+        "number": 3,
+        "kind": "matching",
+        "prompt": "Choose the best heading for paragraph D.",
+        "answers": [
+          "i. Repair responsibilities become clearer"
+        ],
+        "evidence": "D: Technicians inspect electrical items while volunteers handle routine care.",
+        "explanation": "D: Technicians inspect electrical items while volunteers handle routine care.",
+        "marks": 1,
+        "options": [
+          "i. Repair responsibilities become clearer",
+          "ii. A different reason for joining",
+          "iii. The limits of environmental accounting",
+          "iv. A small service starts alongside books",
+          "v. Confidence affects use",
+          "vi. Rules for safe and convenient borrowing",
+          "vii. A national ban on buying tools",
+          "viii. Reliability matters more than rapid expansion"
+        ],
+        "id": "ia2-r1-q3"
+      },
+      {
+        "number": 4,
+        "kind": "matching",
+        "prompt": "Choose the best heading for paragraph E.",
+        "answers": [
+          "v. Confidence affects use"
+        ],
+        "evidence": "E: Beginners lacked confidence despite reserving equipment.",
+        "explanation": "E: Beginners lacked confidence despite reserving equipment.",
+        "marks": 1,
+        "options": [
+          "i. Repair responsibilities become clearer",
+          "ii. A different reason for joining",
+          "iii. The limits of environmental accounting",
+          "iv. A small service starts alongside books",
+          "v. Confidence affects use",
+          "vi. Rules for safe and convenient borrowing",
+          "vii. A national ban on buying tools",
+          "viii. Reliability matters more than rapid expansion"
+        ],
+        "id": "ia2-r1-q4"
+      },
+      {
+        "number": 5,
+        "kind": "matching",
+        "prompt": "Choose the best heading for paragraph F.",
+        "answers": [
+          "iii. The limits of environmental accounting"
+        ],
+        "evidence": "F: A loan is not necessarily an avoided purchase and transport also matters.",
+        "explanation": "F: A loan is not necessarily an avoided purchase and transport also matters.",
+        "marks": 1,
+        "options": [
+          "i. Repair responsibilities become clearer",
+          "ii. A different reason for joining",
+          "iii. The limits of environmental accounting",
+          "iv. A small service starts alongside books",
+          "v. Confidence affects use",
+          "vi. Rules for safe and convenient borrowing",
+          "vii. A national ban on buying tools",
+          "viii. Reliability matters more than rapid expansion"
+        ],
+        "id": "ia2-r1-q5"
+      },
+      {
+        "number": 6,
+        "kind": "true-false-not-given",
+        "prompt": "Specialist construction equipment was part of the first collection.",
+        "answers": [
+          "FALSE"
+        ],
+        "evidence": "A explicitly excludes specialist construction equipment.",
+        "explanation": "A explicitly excludes specialist construction equipment.",
+        "marks": 1,
+        "options": [
+          "TRUE",
+          "FALSE",
+          "NOT GIVEN"
+        ],
+        "id": "ia2-r1-q6"
+      },
+      {
+        "number": 7,
+        "kind": "true-false-not-given",
+        "prompt": "Every reservation had to be made online.",
+        "answers": [
+          "FALSE"
+        ],
+        "evidence": "C allows reservations at the desk as well as online.",
+        "explanation": "C allows reservations at the desk as well as online.",
+        "marks": 1,
+        "options": [
+          "TRUE",
+          "FALSE",
+          "NOT GIVEN"
+        ],
+        "id": "ia2-r1-q7"
+      },
+      {
+        "number": 8,
+        "kind": "true-false-not-given",
+        "prompt": "The library knew the precise reduction in emissions caused by its service.",
+        "answers": [
+          "FALSE"
+        ],
+        "evidence": "F says no precisely measured reduction was claimed.",
+        "explanation": "F says no precisely measured reduction was claimed.",
+        "marks": 1,
+        "options": [
+          "TRUE",
+          "FALSE",
+          "NOT GIVEN"
+        ],
+        "id": "ia2-r1-q8"
+      },
+      {
+        "number": 9,
+        "kind": "true-false-not-given",
+        "prompt": "Most borrowers lived more than five kilometres from the library.",
+        "answers": [
+          "NOT GIVEN"
+        ],
+        "evidence": "No distance distribution or proportion of borrowers is stated.",
+        "explanation": "No distance distribution or proportion of borrowers is stated.",
+        "marks": 1,
+        "options": [
+          "TRUE",
+          "FALSE",
+          "NOT GIVEN"
+        ],
+        "id": "ia2-r1-q9"
+      },
+      {
+        "number": 10,
+        "kind": "completion",
+        "prompt": "The most common survey reason for joining was saving _____. Write NO MORE THAN TWO WORDS AND/OR A NUMBER from the passage.",
+        "answers": [
+          "storage space"
+        ],
+        "evidence": "B states saving storage space.",
+        "explanation": "B states saving storage space.",
+        "marks": 1,
+        "maxWords": 2,
+        "id": "ia2-r1-q10"
+      },
+      {
+        "number": 11,
+        "kind": "completion",
+        "prompt": "The carpet cleaner could be borrowed for _____ days. Write NO MORE THAN TWO WORDS AND/OR A NUMBER from the passage.",
+        "answers": [
+          "three",
+          "3"
+        ],
+        "evidence": "C gives a three-day loan.",
+        "explanation": "C gives a three-day loan.",
+        "marks": 1,
+        "maxWords": 2,
+        "id": "ia2-r1-q11"
+      },
+      {
+        "number": 12,
+        "kind": "completion",
+        "prompt": "Staff recorded faults in a _____. Write NO MORE THAN TWO WORDS AND/OR A NUMBER from the passage.",
+        "answers": [
+          "maintenance log"
+        ],
+        "evidence": "C names a maintenance log.",
+        "explanation": "C names a maintenance log.",
+        "marks": 1,
+        "maxWords": 2,
+        "id": "ia2-r1-q12"
+      },
+      {
+        "number": 13,
+        "kind": "completion",
+        "prompt": "Electrical inspections were supported by an annual _____. Write NO MORE THAN TWO WORDS AND/OR A NUMBER from the passage.",
+        "answers": [
+          "maintenance fund"
+        ],
+        "evidence": "D identifies the town maintenance fund.",
+        "explanation": "D identifies the town maintenance fund.",
+        "marks": 1,
+        "maxWords": 2,
+        "id": "ia2-r1-q13"
+      }
+    ]
+  },
+  {
+    "id": "ia2-r2",
+    "title": "Reading passage 2",
+    "subtitle": "Questions 14–26 · Urban research",
+    "part": 2,
+    "skill": "reading",
+    "instructions": "Questions 14–17: choose the paragraph A–G containing the information; a paragraph may be used more than once. Questions 18–21: choose the best of four answers. Questions 22–26: write ONE WORD from the passage.",
+    "passage": "A. Following the cool routes\nA city map usually represents a street as a line between two places. To a pedestrian on a hot afternoon, however, two equally long lines may be quite different. One route may pass beneath mature trees, while another crosses a wide paved square with nowhere to rest. In the fictional city of Bellwick, a research team wanted to understand this difference before recommending new walking routes. Rather than searching for a single temperature that described an entire neighbourhood, the team studied what people encountered along a journey. Their project combined physical measurements with interviews about comfort, because the two forms of evidence answer related but distinct questions.\n\nB. At first, students took temperature readings wherever they found an interesting contrast. That produced striking photographs but an unreliable comparison. A shaded street measured early in the morning could not fairly be compared with an exposed street measured at noon. The revised method used pairs of similar routes surveyed at the same times. Sensors were carried at approximately chest height to represent a walking person's surroundings. Teams noted wind, cloud cover and whether a reading was taken beside a wall. These details did not eliminate every source of variation, but they helped explain why a route sometimes felt different on successive days. Measurements were repeated on several afternoons instead of treating one unusually hot day as typical.\n\nC. Surface temperature was recorded separately. Pavement can become much warmer than the air above it, so a photograph of a hot surface does not establish the temperature a person breathes. The team used one instrument for surface readings and another for air measurements. They also recorded shade, which changes as the sun moves. A route shaded in the morning might be exposed during the return journey. The resulting maps therefore described particular times of day. The researchers resisted requests for a permanent label declaring one street always cool and another always hot. Such labels would have been simple to communicate but would have concealed the conditions under which observations had been made.\n\nD. Interviews added another complication. Some walkers selected a slightly warmer route because it offered benches and a drinking fountain. Others valued a shop where they could step inside briefly. A parent pushing a buggy preferred a broad pavement to a narrow shaded lane blocked by delivery vehicles. These responses showed that comfort was not reducible to temperature. The researchers asked participants to describe a recent journey before showing them any measurement map, so the map would not suggest the answer. The interview sample was recruited at different times and locations, although people who rarely walked were still less likely to be represented. That limitation was reported rather than hidden.\n\nE. The first proposed intervention was to plant trees along every exposed route. Arborists supported more planting but warned that new trees would not immediately provide the canopy shown in the design drawings. Roots needed suitable soil volume, young trees needed water, and underground services limited possible locations. The team therefore separated short-term measures from long-term planting. Temporary shade structures could help at a busy crossing while trees developed nearby. They were not presented as a complete replacement for vegetation. Maintenance responsibilities were assigned before installation, because a damaged shade structure could obstruct the pavement it was intended to improve. A visually attractive drawing alone did not demonstrate that an intervention would work in daily use.\n\nF. To assess one temporary canopy, the team monitored both the crossing and a nearby comparison crossing with similar traffic. If more people walked beneath the canopy after installation, that might reflect improved comfort, but it might also reflect a newly opened shop. Counts at the comparison location and a record of local changes made interpretation more cautious. The researchers did not randomly assign residents to routes, so they avoided claiming that the canopy alone caused any increase. Interviews nevertheless identified a specific benefit: people waiting for the signal could stand in shade rather than moving backwards into the path of other pedestrians. A modest, well-described improvement was more useful than an exaggerated general claim.\n\nG. The final public map offered several route options, each with notes about shade at different times, resting places and pavement access. It did not calculate a universally best route. Users could decide which features mattered to their own journey. The council also published the dates of observations and explained that buildings, trees and services might change. The project suggested a wider principle for urban information: precision is not the same as certainty. A measurement can be accurate at a specific place and time while remaining insufficient to describe every person's experience. Making those limits visible helped residents use the map intelligently instead of treating its coloured lines as permanent guarantees.",
+    "questions": [
+      {
+        "number": 14,
+        "kind": "matching",
+        "prompt": "Which paragraph describes how participants were kept from being influenced by a map?",
+        "answers": [
+          "D"
+        ],
+        "evidence": "D: Interviews preceded the measurement map.",
+        "explanation": "D: Interviews preceded the measurement map.",
+        "marks": 1,
+        "options": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F",
+          "G"
+        ],
+        "id": "ia2-r2-q14"
+      },
+      {
+        "number": 15,
+        "kind": "matching",
+        "prompt": "Which paragraph distinguishes pavement readings from air readings?",
+        "answers": [
+          "C"
+        ],
+        "evidence": "C uses separate instruments for surface and air.",
+        "explanation": "C uses separate instruments for surface and air.",
+        "marks": 1,
+        "options": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F",
+          "G"
+        ],
+        "id": "ia2-r2-q15"
+      },
+      {
+        "number": 16,
+        "kind": "matching",
+        "prompt": "Which paragraph explains why new trees would not produce an immediate solution?",
+        "answers": [
+          "E"
+        ],
+        "evidence": "E: Young trees need time, water and suitable soil.",
+        "explanation": "E: Young trees need time, water and suitable soil.",
+        "marks": 1,
+        "options": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F",
+          "G"
+        ],
+        "id": "ia2-r2-q16"
+      },
+      {
+        "number": 17,
+        "kind": "matching",
+        "prompt": "Which paragraph discusses a comparison location?",
+        "answers": [
+          "F"
+        ],
+        "evidence": "F monitors a nearby crossing as a comparison.",
+        "explanation": "F monitors a nearby crossing as a comparison.",
+        "marks": 1,
+        "options": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F",
+          "G"
+        ],
+        "id": "ia2-r2-q17"
+      },
+      {
+        "number": 18,
+        "kind": "choice",
+        "prompt": "Why was the initial measurement method changed?",
+        "answers": [
+          "It compared observations made under different conditions."
+        ],
+        "evidence": "B: Morning and noon observations were not fairly comparable.",
+        "explanation": "B: Morning and noon observations were not fairly comparable.",
+        "marks": 1,
+        "options": [
+          "It compared observations made under different conditions.",
+          "The sensors could measure only surface temperature.",
+          "All residents refused to be interviewed.",
+          "The team had already established a permanent ranking."
+        ],
+        "id": "ia2-r2-q18"
+      },
+      {
+        "number": 19,
+        "kind": "choice",
+        "prompt": "What did the interviews show?",
+        "answers": [
+          "People used several features when choosing comfortable routes."
+        ],
+        "evidence": "D gives benches, fountains, shops and pavement access.",
+        "explanation": "D gives benches, fountains, shops and pavement access.",
+        "marks": 1,
+        "options": [
+          "The coolest route was always the easiest route.",
+          "People used several features when choosing comfortable routes.",
+          "People preferred maps with no information about access.",
+          "Benches mattered only to people who never walked."
+        ],
+        "id": "ia2-r2-q19"
+      },
+      {
+        "number": 20,
+        "kind": "choice",
+        "prompt": "Why were maintenance duties assigned early?",
+        "answers": [
+          "To avoid a damaged structure becoming an obstruction."
+        ],
+        "evidence": "E explicitly identifies the obstruction risk.",
+        "explanation": "E explicitly identifies the obstruction risk.",
+        "marks": 1,
+        "options": [
+          "To make mature trees grow faster.",
+          "To prevent measurements being published.",
+          "To avoid a damaged structure becoming an obstruction.",
+          "To remove the need for comparison crossings."
+        ],
+        "id": "ia2-r2-q20"
+      },
+      {
+        "number": 21,
+        "kind": "choice",
+        "prompt": "What conclusion does the author draw from the project?",
+        "answers": [
+          "Useful information can acknowledge its own limits."
+        ],
+        "evidence": "G connects useful route information with visible limits.",
+        "explanation": "G connects useful route information with visible limits.",
+        "marks": 1,
+        "options": [
+          "Accurate readings automatically predict every walker’s experience.",
+          "Public maps should never include measurements.",
+          "A single best route can be fixed permanently.",
+          "Useful information can acknowledge its own limits."
+        ],
+        "id": "ia2-r2-q21"
+      },
+      {
+        "number": 22,
+        "kind": "completion",
+        "prompt": "The sensors were carried at approximately _____ height. Write ONE WORD from the passage.",
+        "answers": [
+          "chest"
+        ],
+        "evidence": "B specifies chest height.",
+        "explanation": "B specifies chest height.",
+        "marks": 1,
+        "maxWords": 1,
+        "id": "ia2-r2-q22"
+      },
+      {
+        "number": 23,
+        "kind": "completion",
+        "prompt": "Interviewees were asked about a recent _____ before viewing a map. Write ONE WORD from the passage.",
+        "answers": [
+          "journey"
+        ],
+        "evidence": "D describes the interview sequence.",
+        "explanation": "D describes the interview sequence.",
+        "marks": 1,
+        "maxWords": 1,
+        "id": "ia2-r2-q23"
+      },
+      {
+        "number": 24,
+        "kind": "completion",
+        "prompt": "Underground _____ restricted where trees could be planted. Write ONE WORD from the passage.",
+        "answers": [
+          "services"
+        ],
+        "evidence": "E identifies underground services.",
+        "explanation": "E identifies underground services.",
+        "marks": 1,
+        "maxWords": 1,
+        "id": "ia2-r2-q24"
+      },
+      {
+        "number": 25,
+        "kind": "completion",
+        "prompt": "The canopy helped people waiting for a traffic _____. Write ONE WORD from the passage.",
+        "answers": [
+          "signal"
+        ],
+        "evidence": "F describes waiting for the signal.",
+        "explanation": "F describes waiting for the signal.",
+        "marks": 1,
+        "maxWords": 1,
+        "id": "ia2-r2-q25"
+      },
+      {
+        "number": 26,
+        "kind": "completion",
+        "prompt": "The public map included the _____ of observations. Write ONE WORD from the passage.",
+        "answers": [
+          "dates"
+        ],
+        "evidence": "G states that observation dates were published.",
+        "explanation": "G states that observation dates were published.",
+        "marks": 1,
+        "maxWords": 1,
+        "id": "ia2-r2-q26"
+      }
+    ]
+  },
+  {
+    "id": "ia2-r3",
+    "title": "Reading passage 3",
+    "subtitle": "Questions 27–40 · Knowledge and learning",
+    "part": 3,
+    "skill": "reading",
+    "instructions": "Questions 27–31: YES agrees with the writer’s view, NO contradicts it, NOT GIVEN means the writer’s view is not established. Questions 32–35: write ONE WORD from the passage. Questions 36–40: choose the best of four answers.",
+    "passage": "A. Repairing the idea of expertise\nWhen a household appliance stops working, the owner may discover that identifying the fault is harder than finding a replacement. In a fictional research project, sociologist Lena Ward followed a neighbourhood repair group for eighteen months. She was interested less in how many objects it repaired than in how knowledge moved between people. At a typical meeting, a retired engineer worked beside a student, a dressmaker and several residents who described themselves as complete beginners. Their different backgrounds made the group useful, but also challenged a familiar assumption: that expertise is a possession held by one person and simply transferred to another.\n\nB. Ward's early notes seemed to support that assumption. Experienced volunteers answered questions while visitors listened. Closer observation showed a more complicated pattern. An owner might know that a lamp failed only after being moved, or that a radio made a noise when a particular button was pressed. Such observations narrowed the problem even when the owner did not know technical vocabulary. The volunteer contributed a method for testing possibilities; the owner contributed the history of the object. A successful diagnosis often emerged from the exchange. Treating the visitor as a passive recipient would have hidden information essential to the work.\n\nC. This does not mean that all contributions were equally safe or technically sound. The group prohibited visitors from opening powered electrical devices and referred certain repairs to professionals. Ward argues that recognising distributed knowledge need not erase responsibility. A resident's detailed description could help an expert decide what to test without giving the resident authority to perform a hazardous procedure. The distinction matters because enthusiasm for participation sometimes encourages organisers to describe every barrier as unnecessary. Some barriers protect people, whereas others merely preserve status. Identifying which is which requires attention to the actual task rather than an abstract celebration of openness.\n\nD. Objects that could not be repaired were especially revealing. In public reports, these were usually classified as failures. In practice, a visitor might learn how to describe the fault accurately, discover that a replacement part was unavailable, or decide not to buy the same difficult-to-service design again. Ward does not suggest counting every conversation as a successful repair. Instead, she proposes recording several outcomes separately. A working object, increased understanding and a decision about future purchasing are different results. Combining them into one impressive percentage would obscure what the group had actually achieved. Equally, reporting only working objects would underestimate its educational contribution.\n\nE. A second question concerned written instructions. Volunteers created a folder of common procedures to help new members. It was useful for recurring tasks, but could not anticipate every unusual sound, missing screw or earlier modification. Experienced volunteers often noticed a clue without initially being able to explain why it mattered. When asked to demonstrate their reasoning aloud, they sometimes revised it. Ward describes instructions as a starting framework that gains meaning through use, not as a substitute for judgement. This does not make documentation pointless. Clear records prevented repeated mistakes and allowed later volunteers to understand what had already been attempted. The difficulty was deciding which details would remain relevant beyond the immediate repair.\n\nF. Critics of community repair sometimes argue that small voluntary groups cannot change a market dominated by products designed for rapid replacement. Ward agrees that local effort cannot by itself ensure access to spare parts or change manufacturers' decisions. She rejects, however, the conclusion that its small scale makes it irrelevant. Local meetings can reveal recurring obstacles that would otherwise remain isolated private frustrations. Several reports of the same inaccessible component may provide a stronger basis for discussion than a general complaint that modern products are poor. To serve that wider purpose, observations must be recorded consistently and limitations acknowledged; anecdotes alone cannot establish how common a fault is across all products.\n\nG. The project also exposed the danger of depending on a single generous specialist. When one volunteer moved away, the group cancelled two meetings because nobody else felt able to organise the electrical table. The problem was not simply that technical facts had vanished. Scheduling, equipment checks and decisions about when to refuse a repair had also been concentrated in one person's routine. The group later paired experienced and newer volunteers and rotated organisational duties. Attendance recovered, but Ward avoided presenting the arrangement as proof that every skill could be replaced quickly. Building shared capacity required time, and some repairs continued to need external specialists.\n\nH. Ward's conclusion is deliberately narrower than a promise that participation can solve every material problem. Community repair provides a setting in which technical reasoning, an owner's experience and practical responsibility can meet. Its value depends on the quality of that interaction, together with an honest account of what happened afterwards. A broken toaster may therefore reveal something about learning without ever becoming a working toaster again. Recognising that possibility changes the questions researchers ask. Instead of asking only who possesses expertise, they can ask how a group makes knowledge available, checks its limits and keeps it usable when particular people leave.",
+    "questions": [
+      {
+        "number": 27,
+        "kind": "yes-no-not-given",
+        "prompt": "Ward believes visitors were always passive recipients of expert knowledge.",
+        "answers": [
+          "NO"
+        ],
+        "evidence": "B rejects the passive-recipient description.",
+        "explanation": "B rejects the passive-recipient description.",
+        "marks": 1,
+        "options": [
+          "YES",
+          "NO",
+          "NOT GIVEN"
+        ],
+        "id": "ia2-r3-q27"
+      },
+      {
+        "number": 28,
+        "kind": "yes-no-not-given",
+        "prompt": "Recognising distributed knowledge requires removing every safety restriction.",
+        "answers": [
+          "NO"
+        ],
+        "evidence": "C says participation does not erase responsibility or protective barriers.",
+        "explanation": "C says participation does not erase responsibility or protective barriers.",
+        "marks": 1,
+        "options": [
+          "YES",
+          "NO",
+          "NOT GIVEN"
+        ],
+        "id": "ia2-r3-q28"
+      },
+      {
+        "number": 29,
+        "kind": "yes-no-not-given",
+        "prompt": "Ward recommends keeping different types of outcome separate.",
+        "answers": [
+          "YES"
+        ],
+        "evidence": "D proposes recording working objects, understanding and purchasing decisions separately.",
+        "explanation": "D proposes recording working objects, understanding and purchasing decisions separately.",
+        "marks": 1,
+        "options": [
+          "YES",
+          "NO",
+          "NOT GIVEN"
+        ],
+        "id": "ia2-r3-q29"
+      },
+      {
+        "number": 30,
+        "kind": "yes-no-not-given",
+        "prompt": "Written procedures can fully replace practical judgement.",
+        "answers": [
+          "NO"
+        ],
+        "evidence": "E calls instructions a framework rather than a substitute for judgement.",
+        "explanation": "E calls instructions a framework rather than a substitute for judgement.",
+        "marks": 1,
+        "options": [
+          "YES",
+          "NO",
+          "NOT GIVEN"
+        ],
+        "id": "ia2-r3-q30"
+      },
+      {
+        "number": 31,
+        "kind": "yes-no-not-given",
+        "prompt": "Ward expects the group to open a commercial repair shop.",
+        "answers": [
+          "NOT GIVEN"
+        ],
+        "evidence": "No commercial shop plan is described.",
+        "explanation": "No commercial shop plan is described.",
+        "marks": 1,
+        "options": [
+          "YES",
+          "NO",
+          "NOT GIVEN"
+        ],
+        "id": "ia2-r3-q31"
+      },
+      {
+        "number": 32,
+        "kind": "completion",
+        "prompt": "Owners contributed the _____ of an object to the diagnosis. Write ONE WORD from the passage.",
+        "answers": [
+          "history"
+        ],
+        "evidence": "B contrasts method with history.",
+        "explanation": "B contrasts method with history.",
+        "marks": 1,
+        "maxWords": 1,
+        "id": "ia2-r3-q32"
+      },
+      {
+        "number": 33,
+        "kind": "completion",
+        "prompt": "Some repairs needed to be referred to _____. Write ONE WORD from the passage.",
+        "answers": [
+          "professionals"
+        ],
+        "evidence": "C mentions professional referral.",
+        "explanation": "C mentions professional referral.",
+        "marks": 1,
+        "maxWords": 1,
+        "id": "ia2-r3-q33"
+      },
+      {
+        "number": 34,
+        "kind": "completion",
+        "prompt": "Consistent records might turn private frustrations into evidence of recurring _____. Write ONE WORD from the passage.",
+        "answers": [
+          "obstacles"
+        ],
+        "evidence": "F describes recurring obstacles.",
+        "explanation": "F describes recurring obstacles.",
+        "marks": 1,
+        "maxWords": 1,
+        "id": "ia2-r3-q34"
+      },
+      {
+        "number": 35,
+        "kind": "completion",
+        "prompt": "The departure of one specialist exposed concentrated organisational _____. Write ONE WORD from the passage.",
+        "answers": [
+          "duties"
+        ],
+        "evidence": "G says the group later rotated organisational duties.",
+        "explanation": "G says the group later rotated organisational duties.",
+        "marks": 1,
+        "maxWords": 1,
+        "id": "ia2-r3-q35"
+      },
+      {
+        "number": 36,
+        "kind": "choice",
+        "prompt": "Why does Ward discuss objects that remain broken?",
+        "answers": [
+          "To show why several outcomes deserve separate attention."
+        ],
+        "evidence": "D distinguishes outcomes without renaming every conversation a repair.",
+        "explanation": "D distinguishes outcomes without renaming every conversation a repair.",
+        "marks": 1,
+        "options": [
+          "To show why several outcomes deserve separate attention.",
+          "To claim every unsuccessful repair is really successful.",
+          "To argue visitors should avoid difficult repairs.",
+          "To demonstrate that purchasing decisions never change."
+        ],
+        "id": "ia2-r3-q36"
+      },
+      {
+        "number": 37,
+        "kind": "choice",
+        "prompt": "What is the author’s position on documentation?",
+        "answers": [
+          "It is useful but needs interpretation and selection."
+        ],
+        "evidence": "E balances limits with the prevention of repeated mistakes.",
+        "explanation": "E balances limits with the prevention of repeated mistakes.",
+        "marks": 1,
+        "options": [
+          "It is harmful because unusual cases exist.",
+          "It is useful but needs interpretation and selection.",
+          "It should record only successful repairs.",
+          "It eliminates the need for experienced volunteers."
+        ],
+        "id": "ia2-r3-q37"
+      },
+      {
+        "number": 38,
+        "kind": "choice",
+        "prompt": "What could make local observations useful beyond the group?",
+        "answers": [
+          "Recording recurring obstacles consistently and acknowledging limits."
+        ],
+        "evidence": "F requires consistency and acknowledges limits.",
+        "explanation": "F requires consistency and acknowledges limits.",
+        "marks": 1,
+        "options": [
+          "Assuming every product has the same fault.",
+          "Replacing all evidence with a single anecdote.",
+          "Recording recurring obstacles consistently and acknowledging limits.",
+          "Avoiding reports of unavailable parts."
+        ],
+        "id": "ia2-r3-q38"
+      },
+      {
+        "number": 39,
+        "kind": "choice",
+        "prompt": "What did the specialist’s departure reveal?",
+        "answers": [
+          "Practical organisation was also concentrated in one person."
+        ],
+        "evidence": "G lists scheduling, equipment checks and refusal decisions.",
+        "explanation": "G lists scheduling, equipment checks and refusal decisions.",
+        "marks": 1,
+        "options": [
+          "The group no longer had any visitors.",
+          "All technical knowledge could be replaced immediately.",
+          "Repair was unnecessary once instructions existed.",
+          "Practical organisation was also concentrated in one person."
+        ],
+        "id": "ia2-r3-q39"
+      },
+      {
+        "number": 40,
+        "kind": "choice",
+        "prompt": "Which title best captures the passage’s argument?",
+        "answers": [
+          "Expertise as a shared but accountable practice"
+        ],
+        "evidence": "The whole passage concerns knowledge exchange, responsibility and continuity.",
+        "explanation": "The whole passage concerns knowledge exchange, responsibility and continuity.",
+        "marks": 1,
+        "options": [
+          "Expertise as a shared but accountable practice",
+          "Why every appliance should be repaired at home",
+          "The end of professional repair services",
+          "A universal method for measuring manufacturing faults"
+        ],
+        "id": "ia2-r3-q40"
+      }
+    ]
+  }
+]

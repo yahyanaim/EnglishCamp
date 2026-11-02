@@ -1,0 +1,673 @@
+[
+  {
+    "id": "ig2-r1",
+    "title": "Reading section 1",
+    "subtitle": "Questions 1–14 · Everyday notices",
+    "part": 1,
+    "skill": "reading",
+    "instructions": "Questions 1–6: TRUE agrees with the notices, FALSE contradicts them, NOT GIVEN means the notices do not establish the claim. Questions 7–14: write no more than THREE WORDS AND/OR A NUMBER from the notices.",
+    "passage": "Text A — Riverside Learning Centre: evening workshops\nThe following notices describe fictional local services. Riverside offers six-week evening courses in bicycle care, basic sewing and digital photography. Each course meets on Wednesdays from 6.30 to 8.30 pm. The next term begins on 14 September. Adults aged eighteen or over may join; no previous experience is required. Registration opens on 22 August, and a place is confirmed only after payment. A standard course costs £84, including materials used during class. Full-time students with current identification pay £63. This reduction is not available merely on presentation of an expired student card. Participants should bring their own camera to photography, but sewing machines and bicycle tools are supplied. The centre can lend a camera for the first meeting only, subject to advance arrangement.\nIf a participant withdraws at least seven days before the first class, the fee is refunded minus a £10 administration charge. Later withdrawals receive no refund, although the place may be transferred to another eligible adult before the course starts. A course cancelled by the centre is refunded in full. Participants who need step-free access should use the entrance on Mill Road, rather than the riverside steps. Please discuss any additional access requirements with reception before registering so that staff can confirm suitable arrangements.\n\nText B — Community minibus\nThe community minibus runs between Westgate Square and the hospital on weekdays, excluding public holidays. Departures from Westgate are at 8.15, 10.15 and 13.15. The final return journey leaves the hospital at 16.20. Reserve a seat by telephone no later than noon on the previous working day. Online messages are not monitored for bookings. If you need to travel on Monday, reserve by noon on Friday. A return ticket costs £6; single journeys cost £4. Payment is made to the driver by card, and cash cannot be accepted. A passenger who cannot attend should telephone to cancel, even if the seat has not yet been paid for. Repeated failure to cancel may lead to suspension of booking privileges. The bus has space for one wheelchair; that space must be requested when booking. Companions need their own reserved seats and pay the standard fare. Travel time may increase at busy periods, so passengers should choose a departure that allows time before an appointment.\n\nText C — Park volunteering morning\nHelp the Friends of Alder Park maintain flower beds on the first Saturday of each month. Meet at the north gate at 9.00 am; the session ends at noon. New volunteers should arrive fifteen minutes early for an introduction. Wear sturdy shoes and clothing that can get dirty. Gloves and hand tools are provided, but please bring drinking water. Volunteers under sixteen must be accompanied throughout by an adult. The event continues in light rain, but is cancelled in high winds. A cancellation notice is posted on the group's telephone line by 7.30 am on the day. Do not assume that an old social-media post gives the latest decision. Nobody is expected to lift heavy objects or use equipment they are uncomfortable handling. Tell the coordinator if a task is unsuitable. There is no charge to attend, and no requirement to become a member of the Friends group.\n\nText D — Second-hand market information\nThe monthly indoor market operates in the town hall from 10 am to 2 pm on the last Sunday of the month. Admission for buyers is free. Sellers must book a table and pay the £12 charge by the preceding Tuesday; tables cannot be reserved on the day. Household items, books and clothing are welcome, but electrical equipment and prepared food are not permitted. Sellers set up from 8.45 am and must remove unsold goods by 2.45 pm. The organisers do not provide storage between markets. There is a loading area behind the hall, but vehicles must leave it immediately after unloading. Public parking is available across the road. Buyers should bring reusable bags. Arrangements for payment are made directly with each seller, so the organisers cannot guarantee that card payment will be available at every table.",
+    "questions": [
+      {
+        "number": 1,
+        "kind": "true-false-not-given",
+        "prompt": "A person with an expired student card automatically qualifies for the reduced workshop fee.",
+        "answers": [
+          "FALSE"
+        ],
+        "evidence": "A requires current identification and explicitly excludes an expired card.",
+        "explanation": "A requires current identification and explicitly excludes an expired card.",
+        "marks": 1,
+        "options": [
+          "TRUE",
+          "FALSE",
+          "NOT GIVEN"
+        ],
+        "id": "ig2-r1-q1"
+      },
+      {
+        "number": 2,
+        "kind": "true-false-not-given",
+        "prompt": "Every photography participant can borrow a camera for all six weeks.",
+        "answers": [
+          "FALSE"
+        ],
+        "evidence": "A offers a loan for the first meeting only and by arrangement.",
+        "explanation": "A offers a loan for the first meeting only and by arrangement.",
+        "marks": 1,
+        "options": [
+          "TRUE",
+          "FALSE",
+          "NOT GIVEN"
+        ],
+        "id": "ig2-r1-q2"
+      },
+      {
+        "number": 3,
+        "kind": "true-false-not-given",
+        "prompt": "The minibus accepts cash from passengers.",
+        "answers": [
+          "FALSE"
+        ],
+        "evidence": "B specifies card payment and excludes cash.",
+        "explanation": "B specifies card payment and excludes cash.",
+        "marks": 1,
+        "options": [
+          "TRUE",
+          "FALSE",
+          "NOT GIVEN"
+        ],
+        "id": "ig2-r1-q3"
+      },
+      {
+        "number": 4,
+        "kind": "true-false-not-given",
+        "prompt": "Park volunteers must join the Friends group before attending.",
+        "answers": [
+          "FALSE"
+        ],
+        "evidence": "C says membership is not required.",
+        "explanation": "C says membership is not required.",
+        "marks": 1,
+        "options": [
+          "TRUE",
+          "FALSE",
+          "NOT GIVEN"
+        ],
+        "id": "ig2-r1-q4"
+      },
+      {
+        "number": 5,
+        "kind": "true-false-not-given",
+        "prompt": "The indoor market has more than fifty tables.",
+        "answers": [
+          "NOT GIVEN"
+        ],
+        "evidence": "D supplies booking and timetable details but no table count.",
+        "explanation": "D supplies booking and timetable details but no table count.",
+        "marks": 1,
+        "options": [
+          "TRUE",
+          "FALSE",
+          "NOT GIVEN"
+        ],
+        "id": "ig2-r1-q5"
+      },
+      {
+        "number": 6,
+        "kind": "true-false-not-given",
+        "prompt": "The centre refunds the entire fee if it cancels a course.",
+        "answers": [
+          "TRUE"
+        ],
+        "evidence": "A explicitly states a full refund for a centre cancellation.",
+        "explanation": "A explicitly states a full refund for a centre cancellation.",
+        "marks": 1,
+        "options": [
+          "TRUE",
+          "FALSE",
+          "NOT GIVEN"
+        ],
+        "id": "ig2-r1-q6"
+      },
+      {
+        "number": 7,
+        "kind": "completion",
+        "prompt": "How much is deducted from an eligible workshop refund? Write NO MORE THAN THREE WORDS AND/OR A NUMBER from the notices.",
+        "answers": [
+          "£10",
+          "10",
+          "10 pounds"
+        ],
+        "evidence": "A: a £10 administration charge.",
+        "explanation": "A: a £10 administration charge.",
+        "marks": 1,
+        "maxWords": 3,
+        "id": "ig2-r1-q7"
+      },
+      {
+        "number": 8,
+        "kind": "completion",
+        "prompt": "Which road has the step-free centre entrance? Write NO MORE THAN THREE WORDS AND/OR A NUMBER from the notices.",
+        "answers": [
+          "Mill Road"
+        ],
+        "evidence": "A names the entrance on Mill Road.",
+        "explanation": "A names the entrance on Mill Road.",
+        "marks": 1,
+        "maxWords": 3,
+        "id": "ig2-r1-q8"
+      },
+      {
+        "number": 9,
+        "kind": "completion",
+        "prompt": "By what time must a Monday minibus journey be booked? Write NO MORE THAN THREE WORDS AND/OR A NUMBER from the notices.",
+        "answers": [
+          "noon on Friday",
+          "Friday noon",
+          "12 on Friday"
+        ],
+        "evidence": "B explicitly gives noon on Friday.",
+        "explanation": "B explicitly gives noon on Friday.",
+        "marks": 1,
+        "maxWords": 3,
+        "id": "ig2-r1-q9"
+      },
+      {
+        "number": 10,
+        "kind": "completion",
+        "prompt": "What must a park volunteer bring to drink? Write NO MORE THAN THREE WORDS AND/OR A NUMBER from the notices.",
+        "answers": [
+          "water"
+        ],
+        "evidence": "C asks volunteers to bring drinking water.",
+        "explanation": "C asks volunteers to bring drinking water.",
+        "marks": 1,
+        "maxWords": 3,
+        "id": "ig2-r1-q10"
+      },
+      {
+        "number": 11,
+        "kind": "completion",
+        "prompt": "In what weather are park sessions cancelled? Write NO MORE THAN THREE WORDS AND/OR A NUMBER from the notices.",
+        "answers": [
+          "high winds"
+        ],
+        "evidence": "C distinguishes light rain from high winds.",
+        "explanation": "C distinguishes light rain from high winds.",
+        "marks": 1,
+        "maxWords": 3,
+        "id": "ig2-r1-q11"
+      },
+      {
+        "number": 12,
+        "kind": "completion",
+        "prompt": "By which day must sellers book a market table? Write NO MORE THAN THREE WORDS AND/OR A NUMBER from the notices.",
+        "answers": [
+          "Tuesday"
+        ],
+        "evidence": "D says the preceding Tuesday.",
+        "explanation": "D says the preceding Tuesday.",
+        "marks": 1,
+        "maxWords": 3,
+        "id": "ig2-r1-q12"
+      },
+      {
+        "number": 13,
+        "kind": "completion",
+        "prompt": "What type of equipment is prohibited at the market? Write NO MORE THAN THREE WORDS AND/OR A NUMBER from the notices.",
+        "answers": [
+          "electrical equipment"
+        ],
+        "evidence": "D prohibits electrical equipment.",
+        "explanation": "D prohibits electrical equipment.",
+        "marks": 1,
+        "maxWords": 3,
+        "id": "ig2-r1-q13"
+      },
+      {
+        "number": 14,
+        "kind": "completion",
+        "prompt": "What must sellers remove after the market? Write NO MORE THAN THREE WORDS AND/OR A NUMBER from the notices.",
+        "answers": [
+          "unsold goods"
+        ],
+        "evidence": "D sets a 2.45 pm deadline for removing unsold goods.",
+        "explanation": "D sets a 2.45 pm deadline for removing unsold goods.",
+        "marks": 1,
+        "maxWords": 3,
+        "id": "ig2-r1-q14"
+      }
+    ]
+  },
+  {
+    "id": "ig2-r2",
+    "title": "Reading section 2",
+    "subtitle": "Questions 15–27 · Workplace documents",
+    "part": 2,
+    "skill": "reading",
+    "instructions": "Questions 15–21: write no more than THREE WORDS from the documents. Questions 22–27: TRUE agrees with the text, FALSE contradicts it, NOT GIVEN means the text does not establish the claim. These are fictional internal policies, not statutory advice.",
+    "passage": "Text A — Greenline Museum: staff induction handbook\nThis is the fictional museum's internal policy, not a statement of employment law. Every new employee attends an induction morning before working independently with visitors. The supervisor sends the schedule by email at least three working days before the session. If the message does not arrive, contact the administration office rather than assuming the session has been cancelled. Induction begins at 9.15 in the training room on the first floor. Employees should arrive at reception ten minutes earlier to collect a temporary badge. The morning includes a building tour, an introduction to the booking system and a discussion of how to refer visitor enquiries that cannot be answered immediately. Department-specific instruction takes place later with the employee's supervisor.\nPermanent badges are issued after induction, once the employee's photograph has been taken. A badge must be visible in public areas and must never be lent to another person. Report a lost badge immediately to reception so its access function can be disabled. Staff who forget a badge can request a temporary replacement for that day after confirming their identity. Using another employee's badge is not an acceptable shortcut. Reception records temporary issues so that unreturned badges can be followed up.\nWhen a visitor reports an injury, call the duty manager and provide the location. Staff without relevant training should not attempt treatment beyond their competence. Record factual observations on the incident form before the end of the shift; do not guess a diagnosis. The manager arranges any necessary follow-up. If an alarm sounds, direct visitors towards the signed exits and follow the evacuation procedure explained during induction. Do not return to collect personal possessions. Staff assemble in the north car park and report to their supervisor, who checks attendance. Any missing person should be reported to the supervisor rather than searched for by re-entering the building.\nShift changes must be approved in advance. Two employees may propose a swap, but it is not confirmed until their supervisor records approval in the scheduling system. This allows the supervisor to check that required skills remain available. Employees should not assume that a message sent to a colleague has updated the official rota. For illness affecting a same-day shift, telephone the duty manager before the scheduled start. An email alone may not be read in time. If the duty manager cannot be reached, call reception and ask for the on-call supervisor.\n\nText B — Applying for the museum's learning allowance\nThe museum offers a fictional annual learning allowance to employees who have completed three months of service. It supports a course connected either to the employee's present duties or an agreed development goal. Interest in a course does not guarantee funding; the budget is limited and approval must be obtained before booking. An employee who pays for a course without written approval accepts the risk that the cost will not be reimbursed. The allowance is designed for planned learning, not as a retrospective refund for unrelated study.\nFirst discuss the proposed course with your supervisor. The application form asks for the provider's name, course dates, total fee and a short explanation of how the learning will be used. Attach the provider's course description. Submit the completed application to the learning coordinator at least four weeks before the course begins. Applications are considered at the monthly staff-development meeting. If further information is required, the coordinator will contact the applicant. Employees should therefore allow extra time when a provider requires an early deposit. A provisional conversation with a supervisor is not the same as written approval from the coordinator.\nThe allowance can cover tuition and required examination fees. It does not cover travel, accommodation or optional equipment. A supervisor may separately approve working-time arrangements, but financial approval does not automatically mean that attendance during working hours is authorised. The two decisions must both be recorded when relevant. An employee whose application is declined can ask for written feedback and submit a revised application in a later round. There is no automatic priority for the most expensive course or the longest-serving applicant.\nAfter completing the course, send proof of attendance and the final receipt to the learning coordinator within thirty days. Keep copies until reimbursement appears on the payslip. Within two months, share one useful idea with the team, either at a short meeting or in a written note. This is intended to make learning available to colleagues, not to require disclosure of an examination result. If a provider cancels an approved course, notify the coordinator before transferring the payment to a different course; the replacement requires a new approval.",
+    "questions": [
+      {
+        "number": 15,
+        "kind": "completion",
+        "prompt": "New staff collect a temporary _____ before induction. Write NO MORE THAN THREE WORDS from the handbook.",
+        "answers": [
+          "badge"
+        ],
+        "evidence": "A: reception issues a temporary badge.",
+        "explanation": "A: reception issues a temporary badge.",
+        "marks": 1,
+        "maxWords": 3,
+        "id": "ig2-r2-q15"
+      },
+      {
+        "number": 16,
+        "kind": "completion",
+        "prompt": "A lost badge must be reported immediately to _____. Write NO MORE THAN THREE WORDS from the handbook.",
+        "answers": [
+          "reception"
+        ],
+        "evidence": "A names reception so access can be disabled.",
+        "explanation": "A names reception so access can be disabled.",
+        "marks": 1,
+        "maxWords": 3,
+        "id": "ig2-r2-q16"
+      },
+      {
+        "number": 17,
+        "kind": "completion",
+        "prompt": "During evacuation, staff assemble in the _____. Write NO MORE THAN THREE WORDS from the handbook.",
+        "answers": [
+          "north car park"
+        ],
+        "evidence": "A specifies the north car park.",
+        "explanation": "A specifies the north car park.",
+        "marks": 1,
+        "maxWords": 3,
+        "id": "ig2-r2-q17"
+      },
+      {
+        "number": 18,
+        "kind": "completion",
+        "prompt": "A shift swap is confirmed only when the _____ records approval. Write NO MORE THAN THREE WORDS from the handbook.",
+        "answers": [
+          "supervisor"
+        ],
+        "evidence": "A requires recorded supervisor approval.",
+        "explanation": "A requires recorded supervisor approval.",
+        "marks": 1,
+        "maxWords": 3,
+        "id": "ig2-r2-q18"
+      },
+      {
+        "number": 19,
+        "kind": "completion",
+        "prompt": "Same-day illness should be reported by _____ rather than email alone. Write NO MORE THAN THREE WORDS from the handbook.",
+        "answers": [
+          "telephone"
+        ],
+        "evidence": "A instructs staff to telephone the duty manager.",
+        "explanation": "A instructs staff to telephone the duty manager.",
+        "marks": 1,
+        "maxWords": 3,
+        "id": "ig2-r2-q19"
+      },
+      {
+        "number": 20,
+        "kind": "completion",
+        "prompt": "A learning application should include the provider’s _____. Write NO MORE THAN THREE WORDS from the handbook.",
+        "answers": [
+          "course description"
+        ],
+        "evidence": "B requires the provider course description.",
+        "explanation": "B requires the provider course description.",
+        "marks": 1,
+        "maxWords": 3,
+        "id": "ig2-r2-q20"
+      },
+      {
+        "number": 21,
+        "kind": "completion",
+        "prompt": "After a course, the employee sends proof of attendance and the final _____. Write NO MORE THAN THREE WORDS from the handbook.",
+        "answers": [
+          "receipt"
+        ],
+        "evidence": "B requires a final receipt within thirty days.",
+        "explanation": "B requires a final receipt within thirty days.",
+        "marks": 1,
+        "maxWords": 3,
+        "id": "ig2-r2-q21"
+      },
+      {
+        "number": 22,
+        "kind": "true-false-not-given",
+        "prompt": "A permanent badge can be lent to a colleague who has forgotten theirs.",
+        "answers": [
+          "FALSE"
+        ],
+        "evidence": "A explicitly prohibits lending badges.",
+        "explanation": "A explicitly prohibits lending badges.",
+        "marks": 1,
+        "options": [
+          "TRUE",
+          "FALSE",
+          "NOT GIVEN"
+        ],
+        "id": "ig2-r2-q22"
+      },
+      {
+        "number": 23,
+        "kind": "true-false-not-given",
+        "prompt": "Learning funding automatically includes travel costs.",
+        "answers": [
+          "FALSE"
+        ],
+        "evidence": "B excludes travel and accommodation.",
+        "explanation": "B excludes travel and accommodation.",
+        "marks": 1,
+        "options": [
+          "TRUE",
+          "FALSE",
+          "NOT GIVEN"
+        ],
+        "id": "ig2-r2-q23"
+      },
+      {
+        "number": 24,
+        "kind": "true-false-not-given",
+        "prompt": "Every applicant has to disclose their examination result to the team.",
+        "answers": [
+          "FALSE"
+        ],
+        "evidence": "B says sharing an idea does not require disclosing a result.",
+        "explanation": "B says sharing an idea does not require disclosing a result.",
+        "marks": 1,
+        "options": [
+          "TRUE",
+          "FALSE",
+          "NOT GIVEN"
+        ],
+        "id": "ig2-r2-q24"
+      },
+      {
+        "number": 25,
+        "kind": "true-false-not-given",
+        "prompt": "The museum has approved more language courses than computing courses.",
+        "answers": [
+          "NOT GIVEN"
+        ],
+        "evidence": "No comparison of approved course types is given.",
+        "explanation": "No comparison of approved course types is given.",
+        "marks": 1,
+        "options": [
+          "TRUE",
+          "FALSE",
+          "NOT GIVEN"
+        ],
+        "id": "ig2-r2-q25"
+      },
+      {
+        "number": 26,
+        "kind": "true-false-not-given",
+        "prompt": "A replacement course needs approval if the original provider cancels.",
+        "answers": [
+          "TRUE"
+        ],
+        "evidence": "B states the replacement requires new approval.",
+        "explanation": "B states the replacement requires new approval.",
+        "marks": 1,
+        "options": [
+          "TRUE",
+          "FALSE",
+          "NOT GIVEN"
+        ],
+        "id": "ig2-r2-q26"
+      },
+      {
+        "number": 27,
+        "kind": "true-false-not-given",
+        "prompt": "Financial approval automatically authorises attendance during working hours.",
+        "answers": [
+          "FALSE"
+        ],
+        "evidence": "B says these are two separate decisions.",
+        "explanation": "B says these are two separate decisions.",
+        "marks": 1,
+        "options": [
+          "TRUE",
+          "FALSE",
+          "NOT GIVEN"
+        ],
+        "id": "ig2-r2-q27"
+      }
+    ]
+  },
+  {
+    "id": "ig2-r3",
+    "title": "Reading section 3",
+    "subtitle": "Questions 28–40 · Extended general-interest text",
+    "part": 3,
+    "skill": "reading",
+    "instructions": "Questions 28–31: choose the paragraph A–H containing the information; a paragraph may be used more than once. Questions 32–37: choose the best of four answers. Questions 38–40: write ONE WORD from the passage.",
+    "passage": "A. The return of the night train\nFor travellers in the fictional country of Norland, the night train once seemed a relic. Cheap daytime flights connected the main cities, and overnight railway services gradually disappeared. Recently, however, a transport cooperative restored a route between the inland city of Orlen and the northern port of Vessa. Its publicity showed a passenger waking to a coastal sunrise, but the planning behind the service was less romantic. The cooperative had to obtain train carriages, agree access to busy tracks and persuade people that sleeping while travelling could be worth the fare. The return of a timetable was only the beginning of creating a reliable experience.\n\nB. Early interviews revealed several different potential markets. Some passengers wanted to avoid flying, others disliked arriving late at an airport far from the city centre, and a third group valued the possibility of travelling without losing a working day. These reasons did not necessarily lead to the same purchasing decision. A family might need several beds together, while a solo traveller might choose the cheapest shared compartment. The cooperative therefore offered reclining seats, shared sleeping compartments and private cabins. It resisted describing the service as equally suitable for everybody. A passenger who cannot sleep on a moving train may arrive less rested than someone who takes an early flight after a night at home.\n\nC. Reusing older carriages reduced the initial purchase cost but created unexpected work. Doors, ventilation and electrical systems had to be checked for compatibility with the restored route. Spare parts were not always available immediately. The maintenance team kept one carriage out of the regular formation so that it could substitute for another during repairs. Some supporters criticised the apparently idle asset, but the reserve helped prevent a minor fault from forcing a full cancellation. The cooperative's operations manager argued that efficiency should be measured over a season, including disrupted journeys, rather than by whether every seat was offered for sale every night. Reliability required capacity that was sometimes unused.\n\nD. Timetabling was equally complex. Passenger trains shared parts of the route with freight services, and overnight engineering work could close a track section. A departure that looked ideal for passengers might arrive at a bottleneck exactly when maintenance crews needed access. Negotiations therefore included alternative routes and advance notice of planned closures. On a few dates the service left earlier or used a replacement bus for the final section. The booking page displayed those differences before payment. This transparency sometimes discouraged a purchase, but it reduced the frustration of discovering a shortened railway journey only after boarding. A restored service could not pretend that the wider network had remained unchanged during its absence.\n\nE. Comfort involved more than installing beds. In a trial journey, volunteers reported that corridor lighting woke them whenever a door opened. The solution was a lower night setting rather than complete darkness, because passengers still needed to move safely. Staff also revised the announcement policy, limiting routine messages after midnight while retaining safety information. Bedding was collected at the destination and sent to a local laundry, an arrangement that required enough spare sets to cover delays. A modest breakfast was optional. Interviews suggested that predictable quiet and clean bedding mattered more to many passengers than an elaborate meal. The cooperative redirected part of its catering budget towards those less visible elements.\n\nF. Supporters frequently described the service as an environmental success. The cooperative agreed that replacing some flights could bring benefits, but declined to publish a precise saving for every ticket. Results depended on what journey the passenger would otherwise have made, how full the train was and how electricity was generated. A traveller switching from a daytime train was different from one avoiding a flight. Surveys therefore asked about alternatives, while the annual report separated passenger counts from estimated avoided flights. The report also acknowledged journeys made by people who would otherwise have stayed at home. Counting every new passenger as one removed airline customer would have exaggerated the effect.\n\nG. The first winter tested the enthusiasm generated by summer publicity. Tourist bookings fell, although regular business travellers continued to use weekday services. The cooperative changed some operating days rather than running the full summer timetable with mostly empty compartments. It also worked with a university to advertise travel dates around academic terms, without claiming that student demand alone could sustain the route. Passengers who relied on a particular day received advance notice of the revised schedule. These decisions made the operation less frequent but more manageable. The aim was to build a service that could survive beyond its launch, rather than preserve an attractive timetable that the budget could not support.\n\nH. After a year, the restored night train had neither replaced aviation nor failed as an impractical dream. It had found a specific role among the country's transport choices. Its experience suggested that a useful service rests on a chain of ordinary arrangements: spare equipment, access agreements, cleaning, clear booking information and a timetable matched to demand. The sunrise photograph remained on the website, but returning passengers increasingly mentioned the staff's reliable explanations when plans changed. For the cooperative, this was encouraging. A journey purchased for its novelty had become an option chosen for practical reasons, and practical value offered a stronger basis for continuity than nostalgia alone.",
+    "questions": [
+      {
+        "number": 28,
+        "kind": "matching",
+        "prompt": "Which paragraph explains why a carriage was sometimes not used?",
+        "answers": [
+          "C"
+        ],
+        "evidence": "C describes keeping a reserve for substitution.",
+        "explanation": "C describes keeping a reserve for substitution.",
+        "marks": 1,
+        "options": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F",
+          "G",
+          "H"
+        ],
+        "id": "ig2-r3-q28"
+      },
+      {
+        "number": 29,
+        "kind": "matching",
+        "prompt": "Which paragraph describes a change to lighting and announcements?",
+        "answers": [
+          "E"
+        ],
+        "evidence": "E explains the quiet and lighting trial.",
+        "explanation": "E explains the quiet and lighting trial.",
+        "marks": 1,
+        "options": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F",
+          "G",
+          "H"
+        ],
+        "id": "ig2-r3-q29"
+      },
+      {
+        "number": 30,
+        "kind": "matching",
+        "prompt": "Which paragraph distinguishes passengers’ previous travel choices?",
+        "answers": [
+          "F"
+        ],
+        "evidence": "F separates flights, daytime trains and journeys otherwise not made.",
+        "explanation": "F separates flights, daytime trains and journeys otherwise not made.",
+        "marks": 1,
+        "options": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F",
+          "G",
+          "H"
+        ],
+        "id": "ig2-r3-q30"
+      },
+      {
+        "number": 31,
+        "kind": "matching",
+        "prompt": "Which paragraph discusses a seasonal change in operating frequency?",
+        "answers": [
+          "G"
+        ],
+        "evidence": "G describes reduced winter operating days.",
+        "explanation": "G describes reduced winter operating days.",
+        "marks": 1,
+        "options": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F",
+          "G",
+          "H"
+        ],
+        "id": "ig2-r3-q31"
+      },
+      {
+        "number": 32,
+        "kind": "choice",
+        "prompt": "Why did the cooperative provide several accommodation types?",
+        "answers": [
+          "Passengers had different needs and budgets."
+        ],
+        "evidence": "B contrasts family, solo and budget preferences.",
+        "explanation": "B contrasts family, solo and budget preferences.",
+        "marks": 1,
+        "options": [
+          "Passengers had different needs and budgets.",
+          "Every passenger preferred to travel alone.",
+          "All carriages had to offer identical services.",
+          "Private cabins could not be sold."
+        ],
+        "id": "ig2-r3-q32"
+      },
+      {
+        "number": 33,
+        "kind": "choice",
+        "prompt": "What benefit did the reserve carriage provide?",
+        "answers": [
+          "It reduced the risk of cancelling an entire service."
+        ],
+        "evidence": "C links substitution with preventing full cancellations.",
+        "explanation": "C links substitution with preventing full cancellations.",
+        "marks": 1,
+        "options": [
+          "It removed all maintenance costs.",
+          "It reduced the risk of cancelling an entire service.",
+          "It allowed the cooperative to avoid inspections.",
+          "It guaranteed every seat would be occupied."
+        ],
+        "id": "ig2-r3-q33"
+      },
+      {
+        "number": 34,
+        "kind": "choice",
+        "prompt": "Why did the booking page show unusual travel arrangements?",
+        "answers": [
+          "To let passengers know before paying."
+        ],
+        "evidence": "D says differences were displayed before payment.",
+        "explanation": "D says differences were displayed before payment.",
+        "marks": 1,
+        "options": [
+          "To hide the maintenance schedule.",
+          "To replace all railway journeys with buses.",
+          "To let passengers know before paying.",
+          "To guarantee the timetable never changed."
+        ],
+        "id": "ig2-r3-q34"
+      },
+      {
+        "number": 35,
+        "kind": "choice",
+        "prompt": "What did the trial suggest about comfort?",
+        "answers": [
+          "Basic, reliable conditions mattered to many passengers."
+        ],
+        "evidence": "E prioritises quiet and clean bedding.",
+        "explanation": "E prioritises quiet and clean bedding.",
+        "marks": 1,
+        "options": [
+          "Passengers never needed corridor lighting.",
+          "An elaborate meal mattered more than quiet.",
+          "Announcements should continue all night.",
+          "Basic, reliable conditions mattered to many passengers."
+        ],
+        "id": "ig2-r3-q35"
+      },
+      {
+        "number": 36,
+        "kind": "choice",
+        "prompt": "Why did the operator avoid a fixed environmental saving per ticket?",
+        "answers": [
+          "Passengers’ alternatives and operating conditions differed."
+        ],
+        "evidence": "F identifies alternatives, occupancy and generation.",
+        "explanation": "F identifies alternatives, occupancy and generation.",
+        "marks": 1,
+        "options": [
+          "Passengers’ alternatives and operating conditions differed.",
+          "It had no intention of counting passengers.",
+          "All passengers had switched from flying.",
+          "Electricity use was identical on every journey."
+        ],
+        "id": "ig2-r3-q36"
+      },
+      {
+        "number": 37,
+        "kind": "choice",
+        "prompt": "What is the main conclusion?",
+        "answers": [
+          "Practical reliability can turn novelty into sustained value."
+        ],
+        "evidence": "H links continuing use with practical value.",
+        "explanation": "H links continuing use with practical value.",
+        "marks": 1,
+        "options": [
+          "Nostalgia alone guarantees financial survival.",
+          "Practical reliability can turn novelty into sustained value.",
+          "The railway has already replaced all domestic flights.",
+          "Seasonal schedules should never be revised."
+        ],
+        "id": "ig2-r3-q37"
+      },
+      {
+        "number": 38,
+        "kind": "completion",
+        "prompt": "Bedding was sent to a local _____. Write ONE WORD from the passage.",
+        "answers": [
+          "laundry"
+        ],
+        "evidence": "E specifies a local laundry.",
+        "explanation": "E specifies a local laundry.",
+        "marks": 1,
+        "maxWords": 1,
+        "id": "ig2-r3-q38"
+      },
+      {
+        "number": 39,
+        "kind": "completion",
+        "prompt": "The annual report separated passenger counts from estimated avoided _____. Write ONE WORD from the passage.",
+        "answers": [
+          "flights"
+        ],
+        "evidence": "F makes this distinction.",
+        "explanation": "F makes this distinction.",
+        "marks": 1,
+        "maxWords": 1,
+        "id": "ig2-r3-q39"
+      },
+      {
+        "number": 40,
+        "kind": "completion",
+        "prompt": "The university helped advertise dates around academic _____. Write ONE WORD from the passage.",
+        "answers": [
+          "terms"
+        ],
+        "evidence": "G mentions academic terms.",
+        "explanation": "G mentions academic terms.",
+        "marks": 1,
+        "maxWords": 1,
+        "id": "ig2-r3-q40"
+      }
+    ]
+  }
+]

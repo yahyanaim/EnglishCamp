@@ -1,0 +1,140 @@
+[
+  {
+    "id": "ielts-acad-l1",
+    "text": "Hello, Student Housing Office. How can I help you today? Hello. My name is Julian Fletcher. I am a postgraduate student arriving next month for the Master of Sustainable Architecture programme. I need to register for university-managed accommodation. Certainly, Mr. Fletcher. Let me pull up your student portal file. Fletcher, Julian... yes, student ID SA-8842. We have three main accommodation options available for postgraduates: university studio apartments, shared graduate houses, and catered hall rooms. Which were you considering? I definitely prefer a self-catered shared house with a private study desk and high-speed internet. I understand the shared houses on Parkside Avenue are very quiet. That is correct. We have a private ensuite room available in Parkside Villa starting on the fifteenth of September. The weekly rent is one hundred and eighty-five pounds, which includes water, heating, and broadband. Electricity is billed separately on a monthly smart meter. One hundred and eighty-five pounds sounds very reasonable. And is there secure bicycle storage? Yes, there is a locked bike shed in the rear courtyard. Also, all residents must pay a refundable security deposit of four hundred pounds prior to collecting their keys.",
+    "scriptSha256": "54e1458e0a71fe1ecafb602b644725fc8cd8a90a06e239c2f1ba02be1eafc258",
+    "rate": "-3%",
+    "turns": [
+      {
+        "speaker": "Coordinator",
+        "voice": "en-GB-SoniaNeural",
+        "text": "Hello, Student Housing Office. How can I help you today?"
+      },
+      {
+        "speaker": "Student",
+        "voice": "en-CA-LiamNeural",
+        "text": "Hello. My name is Julian Fletcher. I am a postgraduate student arriving next month for the Master of Sustainable Architecture programme. I need to register for university-managed accommodation."
+      },
+      {
+        "speaker": "Coordinator",
+        "voice": "en-GB-SoniaNeural",
+        "text": "Certainly, Mr. Fletcher. Let me pull up your student portal file. Fletcher, Julian... yes, student ID SA-8842. We have three main accommodation options available for postgraduates: university studio apartments, shared graduate houses, and catered hall rooms. Which were you considering?"
+      },
+      {
+        "speaker": "Student",
+        "voice": "en-CA-LiamNeural",
+        "text": "I definitely prefer a self-catered shared house with a private study desk and high-speed internet. I understand the shared houses on Parkside Avenue are very quiet."
+      },
+      {
+        "speaker": "Coordinator",
+        "voice": "en-GB-SoniaNeural",
+        "text": "That is correct. We have a private ensuite room available in Parkside Villa starting on the fifteenth of September. The weekly rent is one hundred and eighty-five pounds, which includes water, heating, and broadband. Electricity is billed separately on a monthly smart meter."
+      },
+      {
+        "speaker": "Student",
+        "voice": "en-CA-LiamNeural",
+        "text": "One hundred and eighty-five pounds sounds very reasonable. And is there secure bicycle storage?"
+      },
+      {
+        "speaker": "Coordinator",
+        "voice": "en-GB-SoniaNeural",
+        "text": "Yes, there is a locked bike shed in the rear courtyard. Also, all residents must pay a refundable security deposit of four hundred pounds prior to collecting their keys."
+      }
+    ],
+    "src": "/media/mock-exams/ielts-acad-l1.wav",
+    "engine": "Microsoft neural TTS / edge-tts 7.3.1",
+    "sampleRate": 24000,
+    "durationSeconds": 88.56,
+    "turnPauseSeconds": 0.24,
+    "sha256": "57a1fc94a6833f714305aa2dcaae7ee6a271472a5827231f714e4259a966950b",
+    "rms": 0.09782207451506493,
+    "clippedFraction": 0.0,
+    "provenance": "Original EnglishCamp mock-exam script; AI-generated neural voices. Fixed scripts only were sent to Microsoft for the requested voice upgrade. Playback uses bundled local WAVs, without a speech-service connection. Not an examination-board recording."
+  },
+  {
+    "id": "ielts-acad-l2",
+    "text": "Welcome everyone to our volunteer orientation at the Riverside Wetland Nature Reserve. Before we divide into our morning maintenance groups, I'd like to highlight a few essential guidelines and updates. As you know, the reserve spans over three hundred hectares of marshland, reed beds, and tidal mudflats. Our primary conservation objective this spring is the protection of the migrating Eurasian bittern, a critically vulnerable heron species that nests exclusively in undisturbed reed beds. For this reason, Section C on the eastern boundary is strictly off-limits to visitors and volunteers until early July. Last winter's severe flooding damaged several raised boardwalks. The West Boardwalk leading to the Bird Observation Tower has been completely rebuilt using recycled composite lumber, which is slip-resistant and much more durable than cedar. Regarding safety, all volunteers must wear high-visibility vests and steel-toed wellington boots. Please do not touch any injured wildfowl directly; instead, immediately radio Base Station 2 so our qualified veterinary team can dispatch an extraction crate.",
+    "scriptSha256": "7b7041ee238e82017e6c0949fa6eeb01c981bcdba3eb3f4f7eaba7c7a62190f8",
+    "rate": "-3%",
+    "turns": [
+      {
+        "speaker": "Ranger",
+        "voice": "en-GB-RyanNeural",
+        "text": "Welcome everyone to our volunteer orientation at the Riverside Wetland Nature Reserve. Before we divide into our morning maintenance groups, I'd like to highlight a few essential guidelines and updates. As you know, the reserve spans over three hundred hectares of marshland, reed beds, and tidal mudflats. Our primary conservation objective this spring is the protection of the migrating Eurasian bittern, a critically vulnerable heron species that nests exclusively in undisturbed reed beds. For this reason, Section C on the eastern boundary is strictly off-limits to visitors and volunteers until early July. Last winter's severe flooding damaged several raised boardwalks. The West Boardwalk leading to the Bird Observation Tower has been completely rebuilt using recycled composite lumber, which is slip-resistant and much more durable than cedar. Regarding safety, all volunteers must wear high-visibility vests and steel-toed wellington boots. Please do not touch any injured wildfowl directly; instead, immediately radio Base Station 2 so our qualified veterinary team can dispatch an extraction crate."
+      }
+    ],
+    "src": "/media/mock-exams/ielts-acad-l2.wav",
+    "engine": "Microsoft neural TTS / edge-tts 7.3.1",
+    "sampleRate": 24000,
+    "durationSeconds": 69.648,
+    "turnPauseSeconds": 0.24,
+    "sha256": "9b8f4e63ab41ac9b579dc30133b162c63f84151294d6130b7c68fa67a4108576",
+    "rms": 0.0869061488853692,
+    "clippedFraction": 0.0,
+    "provenance": "Original EnglishCamp mock-exam script; AI-generated neural voices. Fixed scripts only were sent to Microsoft for the requested voice upgrade. Playback uses bundled local WAVs, without a speech-service connection. Not an examination-board recording."
+  },
+  {
+    "id": "toefl-list-1",
+    "text": "Come on in, Marcus. Take a seat. How is your senior thesis proposal coming along? Thanks, Professor Vance. I've drafted my literature review on urban gentrification, but I'm running into methodological roadblocks regarding data collection. I initially planned to conduct in-person semi-structured interviews with thirty local small business owners across the historic market district. But after spending three days conducting preliminary site visits, nearly half of the merchants declined because they simply don't have twenty minutes to spare during retail operating hours. That is a classic dilemma in qualitative urban research, Marcus. In empirical field studies, access and rapport are everything. Trying to conduct cold interviews during peak foot-traffic hours rarely yields rich qualitative insights. Have you considered triangulating your method with digital asynchronous questionnaires or attending the upcoming merchant association monthly meeting? The president of the Downtown Business Alliance invited our department to present student research. If you attend with a short endorsement from me, merchants will recognize you as a vetted researcher rather than an unwelcome interruption. That would be incredible, Professor Vance. When is their next gathering? Next Tuesday evening at 6:30 PM at the municipal library hall.",
+    "scriptSha256": "214d775d223b3db1f99597db013f5061a16310e4d0d0be8ef27fdca20d3e209a",
+    "rate": "-3%",
+    "turns": [
+      {
+        "speaker": "Professor Vance",
+        "voice": "en-US-AvaNeural",
+        "text": "Come on in, Marcus. Take a seat. How is your senior thesis proposal coming along?"
+      },
+      {
+        "speaker": "Marcus",
+        "voice": "en-US-AndrewNeural",
+        "text": "Thanks, Professor Vance. I've drafted my literature review on urban gentrification, but I'm running into methodological roadblocks regarding data collection. I initially planned to conduct in-person semi-structured interviews with thirty local small business owners across the historic market district. But after spending three days conducting preliminary site visits, nearly half of the merchants declined because they simply don't have twenty minutes to spare during retail operating hours."
+      },
+      {
+        "speaker": "Professor Vance",
+        "voice": "en-US-AvaNeural",
+        "text": "That is a classic dilemma in qualitative urban research, Marcus. In empirical field studies, access and rapport are everything. Trying to conduct cold interviews during peak foot-traffic hours rarely yields rich qualitative insights. Have you considered triangulating your method with digital asynchronous questionnaires or attending the upcoming merchant association monthly meeting? The president of the Downtown Business Alliance invited our department to present student research. If you attend with a short endorsement from me, merchants will recognize you as a vetted researcher rather than an unwelcome interruption."
+      },
+      {
+        "speaker": "Marcus",
+        "voice": "en-US-AndrewNeural",
+        "text": "That would be incredible, Professor Vance. When is their next gathering?"
+      },
+      {
+        "speaker": "Professor Vance",
+        "voice": "en-US-AvaNeural",
+        "text": "Next Tuesday evening at 6:30 PM at the municipal library hall."
+      }
+    ],
+    "src": "/media/mock-exams/toefl-list-1.wav",
+    "engine": "Microsoft neural TTS / edge-tts 7.3.1",
+    "sampleRate": 24000,
+    "durationSeconds": 83.712,
+    "turnPauseSeconds": 0.24,
+    "sha256": "91ef3b7d177804b05bee10a2ac22fe7ca636f9be1d8230e0032ea538ec029966",
+    "rms": 0.09418841123209457,
+    "clippedFraction": 0.0,
+    "provenance": "Original EnglishCamp mock-exam script; AI-generated neural voices. Fixed scripts only were sent to Microsoft for the requested voice upgrade. Playback uses bundled local WAVs, without a speech-service connection. Not an examination-board recording."
+  },
+  {
+    "id": "toefl-list-2",
+    "text": "Good afternoon, class. Today we are descending into the bathypelagic zone—the ocean layer between one thousand and four thousand metres below the surface. In this perpetual darkness, sunlight is completely extinguished. Yet, if you peer through the viewport of a deep-sea submersible, the abyss sparkles with living light. Approximately ninety percent of deep-sea organisms are bioluminescent. Now, chemiluminescence in marine organisms is catalyzed by a family of enzymes called luciferases acting upon a light-emitting pigment substrate known as luciferin. In the presence of dissolved oxygen, this chemical reaction produces cold light with virtually zero waste heat. But why expend precious metabolic energy generating light in the dark? Marine biologists classify bioluminescent adaptations into three functional categories: predation, defensive counter-illumination, and intra-species signaling. Take the anglerfish: it features an extended dorsal spine tipped with a glowing photophore filled with symbiotic bioluminescent bacteria. It dangles this luminous lure right above its jaws to attract unsuspecting prey. Conversely, many mesopelagic squids and lanternfishes employ counter-illumination: photophores on their ventral underbellies emit a dim blue glow that perfectly matches the downwelling ambient moonlight filtering from above, effectively erasing their silhouette from predators lurking beneath them.",
+    "scriptSha256": "42828378d47a8b01060b3e11378c20f7882ce0f71533a7afa31ac1f083004b34",
+    "rate": "-3%",
+    "turns": [
+      {
+        "speaker": "Professor",
+        "voice": "en-US-AndrewNeural",
+        "text": "Good afternoon, class. Today we are descending into the bathypelagic zone—the ocean layer between one thousand and four thousand metres below the surface. In this perpetual darkness, sunlight is completely extinguished. Yet, if you peer through the viewport of a deep-sea submersible, the abyss sparkles with living light. Approximately ninety percent of deep-sea organisms are bioluminescent. Now, chemiluminescence in marine organisms is catalyzed by a family of enzymes called luciferases acting upon a light-emitting pigment substrate known as luciferin. In the presence of dissolved oxygen, this chemical reaction produces cold light with virtually zero waste heat. But why expend precious metabolic energy generating light in the dark? Marine biologists classify bioluminescent adaptations into three functional categories: predation, defensive counter-illumination, and intra-species signaling. Take the anglerfish: it features an extended dorsal spine tipped with a glowing photophore filled with symbiotic bioluminescent bacteria. It dangles this luminous lure right above its jaws to attract unsuspecting prey. Conversely, many mesopelagic squids and lanternfishes employ counter-illumination: photophores on their ventral underbellies emit a dim blue glow that perfectly matches the downwelling ambient moonlight filtering from above, effectively erasing their silhouette from predators lurking beneath them."
+      }
+    ],
+    "src": "/media/mock-exams/toefl-list-2.wav",
+    "engine": "Microsoft neural TTS / edge-tts 7.3.1",
+    "sampleRate": 24000,
+    "durationSeconds": 92.976,
+    "turnPauseSeconds": 0.24,
+    "sha256": "ec57a5dc46d1efa07b2b2181d04cbdf9af64b19f813506366a703fb57e5953f5",
+    "rms": 0.09975650405192313,
+    "clippedFraction": 0.0,
+    "provenance": "Original EnglishCamp mock-exam script; AI-generated neural voices. Fixed scripts only were sent to Microsoft for the requested voice upgrade. Playback uses bundled local WAVs, without a speech-service connection. Not an examination-board recording."
+  }
+]

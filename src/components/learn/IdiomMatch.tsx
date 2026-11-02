@@ -1,4 +1,7 @@
 "use client";
+
+import { LearningArt } from "@/components/brand/LearningArt";
+import { PracticeCard, PracticeButton } from "@/components/ui/PracticeSurface";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useProgress } from "@/store/useProgress";
@@ -24,6 +27,8 @@ function generateRound() {
 }
 
 type Round = ReturnType<typeof generateRound>;
+
+const MotionPracticeButton = motion.create(PracticeButton);
 
 export function IdiomMatch() {
   const { completeExercise, addXP } = useProgress();
@@ -105,25 +110,25 @@ export function IdiomMatch() {
   if (done) {
     const pct = attempts > 0 ? Math.round((score / attempts) * 100) : 0;
     return (
-      <div className="bg-[var(--color-surface)] rounded-[24px] border-2 border-[var(--color-border-default)] p-10 text-center shadow-[0_4px_16px_rgba(0,0,0,0.08)]">
-        <Sparkles className="w-14 h-14 text-[var(--color-warning)] mx-auto mb-4" />
+      <PracticeCard data-practice-surface="result" className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-5 sm:p-6 text-center shadow-[var(--shadow-1)]">
+        <LearningArt name="Sparkles" className="w-14 h-14 text-[var(--color-text-warning)] mx-auto mb-4" />
         <h3 className="text-xl font-display font-extrabold text-[var(--color-text-primary)] mb-1">Idiom Match Complete!</h3>
-        <p className="text-lg font-display font-extrabold text-[var(--color-primary-dark)]">{score}/{attempts} ({pct}%)</p>
+        <p className="text-lg font-display font-extrabold text-[var(--color-text-link)]">{score}/{attempts} ({pct}%)</p>
         <p className="text-sm text-[var(--color-text-secondary)] mt-2">{pct >= 80 ? "You really know your idioms!" : pct >= 50 ? "Good start! Idioms take practice." : "Keep practicing English idioms!"}</p>
-        <button onClick={() => { setRoundIdx(0); setScore(0); setAttempts(0); setDone(false); }} className="mt-4 text-sm font-medium bg-[var(--color-primary-subtle)] text-[var(--color-primary-dark)] border border-[var(--color-primary)] px-5 py-2 rounded-[var(--radius-lg)] hover:bg-[var(--color-primary)] transition-all">
+        <PracticeButton onClick={() => { setRoundIdx(0); setScore(0); setAttempts(0); setDone(false); }} className="mt-4 text-sm font-medium bg-[var(--color-primary-subtle)] text-[var(--color-text-link)] border border-[var(--color-primary)] px-5 py-2 rounded-[var(--radius-lg)] hover:bg-[var(--color-primary)] transition-all">
           Play Again ↺
-        </button>
-      </div>
+        </PracticeButton>
+      </PracticeCard>
     );
   }
 
   if (!current) return null;
 
   return (
-    <div className="bg-[var(--color-surface)] rounded-[24px] border-2 border-[var(--color-border-default)] p-6 shadow-[0_4px_16px_rgba(0,0,0,0.08)] max-w-3xl mx-auto">
+    <PracticeCard data-practice-surface="question" className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-6 shadow-[var(--shadow-1)] max-w-3xl mx-auto">
       <div className="flex items-center justify-between mb-4">
-        <span className="text-xs font-semibold text-[var(--color-warning)] uppercase tracking-wider">Idiom Match</span>
-        <span className="text-xs text-[var(--color-text-disabled)]">Round {roundIdx + 1}/{rounds.length}</span>
+        <span className="text-xs font-semibold text-[var(--color-text-warning)] uppercase tracking-wider">Idiom Match</span>
+        <span className="text-xs text-[var(--color-text-secondary)]">Round {roundIdx + 1}/{rounds.length}</span>
       </div>
 
       <div className="flex gap-1.5 mb-4">
@@ -137,62 +142,62 @@ export function IdiomMatch() {
       </p>
 
       <div className="flex items-start gap-2 mb-4">
-        <Shuffle className="w-3.5 h-3.5 text-[var(--color-text-disabled)] mt-0.5" />
-        <p className="text-xs text-[var(--color-text-disabled)]">Matched: {matched.size}/{current.pairs.length}</p>
+        <LearningArt name="Shuffle" size={14} className="w-3.5 h-3.5 text-[var(--color-text-secondary)] mt-0.5" />
+        <p className="text-xs text-[var(--color-text-secondary)]">Matched: {matched.size}/{current.pairs.length}</p>
       </div>
 
       <AnimatePresence mode="wait">
         <motion.div key={roundIdx} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} className="space-y-4">
           <div className="grid grid-cols-2 gap-4">
             <div>
-                <p className="text-[10px] font-bold uppercase tracking-wider text-[var(--color-text-disabled)] mb-2 text-center">Idiom</p>
+                <p className="text-[10px] font-bold uppercase tracking-wider text-[var(--color-text-secondary)] mb-2 text-center">Idiom</p>
               <div className="space-y-2">
                 {unmatchedIdiom.map((p) => {
                   const isSelected = selectedIdiom === p.id;
                   const isWrong = wrongPair?.idiom === p.id;
                   return (
-                    <motion.button
+                    <MotionPracticeButton
                       key={p.id}
                       onClick={() => handleSelectIdiom(p.id)}
                       disabled={roundDone}
                       whileTap={{ scale: 0.98 }}
-                      className={`w-full text-left px-3 py-2.5 rounded-[var(--radius-lg)] text-sm font-medium border-2 transition-all ${
+                      className={`w-full text-left px-3 py-2.5 rounded-[var(--radius-lg)] text-sm font-medium border transition-all ${
                         isWrong
-                          ? "border-red-300 bg-[var(--color-error)] text-white text-red-700"
+                          ? "border-red-300 bg-[var(--color-error-bg)] text-[var(--color-text-error)] text-[var(--color-text-error)]"
                           : isSelected
-                            ? "border-amber-400 bg-[var(--color-warning)] text-white "
+                            ? "border-amber-400 bg-[var(--color-warning-bg)] text-[var(--color-text-warning)] "
                             : "border-[var(--color-border-default)] bg-[var(--color-surface)] text-[var(--color-text-primary)] hover:border-[var(--color-warning)] hover:bg-amber-50/50"
                       }`}
                     >
                       {p.idiom}
-                    </motion.button>
+                    </MotionPracticeButton>
                   );
                 })}
               </div>
             </div>
 
             <div>
-              <p className="text-[10px] font-bold uppercase tracking-wider text-[var(--color-text-disabled)] mb-2 text-center">English (Meaning)</p>
+              <p className="text-[10px] font-bold uppercase tracking-wider text-[var(--color-text-secondary)] mb-2 text-center">English (Meaning)</p>
               <div className="space-y-2">
                 {unmatchedMeaning.map((p) => {
                   const isSelected = selectedMeaning === p.meaning;
                   const isWrong = wrongPair?.meaning === p.meaning;
                   return (
-                    <motion.button
+                    <MotionPracticeButton
                       key={p.id}
                       onClick={() => handleSelectMeaning(p.meaning)}
                       disabled={roundDone}
                       whileTap={{ scale: 0.98 }}
-                      className={`w-full text-left px-3 py-2.5 rounded-[var(--radius-lg)] text-sm font-medium border-2 transition-all ${
+                      className={`w-full text-left px-3 py-2.5 rounded-[var(--radius-lg)] text-sm font-medium border transition-all ${
                         isWrong
-                          ? "border-red-300 bg-[var(--color-error)] text-white text-red-700"
+                          ? "border-red-300 bg-[var(--color-error-bg)] text-[var(--color-text-error)] text-[var(--color-text-error)]"
                           : isSelected
-                            ? "border-amber-400 bg-[var(--color-warning)] text-white "
+                            ? "border-amber-400 bg-[var(--color-warning-bg)] text-[var(--color-text-warning)] "
                             : "border-[var(--color-border-default)] bg-[var(--color-surface)] text-[var(--color-text-primary)] hover:border-[var(--color-warning)] hover:bg-amber-50/50"
                       }`}
                     >
                       {p.meaning}
-                    </motion.button>
+                    </MotionPracticeButton>
                   );
                 })}
               </div>
@@ -201,30 +206,30 @@ export function IdiomMatch() {
 
           {roundDone && (
             <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className="space-y-4 pt-2">
-              <div className="bg-[var(--color-success)] text-white rounded-[var(--radius-lg)] p-4 ring-1 ring-[var(--color-success)]">
-                  <p className="text-sm font-semibold text-[var(--color-success)] mb-2 flex items-center gap-2">
+              <div className="bg-[var(--color-success-bg)] text-[var(--color-text-success)] rounded-[var(--radius-lg)] p-4 ring-1 ring-[var(--color-success)]">
+                  <p className="text-sm font-semibold text-[var(--color-text-success)] mb-2 flex items-center gap-2">
                     <CheckCircle2 className="w-4 h-4" /> All matched!
                   </p>
                 <div className="space-y-3">
                   {current.pairs.map((p) => (
                     <div key={p.id} className="text-xs">
                       <p className="font-mono font-bold text-[var(--color-text-primary)]">{p.idiom}</p>
-                      <p className="text-[var(--color-success)]">{p.meaning}</p>
-                      <p className="text-[var(--color-text-disabled)] mt-0.5">{p.example}</p>
+                      <p className="text-[var(--color-text-success)]">{p.meaning}</p>
+                      <p className="text-[var(--color-text-secondary)] mt-0.5">{p.example}</p>
                     </div>
                   ))}
                 </div>
               </div>
 
               <div className="flex justify-end">
-                <button onClick={nextRound} className="flex items-center gap-2 px-5 py-2.5 bg-[var(--color-primary)] text-white rounded-[var(--radius-lg)] font-display font-extrabold text-sm hover:bg-[var(--color-primary-dark)] transition-all active:translate-y-0.5" style={{ boxShadow: "0 4px 0 var(--color-primary-dark)" }}>
+                <PracticeButton onClick={nextRound} className="flex items-center gap-2 px-5 py-2.5 bg-[var(--color-primary)] text-[var(--color-on-brand)] rounded-[var(--radius-lg)] font-display font-extrabold text-sm hover:bg-[var(--color-primary-dark)] transition-all active:translate-y-0.5" style={{ boxShadow: "0 4px 0 var(--color-primary-dark)" }}>
                   {roundIdx + 1 >= rounds.length ? "See Results" : "Next Round"} <ArrowRight className="w-4 h-4" />
-                </button>
+                </PracticeButton>
               </div>
             </motion.div>
           )}
         </motion.div>
       </AnimatePresence>
-    </div>
+    </PracticeCard>
   );
 }

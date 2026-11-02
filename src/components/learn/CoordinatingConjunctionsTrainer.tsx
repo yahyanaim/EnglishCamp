@@ -1,4 +1,6 @@
 "use client";
+import { LearningArt } from "@/components/brand/LearningArt";
+import { PracticeCard, PracticeButton } from "@/components/ui/PracticeSurface";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useProgress } from "@/store/useProgress";
@@ -80,18 +82,18 @@ export function CoordinatingConjunctionsTrainer() {
       <div className="text-center py-8">
         <span className="text-5xl block mb-3">{pct >= 80 ? "🏆" : pct >= 50 ? "👍" : "💪"}</span>
         <h3 className="text-xl font-display font-extrabold text-[var(--color-text-primary)] mb-1">Conjunctions Complete!</h3>
-        <p className="text-lg font-display font-extrabold text-[var(--color-primary-dark)] mb-1">{score}/{total} correct ({pct}%)</p>
+        <p className="text-lg font-display font-extrabold text-[var(--color-text-link)] mb-1">{score}/{total} correct ({pct}%)</p>
         <p className="text-sm text-[var(--color-text-secondary)] mb-6">{pct >= 80 ? "Excellent conjunction skills!" : "Keep practicing!"}</p>
-        <button onClick={handleRestart} className="text-sm font-medium bg-[var(--color-primary-subtle)] text-[var(--color-primary-dark)] border border-[var(--color-primary)] px-5 py-2 rounded-[var(--radius-lg)] hover:bg-[var(--color-primary)] transition-all">Play Again 🔄</button>
+        <PracticeButton onClick={handleRestart} className="text-sm font-medium bg-[var(--color-primary-subtle)] text-[var(--color-text-link)] border border-[var(--color-primary)] px-5 py-2 rounded-[var(--radius-lg)] hover:bg-[var(--color-primary)] transition-all">Play Again <LearningArt name="🔄" size={16} /></PracticeButton>
       </div>
     );
   }
 
   return (
-    <div className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border-2 border-[var(--color-border-default)] p-6 shadow-sm" style={{ boxShadow: "0 3px 0 var(--color-border-default)" }}>
+    <PracticeCard data-practice-surface="question" className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-6 shadow-sm" style={{ boxShadow: "0 3px 0 var(--color-border-default)" }}>
       <div className="flex items-center justify-between mb-4">
         <span className="text-xs font-semibold text-teal-500 uppercase tracking-wider">Conjunctions</span>
-        <span className="text-xs text-[var(--color-text-disabled)]">{index + 1}/{pool.length}</span>
+        <span className="text-xs text-[var(--color-text-secondary)]">{index + 1}/{pool.length}</span>
       </div>
 
       <AnimatePresence mode="wait">
@@ -99,10 +101,10 @@ export function CoordinatingConjunctionsTrainer() {
           <p className="text-sm text-[var(--color-text-secondary)] mb-2">Choose the correct conjunction</p>
           <div className="bg-[var(--color-surface-alt)] rounded-[var(--radius-md)] p-4 border border-[var(--color-border-default)] mb-1">
             <p className="text-lg font-display font-extrabold text-[var(--color-text-primary)]">
-              {current.clause1} <span className="text-[var(--color-primary-dark)] font-bold">___</span> {current.clause2}
+              {current.clause1} <span className="text-[var(--color-text-link)] font-bold">___</span> {current.clause2}
             </p>
           </div>
-          <p className="text-xs text-[var(--color-text-disabled)] italic">{current.en}</p>
+          <p className="text-xs text-[var(--color-text-secondary)] italic">{current.en}</p>
         </motion.div>
       </AnimatePresence>
 
@@ -110,26 +112,26 @@ export function CoordinatingConjunctionsTrainer() {
         {CONJUNCTIONS.map((c) => {
           let style = "bg-[var(--color-surface-alt)] border-[var(--color-border-default)] text-[var(--color-text-primary)] hover:bg-teal-50 hover:border-teal-300 hover:text-teal-700";
           if (selected) {
-            if (c === current.conjunction) style = "bg-[var(--color-success)] text-white border-[var(--color-success)] ring-2 ring-[var(--color-success)]";
-            else if (c === selected) style = "bg-[var(--color-error)] text-white border-[var(--color-error)]";
+            if (c === current.conjunction) style = "bg-[var(--color-success-bg)] text-[var(--color-text-success)] border-[var(--color-success)] ring-2 ring-[var(--color-success)]";
+            else if (c === selected) style = "bg-[var(--color-error-bg)] text-[var(--color-text-error)] border-[var(--color-error)]";
             else style = "opacity-40";
           }
           return (
-            <button key={c} onClick={() => handleSelect(c)} disabled={!!selected} className={`px-5 py-2.5 text-sm font-bold rounded-[var(--radius-lg)] border-2 transition-all duration-200 ${style}`}>
+            <PracticeButton key={c} onClick={() => handleSelect(c)} disabled={!!selected} className={`px-5 py-2.5 text-sm font-bold rounded-[var(--radius-lg)] border transition-all duration-200 ${style}`}>
               {c}
-            </button>
+            </PracticeButton>
           );
         })}
       </div>
 
       {selected && (
         <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className="text-center">
-          <p className={`text-sm font-medium mb-3 ${selected === current.conjunction ? "text-[var(--color-success)]" : "text-[var(--color-error)]"}`}>
+          <p className={`text-sm font-medium mb-3 ${selected === current.conjunction ? "text-[var(--color-text-success)]" : "text-[var(--color-text-error)]"}`}>
             {selected === current.conjunction ? "✓ Correct! +5 XP" : `✗ Correct: "${current.conjunction}"`}
           </p>
-          <button onClick={handleNext} className="text-sm font-medium bg-[var(--color-primary-subtle)] text-[var(--color-primary-dark)] border border-[var(--color-primary)] px-5 py-2 rounded-[var(--radius-lg)] hover:bg-[var(--color-primary)] transition-all">
+          <PracticeButton onClick={handleNext} className="text-sm font-medium bg-[var(--color-primary-subtle)] text-[var(--color-text-link)] border border-[var(--color-primary)] px-5 py-2 rounded-[var(--radius-lg)] hover:bg-[var(--color-primary)] transition-all">
             {index + 1 >= pool.length ? "See Results" : "Next →"}
-          </button>
+          </PracticeButton>
         </motion.div>
       )}
 
@@ -138,6 +140,6 @@ export function CoordinatingConjunctionsTrainer() {
           <div key={i} className={`w-2 h-2 rounded-[var(--radius-pill)] ${i < index ? "bg-teal-300" : i === index ? "bg-teal-500" : "bg-[var(--color-border-default)]"}`} />
         ))}
       </div>
-    </div>
+    </PracticeCard>
   );
 }
