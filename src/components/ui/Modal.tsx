@@ -12,10 +12,11 @@ interface Props {
   open: boolean;
   onClose: () => void;
   title?: string;
+  className?: string;
   children: React.ReactNode;
 }
 
-export function Modal({ open, onClose, title, children }: Props) {
+export function Modal({ open, onClose, title, children, className }: Props) {
   return (
     <Dialog
       open={open}
@@ -23,7 +24,7 @@ export function Modal({ open, onClose, title, children }: Props) {
         if (!value) onClose();
       }}
     >
-      <DialogContent aria-describedby={undefined}>
+      <DialogContent aria-describedby={undefined} className={className}>
         <div className="flex items-center justify-between gap-3 mb-3">
           <DialogTitle
             className={

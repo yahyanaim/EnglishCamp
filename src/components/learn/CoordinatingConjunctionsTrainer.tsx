@@ -98,13 +98,13 @@ export function CoordinatingConjunctionsTrainer() {
 
       <AnimatePresence mode="wait">
         <motion.div key={index} initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="text-center mb-5">
-          <p className="text-sm text-[var(--color-text-secondary)] mb-2">Choose the correct conjunction</p>
+          <p className="text-sm text-[var(--color-text-secondary)] mb-2">Choose a linker for the stated relationship</p>
           <div className="bg-[var(--color-surface-alt)] rounded-[var(--radius-md)] p-4 border border-[var(--color-border-default)] mb-1">
             <p className="text-lg font-display font-extrabold text-[var(--color-text-primary)]">
               {current.clause1} <span className="text-[var(--color-text-link)] font-bold">___</span> {current.clause2}
             </p>
           </div>
-          <p className="text-xs text-[var(--color-text-secondary)] italic">{current.en}</p>
+          <p className="text-xs text-[var(--color-text-secondary)] italic">Purpose: {{and:"add a second fact",but:"contrast two ideas",or:"offer alternatives",because:"give a reason","but rather":"correct the first idea"}[current.conjunction]}</p>{selected && <p className="text-xs text-[var(--color-text-secondary)]">{current.en}</p>}
         </motion.div>
       </AnimatePresence>
 

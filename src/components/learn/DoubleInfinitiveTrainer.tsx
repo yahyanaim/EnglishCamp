@@ -11,18 +11,18 @@ type Item = { sentence: string; correct: string; options: string[]; explanation:
 
 const ITEMS: Item[] = [
   { sentence: "I want ___ to the cinema. (go)", correct: "to go", options: ["to go", "go", "going", "to going"], explanation: "'want' is followed by 'to + infinitive': want to go" },
-  { sentence: "She can ___ French. (speak)", correct: "speak", options: ["to speak", "speak", "speaking", "to speaking"], explanation: "Modal verbs like 'can' are followed by the bare infinitive: can speak" },
+  { sentence: "She can ___ French.", correct: "speak", options: ["to speak", "speak", "speaking", "to speaking"], explanation: "Modal verbs like 'can' are followed by the bare infinitive: can speak" },
   { sentence: "He enjoys ___ books. (read)", correct: "reading", options: ["to read", "read", "reading", "to reading"], explanation: "'enjoy' is followed by the gerund (-ing form): enjoy reading" },
-  { sentence: "I must ___ early tomorrow. (leave)", correct: "leave", options: ["to leave", "leave", "leaving", "to leaving"], explanation: "'must' is followed by the bare infinitive: must leave" },
+  { sentence: "I must ___ early tomorrow.", correct: "leave", options: ["to leave", "leave", "leaving", "to leaving"], explanation: "'must' is followed by the bare infinitive: must leave" },
   { sentence: "They promised ___ us. (help)", correct: "to help", options: ["to help", "help", "helping", "to helping"], explanation: "'promise' is followed by 'to + infinitive': promised to help" },
-  { sentence: "You should ___ a doctor. (see)", correct: "see", options: ["to see", "see", "seeing", "to seeing"], explanation: "'should' is a modal verb followed by the bare infinitive: should see" },
+  { sentence: "You should ___ a doctor.", correct: "see", options: ["to see", "see", "seeing", "to seeing"], explanation: "'should' is a modal verb followed by the bare infinitive: should see" },
   { sentence: "We avoid ___ mistakes. (make)", correct: "making", options: ["to make", "make", "making", "to making"], explanation: "'avoid' is followed by the gerund: avoid making" },
   { sentence: "He suggested ___ to the park. (go)", correct: "going", options: ["to go", "go", "going", "to going"], explanation: "'suggest' is followed by the gerund: suggested going" },
   { sentence: "I need ___ this book. (finish)", correct: "to finish", options: ["to finish", "finish", "finishing", "to finishing"], explanation: "'need' is followed by 'to + infinitive': need to finish" },
-  { sentence: "She might ___ late. (arrive)", correct: "arrive", options: ["to arrive", "arrive", "arriving", "to arriving"], explanation: "'might' is a modal verb: might + bare infinitive" },
+  { sentence: "She might ___ late.", correct: "arrive", options: ["to arrive", "arrive", "arriving", "to arriving"], explanation: "'might' is a modal verb: might + bare infinitive" },
   { sentence: "We hope ___ you soon. (see)", correct: "to see", options: ["to see", "see", "seeing", "to seeing"], explanation: "'hope' is followed by 'to + infinitive': hope to see" },
   { sentence: "I don't mind ___ for you. (wait)", correct: "waiting", options: ["to wait", "wait", "waiting", "to waiting"], explanation: "'don't mind' is followed by the gerund: don't mind waiting" },
-  { sentence: "You must not ___ here. (smoke)", correct: "smoke", options: ["to smoke", "smoke", "smoking", "to smoking"], explanation: "'must not' → bare infinitive: must not smoke" },
+  { sentence: "You must not ___ here.", correct: "smoke", options: ["to smoke", "smoke", "smoking", "to smoking"], explanation: "'must not' → bare infinitive: must not smoke" },
   { sentence: "He decided ___ a new job. (find)", correct: "to find", options: ["to find", "find", "finding", "to finding"], explanation: "'decide' is followed by 'to + infinitive': decided to find" },
   { sentence: "She keeps ___ the same mistake. (make)", correct: "making", options: ["to make", "make", "making", "to making"], explanation: "'keep' (meaning 'continue') is followed by the gerund: keeps making" },
 ];

@@ -8,6 +8,7 @@ import { resumeModule, cycleComplete, courseSnapshot } from "@/lib/courseProgres
 import { useProgress } from "@/store/useProgress";
 import { lessonReadKey } from "./LessonDoneButton";
 import { Progress } from "@/components/ui/Progress";
+import { NumberSeal } from '@/components/ui/NumberSeal';
 import { CheckCircle, Lock, Play, BookOpen, Zap, Dumbbell, Headphones, BookText, PenTool, Mic, Sparkles } from "lucide-react";
 
 export function CourseOverview({ level }: { level: CourseSummary }) {
@@ -171,11 +172,7 @@ export function CourseOverview({ level }: { level: CourseSummary }) {
                   done ? "border-emerald-500/40 bg-emerald-500/5" : "border-[var(--color-border-default)] hover:border-blue-400/50"
                 }`}>
                   <div className="flex items-start sm:items-center gap-3.5 min-w-0 flex-1">
-                    <div className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 ${
-                      done ? "bg-emerald-500/20 text-emerald-600 dark:text-emerald-400" : "bg-[var(--color-surface-alt)] border border-[var(--color-border-default)] text-[var(--color-text-secondary)]"
-                    }`}>
-                      {done ? <CheckCircle className="w-5 h-5 text-emerald-500" /> : <span className="font-display font-bold text-xs">{lesson.moduleNumber}</span>}
-                    </div>
+                    <NumberSeal value={lesson.moduleNumber} label={`Module ${lesson.moduleNumber}${done ? ', completed' : ''}`} completed={done}/>
                     <div className="min-w-0 flex-1">
                       <div className="flex flex-wrap items-center gap-2 mb-0.5">
                         <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-[var(--color-surface-alt)] border border-[var(--color-border-default)] text-[var(--color-text-secondary)] uppercase">

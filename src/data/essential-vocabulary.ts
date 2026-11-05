@@ -1,8 +1,9 @@
 /** Original A1–A2 reference examples. Levels describe this word set, not an official CEFR inventory. */
 import { EXTRA_ESSENTIAL_TOPICS } from './essential-vocabulary-extra';
-export type EssentialTopicId='body'|'colors'|'home'|'family'|'cafe'|'office'|'airport'|'clothes'|'time'|'months'|'food'|'weather'|'transport'|'places'|'jobs'|'feelings'|'routines'|'numbers'|'weekdays'|'animals';
+import { GEOGRAPHY_TOPICS } from './essential-geography';
+export type EssentialTopicId='body'|'colors'|'home'|'family'|'cafe'|'office'|'airport'|'clothes'|'time'|'months'|'food'|'weather'|'transport'|'places'|'jobs'|'feelings'|'routines'|'numbers'|'weekdays'|'animals'|'countries'|'nationalities'|'languages';
 export type EssentialWord={en:string;ar:string;example:string;art:string;value?:string};
-export type EssentialTopic={id:EssentialTopicId;title:string;intro:string;words:EssentialWord[]};
+export type EssentialTopic={id:EssentialTopicId;title:string;intro:string;source?:{title:string;href:string};words:EssentialWord[]};
 const word=(en:string,ar:string,example:string,art=en,value?:string):EssentialWord=>({en,ar,example,art,value});
 export const ESSENTIAL_VOCABULARY:EssentialTopic[]=[
  {id:'body',title:'Body parts',intro:'Name a part of the body. Use my, your, his or her to say whose body you mean.',words:[
@@ -35,5 +36,5 @@ export const ESSENTIAL_VOCABULARY:EssentialTopic[]=[
  {id:'months',title:'Months of the year',intro:'Month names start with a capital letter. Use in with a month: in January. Use on with a date: on 5 January.',words:[
  word('January','يناير','January is the first month.','calendar','1'),word('February','فبراير','My birthday is in February.','calendar','2'),word('March','مارس','The course starts in March.','calendar','3'),word('April','أبريل','We travel in April.','calendar','4'),word('May','مايو','The festival is in May.','calendar','5'),word('June','يونيو','Our exams are in June.','calendar','6'),word('July','يوليو','We visit our family in July.','calendar','7'),word('August','أغسطس','The office closes for a week in August.','calendar','8'),word('September','سبتمبر','School starts in September.','calendar','9'),word('October','أكتوبر','The meeting is in October.','calendar','10'),word('November','نوفمبر','We move house in November.','calendar','11'),word('December','ديسمبر','December is the last month.','calendar','12')
  ]}
- ,...EXTRA_ESSENTIAL_TOPICS
+ ,...EXTRA_ESSENTIAL_TOPICS,...GEOGRAPHY_TOPICS
 ];

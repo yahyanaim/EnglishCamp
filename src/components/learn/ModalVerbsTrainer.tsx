@@ -9,26 +9,11 @@ import { useErrors } from "@/store/useErrors";
 import { playCorrect, playWrong } from "@/lib/audio";
 import { Lightbulb, BookOpen } from "lucide-react";
 
-type ModalEntry = { verb: string; en: string; sentence: string; answer: string };
+import { MODAL_PRACTICE } from "@/data/practice-audit-corrections";
+import { modalAnswers } from "@/lib/practiceQuestions";
+type ModalEntry = { verb: string; en: string; sentence: string; answer: string; accepted?: string[] };
 
-const MODALS: ModalEntry[] = [
-  { verb: "can", en: "can", sentence: "I ____ speak English.", answer: "can" },
-  { verb: "can", en: "can", sentence: "She ____ sing very well.", answer: "can" },
-  { verb: "can", en: "can", sentence: "We ____ come tomorrow.", answer: "can" },
-  { verb: "must", en: "must", sentence: "He ____ go now.", answer: "must" },
-  { verb: "must", en: "must", sentence: "You ____ study hard.", answer: "must" },
-  { verb: "may", en: "may", sentence: "____ I come in?", answer: "May" },
-  { verb: "may", en: "may", sentence: "You ____ leave now.", answer: "may" },
-  { verb: "should", en: "should", sentence: "You ____ drink more water.", answer: "should" },
-  { verb: "should", en: "should", sentence: "We ____ arrive at 8 o'clock.", answer: "should" },
-  { verb: "will", en: "will", sentence: "She ____ travel to London.", answer: "will" },
-  { verb: "will", en: "will", sentence: "What ____ you eat?", answer: "will" },
-  { verb: "would", en: "would", sentence: "I ____ like some tea.", answer: "would" },
-  { verb: "would", en: "would", sentence: "____ you like to play tennis?", answer: "Would" },
-  { verb: "can", en: "can", sentence: "He ____ cook very well.", answer: "can" },
-  { verb: "must", en: "must", sentence: "____ you go to work tomorrow?", answer: "Must" },
-  { verb: "will", en: "will", sentence: "We ____ buy a house.", answer: "will" },
-];
+const MODALS: ModalEntry[] = MODAL_PRACTICE;
 
 function getModalTip(verb: string, answer: string): { tip: string; suggest: string } {
   const v = verb.toLowerCase();
@@ -53,7 +38,7 @@ export function ModalVerbsTrainer() {
 
   function handleSubmit() {
     if (answered || !item) return;
-    const correct = input.trim().toLowerCase() === item.answer.toLowerCase();
+    const correct = modalAnswers(item).includes(input.trim().toLowerCase().replace(/\s+/g," "));
     setIsCorrect(correct); setAnswered(true); setTotal((t) => t + 1);
     if (correct) { setScore((s) => s + 1); playCorrect(); }
     else { playWrong(); addError({ question: `Modal verb: "${item.sentence}"`, userAnswer: input.trim(), correctAnswer: item.answer, explanation: `Correct: "${item.answer}" (${item.verb} = ${item.en})`, source: "exercise", sourceId: `modal-${current}` }); }
@@ -78,7 +63,7 @@ export function ModalVerbsTrainer() {
       </div>
       <AnimatePresence mode="wait">
         <motion.div key={current} initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="mb-4">
-          <p className="text-xs text-[var(--color-text-secondary)] mb-1">Fill in the correct modal verb form ({item.verb} — {item.en}):</p>
+          <p className="text-xs text-[var(--color-text-secondary)] mb-1">{item.en}</p>
           <p className="text-lg font-display font-extrabold text-[var(--color-text-primary)] font-mono">{item.sentence.replace("____", "___")}</p>
           <input type="text" value={input} onChange={(e) => setInput(e.target.value)} onKeyDown={(e) => e.key === "Enter" && !answered && handleSubmit()} disabled={answered}
             placeholder="type here..."
@@ -100,7 +85,7 @@ export function ModalVerbsTrainer() {
               <div className="flex items-start gap-3 p-4 rounded-[var(--radius-lg)] bg-[var(--color-warning-bg)] text-[var(--color-text-warning)] ring-1 ring-[var(--color-warning)]">
                 <LearningArt name="Lightbulb" size={20} className="w-5 h-5 shrink-0 mt-0.5 text-[var(--color-text-warning)]" />
                 <div>
-                  <p className="font-semibold text-sm">Astuce (Tip)</p>
+                  <p className="font-semibold text-sm">Tip</p>
                   <p className="text-sm mt-1">{getModalTip(item.verb, item.answer).tip}</p>
                 </div>
               </div>

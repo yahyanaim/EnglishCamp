@@ -1,8 +1,9 @@
 import { LEGACY_SHADOW_CUES } from "./shadowing-timings";
 import { conversationSelection } from "./shadowing-conversations";
+import { EVERYDAY_SHADOW_LESSONS } from './shadowing-everyday';
 export const SHADOW_LEVELS=["A1","A2","B1","B2"] as const;
 export type ShadowLevel=typeof SHADOW_LEVELS[number];
-export type ShadowLesson={id:string;level?:ShadowLevel;title:string;videoId:string;duration:number;focus:string;task:string;kind?:"pronunciation"|"conversation";channel?:string;track?:"IELTS"|"TOEFL";skill?:"Listening"|"Reading"|"Writing"|"Speaking";topics?:string[];clipStart?:number;clipEnd?:number;sourceDuration?:number;lines:{text:string;ar:string;speaker?:string;start?:number;end?:number}[]};
+export type ShadowLesson={id:string;level?:ShadowLevel;title:string;videoId:string;duration:number;focus:string;task:string;kind?:"pronunciation"|"conversation";channel?:string;sourceUrl?:string;track?:"IELTS"|"TOEFL";skill?:"Listening"|"Reading"|"Writing"|"Speaking";topics?:string[];clipStart?:number;clipEnd?:number;sourceDuration?:number;lines:{text:string;ar:string;speaker?:string;start?:number;end?:number}[]};
 /** Practice levels are editorial suggestions. Lines are selected VOA public-domain teaching text. */
 export const ORIGINAL_SHADOW_LESSONS:ShadowLesson[]=[
  {id:"introduce-yourself",level:"A1",title:"Introduce yourself: I am and I’m",videoId:"65iWtWqWmgY",duration:29,focus:"Hear the difference between careful speech and a contraction.",task:"Say your own name using I’m. Keep the two sounds connected.",lines:[
@@ -79,7 +80,7 @@ export const ORIGINAL_SHADOW_LESSONS:ShadowLesson[]=[
   {speaker:"Speaker 2",text:"No. No, other bad habits.",ar:"لا، لا. عادات سيئة أخرى."}]},
 
 ];
-export const SHADOW_LESSONS=conversationSelection(ORIGINAL_SHADOW_LESSONS);
+export const SHADOW_LESSONS=[...conversationSelection(ORIGINAL_SHADOW_LESSONS),...EVERYDAY_SHADOW_LESSONS];
 export const normalizeDictation=(text:string)=>text.normalize("NFKC").toLowerCase().replace(/[’‘]/g,"'").replace(/[^a-z0-9'\s]/g," ").replace(/\s+/g," ").trim();
 
 export const shadowLessonKind=(lesson:ShadowLesson)=>lesson.kind??(["introduce-yourself","connected-youre"].includes(lesson.id)?"pronunciation":"conversation");

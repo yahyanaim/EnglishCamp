@@ -8,29 +8,29 @@ import { useErrors } from "@/store/useErrors";
 import { playCorrect, playWrong } from "@/lib/audio";
 
 const PREPOSITIONS: { prep: string; case: "time" | "place" | "movement" | "manner"; meaning: string; example: string }[] = [
-  { prep: "at", case: "place", meaning: "at a specific location", example: "at the bus stop" },
-  { prep: "in", case: "place", meaning: "inside something", example: "in the room" },
-  { prep: "on", case: "place", meaning: "on a surface", example: "on the table" },
-  { prep: "under", case: "place", meaning: "below something", example: "under the bed" },
-  { prep: "next to", case: "place", meaning: "beside something", example: "next to the school" },
-  { prep: "between", case: "place", meaning: "in the middle of two things", example: "between the houses" },
-  { prep: "behind", case: "place", meaning: "at the back of", example: "behind the door" },
-  { prep: "in front of", case: "place", meaning: "before something", example: "in front of the cinema" },
-  { prep: "to", case: "movement", meaning: "going towards", example: "to the park" },
-  { prep: "from", case: "movement", meaning: "coming away from", example: "from London" },
-  { prep: "into", case: "movement", meaning: "entering", example: "into the house" },
-  { prep: "out of", case: "movement", meaning: "leaving", example: "out of the car" },
-  { prep: "in", case: "time", meaning: "months, years, seasons", example: "in July" },
-  { prep: "on", case: "time", meaning: "days and dates", example: "on Monday" },
-  { prep: "at", case: "time", meaning: "specific times", example: "at 5 o'clock" },
-  { prep: "since", case: "time", meaning: "from a point in time", example: "since 2020" },
-  { prep: "for", case: "time", meaning: "duration of time", example: "for two hours" },
-  { prep: "by", case: "manner", meaning: "method of transport", example: "by bus" },
-  { prep: "with", case: "manner", meaning: "together or using", example: "with my friend" },
-  { prep: "without", case: "manner", meaning: "not having", example: "without sugar" },
+  { prep: "at", case: "place", meaning: "at a specific location", example: "Wait at the bus stop." },
+  { prep: "in", case: "place", meaning: "inside something", example: "The children are in the room." },
+  { prep: "on", case: "place", meaning: "on a surface", example: "The keys are on the table." },
+  { prep: "under", case: "place", meaning: "below something", example: "The bag is under the bed." },
+  { prep: "next to", case: "place", meaning: "beside something", example: "The library is next to the school." },
+  { prep: "between", case: "place", meaning: "in the middle of two things", example: "A tree stands between the houses." },
+  { prep: "behind", case: "place", meaning: "at the back of", example: "The coat hangs behind the door." },
+  { prep: "in front of", case: "place", meaning: "before something", example: "I am standing in front of the cinema." },
+  { prep: "to", case: "movement", meaning: "going towards", example: "We walk to the park." },
+  { prep: "from", case: "movement", meaning: "coming away from", example: "The train travels from London to York." },
+  { prep: "into", case: "movement", meaning: "entering", example: "She walks into the house." },
+  { prep: "out of", case: "movement", meaning: "leaving", example: "He steps out of the car." },
+  { prep: "in", case: "time", meaning: "months, years, seasons", example: "The course begins in July." },
+  { prep: "on", case: "time", meaning: "days and dates", example: "We meet on Monday." },
+  { prep: "at", case: "time", meaning: "specific times", example: "The class starts at 5 o'clock." },
+  { prep: "since", case: "time", meaning: "from a point in time", example: "She has worked here since 2020." },
+  { prep: "for", case: "time", meaning: "duration of time", example: "They practise for two hours." },
+  { prep: "by", case: "manner", meaning: "method of transport", example: "We travel by bus." },
+  { prep: "with", case: "manner", meaning: "together or using", example: "I study with my friend." },
+  { prep: "without", case: "manner", meaning: "not having", example: "She drinks tea without sugar." },
 ];
 
-const CASE_LABELS: Record<string, string> = { time: "Time", place: "Place", movement: "Movement", manner: "Manner" };
+const CASE_LABELS: Record<string, string> = { time: "Time", place: "Place", movement: "Movement", manner: "Other relationship" };
 
 const CASES = ["time", "place", "movement", "manner"] as const;
 
@@ -58,7 +58,7 @@ export function PrepositionsTrainer() {
     setAnswered(true);
     setTotal((t) => t + 1);
     if (isCorrect) { setScore((s) => s + 1); playCorrect(); }
-    else { playWrong(); addError({ question: `Case of "${item.prep}"`, userAnswer: CASE_LABELS[choice] || choice, correctAnswer: CASE_LABELS[item.case], explanation: `"${item.prep}" takes ${CASE_LABELS[item.case]}: ${item.example}`, source: "exercise", sourceId: `prep-${item.prep}` }); }
+    else { playWrong(); addError({ question: `Use of "${item.prep}" in "${item.example}"`, userAnswer: CASE_LABELS[choice] || choice, correctAnswer: CASE_LABELS[item.case], explanation: `"${item.prep}" expresses ${CASE_LABELS[item.case].toLowerCase()}: ${item.example}`, source: "exercise", sourceId: `prep-${item.prep}` }); }
   }
 
   function next() {
@@ -94,10 +94,10 @@ export function PrepositionsTrainer() {
       </div>
       <AnimatePresence mode="wait">
         <motion.div key={current} initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="text-center mb-6">
-          <p className="text-xs text-[var(--color-text-secondary)] mb-1">Which case does this preposition take?</p>
+          <p className="text-xs text-[var(--color-text-secondary)] mb-1">How is the preposition used in this phrase?</p>
           <div className="flex items-center justify-center gap-2">
             <span className="text-lg font-display font-extrabold font-mono text-[var(--color-text-primary)]">{item.prep}</span>
-            <span className="text-sm text-[var(--color-text-secondary)] italic">({item.meaning})</span>
+            {answered && <span className="text-sm text-[var(--color-text-secondary)] italic">({item.meaning})</span>}
           </div>
           <p className="text-xs text-[var(--color-text-secondary)] mt-1">e.g. {item.example}</p>
         </motion.div>

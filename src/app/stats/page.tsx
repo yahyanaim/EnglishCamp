@@ -72,6 +72,7 @@ export default function StatsPage() {
       </motion.div>
 
       <Link prefetch={false} href="/my-notes" className="camp-secondary inline-flex items-center px-4 py-2 text-sm min-h-10">My notes →</Link>
+
       <ProgressChart />
       <ActivityChart />
 

@@ -2,7 +2,9 @@
 import { LearningArt } from "@/components/brand/LearningArt";
 import { PracticeButton } from "@/components/ui/PracticeSurface";
 import { translatedGrammarParagraphs } from "./GrammarTranslation";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { GRAMMAR_EXTENSIONS } from "@/data/grammar-extensions";
+import { GrammarFoundationLesson } from "./GrammarFoundationLesson";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, BookOpen } from "lucide-react";
 
@@ -17,6 +19,7 @@ type Section = {
 };
 
 export const SECTIONS: Section[] = [
+  ...GRAMMAR_EXTENSIONS.map(lesson=>({id:lesson.id,title:lesson.title,content:<GrammarFoundationLesson lesson={lesson}/>})),
   {
     id: "articles",
     title: "Articles (a/an/the)",
@@ -364,6 +367,7 @@ export const SECTIONS: Section[] = [
 
 export function GrammarReference() {
   const [openSection, setOpenSection] = useState<string | null>(null);
+  useEffect(()=>{const reveal=()=>{const id=window.location.hash.slice(1);if(SECTIONS.some(section=>section.id===id))setOpenSection(id);};reveal();window.addEventListener("hashchange",reveal);return()=>window.removeEventListener("hashchange",reveal);},[]);
 
   return (
     <div className="camp-grammar-reference">
@@ -372,6 +376,7 @@ export function GrammarReference() {
         return (
           <div
             key={section.id}
+            id={section.id}
             className="camp-grammar-accordion-card bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] overflow-hidden shadow-sm" style={{ boxShadow: "0 3px 0 var(--color-border-default)" }}
           >
             <h2 className="camp-grammar-section-header"><PracticeButton

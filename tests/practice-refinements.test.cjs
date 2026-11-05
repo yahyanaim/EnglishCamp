@@ -50,5 +50,5 @@ test('each grammar cheat-sheet section has a substantial Arabic concept explanat
 });
 
 test('shadowing now prioritises communication rather than exam teaching or CEFR selectors',()=>{
- assert.equal(SHADOW_LESSONS.length,9);for(const lesson of SHADOW_LESSONS){assert.ok(lesson.sourceDuration>0&&lesson.sourceDuration<120);assert.equal(shadowLessonKind(lesson),'conversation');assert.ok(!lesson.track);assert.ok(lesson.lines.length>=4);assert.ok(lesson.lines.every(l=>l.speaker));assert.ok(new Set(lesson.lines.map(l=>l.speaker)).size>=2);}
+ assert.equal(SHADOW_LESSONS.length,14);for(const lesson of SHADOW_LESSONS){assert.ok(lesson.sourceDuration>0&&lesson.sourceDuration<120);assert.equal(shadowLessonKind(lesson),'conversation');assert.ok(!lesson.track);assert.ok(lesson.lines.length>=4);assert.ok(lesson.lines.every(l=>l.speaker));assert.ok(new Set(lesson.lines.map(l=>l.speaker)).size>=2);}
 });

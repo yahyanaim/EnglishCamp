@@ -6,17 +6,11 @@ import { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { playCorrect, playWrong, playXP } from "@/lib/audio";
 import { useProgress } from "@/store/useProgress";
-import { VERBS } from "@/data/conjugaise";
+import { TENSE_IDENTIFICATION_PRACTICE, type PracticeTense } from "@/data/practice-audit-corrections";
 import { RefreshCw, Sparkles, Clock, CheckCircle2, XCircle, ArrowRight } from "lucide-react";
 
-type Tense = "Present Simple" | "Past Simple" | "Present Perfect" | "Past Perfect" | "Future";
-
-type TenseItem = {
-  sentence: string;
-  tense: Tense;
-  verb: string;
-  english?: string;
-};
+type Tense = PracticeTense;
+type TenseItem = (typeof TENSE_IDENTIFICATION_PRACTICE)[number];
 
 function shuffle<T>(a: T[]): T[] {
   const arr = [...a];
@@ -27,46 +21,8 @@ function shuffle<T>(a: T[]): T[] {
   return arr;
 }
 
-function detectTense(sentence: string, verbData: typeof VERBS[number]): Tense {
-  const lower = sentence.toLowerCase();
-  const words = lower.split(/\s+/);
-  const inf = verbData.infinitive.toLowerCase();
-  const pp = verbData.pastParticiple.toLowerCase();
-  const past = verbData.past.toLowerCase();
-
-  const hasPastParticiple = pp ? lower.includes(pp) : false;
-  const hasInfinitive = lower.includes(inf);
-  const hasWill = words.includes("will");
-  const hasHave = words.some((w) => w === "have" || w === "has");
-  const hasHad = words.includes("had");
-  const isAmAreIs = words.some((w) => w === "am" || w === "are" || w === "is");
-  const isWasWere = words.some((w) => w === "was" || w === "were");
-
-  if (hasWill && hasInfinitive) return "Future";
-  if (hasHad && hasPastParticiple) return "Past Perfect";
-  if ((hasHave || isAmAreIs) && hasPastParticiple) return "Present Perfect";
-  if (isWasWere || hasHad || words.includes("did") || lower.includes(past)) {
-    const pastSimple = sentence.toLowerCase().replace(/\b(was|were|had|did)\b/g, "").trim();
-    if (pastSimple.length > 1 || isWasWere) return "Past Simple";
-  }
-  return "Present Simple";
-}
-
-function buildItems(count: number): TenseItem[] {
-  const items: TenseItem[] = [];
-  for (const verb of shuffle(VERBS)) {
-    if (items.length >= count) break;
-    const shuffledExamples = shuffle(verb.examples);
-    for (const ex of shuffledExamples) {
-      if (items.length >= count) break;
-      const tense = detectTense(ex.en, verb);
-      items.push({ sentence: ex.en, tense, verb: verb.infinitive });
-    }
-  }
-  return shuffle(items).slice(0, count);
-}
-
-const ALL_TENSES: Tense[] = ["Present Simple", "Past Simple", "Present Perfect", "Past Perfect", "Future"];
+function buildItems(count: number): TenseItem[] { return shuffle(TENSE_IDENTIFICATION_PRACTICE).slice(0,count); }
+const ALL_TENSES: Tense[] = ["Present Simple", "Present Continuous", "Past Simple", "Present Perfect", "Past Perfect", "Future"];
 
 const MotionPracticeButton = motion.create(PracticeButton);
 
@@ -213,6 +169,7 @@ export function TensesQuiz() {
         </div>
       </PracticeCard>
 
+      {selected !== null && <div className="camp-daily-feedback" role="status"><strong>{selected===current.tense?'Correct':`Correct tense: ${current.tense}`}</strong><p>{current.explanation}</p></div>}
       {selected !== null && (
         <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className="camp-quiz-actions flex justify-center">
           <PracticeButton onClick={handleNext}

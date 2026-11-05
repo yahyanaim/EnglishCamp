@@ -15,7 +15,8 @@ export function AddToVocabButton({
   category?: string;
   details?: Pick<VocabEntry,"example"|"definition"|"translationKind">;
 }) {
-  const { addWord, words } = useVocabulary();
+  const addWord = useVocabulary(state=>state.addWord);
+  const saved = useVocabulary(state=>!!state.words[vocabId(de)]);
   const [added, setAdded] = useState(false);
 
   function handleAdd(e: React.MouseEvent) {
@@ -33,10 +34,10 @@ export function AddToVocabButton({
           ? "bg-[var(--color-success-bg)] text-[var(--color-text-success)]"
           : "text-[var(--color-text-secondary)] hover:text-[var(--color-text-link)] hover:bg-[var(--color-primary-subtle)]"
       }`}
-      title={words[vocabId(de)] ? "Saved in My Bank" : "Add to My Bank"}
+      title={saved ? "Saved in My Bank" : "Add to My Bank"}
     >
       <BookPlus className="w-3 h-3" />
-      {words[vocabId(de)] ? "Saved in My Bank" : "Save to My Bank"}
+      {saved ? "Saved in My Bank" : "Save to My Bank"}
     </Button>
   );
 }

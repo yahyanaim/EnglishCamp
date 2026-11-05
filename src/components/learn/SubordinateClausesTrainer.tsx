@@ -22,7 +22,7 @@ const QUESTIONS: Question[] = [
   { prompt: "Do you know ___ the station is?", options: ["if", "where", "that", "when"], correct: 1, explanation: "'where' introduces an indirect wh-question." },
   { prompt: "___ I was young, I lived in London.", options: ["When", "While", "Whenever", "If"], correct: 0, explanation: "'When' for a specific time in the past. 'While' is also possible here." },
   { prompt: "___ I have time, I like to read.", options: ["When", "Whenever", "While", "If"], correct: 1, explanation: "'Whenever' (or 'When') for habitual/repeated actions." },
-  { prompt: "Correct word order: 'He said that he is tired' or 'He said that is he tired'?", options: ["He said that he is tired", "He said that is he tired", "both are correct", "He said that tired he is"], correct: 0, explanation: "English subordinate clauses keep normal SVO word order (no verb shift)." },
+  { prompt: "Choose the normal statement word order after He said that.", options: ["He said that he is tired", "He said that is he tired", "both are correct", "He said that tired he is"], correct: 0, explanation: "English subordinate clauses keep normal SVO word order (no verb shift)." },
   { prompt: "___ you have time, please help me.", options: ["If", "Unless", "Although", "Because"], correct: 0, explanation: "'If' introduces a conditional clause." },
   { prompt: "He passed the exam ___ he studied very little.", options: ["because", "although", "so", "since"], correct: 1, explanation: "'although' (or 'even though') — concessive clause expressing contrast." },
   { prompt: "She is taller ___ I thought.", options: ["like", "than", "that", "as"], correct: 1, explanation: "'than' is used after comparative adjectives (taller than)." },

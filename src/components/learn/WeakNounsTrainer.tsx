@@ -83,7 +83,7 @@ export function WeakNounsTrainer() {
 
       <AnimatePresence mode="wait">
         <motion.div key={index} initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="text-center mb-5">
-          <p className="text-sm text-[var(--color-text-secondary)] mb-2">Choose the correct form of <strong className="text-[var(--color-text-primary)]">{current.noun}</strong></p>
+          <p className="text-sm text-[var(--color-text-secondary)] mb-2">Choose the word that completes the sentence.</p>
           <div className="bg-[var(--color-surface-alt)] rounded-[var(--radius-md)] p-4 border border-[var(--color-border-default)]">
             <p className="text-lg font-display font-extrabold text-[var(--color-text-primary)]">{current.sentence}</p>
           </div>

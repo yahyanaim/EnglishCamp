@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { playCorrect, playWrong, playXP } from "@/lib/audio";
 import { useProgress } from "@/store/useProgress";
 import { DISCOURSE_MARKERS } from "@/data/modalpartikel";
+import { maskPracticeTarget } from '@/lib/practiceQuestions';
 import { RefreshCw, Sparkles, MessageSquare, CheckCircle2, XCircle, ArrowRight } from "lucide-react";
 
 type Item = { particle: string; meaning: string; usage: string; sentence: string; sentenceEn: string; ar?: string };
@@ -47,7 +48,7 @@ export function ModalpartikelUebersetzer() {
   const question = useMemo((): Opts => {
     if (!current) return { opts: [], correctVal: "" };
     if (direction === "sentence" || direction === "ar") {
-      const parts = items.map((x) => x.particle).filter((p, i, a) => p !== current.particle && a.indexOf(p) === i);
+      const parts = DISCOURSE_MARKERS.filter(x=>x.function!==current.usage).map(x=>x.marker).filter((p, i, a) => p !== current.particle && a.indexOf(p) === i);
       const wrong = shuffle(parts).slice(0, 3);
       return { opts: shuffle([current.particle, ...wrong]), correctVal: current.particle };
     }
@@ -101,7 +102,7 @@ export function ModalpartikelUebersetzer() {
 
   if (!current) return null;
   const pct = ((index + (selected ? 1 : 0)) / items.length) * 100;
-  const prompt = direction === "sentence" ? "Which discourse marker is used here?" : direction === "ar" ? "Which discourse marker matches this Arabic sentence?" : "What does this marker mean in this context?";
+  const prompt = direction === "sentence" ? "Choose the missing marker for the meaning described." : direction === "ar" ? "Which discourse marker matches this Arabic meaning?" : "What does this marker mean in this context?";
 
   return (
     <div className="space-y-4 max-w-lg mx-auto">
@@ -113,8 +114,9 @@ export function ModalpartikelUebersetzer() {
       <PracticeCard data-practice-surface="question" className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-5 sm:p-6 shadow-[var(--shadow-1)]">
         <div className="mb-2"><span className="text-xs text-[var(--color-text-secondary)] font-medium uppercase tracking-wide">{prompt}</span></div>
         <div className="mb-4 p-4 rounded-[16px] bg-[var(--color-warning-bg)] text-[var(--color-text-warning)]">
-          <p className="text-lg font-display font-extrabold text-[var(--color-text-primary)] text-center leading-relaxed">{direction === "ar" ? (current.ar || current.sentenceEn) : current.sentence}</p>
-          <p className="text-xs text-[var(--color-text-secondary)] text-center mt-2 italic">{direction === "ar" ? current.sentenceEn : current.sentenceEn}</p>
+          <p className="text-lg font-display font-extrabold text-[var(--color-text-primary)] text-center leading-relaxed" dir={direction==='ar'?'rtl':'ltr'} lang={direction==='ar'?'ar':'en'}>{direction === "ar" ? maskPracticeTarget(current.ar || '',current.particle) : direction==='sentence'?maskPracticeTarget(current.sentence,current.particle):current.sentence}</p>
+          {direction==='sentence'&&<p className="text-xs text-[var(--color-text-secondary)] text-center mt-2 italic">Meaning to express: {current.meaning}</p>}
+          {selected!==null&&<p className="text-xs text-[var(--color-text-secondary)] text-center mt-2 italic">{current.sentenceEn}</p>}
         </div>
         <div className="space-y-2">
           {question.opts.map((opt) => {

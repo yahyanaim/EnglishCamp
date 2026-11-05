@@ -261,9 +261,9 @@ export function ImperativeTrainer() {
           exit={{ opacity: 0, x: -20 }}
           className="text-center mb-5"
         >
-          <p className="text-xs font-bold text-[var(--color-text-secondary)] uppercase tracking-wider mb-2">
+          {selected&&<p className="text-xs font-bold text-[var(--color-text-secondary)] uppercase tracking-wider mb-2">
             Verb: <span className="text-[var(--color-text-link)] font-mono">{current.verb}</span> ({current.meaning})
-          </p>
+          </p>}
           <p className="text-xl font-display font-extrabold text-[var(--color-text-primary)] mb-1 leading-snug">
             {current.prompt}
           </p>

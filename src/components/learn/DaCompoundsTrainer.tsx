@@ -10,21 +10,21 @@ import { playCorrect, playWrong } from "@/lib/audio";
 type DaItem = { question: string; answer: string; options: string[]; en: string };
 
 const ITEMS: DaItem[] = [
-  { question: "Are you waiting for the bus? → Yes, I'm waiting ___ it.", answer: "for", options: ["for", "on", "at", "with"], en: "Yes, I'm waiting for it." },
-  { question: "Do you think about the exam? → Yes, I think ___ it.", answer: "about", options: ["about", "of", "on", "for"], en: "Yes, I think about it." },
-  { question: "Do you agree with the plan? → Yes, I agree ___ it.", answer: "with", options: ["with", "to", "on", "for"], en: "Yes, I agree with it." },
-  { question: "Are you interested in art? → Yes, I'm interested ___ it.", answer: "in", options: ["in", "on", "at", "for"], en: "Yes, I'm interested in it." },
-  { question: "Are you against the proposal? → No, I'm not ___ it.", answer: "against", options: ["against", "for", "with", "about"], en: "No, I'm not against it." },
-  { question: "Can you answer the question? → Yes, I can answer ___ it.", answer: "for", options: ["for", "to", "with", "about"], en: "Yes, I can answer it." },
-  { question: "Did you hear about the accident? → Yes, I heard ___ it.", answer: "about", options: ["about", "of", "for", "from"], en: "Yes, I heard about it." },
-  { question: "Does that remind you of your childhood? → Yes, it reminds me ___ it.", answer: "of", options: ["of", "about", "for", "with"], en: "Yes, it reminds me of it." },
-  { question: "Does the movie start at 8? → Yes, I'm looking forward ___ it.", answer: "to", options: ["to", "for", "at", "on"], en: "Yes, I'm looking forward to it." },
-  { question: "Are you dealing with the topic? → Yes, I'm dealing ___ it.", answer: "with", options: ["with", "about", "for", "on"], en: "Yes, I'm dealing with it." },
-  { question: "Are you for the idea? → Yes, I'm ___ it.", answer: "for", options: ["for", "with", "about", "in"], en: "Yes, I'm for it." },
-  { question: "Is that in the law? → Yes, it's ___ there.", answer: "in", options: ["in", "on", "at", "by"], en: "Yes, it's in there." },
-  { question: "Are you coming by train? → Yes, I'm coming ___ it.", answer: "by", options: ["by", "with", "on", "in"], en: "Yes, I'm coming by it." },
-  { question: "Are you talking about the problem? → Yes, I'm talking ___ it.", answer: "about", options: ["about", "of", "to", "with"], en: "Yes, I'm talking about it." },
-  { question: "Did you ask about the price? → Yes, I asked ___ it.", answer: "about", options: ["about", "for", "after", "of"], en: "Yes, I asked about it." },
+  { question: "The bus is late. I am still waiting ___ it.", answer: "for", options: ["for", "on", "at", "with"], en: "The bus is late. I am still waiting for it." },
+  { question: "That exam was difficult. I still think ___ it.", answer: "about", options: ["about", "at", "on", "for"], en: "That exam was difficult. I still think about it." },
+  { question: "The plan sounds sensible. I agree ___ it.", answer: "with", options: ["with", "from", "on", "for"], en: "The plan sounds sensible. I agree with it." },
+  { question: "Art is fascinating. I am interested ___ it.", answer: "in", options: ["in", "on", "at", "for"], en: "Art is fascinating. I am interested in it." },
+  { question: "I oppose this harmful proposal. I am ___ it.", answer: "against", options: ["against", "for", "with", "about"], en: "I oppose this harmful proposal. I am against it." },
+  { question: "Please pay attention. I am speaking directly ___ you.", answer: "to", options: ["to", "at", "on", "for"], en: "Please pay attention. I am speaking directly to you." },
+  { question: "There was an accident. I heard ___ it on the news.", answer: "about", options: ["about", "at", "for", "from"], en: "There was an accident. I heard about it on the news." },
+  { question: "That song brings back my childhood. It reminds me ___ it.", answer: "of", options: ["of", "at", "for", "with"], en: "That song brings back my childhood. It reminds me of it." },
+  { question: "The holiday starts soon. I am looking forward ___ it.", answer: "to", options: ["to", "for", "at", "on"], en: "The holiday starts soon. I am looking forward to it." },
+  { question: "This problem is urgent. I am dealing ___ it now.", answer: "with", options: ["with", "about", "for", "on"], en: "This problem is urgent. I am dealing with it now." },
+  { question: "I support this idea. I am ___ it.", answer: "for", options: ["for", "with", "about", "in"], en: "I support this idea. I am for it." },
+  { question: "They added a clause to the law. You can find it ___ there.", answer: "in", options: ["in", "on", "at", "by"], en: "They added a clause to the law. You can find it in there." },
+  { question: "I lent her a book, but I have not heard ___ her since.", answer: "from", options: ["from", "to", "at", "with"], en: "I lent her a book, but I have not heard from her since." },
+  { question: "We need to discuss this problem. Let us talk ___ it.", answer: "about", options: ["about", "at", "to", "with"], en: "We need to discuss this problem. Let us talk about it." },
+  { question: "I needed details concerning the price, so I asked ___ it.", answer: "about", options: ["about", "at", "after", "of"], en: "I needed details concerning the price, so I asked about it." },
 ];
 
 export function DaCompoundsTrainer() {

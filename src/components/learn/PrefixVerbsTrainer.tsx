@@ -7,6 +7,8 @@ import { useProgress } from "@/store/useProgress";
 import { useErrors } from "@/store/useErrors";
 import { playCorrect, playWrong } from "@/lib/audio";
 
+import { prefixStem } from "@/lib/practiceQuestions";
+
 type Item = { verb: string; en: string; prefix: string; options: string[]; sentence: string };
 
 const ITEMS: Item[] = [
@@ -87,7 +89,7 @@ export function PrefixVerbsTrainer() {
           <div className="bg-[var(--color-surface-alt)] rounded-[var(--radius-md)] p-4 border border-[var(--color-border-default)]">
             <p className="text-sm text-[var(--color-text-secondary)]">{current.sentence}</p>
             <p className="text-lg font-display font-extrabold text-[var(--color-text-primary)] mt-1">
-              <span className="text-[var(--color-text-link)] font-mono">___</span>{current.verb.slice(current.verb.indexOf(current.prefix) === 0 ? current.prefix.length : 0)}
+              <span className="text-[var(--color-text-link)] font-mono">___</span>{prefixStem(current.verb,current.prefix)}
             </p>
             <p className="text-xs text-[var(--color-text-secondary)] italic">{current.en}</p>
           </div>

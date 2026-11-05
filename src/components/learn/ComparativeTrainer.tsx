@@ -100,7 +100,7 @@ export function ComparativeTrainer() {
         </motion.div>
       </AnimatePresence>
       <input type="text" value={input} onChange={(e) => setInput(e.target.value)} onKeyDown={(e) => e.key === "Enter" && !answered && handleSubmit()} disabled={answered}
-        placeholder={mode === "comparative" ? "e.g. better" : "e.g. best"}
+        placeholder={mode === "comparative" ? "Type the comparative form" : "Type the superlative form"}
         className={`w-full px-3 py-2 rounded-[var(--radius-lg)] border font-mono text-center text-sm bg-[var(--color-surface-alt)] outline-none transition-all ${
           answered ? (isCorrect ? "border-[var(--color-success)] bg-emerald-500 text-white font-bold" : "border-red-300 bg-red-500 text-white font-bold") : "border-[var(--color-border-default)] text-[var(--color-text-primary)] focus:border-[var(--color-primary)] focus:ring-2 focus:ring-brand-100"
         }`}

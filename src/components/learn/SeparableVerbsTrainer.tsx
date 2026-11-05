@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useProgress } from "@/store/useProgress";
 import { useErrors } from "@/store/useErrors";
 import { playCorrect, playWrong } from "@/lib/audio";
+import { phrasalParticles } from '@/lib/practiceQuestions';
 
 type SepEntry = { verb: string; particle: string; definition: string; example: string };
 
@@ -13,8 +14,8 @@ const VERBS: SepEntry[] = [
   { verb: "turn on", particle: "on", definition: "to activate / start", example: "Please turn on the light." },
   { verb: "turn off", particle: "off", definition: "to deactivate / stop", example: "Turn off the TV." },
   { verb: "pick up", particle: "up", definition: "to collect / lift", example: "I will pick you up at 5." },
-  { verb: "put on", particle: "on", definition: "to wear / place on body", example: "She puts on her coat." },
-  { verb: "take off", particle: "off", definition: "to remove", example: "Take off your shoes." },
+  { verb: "put on", particle: "on", definition: "to begin wearing", example: "She puts on her coat." },
+  { verb: "take off", particle: "off", definition: "to remove clothing or shoes", example: "Take off your shoes." },
   { verb: "get up", particle: "up", definition: "to rise from bed", example: "I get up at 7 am." },
   { verb: "go out", particle: "out", definition: "to leave the house", example: "Let's go out tonight." },
   { verb: "come back", particle: "back", definition: "to return", example: "She comes back tomorrow." },
@@ -45,7 +46,7 @@ export function SeparableVerbsTrainer() {
 
   function handleAnswer(particle: string) {
     if (answered || !item) return;
-    const isCorrect = particle === item.particle;
+    const isCorrect = phrasalParticles(item).includes(particle);
     setCorrect(isCorrect);
     setAnswered(true);
     setTotal((t) => t + 1);
@@ -91,7 +92,7 @@ export function SeparableVerbsTrainer() {
         <motion.div key={current} initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="text-center mb-4">
           <p className="text-xs text-[var(--color-text-secondary)] mb-2">Which particle completes this phrasal verb?</p>
           <div className="flex items-center justify-center gap-2">
-            <span className="text-lg font-display font-extrabold text-[var(--color-text-primary)]">{item.verb}</span>
+            <span className="text-lg font-display font-extrabold text-[var(--color-text-primary)]">{item.verb.slice(0,item.verb.lastIndexOf(' '))} ___</span>
             <span className="text-xs text-[var(--color-text-secondary)] italic">({item.definition})</span>
           </div>
         </motion.div>
@@ -100,7 +101,7 @@ export function SeparableVerbsTrainer() {
         {particles.map((p) => {
           let style = "bg-[var(--color-surface-alt)] border-[var(--color-border-default)] hover:bg-[var(--color-primary-subtle)] hover:border-[var(--color-primary)]";
           if (answered) {
-            if (p === item.particle) style = "bg-[var(--color-success-bg)] text-[var(--color-text-success)] border-[var(--color-success)] ring-2 ring-[var(--color-success)]";
+            if (phrasalParticles(item).includes(p)) style = "bg-[var(--color-success-bg)] text-[var(--color-text-success)] border-[var(--color-success)] ring-2 ring-[var(--color-success)]";
             else if (p !== item.particle && answered) style = "bg-[var(--color-error-bg)] text-[var(--color-text-error)] border-[var(--color-error)]";
           }
           return (
@@ -116,7 +117,7 @@ export function SeparableVerbsTrainer() {
           <p className={`text-sm font-medium mb-2 ${correct ? "text-[var(--color-text-success)]" : "text-[var(--color-text-error)]"}`}>
             {correct ? "✓ Correct!" : `✗ Correct particle: "${item.particle}"`}
           </p>
-          <p className="text-xs text-[var(--color-text-secondary)] mb-2">{item.example}</p>
+          <p className="text-xs text-[var(--color-text-secondary)] mb-2">{item.example}{item.verb==='fill in'?' Fill out a form is also correct.':''}</p>
           <PracticeButton onClick={next} className="text-sm font-medium bg-[var(--color-primary-subtle)] text-[var(--color-text-link)] border border-[var(--color-primary)] px-5 py-2 rounded-[var(--radius-lg)] hover:bg-[var(--color-primary)] transition-all">
             {current + 1 >= pool.length ? "Results" : "Next →"}
           </PracticeButton>

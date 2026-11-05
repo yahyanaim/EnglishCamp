@@ -1,6 +1,7 @@
 import { useId, type ReactNode } from 'react';
 import type { EssentialTopicId, EssentialWord } from '@/data/essential-vocabulary';
 import { EverydayWordScene } from './EverydayWordScene';
+import { GeographyWordScene } from './GeographyWordScene';
 const ink='var(--camp-art-dark,#581c87)',accent='var(--camp-purple,#7e22ce)',light='var(--camp-art-light,#d8b4fe)',paper='#faf8fc',neutral='#e7e1ec';
 /** Small, semantic vector drawings. Real colour swatches are lesson content, not theme accents. */
 export function EssentialWordArt({topic,word}:{topic:EssentialTopicId;word:EssentialWord}){
@@ -9,7 +10,8 @@ export function EssentialWordArt({topic,word}:{topic:EssentialTopicId;word:Essen
  const line=(d:string)=><path d={d} fill="none" stroke={ink} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>;
  const cup=(tea=false)=><>{shape('M66 46H126V79Q126 93 111 93H81Q66 93 66 79Z',paper)}{line('M126 52H135Q151 63 135 76H126M58 97H137M79 31Q74 23 80 17M97 31Q92 23 98 17M114 31Q109 23 115 17')}{tea&&<>{line('M117 43V71H127')}{shape('M122 67H137V84H122Z')}</>}</>;
  const person=(x:number,y:number,label:string,selected=false)=><g><circle cx={x} cy={y} r="8" fill={selected?accent:paper} stroke={ink} strokeWidth="1.5"/>{shape(`M${x-13} ${y+28}V${y+16}Q${x} ${y+3} ${x+13} ${y+16}V${y+28}Z`,selected?light:neutral)}{label&&<text x={x} y={y+41} textAnchor="middle" fill={ink} fontSize="9">{label}</text>}</g>;
- if(['food','weather','transport','places','jobs','feelings','routines','numbers','weekdays','animals'].includes(topic))scene=<EverydayWordScene topic={topic} word={word}/>;
+ if(['countries','nationalities','languages'].includes(topic)||art.startsWith('season-'))scene=<GeographyWordScene topic={topic} word={word}/>;
+ else if(['food','weather','transport','places','jobs','feelings','routines','numbers','weekdays','animals'].includes(topic))scene=<EverydayWordScene topic={topic} word={word}/>;
  else if(topic==='body'){
   const points:Record<string,[number,number]>={head:[104,25],hair:[102,13],eye:[99,23],ear:[119,24],nose:[105,28],mouth:[105,34],arm:[74,58],hand:[68,74],leg:[94,83],foot:[91,103]};
   const [x,y]=points[art];scene=<>{shape('M92 43Q80 45 76 53L65 74L73 79L86 59V76L87 99H98L103 78H106L112 99H123L123 76V59L137 79L145 74L131 50Q124 43 116 43Z',neutral)}<circle cx="104" cy="25" r="17" fill={paper} stroke={ink} strokeWidth="2"/>{line('M89 17Q103 1 118 17M99 24h1m10 0h1M104 27v4m-5 5q5 3 10 0')}<circle cx={x} cy={y} r={art==='eye'||art==='nose'||art==='mouth'?6:9} fill={accent} opacity=".85"/><path d={`M${x<104?43:165} ${y<28?20:y>90?96:y}H${x<104?x-12:x+12}`} stroke={accent} strokeWidth="2" fill="none"/></>;

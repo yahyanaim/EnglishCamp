@@ -10,6 +10,7 @@ import { shadowClipBounds } from "@/lib/shadowTimeline";
 import type { ShadowVideoHandle } from "@/components/shadowing/ShadowVideo";
 import { ShadowVideo } from "@/components/shadowing/ShadowVideo";
 import { ShadowRecorder } from "@/components/shadowing/ShadowRecorder";
+import { ShadowPracticeProgress } from '@/components/shadowing/ShadowPracticeProgress';
 import { SessionEntry } from "@/components/session/SessionEntry";
 import { useSessionProfile } from "@/components/session/SessionProvider";
 import { playNaturalText, stopNaturalSpeech, type SpeechState } from "@/lib/naturalSpeech";
@@ -81,7 +82,8 @@ export default function ShadowingPage() {
           <div className="camp-shadow-sentence-tools"><Button variant="outline" size="sm" onClick={()=>playLine()} aria-label={busy?"Stop model voice":"Play Microsoft model voice"}>{speech==="loading"?<Loader2 size={15} className="animate-spin"/>:busy?<Square size={15}/>:<Play size={15}/>}Model voice</Button><SelectField aria-label="Microsoft voice speed" value={rate} onValueChange={value=>{stopNaturalSpeech();setRate(Number(value));}}><option value="0.75">0.75× voice</option><option value="1">1× voice</option><option value="1.25">1.25× voice</option></SelectField><Button variant="outline" size="sm" aria-pressed={spelling} onClick={() => setSpelling(!spelling)}><Eye size={15}/>Spelling</Button><Button variant="outline" size="sm" aria-pressed={arabic} onClick={() => setArabic(!arabic)}><Languages size={15}/>Translate</Button><Button variant="outline" size="sm" aria-pressed={mode === "spell"} onClick={() => { setMode(mode === "read" ? "spell" : "read"); setAnswer(""); setChecked(false); }}><Pencil size={15}/>{mode === "spell" ? "Read & repeat" : "Listen & spell"}</Button></div>
           {speech === "error" && <p role="alert" className="camp-shadow-error">The Microsoft audio could not load. Please try again.</p>}
         </section>
-        <ShadowRecorder key={`${lesson.id}:${active}`} lineId={`${lesson.id}:${active}`} />
+        <ShadowRecorder key={`recorder:${lesson.id}:${active}`} lineId={`${lesson.id}:${active}`} />
+        <ShadowPracticeProgress key={`progress:${lesson.id}:${active}`} lesson={lesson} index={active}/>
         <div className="camp-shadow-session-save"><ShieldCheck size={20}/><div><strong>{profile ? `Practising as ${profile.name}` : "Keep your learning under your name"}</strong><p>{profile ? "Your level and badges stay with this learning session." : "Sign in with a name. Your progress stays in this tab."}</p></div><SessionEntry/></div>
         <details className="camp-shadow-task"><summary>Try it yourself</summary><p>{lesson.task}</p></details>
       </div>
@@ -94,6 +96,6 @@ export default function ShadowingPage() {
         <p className="camp-shadow-focus"><LearningArt name="idea" size={20}/>{lesson.focus}</p>
       </aside>
     </div>
-    <footer className="camp-shadow-credit"><a href={`https://www.youtube.com/watch?v=${lesson.videoId}`} target="_blank" rel="noreferrer">Original video: {shadowChannel(lesson)} ↗</a>{!lesson.track&&<a href="https://learningenglish.voanews.com/p/6021.html" target="_blank" rel="noreferrer">Source terms ↗</a>}<p>Everyday conversations from VOA Learning English. Each original video is under two minutes; the player opens on its dialogue. No automated pronunciation score is given.</p></footer>
+    <footer className="camp-shadow-credit"><a href={`https://www.youtube.com/watch?v=${lesson.videoId}`} target="_blank" rel="noreferrer">Original video: {shadowChannel(lesson)} ↗</a>{lesson.sourceUrl&&<a href={lesson.sourceUrl} target="_blank" rel="noreferrer">Publisher source ↗</a>}{!lesson.track&&<a href="https://learningenglish.voanews.com/p/6021.html" target="_blank" rel="noreferrer">Source terms ↗</a>}<p>Everyday conversations from VOA Learning English. Each original video is under two minutes; the player opens on its dialogue. No automated pronunciation score is given.</p></footer>
   </div></PageWrapper>;
 }

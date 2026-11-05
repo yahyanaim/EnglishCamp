@@ -80,10 +80,7 @@ test('the downloadable grammar PDF stays in sync with the complete online refere
 });
 
 
-test('the practice catalogue keeps every trainer assignment and changes only the inaccurate word-pairs description',()=>{
- const catalogue=require('./practice-catalogue-fingerprint.cjs'),c=require('./fixtures/consistency-content-contract.json');
- const current=JSON.stringify(catalogue(fs.readFileSync(path.join(__dirname,'../src/app/practice/page.tsx'),'utf8')));
- const restored=current.replace('Choose between commonly confused words (affect/effect, their/there)','Choose the right word (since/for, if/when)');
- assert.equal(crypto.createHash('sha256').update(restored).digest('hex'),c.practiceCatalogue.before);
- assert.equal(c.practiceCatalogue.before,require('./fixtures/fullsize-ui-contract.json').practiceCatalogue);
+test('the practice catalogue removes only Grammar Reference and retains all other trainer assignments',()=>{
+ const {catalogue}=require('../scripts/audit-practice-inventory.cjs'),before=require('./fixtures/reference-reading-before.json').catalogue;
+ assert.deepEqual(catalogue(),before.filter(item=>item.id!=='grammar-reference'));
 });

@@ -1,0 +1,42 @@
+[
+  {
+    "id": "strike-a-chord",
+    "videoId": "oeIUhjCyNDM",
+    "title": "English in a Minute: Strike a Chord",
+    "author": "VOA Learning English",
+    "duration": 60,
+    "embeddable": true
+  },
+  {
+    "id": "stuck-in-a-rut",
+    "videoId": "tyN89pAw_JU",
+    "title": "English in a Minute: Stuck in a Rut",
+    "author": "VOA Learning English",
+    "duration": 60,
+    "embeddable": true
+  },
+  {
+    "id": "fair-and-square",
+    "videoId": "P_QtdNMFEx0",
+    "title": "English in a Minute: Fair and Square",
+    "author": "VOA Learning English",
+    "duration": 60,
+    "embeddable": true
+  },
+  {
+    "id": "grab-a-bite",
+    "videoId": "rvpQ-aQskoo",
+    "title": "English in a Minute: Grab a Bite",
+    "author": "VOA T\u00fcrk\u00e7e",
+    "duration": 61,
+    "embeddable": true
+  },
+  {
+    "id": "junk-food",
+    "videoId": "hfR3lP2bHe8",
+    "title": "English in a Minute: Junk Food",
+    "author": "VOA Learning English",
+    "duration": 61,
+    "embeddable": true
+  }
+]

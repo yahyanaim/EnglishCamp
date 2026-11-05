@@ -10,12 +10,12 @@ import { playCorrect, playWrong } from "@/lib/audio";
 type Item = { word: string; meaning: string; correct: string; options: string[]; explanation: string };
 
 const ITEMS: Item[] = [
-  { word: "actually", meaning: "used to emphasize a fact", correct: "actually", options: ["actually", "currently", "nowadays", "really"], explanation: "In Arabic, بعض الطلاب يخلطون between 'actually' and 'currently'." },
+  { word: "actually", meaning: "used to emphasize a fact", correct: "actually", options: ["actually", "currently", "nowadays", "recently"], explanation: "In Arabic, بعض الطلاب يخلطون between 'actually' and 'currently'." },
   { word: "sensible", meaning: "reasonable / practical", correct: "sensible", options: ["sensible", "sensitive", "sensory", "sensual"], explanation: "Arabic speakers may confuse 'sensible' (reasonable) with 'sensitive' (emotional)." },
   { word: "sympathy", meaning: "feeling of pity / compassion", correct: "sympathy", options: ["sympathy", "empathy", "apathy", "antipathy"], explanation: "'Sympathy' and 'empathy' are often confused. Sympathy = feeling for someone; Empathy = feeling with someone." },
   { word: "library", meaning: "a place with books", correct: "library", options: ["library", "bookshop", "bookstore", "bookcase"], explanation: "Arabic speakers sometimes confuse 'library' (مكتبة عامة) with 'bookshop' (مكتبة تجارية)." },
   { word: "eventually", meaning: "finally / in the end", correct: "eventually", options: ["eventually", "possibly", "actually", "potentially"], explanation: "Arabic speakers may think 'eventually' means 'possibly' (ربما), but it means 'finally' (في النهاية)." },
-  { word: "embarrassed", meaning: "feeling shy / ashamed", correct: "embarrassed", options: ["embarrassed", "pregnant", "married", "engaged"], explanation: "In Arabic, some confuse 'embarrassed' (محرج) with 'pregnant' (حامل) due to similar sounds." },
+  { word: "embarrassed", meaning: "feeling shy / ashamed", correct: "embarrassed", options: ["embarrassed", "pregnant", "married", "engaged"], explanation: "Embarrassed means feeling self-conscious or ashamed. Pregnant refers to expecting a baby; it is a different meaning." },
   { word: "preservative", meaning: "something that preserves food", correct: "preservative", options: ["preservative", "conservative", "reservation", "preservation"], explanation: "'Preservative' (مادة حافظة) is often confused with 'conservative' (محافظ)." },
   { word: "parents", meaning: "mother and father", correct: "parents", options: ["parents", "relatives", "peasants", "presidents"], explanation: "Arabic speakers may mishear 'parents' (والدان) as 'relatives' (أقارب)." },
   { word: "satisfied", meaning: "pleased / content", correct: "satisfied", options: ["satisfied", "suffocated", "sacrificed", "specified"], explanation: "In Arabic, راضٍ = satisfied vs. مختنق = suffocated. The words sound different but may be confused." },
@@ -23,7 +23,7 @@ const ITEMS: Item[] = [
   { word: "college", meaning: "a place for higher education", correct: "college", options: ["college", "colleague", "collage", "courage"], explanation: "Arabic speakers may confuse 'college' (كلية) with 'colleague' (زميل)." },
   { word: "exit", meaning: "way out", correct: "exit", options: ["exit", "exist", "exile", "exact"], explanation: "'Exit' (مخرج) and 'exist' (يوجد) look almost the same but have different meanings." },
   { word: "affect", meaning: "to influence or change", correct: "affect", options: ["affect", "effect", "effort", "infect"], explanation: "'Affect' (يؤثر) is a verb; 'effect' (تأثير) is a noun. Very commonly confused by Arabic speakers." },
-  { word: "dessert", meaning: "sweet food after a meal", correct: "dessert", options: ["dessert", "desert", "deserve", "dessert"], explanation: "'Dessert' (حلوى) has two s's. 'Desert' (صحراء) has one s. Easy to confuse!" },
+  { word: "dessert", meaning: "sweet food after a meal", correct: "dessert", options: ["dessert", "desert", "deserve", "destination"], explanation: "'Dessert' (حلوى) has two s's. 'Desert' (صحراء) has one s. Easy to confuse!" },
   { word: "principal", meaning: "head of a school", correct: "principal", options: ["principal", "principle", "primary", "primitive"], explanation: "'Principal' (مدير مدرسة) vs 'principle' (مبدأ). Look similar but meanings differ." },
 ];
 
@@ -83,9 +83,9 @@ export function FalseFriendsTrainer() {
 
       <AnimatePresence mode="wait">
         <motion.div key={index} initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="text-center mb-5">
-          <p className="text-sm text-[var(--color-text-secondary)] mb-1">What does this English word mean?</p>
+          <p className="text-sm text-[var(--color-text-secondary)] mb-1">Which English word matches this meaning?</p>
           <div className="bg-[var(--color-surface-alt)] rounded-[var(--radius-md)] p-4 border border-[var(--color-border-default)]">
-            <p className="text-2xl font-display font-extrabold text-[var(--color-text-primary)] mb-1">{current.word}</p>
+            <p className="text-2xl font-display font-extrabold text-[var(--color-text-primary)] mb-1">{current.meaning}</p>
             <p className="text-sm text-[var(--color-text-secondary)]">(be careful — it can be confusing!)</p>
           </div>
         </motion.div>

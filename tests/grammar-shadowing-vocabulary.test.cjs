@@ -16,7 +16,7 @@ test('every grammar paragraph and standalone tip has Arabic on demand while Engl
 });
 
 test('the original source bank is preserved while the visible playlist contains only short communication',()=>{
- const expected=structuredClone(originals);expected.find(l=>l.id==='obvious-choice').lines[3].text='Well, what if David has a twin brother who lives with him?';assert.deepEqual(ORIGINAL_SHADOW_LESSONS,expected);assert.equal(SHADOW_LESSONS.length,9);
+ const expected=structuredClone(originals);expected.find(l=>l.id==='obvious-choice').lines[3].text='Well, what if David has a twin brother who lives with him?';assert.deepEqual(ORIGINAL_SHADOW_LESSONS,expected);assert.equal(SHADOW_LESSONS.length,14);
  for(const lesson of SHADOW_LESSONS){assert.match(lesson.videoId,/^[\w-]{11}$/);assert.ok(lesson.sourceDuration<120);assert.equal(lesson.kind,'conversation');assert.ok(!lesson.track);assert.ok(new Set(lesson.lines.map(l=>l.speaker)).size>=2);assert.equal(lesson.clipEnd-lesson.clipStart,lesson.duration);for(const line of lesson.lines)assert.match(line.ar,/[\u0600-\u06ff]/);}
  const source=require('fs').readFileSync(require('path').join(__dirname,'../src/app/shadowing-english/page.tsx'),'utf8');assert.ok(!source.includes('Video collection'));assert.ok(!source.includes('Exam skill'));
 });
@@ -27,10 +27,10 @@ test('video captions select the correct sentence at boundaries, hide during gaps
  assert.deepEqual(shadowClipBounds(cues,999),{start:62,end:72});assert.equal(shadowCueAt([],5),-1);assert.deepEqual(shadowClipBounds([],29),{start:0,end:29});
 });
 
-test('all twenty everyday vocabulary topics have meanings, contextual examples and semantic diagrams',()=>{
- assert.deepEqual(ESSENTIAL_VOCABULARY.slice(0,10).map(t=>t.id),['body','colors','home','family','cafe','office','airport','clothes','time','months']);assert.equal(ESSENTIAL_VOCABULARY.length,20);let count=0;
- for(const topic of ESSENTIAL_VOCABULARY){assert.ok(topic.intro.length>50);assert.ok(topic.words.length>=7);const html=renderToStaticMarkup(React.createElement(EssentialVocabularyTopic,{topic}));assert.equal((html.match(/<figure/g)||[]).length,topic.words.length);assert.equal((html.match(/<svg/g)||[]).length,topic.words.length);assert.ok(!html.includes('undefined'));for(const word of topic.words){assert.match(word.ar,/[\u0600-\u06ff]/);assert.ok(word.example.length>10);assert.ok(word.art);count++;}}
- assert.equal(count,207);assert.deepEqual(ESSENTIAL_VOCABULARY.find(t=>t.id==='months').words.map(w=>w.value),Array.from({length:12},(_,i)=>String(i+1)));
+test('all twenty-three everyday vocabulary topics have meanings, contextual examples and semantic diagrams',()=>{
+ assert.deepEqual(ESSENTIAL_VOCABULARY.slice(0,10).map(t=>t.id),['body','colors','home','family','cafe','office','airport','clothes','time','months']);assert.equal(ESSENTIAL_VOCABULARY.length,23);let count=0;
+ for(const topic of ESSENTIAL_VOCABULARY){assert.ok(topic.intro.length>50);assert.ok(topic.words.length>=7);const html=renderToStaticMarkup(React.createElement(EssentialVocabularyTopic,{topic}));assert.equal((html.match(/<figure/g)||[]).length,topic.words.length);assert.equal((html.match(/class="camp-essential-art"/g)||[]).length,topic.words.length);assert.ok(!html.includes('undefined'));for(const word of topic.words){assert.match(word.ar,/[\u0600-\u06ff]/);assert.ok(word.example.length>10);assert.ok(word.art);count++;}}
+ assert.equal(count,267);assert.deepEqual(ESSENTIAL_VOCABULARY.find(t=>t.id==='months').words.map(w=>w.value),Array.from({length:12},(_,i)=>String(i+1)));
 });
 
 

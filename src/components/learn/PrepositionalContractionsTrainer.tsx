@@ -19,12 +19,12 @@ const ITEMS: Item[] = [
   { sentence: "You ___ tell anyone.", blank: "mustn't", options: ["mustn't", "must not", "might not", "shouldn't"], explanation: "must not → mustn't (prohibition)" },
   { sentence: "It ___ raining.", blank: "wasn't", options: ["wasn't", "was not", "weren't", "isn't"], explanation: "was not → wasn't (past negative)" },
   { sentence: "___ you help me?", blank: "Couldn't", options: ["Couldn't", "Could not", "Can't", "Cannot"], explanation: "Could not → Couldn't (polite question)" },
-  { sentence: "I ___ rather stay.", blank: "wouldn't", options: ["wouldn't", "would not", "won't", "shouldn't"], explanation: "would not → wouldn't (conditional)" },
+  { sentence: "I ___ choose that option.", blank: "wouldn't", options: ["wouldn't", "would not", "won't", "shouldn't"], explanation: "would not → wouldn't (conditional)" },
   { sentence: "___ late!", blank: "Don't be", options: ["Don't be", "Do not be", "Not be", "Don't"], explanation: "Do not be → Don't be (imperative)" },
   { sentence: "She ___ like coffee.", blank: "doesn't", options: ["doesn't", "does not", "don't", "didn't"], explanation: "does not → doesn't (third person present)" },
   { sentence: "I ___ know the answer.", blank: "didn't", options: ["didn't", "did not", "don't", "doesn't"], explanation: "did not → didn't (past simple)" },
   { sentence: "They ___ ready yet.", blank: "aren't", options: ["aren't", "are not", "isn't", "weren't"], explanation: "are not → aren't (present negative)" },
-  { sentence: "___ a nice day!", blank: "What a", options: ["What a", "How a", "What", "Such a"], explanation: "\"What a\" is used in exclamations" },
+  { sentence: "They ___ watching the film.", blank: "weren't", options: ["weren't", "were not", "wasn't", "aren't"], explanation: "were not → weren't (past continuous negative)" },
 ];
 
 export function EnglishContractionsTrainer() {
@@ -83,9 +83,9 @@ export function EnglishContractionsTrainer() {
 
       <AnimatePresence mode="wait">
         <motion.div key={index} initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="text-center mb-5">
-          <div className="bg-[var(--color-surface-alt)] rounded-[var(--radius-md)] p-4 border border-[var(--color-border-default)]">
+          <p className="text-sm text-[var(--color-text-secondary)] mb-2">Choose the contracted form of <strong>{current.explanation.split("→")[0].trim()}</strong>.</p><div className="bg-[var(--color-surface-alt)] rounded-[var(--radius-md)] p-4 border border-[var(--color-border-default)]">
             <p className="text-lg font-display font-extrabold text-[var(--color-text-primary)]">
-              {current.sentence.replace("___", <span className="text-[var(--color-text-link)] font-bold">___</span> as any)}
+              {current.sentence}
             </p>
           </div>
         </motion.div>

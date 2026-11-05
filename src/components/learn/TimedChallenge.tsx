@@ -25,7 +25,7 @@ function generateQuestions(): ChallengeQ[] {
     { type: "article", question: "___ hour", options: ["an", "a", "the an", "some"], correct: 0, explanation: "\"an\" before silent h: an hour" },
     { type: "article", question: "___ elephant", options: ["an", "a", "the an", "some"], correct: 0, explanation: "\"an\" before vowel sounds: an elephant" },
     { type: "past", question: "Yesterday I ___ to school. (go)", options: ["went", "goed", "gone", "goes"], correct: 0, explanation: "go → went (irregular past tense)" },
-    { type: "past", question: "She ___ the book. (read - past)", options: ["read", "readed", "reads", "reading"], correct: 0, explanation: "read → read (same spelling, different pronunciation)" },
+    { type: "past", question: "She ___ the book yesterday.", options: ["read", "readed", "reads", "reading"], correct: 0, explanation: "read → read (same spelling, different pronunciation)" },
     { type: "past", question: "They ___ at home. (be - past)", options: ["were", "was", "are", "been"], correct: 0, explanation: "are → were (plural past of be)" },
     { type: "past", question: "He ___ breakfast. (eat)", options: ["ate", "eated", "eats", "eating"], correct: 0, explanation: "eat → ate (irregular past)" },
     { type: "plural", question: "one cat → two ___", options: ["cats", "caties", "cates", "cat"], correct: 0, explanation: "Regular plural: add -s: cat → cats" },

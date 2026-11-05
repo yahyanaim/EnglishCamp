@@ -51,7 +51,6 @@ const FlashcardRace = dynamic(() => import("@/components/learn/FlashcardRace").t
 const ClozeTextTrainer = dynamic(() => import("@/components/learn/ClozeTextTrainer").then(module => module.ClozeTextTrainer), { ssr: false, loading: () => <div className="camp-loading" role="status">Loading practice…</div> });
 const CollocationTrainer = dynamic(() => import("@/components/learn/CollocationTrainer").then(module => module.CollocationTrainer), { ssr: false, loading: () => <div className="camp-loading" role="status">Loading practice…</div> });
 const ErrorReview = dynamic(() => import("@/components/learn/ErrorReview").then(module => module.ErrorReview), { ssr: false, loading: () => <div className="camp-loading" role="status">Loading practice…</div> });
-const GrammarReference = dynamic(() => import("@/components/learn/GrammarReference").then(module => module.GrammarReference), { ssr: false, loading: () => <div className="camp-loading" role="status">Loading practice…</div> });
 const IdiomsTrainer = dynamic(() => import("@/components/learn/IdiomsTrainer").then(module => module.IdiomsTrainer), { ssr: false, loading: () => <div className="camp-loading" role="status">Loading practice…</div> });
 const ReadingComprehension = dynamic(() => import("@/components/learn/ReadingComprehension").then(module => module.ReadingComprehension), { ssr: false, loading: () => <div className="camp-loading" role="status">Loading practice…</div> });
 const SpellingTrainer = dynamic(() => import("@/components/learn/SpellingTrainer").then(module => module.SpellingTrainer), { ssr: false, loading: () => <div className="camp-loading" role="status">Loading practice…</div> });
@@ -102,7 +101,7 @@ type TrainerId =
   | "weak-nouns" | "prep-contractions" | "modal-particles" | "future-tense"
   | "frageworter" | "compound-nouns" | "double-infinitive" | "false-friends"
   | "flashcard-race" | "cloze-text" | "collocations" | "error-review"
-  | "grammar-reference" | "idioms" | "reading" | "spelling" | "synonyms"
+  | "idioms" | "reading" | "spelling" | "synonyms"
   | "timed-challenge" | "verb-explorer" | "word-formation"
   | "narrative-past" | "sub-clauses" | "question-formation" | "speed-match"
   | "buchstabensalat" | "sprint" | "konjunktionen" | "tenses" | "briefe"
@@ -131,7 +130,6 @@ const CATEGORIES: { id: string; label: string; trainers: { id: TrainerId; label:
       { id: "weak-nouns", label: "Irregular Plurals", desc: "Nouns that change form in plural (man/men, tooth/teeth)", icon: "🧊" },
       { id: "future-tense", label: "Future Tense", desc: "will, going to, and present continuous for future", icon: "🔮" },
       { id: "double-infinitive", label: "Modal Perfects", desc: "Perfect constructions with modal verbs (should have done)", icon: "2️⃣" },
-      { id: "grammar-reference", label: "Grammar Reference", desc: "Browse all English grammar rules and explanations", icon: "📖" },
       { id: "verb-explorer", label: "Verb Explorer", desc: "Full conjugation tables for any English verb", icon: "🔍" },
       { id: "narrative-past", label: "Narrative Past", desc: "Simple Past & Past Perfect for storytelling", icon: "📖" },
       { id: "verb-puzzle", label: "Verb Puzzle", desc: "Fill in conjugation tables for all tenses", icon: "🧩" },
@@ -281,7 +279,6 @@ const TRAINER_COMPONENTS: Record<TrainerId, ComponentType> = {
   "cloze-text": ClozeTextTrainer,
   "collocations": CollocationTrainer,
   "error-review": ErrorReview,
-  "grammar-reference": GrammarReference,
   "idioms": IdiomsTrainer,
   "reading": ReadingComprehension,
   "spelling": SpellingTrainer,
@@ -340,7 +337,7 @@ export default function PracticePage() {
     return (
       <PageWrapper back={<nav className="camp-page-back" aria-label="Return navigation"><BackButton onClick={() => setActiveTrainer(null)}>Back to practice</BackButton></nav>}>
         <PageBanner><h1 className="camp-library-activity-title">{cat && <LearningArt name={cat.icon} size={24}/>}<span>{cat?.label || "Practice"}</span></h1>{cat && <p>{cat.desc}</p>}</PageBanner>
-        <PracticeFrame illustration="none" topic={activeTrainer} layout={activeTrainer === "grammar-reference" || activeTrainer === "verb-explorer" ? "reference" : ["speed-match", "memory-match", "word-search", "crossword", "verb-puzzle", "idiom-match"].includes(activeTrainer) ? "matching" : activeTrainer === "briefe" ? "writing" : "quiz"}><Component /></PracticeFrame>
+        <PracticeFrame illustration="none" topic={activeTrainer} layout={activeTrainer === "verb-explorer" ? "reference" : ["speed-match", "memory-match", "word-search", "crossword", "verb-puzzle", "idiom-match"].includes(activeTrainer) ? "matching" : activeTrainer === "briefe" ? "writing" : "quiz"}><Component /></PracticeFrame>
       </PageWrapper>
     );
   }

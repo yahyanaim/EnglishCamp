@@ -1,0 +1,1433 @@
+[
+  {
+    "id": "body",
+    "title": "Body parts",
+    "intro": "Name a part of the body. Use my, your, his or her to say whose body you mean.",
+    "words": [
+      {
+        "en": "head",
+        "ar": "رأس",
+        "example": "My head hurts.",
+        "art": "head"
+      },
+      {
+        "en": "hair",
+        "ar": "شعر",
+        "example": "Her hair is long.",
+        "art": "hair"
+      },
+      {
+        "en": "eye",
+        "ar": "عين",
+        "example": "Close one eye.",
+        "art": "eye"
+      },
+      {
+        "en": "ear",
+        "ar": "أذن",
+        "example": "I can hear with my ears.",
+        "art": "ear"
+      },
+      {
+        "en": "nose",
+        "ar": "أنف",
+        "example": "Touch your nose.",
+        "art": "nose"
+      },
+      {
+        "en": "mouth",
+        "ar": "فم",
+        "example": "Open your mouth.",
+        "art": "mouth"
+      },
+      {
+        "en": "arm",
+        "ar": "ذراع",
+        "example": "Raise your right arm.",
+        "art": "arm"
+      },
+      {
+        "en": "hand",
+        "ar": "يد",
+        "example": "Wash your hands.",
+        "art": "hand"
+      },
+      {
+        "en": "leg",
+        "ar": "ساق",
+        "example": "My left leg hurts.",
+        "art": "leg"
+      },
+      {
+        "en": "foot",
+        "ar": "قدم",
+        "example": "Put your foot on the floor.",
+        "art": "foot"
+      }
+    ]
+  },
+  {
+    "id": "colors",
+    "title": "Colours",
+    "intro": "A colour usually comes before a noun: a red bag. It can also follow be: the bag is red.",
+    "words": [
+      {
+        "en": "red",
+        "ar": "أحمر",
+        "example": "The apple is red.",
+        "art": "swatch",
+        "value": "#dc2626"
+      },
+      {
+        "en": "orange",
+        "ar": "برتقالي",
+        "example": "I have an orange bag.",
+        "art": "swatch",
+        "value": "#ea580c"
+      },
+      {
+        "en": "yellow",
+        "ar": "أصفر",
+        "example": "The bus is yellow.",
+        "art": "swatch",
+        "value": "#facc15"
+      },
+      {
+        "en": "green",
+        "ar": "أخضر",
+        "example": "The leaves are green.",
+        "art": "swatch",
+        "value": "#16a34a"
+      },
+      {
+        "en": "blue",
+        "ar": "أزرق",
+        "example": "The sky is blue.",
+        "art": "swatch",
+        "value": "#2563eb"
+      },
+      {
+        "en": "purple",
+        "ar": "بنفسجي",
+        "example": "She wears a purple hat.",
+        "art": "swatch",
+        "value": "#9333ea"
+      },
+      {
+        "en": "pink",
+        "ar": "وردي",
+        "example": "These flowers are pink.",
+        "art": "swatch",
+        "value": "#ec4899"
+      },
+      {
+        "en": "brown",
+        "ar": "بني",
+        "example": "The table is brown.",
+        "art": "swatch",
+        "value": "#92400e"
+      },
+      {
+        "en": "black",
+        "ar": "أسود",
+        "example": "My shoes are black.",
+        "art": "swatch",
+        "value": "#1c1917"
+      },
+      {
+        "en": "white",
+        "ar": "أبيض",
+        "example": "This shirt is white.",
+        "art": "swatch",
+        "value": "#ffffff"
+      },
+      {
+        "en": "grey",
+        "ar": "رمادي",
+        "example": "The wall is grey.",
+        "art": "swatch",
+        "value": "#78716c"
+      }
+    ]
+  },
+  {
+    "id": "home",
+    "title": "Things at home",
+    "intro": "Use there is for one object and there are for more than one. Learn an object with its room or use.",
+    "words": [
+      {
+        "en": "door",
+        "ar": "باب",
+        "example": "Please close the door.",
+        "art": "door"
+      },
+      {
+        "en": "window",
+        "ar": "نافذة",
+        "example": "Open the window.",
+        "art": "window"
+      },
+      {
+        "en": "table",
+        "ar": "طاولة",
+        "example": "The book is on the table.",
+        "art": "table"
+      },
+      {
+        "en": "chair",
+        "ar": "كرسي",
+        "example": "Sit on this chair.",
+        "art": "chair"
+      },
+      {
+        "en": "bed",
+        "ar": "سرير",
+        "example": "My bed is next to the window.",
+        "art": "bed"
+      },
+      {
+        "en": "sofa",
+        "ar": "أريكة",
+        "example": "We sit on the sofa.",
+        "art": "sofa"
+      },
+      {
+        "en": "lamp",
+        "ar": "مصباح",
+        "example": "Turn on the lamp.",
+        "art": "lamp"
+      },
+      {
+        "en": "fridge",
+        "ar": "ثلاجة",
+        "example": "The milk is in the fridge.",
+        "art": "fridge"
+      },
+      {
+        "en": "mirror",
+        "ar": "مرآة",
+        "example": "Look in the mirror.",
+        "art": "mirror"
+      },
+      {
+        "en": "key",
+        "ar": "مفتاح",
+        "example": "Where is my key?",
+        "art": "key"
+      }
+    ]
+  },
+  {
+    "id": "family",
+    "title": "Family",
+    "intro": "Follow the family tree. The filled person is the relative named on the card; the small outline marked You is the reference person.",
+    "words": [
+      {
+        "en": "mother",
+        "ar": "أم",
+        "example": "My mother is a teacher.",
+        "art": "mother"
+      },
+      {
+        "en": "father",
+        "ar": "أب",
+        "example": "My father likes cooking.",
+        "art": "father"
+      },
+      {
+        "en": "parents",
+        "ar": "والدان",
+        "example": "My parents live nearby.",
+        "art": "parents"
+      },
+      {
+        "en": "sister",
+        "ar": "أخت",
+        "example": "My sister is older than me.",
+        "art": "sister"
+      },
+      {
+        "en": "brother",
+        "ar": "أخ",
+        "example": "My brother is twelve.",
+        "art": "brother"
+      },
+      {
+        "en": "grandmother",
+        "ar": "جدة",
+        "example": "My grandmother tells stories.",
+        "art": "grandmother"
+      },
+      {
+        "en": "grandfather",
+        "ar": "جد",
+        "example": "My grandfather has a garden.",
+        "art": "grandfather"
+      },
+      {
+        "en": "daughter",
+        "ar": "ابنة",
+        "example": "Their daughter is a student.",
+        "art": "daughter"
+      },
+      {
+        "en": "son",
+        "ar": "ابن",
+        "example": "Their son works in a café.",
+        "art": "son"
+      },
+      {
+        "en": "children",
+        "ar": "أبناء / أطفال",
+        "example": "They have two children.",
+        "art": "children"
+      }
+    ]
+  },
+  {
+    "id": "cafe",
+    "title": "At a café",
+    "intro": "Make a polite order with Can I have …, please? Use a cup of or a glass of when you need a container.",
+    "words": [
+      {
+        "en": "coffee",
+        "ar": "قهوة",
+        "example": "Can I have a coffee, please?",
+        "art": "coffee"
+      },
+      {
+        "en": "tea",
+        "ar": "شاي",
+        "example": "I would like a cup of tea.",
+        "art": "tea"
+      },
+      {
+        "en": "water",
+        "ar": "ماء",
+        "example": "A glass of water, please.",
+        "art": "water"
+      },
+      {
+        "en": "milk",
+        "ar": "حليب",
+        "example": "Do you want milk in your coffee?",
+        "art": "milk"
+      },
+      {
+        "en": "sugar",
+        "ar": "سكر",
+        "example": "No sugar, thank you.",
+        "art": "sugar"
+      },
+      {
+        "en": "sandwich",
+        "ar": "شطيرة",
+        "example": "I would like a cheese sandwich.",
+        "art": "sandwich"
+      },
+      {
+        "en": "cake",
+        "ar": "كعك",
+        "example": "We share a piece of cake.",
+        "art": "cake"
+      },
+      {
+        "en": "menu",
+        "ar": "قائمة الطعام",
+        "example": "Can I see the menu?",
+        "art": "menu"
+      },
+      {
+        "en": "bill",
+        "ar": "فاتورة",
+        "example": "Can we have the bill, please?",
+        "art": "bill"
+      },
+      {
+        "en": "cup",
+        "ar": "فنجان / كوب",
+        "example": "This cup is empty.",
+        "art": "cup"
+      }
+    ]
+  },
+  {
+    "id": "office",
+    "title": "At the office",
+    "intro": "Use these nouns to describe your workspace and ask for common office objects.",
+    "words": [
+      {
+        "en": "desk",
+        "ar": "مكتب",
+        "example": "My desk is near the window.",
+        "art": "desk"
+      },
+      {
+        "en": "computer",
+        "ar": "حاسوب",
+        "example": "I use a computer at work.",
+        "art": "computer"
+      },
+      {
+        "en": "keyboard",
+        "ar": "لوحة مفاتيح",
+        "example": "This keyboard is new.",
+        "art": "keyboard"
+      },
+      {
+        "en": "mouse",
+        "ar": "فأرة الحاسوب",
+        "example": "Move the mouse.",
+        "art": "mouse"
+      },
+      {
+        "en": "screen",
+        "ar": "شاشة",
+        "example": "The screen is too bright.",
+        "art": "screen"
+      },
+      {
+        "en": "printer",
+        "ar": "طابعة",
+        "example": "The printer needs paper.",
+        "art": "printer"
+      },
+      {
+        "en": "pen",
+        "ar": "قلم",
+        "example": "May I borrow your pen?",
+        "art": "pen"
+      },
+      {
+        "en": "notebook",
+        "ar": "دفتر",
+        "example": "Write it in your notebook.",
+        "art": "notebook"
+      },
+      {
+        "en": "phone",
+        "ar": "هاتف",
+        "example": "The phone is ringing.",
+        "art": "phone"
+      },
+      {
+        "en": "folder",
+        "ar": "مجلد",
+        "example": "Put the document in this folder.",
+        "art": "folder"
+      }
+    ]
+  },
+  {
+    "id": "airport",
+    "title": "At the airport",
+    "intro": "Follow a journey: check in, go through security, find your gate and board the plane.",
+    "words": [
+      {
+        "en": "plane",
+        "ar": "طائرة",
+        "example": "Our plane leaves at noon.",
+        "art": "plane"
+      },
+      {
+        "en": "passport",
+        "ar": "جواز سفر",
+        "example": "Here is my passport.",
+        "art": "passport"
+      },
+      {
+        "en": "boarding pass",
+        "ar": "بطاقة صعود الطائرة",
+        "example": "Show your boarding pass.",
+        "art": "boarding pass"
+      },
+      {
+        "en": "suitcase",
+        "ar": "حقيبة سفر",
+        "example": "This suitcase is heavy.",
+        "art": "suitcase"
+      },
+      {
+        "en": "check-in",
+        "ar": "تسجيل السفر",
+        "example": "Where is the check-in desk?",
+        "art": "check-in"
+      },
+      {
+        "en": "security",
+        "ar": "التفتيش الأمني",
+        "example": "We go through security.",
+        "art": "security"
+      },
+      {
+        "en": "gate",
+        "ar": "بوابة",
+        "example": "Our flight leaves from gate six.",
+        "art": "gate"
+      },
+      {
+        "en": "departure",
+        "ar": "مغادرة",
+        "example": "Check the departure time.",
+        "art": "departure"
+      },
+      {
+        "en": "arrival",
+        "ar": "وصول",
+        "example": "The arrival time is ten o’clock.",
+        "art": "arrival"
+      },
+      {
+        "en": "seat",
+        "ar": "مقعد",
+        "example": "Is this your seat?",
+        "art": "seat"
+      }
+    ]
+  },
+  {
+    "id": "clothes",
+    "title": "Clothes",
+    "intro": "Use wear for clothing you have on. Trousers, shorts and shoes are usually plural.",
+    "words": [
+      {
+        "en": "shirt",
+        "ar": "قميص",
+        "example": "He wears a white shirt.",
+        "art": "shirt"
+      },
+      {
+        "en": "T-shirt",
+        "ar": "قميص قصير الأكمام",
+        "example": "I like this T-shirt.",
+        "art": "T-shirt"
+      },
+      {
+        "en": "trousers",
+        "ar": "بنطال",
+        "example": "These trousers are black.",
+        "art": "trousers"
+      },
+      {
+        "en": "dress",
+        "ar": "فستان",
+        "example": "Her dress is purple.",
+        "art": "dress"
+      },
+      {
+        "en": "skirt",
+        "ar": "تنورة",
+        "example": "This skirt is long.",
+        "art": "skirt"
+      },
+      {
+        "en": "coat",
+        "ar": "معطف",
+        "example": "Take your coat; it is cold.",
+        "art": "coat"
+      },
+      {
+        "en": "shoes",
+        "ar": "حذاء / أحذية",
+        "example": "My shoes are by the door.",
+        "art": "shoes"
+      },
+      {
+        "en": "socks",
+        "ar": "جوارب",
+        "example": "I need a pair of socks.",
+        "art": "socks"
+      },
+      {
+        "en": "hat",
+        "ar": "قبعة",
+        "example": "Wear a hat in the sun.",
+        "art": "hat"
+      },
+      {
+        "en": "scarf",
+        "ar": "وشاح",
+        "example": "This scarf is warm.",
+        "art": "scarf"
+      }
+    ]
+  },
+  {
+    "id": "time",
+    "title": "Hours and times of day",
+    "intro": "Use at before a clock time. Half past is thirty minutes after an hour; quarter to is fifteen minutes before it.",
+    "words": [
+      {
+        "en": "one o’clock",
+        "ar": "الساعة الواحدة",
+        "example": "The lesson starts at one o’clock.",
+        "art": "clock",
+        "value": "1:00"
+      },
+      {
+        "en": "half past two",
+        "ar": "الثانية والنصف",
+        "example": "We meet at half past two.",
+        "art": "clock",
+        "value": "2:30"
+      },
+      {
+        "en": "quarter past three",
+        "ar": "الثالثة والربع",
+        "example": "The bus leaves at quarter past three.",
+        "art": "clock",
+        "value": "3:15"
+      },
+      {
+        "en": "quarter to five",
+        "ar": "الخامسة إلا ربعاً",
+        "example": "It is quarter to five.",
+        "art": "clock",
+        "value": "4:45"
+      },
+      {
+        "en": "six thirty",
+        "ar": "السادسة والنصف",
+        "example": "Dinner is at six thirty.",
+        "art": "clock",
+        "value": "6:30"
+      },
+      {
+        "en": "noon",
+        "ar": "الظهر",
+        "example": "Let’s have lunch at noon.",
+        "art": "clock",
+        "value": "12:00"
+      },
+      {
+        "en": "midnight",
+        "ar": "منتصف الليل",
+        "example": "The train arrives at midnight.",
+        "art": "night"
+      },
+      {
+        "en": "morning",
+        "ar": "صباح",
+        "example": "I study in the morning.",
+        "art": "morning"
+      },
+      {
+        "en": "afternoon",
+        "ar": "بعد الظهر",
+        "example": "We play in the afternoon.",
+        "art": "afternoon"
+      },
+      {
+        "en": "evening",
+        "ar": "مساء",
+        "example": "I read in the evening.",
+        "art": "evening"
+      }
+    ]
+  },
+  {
+    "id": "months",
+    "title": "Months of the year",
+    "intro": "Month names start with a capital letter. Use in with a month: in January. Use on with a date: on 5 January.",
+    "words": [
+      {
+        "en": "January",
+        "ar": "يناير",
+        "example": "January is the first month.",
+        "art": "calendar",
+        "value": "1"
+      },
+      {
+        "en": "February",
+        "ar": "فبراير",
+        "example": "My birthday is in February.",
+        "art": "calendar",
+        "value": "2"
+      },
+      {
+        "en": "March",
+        "ar": "مارس",
+        "example": "The course starts in March.",
+        "art": "calendar",
+        "value": "3"
+      },
+      {
+        "en": "April",
+        "ar": "أبريل",
+        "example": "We travel in April.",
+        "art": "calendar",
+        "value": "4"
+      },
+      {
+        "en": "May",
+        "ar": "مايو",
+        "example": "The festival is in May.",
+        "art": "calendar",
+        "value": "5"
+      },
+      {
+        "en": "June",
+        "ar": "يونيو",
+        "example": "Our exams are in June.",
+        "art": "calendar",
+        "value": "6"
+      },
+      {
+        "en": "July",
+        "ar": "يوليو",
+        "example": "We visit our family in July.",
+        "art": "calendar",
+        "value": "7"
+      },
+      {
+        "en": "August",
+        "ar": "أغسطس",
+        "example": "The office closes for a week in August.",
+        "art": "calendar",
+        "value": "8"
+      },
+      {
+        "en": "September",
+        "ar": "سبتمبر",
+        "example": "School starts in September.",
+        "art": "calendar",
+        "value": "9"
+      },
+      {
+        "en": "October",
+        "ar": "أكتوبر",
+        "example": "The meeting is in October.",
+        "art": "calendar",
+        "value": "10"
+      },
+      {
+        "en": "November",
+        "ar": "نوفمبر",
+        "example": "We move house in November.",
+        "art": "calendar",
+        "value": "11"
+      },
+      {
+        "en": "December",
+        "ar": "ديسمبر",
+        "example": "December is the last month.",
+        "art": "calendar",
+        "value": "12"
+      }
+    ]
+  },
+  {
+    "id": "food",
+    "title": "Food and groceries",
+    "intro": "Use a or an with one countable item. Learn uncountable food with a container: a bowl of rice, a loaf of bread.",
+    "words": [
+      {
+        "en": "apple",
+        "ar": "تفاحة",
+        "example": "I eat an apple after lunch.",
+        "art": "apple"
+      },
+      {
+        "en": "banana",
+        "ar": "موزة",
+        "example": "She puts a banana in her bag.",
+        "art": "banana"
+      },
+      {
+        "en": "orange",
+        "ar": "برتقالة",
+        "example": "Would you like an orange?",
+        "art": "orange"
+      },
+      {
+        "en": "carrot",
+        "ar": "جزرة",
+        "example": "Cut the carrot into small pieces.",
+        "art": "carrot"
+      },
+      {
+        "en": "potato",
+        "ar": "حبة بطاطس",
+        "example": "I need one potato for the soup.",
+        "art": "potato"
+      },
+      {
+        "en": "tomato",
+        "ar": "حبة طماطم",
+        "example": "There is a tomato in the salad.",
+        "art": "tomato"
+      },
+      {
+        "en": "bread",
+        "ar": "خبز",
+        "example": "We buy fresh bread every morning.",
+        "art": "bread"
+      },
+      {
+        "en": "rice",
+        "ar": "أرز",
+        "example": "He eats rice with vegetables.",
+        "art": "rice"
+      },
+      {
+        "en": "egg",
+        "ar": "بيضة",
+        "example": "There is an egg on the plate.",
+        "art": "egg"
+      },
+      {
+        "en": "cheese",
+        "ar": "جبن",
+        "example": "I would like some cheese.",
+        "art": "cheese"
+      },
+      {
+        "en": "fish",
+        "ar": "سمك",
+        "example": "We have fish for dinner.",
+        "art": "fish"
+      },
+      {
+        "en": "bottle",
+        "ar": "زجاجة",
+        "example": "Please bring a bottle of water.",
+        "art": "bottle"
+      }
+    ]
+  },
+  {
+    "id": "weather",
+    "title": "Weather and seasons",
+    "intro": "Describe the weather with It is: It is sunny. Use in with seasons: in winter.",
+    "words": [
+      {
+        "en": "sunny",
+        "ar": "مشمس",
+        "example": "It is sunny today.",
+        "art": "sunny"
+      },
+      {
+        "en": "cloudy",
+        "ar": "غائم",
+        "example": "It is cloudy this afternoon.",
+        "art": "cloudy"
+      },
+      {
+        "en": "rainy",
+        "ar": "ممطر",
+        "example": "Take an umbrella on a rainy day.",
+        "art": "rainy"
+      },
+      {
+        "en": "snowy",
+        "ar": "مثلج",
+        "example": "The snowy road is closed.",
+        "art": "snowy"
+      },
+      {
+        "en": "windy",
+        "ar": "عاصف",
+        "example": "It is too windy to use an umbrella.",
+        "art": "windy"
+      },
+      {
+        "en": "hot",
+        "ar": "حار",
+        "example": "It is hot in this room.",
+        "art": "hot"
+      },
+      {
+        "en": "cold",
+        "ar": "بارد",
+        "example": "The water is very cold.",
+        "art": "cold"
+      },
+      {
+        "en": "warm",
+        "ar": "دافئ",
+        "example": "The weather is warm in May.",
+        "art": "warm"
+      },
+      {
+        "en": "spring",
+        "ar": "الربيع",
+        "example": "Flowers grow in spring.",
+        "art": "spring"
+      },
+      {
+        "en": "summer",
+        "ar": "الصيف",
+        "example": "We swim in summer.",
+        "art": "summer"
+      },
+      {
+        "en": "autumn",
+        "ar": "الخريف",
+        "example": "The leaves fall in autumn.",
+        "art": "autumn"
+      },
+      {
+        "en": "winter",
+        "ar": "الشتاء",
+        "example": "We wear coats in winter.",
+        "art": "winter"
+      }
+    ]
+  },
+  {
+    "id": "transport",
+    "title": "Getting around",
+    "intro": "Use by bus, by train and by car without an article. Say on foot when you walk.",
+    "words": [
+      {
+        "en": "bus",
+        "ar": "حافلة",
+        "example": "I go to school by bus.",
+        "art": "bus"
+      },
+      {
+        "en": "train",
+        "ar": "قطار",
+        "example": "The train leaves at nine.",
+        "art": "train"
+      },
+      {
+        "en": "car",
+        "ar": "سيارة",
+        "example": "We travel by car.",
+        "art": "car"
+      },
+      {
+        "en": "bicycle",
+        "ar": "دراجة هوائية",
+        "example": "She rides a bicycle to work.",
+        "art": "bicycle"
+      },
+      {
+        "en": "taxi",
+        "ar": "سيارة أجرة",
+        "example": "Let us take a taxi.",
+        "art": "taxi"
+      },
+      {
+        "en": "boat",
+        "ar": "قارب",
+        "example": "The boat crosses the river.",
+        "art": "boat"
+      },
+      {
+        "en": "motorbike",
+        "ar": "دراجة نارية",
+        "example": "He wears a helmet on his motorbike.",
+        "art": "motorbike"
+      },
+      {
+        "en": "ticket",
+        "ar": "تذكرة",
+        "example": "I need a return ticket.",
+        "art": "ticket"
+      },
+      {
+        "en": "station",
+        "ar": "محطة",
+        "example": "Meet me at the station.",
+        "art": "station"
+      },
+      {
+        "en": "traffic lights",
+        "ar": "إشارات المرور",
+        "example": "Stop at the red traffic lights.",
+        "art": "traffic lights"
+      }
+    ]
+  },
+  {
+    "id": "places",
+    "title": "Places in town",
+    "intro": "Ask Where is the…? Learn a place with the reason for going there.",
+    "words": [
+      {
+        "en": "school",
+        "ar": "مدرسة",
+        "example": "The children walk to school.",
+        "art": "school"
+      },
+      {
+        "en": "hospital",
+        "ar": "مستشفى",
+        "example": "She works at the hospital.",
+        "art": "hospital"
+      },
+      {
+        "en": "pharmacy",
+        "ar": "صيدلية",
+        "example": "You can buy medicine at a pharmacy.",
+        "art": "pharmacy"
+      },
+      {
+        "en": "bank",
+        "ar": "بنك",
+        "example": "The bank opens at nine.",
+        "art": "bank"
+      },
+      {
+        "en": "post office",
+        "ar": "مكتب البريد",
+        "example": "I send the parcel from the post office.",
+        "art": "post office"
+      },
+      {
+        "en": "supermarket",
+        "ar": "متجر للمواد الغذائية",
+        "example": "We buy food at the supermarket.",
+        "art": "supermarket"
+      },
+      {
+        "en": "park",
+        "ar": "حديقة عامة",
+        "example": "We walk in the park.",
+        "art": "park"
+      },
+      {
+        "en": "library",
+        "ar": "مكتبة",
+        "example": "I borrow books from the library.",
+        "art": "library"
+      },
+      {
+        "en": "cinema",
+        "ar": "دار السينما",
+        "example": "We watch a film at the cinema.",
+        "art": "cinema"
+      },
+      {
+        "en": "bakery",
+        "ar": "مخبز",
+        "example": "This bakery sells warm bread.",
+        "art": "bakery"
+      }
+    ]
+  },
+  {
+    "id": "jobs",
+    "title": "People and jobs",
+    "intro": "Use a or an before a singular job: She is a doctor. Ask What do you do? to ask about work.",
+    "words": [
+      {
+        "en": "teacher",
+        "ar": "معلّم أو معلّمة",
+        "example": "Our teacher explains the new words.",
+        "art": "teacher"
+      },
+      {
+        "en": "doctor",
+        "ar": "طبيب أو طبيبة",
+        "example": "The doctor works at a hospital.",
+        "art": "doctor"
+      },
+      {
+        "en": "nurse",
+        "ar": "ممرّض أو ممرّضة",
+        "example": "A nurse checks my temperature.",
+        "art": "nurse"
+      },
+      {
+        "en": "chef",
+        "ar": "طاهٍ أو طاهية",
+        "example": "The chef prepares the food.",
+        "art": "chef"
+      },
+      {
+        "en": "driver",
+        "ar": "سائق أو سائقة",
+        "example": "The driver stops the bus.",
+        "art": "driver"
+      },
+      {
+        "en": "farmer",
+        "ar": "مزارع أو مزارعة",
+        "example": "The farmer grows vegetables.",
+        "art": "farmer"
+      },
+      {
+        "en": "engineer",
+        "ar": "مهندس أو مهندسة",
+        "example": "My sister is an engineer.",
+        "art": "engineer"
+      },
+      {
+        "en": "shop assistant",
+        "ar": "بائع أو بائعة في متجر",
+        "example": "Ask the shop assistant for a different size.",
+        "art": "shop assistant"
+      },
+      {
+        "en": "police officer",
+        "ar": "شرطي أو شرطية",
+        "example": "The police officer helps us find the street.",
+        "art": "police officer"
+      },
+      {
+        "en": "artist",
+        "ar": "فنّان أو فنّانة",
+        "example": "The artist draws a picture.",
+        "art": "artist"
+      }
+    ]
+  },
+  {
+    "id": "feelings",
+    "title": "Feelings and needs",
+    "intro": "Use I am or I feel with these adjectives. Ask How do you feel? and give a reason with because.",
+    "words": [
+      {
+        "en": "happy",
+        "ar": "سعيد",
+        "example": "I am happy to see you.",
+        "art": "happy"
+      },
+      {
+        "en": "sad",
+        "ar": "حزين",
+        "example": "She feels sad today.",
+        "art": "sad"
+      },
+      {
+        "en": "tired",
+        "ar": "متعب",
+        "example": "I am tired after work.",
+        "art": "tired"
+      },
+      {
+        "en": "hungry",
+        "ar": "جائع",
+        "example": "We are hungry. Let us have lunch.",
+        "art": "hungry"
+      },
+      {
+        "en": "thirsty",
+        "ar": "عطشان",
+        "example": "He is thirsty and needs some water.",
+        "art": "thirsty"
+      },
+      {
+        "en": "angry",
+        "ar": "غاضب",
+        "example": "He feels angry about the delay.",
+        "art": "angry"
+      },
+      {
+        "en": "worried",
+        "ar": "قلق",
+        "example": "I am worried about my exam.",
+        "art": "worried"
+      },
+      {
+        "en": "excited",
+        "ar": "متحمّس",
+        "example": "The children are excited about the trip.",
+        "art": "excited"
+      },
+      {
+        "en": "calm",
+        "ar": "هادئ",
+        "example": "Take a breath and stay calm.",
+        "art": "calm"
+      },
+      {
+        "en": "scared",
+        "ar": "خائف",
+        "example": "The small child is scared of the noise.",
+        "art": "scared"
+      }
+    ]
+  },
+  {
+    "id": "routines",
+    "title": "Everyday actions",
+    "intro": "Learn a verb in a short phrase. Add -s or -es with he or she in the present simple: she cooks, he watches.",
+    "words": [
+      {
+        "en": "wake up",
+        "ar": "يستيقظ",
+        "example": "I wake up at seven.",
+        "art": "wake up"
+      },
+      {
+        "en": "wash",
+        "ar": "يغسل",
+        "example": "Wash your hands before you eat.",
+        "art": "wash"
+      },
+      {
+        "en": "cook",
+        "ar": "يطبخ",
+        "example": "My brother cooks dinner.",
+        "art": "cook"
+      },
+      {
+        "en": "eat",
+        "ar": "يأكل",
+        "example": "We eat together in the evening.",
+        "art": "eat"
+      },
+      {
+        "en": "drink",
+        "ar": "يشرب",
+        "example": "She drinks water with lunch.",
+        "art": "drink"
+      },
+      {
+        "en": "read",
+        "ar": "يقرأ",
+        "example": "I read a page every day.",
+        "art": "read"
+      },
+      {
+        "en": "write",
+        "ar": "يكتب",
+        "example": "Write your name here.",
+        "art": "write"
+      },
+      {
+        "en": "study",
+        "ar": "يدرس",
+        "example": "They study English after school.",
+        "art": "study"
+      },
+      {
+        "en": "work",
+        "ar": "يعمل",
+        "example": "My parents work in an office.",
+        "art": "work"
+      },
+      {
+        "en": "sleep",
+        "ar": "ينام",
+        "example": "The baby sleeps at night.",
+        "art": "sleep"
+      }
+    ]
+  },
+  {
+    "id": "numbers",
+    "title": "Numbers and quantities",
+    "intro": "Use numbers before plural countable nouns: two books. Zero can also be called nought in British English.",
+    "words": [
+      {
+        "en": "zero",
+        "ar": "صفر",
+        "example": "The temperature is zero degrees.",
+        "art": "number",
+        "value": "0"
+      },
+      {
+        "en": "one",
+        "ar": "واحد",
+        "example": "I have one sister.",
+        "art": "number",
+        "value": "1"
+      },
+      {
+        "en": "two",
+        "ar": "اثنان",
+        "example": "There are two chairs.",
+        "art": "number",
+        "value": "2"
+      },
+      {
+        "en": "three",
+        "ar": "ثلاثة",
+        "example": "I need three tickets.",
+        "art": "number",
+        "value": "3"
+      },
+      {
+        "en": "four",
+        "ar": "أربعة",
+        "example": "The class starts at four.",
+        "art": "number",
+        "value": "4"
+      },
+      {
+        "en": "five",
+        "ar": "خمسة",
+        "example": "We have five minutes.",
+        "art": "number",
+        "value": "5"
+      },
+      {
+        "en": "six",
+        "ar": "ستة",
+        "example": "There are six eggs in the box.",
+        "art": "number",
+        "value": "6"
+      },
+      {
+        "en": "seven",
+        "ar": "سبعة",
+        "example": "There are seven days in a week.",
+        "art": "number",
+        "value": "7"
+      },
+      {
+        "en": "eight",
+        "ar": "ثمانية",
+        "example": "She is eight years old.",
+        "art": "number",
+        "value": "8"
+      },
+      {
+        "en": "nine",
+        "ar": "تسعة",
+        "example": "The shop closes at nine.",
+        "art": "number",
+        "value": "9"
+      },
+      {
+        "en": "ten",
+        "ar": "عشرة",
+        "example": "Count from one to ten.",
+        "art": "number",
+        "value": "10"
+      },
+      {
+        "en": "twenty",
+        "ar": "عشرون",
+        "example": "There are twenty students in the class.",
+        "art": "number",
+        "value": "20"
+      },
+      {
+        "en": "hundred",
+        "ar": "مئة",
+        "example": "The book has one hundred pages.",
+        "art": "number",
+        "value": "100"
+      }
+    ]
+  },
+  {
+    "id": "weekdays",
+    "title": "Days of the week",
+    "intro": "Days begin with a capital letter. Use on with a day: on Monday. The weekend is usually Saturday and Sunday.",
+    "words": [
+      {
+        "en": "Monday",
+        "ar": "الاثنين",
+        "example": "I have a class on Monday.",
+        "art": "day",
+        "value": "MON"
+      },
+      {
+        "en": "Tuesday",
+        "ar": "الثلاثاء",
+        "example": "We meet on Tuesday.",
+        "art": "day",
+        "value": "TUE"
+      },
+      {
+        "en": "Wednesday",
+        "ar": "الأربعاء",
+        "example": "The library closes late on Wednesday.",
+        "art": "day",
+        "value": "WED"
+      },
+      {
+        "en": "Thursday",
+        "ar": "الخميس",
+        "example": "My lesson is on Thursday.",
+        "art": "day",
+        "value": "THU"
+      },
+      {
+        "en": "Friday",
+        "ar": "الجمعة",
+        "example": "They finish work early on Friday.",
+        "art": "day",
+        "value": "FRI"
+      },
+      {
+        "en": "Saturday",
+        "ar": "السبت",
+        "example": "We go to the market on Saturday.",
+        "art": "day",
+        "value": "SAT"
+      },
+      {
+        "en": "Sunday",
+        "ar": "الأحد",
+        "example": "I visit my family on Sunday.",
+        "art": "day",
+        "value": "SUN"
+      }
+    ]
+  },
+  {
+    "id": "animals",
+    "title": "Animals around us",
+    "intro": "Use a or an for one animal. Most plurals add -s, but one sheep and two sheep have the same form.",
+    "words": [
+      {
+        "en": "cat",
+        "ar": "قطّة",
+        "example": "The cat sleeps on the sofa.",
+        "art": "cat"
+      },
+      {
+        "en": "dog",
+        "ar": "كلب",
+        "example": "Our dog plays in the park.",
+        "art": "dog"
+      },
+      {
+        "en": "bird",
+        "ar": "طائر",
+        "example": "A bird is sitting in the tree.",
+        "art": "bird"
+      },
+      {
+        "en": "rabbit",
+        "ar": "أرنب",
+        "example": "The rabbit eats a carrot.",
+        "art": "rabbit"
+      },
+      {
+        "en": "horse",
+        "ar": "حصان",
+        "example": "The horse runs across the field.",
+        "art": "horse"
+      },
+      {
+        "en": "cow",
+        "ar": "بقرة",
+        "example": "The cow is near the farm.",
+        "art": "cow"
+      },
+      {
+        "en": "sheep",
+        "ar": "خروف",
+        "example": "There are three sheep in the field.",
+        "art": "sheep"
+      },
+      {
+        "en": "duck",
+        "ar": "بطّة",
+        "example": "The duck swims in the pond.",
+        "art": "duck"
+      },
+      {
+        "en": "fish",
+        "ar": "سمكة",
+        "example": "A small fish swims in the river.",
+        "art": "fish"
+      },
+      {
+        "en": "butterfly",
+        "ar": "فراشة",
+        "example": "The butterfly lands on a flower.",
+        "art": "butterfly"
+      }
+    ]
+  }
+]

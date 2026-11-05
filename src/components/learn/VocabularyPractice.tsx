@@ -8,6 +8,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { playCorrect } from "@/lib/audio";
 import { CheckCircle2, XCircle, Volume2, RefreshCw, Send, Brain, PenLine, Target, BarChart3 } from "lucide-react";
 import { useVocabulary } from "@/store/useVocabulary";
+import { useProgress } from '@/store/useProgress';
 
 type VocabMode = "quiz" | "write";
 
@@ -19,7 +20,10 @@ function normalize(s: string) {
 const MotionPracticeButton = motion.create(PracticeButton);
 
 export function VocabularyPractice({ mode: controlledMode, showModeSwitch = true }: { mode?: VocabMode; showModeSwitch?: boolean } = {}) {
-  const { getAll } = useVocabulary();
+  const { getAll,recordReview } = useVocabulary();
+  const complete=useProgress(s=>s.completeExercise);
+  const handled=useRef(false),advanceTimer=useRef<ReturnType<typeof setTimeout>|null>(null);
+  useEffect(()=>()=>{if(advanceTimer.current)clearTimeout(advanceTimer.current);},[]);
   const [localMode, setMode] = useState<VocabMode>("quiz");
   const mode = controlledMode ?? localMode;
   const [index, setIndex] = useState(0);
@@ -27,7 +31,7 @@ export function VocabularyPractice({ mode: controlledMode, showModeSwitch = true
 
   const words = useMemo(() => {
     const all = getAll();
-    const withEn = all.filter(([, v]) => v.en);
+    const withEn = all.filter(([, v]) => typeof v.en==='string'&&typeof v.de==='string'&&v.en.trim()&&v.en.trim().toLowerCase()!==v.de.trim().toLowerCase());
     withEn.sort((a, b) => a[1].mastery - b[1].mastery);
     return withEn;
   }, []);
@@ -42,11 +46,11 @@ export function VocabularyPractice({ mode: controlledMode, showModeSwitch = true
   const options = useMemo(() => {
     if (!current) return [];
     const correct = current[1].en;
-    const others = getAll()
+    const others = Array.from(new Set(words
       .filter(([, v]) => v.en !== correct && v.en)
+      .map(([, v]) => v.en)))
       .sort(() => Math.random() - 0.5)
-      .slice(0, 3)
-      .map(([, v]) => v.en);
+      .slice(0, 3);
     return [correct, ...others].sort(() => Math.random() - 0.5);
   }, [index, mode]);
 
@@ -58,6 +62,8 @@ export function VocabularyPractice({ mode: controlledMode, showModeSwitch = true
   useEffect(() => { inputRef.current?.focus(); }, [index]);
 
   function resetState() {
+    if(advanceTimer.current)clearTimeout(advanceTimer.current);
+    handled.current=false;
     setSelected(null);
     setAnswered(false);
     setInput("");
@@ -70,11 +76,12 @@ export function VocabularyPractice({ mode: controlledMode, showModeSwitch = true
   }
 
   function handleQuizSelect(opt: string) {
-    if (answered) return;
+    if (handled.current||answered||!current) return;
+    handled.current=true;recordReview(current[0]);
     setSelected(opt);
     setAnswered(true);
-    if (opt === current[1].en) playCorrect();
-    setTimeout(() => {
+    if (opt === current[1].en) {playCorrect();complete(`vocabulary-practice-quiz-${current[0]}`,5);}
+    advanceTimer.current=setTimeout(() => {
       setSession((s) => ({ ...s, correct: s.correct + (opt === current[1].en ? 1 : 0), incorrect: s.incorrect + (opt === current[1].en ? 0 : 1), total: s.total + 1 }));
       advance();
     }, 900);
@@ -84,12 +91,15 @@ export function VocabularyPractice({ mode: controlledMode, showModeSwitch = true
   const isCorrect = writeSubmitted && acceptable.some((a) => normalize(a) === normalize(input));
 
   function handleWriteSubmit() {
-    if (!input.trim() || writeSubmitted) return;
+    if (!input.trim() || writeSubmitted||handled.current||!current) return;
+    handled.current=true;recordReview(current[0]);
     setWriteSubmitted(true);
-    if (acceptable.some((answer) => normalize(answer) === normalize(input))) playCorrect();
+    if (acceptable.some((answer) => normalize(answer) === normalize(input))) {playCorrect();complete(`vocabulary-practice-write-${current[0]}`,5);}
   }
 
   function handleWriteNext() {
+    if(!writeSubmitted||!handled.current)return;
+    handled.current=false;
     setSession((s) => ({ ...s, correct: s.correct + (isCorrect ? 1 : 0), incorrect: s.incorrect + (isCorrect ? 0 : 1), total: s.total + 1 }));
     advance();
   }
@@ -101,12 +111,12 @@ export function VocabularyPractice({ mode: controlledMode, showModeSwitch = true
     }
   }
 
-  if (words.length === 0) {
+  if (words.length === 0||(mode==='quiz'&&new Set(words.map(([,word])=>word.en)).size<4)) {
     return (
       <PracticeCard data-practice-surface="question" className="text-center py-12 text-[var(--color-text-secondary)] bg-[var(--color-surface)] rounded-[16px] border border-[var(--color-border-default)] p-8">
         <LearningArt name="Brain" size={36} className="w-12 h-12 mx-auto mb-3 opacity-30" />
-        <p className="text-sm font-medium text-[var(--color-text-secondary)]">No vocabulary to practice</p>
-        <p className="text-xs mt-1">Save some words during lessons to start practicing</p>
+        <p className="text-sm font-medium text-[var(--color-text-secondary)]">{words.length?'Add more words for a quiz':'No vocabulary to practice'}</p>
+        <p className="text-xs mt-1">{words.length?'Save four words with different meanings for a quiz. Switch to Write to practise the words you have.':'Save some words during lessons to start practicing'}</p>
       </PracticeCard>
     );
   }
@@ -119,7 +129,7 @@ export function VocabularyPractice({ mode: controlledMode, showModeSwitch = true
         <p className="text-sm text-[var(--color-text-secondary)] mt-1">You reviewed {session.total} {session.total === 1 ? "word" : "words"}</p>
         <p className="text-2xl font-display font-extrabold text-[var(--color-text-link)] mt-3">{accuracy}% accuracy</p>
         <PracticeButton
-          onClick={() => { setIndex(0); setSession({ correct: 0, incorrect: 0, total: 0 }); }}
+          onClick={() => { resetState();setIndex(0); setSession({ correct: 0, incorrect: 0, total: 0 }); }}
           className="mt-4 px-6 py-2.5 rounded-[12px] bg-[var(--color-primary)] text-[var(--color-on-brand)] font-bold text-sm hover:bg-[var(--color-primary-hover)] transition-all"
         >
           Start again

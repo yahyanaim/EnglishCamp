@@ -106,7 +106,7 @@ export function ReflexiveVerbsTrainer() {
         <motion.div key={index} initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="text-center mb-5">
           <p className="text-sm text-[var(--color-text-secondary)] mb-1">Choose the correct reflexive pronoun</p>
           <p className="text-xl font-display font-extrabold text-[var(--color-text-primary)]">
-            {current.pronoun} <span className="text-[var(--color-text-link)]">{current.verb.replace("oneself", "...")}</span>
+            Subject: {current.pronoun}<br/><span className="text-[var(--color-text-link)]">Verb phrase: {current.verb.replace("oneself", "___")}</span>
           </p>
           <p className="text-sm text-[var(--color-text-secondary)] italic">({current.en})</p>
         </motion.div>

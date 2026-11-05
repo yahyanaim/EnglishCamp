@@ -16,7 +16,7 @@ const ITEMS: Item[] = [
   { prompt: "The color of the sky is ___.", correct: "blue", options: ["blue", "blow", "blew", "bloo"], rule: "blue: b-l-u-e. Not 'bloo'!" },
   { prompt: "The number after nine is ___.", correct: "ten", options: ["ten", "tin", "tan", "ton"], rule: "ten: t-e-n. Simple three-letter word." },
   { prompt: "The past tense of 'eat' is ___.", correct: "ate", options: ["ate", "eat", "eaten", "eight"], rule: "ate = past of eat. A-t-e. Not 'eight' (8)!" },
-  { prompt: "A baby cat is called a ___.", correct: "kitten", options: ["kitten", "kitchen", "kiting", "kitten"], rule: "kitten: k-i-t-t-e-n. Double t, then -en." },
+  { prompt: "A baby cat is called a ___.", correct: "kitten", options: ["kitten", "kitchen", "kiting", "kittin"], rule: "kitten: k-i-t-t-e-n. Double t, then -en." },
   { prompt: "The opposite of 'day' is ___.", correct: "night", options: ["night", "knight", "nite", "nit"], rule: "night: n-i-g-h-t. Silent 'gh'." },
   { prompt: "Something that tells the time is a ___.", correct: "clock", options: ["clock", "block", "clerk", "crock"], rule: "clock: c-l-o-c-k. Not 'clerk' (a person who works in an office)." },
   { prompt: "The past tense of 'run' is ___.", correct: "ran", options: ["ran", "run", "runned", "ron"], rule: "ran = past of run. 'Run' → 'ran' (irregular)." },

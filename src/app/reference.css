@@ -594,13 +594,6 @@ html ::selection, html::selection { background:#7E22CE; color:white; }
 }
 
 /* Reading, voice controls and learning-level encouragement share the violet system. */
-.camp-frame button.camp-level-badge { display:inline-grid; place-items:center; flex-shrink:0; width:36px; height:36px; min-height:36px; padding:0; border:0; border-radius:50%; background:var(--camp-purple); color:#fff; font:800 14px/1 var(--font-display),sans-serif; cursor:pointer; }
-.camp-frame button.camp-level-badge span { color:#fff; }
-.camp-frame button.camp-level-badge:hover { background:var(--camp-purple-hover); }
-.camp-encouragement { display:grid; gap:16px; color:var(--color-text-primary); }
-.camp-encouragement blockquote { font:700 21px/1.5 var(--font-display),sans-serif; }
-.camp-encouragement p { font-size:14px; line-height:1.7; color:var(--color-text-secondary); }
-.camp-encouragement > button { justify-self:start; }
 .camp-speech-control { display:inline-flex; flex-direction:column; align-items:flex-start; vertical-align:middle; }
 .camp-speech-control small { font-size:11px; color:var(--color-text-error); }
 .camp-reading-art { display:block; width:168px; max-width:100%; height:auto; flex-shrink:0; }
@@ -848,10 +841,6 @@ html ::selection, html::selection { background:#7E22CE; color:white; }
 .camp-shadow-credit { display:flex; flex-wrap:wrap; gap:8px 20px; font-size:10px; line-height:1.7; color:var(--color-text-secondary); }
 .camp-shadow-credit a { color:var(--camp-control-ink); }
 .camp-shadow-credit p { width:100%; }
-.camp-level-celebration { display:flex; flex-direction:column; align-items:center; gap:14px; text-align:center; padding:8px 0 4px; }
-.camp-level-celebration strong { color:var(--camp-control-ink); font:700 26px/1.4 var(--font-display),sans-serif; }
-.camp-level-celebration p { font-size:14px; color:var(--color-text-secondary); line-height:1.7; max-width:34ch; }
-.camp-level-celebration > span { color:var(--camp-control-ink); background:var(--camp-purple-soft); padding:6px 12px; border-radius:6px; font-size:12px; }
 .camp-delete-session { display:grid; gap:12px; border:1px solid var(--color-border-default); background:var(--color-surface-alt); border-radius:8px; padding:16px; text-align:start; font-size:13px; line-height:1.7; }
 .camp-delete-session > div { display:flex; flex-wrap:wrap; gap:8px; }
 @media(min-width:1024px) { .camp-frame:has(.camp-shadow-page) { grid-template-columns:208px minmax(0,1fr); } .camp-frame:has(.camp-shadow-page) > .camp-learning-rail { display:none; } }
@@ -1341,10 +1330,43 @@ html ::selection, html::selection { background:#7E22CE; color:white; }
 @media(max-width:639px){.camp-words-lesson{padding:0 14px 14px}.camp-essential-word h4{font-size:14px}}
 
 .camp-foundation-lesson{display:grid;gap:1rem;padding:1rem;color:var(--color-text-primary);min-width:0}
+.camp-grammar-accordion-body>.camp-foundation-lesson{padding:0}
 .camp-foundation-lesson>p{margin:0;line-height:1.65}.camp-foundation-lesson h3{color:var(--camp-purple);font-weight:700}
 .camp-noun-diagram{margin:0;padding:.8rem;background:var(--color-surface-alt);border-radius:var(--radius-md);text-align:center}
 .camp-noun-diagram svg{display:block;width:min(100%,24rem);height:auto;margin:auto}.camp-noun-diagram figcaption{font-size:.8rem;color:var(--color-text-secondary)}
-.camp-foundation-check{display:grid;gap:1rem}.camp-foundation-check fieldset{margin:0;padding:.8rem;border:1px solid var(--color-border-default);border-radius:var(--radius-md)}
-.camp-foundation-check legend{font-weight:600;padding:0 .25rem}.camp-foundation-check fieldset>div{display:flex;flex-wrap:wrap;gap:.5rem}.camp-foundation-check button{white-space:normal;height:auto;min-height:44px;max-width:100%;text-align:left}
-@media(max-width:600px){.camp-foundation-lesson{padding:.8rem}.camp-foundation-check fieldset>div{display:grid;grid-template-columns:1fr}}
-@media print{.camp-foundation-lesson{padding:0}.camp-noun-diagram{break-inside:avoid}.camp-foundation-check{display:none!important}}
+@media(max-width:600px){.camp-foundation-lesson{padding:.8rem}}
+@media print{.camp-foundation-lesson{padding:0}.camp-noun-diagram{break-inside:avoid}}
+.camp-shadow-practice-progress{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem;padding:1rem;border:1px solid var(--color-border-default);border-radius:12px;background:var(--color-surface);color:var(--color-text-primary)}.camp-shadow-practice-progress>div{flex:1 1 180px;min-width:0}.camp-shadow-practice-progress strong{font-size:.8rem;color:var(--camp-control-ink)}.camp-shadow-practice-progress p{font-size:.72rem;line-height:1.6;color:var(--color-text-secondary);margin-top:.3rem}.camp-shadow-practice-progress>button{min-height:44px}
+
+/* Shared numbered seals and the site's mascot celebration. */
+.camp-number-seal{position:relative;display:inline-grid;place-items:center;flex:0 0 2.5rem;width:2.5rem;height:2.5rem;isolation:isolate;color:var(--camp-purple)}
+.camp-number-seal>svg{display:block;position:absolute;inset:0;width:100%;height:100%;fill:currentColor;overflow:visible}
+.camp-number-seal>strong{position:relative;font:800 .85rem/1 var(--font-display),sans-serif;font-variant-numeric:tabular-nums;color:var(--color-on-brand,#fff)}
+.camp-number-seal.is-complete>svg{stroke:var(--camp-control-ink);stroke-width:.65}
+.camp-frame button.camp-learning-level-trigger{display:inline-grid;place-items:center;flex-shrink:0;width:44px;min-height:44px;padding:2px;border:0;background:transparent;cursor:pointer;border-radius:var(--radius-sm);transition:transform .18s ease}
+.camp-frame button.camp-learning-level-trigger:hover{transform:translateY(-2px)}
+.camp-frame button.camp-learning-level-trigger:active{transform:scale(.95)}
+.camp-learning-level-trigger .camp-number-seal{width:36px;height:36px;flex-basis:36px}
+.camp-celebration-modal{max-width:29rem;padding:1.25rem;overflow-x:hidden}
+.camp-celebration-modal>div:first-child{margin-bottom:.25rem}
+.camp-celebration-modal h2{font-size:1.1rem;line-height:1.4}
+.camp-encouragement-panel{display:grid;gap:1rem;text-align:center;color:var(--color-text-primary)}
+.camp-celebration-scene{position:relative;display:grid;place-items:center;min-height:124px;isolation:isolate;overflow:hidden}
+.camp-celebration-scene::before{content:"";position:absolute;inset:9px calc(50% - 58px);border-radius:42% 58% 50% 44%;background:var(--camp-purple-soft);transform:rotate(-8deg);z-index:-1}
+.camp-celebration-mascot{display:grid;place-items:center;position:relative}
+.camp-celebration-award{position:absolute;bottom:8px;left:calc(50% + 30px);padding:7px;background:var(--color-surface);border:1px solid var(--color-border-default);border-radius:var(--radius-md);transform:rotate(8deg)}
+.camp-celebration-scene>i{position:absolute;top:54%;left:calc(12% + var(--piece)*6.7%);width:5px;height:10px;border-radius:2px;background:var(--camp-purple);opacity:0;animation:camp-award-confetti 1s calc(var(--piece)*.035s) ease-out both;pointer-events:none}
+.camp-celebration-scene>i:nth-child(3n){background:var(--camp-purple-soft);width:8px;height:8px}
+.camp-celebration-heading{display:grid;justify-items:center;gap:.4rem}
+.camp-celebration-kicker{font-size:.7rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--camp-control-ink)}
+.camp-celebration-heading h3{font:800 1.7rem/1.2 var(--font-display),sans-serif;margin:0;text-wrap:balance}
+.camp-celebration-heading>p{margin:0;font-size:.85rem;color:var(--color-text-secondary)}
+.camp-celebration-level{display:inline-flex;align-items:center;gap:.45rem;font-size:.8rem;font-weight:700;color:var(--camp-control-ink)}
+.camp-celebration-level .camp-number-seal{width:30px;height:30px;flex-basis:30px}.camp-celebration-level .camp-number-seal>strong{font-size:.75rem}
+.camp-celebration-message{padding:1rem;border:1px solid var(--color-border-default);background:var(--color-surface-alt);border-radius:var(--radius-lg)}
+.camp-celebration-message blockquote{margin:0;font:700 1.13rem/1.5 var(--font-display),sans-serif;text-wrap:pretty}
+.camp-celebration-message>p{margin:.65rem 0 0;font-size:.83rem;line-height:1.65;color:var(--color-text-secondary)}
+.camp-celebration-actions{display:grid;grid-template-columns:1fr 1fr;gap:.65rem}.camp-celebration-actions>button{min-height:44px;white-space:normal}
+@keyframes camp-award-confetti{0%{opacity:0;transform:translateY(22px) rotate(0)}25%{opacity:.85}100%{opacity:0;transform:translateY(-70px) rotate(135deg)}}
+@media(max-width:480px){.camp-celebration-modal{padding:1rem;max-height:calc(100dvh - 2rem)}.camp-encouragement-panel{gap:.8rem}.camp-celebration-heading h3{font-size:1.45rem}.camp-celebration-message{padding:.85rem}.camp-celebration-message blockquote{font-size:1.05rem}}
+@media(prefers-reduced-motion:reduce){.camp-celebration-scene>i{animation:none;display:none}.camp-celebration-mascot{transform:none!important}.camp-learning-level-trigger{transition:none!important}}

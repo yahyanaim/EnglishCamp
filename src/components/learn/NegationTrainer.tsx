@@ -11,16 +11,16 @@ import { playCorrect, playWrong } from "@/lib/audio";
 type NegEntry = { sentence: string; answer: string; options: string[]; en: string };
 
 const NEG: NegEntry[] = [
-  { sentence: "I have ____ time.", answer: "no", options: ["not", "no", "never", "nothing"], en: "I have no time." },
-  { sentence: "That is ____ correct.", answer: "not", options: ["not", "no", "never", "nothing"], en: "That is not correct." },
-  { sentence: "He has ____ dog.", answer: "no", options: ["not", "no", "never", "nothing"], en: "He has no dog." },
-  { sentence: "She eats ____ meat.", answer: "no", options: ["not", "no", "never", "nothing"], en: "She eats no meat." },
-  { sentence: "We do ____ live in London.", answer: "not", options: ["not", "no", "never", "nothing"], en: "We do not live in London." },
-  { sentence: "I have ____ money.", answer: "no", options: ["not", "no", "never", "nothing"], en: "I have no money." },
-  { sentence: "The book is ____ interesting.", answer: "not", options: ["not", "no", "never", "nothing"], en: "The book is not interesting." },
-  { sentence: "She has ____ siblings.", answer: "no", options: ["not", "no", "never", "nothing"], en: "She has no siblings." },
-  { sentence: "I drink ____ coffee.", answer: "no", options: ["not", "no", "never", "nothing"], en: "I drink no coffee." },
-  { sentence: "He does ____ work on Sunday.", answer: "not", options: ["not", "no", "never", "nothing"], en: "He does not work on Sunday." },
+  { sentence: "I have ____ time.", answer: "no", options: ["not", "no", "don’t", "doesn’t"], en: "I have no time." },
+  { sentence: "That is ____ correct.", answer: "not", options: ["not", "no", "don’t", "doesn’t"], en: "That is not correct." },
+  { sentence: "He has ____ dog.", answer: "no", options: ["not", "no", "don’t", "doesn’t"], en: "He has no dog." },
+  { sentence: "She eats ____ meat.", answer: "no", options: ["not", "no", "don’t", "doesn’t"], en: "She eats no meat." },
+  { sentence: "We do ____ live in London.", answer: "not", options: ["not", "no", "don’t", "doesn’t"], en: "We do not live in London." },
+  { sentence: "I have ____ money.", answer: "no", options: ["not", "no", "don’t", "doesn’t"], en: "I have no money." },
+  { sentence: "The book is ____ interesting.", answer: "not", options: ["not", "no", "don’t", "doesn’t"], en: "The book is not interesting." },
+  { sentence: "She has ____ siblings.", answer: "no", options: ["not", "no", "don’t", "doesn’t"], en: "She has no siblings." },
+  { sentence: "I drink ____ coffee.", answer: "no", options: ["not", "no", "don’t", "doesn’t"], en: "I drink no coffee." },
+  { sentence: "He does ____ work on Sunday.", answer: "not", options: ["not", "no", "don’t", "doesn’t"], en: "He does not work on Sunday." },
 ];
 
 export function NegationTrainer() {
@@ -61,7 +61,7 @@ export function NegationTrainer() {
       <AnimatePresence mode="wait">
         <motion.div key={current} initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="mb-4">
           <p className="text-lg font-display font-extrabold text-[var(--color-text-primary)] font-mono">{item.sentence}</p>
-          <p className="text-xs text-[var(--color-text-secondary)] italic mt-1">{item.en}</p>
+          {answered && <p className="text-xs text-[var(--color-text-secondary)] italic mt-1">{item.en}</p>}
         </motion.div>
       </AnimatePresence>
       <div className="grid grid-cols-2 gap-2 mb-4">

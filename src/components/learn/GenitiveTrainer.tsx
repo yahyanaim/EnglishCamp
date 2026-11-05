@@ -12,7 +12,7 @@ type GenitiveItem = { sentence: string; blank: string; options: string[]; explan
 const ITEMS: GenitiveItem[] = [
   { sentence: "That is ___ car.", blank: "my father's", options: ["my father's", "my father", "fathers", "the father"], explanation: "Possessive with 's: 'my father's car' = the car of my father" },
   { sentence: "The roof ___ is red.", blank: "of the house", options: ["of the house", "the house", "houses", "the houses"], explanation: "'of' for possession: 'the roof of the house'" },
-  { sentence: "___ name is Anna.", blank: "The neighbor's", options: ["The neighbor's", "The neighbor", "Neighbors", "A neighbor"], explanation: "Possessive with 's: 'The neighbor's daughter' = the daughter of the neighbor" },
+  { sentence: "___ name is Anna.", blank: "The neighbor's", options: ["The neighbor's", "The neighbor", "Neighbors", "A neighbor"], explanation: "Possessive with 's: 'The neighbor’s name' means the name of the neighbor" },
   { sentence: "That is ___ dog.", blank: "the child's", options: ["the child's", "the child", "the children", "childrens"], explanation: "Possessive with 's: 'the child's dog' = the dog of the child" },
   { sentence: "The books ___ are new.", blank: "of the students", options: ["of the students", "the students", "students", "student's"], explanation: "'of' for plural possession: 'the books of the students'" },
   { sentence: "___ room is very big.", blank: "My sister's", options: ["My sister's", "My sister", "Sisters", "A sister"], explanation: "Possessive with 's: 'my sister's room' = the room of my sister" },
@@ -102,7 +102,7 @@ export function GenitiveTrainer() {
           <p className="text-sm text-[var(--color-text-secondary)] mb-2">Fill in the genitive form</p>
           <div className="bg-[var(--color-surface-alt)] rounded-[var(--radius-md)] p-4 border border-[var(--color-border-default)]">
             <p className="text-lg font-display font-extrabold text-[var(--color-text-primary)]">
-              {current.sentence} <span className="text-[var(--color-text-link)] font-bold">___</span>
+              {current.sentence}
             </p>
           </div>
         </motion.div>

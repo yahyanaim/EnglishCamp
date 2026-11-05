@@ -57,6 +57,7 @@ test('the outer vocabulary mode can show writing directly without duplicate mode
  useVocabulary.setState({words:{}});useVocabulary.getState().addWord('helpful','مفيد','general');
  const write=renderToStaticMarkup(React.createElement(VocabularyPractice,{mode:'write',showModeSwitch:false}));
  assert.ok(write.includes('Type the English word'));assert.ok(write.includes('placeholder="Type your answer..."'));assert.ok(!write.includes('>Quiz<'));assert.ok(!write.includes('>Write<'));
+ for(const [en,ar]of [['quiet','هادئ'],['early','مبكر'],['useful','نافع']])useVocabulary.getState().addWord(en,ar,'general');
  const quiz=renderToStaticMarkup(React.createElement(VocabularyPractice,{mode:'quiz',showModeSwitch:false}));assert.ok(!quiz.includes('Type the English word'));assert.ok(quiz.includes('helpful'));useVocabulary.setState({words:{}});
 });
 

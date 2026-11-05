@@ -2,6 +2,7 @@ import { type PlacementLevel } from '@/data/placement/questions';
 import { CEFR_LEVELS as PLACEMENT_LEVELS } from '@/data/placement/cefr';
 import { LEVEL_STUDY_PLANS } from '@/data/level-study-plans';
 import { LEVEL_PRACTICE } from '@/data/study-practice';
+import { referenceForHref } from './referenceProgress';
 import { validStudySchedule, type StudySchedule, type StudyGoal, type StudyPriority, type StudyAdaptation } from './placement';
 export type StudyResource={title:string;href:string;domain:StudyPriority};
 const resource=(title:string,href:string,domain:StudyResource['domain']):StudyResource=>({title,href,domain});
@@ -28,16 +29,20 @@ export function studyResources(level:PlacementLevel,goal:StudyGoal){
  const pool=level==='B2'&&goal!=='everyday'?goals[goal]:levelResources[level];
  return pool.some(r=>r.domain==='writing')?pool:[...pool,resource('Write and revise a purposeful response','/writing','writing')];
 }
-export function weeklyStudyResource(item:StudyResource,level:PlacementLevel,week:number):StudyResource{
+export function weeklyStudyResource(item:StudyResource,level:PlacementLevel,week:number,completedReferences:Record<string,boolean>={}):StudyResource{
  const phase=(week-1)%4;
+ const choose=(items:StudyResource[])=>{const ordered=[...items.slice(phase%items.length),...items.slice(0,phase%items.length)];return ordered.find(candidate=>{const ref=referenceForHref(candidate.href);return !ref||!completedReferences[ref.id];})||ordered[0];};
+ // Keep exam-specific grammar as the main sequence; use one week for reference review.
+ if(item.domain==='grammar'&&level==='B2'&&item.href.startsWith('/levels/')&&phase!==2)return item;
+ if(item.domain==='grammar'&&(level==='B1'||level==='B2'))return choose([resource('Past habits and changed states','/grammar#past-habits','grammar'),resource('Present perfect: results and activity','/grammar#perfect-simple-continuous','grammar'),resource('Enough and too in context','/grammar#enough-and-too','grammar'),resource('Verb patterns in complete sentences','/grammar#verb-patterns','grammar')]);
  if(level==='A1'||level==='A2'){
-  const themes=level==='A1'?['family','time','cafe','places']:['transport','routines','food','places'];
-  if(item.domain==='vocabulary'||item.domain==='reading')return resource(`${item.domain==='reading'?'Read examples':'Words in context'}: ${themes[phase]}`,`/grammar/cheat-sheet#vocabulary-${themes[phase]}`,item.domain);
+  const themes=level==='A1'?['countries','time','cafe','weather']:['nationalities','languages','transport','cafe'];
+  if(item.domain==='vocabulary'||item.domain==='reading')return choose(themes.map(topic=>resource(`${item.domain==='reading'?'Read examples':'Words in context'}: ${topic}`,`/grammar/cheat-sheet#vocabulary-${topic}`,item.domain)));
   if(item.domain==='grammar'){
    const forms=level==='A1'?[
-    ['Simple personal sentences','/grammar/cheat-sheet#sentence-structure'],['Present simple for routines','/verb-conjugation'],['Articles and quantities in requests','/grammar/cheat-sheet#articles'],['Questions and short answers','/grammar/cheat-sheet#questions']
-   ]:[['Present forms for routines and arrangements','/verb-conjugation'],['Past forms for a finished event','/simple-past'],['Quantities and comparisons','/grammar/cheat-sheet#articles'],['Link ideas and correct recurring errors','/linking-words']];
-   return resource(forms[phase][0],forms[phase][1],'grammar');
+    ['Simple personal sentences','/grammar/cheat-sheet#sentence-structure'],['Frequency in daily routines','/grammar#frequency-adverbs'],['Times, days and seasons','/grammar#time-prepositions'],['Questions and short answers','/grammar/cheat-sheet#questions']
+   ]:[['Verb patterns in everyday plans','/grammar#verb-patterns'],['Past forms for a finished event','/simple-past'],['Quantities and countability','/grammar/cheat-sheet#quantities-and-determiners'],['Link ideas and correct recurring errors','/linking-words']];
+   return choose(forms.map(([title,href])=>resource(title,href,'grammar')));
   }
  }
  return item;
@@ -49,7 +54,7 @@ export function parseStudyDate(date:string,time:string){
  if(y<2000||y>2100||out.getFullYear()!==y||out.getMonth()!==m-1||out.getDate()!==d||out.getHours()!==h||out.getMinutes()!==n)throw new Error('That date or local time does not exist. Choose another time.');return out;
 }
 export type StudySession={id:string;week:number;start:Date;end:Date;resource:StudyResource;level:PlacementLevel;minutes:number;task:string;success:string;practice:string;parts:{label:string;minutes:number}[]};
-export function buildStudySessions(schedule:StudySchedule,weakDomain:StudyPriority='grammar',adaptation?:StudyAdaptation){
+export function buildStudySessions(schedule:StudySchedule,weakDomain:StudyPriority='grammar',adaptation?:StudyAdaptation,completedReferences:Record<string,boolean>={}){
  if(!validStudySchedule(schedule))throw new Error('Choose study days, a start date, a time and a session length.');
  const first=parseStudyDate(schedule.startDate,schedule.time),pool=Array.from(new Map(studyResources(schedule.startingLevel,schedule.goal).map(r=>[r.domain,r])).values());
  const priorities=adaptation?.priorities.length?adaptation.priorities:[weakDomain];
@@ -57,7 +62,7 @@ export function buildStudySessions(schedule:StudySchedule,weakDomain:StudyPriori
  const cycle=[...preferred,...priorities.flatMap(skill=>pool.filter(r=>r.domain===skill))];
  const sessions:StudySession[]=[];for(let day=0;day<(schedule.weeks||4)*7;day++){
   const calendarDay=new Date(first.getFullYear(),first.getMonth(),first.getDate()+day,12);if(!schedule.days.includes(calendarDay.getDay()))continue;
-  const start=parseStudyDate(localDateKey(calendarDay),schedule.time),end=new Date(start.getTime()+schedule.minutes*60000),week=Math.floor(day/7)+1,index=sessions.length,item=cycle[index%cycle.length],measured=adaptation?.levels[item.domain],shift=adaptation?PLACEMENT_LEVELS.indexOf(schedule.startingLevel)-PLACEMENT_LEVELS.indexOf(adaptation.baseLevel):0,level=measured?PLACEMENT_LEVELS[Math.max(0,Math.min(5,PLACEMENT_LEVELS.indexOf(measured)+shift))]:schedule.startingLevel,base=studyResources(level,schedule.goal).find(r=>r.domain===item.domain)||item,resource=weeklyStudyResource(base,level,week),theme=LEVEL_STUDY_PLANS[level].weeks[(week-1)%4];
+  const start=parseStudyDate(localDateKey(calendarDay),schedule.time),end=new Date(start.getTime()+schedule.minutes*60000),week=Math.floor(day/7)+1,index=sessions.length,item=cycle[index%cycle.length],measured=adaptation?.levels[item.domain],shift=adaptation?PLACEMENT_LEVELS.indexOf(schedule.startingLevel)-PLACEMENT_LEVELS.indexOf(adaptation.baseLevel):0,level=measured?PLACEMENT_LEVELS[Math.max(0,Math.min(5,PLACEMENT_LEVELS.indexOf(measured)+shift))]:schedule.startingLevel,base=studyResources(level,schedule.goal).find(r=>r.domain===item.domain)||item,resource=weeklyStudyResource(base,level,week,completedReferences),theme=LEVEL_STUDY_PLANS[level].weeks[(week-1)%4];
   const review=Math.max(3,Math.round(schedule.minutes*.2)),main=Math.round(schedule.minutes*.45),output=Math.round(schedule.minutes*.25),check=schedule.minutes-review-main-output;
   const actions:Record<StudyPriority,string>={grammar:'Compare forms in context, then make your own sentences',vocabulary:'Retrieve phrases, then use them in new sentences',reading:'Read for a purpose; identify evidence before checking',listening:'Listen for gist, then details; check against the transcript',speaking:'Plan briefly, record locally, replay and improve',writing:'Plan, draft and revise a short purposeful response'};
   if(resource.domain==='speaking'&&adaptation?.speakingFocus){const focus={intelligibility:'Shadow one short line; record and compare key sounds and word stress',fluency:'Retell the same message twice with fewer pauses and clear links',grammar:'Rebuild two sentences from your recording, then say them in a new answer',vocabulary:'Replace vague words with precise phrases and use them in a new answer'};actions.speaking=focus[adaptation.speakingFocus];}
@@ -69,8 +74,8 @@ export function buildStudySessions(schedule:StudySchedule,weakDomain:StudyPriori
 function escapeICS(value:string){return value.replace(/\\/g,'\\\\').replace(/\r\n|\r|\n/g,'\\n').replace(/;/g,'\\;').replace(/,/g,'\\,');}
 function foldICS(line:string){const encoder=new TextEncoder();let parts:string[]=[],part='',size=0;for(const c of line){const n=encoder.encode(c).length;if(size+n>75){parts.push(part);part=' '+c;size=1+n;}else{part+=c;size+=n;}}parts.push(part);return parts.join('\r\n');}
 const utc=(date:Date)=>date.toISOString().replace(/[-:]/g,'').replace(/\.\d{3}Z$/,'Z');
-export function studyCalendar(schedule:StudySchedule,name:string,weakDomain:StudyPriority='grammar',origin='https://englishcamp.invalid',now=new Date(),adaptation?:StudyAdaptation){
- const sessions=buildStudySessions(schedule,weakDomain,adaptation);const base=new URL(origin);if(!['http:','https:'].includes(base.protocol))throw new Error('Calendar links need a website address.');
+export function studyCalendar(schedule:StudySchedule,name:string,weakDomain:StudyPriority='grammar',origin='https://englishcamp.invalid',now=new Date(),adaptation?:StudyAdaptation,completedReferences:Record<string,boolean>={}){
+ const sessions=buildStudySessions(schedule,weakDomain,adaptation,completedReferences);const base=new URL(origin);if(!['http:','https:'].includes(base.protocol))throw new Error('Calendar links need a website address.');
  const lines=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//EnglishCamp//Personal Study Plan//EN','CALSCALE:GREGORIAN','METHOD:PUBLISH','X-WR-CALNAME:EnglishCamp study plan'];
  for(const session of sessions){const url=new URL(session.resource.href,base).href;const description=`${name}’s ${schedule.startingLevel} starting plan · Week ${session.week}\n${session.resource.title} · ${session.level} skill practice\nPractice brief: ${session.practice}\nWeekly output: ${session.task}\nCheck: ${session.success}\n${session.parts.map(p=>`${p.minutes} min: ${p.label}`).join('\n')}\n${url}\nRepeat a fresh task on another day and get speaking and writing feedback before harder material. Continue unfinished lessons next time. Mark progress inside EnglishCamp.`;
  lines.push('BEGIN:VEVENT',`UID:${session.id}@englishcamp.local`,`DTSTAMP:${utc(now)}`,`DTSTART:${utc(session.start)}`,`DTEND:${utc(session.end)}`,`SUMMARY:${escapeICS(`EnglishCamp: ${session.resource.title}`)}`,`DESCRIPTION:${escapeICS(description)}`,`URL:${url}`,'STATUS:CONFIRMED','TRANSP:TRANSPARENT','END:VEVENT');}

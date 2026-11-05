@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useProgress } from "@/store/useProgress";
 import { playCorrect, playWrong, playXP } from "@/lib/audio";
 import { VERBS, type VerbConjugation } from "@/data/conjugaise";
+import { verbPuzzleForms } from '@/lib/practiceQuestions';
 import { Lightbulb, BookOpen, CheckCircle2, XCircle, RefreshCw } from "lucide-react";
 
 type Tense = "present" | "past";
@@ -24,12 +25,12 @@ interface PuzzleCell {
 function generatePuzzle(): { verb: VerbConjugation; tense: Tense; cells: PuzzleCell[] } {
   const verb = VERBS[Math.floor(Math.random() * VERBS.length)];
   const tense: Tense = Math.random() < 0.6 ? "present" : "past";
-  const forms = tense === "present" ? verb.present : verb.past;
+  const forms = verbPuzzleForms(verb,tense);
   const cellCount = 3 + Math.floor(Math.random() * 2);
   const indices = Array.from({ length: 6 }, (_, i) => i).sort(() => Math.random() - 0.5).slice(0, cellCount);
   const cells = indices.map((i) => ({
     pronounIdx: i,
-    correct: Array.isArray(forms) ? (forms[i] || "") : "",
+    correct: forms[i],
   }));
   return { verb, tense, cells };
 }
@@ -124,7 +125,7 @@ export function VerbPuzzle() {
 
   if (!current) return null;
 
-  const forms: string[] = current.tense === "present" ? current.verb.present : [current.verb.past];
+  const forms = verbPuzzleForms(current.verb,current.tense);
 
   return (
     <PracticeCard data-practice-surface="question" className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-6 shadow-[var(--shadow-1)] max-w-2xl mx-auto">
@@ -146,7 +147,6 @@ export function VerbPuzzle() {
             <span className="text-sm text-[var(--color-text-secondary)] ml-2">({current.verb.english})</span>
             <div className="inline-flex items-center gap-2 mt-2">
               <span className="text-[10px] font-semibold bg-[var(--color-info-bg)] text-[var(--camp-control-ink)] px-2.5 py-1 rounded-[var(--radius-pill)]">{TENSE_LABELS[current.tense]}</span>
-              <span className="text-[10px] font-semibold bg-[var(--color-surface-alt)] text-[var(--color-text-secondary)] px-2.5 py-1 rounded-[var(--radius-pill)]">{current.verb.thirdPerson}</span>
             </div>
           </div>
 

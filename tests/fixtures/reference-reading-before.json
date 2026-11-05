@@ -1,0 +1,1149 @@
+{
+  "grammar": [
+    {
+      "id": "singular-and-plural",
+      "title": "Singular and plural nouns",
+      "art": "book",
+      "intro": "A singular countable noun names one item. A plural names more than one. Choose the noun form and the words around it together.",
+      "source": {
+        "title": "British Council: count nouns",
+        "href": "https://learnenglish.britishcouncil.org/free-resources/grammar/english-grammar-reference/count-nouns"
+      },
+      "content": [
+        {
+          "title": "One item and more than one",
+          "formation": "Use a determiner with an ordinary singular countable noun. Plurals usually add -s.",
+          "examples": [
+            {
+              "en": "A visitor is waiting. Three visitors are waiting."
+            },
+            {
+              "en": "My notebook is on the desk. Our notebooks are in the bag."
+            }
+          ]
+        },
+        {
+          "title": "Regular spelling changes",
+          "formation": "Add -es after common sibilant endings: -s, -ss, -sh, -ch and -x. A consonant + y changes to -ies; a vowel + y usually takes -s.",
+          "examples": [
+            {
+              "en": "one dish → two dishes; one match → four matches"
+            },
+            {
+              "en": "one city → several cities; one key → several keys"
+            }
+          ],
+          "notes": [
+            "Some -o nouns add -es, such as tomatoes; others add -s, such as photos. Check a dictionary."
+          ]
+        },
+        {
+          "title": "Irregular and unchanged plurals",
+          "formation": "Learn irregular forms as word pairs. Some countable nouns keep the same form in singular and plural.",
+          "examples": [
+            {
+              "en": "one child → three children; one tooth → two teeth"
+            },
+            {
+              "en": "one sheep is outside. Six sheep are outside."
+            }
+          ],
+          "notes": [
+            "Some -f/-fe nouns change to -ves: leaf/leaves, knife/knives. Others do not: roof/roofs, belief/beliefs."
+          ]
+        },
+        {
+          "title": "Plural is different from possession",
+          "formation": "An ordinary plural has no apostrophe. Use an apostrophe to mark possession, not to make more than one.",
+          "examples": [
+            {
+              "en": "The teachers are here. The teacher’s bag is here."
+            },
+            {
+              "en": "These shoes are new. This shoe is new."
+            }
+          ],
+          "notes": [
+            "The plural of person is usually people when referring to individuals. People can also name a population: the peoples of a region."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "countable-and-uncountable",
+      "title": "Countable and uncountable nouns",
+      "art": "book",
+      "intro": "Countability concerns the meaning of a noun in a particular sentence. It affects articles, quantities and verb agreement.",
+      "source": {
+        "title": "British Council: common countability problems",
+        "href": "https://learnenglish.britishcouncil.org/free-resources/grammar/english-grammar-reference/common-problems-count-uncount-nouns"
+      },
+      "content": [
+        {
+          "title": "Count individual items",
+          "formation": "Countable nouns allow a/an in the singular and numbers in the plural.",
+          "examples": [
+            {
+              "en": "We need a chair and two lamps."
+            },
+            {
+              "en": "There is an envelope beside the door."
+            }
+          ]
+        },
+        {
+          "title": "Measure an amount",
+          "formation": "Uncountable meanings normally have no ordinary plural and use a singular verb. Add a unit when you need a count.",
+          "examples": [
+            {
+              "en": "This equipment is heavy. These two pieces of equipment are heavy."
+            },
+            {
+              "en": "There is useful information in the email."
+            }
+          ],
+          "notes": [
+            "Advice, furniture, luggage and homework are normally uncountable in everyday English. Say a piece of advice, an item of furniture, a bag or an assignment."
+          ]
+        },
+        {
+          "title": "Meaning can change the pattern",
+          "formation": "The same word may name a substance, an individual item, a serving or a type.",
+          "examples": [
+            {
+              "en": "We need some paper for the printer. She presented two research papers."
+            },
+            {
+              "en": "Coffee keeps me awake. Two coffees, please: two cups of coffee."
+            }
+          ],
+          "notes": [
+            "A pair of trousers is one item of clothing; the trousers are on the chair. A pair takes a singular verb, while trousers takes a plural verb."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "subject-verb-agreement",
+      "title": "Subject and verb agreement",
+      "art": "pattern",
+      "intro": "The subject determines the verb form. Find the head of the subject phrase before looking at nearby nouns.",
+      "source": {
+        "title": "Purdue OWL: subject–verb agreement",
+        "href": "https://owl.purdue.edu/owl/general_writing/grammar/subject_verb_agreement.html"
+      },
+      "content": [
+        {
+          "title": "Match the subject, not the nearest noun",
+          "formation": "Use a singular verb with a singular subject and a plural verb with a plural subject. A phrase with of, with or near does not normally change the subject’s number.",
+          "examples": [
+            {
+              "en": "The box of cables is under the table."
+            },
+            {
+              "en": "The cables in that box are damaged."
+            }
+          ]
+        },
+        {
+          "title": "Each, every and two subjects",
+          "formation": "Each and every normally introduce a singular subject. Two separate people or things joined by and normally take a plural verb.",
+          "examples": [
+            {
+              "en": "Every student has a locker. Each answer needs a reason."
+            },
+            {
+              "en": "The designer and the editor work together."
+            }
+          ],
+          "notes": [
+            "A single combined item or activity can take a singular verb: Bread and butter is my usual breakfast. Meaning matters."
+          ]
+        },
+        {
+          "title": "Questions and negative sentences",
+          "formation": "Does/did already carry the tense or agreement marking; the following main verb uses its base form.",
+          "examples": [
+            {
+              "en": "Sara works here. Does Sara work here? Sara does not work here."
+            },
+            {
+              "en": "The volunteers arrive early. Do the volunteers arrive early?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "quantities-and-determiners",
+      "title": "Quantities: some, any, much and many",
+      "art": "pattern",
+      "intro": "Choose quantity expressions according to countability and the meaning you want to communicate.",
+      "source": {
+        "title": "British Council: quantifiers",
+        "href": "https://learnenglish.britishcouncil.org/free-resources/grammar/english-grammar-reference/quantifiers"
+      },
+      "content": [
+        {
+          "title": "Many / much / a lot of",
+          "formation": "Use many with plural countable nouns and much with uncountable nouns. A lot of works with either.",
+          "examples": [
+            {
+              "en": "We do not have many seats or much space."
+            },
+            {
+              "en": "The workshop attracted a lot of visitors and a lot of interest."
+            }
+          ]
+        },
+        {
+          "title": "Some and any",
+          "formation": "Some is common in affirmative statements and offers. Any is common in negatives and open questions.",
+          "examples": [
+            {
+              "en": "There are some oranges, but there is not any juice."
+            },
+            {
+              "en": "Would you like some water? Do you have any questions?"
+            }
+          ],
+          "notes": [
+            "These are common patterns, not absolute rules. Any can also mean it does not matter which: Choose any seat."
+          ]
+        },
+        {
+          "title": "A few / few and a little / little",
+          "formation": "A few and a little present an available amount. Few and little often stress that the amount is disappointingly small.",
+          "examples": [
+            {
+              "en": "We have a few volunteers, enough to run the event. We have few volunteers, so the event may be cancelled."
+            },
+            {
+              "en": "There is a little milk left, enough for your tea."
+            }
+          ],
+          "notes": [
+            "A few/few go with plural countable nouns. A little/little go with uncountable nouns. Enough goes before a noun: enough chairs."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "frequency-adverbs",
+      "title": "Adverbs of frequency",
+      "art": "clock",
+      "level": "A1",
+      "intro": "Frequency words describe how often something happens. Choose their position around the verb, not just the word itself.",
+      "source": {
+        "title": "British Council: How often",
+        "href": "https://learnenglish.britishcouncil.org/free-resources/grammar/english-grammar-reference/how-often"
+      },
+      "content": [
+        {
+          "title": "Before an ordinary main verb",
+          "formation": "Subject + frequency adverb + main verb.",
+          "examples": [
+            {
+              "en": "Mina usually walks to her lesson."
+            },
+            {
+              "en": "We sometimes practise after dinner."
+            }
+          ],
+          "notes": [
+            "Always, usually, often, sometimes, rarely and never describe different frequencies. Never already has a negative meaning."
+          ]
+        },
+        {
+          "title": "After be; inside an auxiliary phrase",
+          "formation": "Subject + be + adverb. With an auxiliary, the adverb usually follows the first auxiliary.",
+          "examples": [
+            {
+              "en": "The classroom is often quiet."
+            },
+            {
+              "en": "I have never visited that library."
+            }
+          ],
+          "notes": [
+            "Do not add not to never: I never skip breakfast. Sometimes can also occur at the start or end of a clause."
+          ]
+        },
+        {
+          "title": "Say how many times",
+          "formation": "Once / twice / three times + a day, week or month.",
+          "examples": [
+            {
+              "en": "I review my notes twice a week."
+            },
+            {
+              "en": "How often do you practise speaking?"
+            }
+          ],
+          "notes": [
+            "Every Monday needs no time preposition. Use a frequency phrase to make a study routine specific."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "time-prepositions",
+      "title": "Time prepositions: at, on and in",
+      "art": "calendar",
+      "level": "A1",
+      "intro": "Use a time preposition to connect an event with a clock time, a day or a longer period. Some common time phrases have no preposition.",
+      "source": {
+        "title": "British Council: Prepositions of time",
+        "href": "https://learnenglish.britishcouncil.org/free-resources/grammar/a1-a2-grammar/prepositions-of-time-at-in-on"
+      },
+      "content": [
+        {
+          "title": "Clock times and familiar expressions",
+          "formation": "At + clock time; at noon, at night and at the weekend in British English.",
+          "examples": [
+            {
+              "en": "The conversation class starts at 7.15."
+            },
+            {
+              "en": "We usually read at night."
+            }
+          ],
+          "notes": [
+            "At the weekend is common in British English; on the weekend is common in American English. Both varieties are valid."
+          ]
+        },
+        {
+          "title": "Days and specific dates",
+          "formation": "On + day or date; on + a specific day and part of the day.",
+          "examples": [
+            {
+              "en": "Our group meets on Thursday."
+            },
+            {
+              "en": "The interview is on Monday morning."
+            }
+          ],
+          "notes": [
+            "A named day makes the time specific: on Friday evening, but in the evening."
+          ]
+        },
+        {
+          "title": "Longer periods and no-preposition phrases",
+          "formation": "In + month, season, year or general part of the day. No preposition before next, last, this or every.",
+          "examples": [
+            {
+              "en": "My new course begins in September."
+            },
+            {
+              "en": "We meet next Tuesday and practise every morning."
+            }
+          ],
+          "notes": [
+            "In winter describes a season; the weather depends on the place and hemisphere."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "verb-patterns",
+      "title": "Verbs followed by -ing or to + verb",
+      "art": "writing",
+      "level": "A2",
+      "intro": "When one verb follows another, the first verb often controls the form of the second. Learn the complete pattern in a meaningful sentence.",
+      "source": {
+        "title": "British Council: Verbs followed by -ing or infinitive",
+        "href": "https://learnenglish.britishcouncil.org/free-resources/grammar/a1-a2/verbs-followed-ing-or-infinitive"
+      },
+      "content": [
+        {
+          "title": "Enjoy, avoid and finish",
+          "formation": "Enjoy / avoid / finish + verb-ing.",
+          "examples": [
+            {
+              "en": "I enjoy discussing films with my friends."
+            },
+            {
+              "en": "She finished writing her message."
+            }
+          ],
+          "notes": [
+            "The -ing form can act as the object of a verb. Do not insert to after enjoy."
+          ]
+        },
+        {
+          "title": "Want, decide and hope",
+          "formation": "Want / decide / hope + to + base verb.",
+          "examples": [
+            {
+              "en": "We decided to practise in the library."
+            },
+            {
+              "en": "I hope to understand the next conversation."
+            }
+          ],
+          "notes": [
+            "To is followed by the base form, not an -ing form, in these patterns."
+          ]
+        },
+        {
+          "title": "Some verbs allow both patterns",
+          "formation": "Like and love can often be followed by -ing or to + verb; would like uses to + verb.",
+          "examples": [
+            {
+              "en": "I like reading on the train."
+            },
+            {
+              "en": "I would like to join the discussion."
+            }
+          ],
+          "notes": [
+            "Some pattern changes also change meaning. Learn a new verb with its example rather than guessing from translation."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "enough-and-too",
+      "title": "Enough and too",
+      "art": "grammar",
+      "level": "B1",
+      "intro": "Enough describes a sufficient amount or degree for a purpose. Too describes an amount or degree beyond what is wanted or suitable.",
+      "source": {
+        "title": "British Council: Using enough",
+        "href": "https://learnenglish.britishcouncil.org/free-resources/grammar/b1-b2/using-enough"
+      },
+      "content": [
+        {
+          "title": "Enough with a noun",
+          "formation": "Enough + noun; not enough + noun.",
+          "examples": [
+            {
+              "en": "We have enough chairs for the group."
+            },
+            {
+              "en": "There is not enough time to review every answer."
+            }
+          ],
+          "notes": [
+            "Enough comes before countable plural and uncountable nouns."
+          ]
+        },
+        {
+          "title": "Enough after an adjective or adverb",
+          "formation": "Adjective / adverb + enough + to + verb.",
+          "examples": [
+            {
+              "en": "The room is quiet enough to record in."
+            },
+            {
+              "en": "Please speak slowly enough for me to take notes."
+            }
+          ],
+          "notes": [
+            "The purpose matters: loud enough to hear and too loud to concentrate describe different limits."
+          ]
+        },
+        {
+          "title": "Too is different from very",
+          "formation": "Too + adjective; too much + uncountable noun; too many + plural countable noun.",
+          "examples": [
+            {
+              "en": "The recording is too fast for me to follow."
+            },
+            {
+              "en": "There are too many examples on this small card."
+            }
+          ],
+          "notes": [
+            "Very describes a high degree. Too expresses an excessive degree in relation to a need or purpose."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "perfect-simple-continuous",
+      "title": "Present perfect: results and activity",
+      "art": "clock",
+      "level": "B1",
+      "intro": "Both forms connect the past with now. The simple often presents a result or number; the continuous often highlights activity, duration or recent evidence.",
+      "source": {
+        "title": "British Council: Present perfect simple and continuous",
+        "href": "https://learnenglish.britishcouncil.org/free-resources/grammar/b1-b2/present-perfect-simple-continuous"
+      },
+      "content": [
+        {
+          "title": "A completed result or number",
+          "formation": "Have / has + past participle.",
+          "examples": [
+            {
+              "en": "I have answered six questions, so I can take a break."
+            },
+            {
+              "en": "She has sent the message; it is in your inbox."
+            }
+          ],
+          "notes": [
+            "A stated count of completed actions often favours the simple form."
+          ]
+        },
+        {
+          "title": "An activity or its duration",
+          "formation": "Have / has + been + verb-ing.",
+          "examples": [
+            {
+              "en": "I have been practising for twenty minutes and I am still working."
+            },
+            {
+              "en": "His hands are dirty because he has been repairing his bike."
+            }
+          ],
+          "notes": [
+            "The activity may still be continuing or may have just stopped. Context establishes whether it is finished."
+          ]
+        },
+        {
+          "title": "Choose by meaning, not a signal word alone",
+          "formation": "Some state verbs normally use the simple form. Some situations permit both forms with a different focus.",
+          "examples": [
+            {
+              "en": "I have known my classmate for a year."
+            },
+            {
+              "en": "We have lived here for years. We have been living here for years."
+            }
+          ],
+          "notes": [
+            "For and since can occur with both forms. Do not mark one form wrong when the context genuinely supports both."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "past-habits",
+      "title": "Past habits: used to and would",
+      "art": "clock",
+      "level": "B1",
+      "intro": "Used to can contrast past habits or states with now. Would can describe repeated past actions when a past context has already been established.",
+      "source": {
+        "title": "British Council: Past habits",
+        "href": "https://learnenglish.britishcouncil.org/free-resources/grammar/b1-b2-grammar/past-habits-used-to-would-past-simple"
+      },
+      "content": [
+        {
+          "title": "A past habit or state that changed",
+          "formation": "Used to + base verb.",
+          "examples": [
+            {
+              "en": "I used to live near the station, but now I live outside town."
+            },
+            {
+              "en": "We used to practise on paper before we had a computer."
+            }
+          ],
+          "notes": [
+            "Used to can describe states such as live, know and own as well as repeated actions."
+          ]
+        },
+        {
+          "title": "Repeated past actions with would",
+          "formation": "Past context + would + base verb.",
+          "examples": [
+            {
+              "en": "When I was at school, we would read together after lunch."
+            },
+            {
+              "en": "During that summer, my cousin would call every Friday."
+            }
+          ],
+          "notes": [
+            "For a past state, used to is normally the suitable choice. The past simple can also describe past habits."
+          ]
+        },
+        {
+          "title": "Questions and negatives",
+          "formation": "Did + subject + use to …? Subject + did not + use to …",
+          "examples": [
+            {
+              "en": "Did you use to study with that group?"
+            },
+            {
+              "en": "I did not use to take notes, but I do now."
+            }
+          ],
+          "notes": [
+            "After did, use the base form use. Be used to + noun/-ing means accustomed to and is a different pattern."
+          ]
+        }
+      ]
+    }
+  ],
+  "catalogue": [
+    {
+      "id": "noun-gender",
+      "label": "Articles (A / An)",
+      "category": "Grammar Trainers",
+      "file": "NounGenderTrainer.tsx",
+      "exportName": "NounGenderTrainer"
+    },
+    {
+      "id": "conjugation",
+      "label": "Verb Conjugation",
+      "category": "Grammar Trainers",
+      "file": "ConjugationTrainer.tsx",
+      "exportName": "ConjugationTrainer"
+    },
+    {
+      "id": "case",
+      "label": "Noun & Pronoun Forms",
+      "category": "Grammar Trainers",
+      "file": "CaseTrainer.tsx",
+      "exportName": "CaseTrainer"
+    },
+    {
+      "id": "adjective-endings",
+      "label": "Adjective Forms",
+      "category": "Grammar Trainers",
+      "file": "AdjectiveEndingsTrainer.tsx",
+      "exportName": "AdjectiveEndingsTrainer"
+    },
+    {
+      "id": "comparative",
+      "label": "Comparatives",
+      "category": "Grammar Trainers",
+      "file": "ComparativeTrainer.tsx",
+      "exportName": "ComparativeTrainer"
+    },
+    {
+      "id": "genitive",
+      "label": "Possessives ('s / of)",
+      "category": "Grammar Trainers",
+      "file": "GenitiveTrainer.tsx",
+      "exportName": "GenitiveTrainer"
+    },
+    {
+      "id": "passive-voice",
+      "label": "Passive Voice",
+      "category": "Grammar Trainers",
+      "file": "PassiveVoiceTrainer.tsx",
+      "exportName": "PassiveVoiceTrainer"
+    },
+    {
+      "id": "imperative",
+      "label": "Imperative",
+      "category": "Grammar Trainers",
+      "file": "ImperativeTrainer.tsx",
+      "exportName": "ImperativeTrainer"
+    },
+    {
+      "id": "relative-clauses",
+      "label": "Relative Clauses",
+      "category": "Grammar Trainers",
+      "file": "RelativeClausesTrainer.tsx",
+      "exportName": "RelativeClausesTrainer"
+    },
+    {
+      "id": "konjunktiv2",
+      "label": "Conditionals",
+      "category": "Grammar Trainers",
+      "file": "KonjunktivIITrainer.tsx",
+      "exportName": "KonjunktivIITrainer"
+    },
+    {
+      "id": "prefix-verbs",
+      "label": "Prefix Verbs",
+      "category": "Grammar Trainers",
+      "file": "PrefixVerbsTrainer.tsx",
+      "exportName": "PrefixVerbsTrainer"
+    },
+    {
+      "id": "infinitiv-mit-zu",
+      "label": "Infinitives & Gerunds",
+      "category": "Grammar Trainers",
+      "file": "InfinitivMitZuTrainer.tsx",
+      "exportName": "InfinitivMitZuTrainer"
+    },
+    {
+      "id": "weak-nouns",
+      "label": "Irregular Plurals",
+      "category": "Grammar Trainers",
+      "file": "WeakNounsTrainer.tsx",
+      "exportName": "WeakNounsTrainer"
+    },
+    {
+      "id": "future-tense",
+      "label": "Future Tense",
+      "category": "Grammar Trainers",
+      "file": "FutureTenseTrainer.tsx",
+      "exportName": "FutureTenseTrainer"
+    },
+    {
+      "id": "double-infinitive",
+      "label": "Modal Perfects",
+      "category": "Grammar Trainers",
+      "file": "DoubleInfinitiveTrainer.tsx",
+      "exportName": "DoubleInfinitiveTrainer"
+    },
+    {
+      "id": "grammar-reference",
+      "label": "Grammar Reference",
+      "category": "Grammar Trainers",
+      "file": "GrammarReference.tsx",
+      "exportName": "GrammarReference"
+    },
+    {
+      "id": "verb-explorer",
+      "label": "Verb Explorer",
+      "category": "Grammar Trainers",
+      "file": "VerbExplorer.tsx",
+      "exportName": "VerbExplorer"
+    },
+    {
+      "id": "narrative-past",
+      "label": "Narrative Past",
+      "category": "Grammar Trainers",
+      "file": "NarrativePastTrainer.tsx",
+      "exportName": "NarrativePastTrainer"
+    },
+    {
+      "id": "verb-puzzle",
+      "label": "Verb Puzzle",
+      "category": "Grammar Trainers",
+      "file": "VerbPuzzle.tsx",
+      "exportName": "VerbPuzzle"
+    },
+    {
+      "id": "numbers",
+      "label": "Numbers",
+      "category": "Vocabulary Trainers",
+      "file": "NumbersTrainer.tsx",
+      "exportName": "NumbersTrainer"
+    },
+    {
+      "id": "plural",
+      "label": "Plural Forms",
+      "category": "Vocabulary Trainers",
+      "file": "PluralTrainer.tsx",
+      "exportName": "PluralTrainer"
+    },
+    {
+      "id": "possessives",
+      "label": "Possessives",
+      "category": "Vocabulary Trainers",
+      "file": "PossessivesTrainer.tsx",
+      "exportName": "PossessivesTrainer"
+    },
+    {
+      "id": "separable-verbs",
+      "label": "Phrasal Verbs",
+      "category": "Vocabulary Trainers",
+      "file": "SeparableVerbsTrainer.tsx",
+      "exportName": "SeparableVerbsTrainer"
+    },
+    {
+      "id": "reflexive-verbs",
+      "label": "Reflexive Verbs",
+      "category": "Vocabulary Trainers",
+      "file": "ReflexiveVerbsTrainer.tsx",
+      "exportName": "ReflexiveVerbsTrainer"
+    },
+    {
+      "id": "da-compounds",
+      "label": "Pronominal Adverbs",
+      "category": "Vocabulary Trainers",
+      "file": "DaCompoundsTrainer.tsx",
+      "exportName": "DaCompoundsTrainer"
+    },
+    {
+      "id": "compound-nouns",
+      "label": "Compound Nouns",
+      "category": "Vocabulary Trainers",
+      "file": "CompoundNounTrainer.tsx",
+      "exportName": "CompoundNounTrainer"
+    },
+    {
+      "id": "false-friends",
+      "label": "False Friends",
+      "category": "Vocabulary Trainers",
+      "file": "FalseFriendsTrainer.tsx",
+      "exportName": "FalseFriendsTrainer"
+    },
+    {
+      "id": "collocations",
+      "label": "Collocations",
+      "category": "Vocabulary Trainers",
+      "file": "CollocationTrainer.tsx",
+      "exportName": "CollocationTrainer"
+    },
+    {
+      "id": "idioms",
+      "label": "Idioms",
+      "category": "Vocabulary Trainers",
+      "file": "IdiomsTrainer.tsx",
+      "exportName": "IdiomsTrainer"
+    },
+    {
+      "id": "synonyms",
+      "label": "Synonyms",
+      "category": "Vocabulary Trainers",
+      "file": "SynonymTrainer.tsx",
+      "exportName": "SynonymTrainer"
+    },
+    {
+      "id": "word-formation",
+      "label": "Word Formation",
+      "category": "Vocabulary Trainers",
+      "file": "WordFormationTrainer.tsx",
+      "exportName": "WordFormationTrainer"
+    },
+    {
+      "id": "spelling",
+      "label": "Spelling",
+      "category": "Vocabulary Trainers",
+      "file": "SpellingTrainer.tsx",
+      "exportName": "SpellingTrainer"
+    },
+    {
+      "id": "sentence-builder",
+      "label": "Sentence Builder",
+      "category": "Sentence Structure",
+      "file": "SentenceBuilder.tsx",
+      "exportName": "SentenceBuilder"
+    },
+    {
+      "id": "word-order",
+      "label": "Word Order",
+      "category": "Sentence Structure",
+      "file": "WordOrderTrainer.tsx",
+      "exportName": "WordOrderTrainer"
+    },
+    {
+      "id": "negation",
+      "label": "Negation",
+      "category": "Sentence Structure",
+      "file": "NegationTrainer.tsx",
+      "exportName": "NegationTrainer"
+    },
+    {
+      "id": "modal-verbs",
+      "label": "Modal Verbs",
+      "category": "Sentence Structure",
+      "file": "ModalVerbsTrainer.tsx",
+      "exportName": "ModalVerbsTrainer"
+    },
+    {
+      "id": "conjunctions",
+      "label": "Conjunctions",
+      "category": "Sentence Structure",
+      "file": "CoordinatingConjunctionsTrainer.tsx",
+      "exportName": "CoordinatingConjunctionsTrainer"
+    },
+    {
+      "id": "frageworter",
+      "label": "Question Words",
+      "category": "Sentence Structure",
+      "file": "FragewörterTrainer.tsx",
+      "exportName": "FragewörterTrainer"
+    },
+    {
+      "id": "sub-clauses",
+      "label": "Subordinate Clauses",
+      "category": "Sentence Structure",
+      "file": "SubordinateClausesTrainer.tsx",
+      "exportName": "SubordinateClausesTrainer"
+    },
+    {
+      "id": "question-formation",
+      "label": "Question Formation",
+      "category": "Sentence Structure",
+      "file": "QuestionFormationTrainer.tsx",
+      "exportName": "QuestionFormationTrainer"
+    },
+    {
+      "id": "prepositions",
+      "label": "Prepositions",
+      "category": "Prepositions",
+      "file": "PrepositionsTrainer.tsx",
+      "exportName": "PrepositionsTrainer"
+    },
+    {
+      "id": "two-way-prepositions",
+      "label": "Direction vs Location",
+      "category": "Prepositions",
+      "file": "TwoWayPrepositionsTrainer.tsx",
+      "exportName": "TwoWayPrepositionsTrainer"
+    },
+    {
+      "id": "prep-contractions",
+      "label": "Contractions",
+      "category": "Prepositions",
+      "file": "PrepositionalContractionsTrainer.tsx",
+      "exportName": "EnglishContractionsTrainer"
+    },
+    {
+      "id": "hangman",
+      "label": "Hangman",
+      "category": "Games & Listening",
+      "file": "Hangman.tsx",
+      "exportName": "Hangman"
+    },
+    {
+      "id": "memory-match",
+      "label": "Memory Match",
+      "category": "Games & Listening",
+      "file": "MemoryMatchGame.tsx",
+      "exportName": "MemoryMatchGame"
+    },
+    {
+      "id": "dialogue",
+      "label": "Dialogue Practice",
+      "category": "Games & Listening",
+      "file": "DialogueCompletionTrainer.tsx",
+      "exportName": "DialogueCompletionTrainer"
+    },
+    {
+      "id": "word-search",
+      "label": "Word Search",
+      "category": "Games & Listening",
+      "file": "WordSearch.tsx",
+      "exportName": "WordSearch"
+    },
+    {
+      "id": "crossword",
+      "label": "Crossword Puzzle",
+      "category": "Games & Listening",
+      "file": "CrosswordPuzzle.tsx",
+      "exportName": "CrosswordPuzzle"
+    },
+    {
+      "id": "dictation",
+      "label": "Dictation",
+      "category": "Games & Listening",
+      "file": "Dictation.tsx",
+      "exportName": "Dictation"
+    },
+    {
+      "id": "flashcard-race",
+      "label": "Flashcard Race",
+      "category": "Games & Listening",
+      "file": "FlashcardRace.tsx",
+      "exportName": "FlashcardRace"
+    },
+    {
+      "id": "modal-particles",
+      "label": "Discourse Markers",
+      "category": "Games & Listening",
+      "file": "ModalParticlesTrainer.tsx",
+      "exportName": "ModalParticlesTrainer"
+    },
+    {
+      "id": "cloze-text",
+      "label": "Cloze Text",
+      "category": "Games & Listening",
+      "file": "ClozeTextTrainer.tsx",
+      "exportName": "ClozeTextTrainer"
+    },
+    {
+      "id": "reading",
+      "label": "Reading Comprehension",
+      "category": "Games & Listening",
+      "file": "ReadingComprehension.tsx",
+      "exportName": "ReadingComprehension"
+    },
+    {
+      "id": "timed-challenge",
+      "label": "Timed Challenge",
+      "category": "Games & Listening",
+      "file": "TimedChallenge.tsx",
+      "exportName": "TimedChallenge"
+    },
+    {
+      "id": "error-review",
+      "label": "Error Review",
+      "category": "Games & Listening",
+      "file": "ErrorReview.tsx",
+      "exportName": "ErrorReview"
+    },
+    {
+      "id": "speed-match",
+      "label": "Speed Match",
+      "category": "Games & Listening",
+      "file": "SpeedMatch.tsx",
+      "exportName": "SpeedMatch"
+    },
+    {
+      "id": "buchstabensalat",
+      "label": "Word Scramble",
+      "category": "Games & Listening",
+      "file": "Buchstabensalat.tsx",
+      "exportName": "WordScramble"
+    },
+    {
+      "id": "sprint",
+      "label": "Sprint",
+      "category": "Games & Listening",
+      "file": "Sprint.tsx",
+      "exportName": "Sprint"
+    },
+    {
+      "id": "konjunktionen",
+      "label": "Conjunctions",
+      "category": "Writing & Exam Prep",
+      "file": "KonjunktionenChallenge.tsx",
+      "exportName": "ConnectorsChallenge"
+    },
+    {
+      "id": "tenses",
+      "label": "Tenses Quiz",
+      "category": "Writing & Exam Prep",
+      "file": "TensesQuiz.tsx",
+      "exportName": "TensesQuiz"
+    },
+    {
+      "id": "briefe",
+      "label": "Letter Writing",
+      "category": "Writing & Exam Prep",
+      "file": "BriefeSchreiben.tsx",
+      "exportName": "BriefeSchreiben"
+    },
+    {
+      "id": "korrektur",
+      "label": "Proofreading",
+      "category": "Writing & Exam Prep",
+      "file": "Korrekturlesen.tsx",
+      "exportName": "Proofreading"
+    },
+    {
+      "id": "landeskunde",
+      "label": "Culture Quiz",
+      "category": "Writing & Exam Prep",
+      "file": "LandeskundeQuiz.tsx",
+      "exportName": "LandeskundeQuiz"
+    },
+    {
+      "id": "redemittel",
+      "label": "Phrases Practice",
+      "category": "Writing & Exam Prep",
+      "file": "RedemittelPraxis.tsx",
+      "exportName": "RedemittelPraxis"
+    },
+    {
+      "id": "artikel",
+      "label": "Article Master",
+      "category": "Speed Games",
+      "file": "ArtikelMeister.tsx",
+      "exportName": "ArtikelMeister"
+    },
+    {
+      "id": "satz-ubersetzer",
+      "label": "Sentence Translator",
+      "category": "Speed Games",
+      "file": "SatzUebersetzer.tsx",
+      "exportName": "SatzUebersetzer"
+    },
+    {
+      "id": "themen-vokabeln",
+      "label": "Topic Vocab",
+      "category": "Speed Games",
+      "file": "ThemenVokabeln.tsx",
+      "exportName": "TopicVocabulary"
+    },
+    {
+      "id": "idiom-ubersetzer",
+      "label": "Idioms Translator",
+      "category": "Speed Games",
+      "file": "RewendungenUebersetzer.tsx",
+      "exportName": "RedewendungenUebersetzer"
+    },
+    {
+      "id": "kollo-ubersetzer",
+      "label": "Collocations Practice",
+      "category": "Speed Games",
+      "file": "KollokationenUebersetzer.tsx",
+      "exportName": "KollokationenUebersetzer"
+    },
+    {
+      "id": "dialog-ubersetzer",
+      "label": "Dialogue Translator",
+      "category": "Speed Games",
+      "file": "DialogeUebersetzer.tsx",
+      "exportName": "DialogeUebersetzer"
+    },
+    {
+      "id": "modal-ubersetzer",
+      "label": "Discourse Markers Practice",
+      "category": "Speed Games",
+      "file": "ModalpartikelUebersetzer.tsx",
+      "exportName": "ModalpartikelUebersetzer"
+    },
+    {
+      "id": "nvv-ubersetzer",
+      "label": "Verb-Noun Collocations",
+      "category": "Speed Games",
+      "file": "NVVUebersetzer.tsx",
+      "exportName": "NVVUebersetzer"
+    },
+    {
+      "id": "verbprep-ubersetzer",
+      "label": "Verbs+Preps Practice",
+      "category": "Speed Games",
+      "file": "VerbPrepUebersetzer.tsx",
+      "exportName": "VerbPrepUebersetzer"
+    },
+    {
+      "id": "dakomp-ubersetzer",
+      "label": "Compound Adverbs Practice",
+      "category": "Speed Games",
+      "file": "DaKompositaUebersetzer.tsx",
+      "exportName": "DaKompositaUebersetzer"
+    },
+    {
+      "id": "satzmuster-ubersetzer",
+      "label": "Patterns Practice",
+      "category": "Speed Games",
+      "file": "SatzmusterUebersetzer.tsx",
+      "exportName": "SatzmusterUebersetzer"
+    },
+    {
+      "id": "wortpaare-quiz",
+      "label": "Word Pairs Quiz",
+      "category": "Speed Games",
+      "file": "WortpaareQuiz.tsx",
+      "exportName": "WordPairQuiz"
+    },
+    {
+      "id": "vergleiche-ubersetzer",
+      "label": "Comparisons Practice",
+      "category": "Speed Games",
+      "file": "VergleicheUebersetzer.tsx",
+      "exportName": "VergleicheUebersetzer"
+    },
+    {
+      "id": "false-friends-ubersetzer",
+      "label": "False Friends Practice",
+      "category": "Speed Games",
+      "file": "FalseFriendsUebersetzer.tsx",
+      "exportName": "FalseFriendsUebersetzer"
+    },
+    {
+      "id": "fragen-ubersetzer",
+      "label": "Questions Practice",
+      "category": "Speed Games",
+      "file": "FragenUebersetzer.tsx",
+      "exportName": "FragenUebersetzer"
+    },
+    {
+      "id": "praeteritum-ubersetzer",
+      "label": "Narrative Past Practice",
+      "category": "Speed Games",
+      "file": "PraeteritumUebersetzer.tsx",
+      "exportName": "PraeteritumUebersetzer"
+    },
+    {
+      "id": "idiom-match",
+      "label": "Idiom Match",
+      "category": "Speed Games",
+      "file": "IdiomMatch.tsx",
+      "exportName": "IdiomMatch"
+    }
+  ]
+}

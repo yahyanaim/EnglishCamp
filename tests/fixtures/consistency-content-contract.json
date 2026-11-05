@@ -1,5 +1,5 @@
 {
-  "scope": "Site-wide decorative vector art and shared study surfaces; responsive course cards/filters, contrast, printable grammar, richer lesson recaps, explicit reviewed conjunction/word-pair/cloze/culture/letter practice corrections. Preserve full courses, mock banks, IDs, progress and notes. Reviewed vocabulary/speaking UI, English preposition filtering, additive themed word diagrams, listening/local speaking placement and level-specific planning. Automatic placement audio assessment, combined skill profile and adapted study sessions; existing course and mock content preserved. CEFR-aligned v2 diagnostic and certificate QR; additive grammar foundations and printable reference. Legacy test data, existing courses and saved learner progress retained. Reference-matched portrait certificate, compact result badge and evidence-based study readiness reviews; assessed scores and existing course content retained. The four new foundation lessons are listed only in the Cheat Sheet, as requested; Grammar Reference retains its original ten topics.",
+  "scope": "Site-wide decorative vector art and shared study surfaces; responsive course cards/filters, contrast, printable grammar, richer lesson recaps, explicit reviewed conjunction/word-pair/cloze/culture/letter practice corrections. Preserve full courses, mock banks, IDs, progress and notes. Reviewed vocabulary/speaking UI, English preposition filtering, additive themed word diagrams, listening/local speaking placement and level-specific planning. Automatic placement audio assessment, combined skill profile and adapted study sessions; existing course and mock content preserved. CEFR-aligned v2 diagnostic and certificate QR; additive grammar foundations and printable reference. Legacy test data, existing courses and saved learner progress retained. Reference-matched portrait certificate, compact result badge and evidence-based study readiness reviews; assessed scores and existing course content retained. The four new foundation lessons are listed only in the Cheat Sheet, as requested; Grammar Reference retains its original ten topics. Reviewed practice answer leaks, accepted grammar variants and gap placement; six distinct sourced grammar extensions, 60 new contextual word cards, shared reference completion and progress-aware planning. All prior course/module credit and all 207 earlier word cards remain unchanged. User-requested reference-only lessons and words: remove checks and reference XP controls; retain earned records and authored reading content. Remove only Grammar Reference from the Practice Hub. Shared numbered seals and automatic mascot celebrations for newly earned badges.",
   "files": {
     "src/app/artikel-meister/page.tsx": {
       "before": "2b14bdfc889f1933125eadc0cedc8c517d97d6bd0ea45f3cd0ba884b16c1dd08",
@@ -223,7 +223,7 @@
     },
     "src/app/practice/page.tsx": {
       "before": "5eb50d0c71617f03315587b07be05d687bb117f3935f787328f4eb7b46a5ba4a",
-      "after": "822c14f404838fc1a1ea3be13d73e3d78e4cd6f7bea48ec35b0b7bb2638e1904"
+      "after": "32c08d17623c622ea490d84a774406538fef00af93eaf3a3ec7511969cec2239"
     },
     "src/app/praeteritum/page.tsx": {
       "before": "491f006355353d8e5b80c9ebf64641ba23f493ca27e320630783a182d4a9fa4e",
@@ -267,7 +267,7 @@
     },
     "src/app/reference.css": {
       "before": "73e1b3259dab29a91381945164e1e9091bd306feb802874871ed4a874294e642",
-      "after": "e2accde961a174b07d19fc9d878ed0d5a1f0bc7fac902237dd59756b4d5322ee"
+      "after": "04b38609fb365ce54d752f2008c8b7cb23d5ed4c1273d08f7bdda54202c40512"
     },
     "src/app/reflexive-verben/page.tsx": {
       "before": "76f4ee8503c88d03a44d42c80fad49e54ad123b962a2c44475a0efc8184747d1",
@@ -311,7 +311,7 @@
     },
     "src/app/stats/page.tsx": {
       "before": "cd25bd4a0f0c035e5d679b722da4ef9d586954e7e326593c3d00762b3393727e",
-      "after": "741a18d9df7a5f480efe6b397553e1c7f8bf5b0e7f4bcf2b6c2bc1f531ae42c0"
+      "after": "8eef801b1a2797e8410fef22d6d6cf75492bb811e3e0f86dd6c6415f1a93b1fe"
     },
     "src/app/study-plan/page.tsx": {
       "before": "36a380b549d7265e7d838ac7d011cacb3bd38a9583b9ac51228ddad1d141ddeb",
@@ -419,7 +419,7 @@
     },
     "src/components/course/CourseOverview.tsx": {
       "before": "9b23c0b1e8e9248b32ad29d86a40b8d63706500bc75520988497f7b371e8d407",
-      "after": "8d68b31a86238166cb245eb04e671445edcd4995f498e2de21f5693f048edd41"
+      "after": "a46e047530bac2ea61b33e98622d75ebfee9f9363a268d546e91dd84dd1e1f5c"
     },
     "src/components/course/CoursePreviewCard.tsx": {
       "before": "2fd553fae0053d4fd95b82ea3435f85fff5102a63c3ca6d59bf69665ce02a700",
@@ -539,11 +539,11 @@
     },
     "src/components/learn/ComparativeTrainer.tsx": {
       "before": "1d782a41b53f114de7e5145a37e66ac8dcb9debd4a33960bdeefc6a748e7b369",
-      "after": "f3c3f2c192ea6fc2d422f033a6968cde62e977d9b90deddfdb8b831da3e14936"
+      "after": "3bd06d24bc720db9767e30937b60a304c94470f12d22aa1d3c29ba883eb54be0"
     },
     "src/components/learn/CompoundNounTrainer.tsx": {
       "before": "357975ab95eeba3663b439ee32f503442786b8c18d221ac76aae7f3224ef71c0",
-      "after": "83a0671ebbdee991408d7cb277ec39d14859675e1bfddae565aa657608755cdc"
+      "after": "d4358d8da930c31fc51228d9af546bb8e4555ab7ac6ba4c1a3a1b93cc2b92168"
     },
     "src/components/learn/ConjugationTrainer.tsx": {
       "before": "d4143c5a4438848b091dde6490aa656020b218d2cd5b5eb40c98907b362e43c0",
@@ -551,7 +551,7 @@
     },
     "src/components/learn/CoordinatingConjunctionsTrainer.tsx": {
       "before": "a527cccdc3f866a436838570894db4cb78bd7ea81a92248049715b13bd3a68a5",
-      "after": "11b6310141b15e629bf119ddb2cfdd7817bcce2aaa45f197115c969bb0c111c5"
+      "after": "796f48302b12e3d5e176fe58632e4fe4ade691e2f56edc5d4e0401abd488acf5"
     },
     "src/components/learn/CrosswordPuzzle.tsx": {
       "before": "d84d9601dc0484f47ed97660fa03742c4c23360a7b254cf9fdb4e3ba91bd62d8",
@@ -559,7 +559,7 @@
     },
     "src/components/learn/DaCompoundsTrainer.tsx": {
       "before": "b5e4b72c097dd7c30d62c7cb41d0dbb90a472e1a81c0bc0645cb13bde82ed135",
-      "after": "d4fb6ae28876e68ac0bf570f28ef9305aa847cdc44f179b00808c14c230f452c"
+      "after": "c75c05b5656fa34289910bc590d54eeb0788d155057d9364b6b0e8f0895358c1"
     },
     "src/components/learn/DialogueCompletionTrainer.tsx": {
       "before": "28e5019a34a83a2d34ffc5e77f2a09d10b2e3eccf806187c68ed6b7d5284fb23",
@@ -571,7 +571,7 @@
     },
     "src/components/learn/DoubleInfinitiveTrainer.tsx": {
       "before": "269259f3d417584b5b5fa4ee5137aa95942ae777ea1b4d6d9639b9404ef23eec",
-      "after": "cd765a7890344dff36673f82bf093a5a0ac59f6b7313d4466db28b40407d83ef"
+      "after": "4f3fa31f248592a49701b81c7e9cd747a14ae6f1c12ab4adf3a4b62c65d6c167"
     },
     "src/components/learn/ErrorReview.tsx": {
       "before": "595a33395ef72a401561c6ba638f405179145fc52cbc7e96943f3fbcd90b2199",
@@ -579,7 +579,7 @@
     },
     "src/components/learn/FalseFriendsTrainer.tsx": {
       "before": "0d21baa4d4df658c435c00247b58cdd2282fdef6df21d0d3df07a9bf7f1b01c9",
-      "after": "7394e881943315c9dec6a25074ca00c4dcf0cc2a2eaa066c7940ae65ce8ee6ff"
+      "after": "f183e453f4af91d65c0b58c3a5ae5a1b4c0fa7bfee21a86d9251de8a5a38ff96"
     },
     "src/components/learn/FalseFriendsUebersetzer.tsx": {
       "before": "9c0ac2a97a98688ddc5213cc5fb90a43604a048ff2f2649c3cf8549ec9e9f6d8",
@@ -591,7 +591,7 @@
     },
     "src/components/learn/FragewörterTrainer.tsx": {
       "before": "03740f6060969b732db769ff13d432e597d3bcc89f9c0c7782d76e478fc42d32",
-      "after": "d0a14d67408790d1a04620cf5466cd509edd1a5e5e2cbcb89602766242f5cd74"
+      "after": "c936f6f1b3f03a1d95eb2bcc0e2f3a62de117058320a220647913d45bf7ac414"
     },
     "src/components/learn/FutureTenseTrainer.tsx": {
       "before": "65375ede24c734feda20711fa7ec63098c62b4a2ca878899059ebe131890008c",
@@ -599,11 +599,11 @@
     },
     "src/components/learn/GenitiveTrainer.tsx": {
       "before": "3b8caede9d9a3b2b084de6fbc9078549ad50c3a0ccae84fecc18d78220eb29da",
-      "after": "a98f0ffcff01bc6d267eada67b495b33252cdd5b779e45ba30e0819b58b448a2"
+      "after": "725d7860cc0cbfb5987c3c63466ecbce6102bed7c643163b58850a42b84f3362"
     },
     "src/components/learn/GrammarReference.tsx": {
       "before": "a67934465a39090dc3814bd9f2047477c33cc399523d826bafb9c847e2c11a97",
-      "after": "016e83e1147addc802c3831739b44acc5e943e9c1a71ecaf76be411745716d63"
+      "after": "82715ec559580de78708f87cff179e2552e0a09f48581a22026058510e10aa70"
     },
     "src/components/learn/Hangman.tsx": {
       "before": "3372fb264472e3459fe0263777a1fe567713827bfc15c2076055031fa1cf4d03",
@@ -619,7 +619,7 @@
     },
     "src/components/learn/ImperativeTrainer.tsx": {
       "before": "2171fb1a1690b0ff51e424e42d6ba18f0fa7fc1e20a21c1dfe183e6a04ec3ab3",
-      "after": "db7a921c17b3714835524585cbfe3db19395482bf3c5dc7b02a688e85eae8b6f"
+      "after": "d0e0be2dbad626914f8fbbead63016e3e42fa1abc614aa135854083fe862c5df"
     },
     "src/components/learn/InfinitivMitZuTrainer.tsx": {
       "before": "e8afb7c12aca2be13a02febc8aaf470a60d6feb4ddf001bdcc55771e867d7b81",
@@ -635,7 +635,7 @@
     },
     "src/components/learn/KonjunktivIITrainer.tsx": {
       "before": "e6fbf963c2a52f264a17e3f7642a1f0dc231bec440f597963cdf9c5b3b2d3045",
-      "after": "ce0eae7780428893ccf4ab6a1ec5d57121233bd78a9ab35a68416723305209ef"
+      "after": "a386a866bc475bc5bf607f6526da85f775e4b21718cb614a267f752102259910"
     },
     "src/components/learn/Korrekturlesen.tsx": {
       "before": "9724bd3970b6372c41a40da97befefa4c9a192819e9314d280e9972cdce2b222",
@@ -659,11 +659,11 @@
     },
     "src/components/learn/ModalVerbsTrainer.tsx": {
       "before": "6d0c5f5947bf3e211d22537785c8608993e0c4114cd69719cf0fbff247e35ce4",
-      "after": "ea1457a6d6abe5ba463be0694f87dc14d7ee23e72ec1c77e10972fbcffab662e"
+      "after": "d9f4405772be69f2e5d40ed0673e0f9945479b4e6410cefde752b9f48e384a3a"
     },
     "src/components/learn/ModalpartikelUebersetzer.tsx": {
       "before": "840f067679096d7cafb6111297bb70613e25885b6b3978f1a121120b3a8092cf",
-      "after": "6c7461b1e27b21d96ddfe0b04c4b33a2cc44f52d31f8fc809fa3e0c31d9c91cd"
+      "after": "360dff2213d7456f5bdb04419556f2a0fd07664a83dfbe64da83d683c39c74fc"
     },
     "src/components/learn/NarrativePastTrainer.tsx": {
       "before": "8bd9008ccb5c9249457645fedf9dbbd83116f884cbc3121eba3386f244f7ba0c",
@@ -671,7 +671,7 @@
     },
     "src/components/learn/NegationTrainer.tsx": {
       "before": "be2c21ecab9c68ae410de130a9bbad2b5527e2e3d2b0f56124949ab981f72a41",
-      "after": "e4b3eed5febfd19e5080c263d2c3df44e419c59727daaea8c2c52660ef351a67"
+      "after": "b2b01ffc96350cafa7a976072d242aed00b67aa15b35063abbbd15e6cebd831c"
     },
     "src/components/learn/NounGenderTrainer.tsx": {
       "before": "ec66600be57dec7e60e87ce137f313026a1004ebfea472cce2598d007857a0e3",
@@ -695,15 +695,15 @@
     },
     "src/components/learn/PrefixVerbsTrainer.tsx": {
       "before": "6c2b9bca01a86d608c7b442b2c6bfcaadb12407489450b298d3e030a50acec1f",
-      "after": "86c25b0da134e77f2db2747fbeb54648d862a43d1daa194a42a8a14d5966d828"
+      "after": "912e3c8ffd4d7e91954b13c470f875d05336cf67647e45f3a312a72623af06cb"
     },
     "src/components/learn/PrepositionalContractionsTrainer.tsx": {
       "before": "bfee30f80410ce763444d26bd05e077e798e28fd92b80dce7f3c06349942ff7c",
-      "after": "eb9e58b374308469ca7f258db9edd9fb4c6e11ccc1272e9f0c56ced2a1daf302"
+      "after": "5a4d176f1b04bb45439a36aaef67522fe5195626c15904bbf4c134fae7d6713c"
     },
     "src/components/learn/PrepositionsTrainer.tsx": {
       "before": "798c7acec4414c69fed8578dc1af67b49bcfede6b0c3e4a8da0df2496ddb5312",
-      "after": "0434e83c4f9ea25b0cdd9a41a01d433178f491f2580ecdd87855d89b975cfa99"
+      "after": "3510841de585a4a812bd29bee9ad8be8f9b78e7864e9ba5d865c218ace40eea2"
     },
     "src/components/learn/QuestionFormationTrainer.tsx": {
       "before": "cc0d6ec963b2b40809a2b5063aeb34f60ef4a792a51a6a76886234a5222f3eae",
@@ -719,11 +719,11 @@
     },
     "src/components/learn/ReflexiveVerbsTrainer.tsx": {
       "before": "1bc233d7d01a3e5326d122f976f749b30022db68a3c961b3dba928e848363260",
-      "after": "20f24710abe394f58a8bfad13bb249f26a6926f5f61612f53468e47d219ebac7"
+      "after": "274fdecafa19678637fb4ad6869b97dc365c42315d5cfb174ff5431bd0eff35e"
     },
     "src/components/learn/RelativeClausesTrainer.tsx": {
       "before": "6e8074bf5f16a54e99b9804f2bc30d786f644aed7ab3a9a34f69ffcb14c15862",
-      "after": "9379aaba39bfc0d1c827ee606b8b978865d67c2086041cc3f88fe0f232528dac"
+      "after": "41fdae802087946980a16ddb35dde52146f871c7c9b592e64f05bfcc88868ecd"
     },
     "src/components/learn/RewendungenUebersetzer.tsx": {
       "before": "ef65043df9d51b1ce57bb80edc584891efed091e0f6716c4d56d3618f5f7f4c3",
@@ -739,7 +739,7 @@
     },
     "src/components/learn/SeparableVerbsTrainer.tsx": {
       "before": "3a98847ae07240decfbfefaf6b25410a49b837cacc3721d1934c2c2aba9b1a1e",
-      "after": "8ec9516f50d05d5e39fd279918c09cf6b44640bc90f00f55f37cfb0ffe48945a"
+      "after": "73041f591c4299929868655a0d72fa80af4e4109bdc07cd0706eae177088ecb1"
     },
     "src/components/learn/SpeedMatch.tsx": {
       "before": "ee785cadfde198ecf82d12f09357a799a2867ebf427d37dde03a946a7dda6cf2",
@@ -747,7 +747,7 @@
     },
     "src/components/learn/SpellingTrainer.tsx": {
       "before": "2d431f3628d3d53d514bd2263ca9bd6cef6560c1e0d2c747247f8da885a87b6e",
-      "after": "3b296e79c53685691f43ca323024d73c4680263e816952e1631228c81f5b0d50"
+      "after": "f309039a838b0a4daa73a85de50a9610a6c23a7df6f05513a4efddbdf1e3cc37"
     },
     "src/components/learn/Sprint.tsx": {
       "before": "65e2afe8dbcd3b4761d583182cf21736426f3167a8cdfaf30c257982284bde22",
@@ -755,7 +755,7 @@
     },
     "src/components/learn/SubordinateClausesTrainer.tsx": {
       "before": "9cd8e79a455023748a831a96a97af814eef4f1f2217007cd660e561a2e5d8bd3",
-      "after": "d4cc68efcc693911cacfc5dd48a6f6e0df7e2f1dd939147e5e17baadaf54e5b6"
+      "after": "e3a74557226b09823b27822ce5f87adb5e2280e8bafeaa045537cf95eda0d5f4"
     },
     "src/components/learn/SynonymTrainer.tsx": {
       "before": "b38a41e2831586de02ef0d33ba697657934369d52f0c88b83dc3abcf789b327e",
@@ -763,7 +763,7 @@
     },
     "src/components/learn/TensesQuiz.tsx": {
       "before": "540b264070c36b6424cfd587a52083c57f9e071e4b2620df6c52137cbf52c5ef",
-      "after": "058ff519309e717f6ca57742770553abb30167d6977587111417f037420b7fba"
+      "after": "d9146ee3fde767a2f228340ebd9af8d29e7c1820220064436327afab49776344"
     },
     "src/components/learn/ThemenVokabeln.tsx": {
       "before": "31b8b5d762f9be37e96df3cd8f2d7f10987192fccd2cd9034c62146f9d08457b",
@@ -771,7 +771,7 @@
     },
     "src/components/learn/TimedChallenge.tsx": {
       "before": "e92633f362dc5406079646538c68c0cfce9dcb28e4e29387801066252233ba50",
-      "after": "79a6c4f6ce4e0fa6642d42f8f6b95f0d6b43a556ab4fd140062976fe9c14b6a5"
+      "after": "c0e5899639d1280ebf8cd9614f3ef61f5720f98423610e602fe23be2bb5fed9a"
     },
     "src/components/learn/TranslationPractice.tsx": {
       "before": "6ac248cce0986b9b2ea3b22829fb3d0476a23bf9d7593364527895dd4793a5cb",
@@ -787,23 +787,23 @@
     },
     "src/components/learn/VerbPuzzle.tsx": {
       "before": "705efb6a554ae1e91d95ef87006a735bf942b7cde96649332564fdf0e6eebac5",
-      "after": "abd96fa953013c11cc2001ab1015572c17e961d380a4618b8688defd1463806c"
+      "after": "84dea0aa3f1b9b63e0d6fb88a9d8facb118e3753ee7301c6ec6f5851a4a6244f"
     },
     "src/components/learn/VocabularyPractice.tsx": {
       "before": "95de8c9e04a335e53400c6f62f7ed8490f9455bf34990f8e99b5d510dfa61497",
-      "after": "3e66dd3460445e6ecb59fc51c96b9663fac42cd5431deddd61b00403c0e743e0"
+      "after": "58efa31e82f1aeca8f162e5c36fffd89c1b31efe57e498682472fa0ab6532c04"
     },
     "src/components/learn/WeakNounsTrainer.tsx": {
       "before": "b322f5d81cab35e7aec6ead23e861a8c909eca6b7de3b6dba4d1546576cef55b",
-      "after": "ad160c7812848f5bcc3a9cc29f36b1f4d45749f2f67191da6d1886ed5d2a9636"
+      "after": "1f72c1256d92dbc68c8bc69c73501e2a5b9dfa3bceebf9e5d829144d3f06b2ca"
     },
     "src/components/learn/WordFormationTrainer.tsx": {
       "before": "b031481456ed4e57f50b17581a3d2d437b44b4435e80a2ab77dbfbb0b8c4f2c2",
-      "after": "b1013c853fe3a56a4f250168e146034320018e61f101de52a47e312745f87865"
+      "after": "dd591a0c616c6fc8388a4b7280ba67038cb29f3779c0286b6a4a0a6469163908"
     },
     "src/components/learn/WordOrderTrainer.tsx": {
       "before": "7245a92ca8638df009306ea404f88119bafd824c053556b5132efb75ca5ffd81",
-      "after": "5c368f9b6cf791ddf365b017f849c846b6e22f972bf6c441a9c221e3ec5e6437"
+      "after": "26ded28795fac578d06f982895e63126b6bed313dd41d504c64f379504f53353"
     },
     "src/components/learn/WordSearch.tsx": {
       "before": "68f54c19f1a59a42469251a5245096f90db161bc7a28b94765db48c235eebee5",
@@ -851,7 +851,7 @@
     },
     "src/components/ui/AddToVocabButton.tsx": {
       "before": "2ef58a4a9ccf11b7798fa5345876d643a7a0a5136d0d1fb761ec74631a3e742e",
-      "after": "399c07105d8c8c27ef48dd0b27e9ea7b116baeea99b4beb50ec6ceefb7df9ee2"
+      "after": "27591c97db57500fa4a56ad7423337049ca16500652e39a257a9b6141b21e537"
     },
     "src/components/ui/NotesEditor.tsx": {
       "before": "552f69032b523d729cf39699b112cfdbe6a22607e11d0889a47c55b461185322",
@@ -991,11 +991,11 @@
     },
     "src/app/placement-test/page.tsx": {
       "before": "8932b1d529e1067667eb86683836d9d409e4b28ae24fdfb5bda05aa64142fa14",
-      "after": "fde581d77eb212ac9019f1e29d07abee1f3e3c8d28f96d6f0eaa3e33291e7299"
+      "after": "b5abb54a48d50f7cfe09ad5fa47dc318a0ac66bbb4c72c5c6d0515e461774123"
     },
     "src/app/placement.css": {
       "before": "5afdc905aef2594805870384cc05019ea6f76e6a4be9af0ea0c688c21790be61",
-      "after": "c560e1e9984053b817c23d7520deefb72dc1400f284813de744c12413494c36a"
+      "after": "b358759046f9fe07233c0ddb3951ad11ad78f4812c7aa1dac591e2cde4dbcf43"
     },
     "src/components/mock-exam/ExamRecorder.tsx": {
       "before": "41e2ace821f938ce98e4e786dfd61d4f4f1ddc20b5bba15867662269790e681e",
@@ -1015,7 +1015,7 @@
     },
     "src/components/placement/StudyTimetable.tsx": {
       "before": "47ef66a3b09f0d9250708ba2d872bbdfcbf39def07b812064daeff28be864099",
-      "after": "f6f8868ce1aec16bce8dd157d8d4c69a3e6934bf34ff95ce23ede79f6de3587d"
+      "after": "eac76d7d2f601c0e20583618ddb5cee864102156aaa90d289711f770007bf7fd"
     },
     "src/lib/placement.ts": {
       "before": "cb1d2f8b768e0ebda0192ee346a4696e85aea04833dd40295a48ed9516a77906",
@@ -1031,11 +1031,11 @@
     },
     "src/lib/studyPlanner.ts": {
       "before": "226b99e58625b0b4f2a840e5d399e487b8f79616441585d29381c8b1625cd77c",
-      "after": "c8553101d29a3f059b19c30dcf921e9aa01acf89c1825668ac86d84a1c47aafb"
+      "after": "6cc6faa7653dce4854eeab979b5cf28825dcf3350ba15aad8344a544ec84863c"
     },
     "src/data/level-study-plans.ts": {
       "before": "9b0e4a07706863ad12decdeb0cbba3ad8423d3c02cf77177751a6051d1b9d697",
-      "after": "a1aa76fcb7bb1c43bed6b7f8298e81489541d800e914a47cd9aa75391ec056a2"
+      "after": "96271e2aba721ca4f49f5e6c9b1f8cf16283ced091df63835468d813eebc5259"
     },
     "src/data/placement/questions.ts": {
       "before": "7e221e73c976d499c0da324b7a326095ff316e2038a2bb68a7d9d3478e2bb517",
@@ -1043,7 +1043,7 @@
     },
     "src/data/speech-catalogue.json": {
       "before": "d382431ade61fb7afa7a77b79a7a36589c5e90dac40c595ccc89108b8fc6c7c0",
-      "after": "e19848f24743207cbcd19c47ba36ee7b27c987e93e27d501c6e61e0529d0104d"
+      "after": "dde1b5e238a469ff6a1feb2664db34f168adc914923680571722aa0f0f08a4cf"
     },
     "src/lib/speakingAssessment.ts": {
       "before": "dc9918177f3692537afa7f2cce98f892180313e0a7abf3f87f1a1adbeb191361",
@@ -1067,7 +1067,51 @@
     },
     "public/media/grammar/englishcamp-grammar-reference.json": {
       "before": "8dcc6c55a546c315c3d592b58940350beda20ab5efbd28a6b3111cd22c7a34d2",
-      "after": "21723ddec3b4a1f374e3357857bf6d77f7506ae72297dac93faca556c40f7453"
+      "after": "353809eb4759eb849d4835a35315fdf80359243291430581725716c1033933e5"
+    },
+    "src/components/learn/EssentialVocabulary.tsx": {
+      "before": "7f7b1f7cf1ccf6dbedc896585046114001f8dcbd8fc460df5bf6ced7a81bc1f5",
+      "after": "c34f4bc81b6418c1a18efdbcf58380c46cab6849049275c1a74f35383deb1585"
+    },
+    "src/components/learn/EssentialWordArt.tsx": {
+      "before": "e659de5fd1f0076d6eb5804713d901dd86c2dcda4125e7216f0307ed31e21772",
+      "after": "868054f4519682aeaafe56b17480bd82e2c545b62e8361bf3ebce5674c549de1"
+    },
+    "src/components/learn/GrammarFoundationLesson.tsx": {
+      "before": "8e391b31d8d3c0d9eb91fc50fd5a6c65b245b2fc06d786041d8225f3bd7373cf",
+      "after": "7597d21701f98ae7358f9b22cbaf3c36c69c9f79dfa36f7bfb85c2994bf8e25f"
+    },
+    "src/data/essential-vocabulary-extra.ts": {
+      "before": "cee96e17c02749a460e25d8a8404d49099d278c6f22f315e97fa5578ccf98374",
+      "after": "51ac7ad69bc98423798bc05719e60f4c41565802d3832d386243a96ab554b6a4"
+    },
+    "src/data/essential-vocabulary.ts": {
+      "before": "dc06e627f3e8f03682bc12c23f64de90b8ac4e0edb4812eebeb71b33533155c7",
+      "after": "5760989ae18a68c11317539f6ea2dc67542755e4438f3c50bd815bd5fff25ce7"
+    },
+    "src/data/shadowing.ts": {
+      "before": "f81c7c141f9070fea340ecf6f0668ece185e4ca06e7a38d70d6fa229a95c2a8a",
+      "after": "91fe3fac6bed31c5ee1295a99efa856dc8b1708062a12e4282ab78a74696377a"
+    },
+    "src/components/ui/LevelEncouragement.tsx": {
+      "before": "d9af780c8288da757c24d167c19e66ea6b85e176e31e6f1c4706dcc0db49dc7a",
+      "after": "f75b664289301964c8e8d8a9fbeca3a50450807cc542cc46174ec58eb3bf7ddc"
+    },
+    "src/components/ui/Modal.tsx": {
+      "before": "0aa86b23f4ea4214ff83305747f4edcc56d29af02303601cd4ea42e351b44da8",
+      "after": "073a9600a2c1dd91477362a116526778d97bfeb70234b60c530a2598ad92692d"
+    },
+    "src/components/session/LevelCelebration.tsx": {
+      "before": "9c89c690eef98f7c3f93fd5224cac20509bd9e9d1c82a7f08f9284987fae3647",
+      "after": "aee080efe18f381d7a785d698382b7243ebf850d7550c0c1a7f8931c458262a6"
+    },
+    "src/data/grammar-foundations.ts": {
+      "before": "7e0554cea91892d40008dedec6801af2144e393f06265d6c4ce4549ab070c303",
+      "after": "97d0685bf282c36e90c8ff7b9b5c54a78e086148535de6ecc679b9d55a1f978f"
+    },
+    "src/data/grammar-extensions.ts": {
+      "before": "6d5d92f8bb2f633187827ee9901c2cc7103d62cb0cb88ac770046233b4a14230",
+      "after": "18cb1df6ef65b1b10828a653e722bbf5cdcdb332f78e861899f1859b22973109"
     }
   },
   "practicePresentation": {
@@ -1101,11 +1145,11 @@
     },
     "src/components/learn/ComparativeTrainer.tsx": {
       "before": "fe8c9efab1cdbdc92249a02c9ddb7de68a2b5d396c8894a3571438b6c7a3b3d7",
-      "after": "342a340853561f0b5c653e8836358df5f94c6c823e7fc55f20ef22893920c2fb"
+      "after": "080d110a05dea9b31d8996d8f5a813d49999c4de91b47712179fa51e28299d6b"
     },
     "src/components/learn/CompoundNounTrainer.tsx": {
       "before": "1ea0e36ab3ea6de735572dc63e6774897fef1bb7d9c4af78b0a139b476b56970",
-      "after": "7ab9f73832e916ed9e6640044362156fb60d450ab60b3498ae8db3a264f6df69"
+      "after": "ae5662ced3d4063b1d73d8f206c4e288d8eb23a5538bf254b0e2503a4749decd"
     },
     "src/components/learn/ConjugationTrainer.tsx": {
       "before": "a8f910f77ca6ffa5cedbbe98bdb36c3bbf3ec5e64a95ca983a6cec18f5acd3e0",
@@ -1113,7 +1157,7 @@
     },
     "src/components/learn/CoordinatingConjunctionsTrainer.tsx": {
       "before": "3781e010e26153c2a70a75effadb2f8bd9cfe56508ffa2767e1d4983c82a3621",
-      "after": "341e99cb0e3fac14194cfb3b8e2d42dc0868c8401271df2e6b1ea850c222250b"
+      "after": "8b8989f1ee91a62450a844f57319481be7cddc5731c72bd829a6ab85c5da5aec"
     },
     "src/components/learn/CrosswordPuzzle.tsx": {
       "before": "9b41ad5c8647f5affba7c378ba5ef59e3804b9cf23c6d04d4647a2abd13fadde",
@@ -1121,7 +1165,7 @@
     },
     "src/components/learn/DaCompoundsTrainer.tsx": {
       "before": "78ac340a92aa444831628e635544bf8c0dcd8791a1d33fa84818bab9f02a8d4f",
-      "after": "3a3bda3b8ccf24e3627ac7e19a318a3c737ee55b550240aed53225441af93e54"
+      "after": "190eafc6008f28a3fd14d4115827c17b46a7db11fe7d04dc6cf5ada3c72b633f"
     },
     "src/components/learn/DialogueCompletionTrainer.tsx": {
       "before": "94a04896b856ef59047dec2b5d23f2b313d8d98e30560e3a8f10cea42e44dfcd",
@@ -1133,7 +1177,7 @@
     },
     "src/components/learn/DoubleInfinitiveTrainer.tsx": {
       "before": "eb6f705318cd90f322fdcf708909da3c8a7b97d9bb46be86f57362c894ff8d40",
-      "after": "81b6e5fbe8b824a00b468b25023c09a33926c627a3f8aeb1d18aea2d7f20ba3b"
+      "after": "c19087a3ec168bc40851d71cdea5871f51902f04ffce9ac94d6c5cb6db3f5121"
     },
     "src/components/learn/ErrorReview.tsx": {
       "before": "30358150bddea73b2503c3628deaaf17e9a689de4aaccf8a8f8672690b71fd77",
@@ -1141,7 +1185,7 @@
     },
     "src/components/learn/FalseFriendsTrainer.tsx": {
       "before": "c59e5ff7c5a7aec0acc647604836cccafbf25650cb881a4b81f79062a08faf07",
-      "after": "73c5167e563780e9b18cf121f65452d87490acb1f786038616b14eb9fd2a7508"
+      "after": "0f7fabe2d69439fb70eb64de26aa5f9182f4ab65f0a7cfab3e5a18d952230b1f"
     },
     "src/components/learn/FalseFriendsUebersetzer.tsx": {
       "before": "7f1ba166e16f6ad9aa69bd13b17ee3cfaafd17dccd93b08f16b031c8d057c83e",
@@ -1153,7 +1197,7 @@
     },
     "src/components/learn/FragewörterTrainer.tsx": {
       "before": "28d93862860743a53cba8b6f859134877d7f435c0ce3792ee49be1eda2084ee9",
-      "after": "abcda85745103a983aec160a2a5f15dccc5941777fdd6cc29023be1a1f7c6691"
+      "after": "2c2aef73955f1179bce2f44b6579e69dd1d35de82087a2855295309768cd4bd8"
     },
     "src/components/learn/FutureTenseTrainer.tsx": {
       "before": "9e170d8cc24bcc6ba57693a2bde2a91f381f512255236212f2c68eb83506751e",
@@ -1161,11 +1205,11 @@
     },
     "src/components/learn/GenitiveTrainer.tsx": {
       "before": "aa0b73fd6820864940985487b209eafebd6a2828e191b35184bc9ff472af72ee",
-      "after": "7560e45b472662c84517f920c269bc02f4b5551a87f26d89802b873ec9075d89"
+      "after": "4e1110a13f1e50ce64642dba84f583c0af6e9fe335c9723a36f5280a7c408cd2"
     },
     "src/components/learn/GrammarReference.tsx": {
       "before": "26e7958c81cf35b50a9a44e133d6a67c94b68e811c0963cc2c993b0033a46269",
-      "after": "6e3f7f8abe08b68828e952e14245d7e0ca54c61880eba0f21edca8cc0ee9f52d"
+      "after": "d5419c37ca4e9b56467729c124c07c1fc23dc41fa339d22c65dbc07bd2be4ad3"
     },
     "src/components/learn/Hangman.tsx": {
       "before": "b0a9edefc1e0fe178fcdd7df85db67af5c3e59dbb2faa875d68ccf99bc87feb0",
@@ -1181,7 +1225,7 @@
     },
     "src/components/learn/ImperativeTrainer.tsx": {
       "before": "bfd5e4b69ca005c461128f96b05fab66b36ad61dad66bce5471a22779a4f206e",
-      "after": "093b2d26478457520f56744bff897bb4d298ca6e9de4f3b364970f4a3ec5b211"
+      "after": "2bf80d673ab9745b4b27ae26527775cf5d79941ef6410d689f1ae32d5bed9519"
     },
     "src/components/learn/InfinitivMitZuTrainer.tsx": {
       "before": "56cc1c81d8a614bb4b570888c897a70c1c677269b97d2ce94a2d6fbc9e449744",
@@ -1197,7 +1241,7 @@
     },
     "src/components/learn/KonjunktivIITrainer.tsx": {
       "before": "25be4240af6bcb81dfb97741b9aa337e7bf0c45693cb6316540b605328a6614f",
-      "after": "e579d43fdfaa36f5abc2281252861d5344df6dd2ebe88c3c15762c12fb114d05"
+      "after": "3420edf425aa07603057c0fb06df17260641fdd47f49db2bbdcb129d14d26027"
     },
     "src/components/learn/Korrekturlesen.tsx": {
       "before": "2540ed06e80a1574984b85f23ce39ebbbe35564d9719df41408bb2ea7b562b41",
@@ -1221,11 +1265,11 @@
     },
     "src/components/learn/ModalVerbsTrainer.tsx": {
       "before": "ebeb1def9a0b842bd7a8b419cb095871b6e9f77bd17a1a6af58ac7c95603ce4a",
-      "after": "a5d8a90f15953d1dd98835371d20092804838ff0405972a5453d7753cf2c6464"
+      "after": "c89a7054affe651f220a54a5761d801944d3f7d913009944d86f10bcc3b71886"
     },
     "src/components/learn/ModalpartikelUebersetzer.tsx": {
       "before": "3c3662ef60bf360c2064dc92cbc3ebe38c96ba11ad928d0610e8b90ff13e6843",
-      "after": "46c06a7977d9d4288e6a35354bb7b1123a29c40bab07ece1230763b931db8d2b"
+      "after": "f5bd0c46888ab7049f8aef100a2ae09337035922c24f91a3be96d1e3a1228791"
     },
     "src/components/learn/NarrativePastTrainer.tsx": {
       "before": "73af1133cf97618c0eb8950402996028f2ce7917638e0b02ca37a46a0856f238",
@@ -1233,7 +1277,7 @@
     },
     "src/components/learn/NegationTrainer.tsx": {
       "before": "d4f072d64396e206213eaa687069e3013635bd0281d73687900e317e82b20cbe",
-      "after": "846b473ba6cc0d2643a3f043e6de235f5ed9c8be85c52adb55d0df53925ccb1f"
+      "after": "2d34661cdccd5a1ba3c66ec78c8926d5580033cf47cac72b8298c2bd16806ffe"
     },
     "src/components/learn/NounGenderTrainer.tsx": {
       "before": "97ba0007316c71137dfae6c456db0e431c8050e6a39fa2c38177f53aec91dfe6",
@@ -1257,15 +1301,15 @@
     },
     "src/components/learn/PrefixVerbsTrainer.tsx": {
       "before": "859dbc6a3a89241ce90981996737bc8872d4b2705c4b0ed59b81666bbc54071a",
-      "after": "6e525a8f32c83ef97e5c4bbf66f004ed41c0806577f6b9d3a3d15da76de90404"
+      "after": "45baa270dc1bf84b157204b2e7817c7d7b010e0d9a30822983e4f1f155efd893"
     },
     "src/components/learn/PrepositionalContractionsTrainer.tsx": {
       "before": "8e2b312aabe8b04750bb5fa62a74e36a00fab875db7ccf333cb62d1e6f708eb5",
-      "after": "48dd1ce1d0ef29025560a57c781cfb67faf566c4270efdeae139371b643dacef"
+      "after": "9b6a199e172adceaef9ffdb491be90cdecbc6edce077dd92df80cf200bf47b91"
     },
     "src/components/learn/PrepositionsTrainer.tsx": {
       "before": "4e793e0be1d7214a7707b1363b51aa380b8d0074fdd0173da3c254d229ae8210",
-      "after": "76424742670e477dc29d0a67bbce3d3317a0400b051c9e02b527f5e679b5e1b4"
+      "after": "eee01dc1e28ac30ea6e071198149a37cbdf2b9a26d2d0cd5aad0deff1824644d"
     },
     "src/components/learn/QuestionFormationTrainer.tsx": {
       "before": "4e7a7e435b991e70e3c4f10ce356f388694e857f40c3deb3dc8f9d63af6ad711",
@@ -1281,11 +1325,11 @@
     },
     "src/components/learn/ReflexiveVerbsTrainer.tsx": {
       "before": "b750778378e9bfc006543cb0c3b6c78c2557752e303a0ac9d2e0a3dd8f1c7ded",
-      "after": "0079ba8d48538a3b68c5164f2ad38bfa1e8ec4b7acf838f630527db7038a767e"
+      "after": "d953437bc7e442adbb30d0cf9f411bf7afde6e588b25d6902a008091a3cf195c"
     },
     "src/components/learn/RelativeClausesTrainer.tsx": {
       "before": "a2bef9f923aa4b00b07145b75e9b28ae993bec0e4150a1a29b9826c4f1d884bd",
-      "after": "a5b1ebc1b661bdf957e321ddfa5d1d80f2ffb1c700ef994b141c498de6f93a4e"
+      "after": "24f7edbdc62e1ebd84aad14ee36b36e2cafc123cdd8c92d53793c700ae222be4"
     },
     "src/components/learn/RewendungenUebersetzer.tsx": {
       "before": "6ca16a471a741137cf575c330e1718d89e8601ee079c7e22146f31bd184ea304",
@@ -1301,7 +1345,7 @@
     },
     "src/components/learn/SeparableVerbsTrainer.tsx": {
       "before": "2599e500cc462c8ddd506d1e3bf2de8249be3221c706c26f40d5dd914090ed34",
-      "after": "19067ab4c95718069b93f29e6463a9db9dcfd576f22a542b248be33a8327d46f"
+      "after": "babbb15f0140cb1a90d5380837879ce3a1285015d8caf186612e248c84aef77b"
     },
     "src/components/learn/SpeedMatch.tsx": {
       "before": "957d3516ef46ebdee3dce070d62653f5c7e04ebeba741d2cdebe2ed52b124bc3",
@@ -1309,7 +1353,7 @@
     },
     "src/components/learn/SpellingTrainer.tsx": {
       "before": "70b49c54f6bf691eb58e3a3ec363235be0df5efd69e955727ee09e80887e9b7b",
-      "after": "a9e5d4c643e9b66503ff866856f2ab92b490df90be5f1cc1372e4608c38e6699"
+      "after": "1eb005f329931c03308457e2e6cbe54ae1ebf2a0e00f0373839956152b965475"
     },
     "src/components/learn/Sprint.tsx": {
       "before": "db3613f1688b7146a38e0299c98976673066933415dceafa4f0e6c6c7d619792",
@@ -1317,7 +1361,7 @@
     },
     "src/components/learn/SubordinateClausesTrainer.tsx": {
       "before": "2ae3ab6bd26c81173a7fe1b2b3db1536dd19b689128210cdd234c54058a5664b",
-      "after": "f716761dd3ccab74b66650f19d6f98ebff6430c340ec955b098cfdbf4a9adcda"
+      "after": "d1043653786385ec280235cf54794e8d2f79a8dcfb78c5d4c69807a4797d632e"
     },
     "src/components/learn/SynonymTrainer.tsx": {
       "before": "0ca64147830fd748681b0a5fc4f18e059345d260b05fc4d44712d5cfa00d9200",
@@ -1325,7 +1369,7 @@
     },
     "src/components/learn/TensesQuiz.tsx": {
       "before": "c6bfaacc71761e423ef7e1438b06b64958a78cfb7544d6b50f403c3f328c64ab",
-      "after": "67e8dd039d85d7a00f58bfad8cb4c26c7a39e12e8e5338fc7257e647139e496b"
+      "after": "aea36afda0b8a67996fe53a61be09747570e40dc719c1c45a6298c75bef06bdc"
     },
     "src/components/learn/ThemenVokabeln.tsx": {
       "before": "53ac6b22342644b40aa2f32696d2d9f22f72f132b3ba12899685a03151d1606c",
@@ -1333,7 +1377,7 @@
     },
     "src/components/learn/TimedChallenge.tsx": {
       "before": "24fb0b810c614e430d1a5def9a635e2443c65122d0747fd1bb027c614066616d",
-      "after": "58a707a8c973de53e8f6d3a59edacc3cdf698dea6dae333fe46f8bc53a50077a"
+      "after": "5cb0aaa5f2a47c02fd685eff889322d23ea8a9013776d8b40959a694b04d9d9f"
     },
     "src/components/learn/TranslationPractice.tsx": {
       "before": "80e7cc2f4ffebf11046224bd23a9804683aa9671baf21bbc49d559cdc4f85080",
@@ -1349,23 +1393,23 @@
     },
     "src/components/learn/VerbPuzzle.tsx": {
       "before": "7a4629eb60e9af4d348f948823f22225fbb4dc601881590a65e8b9b93b4f5ef7",
-      "after": "4c79764808a197efefa758975f9f5884f4dd7c582609960504afd94616e25fad"
+      "after": "4df63958119844b39b40c324e3930fc5a437307d34a4b5ca3ea64249538eca96"
     },
     "src/components/learn/VocabularyPractice.tsx": {
       "before": "457664a270a0533c12fd7570120a6d82781b1cf085edc9c628edc5e42fac030c",
-      "after": "f68e32876fdbaf6dbec4ea50015e6363f9a8ce0eec2ef8440289e94d16676856"
+      "after": "07ddc02aedb8791c29c55bbbcb1a9550bd0daa704d94d1c75d6cac63014c20ec"
     },
     "src/components/learn/WeakNounsTrainer.tsx": {
       "before": "2a59507f70c3bc4948a397308b4c117775b929694e6520ce925eb3797be9bc6d",
-      "after": "ffd61a59026395f575aa18b67ea201f63e3898128742cdc561097f7826ccfc4e"
+      "after": "9f21ffa37d32f3ccb5d6d8be93642cccac2c76e7fe494f131b02e9b21442e02d"
     },
     "src/components/learn/WordFormationTrainer.tsx": {
       "before": "cb7572f8738d3636d971d523256de4b8464eb28cc798923f034e636fde4733e8",
-      "after": "be86f10f91f3994a68610fb42cfd07aa139f866fe336df2cdb9212af419af0f8"
+      "after": "dac13d6a57859168d396b78173e0a9644a5634f714025cd665391b094138f86a"
     },
     "src/components/learn/WordOrderTrainer.tsx": {
       "before": "3265c4de91eee03e091ad8062d9def32774ef5a1ba45c0f4a6e6982e5bf0c78c",
-      "after": "c468de0ef462429c795d5289ea3ceb24616cbf26671ba50711671f124d280625"
+      "after": "ca37a764b4c68a4f16976e43779d60d6a4db569219809ee63bc57ddf4724d54c"
     },
     "src/components/learn/WordSearch.tsx": {
       "before": "d36cf9cd223b2302e3e57680031ab72a8e20ed73eba39e081c8c36d5594206f3",
@@ -1535,6 +1579,6 @@
   "fontSetup": "aeed29b7ba90cc97ff2b5d6ca48b9185379860ee0e003f8b53400f20a8a7e3df",
   "practiceCatalogue": {
     "before": "82b1d90f269b581479ed2f366e8a0a62398a19d44975f08faab17fa1934afc7c",
-    "after": "0c7612bc2ce90b82d845e544cca5baa88fe58bea9f42dca6b0e98e1912270084"
+    "after": "0d449f22d5c4356e07d8e23597df5841827e14c38dea29a76a350b5552a532dd"
   }
 }

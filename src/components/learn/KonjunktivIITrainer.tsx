@@ -19,7 +19,7 @@ const ITEMS: Item[] = [
   { prompt: "If he had known, he ___ come. (would + come)", correct: "would have come", options: ["would have come", "would come", "will come", "came"], explanation: "Third conditional: if + had + past participle, would have + past participle" },
   { prompt: "If I had more time, I ___ more books. (read)", correct: "would read", options: ["would read", "will read", "read", "have read"], explanation: "Second conditional: imaginary situation in present/future" },
   { prompt: "If you heat ice, it ___ . (melt)", correct: "melts", options: ["melts", "melted", "would melt", "will melt"], explanation: "Zero conditional: general truth — if + present, present" },
-  { prompt: "What ___ you do if you won the lottery? (would)", correct: "would", options: ["would", "will", "did", "do"], explanation: "Second conditional question: 'What would you do if...?'" },
+  { prompt: "What ___ you do if you won the lottery?", correct: "would", options: ["would", "will", "did", "do"], explanation: "Second conditional question: 'What would you do if...?'" },
   { prompt: "If they arrive early, we ___ dinner together. (have)", correct: "will have", options: ["will have", "would have", "had", "have"], explanation: "First conditional: likely future situation" },
   { prompt: "If she had left earlier, she ___ the bus. (catch)", correct: "would have caught", options: ["would have caught", "would catch", "will catch", "caught"], explanation: "Third conditional: unreal situation in the past" },
   { prompt: "I ___ happy if you came. (be)", correct: "would be", options: ["would be", "will be", "am", "was"], explanation: "Second conditional: 'would be' + if + past" },

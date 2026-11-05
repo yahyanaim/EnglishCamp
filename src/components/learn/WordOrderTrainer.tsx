@@ -8,18 +8,11 @@ import { useProgress } from "@/store/useProgress";
 import { useErrors } from "@/store/useErrors";
 import { playCorrect, playWrong } from "@/lib/audio";
 
+import { WORD_ORDER_PRACTICE } from "@/data/practice-audit-corrections";
+
 type WOEntry = { en: string; options: string[]; correct: string; explanation: string };
 
-const WO: WOEntry[] = [
-  { en: "I go to school today.", options: ["I go today to school.", "Today I go to school.", "I to school go today.", "Go I today to school."], correct: "Today I go to school.", explanation: "English word order: subject + verb + object. Time can come first or last." },
-  { en: "Because I am sick, I stay at home.", options: ["Because am I sick, I stay at home.", "Because I am sick, I stay at home.", "I stay at home, because am I sick.", "Because sick I am, I stay at home."], correct: "Because I am sick, I stay at home.", explanation: "'Because' clause: subject + verb. Main clause follows the same order." },
-  { en: "I know that he is coming tomorrow.", options: ["I know that he comes tomorrow.", "I know that he is coming tomorrow.", "I know he comes tomorrow that.", "That he is coming tomorrow I know."], correct: "I know that he is coming tomorrow.", explanation: "'That' clause: subject + verb in normal order in English." },
-  { en: "Yesterday I went to the cinema.", options: ["I went yesterday to the cinema.", "Yesterday I went to the cinema.", "Yesterday went I to the cinema.", "To the cinema went I yesterday."], correct: "Yesterday I went to the cinema.", explanation: "Time can be at the beginning or end. Subject + verb must stay together." },
-  { en: "Can you help me?", options: ["You can help me?", "Can you help me?", "Help you can me?", "Me help you can?"], correct: "Can you help me?", explanation: "Yes/no question: auxiliary verb first, then subject." },
-  { en: "He gave me a present.", options: ["He gave me a present.", "He a present gave me.", "Me gave he a present.", "A present gave me he."], correct: "He gave me a present.", explanation: "Subject + verb + indirect object + direct object." },
-  { en: "She speaks English very well.", options: ["She speaks very well English.", "She very well speaks English.", "She speaks English very well.", "Speaks she English very well."], correct: "She speaks English very well.", explanation: "Subject + verb + object + manner adverb." },
-  { en: "I have been learning English for a year.", options: ["I have been learning for a year English.", "I have been learning English for a year.", "For a year I have been learning English.", "Learning English I have been for a year."], correct: "I have been learning English for a year.", explanation: "Subject + auxiliary + been + verb-ing + object + time." },
-];
+const WO: WOEntry[] = WORD_ORDER_PRACTICE;
 
 export function WordOrderTrainer() {
   const { completeExercise } = useProgress(); const { addError } = useErrors();
@@ -53,13 +46,13 @@ export function WordOrderTrainer() {
   return (
     <PracticeCard data-practice-surface="question" className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-6 shadow-sm" style={{ boxShadow: "0 3px 0 var(--color-border-default)" }}>
       <div className="flex items-center justify-between mb-4">
-        <span className="text-xs font-semibold text-[var(--camp-control-ink)] uppercase tracking-wider">Word Order (Satzbau)</span>
+        <span className="text-xs font-semibold text-[var(--camp-control-ink)] uppercase tracking-wider">Word Order</span>
         <span className="text-xs text-[var(--color-text-secondary)]">{current + 1}/{pool.length}</span>
       </div>
       <AnimatePresence mode="wait">
         <motion.div key={current} initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="mb-4">
           <p className="text-xs text-[var(--color-text-secondary)] mb-1">Choose the correct sentence:</p>
-          <p className="text-sm font-semibold text-[var(--color-text-secondary)] italic">&ldquo;{item.en}&rdquo;</p>
+          <p className="text-sm font-semibold text-[var(--color-text-secondary)] italic">{item.en}</p>
         </motion.div>
       </AnimatePresence>
       <div className="space-y-2 mb-4">
