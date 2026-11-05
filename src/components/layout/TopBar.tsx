@@ -8,6 +8,7 @@ import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/shadcn/button";
 import dynamic from "next/dynamic";
 import { SessionEntry } from "@/components/session/SessionEntry";
+import { AccentPicker } from "./AccentPicker";
 
 const CommandPalette = dynamic(() => import("./CommandPalette").then(module => module.CommandPalette), { ssr: false });
 
@@ -50,7 +51,8 @@ export function TopBar({ onMenuClick, menuOpen = false }: { onMenuClick?: () => 
 
   const currentXP = mounted ? xp : 0;
 
-  const pageTitle = Object.entries(PAGE_TITLES).find(([path]) => pathname.startsWith(path))?.[1] || "EnglishCamp";
+  // Rewritten URLs can differ between the server render and browser hydration.
+  const pageTitle = mounted ? Object.entries(PAGE_TITLES).find(([path]) => pathname.startsWith(path))?.[1] || "EnglishCamp" : "EnglishCamp";
 
   return (
     <header className="camp-toolbar">
@@ -64,6 +66,7 @@ export function TopBar({ onMenuClick, menuOpen = false }: { onMenuClick?: () => 
       </Button>
       {paletteOpen && <CommandPalette open={paletteOpen} onOpenChange={setPaletteOpen} />}
       <span className="camp-toolbar-xp" suppressHydrationWarning><LearningArt name="Zap" size={14}  />{currentXP.toLocaleString()}<span className="sr-only"> XP</span></span>
+      <AccentPicker />
       <Button variant="ghost" size="icon" onClick={() => setTheme(theme === "dark" ? "light" : "dark")} title="Toggle theme" aria-label="Toggle color theme" className="camp-theme-toggle">
         {mounted && theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
       </Button>

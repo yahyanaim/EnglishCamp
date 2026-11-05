@@ -1,5 +1,7 @@
 "use client";
 
+
+import { BackButton } from "@/components/ui/BackButton";
 import { LearningArt } from "@/components/brand/LearningArt";
 import { PracticeCard, PracticeButton } from "@/components/ui/PracticeSurface";
 import { StudyTips } from "@/components/ui/StudyTips";
@@ -35,16 +37,14 @@ export function BriefeSchreiben() {
   if (brief) {
     return (
       <div className="space-y-4 camp-letter-workspace">
-        <PracticeButton onClick={handleReset} className="flex items-center gap-1.5 text-sm font-medium text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors">
-          <ChevronRight className="w-4 h-4 rotate-180" /> Back to topics
-        </PracticeButton>
+        <BackButton onClick={handleReset}>Back to topics</BackButton>
 
         <div className="camp-letter-writing-grid"><div className={`rounded-[16px] p-4 ring-1 shadow-[0_2px_8px_rgba(0,0,0,0.06)] ${
-          brief.type === "formal" ? "bg-[var(--color-info-bg)] text-[var(--color-text-info)] ring-blue-200" : "bg-[var(--color-warning-bg)] text-[var(--color-text-warning)] ring-amber-200"
+          brief.type === "formal" ? "bg-[var(--color-info-bg)] text-[var(--color-text-info)] ring-[var(--color-primary-light)]" : "bg-[var(--color-warning-bg)] text-[var(--color-text-warning)] ring-amber-200"
         }`}>
           <div className="flex items-center gap-2 mb-1">
             <span className={`text-[10px] font-bold uppercase px-2 py-0.5 rounded-[var(--radius-pill)] ${
-              brief.type === "formal" ? "bg-blue-200 text-[var(--color-text-info)]" : "bg-amber-200 text-[var(--color-text-warning)]"
+              brief.type === "formal" ? "bg-[var(--camp-purple-soft)] text-[var(--color-text-info)]" : "bg-amber-200 text-[var(--color-text-warning)]"
             }`}>{brief.type === "formal" ? "Formal" : "Informal"}</span>
             <span className="text-xs text-[var(--color-text-secondary)] font-medium">{brief.subject}</span>
           </div>
@@ -68,7 +68,7 @@ export function BriefeSchreiben() {
           >
             <CheckCircle2 className="w-4 h-4" /> {completed.includes(brief.id) ? "Practised" : "Mark as Practised"}
           </PracticeButton>
-          <PracticeButton onClick={() => setShowAnswer(!showAnswer)}
+          <PracticeButton disabled={!drafts[brief.id]?.trim()} title={!drafts[brief.id]?.trim()?"Write your response before viewing the model":undefined} onClick={() => setShowAnswer(!showAnswer)}
             className="px-4 py-2.5 rounded-[12px] bg-[var(--color-surface-alt)] text-[var(--color-text-secondary)] font-semibold text-sm hover:bg-[var(--color-border-default)] transition-all inline-flex items-center gap-1.5"
           >
             {showAnswer ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
@@ -93,13 +93,13 @@ export function BriefeSchreiben() {
                   <span className="text-[10px] font-bold text-[var(--color-text-success)] uppercase tracking-wider">Translation support</span>
                 </div>
 
-                {brief.arabicTranslation && <p className="font-arabic text-xs text-[var(--color-text-secondary)] leading-relaxed mt-1" lang="ar">{brief.arabicTranslation}</p>}
+                {brief.arabicTranslation && <p className="font-arabic text-xs text-[var(--color-text-secondary)] leading-relaxed mt-1" lang="ar" dir="rtl">{brief.arabicTranslation}</p>}
               </div>
             </motion.div>
           )}
           {showAnswer && (
             <motion.div key="useful-phrases" initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }}
-              className="bg-[var(--color-surface)] rounded-[16px] ring-1 ring-blue-100 p-4 shadow-[0_2px_8px_rgba(0,0,0,0.06)]"
+              className="bg-[var(--color-surface)] rounded-[16px] ring-1 ring-[var(--color-primary-light)] p-4 shadow-[0_2px_8px_rgba(0,0,0,0.06)]"
             >
               <div className="flex items-center gap-1.5 mb-3">
                 <LearningArt name="BookOpen" size={14} className="w-3.5 h-3.5 text-[var(--color-text-info)]" />
@@ -111,7 +111,7 @@ export function BriefeSchreiben() {
                     <span className="text-[9px] font-bold text-[var(--color-text-info)] uppercase shrink-0 w-16 pt-0.5">{p.category}</span>
                     <div className="flex-1">
                       <p className="text-[var(--color-text-primary)] font-medium">{p.de}</p>
-                      {p.ar && <p className="font-arabic text-xs text-[var(--color-text-secondary)] mt-0.5" lang="ar">{p.ar}</p>}
+                      {p.ar && <p className="font-arabic text-xs text-[var(--color-text-secondary)] mt-0.5" lang="ar" dir="rtl">{p.ar}</p>}
                     </div>
                   </div>
                 ))}
@@ -128,13 +128,8 @@ export function BriefeSchreiben() {
 
   return (
     <div className="space-y-6 camp-letter-topics">
-      <PracticeCard data-practice-surface="question" className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-5 sm:p-6 text-center shadow-[var(--shadow-1)]">
-        <LearningArt name="FileText" className="w-14 h-14 text-[var(--color-primary)] mx-auto mb-4" />
-        <h2 className="text-xl font-display font-extrabold text-[var(--color-text-primary)]">Letters</h2>
-        <p className="text-sm text-[var(--color-text-secondary)] mt-2">Practice writing formal and informal English letters</p>
-      </PracticeCard>
+      <div className="camp-letter-intro"><LearningArt name="note" size={24}/><div><h2>Choose a writing task</h2><p>Write a response, then compare it with the model.</p></div></div>
 
-      <StudyTips title="Writing tips" items={ASTUCES_BRIEFE} />
       <div className="camp-letter-topic-grid">
       <div>
         <h3 className="text-sm font-bold text-[var(--color-text-secondary)] mb-2 flex items-center gap-2">
@@ -149,7 +144,7 @@ export function BriefeSchreiben() {
               <div className="w-8 h-8 rounded-[10px] bg-[var(--color-info-bg)] text-[var(--color-text-info)]  flex items-center justify-center text-xs font-bold shrink-0">F</div>
               <div className="min-w-0 flex-1">
                 <p className="text-sm font-semibold text-[var(--color-text-primary)] truncate">{b.subject}</p>
-                <p className="text-[11px] text-[var(--color-text-secondary)] truncate">{b.content.slice(0, 60)}...</p>
+                <p className="text-[11px] text-[var(--color-text-secondary)]">{LETTER_PROMPTS[b.id].slice(0, 100)}...</p>
               </div>
               <ChevronRight className="w-4 h-4 text-[var(--color-text-secondary)] shrink-0" />
             </PracticeButton>
@@ -170,7 +165,7 @@ export function BriefeSchreiben() {
               <div className="w-8 h-8 rounded-[10px] bg-[var(--color-warning-bg)] text-[var(--color-text-warning)]  flex items-center justify-center text-xs font-bold shrink-0">I</div>
               <div className="min-w-0 flex-1">
                 <p className="text-sm font-semibold text-[var(--color-text-primary)] truncate">{b.subject}</p>
-                <p className="text-[11px] text-[var(--color-text-secondary)] truncate">{b.content.slice(0, 60)}...</p>
+                <p className="text-[11px] text-[var(--color-text-secondary)]">{LETTER_PROMPTS[b.id].slice(0, 100)}...</p>
               </div>
               <ChevronRight className="w-4 h-4 text-[var(--color-text-secondary)] shrink-0" />
             </PracticeButton>
@@ -178,6 +173,7 @@ export function BriefeSchreiben() {
         </div>
       </div>
       </div>
+      <StudyTips title="Writing tips" items={ASTUCES_BRIEFE} />
     </div>
   );
 }

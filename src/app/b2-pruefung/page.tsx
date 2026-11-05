@@ -1,5 +1,7 @@
 "use client";
 
+
+import { BackButton } from "@/components/ui/BackButton";
 import { LearningArt } from "@/components/brand/LearningArt";
 import { useState } from "react";
 import { motion } from "framer-motion";
@@ -21,9 +23,7 @@ export default function B2PruefungPage() {
   if (template) {
     return (
       <PageWrapper>
-        <button onClick={() => { setSelectedTemplate(null); setSelectedSection("writing"); }} className="flex items-center gap-1.5 text-sm font-medium text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors mb-6">
-          <ChevronLeft className="w-4 h-4" /> Back to writing section
-        </button>
+        <BackButton onClick={() => { setSelectedTemplate(null); setSelectedSection("writing"); }}>Back to writing section</BackButton>
 
         <div className="bg-[var(--color-surface-alt)]    rounded-[var(--radius-lg)] ring-1 ring-purple-200/50 p-6 shadow-sm mb-6">
           <div className="flex items-center gap-4">
@@ -66,9 +66,7 @@ export default function B2PruefungPage() {
   if (section) {
     return (
       <PageWrapper>
-        <button onClick={() => setSelectedSection(null)} className="flex items-center gap-1.5 text-sm font-medium text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors mb-6">
-          <ChevronLeft className="w-4 h-4" /> Back to overview
-        </button>
+        <BackButton onClick={() => setSelectedSection(null)}>Back to overview</BackButton>
 
         <div className="space-y-6">
           <div className={`bg-[var(--color-surface-alt)]    rounded-[var(--radius-lg)] border border-[var(--color-border-default)]/50 p-6 shadow-sm`}>

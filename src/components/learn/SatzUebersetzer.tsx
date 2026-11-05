@@ -143,7 +143,7 @@ export function SatzUebersetzer() {
             <p className="text-xs text-[var(--color-text-secondary)]">Accuracy</p>
           </div>
         </div>
-        <p className="mt-4 text-sm font-bold bg-amber-500 text-[var(--color-on-brand)] font-extrabold shadow-sm px-4 py-2 rounded-[10px] inline-flex items-center gap-1.5">
+        <p className="mt-4 text-sm font-bold bg-[var(--camp-purple-soft)] text-[var(--camp-control-ink)] font-extrabold shadow-sm px-4 py-2 rounded-[10px] inline-flex items-center gap-1.5">
           <LearningArt name="Sparkles" size={16} className="w-4 h-4" /> +{score + (pct >= 80 ? 20 : 0)} XP
         </p>
         <PracticeButton onClick={() => setPhase("ready")}

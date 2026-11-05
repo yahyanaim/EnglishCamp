@@ -24,7 +24,7 @@ export default function DeclensionsPage() {
   );
 
   return (
-    <PageWrapper>
+    <PageWrapper className="camp-grammar-page">
       <div className="space-y-6">
         <PageBanner>
           <h1 className="font-display text-2xl font-extrabold text-[var(--color-text-primary)]">English Prepositions</h1>
@@ -52,15 +52,15 @@ export default function DeclensionsPage() {
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
                 {items.map((p, i) => (
-                  <div key={`${p.preposition}-${i}`} className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-4 shadow-sm">
+                  <div key={`${p.preposition}-${i}`} className="camp-grammar-panel bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-4 shadow-sm">
                     <span className="text-lg font-mono font-bold text-[var(--color-text-link)]">{p.preposition}</span>
                     <p className="text-xs text-[var(--color-text-secondary)] mt-1">{p.usage}</p>
-                    {p.usageAr && <p className="text-xs text-[var(--color-text-secondary)] font-arabic" lang="ar">{p.usageAr}</p>}
+                    {p.usageAr && <p className="text-xs text-[var(--color-text-secondary)] font-arabic" lang="ar" dir="rtl">{p.usageAr}</p>}
                     <div className="bg-[var(--color-surface-alt)] rounded-lg p-2.5 mt-2 space-y-0.5">
                       <p className="text-xs font-mono text-[var(--color-text-primary)]">{p.example}</p>
-                      {p.exampleAr && <p className="text-xs text-[var(--color-text-secondary)] italic font-arabic" lang="ar">{p.exampleAr}</p>}
+                      {p.exampleAr && <p className="text-xs text-[var(--color-text-secondary)] italic font-arabic" lang="ar" dir="rtl">{p.exampleAr}</p>}
                     </div>
-                    <p className="text-xs text-[var(--color-text-secondary)] italic mt-1 font-arabic" lang="ar">{p.arabic}</p>
+                    <p className="text-xs text-[var(--color-text-secondary)] italic mt-1 font-arabic" lang="ar" dir="rtl">{p.arabic}</p>
                   </div>
                 ))}
               </div>
@@ -72,9 +72,9 @@ export default function DeclensionsPage() {
           <div className="text-center py-16"><LearningArt name="🔍" size={36} className=" block mb-3" /><p className="text-sm font-medium text-[var(--color-text-secondary)]">No prepositions found</p></div>
         )}
 
-        <div className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-5 shadow-sm">
+        <div className="camp-grammar-panel bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-5 shadow-sm">
           <h3 className="text-sm font-bold text-[var(--color-text-primary)] mb-3">Location vs Direction Pairs</h3>
-          <div className="overflow-x-auto">
+          <div className="camp-grammar-table-scroll overflow-x-auto" tabIndex={0} role="region" aria-label="Grammar reference table">
             <table className="w-full text-xs">
               <thead>
                 <tr className="border-b border-[var(--color-border-default)]">
@@ -100,10 +100,10 @@ export default function DeclensionsPage() {
           </div>
         </div>
 
-        <div className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-5 shadow-sm">
+        <div className="camp-grammar-panel bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-5 shadow-sm">
           <h3 className="text-sm font-bold text-[var(--color-text-primary)] mb-3">Pronouns After Prepositions</h3>
           <p className="text-xs text-[var(--color-text-secondary)] mb-3">Personal pronouns after prepositions normally use the object form: with me, for her, between us.</p>
-          <div className="overflow-x-auto">
+          <div className="camp-grammar-table-scroll overflow-x-auto" tabIndex={0} role="region" aria-label="Grammar reference table">
             <table className="w-full text-xs">
               <thead>
                 <tr className="border-b border-[var(--color-border-default)]">

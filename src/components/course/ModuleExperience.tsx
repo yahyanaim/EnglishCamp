@@ -13,6 +13,8 @@ import { IllustratedLessonContent } from "./IllustratedLessonContent";
 import { CourseEnrichment } from "./CourseEnrichment";
 import { CourseVideoLesson } from "./CourseVideoLesson";
 import { LessonPrinciple } from "./LessonPrinciple";
+import { LessonDoneButton } from "./LessonDoneButton";
+import { BackButton } from "@/components/ui/BackButton";
 import type { CourseEnrichment as Enrichment } from "@/data/course-enrichment/types";
 import { BookmarkButton } from "@/components/ui/BookmarkButton";
 import { NotesEditor } from "@/components/ui/NotesEditor";
@@ -43,7 +45,7 @@ export function ModuleExperience({ course, lesson, exercises, enrichment, focuse
   const previous = course.lessons[index - 1], next = course.lessons[index + 1];
   const navigation = <nav aria-label="Module navigation" className="flex flex-wrap items-center justify-between gap-3 p-4 bg-[var(--color-surface)] border border-[var(--color-border-default)] rounded-2xl">
     {previous && <Link className="inline-flex items-center gap-2 text-sm font-bold text-[var(--color-text-link)]" href={href(previous.id)} title={previous.title}><ArrowLeft className="w-4 h-4" />Previous module</Link>}
-    <Link className="text-sm font-bold text-[var(--color-text-link)]" href={`/levels/${course.id}`}>Back to course</Link>
+    <BackButton href={`/levels/${course.id}`}>Back to course</BackButton>
     {next && <Link className="inline-flex items-center gap-2 text-sm font-bold text-[var(--color-text-link)]" href={href(next.id)} title={next.title}>Next module<ArrowRight className="w-4 h-4" /></Link>}
   </nav>;
   return <div className="camp-module-experience camp-section-stack space-y-5 text-[var(--color-text-primary)]">
@@ -85,6 +87,7 @@ export function ModuleExperience({ course, lesson, exercises, enrichment, focuse
       {enrichment && <CourseEnrichment key={lesson.id} content={enrichment} />}
       {enrichment?.principle && !enrichment.teachingDiagram && <div className="pt-5 border-t border-[var(--color-border-default)]"><LessonPrinciple principle={enrichment.principle} /></div>}
     </details>
+    <LessonDoneButton lessonId={lesson.id}/>
     <section id="practice" aria-label="Module practice" className="space-y-5 pt-5 border-t border-[var(--color-border-default)]">
       <div><h2 className="font-display text-xl font-bold">Interactive Practice Lab</h2><p className="text-sm text-[var(--color-text-secondary)] mt-2">Complete guided practice, independent practice and the fresh assessment to finish the module. Short drills are optional reinforcement. Writing and Speaking use self-review, not automatic scoring.</p></div>
       {exercises.filter(exercise => exercise.type === "course-activity").map(exercise => <div key={exercise.id} className="bg-[var(--color-surface)] border border-[var(--color-border-default)] rounded-2xl p-4 sm:p-5 shadow-sm">
@@ -104,7 +107,7 @@ export function ModuleExperience({ course, lesson, exercises, enrichment, focuse
       <p className="font-bold">{done ? "Module practice completed" : "Module practice in progress"}</p>
       <p>{["Guided", "Independent", "Assessment"].map((name, i) => `${name}: ${state?.stages[i] ? state.stages[i].outcome === "checked" ? "checked task completed" : state.stages[i].outcome === "self-reviewed" ? "self-reviewed" : "study alternative completed" : i === 2 && state?.assessmentAttemptedAt ? "attempted" : "not completed"}`).join(" · ")}</p>
       {legacy && <p>Earlier completion credit and XP are retained as historical engagement. They do not establish demonstrated skill.</p>}
-      <p>Course percentages count completed activity cycles and retained historical credit. They are not exam scores or a certification of mastery.</p>
+      <p>Course percentages count accepted learning stages and retained historical credit. All three stages finish a module. These percentages are not exam scores.</p>
     </div>
     <details className="text-sm"><summary className="cursor-pointer font-bold text-[var(--color-text-link)]">Recent practice history and revision</summary>
       <ul className="space-y-2 mt-3">{attempts.filter(item => item.moduleId === lesson.id).slice(-6).reverse().map((item, i) => <li key={`${item.at}-${i}`}>{["Guided", "Independent", "Assessment"][item.stage]} · {item.status}{item.total !== undefined ? ` · ${item.correct}/${item.total} checked answers` : ` · ${item.outcome ?? "self-review"}`}</li>)}</ul>

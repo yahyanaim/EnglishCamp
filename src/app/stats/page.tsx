@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import { courseSnapshot } from "@/lib/courseProgress";
 import { getLevelInfo } from "@/lib/xp";
 import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
@@ -12,7 +13,7 @@ import { ActivityChart } from "@/components/ui/ActivityChart";
 import { Download, BarChart3 } from "lucide-react";
 
 export default function StatsPage() {
-  const { xp, streak, lessons, quizResults, exercisesDone } = useProgress();
+  const { xp, streak, lessons, modules, quizResults, exercisesDone } = useProgress();
   const words = useVocabulary(state => state.words);
   const { errors } = useErrors();
   const { level, title, nextXP } = getLevelInfo(xp);
@@ -25,13 +26,15 @@ export default function StatsPage() {
 
   const levelBreakdown = useMemo(() => {
     return levels.map((lv) => {
-      const lvlLessons = Object.entries(lessons).filter(([id]) => id.startsWith(lv.id));
-      const done = lvlLessons.filter(([, p]) => p.completed).length;
+      const ids = new Set(lv.lessons.map(lesson=>lesson.id));
+      const lvlLessons = Object.entries(lessons).filter(([id]) => ids.has(id));
+      const snapshot = courseSnapshot(Array.from(ids),modules,lessons);
+      const done = snapshot.completed;
       const total = lv.lessons.length;
       const xpEarned = lvlLessons.reduce((s, [, p]) => s + p.xpEarned, 0);
-      return { id: lv.id, title: lv.title, done, total, xpEarned, pct: total > 0 ? Math.round((done / total) * 100) : 0 };
+      return { id: lv.id, title: lv.title, done, total, xpEarned, pct: snapshot.percent, stages: snapshot.stages };
     });
-  }, [lessons]);
+  }, [lessons,modules]);
 
   function handleExport() {
     const data = {
@@ -77,11 +80,12 @@ export default function StatsPage() {
         <div className="space-y-3">
           {levelBreakdown.map((lv) => (
             <div key={lv.id}>
-              <div className="flex items-center justify-between text-sm mb-1">
+              <div className="flex flex-wrap items-center justify-between gap-1 text-sm mb-1">
                 <span className="font-semibold text-[var(--color-text-primary)]">{lv.title}</span>
-                <span className="text-[var(--color-text-secondary)]">{lv.done}/{lv.total} lessons &middot; {lv.xpEarned} XP</span>
+                <span className="text-[var(--color-text-secondary)]">{lv.pct}% stages · {lv.done}/{lv.total} modules</span>
               </div>
-              <div className="w-full h-2 bg-[var(--color-surface-alt)] rounded-full overflow-hidden">
+              <p className="text-xs text-[var(--color-text-secondary)] mb-2">{lv.stages}/{lv.total*3} accepted stages · {lv.xpEarned} course XP</p>
+              <div role="progressbar" aria-label={`${lv.title} course stages`} aria-valuemin={0} aria-valuemax={100} aria-valuenow={lv.pct} className="w-full h-2 bg-[var(--color-surface-alt)] rounded-full overflow-hidden">
                 <div className="h-full rounded-full bg-[var(--color-primary)] transition-all duration-500" style={{ width: `${lv.pct}%` }} />
               </div>
             </div>

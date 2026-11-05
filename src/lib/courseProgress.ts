@@ -25,6 +25,20 @@ export function hasModuleCredit(id: string, modules: Record<string, ModuleProgre
   const m = modules[id];
   return cycleComplete(m) || !!m?.legacyStudy || !!m?.legacyPractice || !!lessons[id]?.completed;
 }
+
+/** One definition shared by course cards, overviews, statistics and the learning rail. */
+export function courseSnapshot(ids: string[], modules: Record<string, ModuleProgress>, lessons: Record<string, LessonProgress>) {
+  let completed=0, started=0, stages=0;
+  for (const id of ids) {
+    const module=modules[id];
+    if (hasModuleCredit(id,modules,lessons)) { completed++; stages+=3; }
+    else if (module) {
+      if (module.viewedAt || module.lastActiveAt || Object.keys(module.stages).length) started++;
+      stages += [0,1,2].filter(index=>module.stages[index]&&(!module.expectedSignatures||module.expectedSignatures[index]===module.stages[index].signature)).length;
+    }
+  }
+  return {completed,started,stages,total:ids.length,percent:ids.length?Math.round(stages/(ids.length*3)*100):0};
+}
 /** Preserve the original fields and rewards. A legacy boolean proves engagement, not skill. */
 export function migrateCourseProgress(saved: unknown) {
   const state = (saved && typeof saved === "object" ? saved : {}) as Record<string, unknown>;

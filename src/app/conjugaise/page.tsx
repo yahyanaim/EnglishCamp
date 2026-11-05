@@ -1,39 +1,21 @@
 "use client";
 
+
+import { BackButton } from "@/components/ui/BackButton";
 import { LearningArt } from "@/components/brand/LearningArt";
-import { Button } from "@/components/ui/shadcn/button";
+import { PageBanner } from "@/components/ui/PageBanner";
+import { ArabicText } from "@/components/ui/ArabicText";
+import { SelectField } from "@/components/ui/shadcn/select-field";
+import { VERB_TENSES, conjugatedForm, unusualReferenceForm, tenseExample, referenceUsage, type VerbTense } from "@/lib/verbTenses";
 import { Input } from "@/components/ui/shadcn/input";
 import { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { PageWrapper } from "@/components/layout/PageWrapper";
-import { Search, X, ChevronLeft, ArrowRight, Clock, Zap, CalendarDays, Sparkles, BookMarked, GraduationCap } from "lucide-react";
+import { Search, X, ArrowRight } from "lucide-react";
 import { VERBS } from "@/data/conjugaise";
 import type { VerbConjugation } from "@/data/conjugaise";
 
-const TENSE_META = {
-  present: { label: "Present", icon: Zap, color: "var(--color-info-dark)", bg: "var(--color-info-bg)", border: "var(--color-info)", desc: "Present tense — what happens now" },
-  past: { label: "Simple Past", icon: Clock, color: "var(--color-warning-dark)", bg: "var(--color-warning-bg)", border: "var(--color-warning)", desc: "Simple past — completed past actions" },
-  perfect: { label: "Present Perfect", icon: Sparkles, color: "var(--color-success-dark)", bg: "var(--color-success-bg)", border: "var(--color-success)", desc: "Present perfect — past with present relevance" },
-  future: { label: "Future", icon: CalendarDays, color: "var(--color-amethyst)", bg: "#F3E8FF", border: "#9B59B6", desc: "Future tense — what will happen" },
-} as const;
-
-type TenseKey = keyof typeof TENSE_META;
-
 const PRONOUNS = ["I", "you", "he / she / it", "we", "they"] as const;
-
-function getConjugationForm(verb: VerbConjugation, tense: "present" | "past", pronounIndex: number): string {
-  if (tense === "present") {
-    if (Array.isArray(verb.present)) {
-      return verb.present[pronounIndex] ?? verb.infinitive;
-    }
-    return pronounIndex === 2 ? (verb.thirdPerson || `${verb.infinitive}s`) : verb.infinitive;
-  }
-  // past tense
-  if (verb.infinitive === "be") {
-    return (pronounIndex === 0 || pronounIndex === 2) ? "was" : "were";
-  }
-  return verb.past;
-}
 
 const verbArtwork = ["note", "book", "plan", "pattern"];
 
@@ -47,7 +29,7 @@ function VerbCard({ verb, onClick, index }: { verb: VerbConjugation; onClick: ()
       whileHover={{ y: -3 }}
       whileTap={{ scale: 0.98 }}
       onClick={onClick}
-      className="camp-verb-card group"
+      className="camp-grammar-topic-card camp-verb-card group"
     >
       <div className="flex items-start gap-3">
         <span className="camp-verb-symbol"><LearningArt name={artwork} size={22} /></span>
@@ -56,7 +38,7 @@ function VerbCard({ verb, onClick, index }: { verb: VerbConjugation; onClick: ()
             <h3 className="font-display font-bold text-base text-[var(--color-text-primary)] font-mono">{verb.infinitive}</h3>
           </div>
           <p className="font-body text-xs text-[var(--color-text-secondary)] italic mt-0.5 truncate">{verb.english}</p>
-          {verb.arabic && <p className="font-body text-xs text-[var(--color-text-secondary)] italic font-arabic truncate mt-0.5" lang="ar">{verb.arabic}</p>}
+          {verb.arabic && <p className="font-body text-xs text-[var(--color-text-secondary)] italic font-arabic truncate mt-0.5" lang="ar" dir="rtl">{verb.arabic}</p>}
         </div>
         <ArrowRight className="w-4 h-4 text-[var(--color-text-secondary)] group-hover:text-[var(--color-primary)] transition-colors mt-1 shrink-0" />
       </div>
@@ -64,79 +46,63 @@ function VerbCard({ verb, onClick, index }: { verb: VerbConjugation; onClick: ()
   );
 }
 
-function ConjugationTable({ verb, tense }: { verb: VerbConjugation; tense: "present" | "past" }) {
-  const meta = TENSE_META[tense];
-  const Icon = meta.icon;
+function ConjugationTable({ verb, tense }: { verb: VerbConjugation; tense: VerbTense }) {
+  const meta = VERB_TENSES.find(item=>item.id===tense)!;
   return (
     <div className="camp-conjugation-table">
       <div className="camp-conjugation-table-heading">
-        <LearningArt name={Icon.displayName || "book"} className="w-4 h-4" />
-        <span className="font-display font-extrabold text-sm">{meta.label}</span>
+        <LearningArt name="clock" size={18} />
+        <span className="font-display font-extrabold text-sm">{meta.label}{unusualReferenceForm(verb, tense) ? " · pattern comparison" : ""}</span>
       </div>
-      <div className="p-3">
+      <table aria-label={`${verb.infinitive}: ${meta.label}`}><tbody>
         {PRONOUNS.map((p, i) => (
-          <div key={p} className="flex items-center gap-3 py-1.5 border-b border-[var(--color-border-default)] last:border-0">
-            <span className="w-28 font-body text-xs font-semibold text-[var(--color-text-secondary)]">{p}</span>
-            <span className="font-display font-bold text-sm font-mono text-[var(--color-text-primary)]">
-              {getConjugationForm(verb, tense, i)}
-            </span>
-          </div>
+          <tr key={p}>
+            <th scope="row">{p}</th>
+            <td>
+              {unusualReferenceForm(verb, tense) ? <s>{conjugatedForm(verb, tense, i)}</s> : conjugatedForm(verb, tense, i)}
+            </td>
+          </tr>
         ))}
-      </div>
+      </tbody></table>
     </div>
   );
 }
 
 function VerbDetail({ verb, onBack }: { verb: VerbConjugation; onBack: () => void }) {
-  const idx = VERBS.indexOf(verb);
-  const artwork = verbArtwork[idx % verbArtwork.length];
-
-  return (
-    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="camp-verb-detail space-y-5">
-      <Button variant="outline"
-        onClick={onBack}
-      >
-        <ChevronLeft className="w-4 h-4" /> Back to verbs
-      </Button>
-
-      <div className="camp-verb-detail-hero">
-        <div className="flex items-center gap-4 mb-2">
-          <span className="camp-verb-symbol"><LearningArt name={artwork} size={24} /></span>
-          <div>
-            <div className="flex items-center gap-3">
-              <h2 className="font-display font-extrabold text-2xl text-[var(--color-text-primary)] font-mono">{verb.infinitive}</h2>
-            </div>
-            <p className="font-body text-sm text-[var(--color-text-secondary)] italic">{verb.english}</p>
-            {verb.arabic && <p className="font-body text-sm text-[var(--color-text-secondary)] italic font-arabic mt-0.5" lang="ar">{verb.arabic}</p>}
+  const [tense, setTense] = useState<VerbTense>("present");
+  const meta = VERB_TENSES.find(item => item.id === tense)!;
+  const usage = referenceUsage(verb, tense);
+  const examples = (verb.infinitive === "happen" ? [2, 4] : [0, 2]).map(index => tenseExample(verb, tense, index));
+  return <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="camp-verb-detail">
+    <BackButton onClick={onBack}>Back to verbs</BackButton>
+    <header className="camp-verb-identity">
+      <div><h2>{verb.infinitive}</h2>{verb.arabic && <ArabicText text={verb.arabic} />}</div>
+      <dl className="camp-verb-parts">
+        <div><dt>Past</dt><dd>{verb.past}</dd></div>
+        <div><dt>Past participle</dt><dd>{verb.pastParticiple}</dd></div>
+        <div><dt>-ing form</dt><dd>{verb.presentParticiple}</dd></div>
+      </dl>
+    </header>
+    <div className="camp-verb-workspace">
+      <div className="camp-verb-reference">
+        <section className="camp-verb-tense-picker" aria-label="Tense and formation">
+          <div><label htmlFor="verb-tense">Choose a tense</label><SelectField id="verb-tense" value={tense} onValueChange={value => setTense(value as VerbTense)}>{VERB_TENSES.map(t => <option key={t.id} value={t.id}>{t.label}</option>)}</SelectField></div>
+          <div className="camp-verb-formation camp-grammar-formation">
+            <p className="camp-verb-formula">{meta.rule}</p>
+            <ArabicText text={meta.ar} className="camp-verb-tense-arabic" />
           </div>
-        </div>
-        <div className="mt-3 flex items-center gap-2">
-          <span className="font-body text-xs text-[var(--color-text-secondary)]">Past Participle:</span>
-          <span className="font-display font-bold text-sm font-mono text-[var(--color-text-primary)]">{verb.pastParticiple}</span>
-        </div>
+        </section>
+        <ConjugationTable verb={verb} tense={tense} />
       </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <ConjugationTable verb={verb} tense="present" />
-        <ConjugationTable verb={verb} tense="past" />
-      </div>
-
-      <div className="camp-verb-examples">
-        <h3 className="font-display font-extrabold text-xs text-[var(--color-text-secondary)] uppercase tracking-wider mb-3">Example Sentences</h3>
-        <div className="space-y-2">
-          {verb.examples.map((ex, i) => (
-            <div key={i} className="flex items-start gap-3 p-2.5 rounded-[var(--radius-md)] even:bg-[var(--color-surface-alt)]">
-              <span className="font-display font-extrabold text-[10px] text-[var(--color-text-secondary)] w-5 mt-0.5 shrink-0">{i + 1}.</span>
-              <div className="flex-1 min-w-0">
-                <p className="font-body text-sm font-medium text-[var(--color-text-primary)]">{ex.en}</p>
-                {ex.ar && <p className="font-body text-xs text-[var(--color-text-secondary)] italic font-arabic mt-0.5" lang="ar">{ex.ar}</p>}
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </motion.div>
-  );
+      <section className="camp-verb-examples" aria-label="Selected tense examples">
+        <h3>{meta.label} in context</h3>
+        {usage && <div className="camp-verb-usage"><p>{usage.en}</p><ArabicText text={usage.ar} /></div>}
+        <ol>{examples.map((example, index) => <li key={index}>
+          {example.preferred ? <><span className="camp-verb-example-label">Usually avoid in this meaning</span><p><s>{example.sentence}</s></p><span className="camp-verb-example-label">Preferred</span><p className="camp-verb-preferred">{example.preferred}</p></> : <p>{example.sentence}</p>}
+        </li>)}</ol>
+      </section>
+    </div>
+  </motion.div>;
 }
 
 export default function VerbConjugationPage() {
@@ -152,7 +118,8 @@ export default function VerbConjugationPage() {
   }, [search]);
 
   return (
-    <PageWrapper>
+    <PageWrapper className="camp-grammar-page">
+      <PageBanner><h1>Verb Conjugation</h1><p>Explore {VERBS.length} verbs in 12 tense and aspect forms, with matching examples.</p></PageBanner>
       <AnimatePresence mode="wait">
         {selectedVerb ? (
           <motion.div key="detail">
@@ -160,19 +127,6 @@ export default function VerbConjugationPage() {
           </motion.div>
         ) : (
           <motion.div key="list" className="camp-verbs space-y-5">
-            {/* Header */}
-            <div className="flex items-center gap-3">
-              <div className="inline-flex items-center justify-center w-8 h-8 rounded-[var(--radius-md)] bg-[var(--color-primary)]">
-                <LearningArt name="BookMarked" size={18} className="w-4.5 h-4.5 text-white" />
-              </div>
-              <div>
-                <h1 className="font-display font-extrabold text-[var(--color-text-primary)]" style={{ fontSize: "26px", letterSpacing: "0.3px" }}>
-                  Verb Conjugation
-                </h1>
-                <p className="font-body text-sm text-[var(--color-text-secondary)] mt-0.5">Master 60 essential English verbs across all tenses</p>
-              </div>
-            </div>
-
             {/* Search */}
             <div className="relative">
               <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-[var(--color-text-secondary)]" />
@@ -185,7 +139,7 @@ export default function VerbConjugationPage() {
                 className="h-11 pl-10 pr-12 font-body"
               />
               {search && (
-                <button onClick={() => setSearch("")} aria-label="Clear verb search" className="camp-verb-clear">
+                <button onClick={() => setSearch("")} aria-label="Clear verb search" className="camp-grammar-control camp-verb-clear">
                   <X className="w-4 h-4 text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]" />
                 </button>
               )}

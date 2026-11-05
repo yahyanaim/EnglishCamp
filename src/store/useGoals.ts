@@ -1,8 +1,12 @@
 import { learnerStorage } from "@/lib/learnerStorage";
 import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
+import { localWeekStart, weeklyEvidence, type WeeklyEvidence } from "@/lib/weeklyProgress";
 
 interface GoalsStore {
+  evidenceXp: number | null;
+  evidenceLessons: number | null;
+  syncProgress: (progress: WeeklyEvidence) => void;
   weeklyXpGoal: number;
   weeklyLessonGoal: number;
   weekStart: string;
@@ -16,16 +20,23 @@ interface GoalsStore {
 }
 
 function getWeekStart(): string {
-  const d = new Date();
-  const day = d.getDay();
-  const diff = d.getDate() - day + (day === 0 ? -6 : 1);
-  const monday = new Date(d.setDate(diff));
-  return monday.toISOString().split("T")[0];
+  return localWeekStart();
 }
 
 export const useGoals = create<GoalsStore>()(
   persist(
     (set, get) => ({
+      evidenceXp: null,
+      evidenceLessons: null,
+      syncProgress: progress => set(state=>{
+        const known=weeklyEvidence(progress),sameWeek=state.weekStart===known.week;
+        const oldXp=sameWeek?state.xpThisWeek:0,oldLessons=sameWeek?state.lessonsThisWeek:0;
+        const previousXp=sameWeek?state.evidenceXp:null,previousLessons=sameWeek?state.evidenceLessons:null;
+        const xpThisWeek=previousXp==null?Math.max(oldXp,known.xp):oldXp+Math.max(0,known.xp-previousXp);
+        const lessonsThisWeek=previousLessons==null?Math.max(oldLessons,known.lessons):oldLessons+Math.max(0,known.lessons-previousLessons);
+        if(sameWeek&&state.evidenceXp===known.xp&&state.evidenceLessons===known.lessons&&state.xpThisWeek===xpThisWeek&&state.lessonsThisWeek===lessonsThisWeek)return state;
+        return {weekStart:known.week,xpThisWeek,lessonsThisWeek,evidenceXp:known.xp,evidenceLessons:known.lessons};
+      }),
       weeklyXpGoal: 500,
       weeklyLessonGoal: 10,
       weekStart: getWeekStart(),
@@ -47,7 +58,7 @@ export const useGoals = create<GoalsStore>()(
       resetIfNewWeek: () => {
         const currentStart = getWeekStart();
         if (get().weekStart !== currentStart) {
-          set({ weekStart: currentStart, xpThisWeek: 0, lessonsThisWeek: 0 });
+          set({ weekStart: currentStart, xpThisWeek: 0, lessonsThisWeek: 0, evidenceXp:null, evidenceLessons:null });
         }
       },
 

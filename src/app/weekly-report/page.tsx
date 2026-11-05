@@ -7,6 +7,7 @@ import { useProgress } from "@/store/useProgress";
 import { useErrors } from "@/store/useErrors";
 import { useVocabulary } from "@/store/useVocabulary";
 import { useGoals } from "@/store/useGoals";
+import { weeklyXPDays } from "@/lib/weeklyProgress";
 import { Card } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
 import { BarChart3, TrendingUp, AlertTriangle, BookHeart, Zap, Flame, Target, Award } from "lucide-react";
@@ -30,12 +31,10 @@ export default function WeeklyReportPage() {
       : 0;
     const unreviewed = errors.getUnreviewed().length;
     const vocabCount = vocab.getAll().length;
-    const masteredVocab = vocab.getAll().filter(([, v]) => v.mastery >= 2).length;
+    const masteredVocab = vocab.getAll().filter(([, v]) => v.mastery === 3).length;
 
-    const weekDays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-    const today = new Date().getDay();
-    const dailyXP: number[] = Array(7).fill(0);
-    dailyXP[today] = progress.xp % 100 || 25;
+    const datedDays=weeklyXPDays(progress);
+    const weekDays=datedDays.map(day=>day.label),dailyXP=datedDays.map(day=>day.xp);
 
     return {
       lessonsDone,
@@ -47,6 +46,7 @@ export default function WeeklyReportPage() {
       vocabCount,
       masteredVocab,
       dailyXP,
+      dates:datedDays.map(day=>day.day),
       weekDays,
       weeklyXP: goals.xpThisWeek,
       weeklyGoal: goals.weeklyXpGoal,
@@ -80,6 +80,7 @@ export default function WeeklyReportPage() {
           </div>
         </div>
 
+        <p className="text-xs text-[var(--color-text-secondary)]">Overall learning totals</p>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {[
             { label: "Lessons", value: stats.lessonsDone, icon: BookHeart, color: "text-[#9B59B6]", bg: "bg-[#9B59B6] text-white" },
@@ -149,20 +150,22 @@ export default function WeeklyReportPage() {
         )}
 
         <div className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] p-6 shadow-sm border border-[var(--color-border-default)]">
-          <p className="text-sm font-bold text-[var(--color-text-primary)] mb-3 border-l-4 border-[var(--color-primary)] pl-3">Daily XP (Estimated)</p>
+          <p className="text-sm font-bold text-[var(--color-text-primary)] mb-3 border-l-4 border-[var(--color-primary)] pl-3">Recorded daily XP</p>
           <div className="flex items-end gap-2 h-24">
             {stats.dailyXP.map((xp, i) => (
-              <div key={i} className="flex-1 flex flex-col items-center gap-1">
+              <div key={i} role="img" aria-label={`${stats.dates[i]}: ${xp} XP`} title={`${stats.dates[i]}: ${xp} XP`} className="flex-1 flex flex-col items-center gap-1">
                 <motion.div
-                  className="w-full rounded-t-lg bg-[var(--color-primary)]"
+                  className="w-full rounded-t-lg"
+                  style={{background:xp>0?"var(--color-primary)":"var(--color-neutral-200)"}}
                   initial={{ height: 0 }}
-                  animate={{ height: `${Math.max(8, (xp / Math.max(...stats.dailyXP, 1)) * 80)}px` }}
+                  animate={{ height: `${xp>0?Math.max(8,(xp / Math.max(...stats.dailyXP,1))*80):3}px` }}
                   transition={{ duration: 0.6, delay: i * 0.1 }}
                 />
                 <span className="text-[10px] text-[var(--color-text-secondary)]">{stats.weekDays[i]}</span>
               </div>
             ))}
           </div>
+          <p className="text-xs text-[var(--color-text-secondary)] mt-3">Dated XP only. Older saved weekly totals may have no daily breakdown.</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

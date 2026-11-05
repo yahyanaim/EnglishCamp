@@ -1,18 +1,13 @@
 "use client";
 import { LearningArt } from "@/components/brand/LearningArt";
 import { PracticeButton } from "@/components/ui/PracticeSurface";
+import { translatedGrammarParagraphs } from "./GrammarTranslation";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown, BookOpen, Languages } from "lucide-react";
+import { ChevronDown, BookOpen } from "lucide-react";
 
 function T({ de, en }: { de: string; en: string }) {
-  return (
-    <span className="group relative inline-flex items-baseline cursor-help border-b border-dotted border-[var(--color-border-default)] hover:border-brand-400 transition-colors">
-      <span className="group-hover:hidden">{de}</span>
-      <span className="hidden group-hover:inline text-[var(--color-text-link)] font-medium">{en}</span>
-      <LearningArt name="Languages" size={10} className="w-2.5 h-2.5 ml-0.5 text-[var(--color-text-secondary)] group-hover:text-brand-400 inline-block -translate-y-px" />
-    </span>
-  );
+  return <span>{en}</span>;
 }
 
 type Section = {
@@ -21,7 +16,7 @@ type Section = {
   content: React.ReactNode;
 };
 
-const SECTIONS: Section[] = [
+export const SECTIONS: Section[] = [
   {
     id: "articles",
     title: "Articles (a/an/the)",
@@ -30,7 +25,7 @@ const SECTIONS: Section[] = [
         <p className="text-sm text-[var(--color-text-secondary)]">
           English has two types of articles: definite (<T de="أداة تعريف" en="the" />) and indefinite (<T de="أداة نكرة" en="a/an" />). No article is also common.
         </p>
-        <div className="overflow-x-auto">
+        <div className="camp-grammar-table-scroll overflow-x-auto" tabIndex={0} role="region" aria-label="Grammar reference table">
           <table className="w-full text-sm">
             <thead>
               <tr className="bg-[var(--color-surface-alt)]">
@@ -46,7 +41,7 @@ const SECTIONS: Section[] = [
             </tbody>
           </table>
         </div>
-        <div className="bg-[var(--color-warning-bg)] text-[var(--color-text-warning)] border border-[var(--color-warning)] rounded-[var(--radius-lg)] p-3 text-sm">
+        <div className="camp-grammar-note bg-[var(--color-warning-bg)] text-[var(--color-text-warning)] border border-[var(--color-warning)] rounded-[var(--radius-lg)] p-3 text-sm">
           <strong>Tip:</strong> Use <strong>the</strong> when both speaker and listener know what is being referred to. Use <strong>a/an</strong> when mentioning something for the first time. Do NOT use articles with names of people, most countries, or meals: <T de="I had lunch." en="I had lunch." /> (not &quot;a lunch&quot;).
         </div>
       </div>
@@ -58,7 +53,7 @@ const SECTIONS: Section[] = [
     content: (
       <div className="space-y-3">
         <p className="text-sm text-[var(--color-text-secondary)]">These two tenses describe the present but are used differently:</p>
-        <div className="overflow-x-auto">
+        <div className="camp-grammar-table-scroll overflow-x-auto" tabIndex={0} role="region" aria-label="Grammar reference table">
           <table className="w-full text-sm">
             <thead>
               <tr className="bg-[var(--color-surface-alt)]">
@@ -75,7 +70,7 @@ const SECTIONS: Section[] = [
             </tbody>
           </table>
         </div>
-        <div className="bg-[var(--color-info-bg)] text-[var(--color-text-info)] rounded-[var(--radius-lg)] p-3 text-sm">
+        <div className="camp-grammar-note bg-[var(--color-info-bg)] text-[var(--color-text-info)] rounded-[var(--radius-lg)] p-3 text-sm">
           <strong>Tip:</strong> Stative verbs (know, believe, love, hate, want, need) are NOT used in continuous forms. Say <T de="I know the answer." en="I know the answer." /> — NOT &quot;I am knowing the answer.&quot;
         </div>
       </div>
@@ -87,7 +82,7 @@ const SECTIONS: Section[] = [
     content: (
       <div className="space-y-3">
         <p className="text-sm text-[var(--color-text-secondary)]">Both talk about the past, but the key difference is connection to the present:</p>
-        <div className="overflow-x-auto">
+        <div className="camp-grammar-table-scroll overflow-x-auto" tabIndex={0} role="region" aria-label="Grammar reference table">
           <table className="w-full text-sm">
             <thead>
               <tr className="bg-[var(--color-surface-alt)]">
@@ -104,7 +99,7 @@ const SECTIONS: Section[] = [
             </tbody>
           </table>
         </div>
-        <div className="bg-[var(--color-warning-bg)] text-[var(--color-text-warning)] border border-[var(--color-warning)] rounded-[var(--radius-lg)] p-3 text-sm">
+        <div className="camp-grammar-note bg-[var(--color-warning-bg)] text-[var(--color-text-warning)] border border-[var(--color-warning)] rounded-[var(--radius-lg)] p-3 text-sm">
           <strong>Tip:</strong> If the time is mentioned (yesterday, last week, in 2010), you MUST use Past Simple. If the time is not important or the action continues, use Present Perfect.
         </div>
       </div>
@@ -116,7 +111,7 @@ const SECTIONS: Section[] = [
     content: (
       <div className="space-y-3">
         <p className="text-sm text-[var(--color-text-secondary)]">English has several ways to talk about the future, with different meanings:</p>
-        <div className="overflow-x-auto">
+        <div className="camp-grammar-table-scroll overflow-x-auto" tabIndex={0} role="region" aria-label="Grammar reference table">
           <table className="w-full text-sm">
             <thead>
               <tr className="bg-[var(--color-surface-alt)]">
@@ -133,7 +128,7 @@ const SECTIONS: Section[] = [
           </table>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-          <div className="bg-[var(--color-success-bg)] text-[var(--color-text-success)] rounded-[var(--radius-lg)] p-3">
+          <div className="camp-grammar-note bg-[var(--color-success-bg)] text-[var(--color-text-success)] rounded-[var(--radius-lg)] p-3">
             <h4 className="text-sm font-semibold text-[var(--color-text-primary)] mb-1"><T de="will" en="will" /></h4>
             <p className="text-xs text-[var(--color-text-secondary)]">
               <T de="قرار فوري: I will answer the phone." en="Spontaneous: I will answer the phone." /><br />
@@ -141,7 +136,7 @@ const SECTIONS: Section[] = [
               <T de="توقع بدون دليل: I think it will rain." en="Prediction without evidence: I think it will rain." />
             </p>
           </div>
-          <div className="bg-[var(--color-info-bg)] text-[var(--color-text-info)] rounded-[var(--radius-lg)] p-3">
+          <div className="camp-grammar-note bg-[var(--color-info-bg)] text-[var(--color-text-info)] rounded-[var(--radius-lg)] p-3">
             <h4 className="text-sm font-semibold text-[var(--color-text-primary)] mb-1"><T de="going to" en="going to" /></h4>
             <p className="text-xs text-[var(--color-text-secondary)]">
               <T de="خطة مسبقة: We are going to buy a house." en="Prior plan: We are going to buy a house." /><br />
@@ -158,7 +153,7 @@ const SECTIONS: Section[] = [
     content: (
       <div className="space-y-3">
         <p className="text-sm text-[var(--color-text-secondary)]">Conditional sentences express <T de="شرط ونتيجة" en="a condition and a result" />. There are four main types:</p>
-        <div className="overflow-x-auto">
+        <div className="camp-grammar-table-scroll overflow-x-auto" tabIndex={0} role="region" aria-label="Grammar reference table">
           <table className="w-full text-sm">
             <thead>
               <tr className="bg-[var(--color-surface-alt)]">
@@ -176,7 +171,7 @@ const SECTIONS: Section[] = [
             </tbody>
           </table>
         </div>
-        <div className="bg-[var(--color-warning-bg)] text-[var(--color-text-warning)] border border-[var(--color-warning)] rounded-[var(--radius-lg)] p-3 text-sm">
+        <div className="camp-grammar-note bg-[var(--color-warning-bg)] text-[var(--color-text-warning)] border border-[var(--color-warning)] rounded-[var(--radius-lg)] p-3 text-sm">
           <strong>Tip:</strong> In Second Conditional, use <strong>were</strong> for all subjects (not &quot;was&quot;): <T de="If I were you, I would go." en="If I were you, I would go." /> In First Conditional, the if-clause uses present tense, NOT <strong>will</strong>.
         </div>
       </div>
@@ -189,7 +184,7 @@ const SECTIONS: Section[] = [
       <div className="space-y-3">
         <p className="text-sm text-[var(--color-text-secondary)]">The passive focuses on the action or the receiver, not the doer:</p>
         <p className="text-sm text-[var(--color-text-secondary)] font-mono"><T de="be (conjugated) + past participle" en="be (conjugated) + past participle" /></p>
-        <div className="overflow-x-auto">
+        <div className="camp-grammar-table-scroll overflow-x-auto" tabIndex={0} role="region" aria-label="Grammar reference table">
           <table className="w-full text-sm">
             <thead>
               <tr className="bg-[var(--color-surface-alt)]">
@@ -206,7 +201,7 @@ const SECTIONS: Section[] = [
             </tbody>
           </table>
         </div>
-        <div className="bg-[var(--color-info-bg)] text-[var(--color-text-info)] rounded-[var(--radius-lg)] p-3 text-sm">
+        <div className="camp-grammar-note bg-[var(--color-info-bg)] text-[var(--color-text-info)] rounded-[var(--radius-lg)] p-3 text-sm">
           <strong>Tip:</strong> Use <strong>by</strong> to mention the agent: <T de="The room was cleaned by Mohamed." en="The room was cleaned by Mohamed." /> If the agent is unknown or unimportant, omit it: <T de="My phone was stolen." en="My phone was stolen." />
         </div>
       </div>
@@ -219,7 +214,7 @@ const SECTIONS: Section[] = [
       <div className="space-y-3">
         <p className="text-sm text-[var(--color-text-secondary)]">The prepositions <strong>in</strong>, <strong>at</strong>, and <strong>on</strong> are used for both time and place in specific ways:</p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-          <div className="bg-[var(--color-info-bg)] text-[var(--color-text-info)] rounded-[var(--radius-lg)] p-3">
+          <div className="camp-grammar-note bg-[var(--color-info-bg)] text-[var(--color-text-info)] rounded-[var(--radius-lg)] p-3">
             <h4 className="text-sm font-semibold text-[var(--color-text-primary)] mb-2"><T de="الوقت" en="TIME" /></h4>
             <div className="space-y-1.5">
               <p className="text-xs text-[var(--color-text-secondary)]"><strong className="text-[var(--color-text-primary)]">at</strong> — precise time: <span className="font-mono"><T de="at 5 o'clock" en="at 5 o'clock" />, <T de="at midnight" en="at midnight" /></span></p>
@@ -227,7 +222,7 @@ const SECTIONS: Section[] = [
               <p className="text-xs text-[var(--color-text-secondary)]"><strong className="text-[var(--color-text-primary)]">in</strong> — months/years/seasons/longer periods: <span className="font-mono"><T de="in July" en="in July" />, <T de="in 2024" en="in 2024" />, <T de="in summer" en="in summer" /></span></p>
             </div>
           </div>
-          <div className="bg-[var(--color-success-bg)] text-[var(--color-text-success)] rounded-[var(--radius-lg)] p-3">
+          <div className="camp-grammar-note bg-[var(--color-success-bg)] text-[var(--color-text-success)] rounded-[var(--radius-lg)] p-3">
             <h4 className="text-sm font-semibold text-[var(--color-text-primary)] mb-2"><T de="المكان" en="PLACE" /></h4>
             <div className="space-y-1.5">
               <p className="text-xs text-[var(--color-text-secondary)]"><strong className="text-[var(--color-text-primary)]">at</strong> — specific point/address: <span className="font-mono"><T de="at the bus stop" en="at the bus stop" />, <T de="at 10 Main St" en="at 10 Main St" /></span></p>
@@ -235,7 +230,7 @@ const SECTIONS: Section[] = [
               <p className="text-xs text-[var(--color-text-secondary)]"><strong className="text-[var(--color-text-primary)]">in</strong> — enclosed space/city/country: <span className="font-mono"><T de="in the room" en="in the room" />, <T de="in Cairo" en="in Cairo" /></span></p>
             </div>
           </div>
-          <div className="bg-[var(--color-warning-bg)] text-[var(--color-text-warning)] rounded-[var(--radius-lg)] p-3 md:col-span-2">
+          <div className="camp-grammar-note bg-[var(--color-warning-bg)] text-[var(--color-text-warning)] rounded-[var(--radius-lg)] p-3 md:col-span-2">
             <h4 className="text-sm font-semibold text-[var(--color-text-primary)] mb-2"><T de="استثناءات مهمة" en="Important exceptions" /></h4>
             <div className="flex flex-wrap gap-x-4 gap-y-1 text-xs text-[var(--color-text-secondary)]">
               <span><strong className="text-[var(--color-text-primary)]">at night</strong> — <T de="في الليل" en="at night" /></span>
@@ -255,7 +250,7 @@ const SECTIONS: Section[] = [
     content: (
       <div className="space-y-3">
         <p className="text-sm text-[var(--color-text-secondary)]">Modal verbs express <T de="الإمكانية، الضرورة، الإذن، الالتزام" en="possibility, necessity, permission, obligation" />. They do not change form for he/she/it.</p>
-        <div className="overflow-x-auto">
+        <div className="camp-grammar-table-scroll overflow-x-auto" tabIndex={0} role="region" aria-label="Grammar reference table">
           <table className="w-full text-sm">
             <thead>
               <tr className="bg-[var(--color-surface-alt)]">
@@ -275,7 +270,7 @@ const SECTIONS: Section[] = [
             </tbody>
           </table>
         </div>
-        <div className="bg-[var(--color-warning-bg)] text-[var(--color-text-warning)] border border-[var(--color-warning)] rounded-[var(--radius-lg)] p-3 text-sm">
+        <div className="camp-grammar-note bg-[var(--color-warning-bg)] text-[var(--color-text-warning)] border border-[var(--color-warning)] rounded-[var(--radius-lg)] p-3 text-sm">
           <strong>Tip:</strong> Modals are followed by the base verb (no <strong>to</strong>): <T de="You must go." en="You must go." /> NOT &quot;You must to go.&quot; The negative of <strong>must</strong> is <strong>must not / mustn&apos;t</strong> (prohibition). The negative of <strong>have to</strong> is <strong>don&apos;t have to</strong> (no obligation — different meaning!).
         </div>
       </div>
@@ -287,7 +282,7 @@ const SECTIONS: Section[] = [
     content: (
       <div className="space-y-3">
         <p className="text-sm text-[var(--color-text-secondary)]">Used to compare two things (comparative) or more than two (superlative):</p>
-        <div className="overflow-x-auto">
+        <div className="camp-grammar-table-scroll overflow-x-auto" tabIndex={0} role="region" aria-label="Grammar reference table">
           <table className="w-full text-sm">
             <thead>
               <tr className="bg-[var(--color-surface-alt)]">
@@ -305,13 +300,13 @@ const SECTIONS: Section[] = [
           </table>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-          <div className="bg-[var(--color-success-bg)] text-[var(--color-text-success)] rounded-[var(--radius-lg)] p-3">
+          <div className="camp-grammar-note bg-[var(--color-success-bg)] text-[var(--color-text-success)] rounded-[var(--radius-lg)] p-3">
             <h4 className="text-sm font-semibold text-[var(--color-text-primary)] mb-1"><T de="المقارن" en="Comparative structure" /></h4>
             <p className="text-xs text-[var(--color-text-secondary)] font-mono"><T de="adjective-er than" en="adjective-er than" /></p>
             <p className="text-xs text-[var(--color-text-secondary)] mt-1"><T de="Ahmed is taller than Ali." en="Ahmed is taller than Ali." /></p>
             <p className="text-xs text-[var(--color-text-secondary)]"><T de="She is more intelligent than him." en="She is more intelligent than him." /></p>
           </div>
-          <div className="bg-[var(--color-info-bg)] text-[var(--color-text-info)] rounded-[var(--radius-lg)] p-3">
+          <div className="camp-grammar-note bg-[var(--color-info-bg)] text-[var(--color-text-info)] rounded-[var(--radius-lg)] p-3">
             <h4 className="text-sm font-semibold text-[var(--color-text-primary)] mb-1"><T de="التفضيل" en="Superlative structure" /></h4>
             <p className="text-xs text-[var(--color-text-secondary)] font-mono"><T de="the adjective-est / the most adjective" en="the adjective-est / the most adjective" /></p>
             <p className="text-xs text-[var(--color-text-secondary)] mt-1"><T de="He is the tallest in the class." en="He is the tallest in the class." /></p>
@@ -327,7 +322,7 @@ const SECTIONS: Section[] = [
     content: (
       <div className="space-y-3">
         <p className="text-sm text-[var(--color-text-secondary)]">When reporting what someone said, the tense usually shifts back (backshift):</p>
-        <div className="overflow-x-auto">
+        <div className="camp-grammar-table-scroll overflow-x-auto" tabIndex={0} role="region" aria-label="Grammar reference table">
           <table className="w-full text-sm">
             <thead>
               <tr className="bg-[var(--color-surface-alt)]">
@@ -345,17 +340,17 @@ const SECTIONS: Section[] = [
             </tbody>
           </table>
         </div>
-        <div className="bg-[var(--color-warning-bg)] text-[var(--color-text-warning)] border border-[var(--color-warning)] rounded-[var(--radius-lg)] p-3 text-sm">
+        <div className="camp-grammar-note bg-[var(--color-warning-bg)] text-[var(--color-text-warning)] border border-[var(--color-warning)] rounded-[var(--radius-lg)] p-3 text-sm">
           <strong>Tip:</strong> Other changes: <strong>today</strong> → <strong>that day</strong>, <strong>now</strong> → <strong>then</strong>, <strong>here</strong> → <strong>there</strong>, <strong>this</strong> → <strong>that</strong>, <strong>tomorrow</strong> → <strong>the next day</strong>, <strong>yesterday</strong> → <strong>the day before</strong>. If the reporting verb is present tense (He says...), no backshift is needed.
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-          <div className="bg-[var(--color-success-bg)] text-[var(--color-text-success)] rounded-[var(--radius-lg)] p-3">
+          <div className="camp-grammar-note bg-[var(--color-success-bg)] text-[var(--color-text-success)] rounded-[var(--radius-lg)] p-3">
             <h4 className="text-sm font-semibold text-[var(--color-text-primary)] mb-1"><T de="الأسئلة" en="Reported Questions" /></h4>
             <p className="text-xs text-[var(--color-text-secondary)]">Use <strong>if/whether</strong> for yes/no questions, keep the question word for wh-questions. Word order changes to <strong>subject + verb</strong>.</p>
             <p className="text-xs text-[var(--color-text-secondary)] mt-1 font-mono"><T de={'"Are you happy? → He asked if I was happy."'} en={'"Are you happy? → He asked if I was happy."'} /></p>
             <p className="text-xs text-[var(--color-text-secondary)] font-mono"><T de={'"Where do you live? → She asked where I lived."'} en={'"Where do you live? → She asked where I lived."'} /></p>
           </div>
-          <div className="bg-[var(--color-info-bg)] text-[var(--color-text-info)] rounded-[var(--radius-lg)] p-3">
+          <div className="camp-grammar-note bg-[var(--color-info-bg)] text-[var(--color-text-info)] rounded-[var(--radius-lg)] p-3">
             <h4 className="text-sm font-semibold text-[var(--color-text-primary)] mb-1"><T de="الأوامر" en="Reported Commands" /></h4>
             <p className="text-xs text-[var(--color-text-secondary)]">Use <strong>told + object + to + infinitive</strong> or <strong>asked + object + to + infinitive</strong>.</p>
             <p className="text-xs text-[var(--color-text-secondary)] mt-1 font-mono"><T de={'"Sit down. → He told me to sit down."'} en={'"Sit down. → He told me to sit down."'} /></p>
@@ -368,18 +363,20 @@ const SECTIONS: Section[] = [
 ];
 
 export function GrammarReference() {
-  const [openSection, setOpenSection] = useState<string | null>("articles");
+  const [openSection, setOpenSection] = useState<string | null>(null);
 
   return (
-    <div className="camp-grammar-reference space-y-2">
+    <div className="camp-grammar-reference">
       {SECTIONS.map((section) => {
         const isOpen = openSection === section.id;
         return (
           <div
             key={section.id}
-            className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] overflow-hidden shadow-sm" style={{ boxShadow: "0 3px 0 var(--color-border-default)" }}
+            className="camp-grammar-accordion-card bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] overflow-hidden shadow-sm" style={{ boxShadow: "0 3px 0 var(--color-border-default)" }}
           >
-            <PracticeButton
+            <h2 className="camp-grammar-section-header"><PracticeButton
+              id={`grammar-toggle-${section.id}`}
+              aria-expanded={isOpen} aria-controls={`grammar-${section.id}`}
               onClick={() => setOpenSection(isOpen ? null : section.id)}
               className="w-full flex items-center justify-between p-4 text-left hover:bg-[var(--color-surface-alt)] transition-colors"
             >
@@ -392,7 +389,7 @@ export function GrammarReference() {
                   isOpen ? "rotate-180" : ""
                 }`}
               />
-            </PracticeButton>
+            </PracticeButton></h2>
             <AnimatePresence initial={false}>
               {isOpen && (
                 <motion.div
@@ -402,8 +399,8 @@ export function GrammarReference() {
                   transition={{ duration: 0.2 }}
                   className="overflow-hidden"
                 >
-                  <div className="px-4 pb-4 border-t border-[var(--color-border-default)] pt-3">
-                    {section.content}
+                  <div id={`grammar-${section.id}`} role="region" aria-labelledby={`grammar-toggle-${section.id}`} className="camp-grammar-accordion-body px-4 pb-4 border-t border-[var(--color-border-default)] pt-3">
+                    {translatedGrammarParagraphs(section.content)}
                   </div>
                 </motion.div>
               )}

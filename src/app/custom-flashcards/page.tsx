@@ -1,8 +1,12 @@
 "use client";
+
+import { Button } from "@/components/ui/shadcn/button";
+import { VocabularyPage } from "@/components/layout/VocabularyPage";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useCustomFlashcards } from "@/store/useCustomFlashcards";
 import { useVocabulary } from "@/store/useVocabulary";
+import { LearningArt } from "@/components/brand/LearningArt";
 import { SpeakerButton } from "@/components/ui/SpeakerButton";
 import { Plus, Trash2, Upload, RefreshCw } from "lucide-react";
 
@@ -24,22 +28,18 @@ export default function CustomFlashcardsPage() {
 
   const cardList = getAll();
 
-  return (
-    <div className="space-y-6">
+  return (<VocabularyPage title="My flashcards" description="Create and review words from your vocabulary bank."><div className="space-y-6">
       <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} className="flex items-center justify-between">
-        <div>
-          <h1 className="font-display text-2xl font-extrabold text-[var(--color-text-primary)]">Custom Flashcards</h1>
-          <p className="text-sm text-[var(--color-text-secondary)] mt-1">Create your own flashcards from vocabulary</p>
-        </div>
+
         <div className="flex gap-2">
-          <button onClick={importFromVocab}
+          <Button variant="unstyled" size="unstyled" onClick={importFromVocab}
             className="inline-flex items-center gap-1.5 text-xs font-medium bg-[var(--color-surface)] border border-[var(--color-border-default)] px-3 py-2 rounded-[var(--radius-lg)] hover:bg-[var(--color-surface-alt)] transition-all">
             <Upload className="w-3.5 h-3.5" /> From Vocab
-          </button>
-          <button onClick={() => setShowForm(!showForm)}
-            className="inline-flex items-center gap-1.5 text-xs font-medium bg-[var(--color-primary-subtle)] text-[var(--color-text-link)] border border-[var(--color-primary)] px-3 py-2 rounded-[var(--radius-lg)] hover:bg-[var(--color-primary)] transition-all">
+          </Button>
+          <Button variant="unstyled" size="unstyled" onClick={() => setShowForm(!showForm)}
+            className="inline-flex items-center gap-1.5 text-xs font-medium bg-[var(--color-primary-subtle)] text-[var(--color-text-link)] border border-[var(--color-primary)] px-3 py-2 rounded-[var(--radius-lg)] hover:bg-[var(--camp-purple-soft)] transition-all">
             <Plus className="w-3.5 h-3.5" /> New
-          </button>
+          </Button>
         </div>
       </motion.div>
 
@@ -48,17 +48,17 @@ export default function CustomFlashcardsPage() {
           <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} exit={{ opacity: 0, height: 0 }}
             className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-4 shadow-sm overflow-hidden">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-              <input type="text" value={de} onChange={(e) => setDe(e.target.value)} placeholder="English word"
+              <input type="text" value={de} onChange={(e) => setDe(e.target.value)} aria-label="English word" placeholder="English word"
                 className="px-3 py-2 text-sm bg-[var(--color-surface-alt)] border border-[var(--color-border-default)] rounded-[var(--radius-lg)] outline-none focus:ring-2 focus:ring-brand-100 focus:border-brand-300" />
-              <input type="text" value={en} onChange={(e) => setEn(e.target.value)} placeholder="English translation"
+              <input type="text" value={en} onChange={(e) => setEn(e.target.value)} aria-label="Meaning or Arabic translation" placeholder="Meaning or Arabic translation"
                 className="px-3 py-2 text-sm bg-[var(--color-surface-alt)] border border-[var(--color-border-default)] rounded-[var(--radius-lg)] outline-none focus:ring-2 focus:ring-brand-100 focus:border-brand-300" />
-              <input type="text" value={category} onChange={(e) => setCategory(e.target.value)} placeholder="Category"
+              <input type="text" value={category} onChange={(e) => setCategory(e.target.value)} aria-label="Card category" placeholder="Category"
                 className="px-3 py-2 text-sm bg-[var(--color-surface-alt)] border border-[var(--color-border-default)] rounded-[var(--radius-lg)] outline-none focus:ring-2 focus:ring-brand-100 focus:border-brand-300" />
             </div>
-            <button onClick={handleAdd} disabled={!de.trim() || !en.trim()}
-              className="mt-3 text-sm font-medium bg-[var(--color-primary-subtle)] text-[var(--color-text-link)] border border-[var(--color-primary)] px-5 py-2 rounded-[var(--radius-lg)] hover:bg-[var(--color-primary)] transition-all disabled:opacity-50">
+            <Button variant="unstyled" size="unstyled" onClick={handleAdd} disabled={!de.trim() || !en.trim()}
+              className="mt-3 text-sm font-medium bg-[var(--color-primary-subtle)] text-[var(--color-text-link)] border border-[var(--color-primary)] px-5 py-2 rounded-[var(--radius-lg)] hover:bg-[var(--camp-purple-soft)] transition-all disabled:opacity-50">
               Add Card
-            </button>
+            </Button>
           </motion.div>
         )}
       </AnimatePresence>
@@ -66,7 +66,7 @@ export default function CustomFlashcardsPage() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {cardList.length === 0 && (
           <div className="col-span-full text-center py-12 text-[var(--color-text-secondary)]">
-            <RefreshCw className="w-12 h-12 mx-auto mb-3 opacity-30" />
+            <LearningArt name="book" size={24} className="mb-3" />
             <p className="text-sm">No custom flashcards yet</p>
             <p className="text-xs mt-1">Add cards or import from your vocabulary bank</p>
           </div>
@@ -78,7 +78,7 @@ export default function CustomFlashcardsPage() {
               className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] shadow-[0_2px_8px_rgba(0,0,0,0.08),0_1px_3px_rgba(0,0,0,0.05)] border border-[var(--color-border-default)] overflow-hidden"
               style={{ perspective: "1000px" }}
             >
-              <div onClick={() => setFlipped(isFlipped ? null : card.id)} className="cursor-pointer min-h-[140px] flex flex-col items-center justify-center p-6 relative">
+              <Button variant="unstyled" size="unstyled" aria-label={`Flip card: ${card.de}`} aria-pressed={isFlipped} onClick={() => setFlipped(isFlipped ? null : card.id)} className="cursor-pointer w-full min-h-[140px] flex flex-col items-center justify-center p-6 relative">
                 <AnimatePresence mode="wait">
                   {!isFlipped ? (
                     <motion.div key="front" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="text-center">
@@ -92,17 +92,16 @@ export default function CustomFlashcardsPage() {
                     </motion.div>
                   )}
                 </AnimatePresence>
-              </div>
+              </Button>
               <div className="flex items-center justify-between px-4 py-2 bg-[var(--color-surface-alt)] border-t border-[var(--color-border-default)]">
                 <SpeakerButton text={card.de} />
-                <button onClick={() => removeCard(card.id)} className="text-[var(--color-text-secondary)] hover:text-[var(--color-text-error)] transition-colors p-1">
+                <Button variant="unstyled" size="unstyled" aria-label={`Remove card: ${card.de}`} onClick={() => removeCard(card.id)} className="text-[var(--color-text-secondary)] hover:text-[var(--color-text-error)] transition-colors p-1">
                   <Trash2 className="w-3.5 h-3.5" />
-                </button>
+                </Button>
               </div>
             </motion.div>
           );
         })}
       </div>
-    </div>
-  );
+    </div></VocabularyPage>);
 }

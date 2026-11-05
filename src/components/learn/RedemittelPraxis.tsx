@@ -182,15 +182,9 @@ export function RedemittelPraxis() {
       </div>
 
       <PracticeCard data-practice-surface="question" className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-5 sm:p-6 shadow-[var(--shadow-1)]">
-        <div className="mb-4 p-4 rounded-[var(--radius-md)] bg-[var(--color-warning-bg)] text-[var(--color-text-warning)] border border-[var(--color-warning)]">
-          <p className="text-xs font-semibold text-[var(--color-text-warning)]">{scenario.situation}</p>
-          <p className="text-xs text-[var(--color-text-warning)] mt-0.5">{scenario.description}</p>
-        </div>
-
         <div className="mb-4 text-left">
+          <p className="camp-practice-instruction">Choose the purpose of this phrase.</p>
           <p className="text-lg font-display font-extrabold text-[var(--color-text-primary)] italic leading-relaxed">&ldquo;{current.phrase}&rdquo;</p>
-          <p className="text-xs text-[var(--color-text-secondary)] mt-1">{current.usage}</p>
-          {current.arabic && <p className="font-arabic text-xs text-[var(--color-text-secondary)] mt-0.5" lang="ar">{current.arabic}</p>}
         </div>
 
         <div className="space-y-2">
@@ -214,6 +208,7 @@ export function RedemittelPraxis() {
             );
           })}
         </div>
+        {selected !== null && <div className="camp-quiz-feedback" role="status"><strong>{scenario.situation}</strong><p>{scenario.description}</p><p>{current.usage}</p>{current.arabic && <p className="font-arabic" lang="ar" dir="rtl">{current.arabic}</p>}</div>}
       </PracticeCard>
 
       {selected !== null && (

@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 
-const p = { dark: "#581C87", deep: "#6B21A8", main: "#7E22CE", mid: "#A855F7", light: "#D8B4FE", paper: "#FFF9F2", pale: "#F3E8FF" };
+const p = { dark: "var(--camp-art-dark, #581C87)", deep: "var(--camp-art-deep, #6B21A8)", main: "var(--camp-art-main, #7E22CE)", mid: "var(--camp-art-mid, #A855F7)", light: "var(--camp-art-light, #D8B4FE)", paper: "#FFF9F2", pale: "var(--camp-art-pale, #F3E8FF)" };
 const routes: Record<string, string> = {
   "/daily-challenge":"spark", "/vocabulary":"book", "/writing":"document", "/my-notes":"note", "/review":"review", "/study-plan":"plan", "/grammar-compare":"compare", "/mock-exam":"cap", "/conversation":"chat", "/pronunciation":"mic", "/badges":"trophy", "/grammar/cheat-sheet":"printer", "/weekly-report":"calendar", "/verb-tables":"table", "/sentence-patterns":"pattern", "/tenses-guide":"clock", "/study-strategies":"idea", "/british-vs-american":"globe", "/challenge":"flag", "/weak-areas":"warning",
 };

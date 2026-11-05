@@ -3,6 +3,9 @@ import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
 
 export type VocabEntry = {
+  example?: string;
+  definition?: string;
+  translationKind?: "word" | "context";
   de: string;
   en: string;
   category: string;
@@ -15,7 +18,7 @@ export type VocabEntry = {
 
 interface VocabStore {
   words: Record<string, VocabEntry>;
-  addWord: (de: string, en: string, category?: string) => void;
+  addWord: (de: string, en: string, category?: string, details?: Pick<VocabEntry,"example"|"definition"|"translationKind">) => void;
   removeWord: (id: string) => void;
   updateNotes: (id: string, notes: string) => void;
   updateMastery: (id: string, mastery: 0 | 1 | 2 | 3) => void;
@@ -37,14 +40,14 @@ export const useVocabulary = create<VocabStore>()(
     (set, get) => ({
       words: {},
 
-      addWord: (de, en, category = "general") => {
+      addWord: (de, en, category = "general", details = {}) => {
         const id = vocabId(de);
         const existing = get().words[id];
-        if (existing) return;
+        if (existing) { set(s=>({words:{...s.words,[id]:{...existing,example:existing.example||details.example,definition:existing.definition||details.definition,translationKind:existing.translationKind||details.translationKind}}}));return; }
         set((s) => ({
           words: {
             ...s.words,
-            [id]: { de, en, category, notes: "", addedAt: new Date().toISOString(), timesReviewed: 0, lastReview: null, mastery: 0 },
+            [id]: { de, en, category, ...details, notes: "", addedAt: new Date().toISOString(), timesReviewed: 0, lastReview: null, mastery: 0 },
           },
         }));
       },

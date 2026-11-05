@@ -169,7 +169,7 @@ export function Dictation() {
 
       <div className="flex justify-center gap-1 mt-4">
         {pool.map((_, i) => (
-          <div key={i} className={`w-2 h-2 rounded-[var(--radius-pill)] ${i < index ? "bg-orange-300" : i === index ? "bg-orange-500" : "bg-[var(--color-border-default)]"}`} />
+          <div key={i} className={`w-2 h-2 rounded-[var(--radius-pill)] ${i < index ? "bg-[var(--camp-purple)]" : i === index ? "bg-[var(--camp-purple)]" : "bg-[var(--color-border-default)]"}`} />
         ))}
       </div>
     </PracticeCard>

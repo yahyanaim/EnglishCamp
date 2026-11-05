@@ -64,8 +64,8 @@ export function KonjunktivIITrainer() {
   if (done) {
     const pct = total > 0 ? Math.round((score / total) * 100) : 0;
     return (
-      <div className="text-center py-8">
-        <span className="text-5xl block mb-3">{pct >= 80 ? "🏆" : pct >= 50 ? "👍" : "💪"}</span>
+      <div data-practice-surface="result" className="practice-card text-center">
+        <LearningArt name="trophy" size={30} className="camp-result-art"/>
         <h3 className="text-xl font-display font-extrabold text-[var(--color-text-primary)] mb-1">Conditionals Complete!</h3>
         <p className="text-lg font-display font-extrabold text-[var(--color-text-link)] mb-1">{score}/{total} correct ({pct}%)</p>
         <p className="text-sm text-[var(--color-text-secondary)] mb-6">{pct >= 80 ? "Excellent subjunctive skills!" : "Keep practicing!"}</p>

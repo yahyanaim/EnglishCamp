@@ -218,8 +218,8 @@ export function ImperativeTrainer() {
   if (done) {
     const pct = total > 0 ? Math.round((score / total) * 100) : 0;
     return (
-      <div className="text-center py-8">
-        <span className="text-5xl block mb-3">{pct >= 80 ? "🏆" : pct >= 50 ? "👍" : "💪"}</span>
+      <div data-practice-surface="result" className="practice-card text-center">
+        <LearningArt name="trophy" size={30} className="camp-result-art"/>
         <h3 className="text-xl font-display font-extrabold text-[var(--color-text-primary)] mb-1">
           Imperatives Practice Complete!
         </h3>
@@ -245,7 +245,7 @@ export function ImperativeTrainer() {
       style={{ boxShadow: "0 3px 0 var(--color-border-default)" }}
     >
       <div className="flex items-center justify-between mb-4">
-        <span className="text-xs font-semibold text-cyan-600 uppercase tracking-wider">
+        <span className="text-xs font-semibold text-[var(--camp-control-ink)] uppercase tracking-wider">
           English Imperative Trainer • {current.category}
         </span>
         <span className="text-xs text-[var(--color-text-secondary)]">
@@ -273,7 +273,7 @@ export function ImperativeTrainer() {
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-4">
         {current.options.map((opt) => {
           let style =
-            "bg-[var(--color-surface-alt)] border-[var(--color-border-default)] text-[var(--color-text-primary)] hover:bg-cyan-50 hover:border-cyan-300 hover:text-cyan-700";
+            "bg-[var(--color-surface-alt)] border-[var(--color-border-default)] text-[var(--color-text-primary)] hover:bg-[var(--camp-purple-soft)] hover:border-[var(--color-primary-light)] hover:text-[var(--camp-control-ink)]";
           if (selected) {
             if (opt === current.correct) {
               style = "bg-[var(--color-success-bg)] text-[var(--color-text-success)] border-[var(--color-success)] ring-2 ring-[var(--color-success)]";
@@ -320,7 +320,7 @@ export function ImperativeTrainer() {
           <div
             key={i}
             className={`w-2 h-2 rounded-[var(--radius-pill)] ${
-              i < index ? "bg-cyan-300" : i === index ? "bg-cyan-500" : "bg-[var(--color-border-default)]"
+              i < index ? "bg-[var(--camp-purple)]" : i === index ? "bg-[var(--camp-purple)]" : "bg-[var(--color-border-default)]"
             }`}
           />
         ))}

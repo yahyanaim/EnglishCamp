@@ -93,7 +93,7 @@ export function FlashcardRace() {
   return (
     <PracticeCard data-practice-surface="question" className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-6 shadow-sm" style={{ boxShadow: "0 3px 0 var(--color-border-default)" }}>
       <div className="flex items-center justify-between mb-4">
-        <span className="text-xs font-semibold text-rose-500 uppercase tracking-wider">Flashcard Race</span>
+        <span className="text-xs font-semibold text-[var(--camp-control-ink)] uppercase tracking-wider">Flashcard Race</span>
         <div className="flex items-center gap-3">
           <span className={`text-sm font-mono font-bold ${timeLeft <= 10 ? "text-[var(--color-text-error)]" : "text-[var(--color-text-secondary)]"}`}>{timeLeft}s</span>
           <span className="text-xs text-[var(--color-text-secondary)]">{index + 1}/{raceCards.length}</span>
@@ -133,7 +133,7 @@ export function FlashcardRace() {
 
       <div className="flex justify-center gap-1 mt-4">
         {raceCards.map((_, i) => (
-          <div key={i} className={`w-2 h-2 rounded-[var(--radius-pill)] ${i <= index ? "bg-rose-300" : "bg-[var(--color-border-default)]"}`} />
+          <div key={i} className={`w-2 h-2 rounded-[var(--radius-pill)] ${i <= index ? "bg-[var(--camp-purple)]" : "bg-[var(--color-border-default)]"}`} />
         ))}
       </div>
     </PracticeCard>

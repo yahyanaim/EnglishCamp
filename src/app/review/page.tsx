@@ -1,4 +1,5 @@
 "use client";
+import { Button } from "@/components/ui/shadcn/button";
 import { learnerStorage } from "@/lib/learnerStorage";
 import { LearningArt } from "@/components/brand/LearningArt";
 import { PageBanner } from "@/components/ui/PageBanner";
@@ -160,9 +161,9 @@ export default function ReviewPage() {
 
   if (sessionComplete) {
     return (
-      <PageWrapper>
+      <PageWrapper className="camp-review-page">
         <PageBanner><h1>Review Queue</h1><p>Revisit saved vocabulary and mistakes when they are ready for review.</p></PageBanner>
-        <div className="text-center py-8 space-y-6">
+        <div className="camp-review-empty text-center py-8 space-y-6">
           <div className="w-20 h-20 rounded-3xl bg-[var(--color-success-bg)] text-[var(--color-text-success)] flex items-center justify-center mx-auto">
             <LearningArt name="review" size={36} />
           </div>
@@ -186,9 +187,9 @@ export default function ReviewPage() {
               {Math.round((stats.correct / stats.total) * 100)}% accuracy
             </p>
           )}
-          <button onClick={startSession} className="inline-flex items-center gap-2 px-6 py-3 bg-[var(--color-primary)] text-[var(--color-on-brand)] rounded-[var(--radius-lg)] font-semibold hover:bg-[var(--color-primary-hover)] transition-colors">
+          <Button variant="unstyled" onClick={startSession} className="inline-flex items-center gap-2 px-6 py-3 bg-[var(--color-primary)] text-[var(--color-on-brand)] rounded-[var(--radius-lg)] font-semibold hover:bg-[var(--color-primary-hover)] transition-colors">
             <RotateCcw className="w-4 h-4" /> Start New Session
-          </button>
+          </Button>
         </div>
       </PageWrapper>
     );
@@ -196,27 +197,29 @@ export default function ReviewPage() {
 
   if (sessionItems.length === 0) {
     return (
-      <PageWrapper>
-        <div className="text-center py-16 space-y-6">
+      <PageWrapper className="camp-review-page">
+        <PageBanner><h1>Review Queue</h1><p>Revisit saved vocabulary and mistakes when they are ready for review.</p></PageBanner>
+        <div className="camp-review-empty text-center py-16 space-y-6">
           <div className="w-20 h-20 rounded-3xl bg-[var(--color-surface-alt)] flex items-center justify-center mx-auto">
             <LearningArt name="review" size={36} />
           </div>
           <h2 className="text-xl font-bold text-[var(--color-text-primary)]">Nothing to Review</h2>
           <p className="text-sm text-[var(--color-text-secondary)]">Complete lessons, exercises, and add vocabulary to build your review queue.</p>
-          <button onClick={startSession} className="inline-flex items-center gap-2 px-6 py-3 bg-[var(--color-primary)] text-[var(--color-on-brand)] rounded-[var(--radius-lg)] font-semibold hover:bg-[var(--color-primary-hover)] transition-colors">
+          <Button variant="unstyled" onClick={startSession} className="inline-flex items-center gap-2 px-6 py-3 bg-[var(--color-primary)] text-[var(--color-on-brand)] rounded-[var(--radius-lg)] font-semibold hover:bg-[var(--color-primary-hover)] transition-colors">
             <RotateCcw className="w-4 h-4" /> Check Again
-          </button>
+          </Button>
         </div>
       </PageWrapper>
     );
   }
 
   return (
-    <PageWrapper>
+    <PageWrapper className="camp-review-page">
       <div className="space-y-6">
-        <div className="flex items-center justify-between">
+        <PageBanner><h1>Review Queue</h1><p>Revisit saved vocabulary and mistakes when they are ready for review.</p></PageBanner>
+        <div className="flex flex-wrap items-center justify-between gap-3">
           <div>
-            <h1 className="font-display text-2xl font-extrabold text-[var(--color-text-primary)]">Spaced Repetition</h1>
+            <h2 className="font-display text-2xl font-extrabold text-[var(--color-text-primary)]">Spaced Repetition</h2>
             <p className="text-sm text-[var(--color-text-secondary)] mt-1">Review {currentIndex + 1} of {sessionItems.length}</p>
           </div>
           <div className="flex items-center gap-2">
@@ -253,18 +256,18 @@ export default function ReviewPage() {
               </div>
 
               {current.type === "vocab" && (
-                <button onClick={() => speak(current.front)} className="inline-flex items-center gap-1.5 text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors">
+                <Button variant="unstyled" onClick={() => speak(current.front)} className="inline-flex items-center gap-1.5 text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors">
                   <Volume2 className="w-4 h-4" /> Listen
-                </button>
+                </Button>
               )}
 
               {!showAnswer ? (
-                <button
+                <Button variant="unstyled"
                   onClick={() => setShowAnswer(true)}
                   className="inline-flex items-center gap-2 px-6 py-3 bg-[var(--color-primary)] text-[var(--color-on-brand)] rounded-[var(--radius-lg)] font-display font-extrabold hover:bg-[var(--color-primary-dark)] transition-all active:translate-y-0.5" style={{ boxShadow: "0 4px 0 var(--color-primary-dark)" }}
                 >
                   Show Answer <ChevronRight className="w-4 h-4" />
-                </button>
+                </Button>
               ) : (
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
@@ -279,9 +282,9 @@ export default function ReviewPage() {
                   </div>
 
                   {current.type === "vocab" && (
-                    <button onClick={() => speak(current.back, "en-US")} className="inline-flex items-center gap-1.5 text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors">
+                    <Button variant="unstyled" onClick={() => speak(current.back, "en-US")} className="inline-flex items-center gap-1.5 text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors">
                       <Volume2 className="w-4 h-4" /> Listen (English)
-                    </button>
+                    </Button>
                   )}
 
                   <p className="text-xs font-semibold text-[var(--color-text-secondary)] uppercase tracking-wider">How well did you know this?</p>
@@ -293,7 +296,7 @@ export default function ReviewPage() {
                       { q: 4, label: "Easy", emoji: "😊", color: "emerald" },
                       { q: 5, label: "Perfect", emoji: "🎉", color: "brand" },
                     ].map((btn) => (
-                      <button
+                      <Button variant="unstyled"
                         key={btn.q}
                         onClick={() => handleAnswer(btn.q)}
                         className={`px-4 py-2 rounded-[var(--radius-lg)] text-sm font-semibold transition-all hover:scale-105 ${
@@ -305,7 +308,7 @@ export default function ReviewPage() {
                         }`}
                       >
                         {btn.emoji} {btn.label}
-                      </button>
+                      </Button>
                     ))}
                   </div>
                 </motion.div>
@@ -316,9 +319,9 @@ export default function ReviewPage() {
 
         <div className="flex items-center justify-between text-xs text-[var(--color-text-secondary)]">
           <span>Correct: {stats.correct} | Wrong: {stats.wrong}</span>
-          <button onClick={startSession} className="flex items-center gap-1 text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors">
+          <Button variant="unstyled" onClick={startSession} className="flex items-center gap-1 text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors">
             <RotateCcw className="w-3 h-3" /> Restart
-          </button>
+          </Button>
         </div>
       </div>
     </PageWrapper>

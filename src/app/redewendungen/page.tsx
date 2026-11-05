@@ -1,9 +1,12 @@
 "use client";
 
+
+import { BackButton } from "@/components/ui/BackButton";
 import { LearningArt } from "@/components/brand/LearningArt";
 import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
-import { PageWrapper } from "@/components/layout/PageWrapper";
+import { Button } from "@/components/ui/shadcn/button";
+import { VocabularyPage } from "@/components/layout/VocabularyPage";
 import { Search, X, ChevronLeft } from "lucide-react";
 import { IDIOMS } from "@/data/redewendungen";
 
@@ -23,12 +26,10 @@ export default function RedewendungenPage() {
 
   if (selectedEntry) {
     return (
-      <PageWrapper>
-        <button onClick={() => setSelected(null)} className="flex items-center gap-1.5 text-sm font-medium text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors mb-6">
-          <ChevronLeft className="w-4 h-4" /> Back to all idioms
-        </button>
+      <VocabularyPage title="Idioms" description="Explore fixed expressions through meanings and examples.">
+        <BackButton onClick={() => setSelected(null)}>Back to all idioms</BackButton>
 
-        <div className="bg-[var(--color-surface-alt)]    rounded-[var(--radius-lg)] ring-1 ring-rose-200/50 p-6 shadow-sm mb-6">
+        <div className="bg-[var(--color-surface-alt)]    rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-6 shadow-sm mb-6">
           <div className="flex items-center gap-4 mb-3">
             <LearningArt name="💬" size={24} className="" />
             <div>
@@ -42,25 +43,22 @@ export default function RedewendungenPage() {
           <h3 className="text-xs font-bold text-[var(--color-text-secondary)] uppercase tracking-wider mb-2">Example</h3>
           <p className="text-sm font-medium text-[var(--color-text-primary)] mb-1">{selectedEntry.example}</p>
         </div>
-      </PageWrapper>
+      </VocabularyPage>
     );
   }
 
   return (
-    <PageWrapper>
+    <VocabularyPage title="Idioms" description="Explore fixed expressions through meanings and examples.">
       <div className="space-y-6">
-        <div>
-          <h1 className="font-display text-2xl font-extrabold text-[var(--color-text-primary)]">Idioms</h1>
-          <p className="text-sm text-[var(--color-text-secondary)] mt-1">English idioms, proverbs, and fixed expressions</p>
-        </div>
+
 
         <div className="relative">
           <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-[var(--color-text-secondary)]" />
-          <input type="text" value={search} onChange={(e) => setSearch(e.target.value)}
+          <input aria-label="Search idioms" type="text" value={search} onChange={(e) => setSearch(e.target.value)}
             placeholder="Search idioms..."
-            className="w-full h-[52px] pl-11 pr-10 bg-[var(--color-surface)] rounded-[var(--radius-md)] border border-[var(--color-border-default)] text-[16px] font-body font-medium text-[var(--color-text-secondary)] placeholder:text-[var(--color-text-secondary)] placeholder:italic outline-none transition-all duration-150 focus:border-[#7E22CE] focus:shadow-[0_0_0_3px_rgba(126,34,206,0.15)]"
+            className="w-full h-[52px] pl-11 pr-10 bg-[var(--color-surface)] rounded-[var(--radius-md)] border border-[var(--color-border-default)] text-[16px] font-body font-medium text-[var(--color-text-secondary)] placeholder:text-[var(--color-text-secondary)] placeholder:italic outline-none transition-all duration-150 focus:border-[var(--camp-control-ink)] focus:shadow-[0_0_0_3px_rgba(126,34,206,0.15)]"
           />
-          {search && <button onClick={() => setSearch("")} className="absolute right-3.5 top-1/2 -translate-y-1/2"><X className="w-4 h-4 text-[var(--color-text-secondary)] hover:text-[var(--color-text-secondary)]" /></button>}
+          {search && <Button variant="unstyled" size="unstyled" aria-label="Clear search" onClick={() => setSearch("")} className="absolute right-3.5 top-1/2 -translate-y-1/2"><X className="w-4 h-4 text-[var(--color-text-secondary)] hover:text-[var(--color-text-secondary)]" /></Button>}
         </div>
 
         <div className="flex items-center gap-2">
@@ -69,7 +67,7 @@ export default function RedewendungenPage() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5">
           {filtered.map((id, i) => (
-            <motion.button key={id.idiom} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.015 }}
+            <motion.button key={id.idiom} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: Math.min(i * 0.015, 0.2) }}
               whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}
               onClick={() => setSelected(i)}
               className="text-left bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-3.5 shadow-sm hover:shadow-md transition-all"
@@ -86,6 +84,6 @@ export default function RedewendungenPage() {
           )}
         </div>
       </div>
-    </PageWrapper>
+    </VocabularyPage>
   );
 }

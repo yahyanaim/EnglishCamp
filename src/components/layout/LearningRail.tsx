@@ -11,7 +11,7 @@ import { courseCatalogue } from "@/data/course-catalogue";
 import { useSessionProfile } from "@/components/session/SessionProvider";
 import { FruitAvatar } from "@/components/session/FruitAvatar";
 import { profileTag } from "@/lib/sessionProfile";
-import { hasModuleCredit } from "@/lib/courseProgress";
+import { courseSnapshot } from "@/lib/courseProgress";
 
 export function LearningRail() {
   const { profile } = useSessionProfile();
@@ -23,7 +23,7 @@ export function LearningRail() {
   useEffect(() => setMounted(true), []);
   const level = getLevelInfo(mounted ? xp : 0);
   const progress = level.nextXP === Infinity ? 100 : Math.min(100, Math.round((mounted ? xp : 0) / level.nextXP * 100));
-  const courses = useMemo(() => courseCatalogue.map(course => ({ ...course, completed: mounted ? course.lessons.filter(lesson => hasModuleCredit(lesson.id, modules, lessons)).length : 0 })), [mounted, modules, lessons]);
+  const courses = useMemo(() => courseCatalogue.map(course => ({ ...course, ...courseSnapshot(course.lessons.map(lesson=>lesson.id),mounted?modules:{},mounted?lessons:{}) })), [mounted, modules, lessons]);
 
   return (
     <aside className="camp-learning-rail" aria-label="Your learning progress">
@@ -42,16 +42,7 @@ export function LearningRail() {
       </div>
       <section className="rail-course-progress" aria-label="Completed course modules">
         <div className="rail-section-heading">Course progress <Link prefetch={false} href="/stats" aria-label="View learning statistics"><ArrowUpRight size={15} /></Link></div>
-        <div className="rail-chart">
-          {courses.map((course, i) => {
-            const pct = Math.round(course.completed / course.lessons.length * 100);
-            return <div className="rail-chart-column" key={course.id} title={`${course.title}: ${course.completed} of ${course.lessons.length} modules`}>
-              <div className="rail-chart-track"><div style={{ height: `${pct}%` }} /></div>
-              <span>{i + 1}</span>
-            </div>;
-          })}
-        </div>
-        <p className="rail-caption">Completed modules in each course</p>
+        <div className="rail-chart camp-course-bars">{courses.map((course,i)=><Link prefetch={false} key={course.id} href={`/levels/${course.id}`} className="rail-chart-column" title={`${course.title}: ${course.percent}% stages, ${course.completed}/${course.total} modules completed`}><div className="rail-chart-track" role="progressbar" aria-label={`${course.title} course progress`} aria-valuemin={0} aria-valuemax={100} aria-valuenow={course.percent}><div style={{height:`${course.percent}%`}}/></div><strong>{course.percent}%</strong><small>{['B2','Academic','TOEFL','General'][i]}</small></Link>)}</div><p className="rail-caption">Accepted course stages. Complete all three stages to finish a module.</p>
       </section>
       <section>
         <div className="rail-section-heading">Your courses <LearningArt name="BookOpen" size={15}  /></div>

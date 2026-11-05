@@ -61,8 +61,8 @@ export function QuestionFormationTrainer() {
   if (done) {
     const pct = Math.round((score / QUESTIONS.length) * 100);
     return (
-      <div className="text-center py-8">
-        <span className="text-5xl block mb-3">{pct >= 80 ? "🏆" : pct >= 50 ? "👍" : "💪"}</span>
+      <div data-practice-surface="result" className="practice-card text-center">
+        <LearningArt name="trophy" size={30} className="camp-result-art"/>
         <h3 className="text-xl font-display font-extrabold text-[var(--color-text-primary)] mb-1">Question Formation Complete!</h3>
         <p className="text-lg font-display font-extrabold text-[var(--color-text-link)] mb-1">{score}/{QUESTIONS.length} correct ({pct}%)</p>
         <PracticeButton onClick={restart} className="text-sm font-medium bg-[var(--color-primary-subtle)] text-[var(--color-text-link)] border border-[var(--color-primary)] px-5 py-2 rounded-[var(--radius-lg)] hover:bg-[var(--color-primary)] transition-all mt-4">Play Again <LearningArt name="🔄" size={16} /></PracticeButton>

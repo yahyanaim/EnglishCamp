@@ -3,6 +3,7 @@
 import { LearningArt } from "@/components/brand/LearningArt";
 import { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { PageBanner } from "@/components/ui/PageBanner";
 import { PageWrapper } from "@/components/layout/PageWrapper";
 import { Search, X, ChevronDown, ChevronUp, Lightbulb, Filter } from "lucide-react";
 import { MISTAKES } from "@/data/typische-fehler";
@@ -40,12 +41,12 @@ export default function TypischeFehlerPage() {
   };
 
   return (
-    <PageWrapper>
+    <PageWrapper className="camp-grammar-page">
       <div className="space-y-6">
-        <div>
+        <PageBanner>
           <h1 className="font-display text-2xl font-extrabold text-[var(--color-text-primary)]">Common Mistakes</h1>
           <p className="text-sm text-[var(--color-text-secondary)] mt-1">{MISTAKES.length} mistakes across {CATEGORIES.length} categories</p>
-        </div>
+        </PageBanner>
 
         <div className="flex items-center gap-3">
           <div className="relative flex-1">
@@ -54,22 +55,22 @@ export default function TypischeFehlerPage() {
               placeholder="Search mistakes..."
               className="w-full h-[52px] pl-11 pr-10 bg-[var(--color-surface)] rounded-[var(--radius-md)] border border-[var(--color-border-default)] text-[16px] font-body font-medium text-[var(--color-text-secondary)] placeholder:text-[var(--color-text-secondary)] placeholder:italic outline-none transition-all duration-150 focus:border-[#7E22CE] focus:shadow-[0_0_0_3px_rgba(126,34,206,0.15)]"
             />
-            {search && <button onClick={() => setSearch("")} className="absolute right-3 top-1/2 -translate-y-1/2"><X className="w-4 h-4 text-[var(--color-text-secondary)] hover:text-[var(--color-text-secondary)]" /></button>}
+            {search && <button onClick={() => setSearch("")} className="camp-grammar-control absolute right-3 top-1/2 -translate-y-1/2" aria-label="Clear search"><X className="w-4 h-4 text-[var(--color-text-secondary)] hover:text-[var(--color-text-secondary)]" /></button>}
           </div>
           {activeCategory && (
-            <button onClick={() => setActiveCategory(null)} className="flex items-center gap-1.5 px-3 py-2 text-xs font-semibold text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] hover:ring-[var(--color-text-disabled)] transition-all whitespace-nowrap">
+            <button onClick={() => setActiveCategory(null)} className="camp-grammar-control flex items-center gap-1.5 px-3 py-2 text-xs font-semibold text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] hover:ring-[var(--color-text-disabled)] transition-all whitespace-nowrap">
               <X className="w-3 h-3" /> Clear
             </button>
           )}
         </div>
 
-        <div className="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-thin">
+        <div className="camp-grammar-table-scroll flex items-center gap-2 overflow-x-auto pb-1 scrollbar-thin" tabIndex={0} role="region" aria-label="Grammar reference table">
           <Filter className="w-3.5 h-3.5 text-[var(--color-text-secondary)] shrink-0" />
           {CATEGORIES.map((cat) => (
             <button
               key={cat}
               onClick={() => setActiveCategory(activeCategory === cat ? null : cat)}
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-[var(--radius-pill)] text-xs font-semibold whitespace-nowrap transition-all ${
+              className={`camp-grammar-control flex items-center gap-1.5 px-3 py-1.5 rounded-[var(--radius-pill)] text-xs font-semibold whitespace-nowrap transition-all ${
                 activeCategory === cat
                   ? "bg-[var(--color-primary)] text-[var(--color-on-brand)] shadow-sm"
                   : "bg-[var(--color-surface)] border border-[var(--color-border-default)] text-[var(--color-text-secondary)] hover:ring-[var(--color-text-disabled)]"
@@ -91,11 +92,12 @@ export default function TypischeFehlerPage() {
                 key={m.id}
                 initial={{ opacity: 0, y: 6 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] shadow-[0_2px_8px_rgba(0,0,0,0.08),0_1px_3px_rgba(0,0,0,0.05)] border border-[var(--color-border-default)] overflow-hidden"
+                className="camp-grammar-panel bg-[var(--color-surface)] rounded-[var(--radius-lg)] shadow-[0_2px_8px_rgba(0,0,0,0.08),0_1px_3px_rgba(0,0,0,0.05)] border border-[var(--color-border-default)] overflow-hidden"
               >
                 <button
+                  aria-expanded={isExpanded}
                   onClick={() => toggleCard(m.id)}
-                  className="w-full text-left p-4 hover:bg-[var(--color-surface-alt)]/50 transition-colors"
+                  className="camp-grammar-disclosure w-full text-left p-4 hover:bg-[var(--color-surface-alt)]/50 transition-colors"
                 >
                   <div className="flex items-start gap-3">
                     <div className="w-5 h-5 rounded-full bg-[var(--color-error-bg)] text-[var(--color-text-error)] flex items-center justify-center flex-shrink-0 mt-0.5">
@@ -131,14 +133,14 @@ export default function TypischeFehlerPage() {
                       className="overflow-hidden"
                     >
                       <div className="px-4 pb-4 pt-0 space-y-2 border-t border-[var(--color-border-default)]">
-                        <div className="mt-2 p-3 bg-[var(--color-surface-alt)] rounded-[var(--radius-lg)]">
+                        <div className="camp-grammar-formation mt-2 p-3 bg-[var(--color-surface-alt)] rounded-[var(--radius-lg)]">
                           <p className="text-xs text-[var(--color-text-secondary)] leading-relaxed">{m.explanation}</p>
                         </div>
-                        <div className="p-3 bg-[var(--color-surface-alt)] rounded-[var(--radius-lg)]" lang="ar">
+                        <div className="camp-grammar-formation p-3 bg-[var(--color-surface-alt)] rounded-[var(--radius-lg)]" lang="ar">
                           <p className="text-xs text-[var(--color-text-secondary)] leading-relaxed">{m.explanationArabic}</p>
                         </div>
                         {m.tip && (
-                          <div className="flex items-start gap-2 p-3 bg-[var(--color-warning-bg)] text-[var(--color-text-warning)] rounded-[var(--radius-lg)]">
+                          <div className="camp-grammar-note flex items-start gap-2 p-3 bg-[var(--color-warning-bg)] text-[var(--color-text-warning)] rounded-[var(--radius-lg)]">
                             <LearningArt name="Lightbulb" size={16} className="w-4 h-4 text-[var(--color-text-warning)] mt-0.5 shrink-0" />
                             <div>
                               <p className="text-[10px] font-semibold text-[var(--color-text-warning)] mb-0.5">Tip</p>
@@ -157,7 +159,7 @@ export default function TypischeFehlerPage() {
             <div className="text-center py-16">
               <LearningArt name="🔍" size={36} className=" block mb-3" />
               <p className="text-sm font-medium text-[var(--color-text-secondary)]">No mistakes found</p>
-              <button onClick={() => { setSearch(""); setActiveCategory(null); }} className="mt-2 text-xs text-[var(--color-primary)] hover:text-[var(--color-text-link)] font-semibold">
+              <button onClick={() => { setSearch(""); setActiveCategory(null); }} className="camp-grammar-control mt-2 text-xs text-[var(--color-primary)] hover:text-[var(--color-text-link)] font-semibold">
                 Clear filters
               </button>
             </div>

@@ -1,0 +1,228 @@
+{
+  "scope": "Grammar presentation only: headers, surfaces, controls, responsive tables and disclosure semantics. Keep teaching data, event handlers and initial state. Reviewed addition: everyday vocabulary disclosures participate in Expand all, Collapse all and print. Reviewed additive nouns, agreement and quantity lessons: one new disclosure handler; all older inline teaching text remains unchanged.",
+  "pages": [
+    {
+      "route": "/common-mistakes",
+      "file": "src/app/typische-fehler/page.tsx"
+    },
+    {
+      "route": "/comparisons",
+      "file": "src/app/vergleiche/page.tsx"
+    },
+    {
+      "route": "/compound-words",
+      "file": "src/app/da-komposita/page.tsx"
+    },
+    {
+      "route": "/conditionals-and-wishes",
+      "file": "src/app/konjunktiv-ii/page.tsx"
+    },
+    {
+      "route": "/discourse-markers",
+      "file": "src/app/modalpartikel/page.tsx"
+    },
+    {
+      "route": "/future-tenses",
+      "file": "src/app/futur/page.tsx"
+    },
+    {
+      "route": "/grammar",
+      "file": "src/app/grammar/page.tsx"
+    },
+    {
+      "route": "/grammar-compare",
+      "file": "src/app/grammar-compare/page.tsx"
+    },
+    {
+      "route": "/grammar/cheat-sheet",
+      "file": "src/app/grammar/cheat-sheet/page.tsx"
+    },
+    {
+      "route": "/irregular-plurals",
+      "file": "src/app/n-deklination/page.tsx"
+    },
+    {
+      "route": "/irregular-verbs",
+      "file": "src/app/unregelmaessige-verben/page.tsx"
+    },
+    {
+      "route": "/linking-words",
+      "file": "src/app/konnektoren/page.tsx"
+    },
+    {
+      "route": "/paired-conjunctions",
+      "file": "src/app/zweiteilige-konnektoren/page.tsx"
+    },
+    {
+      "route": "/participle-adjectives",
+      "file": "src/app/partizipien-als-adjektive/page.tsx"
+    },
+    {
+      "route": "/passive-voice",
+      "file": "src/app/passiv/page.tsx"
+    },
+    {
+      "route": "/past-perfect",
+      "file": "src/app/plusquamperfekt/page.tsx"
+    },
+    {
+      "route": "/prefix-verbs",
+      "file": "src/app/prefix-verbs/page.tsx"
+    },
+    {
+      "route": "/question-formation",
+      "file": "src/app/fragen/page.tsx"
+    },
+    {
+      "route": "/reflexive-verbs",
+      "file": "src/app/reflexive-verben/page.tsx"
+    },
+    {
+      "route": "/relative-clauses",
+      "file": "src/app/relativsaetze/page.tsx"
+    },
+    {
+      "route": "/reported-speech",
+      "file": "src/app/indirekte-rede/page.tsx"
+    },
+    {
+      "route": "/sentence-patterns",
+      "file": "src/app/satzmuster/page.tsx"
+    },
+    {
+      "route": "/sentence-structure",
+      "file": "src/app/satzbau/page.tsx"
+    },
+    {
+      "route": "/simple-past",
+      "file": "src/app/praeteritum/page.tsx"
+    },
+    {
+      "route": "/subordinate-clauses",
+      "file": "src/app/nebensaetze/page.tsx"
+    },
+    {
+      "route": "/tenses-guide",
+      "file": "src/app/tenses-guide/page.tsx"
+    },
+    {
+      "route": "/verb-conjugation",
+      "file": "src/app/conjugaise/page.tsx"
+    },
+    {
+      "route": "/verb-tables",
+      "file": "src/app/verb-tables/page.tsx"
+    },
+    {
+      "route": "/word-formation",
+      "file": "src/app/wortbildung/page.tsx"
+    },
+    {
+      "route": "/word-pairs",
+      "file": "src/app/wortpaare/page.tsx"
+    }
+  ],
+  "handlers": {
+    "src/app/typische-fehler/page.tsx": "e4a4efff349ad74377da1ede4c344ebf7807b9c9808029c85a43d3547c9edf54",
+    "src/app/vergleiche/page.tsx": "6630841c342387d00d563ac0cb4ea98e0669e1a46afb560fbf8ec2fde5eb92e6",
+    "src/app/da-komposita/page.tsx": "dd18342ba34a299e423fe7da7d9aa81d0cbad22403ed01bf8b4a44e7953724ac",
+    "src/app/konjunktiv-ii/page.tsx": "6630841c342387d00d563ac0cb4ea98e0669e1a46afb560fbf8ec2fde5eb92e6",
+    "src/app/modalpartikel/page.tsx": "c0b35e6a1bf268be7d59fc29246aff5868173c3a57ec9259cfed0f5f5d754ec3",
+    "src/app/futur/page.tsx": "6630841c342387d00d563ac0cb4ea98e0669e1a46afb560fbf8ec2fde5eb92e6",
+    "src/app/grammar/page.tsx": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "src/app/grammar-compare/page.tsx": "92cbb28d53af7e18c6c83bb2e14b58f3a76a54471284c07053cd02704b4519df",
+    "src/app/grammar/cheat-sheet/page.tsx": "f85ad91a6bdeb51b74e8ad178048fa7e8dda2b654b81f0cd239cce43d97be401",
+    "src/app/n-deklination/page.tsx": "6630841c342387d00d563ac0cb4ea98e0669e1a46afb560fbf8ec2fde5eb92e6",
+    "src/app/unregelmaessige-verben/page.tsx": "f74b4424258a7a88b9bcf0f98e3a6601b29e1a105798ec7777781c256ac1108b",
+    "src/app/konnektoren/page.tsx": "826ca8d440f0780b207bfa2ab40b6bf4392c5d78e13b3e877bc1eb9e35c0a3c1",
+    "src/app/zweiteilige-konnektoren/page.tsx": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "src/app/partizipien-als-adjektive/page.tsx": "6630841c342387d00d563ac0cb4ea98e0669e1a46afb560fbf8ec2fde5eb92e6",
+    "src/app/passiv/page.tsx": "6630841c342387d00d563ac0cb4ea98e0669e1a46afb560fbf8ec2fde5eb92e6",
+    "src/app/plusquamperfekt/page.tsx": "6630841c342387d00d563ac0cb4ea98e0669e1a46afb560fbf8ec2fde5eb92e6",
+    "src/app/prefix-verbs/page.tsx": "47ecfd93a8c66b67bec4ab90be0219886fa46e411d07b32da2309c6a390b6238",
+    "src/app/fragen/page.tsx": "6630841c342387d00d563ac0cb4ea98e0669e1a46afb560fbf8ec2fde5eb92e6",
+    "src/app/reflexive-verben/page.tsx": "9af0673d956afc150c93c79e11cd3bd4755a7336621ae403d85bc71f986545fc",
+    "src/app/relativsaetze/page.tsx": "6630841c342387d00d563ac0cb4ea98e0669e1a46afb560fbf8ec2fde5eb92e6",
+    "src/app/indirekte-rede/page.tsx": "6630841c342387d00d563ac0cb4ea98e0669e1a46afb560fbf8ec2fde5eb92e6",
+    "src/app/satzmuster/page.tsx": "a9efb42ffec02a733adc44045f94be91969be0eccb8525c0c54754fee8fc89b9",
+    "src/app/satzbau/page.tsx": "6630841c342387d00d563ac0cb4ea98e0669e1a46afb560fbf8ec2fde5eb92e6",
+    "src/app/praeteritum/page.tsx": "6630841c342387d00d563ac0cb4ea98e0669e1a46afb560fbf8ec2fde5eb92e6",
+    "src/app/nebensaetze/page.tsx": "6630841c342387d00d563ac0cb4ea98e0669e1a46afb560fbf8ec2fde5eb92e6",
+    "src/app/tenses-guide/page.tsx": "9ec63ba20b8e52b616d886bc1626bcf717768488b938e193a5e4298f27857417",
+    "src/app/conjugaise/page.tsx": "6f63b806de5adc44f64179334c27f8413d1059daddf1bd302853acdbd89960f0",
+    "src/app/verb-tables/page.tsx": "76c392cfe56a73df3da63561eecbdbd0856c7c418d1e07d8005b018215c1e801",
+    "src/app/wortbildung/page.tsx": "c9bc42addf2d01ec8ab7ee98f9ab971e6082023fa7050ff5bf906a28ce5e6ae4",
+    "src/app/wortpaare/page.tsx": "8a0c774aafbfd9784161371de6715e21467cafd412ed137706bfc319e77bcc14",
+    "src/app/declensions/page.tsx": "3584d211f11c6f46bf33508d0686192a26f1e589140a502724921737e558e1f6",
+    "src/components/learn/GrammarReference.tsx": "4950a5c6b7207d5af8338da584241521bad862b0b14e762805f0a32a1f605d9f"
+  },
+  "initialState": {
+    "src/app/typische-fehler/page.tsx": "c96bd565c910b9e8dff4e3634d4e74c4ed936b4f559fb1615156ba7bdecd8c1e",
+    "src/app/vergleiche/page.tsx": "090fb012c703574128661feaf475854f772d8ae70c80f5173dd73bb67a03bfd1",
+    "src/app/da-komposita/page.tsx": "090fb012c703574128661feaf475854f772d8ae70c80f5173dd73bb67a03bfd1",
+    "src/app/konjunktiv-ii/page.tsx": "090fb012c703574128661feaf475854f772d8ae70c80f5173dd73bb67a03bfd1",
+    "src/app/modalpartikel/page.tsx": "be653050ee32268944c098f11e2df1cdfb8bc6b6e20ee15d728eaa06455fa37d",
+    "src/app/futur/page.tsx": "090fb012c703574128661feaf475854f772d8ae70c80f5173dd73bb67a03bfd1",
+    "src/app/grammar/page.tsx": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "src/app/grammar-compare/page.tsx": "4b540571c3e22022897c462f2032118ea50466be1b451ef3678d68c3018aedd5",
+    "src/app/grammar/cheat-sheet/page.tsx": "452d55c8a910a9c5c77a8d310725933c5a7d6c514d16b5e5fbdc46f838c3b846",
+    "src/app/n-deklination/page.tsx": "090fb012c703574128661feaf475854f772d8ae70c80f5173dd73bb67a03bfd1",
+    "src/app/unregelmaessige-verben/page.tsx": "be653050ee32268944c098f11e2df1cdfb8bc6b6e20ee15d728eaa06455fa37d",
+    "src/app/konnektoren/page.tsx": "66a1e03643f73f9cb89e2093582cb014ea0f30316d7699a35e33a21613a79909",
+    "src/app/zweiteilige-konnektoren/page.tsx": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "src/app/partizipien-als-adjektive/page.tsx": "090fb012c703574128661feaf475854f772d8ae70c80f5173dd73bb67a03bfd1",
+    "src/app/passiv/page.tsx": "090fb012c703574128661feaf475854f772d8ae70c80f5173dd73bb67a03bfd1",
+    "src/app/plusquamperfekt/page.tsx": "090fb012c703574128661feaf475854f772d8ae70c80f5173dd73bb67a03bfd1",
+    "src/app/prefix-verbs/page.tsx": "be653050ee32268944c098f11e2df1cdfb8bc6b6e20ee15d728eaa06455fa37d",
+    "src/app/fragen/page.tsx": "090fb012c703574128661feaf475854f772d8ae70c80f5173dd73bb67a03bfd1",
+    "src/app/reflexive-verben/page.tsx": "66a1e03643f73f9cb89e2093582cb014ea0f30316d7699a35e33a21613a79909",
+    "src/app/relativsaetze/page.tsx": "090fb012c703574128661feaf475854f772d8ae70c80f5173dd73bb67a03bfd1",
+    "src/app/indirekte-rede/page.tsx": "090fb012c703574128661feaf475854f772d8ae70c80f5173dd73bb67a03bfd1",
+    "src/app/satzmuster/page.tsx": "5ca98ff626c5d745c38b78806f4b7587fae4a14fccad8ca26ee5ff9bfcdfabde",
+    "src/app/satzbau/page.tsx": "090fb012c703574128661feaf475854f772d8ae70c80f5173dd73bb67a03bfd1",
+    "src/app/praeteritum/page.tsx": "090fb012c703574128661feaf475854f772d8ae70c80f5173dd73bb67a03bfd1",
+    "src/app/nebensaetze/page.tsx": "090fb012c703574128661feaf475854f772d8ae70c80f5173dd73bb67a03bfd1",
+    "src/app/tenses-guide/page.tsx": "57863a512f2e21f0316998fb0151c1fe20558e902da2b31734dd74d50d30a055",
+    "src/app/conjugaise/page.tsx": "2e49b8cfa46890a7685187810781d14539d9390a4abe2d1a34346c53dc86bbdb",
+    "src/app/verb-tables/page.tsx": "be653050ee32268944c098f11e2df1cdfb8bc6b6e20ee15d728eaa06455fa37d",
+    "src/app/wortbildung/page.tsx": "e37e5c19525fe127d7df721f7c910b0dacbb6a734118b6015ee8f41262d5849a",
+    "src/app/wortpaare/page.tsx": "5ca98ff626c5d745c38b78806f4b7587fae4a14fccad8ca26ee5ff9bfcdfabde",
+    "src/app/declensions/page.tsx": "be653050ee32268944c098f11e2df1cdfb8bc6b6e20ee15d728eaa06455fa37d",
+    "src/components/learn/GrammarReference.tsx": "090fb012c703574128661feaf475854f772d8ae70c80f5173dd73bb67a03bfd1"
+  },
+  "data": {
+    "src/data/typische-fehler.ts": "23cd8c0cb573035bd2085c4fb063a2051284e3bffb227e7cca085bb77db84535",
+    "src/data/vergleiche.ts": "db5da06f04d66ca265df59bbb5726ae02441eaf94fe57a834e53c952c8b3503d",
+    "src/data/da-komposita.ts": "fc7903f775fe7e5b41b03cc703d210077ec2ecbd48538a69ad06e8ff28419c4f",
+    "src/data/konjunktiv-ii.ts": "2ce61cb08718b416104cf4fecc14839a0a75840d9e8d9648c47c5e142f791b98",
+    "src/data/modalpartikel.ts": "ec03cfd47ecb5f0f6efdbb49d724050953b830f2c96ef050daf5729abd23f258",
+    "src/data/futur.ts": "3b8b48af49ff5c87ac95006152a28ec6f96c29684baef14a05b8cede777e88c6",
+    "src/data/grammarCompare.ts": "6222cd785c485ebc37c2bc6313d50a295a28364190930b36a4bcde5358f74fbd",
+    "src/data/grammar-cheat-sheet.ts": "619d189125e09c62f38bf690b0a497c47d62e166c30330283449f4e7b0cc227f",
+    "src/data/n-deklination.ts": "b87fb62948d1a9c0480d9c1feabd34ab71fe695631e6beed10bd4d302f149d27",
+    "src/data/unregelmaessige-verben.ts": "1951dfee2241e34a4be5d3e6929f030300ceb9fea0b0dda1101faac658a6d376",
+    "src/data/konnektoren.ts": "853b868727114bf6f392546d5650765a5136ebe9bdf7399649deea4b9c5140d7",
+    "src/data/zweiteilige-konnektoren.ts": "a8e38eecb7bc30bfea09a1a0477024fb43d13bdcc03d870e987f7e17a7b27bf6",
+    "src/data/partizipien-als-adjektive.ts": "0e40013c5aaa21ae8ad335717e256b900e712f5c401d987b475eac75c7898f4b",
+    "src/data/passiv.ts": "72b631a791b034498cbe0b6bbeee216e8f245b479e7cbcd4d91c914eef8642cd",
+    "src/data/plusquamperfekt.ts": "e8c2e7882f9948a6ff0ab0b2a60c62e7089b7cb62f7254e553dd6e284181c2fb",
+    "src/data/prefix-verbs.ts": "1d042b407d8a5ed68a2a8350e4d7c812c7e38623b4014a3cf75177fa7ec05867",
+    "src/data/fragen.ts": "3c057cf76133fc2f16feba1245db5746465760297ac60f0d0e47955c366d0437",
+    "src/data/reflexive-verben.ts": "c6e63de9f68dce5fdfbf5b6e71e7ef9d05f447b783abf00b1c5eba3904fa9b32",
+    "src/data/relativsaetze.ts": "2b3df7f9583c4a39e14dc30deeac95f156b2bbdfd909e688d4b4da3da782008e",
+    "src/data/indirekte-rede.ts": "3f6f4725d2e902bf27c2654092ff3242796b771f80fe34d02fb78a5c1b0b731c",
+    "src/data/satzmuster.ts": "cba6a6c59ec57993f7974504064fbe85a2713bafca66ccd7ca8097ecdf8bf87c",
+    "src/data/satzbau.ts": "f04db604079f7738eb54ed0cb581c639e8542db14f8afd008a04d2655209b3c5",
+    "src/data/praeteritum.ts": "45bae910f82136634e34ffde906e1539934fb58f4012d0a6908e7fbbadade469",
+    "src/data/nebensaetze.ts": "060933bf3c70f1162399bf87e7a9dd89ab85e62bbda842ed7afb29cb3dbfe2cb",
+    "src/data/tenses-guide.ts": "68a3d6416e1207cb49c4cb61fdf163011fed8767e088030a93907cf923a68c10",
+    "src/data/conjugaise.ts": "92be117542c6a001601e19518ace12e9665ef37379720900b323f8a9bd37dea2",
+    "src/data/verb-tables.ts": "e223ec851f74ddecb3d4d40217529b1e8d516859ca8ba7215d6296f09e6a780d",
+    "src/data/wortbildung.ts": "9350d2e54e0deea55b3a2e2c61a7f9d1c140259a77f5fa71db722425b1e03a0d",
+    "src/data/wortpaare.ts": "019e499c0c2526f2438ae17af28dd996b461671d171b9928470e5804e5e7a2b4",
+    "src/data/declensions.ts": "cd044c2d6a8b4f42dff8a12fc60146885601a25e9533c428b0efe008a2dad014"
+  },
+  "inlineTeachingText": {
+    "src/components/learn/GrammarReference.tsx": "58261937e97ddb34bb10026ba16a47f5ea1fe8995025ff735d14805877a6c7d7"
+  }
+}

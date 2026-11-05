@@ -1,5 +1,6 @@
 "use client";
 import { SpeechFeedback } from "@/components/ui/SpeechFeedback";
+import { PlacementOffer } from "@/components/placement/PlacementOffer";
 import { LevelCelebration } from "@/components/session/LevelCelebration";
 import { useCallback, useState } from "react";
 import { Sidebar } from "./Sidebar";
@@ -7,13 +8,14 @@ import { TopBar } from "./TopBar";
 import { MobileBottomNav } from "./MobileBottomNav";
 import { SessionProvider } from "@/components/session/SessionProvider";
 import { LearningRail } from "./LearningRail";
+import { WeeklyProgressSync } from "@/components/session/WeeklyProgressSync";
 
 export function LayoutShell({ children }: { children: React.ReactNode }) {
   const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
   const closeMobileSidebar = useCallback(() => setMobileSidebarOpen(false), []);
 
   return (
-    <SessionProvider><div className="camp-workspace">
+    <SessionProvider><WeeklyProgressSync/><div className="camp-workspace">
       <div className="camp-frame">
       <div className="camp-navigation hidden lg:block">
         <Sidebar />
@@ -35,6 +37,7 @@ export function LayoutShell({ children }: { children: React.ReactNode }) {
       <MobileBottomNav />
       <SpeechFeedback />
       <LevelCelebration />
+      <PlacementOffer />
     </div></SessionProvider>
   );
 }

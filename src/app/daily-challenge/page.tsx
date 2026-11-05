@@ -1,208 +1,32 @@
 "use client";
 
-import { LearningArt } from "@/components/brand/LearningArt";
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { useProgress } from "@/store/useProgress";
+import { PageWrapper } from "@/components/layout/PageWrapper";
+import { useMemo,useState } from "react";
 import { useDailyChallenge } from "@/store/useDailyChallenge";
+import { useProgress } from "@/store/useProgress";
 import { useErrors } from "@/store/useErrors";
-import { playCorrect, playWrong, playXP } from "@/lib/audio";
-import { NounGenderTrainer } from "@/components/learn/NounGenderTrainer";
-import { ConjugationTrainer } from "@/components/learn/ConjugationTrainer";
-import { SentenceBuilder } from "@/components/learn/SentenceBuilder";
+import { useSessionProfile } from "@/components/session/SessionProvider";
+import { dailyQuestions,dailyScore } from "@/lib/dailyChallenge";
+import { localDay } from "@/lib/learningActivity";
 import { quizQuestions } from "@/data/quizzes";
-import { exercises } from "@/data/exercises";
-import { Button } from "@/components/ui/Button";
-import { Zap, RefreshCw } from "lucide-react";
-
-type Phase = "idle" | "playing" | "done";
-
-export default function DailyChallengePage() {
-  const { completeExercise } = useProgress();
-  const { isTodayDone, setCompleted } = useDailyChallenge();
-  const { addError } = useErrors();
-
-  const [phase, setPhase] = useState<Phase>("idle");
-  const [score, setScore] = useState(0);
-  const [total, setTotal] = useState(0);
-  const [xpEarned, setXpEarned] = useState(0);
-  const [results, setResults] = useState<{ id: string; correct: boolean }[]>([]);
-  const [currentQ, setCurrentQ] = useState(0);
-  const [selected, setSelected] = useState<number | null>(null);
-  const [answered, setAnswered] = useState(false);
-  const [answerCorrect, setAnswerCorrect] = useState(false);
-
-  const dailyQuestions = quizQuestions.sort(() => Math.random() - 0.5).slice(0, 5);
-
-  useEffect(() => {
-    if (isTodayDone()) setPhase("done");
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
-
-  function handleAnswer(choice: number) {
-    if (answered) return;
-    const q = dailyQuestions[currentQ];
-    if (!q) return;
-    const correct = choice === q.correct;
-    setSelected(choice);
-    setAnswered(true);
-    setAnswerCorrect(correct);
-    setTotal((t) => t + 1);
-    setResults((r) => [...r, { id: q.id, correct }]);
-    if (correct) {
-      setScore((s) => s + 1);
-      setXpEarned((x) => x + q.xpReward + 5);
-      playCorrect();
-    } else {
-      playWrong();
-      addError({
-        question: q.question,
-        userAnswer: q.options[choice],
-        correctAnswer: q.options[q.correct],
-        explanation: q.explain,
-        source: "quiz",
-        sourceId: q.id,
-      });
-    }
-  }
-
-  function next() {
-    if (answerCorrect) completeExercise(`daily-${currentQ}`, 5);
-    if (currentQ + 1 >= dailyQuestions.length) {
-      setPhase("done");
-      playXP();
-      setCompleted(score, total, xpEarned, results.map((r) => ({ questionId: r.id, correct: r.correct })));
-    } else {
-      setCurrentQ((c) => c + 1);
-      setSelected(null);
-      setAnswered(false);
-      setAnswerCorrect(false);
-    }
-  }
-
-  const todayDone = isTodayDone();
-
-  if (todayDone && phase === "done") {
-    return (
-      <div className="text-center py-12">
-        <LearningArt name="✅" size={24} className="text-7xl block mb-4" />
-        <h1 className="font-display text-2xl font-extrabold text-[var(--color-text-primary)] mb-2">Today&apos;s Challenge Complete!</h1>
-        <p className="text-[var(--color-text-secondary)] mb-2">You already completed today&apos;s challenge. Come back tomorrow!</p>
-        <p className="text-lg font-semibold text-[var(--color-text-link)]">+{xpEarned} XP earned</p>
-      </div>
-    );
-  }
-
-  if (phase === "done") {
-    const pct = total > 0 ? Math.round((score / total) * 100) : 0;
-    return (
-      <div className="text-center py-8">
-        <span className="text-6xl block mb-4">{pct >= 80 ? "🏆" : pct >= 50 ? "👍" : "💪"}</span>
-        <h1 className="font-display text-2xl font-extrabold text-[var(--color-text-primary)] mb-1">Daily Challenge Done!</h1>
-        <p className="text-lg font-semibold text-[var(--color-text-link)] mb-1">{score}/{total} correct ({pct}%)</p>
-        <p className="text-sm text-[var(--color-text-secondary)] mb-2">+{xpEarned} XP earned (includes {score} streak bonus!)</p>
-        <div className="flex justify-center gap-2 mt-4">
-          <Button onClick={() => window.location.reload()}>
-            <RefreshCw className="w-4 h-4" /> New Challenge
-          </Button>
-        </div>
-      </div>
-    );
-  }
-
-  const q = dailyQuestions[currentQ];
-
-  if (phase === "idle") {
-    return (
-      <div className="text-center py-12">
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-          <LearningArt name="⚡" size={24} className="text-7xl block mb-4" />
-          <h1 className="font-display text-2xl font-extrabold text-[var(--color-text-primary)] mb-2">Daily Challenge</h1>
-          <p className="text-[var(--color-text-secondary)] mb-6">
-            Answer {dailyQuestions.length} mixed questions for bonus XP!
-          </p>
-          <Button onClick={() => setPhase("playing")} size="lg">
-            <LearningArt name="Zap" size={20} className="w-5 h-5" /> Start Challenge
-          </Button>
-        </motion.div>
-      </div>
-    );
-  }
-
-  return (
-    <div>
-      <div className="flex items-center justify-between mb-6">
-        <div>
-          <h1 className="text-lg font-bold text-[var(--color-text-primary)]">Daily Challenge</h1>
-          <p className="text-xs text-[var(--color-text-secondary)]">Question {currentQ + 1} of {dailyQuestions.length}</p>
-        </div>
-        <div className="flex items-center gap-1">
-          <LearningArt name="Zap" size={16} className="w-4 h-4 text-[var(--color-text-warning)]" />
-          <span className="text-sm font-bold text-[var(--color-text-warning)]">{xpEarned} XP</span>
-        </div>
-      </div>
-
-      <div className="flex gap-1 mb-6">
-        {dailyQuestions.map((_, i) => (
-          <div
-            key={i}
-            className={`h-1.5 flex-1 rounded-full transition-colors ${
-              i < currentQ ? "bg-[var(--color-primary)]" : i === currentQ ? "bg-[var(--color-primary)]" : "bg-[var(--color-border-default)]"
-            }`}
-          />
-        ))}
-      </div>
-
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={currentQ}
-          initial={{ opacity: 0, x: 30 }}
-          animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, x: -30 }}
-          className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-6 shadow-sm"
-        >
-          <h2 className="text-lg font-semibold text-[var(--color-text-primary)] mb-6">{q?.question}</h2>
-
-          <div className="space-y-2">
-            {q?.options.map((option, i) => {
-              let style = "bg-[var(--color-surface-alt)] border-[var(--color-border-default)] hover:border-[var(--color-primary)] hover:bg-[var(--color-primary-subtle)]";
-              if (answered) {
-                if (i === q.correct) style = "bg-[var(--color-success-bg)] text-[var(--color-text-success)] border-emerald-300 ring-2 ring-[var(--color-success)]";
-                else if (i === selected) style = "bg-[var(--color-error-bg)] text-[var(--color-text-error)] border-[var(--color-error)]";
-                else style = "bg-[var(--color-surface-alt)] border-[var(--color-border-default)] opacity-50";
-              }
-              return (
-                <button
-                  key={i}
-                  onClick={() => handleAnswer(i)}
-                  disabled={answered}
-                  className={`w-full text-left p-3 rounded-[var(--radius-lg)] border transition-all ${style}`}
-                >
-                  <span className="text-sm text-[var(--color-text-primary)]">{option}</span>
-                </button>
-              );
-            })}
-          </div>
-
-          {answered && (
-            <motion.div
-              initial={{ opacity: 0, y: 8 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="mt-4"
-            >
-              <p className={`text-sm font-medium mb-1 ${answerCorrect ? "text-[var(--color-text-success)]" : "text-[var(--color-text-error)]"}`}>
-                {answerCorrect ? "✓ Correct!" : "✗ Wrong"}
-              </p>
-              <p className="text-xs text-[var(--color-text-secondary)] mb-3">{q?.explain}</p>
-              <button
-                onClick={next}
-                className="text-sm font-medium bg-[var(--color-primary-subtle)] text-[var(--color-text-link)] border border-[var(--color-primary)] px-5 py-2 rounded-[var(--radius-lg)] hover:bg-[var(--color-primary)] transition-all"
-              >
-                {currentQ + 1 >= dailyQuestions.length ? "See Results" : "Next →"}
-              </button>
-            </motion.div>
-          )}
-        </motion.div>
-      </AnimatePresence>
-    </div>
-  );
+import { PracticeFrame } from "@/components/ui/PracticeFrame";
+import { PracticeCard,PracticeButton } from "@/components/ui/PracticeSurface";
+import { PageBanner } from "@/components/ui/PageBanner";
+import { LearningArt } from "@/components/brand/LearningArt";
+import { playCorrect,playWrong } from "@/lib/audio";
+export default function DailyChallengePage(){
+ const {ready}=useSessionProfile();const daily=useDailyChallenge();const complete=useProgress(s=>s.completeExercise);const addError=useErrors(s=>s.addError);
+ const [day]=useState(localDay),[started,setStarted]=useState(false),[index,setIndex]=useState<number|null>(null);
+ const questions=useMemo(()=>dailyQuestions(day,quizQuestions),[day]);const answers=daily.attempt?.day===day?daily.attempt.answers:[];
+ const current=index??Math.min(answers.length,questions.length-1),q=questions[current],chosen=answers[current],answered=chosen!==undefined;
+ const result=dailyScore(questions,answers),done=ready&&daily.completed&&daily.lastDate===day;
+ function answer(choice:number){if(answered||!q)return;daily.saveAnswer(day,current,choice);if(choice===q.correct)playCorrect();else{playWrong();addError({question:q.question,userAnswer:q.options[choice],correctAnswer:q.options[q.correct],explanation:q.explain,source:"quiz",sourceId:q.id});}}
+ function finish(){if(answers.length!==questions.length||done)return;complete(`daily:${day}`,result.xp);daily.setCompleted(result.score,result.total,result.xp,questions.map((q,i)=>({questionId:q.id,correct:answers[i]===q.correct})),day);}
+ return (<PageWrapper><div className="camp-daily-page"><PageBanner><h1>Daily Challenge</h1><p>Five mixed questions. Finish once a day to earn your practice XP.</p></PageBanner><PracticeFrame topic="quiz"><PracticeCard>
+ {!ready?<p role="status">Loading your challenge…</p>:done?<div className="camp-daily-summary"><LearningArt name="trophy" size={36}/><h2>Today’s challenge is complete</h2><p>{daily.score}/{daily.total} correct · {daily.xpEarned} XP earned</p><p>Your result is saved with your learning progress. Return tomorrow for a new challenge.</p></div>:!started?<div className="camp-daily-summary"><h2>{answers.length?"Continue your challenge":"Your daily practice"}</h2><p>{questions.length} questions · each correct answer earns its question reward plus 5 bonus XP.</p>{answers.length>0&&<p>{answers.length}/{questions.length} answers saved</p>}<PracticeButton className="camp-primary-action" onClick={()=>{setIndex(Math.min(answers.length,questions.length-1));setStarted(true);}}>{answers.length?"Continue challenge":"Start challenge"}</PracticeButton></div>:<>
+ <header className="camp-quiz-status"><strong>Question {current+1}/{questions.length}</strong><span>{result.xp} XP so far</span></header><div className="camp-daily-progress" aria-label="Challenge progress">{questions.map((item,i)=><span key={item.id} data-done={answers[i]!==undefined}/>)}</div>
+ <h2 className="camp-daily-question">{q.question}</h2><div className="camp-daily-options">{q.options.map((option,i)=><PracticeButton key={option} disabled={answered} data-outcome={answered?(i===q.correct?"correct":i===chosen?"incorrect":"other"):undefined} onClick={()=>answer(i)}><span>{String.fromCharCode(65+i)}</span>{option}</PracticeButton>)}</div>
+ {answered&&<div className="camp-daily-feedback" role="status"><strong>{chosen===q.correct?"Correct":"Review the answer"}</strong><p>{q.explain}</p><PracticeButton className="camp-primary-action" onClick={()=>{if(current===questions.length-1)finish();else setIndex(current+1);}}>{current===questions.length-1?"Finish challenge":"Next question"}</PracticeButton></div>}
+ </>}
+ </PracticeCard></PracticeFrame></div></PageWrapper>);
 }

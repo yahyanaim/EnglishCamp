@@ -1,0 +1,281 @@
+{
+  "beforeBankSha256": "3dad33fdc4b5089d330b92decb18a5a668e03e76eca47282cc8bf809b74312f9",
+  "corrections": {
+    "b4-5-q23": {
+      "before": {
+        "id": "b4-5-q23",
+        "levelId": "band4-5",
+        "xpReward": 5,
+        "question": "What is the TOEFL Reading section mainly about?",
+        "question_ar": "عن ماذا يتناول قسم القراءة في TOEFL بشكل أساسي؟",
+        "options": [
+          "Short stories and poems",
+          "Academic passages with questions",
+          "Personal letters",
+          "News articles only"
+        ],
+        "options_ar": [
+          "قصص قصيرة وشعر",
+          "نصوص أكاديمية مع أسئلة",
+          "رسائل شخصية",
+          "مقالات إخبارية فقط"
+        ],
+        "correct": 1,
+        "explain": "TOEFL Reading consists of academic passages followed by comprehension questions.",
+        "explain_ar": "يتكون قسم القراءة في TOEFL من نصوص أكاديمية متبوعة بأسئلة فهم."
+      },
+      "after": {
+        "id": "b4-5-q23",
+        "levelId": "band4-5",
+        "xpReward": 5,
+        "question": "Which reading activities appear in the TOEFL iBT format used from 21 January 2026?",
+        "question_ar": "ما أنشطة القراءة الموجودة في صيغة TOEFL iBT المستخدمة منذ 21 يناير 2026؟",
+        "options": [
+          "Only short stories and poems",
+          "Completing words, everyday reading and academic reading",
+          "Only personal letters",
+          "Only news articles"
+        ],
+        "options_ar": [
+          "قصص قصيرة وشعر فقط",
+          "إكمال الكلمات والقراءة اليومية والقراءة الأكاديمية",
+          "رسائل شخصية فقط",
+          "مقالات إخبارية فقط"
+        ],
+        "correct": 1,
+        "explain": "The current Reading section combines word completion with reading in everyday and academic contexts. It is not limited to long academic passages.",
+        "explain_ar": "يجمع قسم القراءة الحالي بين إكمال الكلمات والقراءة في سياقات يومية وأكاديمية. ولا يقتصر على النصوص الأكاديمية الطويلة."
+      }
+    },
+    "b5-6-q6": {
+      "before": {
+        "id": "b5-6-q6",
+        "levelId": "band5-6",
+        "xpReward": 8,
+        "question": "In TOEFL Listening, what type of audio is NOT typically played?",
+        "question_ar": "في قسم الاستماع في TOEFL، أي نوع من الصوت لا يتم تشغيله عادة؟",
+        "options": [
+          "Academic lectures",
+          "Classroom discussions",
+          "Fictional radio dramas",
+          "Campus conversations"
+        ],
+        "options_ar": [
+          "محاضرات أكاديمية",
+          "مناقشات صفية",
+          "مسلسلات إذاعية خيالية",
+          "محادثات في الحرم الجامعي"
+        ],
+        "correct": 2,
+        "explain": "TOEFL Listening includes lectures and conversations — not fictional dramas.",
+        "explain_ar": "يشمل الاستماع في TOEFL محاضرات ومحادثات — وليس مسلسلات خيالية."
+      },
+      "after": {
+        "id": "b5-6-q6",
+        "levelId": "band5-6",
+        "xpReward": 8,
+        "question": "Which is NOT a listening task type in TOEFL iBT from 21 January 2026?",
+        "question_ar": "أي مما يلي ليس نوعاً من مهام الاستماع في TOEFL iBT منذ 21 يناير 2026؟",
+        "options": [
+          "Choosing a response to a short spoken prompt",
+          "Listening to conversations and announcements",
+          "Performing a fictional radio drama",
+          "Listening to academic talks"
+        ],
+        "options_ar": [
+          "اختيار رد على عبارة مسموعة قصيرة",
+          "الاستماع إلى محادثات وإعلانات",
+          "تمثيل مسرحية إذاعية خيالية",
+          "الاستماع إلى أحاديث أكاديمية"
+        ],
+        "correct": 2,
+        "explain": "Current listening tasks include short responses, conversations, announcements and academic talks. Performing a radio drama is not a task.",
+        "explain_ar": "تشمل مهام الاستماع الحالية الردود القصيرة والمحادثات والإعلانات والأحاديث الأكاديمية. ولا تتضمن تمثيل مسرحية إذاعية."
+      }
+    },
+    "b5-6-q20": {
+      "before": {
+        "id": "b5-6-q20",
+        "levelId": "band5-6",
+        "xpReward": 8,
+        "question": "What is the main purpose of TOEFL Speaking Task 1?",
+        "question_ar": "ما هو الغرض الرئيسي من مهمة المحادثة 1 في TOEFL؟",
+        "options": [
+          "To summarise a lecture",
+          "To express and support a personal opinion",
+          "To describe a chart",
+          "To repeat a sentence verbatim"
+        ],
+        "options_ar": [
+          "تلخيص محاضرة",
+          "التعبير عن رأي شخصي ودعمه",
+          "وصف رسم بياني",
+          "تكرار جملة حرفياً"
+        ],
+        "correct": 1,
+        "explain": "TOEFL Speaking Task 1 asks for your opinion on a familiar topic with reasons.",
+        "explain_ar": "مهمة المحادثة 1 في TOEFL تطلب رأيك في موضوع مألوف مع الأسباب."
+      },
+      "after": {
+        "id": "b5-6-q20",
+        "levelId": "band5-6",
+        "xpReward": 8,
+        "question": "What do you do in the TOEFL iBT Listen and Repeat task (2026 format)?",
+        "question_ar": "ماذا تفعل في مهمة الاستماع والتكرار في صيغة TOEFL iBT لعام 2026؟",
+        "options": [
+          "Summarise a long lecture",
+          "Repeat the spoken sentence accurately and clearly",
+          "Describe an unseen chart",
+          "Write an opinion paragraph"
+        ],
+        "options_ar": [
+          "تلخيص محاضرة طويلة",
+          "تكرار الجملة المسموعة بدقة ووضوح",
+          "وصف رسم بياني لم تره",
+          "كتابة فقرة رأي"
+        ],
+        "correct": 1,
+        "explain": "Listen and Repeat asks you to reproduce a short spoken sentence. The other current speaking task family is an interview; the old independent Task 1 label does not describe this format.",
+        "explain_ar": "تطلب مهمة الاستماع والتكرار إعادة جملة مسموعة قصيرة. والنوع الآخر الحالي لمهام المحادثة هو المقابلة؛ ولا ينطبق وصف المهمة المستقلة الأولى القديم على هذه الصيغة."
+      }
+    },
+    "b6-7-q18": {
+      "before": {
+        "id": "b6-7-q18",
+        "levelId": "band6-7",
+        "xpReward": 12,
+        "question": "What is the purpose of a 'thematic statement' in TOEFL Writing?",
+        "question_ar": "ما هو الغرض من 'البيان الموضوعي' في كتابة TOEFL؟",
+        "options": [
+          "To announce the topic in the introduction",
+          "To provide a dictionary definition",
+          "To list every detail from the reading",
+          "To end the essay abruptly"
+        ],
+        "options_ar": [
+          "الإعلان عن الموضوع في المقدمة",
+          "تقديم تعريف من القاموس",
+          "سرد كل تفصيل من القراءة",
+          "إنهاء المقال بشكل مفاجئ"
+        ],
+        "correct": 0,
+        "explain": "A thematic statement clearly announces the topic and sets up the essay's direction.",
+        "explain_ar": "البيان الموضوعي يعلن بوضوح عن الموضوع ويحدد اتجاه المقال."
+      },
+      "after": {
+        "id": "b6-7-q18",
+        "levelId": "band6-7",
+        "xpReward": 12,
+        "question": "What is the purpose of a topic sentence in a paragraph?",
+        "question_ar": "ما الغرض من الجملة الرئيسية في الفقرة؟",
+        "options": [
+          "Introduce the main idea developed in that paragraph",
+          "Provide a dictionary definition in every paragraph",
+          "List every detail from a source",
+          "End the essay abruptly"
+        ],
+        "options_ar": [
+          "تقديم الفكرة الرئيسية التي تطورها الفقرة",
+          "تقديم تعريف من القاموس في كل فقرة",
+          "سرد كل تفصيل من مصدر",
+          "إنهاء المقال بشكل مفاجئ"
+        ],
+        "correct": 0,
+        "explain": "A topic sentence establishes the paragraph's main idea. The following explanation and examples develop that idea.",
+        "explain_ar": "تحدد الجملة الرئيسية فكرة الفقرة الأساسية. ثم يطور الشرح والأمثلة التالية تلك الفكرة."
+      }
+    },
+    "b5-6-q4": {
+      "before": {
+        "id": "b5-6-q4",
+        "levelId": "band5-6",
+        "xpReward": 8,
+        "question": "Which tense is commonly used to describe a chart in IELTS Writing Task 1?",
+        "question_ar": "أي زمن يستخدم عادة لوصف رسم بياني في مهمة الكتابة 1؟",
+        "options": [
+          "Future simple",
+          "Present simple",
+          "Past simple",
+          "Present perfect"
+        ],
+        "options_ar": [
+          "المستقبل البسيط",
+          "المضارع البسيط",
+          "الماضي البسيط",
+          "المضارع التام"
+        ],
+        "correct": 2,
+        "explain": "Use past simple to describe charts showing data from a completed time period.",
+        "explain_ar": "استخدم الماضي البسيط لوصف الرسوم البيانية التي تظهر بيانات من فترة زمنية منتهية."
+      },
+      "after": {
+        "id": "b5-6-q4",
+        "levelId": "band5-6",
+        "xpReward": 8,
+        "question": "An IELTS Task 1 chart reports sales from 2010 to 2020. Which tense normally describes these completed changes?",
+        "question_ar": "يعرض رسم في مهمة IELTS الأولى مبيعات من 2010 إلى 2020. أي زمن يصف عادة هذه التغيرات المكتملة؟",
+        "options": [
+          "Future simple",
+          "Present simple",
+          "Past simple",
+          "Present perfect"
+        ],
+        "options_ar": [
+          "المستقبل البسيط",
+          "المضارع البسيط",
+          "الماضي البسيط",
+          "المضارع التام"
+        ],
+        "correct": 2,
+        "explain": "Use past simple to describe charts showing data from a completed time period.",
+        "explain_ar": "استخدم الماضي البسيط لوصف الرسوم البيانية التي تظهر بيانات من فترة زمنية منتهية."
+      }
+    },
+    "b5-6-q18": {
+      "before": {
+        "id": "b5-6-q18",
+        "levelId": "band5-6",
+        "xpReward": 8,
+        "question": "What is a 'distractor' in IELTS Listening?",
+        "question_ar": "ما هو 'المشتت' في استماع IELTS؟",
+        "options": [
+          "An answer that is obviously wrong",
+          "A piece of information that seems correct but is not",
+          "A question with no correct answer",
+          "A speaker with a strong accent"
+        ],
+        "options_ar": [
+          "إجابة خاطئة بشكل واضح",
+          "معلومة تبدو صحيحة لكنها ليست كذلك",
+          "سؤال بلا إجابة صحيحة",
+          "متحدث لهجة قوية"
+        ],
+        "correct": 1,
+        "explain": "Distractors in IELTS Listening are designed to mislead you before the correct answer appears.",
+        "explain_ar": "المشتتات في استماع IELTS مصممة لتضليلك قبل ظهور الإجابة الصحيحة."
+      },
+      "after": {
+        "id": "b5-6-q18",
+        "levelId": "band5-6",
+        "xpReward": 8,
+        "question": "What is a 'distractor' in IELTS Listening?",
+        "question_ar": "ما هو 'المشتت' في استماع IELTS؟",
+        "options": [
+          "An answer that is obviously wrong",
+          "A piece of information that seems correct but is not",
+          "A question with no correct answer",
+          "A speaker with a strong accent"
+        ],
+        "options_ar": [
+          "إجابة خاطئة بشكل واضح",
+          "معلومة تبدو صحيحة لكنها ليست كذلك",
+          "سؤال بلا إجابة صحيحة",
+          "متحدث لهجة قوية"
+        ],
+        "correct": 1,
+        "explain": "A distractor seems to fit but is ruled out by a correction, another detail or the question's exact requirements. Check the whole meaning rather than choosing a word just because you heard it.",
+        "explain_ar": "يبدو المشتت مناسباً، لكن يستبعده تصحيح أو تفصيل آخر أو متطلبات السؤال الدقيقة. تحقق من المعنى كاملاً ولا تختر كلمة لمجرد سماعها."
+      }
+    }
+  }
+}

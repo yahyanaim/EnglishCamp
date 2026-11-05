@@ -3,6 +3,7 @@
 import { LearningArt } from "@/components/brand/LearningArt";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { PageBanner } from "@/components/ui/PageBanner";
 import { PageWrapper } from "@/components/layout/PageWrapper";
 import { SENTENCE_PATTERNS } from "@/data/satzmuster";
 import { Search, X, ChevronDown, Lightbulb } from "lucide-react";
@@ -39,12 +40,12 @@ export default function SatzmusterPage() {
   };
 
   return (
-    <PageWrapper>
+    <PageWrapper className="camp-grammar-page">
       <div className="space-y-6">
-        <div>
+        <PageBanner>
           <h1 className="font-display text-2xl font-extrabold text-[var(--color-text-primary)]">Sentence Patterns</h1>
           <p className="text-sm text-[var(--color-text-secondary)] mt-1">English sentence structures with formulas and examples</p>
-        </div>
+        </PageBanner>
 
         <div className="relative">
           <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-[var(--color-text-secondary)]" />
@@ -52,15 +53,15 @@ export default function SatzmusterPage() {
             placeholder="Search sentence patterns..."
             className="w-full h-[52px] pl-11 pr-10 bg-[var(--color-surface)] rounded-[var(--radius-md)] border border-[var(--color-border-default)] text-[16px] font-body font-medium text-[var(--color-text-secondary)] placeholder:text-[var(--color-text-secondary)] placeholder:italic outline-none transition-all duration-150 focus:border-[var(--color-info)] focus:shadow-[0_0_0_3px_rgba(126,34,206,0.15)]"
           />
-          {search && <button onClick={() => setSearch("")} className="absolute right-3 top-1/2 -translate-y-1/2"><X className="w-4 h-4 text-[var(--color-text-secondary)]" /></button>}
+          {search && <button onClick={() => setSearch("")} className="camp-grammar-control absolute right-3 top-1/2 -translate-y-1/2" aria-label="Clear search"><X className="w-4 h-4 text-[var(--color-text-secondary)]" /></button>}
         </div>
 
         <div className="space-y-3">
           {filtered.map((pattern) => {
             const open = expanded.has(pattern.id);
             return (
-              <motion.div key={pattern.id} layout className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] overflow-hidden" style={{ boxShadow: "0 3px 0 var(--color-border-default)" }}>
-                <button onClick={() => toggle(pattern.id)} className="w-full text-left p-5 hover:bg-[var(--color-surface-alt)] transition-colors">
+              <motion.div key={pattern.id} layout className="camp-grammar-panel bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] overflow-hidden" style={{ boxShadow: "0 3px 0 var(--color-border-default)" }}>
+                <button onClick={() => toggle(pattern.id)} className="camp-grammar-disclosure w-full text-left p-5 hover:bg-[var(--color-surface-alt)] transition-colors">
                   <div className="flex items-start gap-4">
                     <span className="text-2xl mt-0.5">{PATTERN_ICONS[pattern.pattern] || "📐"}</span>
                     <div className="flex-1 min-w-0">
@@ -88,12 +89,12 @@ export default function SatzmusterPage() {
                           {pattern.examples.map((ex, i) => (
                             <div key={i} className="bg-[var(--color-primary-subtle)] rounded-[var(--radius-md)] p-3">
                               <p className="text-sm font-mono text-[var(--color-text-primary)]">{ex.english}</p>
-                              <p className="text-xs text-[var(--color-text-secondary)] italic font-arabic mt-0.5" lang="ar">{ex.arabic}</p>
+                              <p className="text-xs text-[var(--color-text-secondary)] italic font-arabic mt-0.5" lang="ar" dir="rtl">{ex.arabic}</p>
                             </div>
                           ))}
                         </div>
 
-                        <div className="flex items-start gap-2 p-3 bg-[var(--color-info-bg)] rounded-[var(--radius-md)]">
+                        <div className="camp-grammar-note flex items-start gap-2 p-3 bg-[var(--color-info-bg)] rounded-[var(--radius-md)]">
                           <LearningArt name="Lightbulb" size={16} className="w-4 h-4 text-[var(--color-info-dark)] mt-0.5 shrink-0" />
                           <p className="text-xs text-[var(--color-info-dark)] leading-relaxed">Pattern: {pattern.pattern} — {pattern.formula}</p>
                         </div>

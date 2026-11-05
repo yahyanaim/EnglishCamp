@@ -2,7 +2,7 @@
 
 import { LearningArt } from "@/components/brand/LearningArt";
 import { motion } from "framer-motion";
-import { PageWrapper } from "@/components/layout/PageWrapper";
+import { VocabularyPage } from "@/components/layout/VocabularyPage";
 
 type Phoneme = { ipa: string; name: string; example: string; desc: string; type: "vowel" | "consonant" };
 type MinimalPair = { a: string; b: string; ipaA: string; ipaB: string };
@@ -141,11 +141,8 @@ const BRITISH_VS_AMERICAN: { word: string; british: string; american: string }[]
 
 export default function PhonicsPage() {
   return (
-    <PageWrapper>
-      <div className="mb-8">
-        <h1 className="font-display text-3xl font-extrabold text-[var(--color-text-primary)] mb-1">English Phonics &amp; Pronunciation</h1>
-        <p className="text-[var(--color-text-secondary)]">Master the 44 sounds of English with IPA symbols, minimal pairs, and stress patterns</p>
-      </div>
+    <VocabularyPage title="English phonics" description="Explore sounds, minimal pairs and stress patterns.">
+
 
       <section className="bg-[var(--color-primary-subtle)] rounded-[var(--radius-lg)] p-6 mb-8 ring-1 ring-brand-200">
         <h2 className="font-display text-xl font-bold text-[var(--color-text-primary)] mb-3 border-l-4 border-[var(--color-primary)] pl-3">The 44 English Phonemes</h2>
@@ -222,8 +219,8 @@ export default function PhonicsPage() {
                 </div>
                 <span className="text-[var(--color-text-secondary)] text-lg">⇄</span>
                 <div className="text-center">
-                  <div className="font-display font-extrabold text-2xl text-blue-600">{pair.voiced}</div>
-                  <span className="text-[10px] text-blue-500 font-mono">voiced</span>
+                  <div className="font-display font-extrabold text-2xl text-[var(--camp-control-ink)]">{pair.voiced}</div>
+                  <span className="text-[10px] text-[var(--camp-control-ink)] font-mono">voiced</span>
                 </div>
               </div>
               <div className="text-xs text-[var(--color-text-secondary)] text-center space-y-0.5">
@@ -296,13 +293,13 @@ export default function PhonicsPage() {
           {BRITISH_VS_AMERICAN.map((item) => (
             <div key={item.word} className="bg-[var(--color-primary-subtle)] rounded-[var(--radius-md)] px-3 py-2.5 border border-[var(--color-border-default)] text-sm flex items-center gap-2">
               <span className="font-display font-bold text-[var(--color-text-primary)] w-14">{item.word}</span>
-              <span className="font-mono text-xs text-blue-600">{item.british}</span>
+              <span className="font-mono text-xs text-[var(--camp-control-ink)]">{item.british}</span>
               <span className="text-[var(--color-text-secondary)]">|</span>
               <span className="font-mono text-xs text-red-600">{item.american}</span>
             </div>
           ))}
         </div>
       </section>
-    </PageWrapper>
+    </VocabularyPage>
   );
 }

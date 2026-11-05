@@ -1,9 +1,12 @@
 "use client";
 
+
+import { BackButton } from "@/components/ui/BackButton";
 import { LearningArt } from "@/components/brand/LearningArt";
 import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
-import { PageWrapper } from "@/components/layout/PageWrapper";
+import { Button } from "@/components/ui/shadcn/button";
+import { VocabularyPage } from "@/components/layout/VocabularyPage";
 import { Search, X } from "lucide-react";
 import { TOPICS } from "@/data/themen-wortschatz";
 
@@ -35,11 +38,9 @@ export default function ThemenWortschatzPage() {
 
   if (topic) {
     return (
-      <PageWrapper>
+      <VocabularyPage title="Topic vocabulary" description="Learn words together and use them in context.">
         <div className="space-y-4">
-          <button onClick={() => setSelectedTopic(null)} className="flex items-center gap-1.5 text-sm font-medium text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors">
-            ← Back to all topics
-          </button>
+          <BackButton onClick={() => setSelectedTopic(null)}>Back to all topics</BackButton>
 
           <div className="bg-[var(--color-surface-alt)]    rounded-[var(--radius-lg)] border border-[var(--color-border-default)]/50 p-6 shadow-sm">
             <div className="flex items-center gap-4">
@@ -51,7 +52,7 @@ export default function ThemenWortschatzPage() {
 
           <div className="grid grid-cols-1 gap-2">
             {topic.words.map((w, i) => (
-              <motion.div key={w.word} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.02 }}
+              <motion.div key={w.word} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: Math.min(i * 0.02, 0.2) }}
                 className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-4 shadow-sm"
               >
                 <div className="flex flex-wrap items-start justify-between gap-3">
@@ -63,31 +64,28 @@ export default function ThemenWortschatzPage() {
                     <p className="text-xs text-[var(--color-text-secondary)] italic mt-1">{w.definition}</p>
                     <p className="text-xs text-[var(--color-text-secondary)] mt-1">&ldquo;{w.example}&rdquo;</p>
                   </div>
-                  <span className="text-xs text-[var(--color-text-secondary)] font-arabic" lang="ar">{w.arabic}</span>
+                  <span className="text-xs text-[var(--color-text-secondary)] font-arabic" lang="ar" dir="rtl">{w.arabic}</span>
                 </div>
               </motion.div>
             ))}
           </div>
         </div>
-      </PageWrapper>
+      </VocabularyPage>
     );
   }
 
   return (
-    <PageWrapper>
+    <VocabularyPage title="Topic vocabulary" description="Learn words together and use them in context.">
       <div className="space-y-6">
-        <div>
-          <h1 className="font-display text-2xl font-extrabold text-[var(--color-text-primary)]">Topic Vocabulary</h1>
-          <p className="text-sm text-[var(--color-text-secondary)] mt-1">{TOPICS.length} topics · {TOPICS.reduce((sum, t) => sum + t.words.length, 0)} words with definitions and examples</p>
-        </div>
+
 
         <div className="relative">
           <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-[var(--color-text-secondary)]" />
           <input type="text" value={search} onChange={(e) => setSearch(e.target.value)}
             placeholder="Search across all topics..."
-            className="w-full h-[52px] pl-11 pr-10 bg-[var(--color-surface)] rounded-[var(--radius-md)] border border-[var(--color-border-default)] text-[16px] font-body font-medium text-[var(--color-text-secondary)] placeholder:text-[var(--color-text-secondary)] placeholder:italic outline-none transition-all duration-150 focus:border-[#7E22CE] focus:shadow-[0_0_0_3px_rgba(126,34,206,0.15)]"
+            className="w-full h-[52px] pl-11 pr-10 bg-[var(--color-surface)] rounded-[var(--radius-md)] border border-[var(--color-border-default)] text-[16px] font-body font-medium text-[var(--color-text-secondary)] placeholder:text-[var(--color-text-secondary)] placeholder:italic outline-none transition-all duration-150 focus:border-[var(--camp-control-ink)] focus:shadow-[0_0_0_3px_rgba(126,34,206,0.15)]"
           />
-          {search && <button onClick={() => setSearch("")} className="absolute right-3.5 top-1/2 -translate-y-1/2"><X className="w-4 h-4 text-[var(--color-text-secondary)] hover:text-[var(--color-text-secondary)]" /></button>}
+          {search && <Button variant="unstyled" size="unstyled" onClick={() => setSearch("")} className="absolute right-3.5 top-1/2 -translate-y-1/2"><X className="w-4 h-4 text-[var(--color-text-secondary)] hover:text-[var(--color-text-secondary)]" /></Button>}
         </div>
 
         {allWords && search.trim() && (
@@ -102,7 +100,7 @@ export default function ThemenWortschatzPage() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
           {filteredTopics.map((t, i) => (
-            <motion.button key={t.id} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.03 }}
+            <motion.button key={t.id} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: Math.min(i * 0.03, 0.2) }}
               whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}
               onClick={() => setSelectedTopic(t.id)}
               className="text-left bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-4 shadow-sm hover:shadow-md transition-all"
@@ -118,6 +116,6 @@ export default function ThemenWortschatzPage() {
           ))}
         </div>
       </div>
-    </PageWrapper>
+    </VocabularyPage>
   );
 }

@@ -182,7 +182,7 @@ export function SpeedMatch() {
             </span>
           )}
           {bestTime !== null && (
-            <span className="inline-flex items-center gap-1 whitespace-nowrap rounded-[var(--radius-md)] bg-[#9B59B6] px-3 py-1 text-xs font-semibold text-white">
+            <span className="inline-flex items-center gap-1 whitespace-nowrap rounded-[var(--radius-md)] bg-[var(--camp-purple)] px-3 py-1 text-xs font-semibold text-white">
               <LearningArt name="Trophy" size={12} className="w-3 h-3" />
               {formatTime(bestTime)}
             </span>
@@ -216,7 +216,7 @@ export function SpeedMatch() {
             </p>
             {misses > 0 && <p className="text-xs text-[var(--color-text-secondary)] mt-1">{misses} misses</p>}
             {elapsed === (bestTime ?? elapsed) && (
-              <p className="inline-flex items-center gap-1 mt-3 text-sm font-bold bg-amber-500 text-[var(--color-on-brand)] font-extrabold shadow-sm px-3 py-1.5 rounded-[10px]">
+              <p className="inline-flex items-center gap-1 mt-3 text-sm font-bold bg-[var(--camp-purple-soft)] text-[var(--camp-control-ink)] font-extrabold shadow-sm px-3 py-1.5 rounded-[10px]">
                 <LearningArt name="Trophy" size={16} className="w-4 h-4" /> New best!
               </p>
             )}

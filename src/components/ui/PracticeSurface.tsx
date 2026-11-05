@@ -6,17 +6,16 @@ import { Card } from "./shadcn/card";
 import { cn } from "@/lib/utils";
 import type { PracticeScene } from "@/components/brand/PracticeIllustration";
 import { LearningArt } from "@/components/brand/LearningArt";
-const sceneIcons: Record<PracticeScene,string> = {quiz:"book",culture:"globe",phrases:"chat",translation:"globe",matching:"compare",writing:"note",listening:"headphones",reading:"book",timed:"clock"};
 export const PracticeArtContext = React.createContext<PracticeScene | null>(null);
 
 /** Shared shadcn surfaces for the existing drills. DOM, events and exercise order stay intact. */
 export const PracticeCard = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
   ({ className, children, ...props }, ref) => {
-    const scene = React.useContext(PracticeArtContext);
-    const originalArt = React.Children.toArray(children).find(child => React.isValidElement(child) && child.type === LearningArt) as React.ReactElement<{ name?: string }> | undefined;
+    // Standalone decorative art used to reserve a blank row above every question.
+    // Keep meaningful inline and action icons in their original controls.
+    const content = React.Children.toArray(children).filter(child => !(React.isValidElement(child) && child.type === LearningArt));
     return <Card ref={ref} className={cn("practice-card", className)} {...props}>
-      {scene && <div className="camp-practice-card-icon"><LearningArt name={originalArt?.props.name || sceneIcons[scene]} size={30} /></div>}
-      {children}
+      {content}
     </Card>;
   },
 );

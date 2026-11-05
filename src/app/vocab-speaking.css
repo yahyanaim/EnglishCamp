@@ -1,0 +1,33 @@
+/* The vocabulary and speaking library uses the same surfaces and controls as courses. */
+.camp-vocab-speaking-page{width:100%;min-width:0}
+.camp-vocab-speaking-content{display:grid;gap:16px;min-width:0}
+.camp-vocab-speaking-content>div{min-width:0}
+.camp-frame .camp-vocab-speaking-content .grid{gap:12px}
+.camp-frame .camp-vocab-speaking-content [class*="rounded-"]:is(div,section,article){box-shadow:none!important;border-radius:12px}
+.camp-frame .camp-vocab-speaking-content [class*="shadow"],.camp-frame .camp-vocab-speaking-content [style*="box-shadow"]{box-shadow:none!important}
+.camp-frame .camp-vocab-speaking-content :is(div,section,article)[class*="p-6"]{padding:20px}
+.camp-frame .camp-vocab-speaking-content :is(button,a)[class*="rounded-"]{border-radius:8px;box-shadow:none!important;line-height:1.6}
+.camp-vocab-speaking-content button{min-height:44px;max-width:100%;white-space:normal}
+.camp-vocab-speaking-content button:focus-visible{outline:2px solid var(--camp-control-ink);outline-offset:3px}
+.camp-vocab-speaking-content input:not([type=radio]):not([type=checkbox]),.camp-vocab-speaking-content textarea{color:var(--color-text-primary);border-radius:8px;box-shadow:none!important;font-size:16px}
+.camp-vocab-speaking-content [lang=ar]{direction:rtl;text-align:left;unicode-bidi:plaintext;font-family:var(--font-arabic),serif;font-style:normal;line-height:1.9}
+.camp-vocab-speaking-content h2,.camp-vocab-speaking-content h3{line-height:1.45}
+.camp-vocab-speaking-content [class*="space-y-6"]>*+*{margin-top:16px}
+.camp-vocab-tabs{display:flex;flex-wrap:wrap;gap:8px;padding:0}
+.camp-frame .camp-vocab-tabs>button{border:1px solid var(--color-border-default);background:var(--color-surface);color:var(--color-text-secondary);padding:9px 12px;font-size:12px}
+.camp-frame .camp-vocab-tabs>button[aria-pressed=true]{border-color:var(--camp-control-ink);background:var(--camp-purple-soft);color:var(--camp-control-ink)}
+.camp-frame .camp-mock-page{max-width:none;width:100%;margin-inline:0}
+@media(max-width:639px){
+ .camp-frame .camp-vocab-speaking-content :is(div,section,article)[class*="p-6"],.camp-frame .camp-vocab-speaking-content :is(div,section,article)[class*="p-5"]{padding:14px}
+ .camp-vocab-speaking-content [class*="items-start"][class*="gap-4"]{flex-wrap:wrap;gap:10px}
+ .camp-vocab-speaking-content [class*="min-w-"]{min-width:0}
+ .camp-vocab-speaking-content [class*="flex-shrink-0"]{flex-shrink:1}
+ .camp-vocab-speaking-content [class*="max-w-[80%]"]{max-width:94%}
+ .camp-vocab-tabs>button{flex:1 1 140px}
+ .camp-frame .camp-mock-page{padding-inline:0}
+}
+.camp-frame .camp-vocab-speaking-content .ring-1{border:1px solid var(--color-border-default)}
+.camp-vocab-speaking-content [class*=truncate]{white-space:normal;overflow:visible;text-overflow:clip}
+.camp-vocab-speaking-content [class*=font-mono]{overflow-wrap:anywhere}
+
+.camp-vocab-level-badge{display:inline-flex;align-items:center;flex:none;padding:3px 8px;border-radius:5px;font-size:11px;font-weight:700;color:var(--camp-control-ink);background:var(--camp-purple-soft)}

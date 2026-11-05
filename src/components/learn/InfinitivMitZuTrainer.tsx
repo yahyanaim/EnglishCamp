@@ -64,8 +64,8 @@ export function InfinitivMitZuTrainer() {
   if (done) {
     const pct = total > 0 ? Math.round((score / total) * 100) : 0;
     return (
-      <div className="text-center py-8">
-        <span className="text-5xl block mb-3">{pct >= 80 ? "🏆" : pct >= 50 ? "👍" : "💪"}</span>
+      <div data-practice-surface="result" className="practice-card text-center">
+        <LearningArt name="trophy" size={30} className="camp-result-art"/>
         <h3 className="text-xl font-display font-extrabold text-[var(--color-text-primary)] mb-1">Infinitive Phrases Complete!</h3>
         <p className="text-lg font-display font-extrabold text-[var(--color-text-link)] mb-1">{score}/{total} correct ({pct}%)</p>
         <p className="text-sm text-[var(--color-text-secondary)] mb-6">{pct >= 80 ? "Excellent infinitive clause skills!" : "Keep practicing!"}</p>
@@ -92,7 +92,7 @@ export function InfinitivMitZuTrainer() {
 
       <div className="flex flex-wrap justify-center gap-3 mb-4">
         {current.options.map((opt) => {
-          let style = "bg-[var(--color-surface-alt)] border-[var(--color-border-default)] text-[var(--color-text-primary)] hover:bg-[var(--color-info-bg)]  hover:border-blue-300 hover:";
+          let style = "bg-[var(--color-surface-alt)] border-[var(--color-border-default)] text-[var(--color-text-primary)] hover:bg-[var(--color-info-bg)]  hover:border-[var(--color-primary-light)] hover:";
           if (selected) {
             if (opt === current.correct) style = "bg-[var(--color-success-bg)] text-[var(--color-text-success)] border-[var(--color-success)] ring-2 ring-[var(--color-success)]";
             else if (opt === selected) style = "bg-[var(--color-error-bg)] text-[var(--color-text-error)] border-[var(--color-error)]";
@@ -120,7 +120,7 @@ export function InfinitivMitZuTrainer() {
 
       <div className="flex justify-center gap-1 mt-4">
         {pool.map((_, i) => (
-          <div key={i} className={`w-2 h-2 rounded-[var(--radius-pill)] ${i < index ? "bg-blue-300" : i === index ? "bg-blue-500" : "bg-[var(--color-border-default)]"}`} />
+          <div key={i} className={`w-2 h-2 rounded-[var(--radius-pill)] ${i < index ? "bg-[var(--camp-purple)]" : i === index ? "bg-[var(--camp-purple)]" : "bg-[var(--color-border-default)]"}`} />
         ))}
       </div>
     </PracticeCard>

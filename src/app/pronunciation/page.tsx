@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
-import { PageWrapper } from "@/components/layout/PageWrapper";
+import { Button } from "@/components/ui/shadcn/button";
+import { VocabularyPage } from "@/components/layout/VocabularyPage";
 import { speak } from "@/lib/audio";
 import { PRONUNCIATION_GUIDE, type PronunciationSound } from "@/data/pronunciation";
 import { Volume2 } from "lucide-react";
@@ -15,17 +16,15 @@ export default function PronunciationPage() {
   };
 
   return (
-    <PageWrapper>
+    <VocabularyPage title="Pronunciation guide" description="Listen, compare sounds and practise clear speech.">
       <div className="space-y-6">
-        <div>
-          <h1 className="font-display text-2xl font-extrabold text-[var(--color-text-primary)]">Pronunciation Guide</h1>
-          <p className="text-sm text-[var(--color-text-secondary)] mt-1">Master English sounds with IPA, examples, and audio</p>
-        </div>
 
-        <div className="flex items-center gap-2 overflow-x-auto pb-2">
+
+        <div className="camp-vocab-tabs">
           {PRONUNCIATION_GUIDE.map((s) => (
-            <button
+            <Button variant="unstyled" size="unstyled"
               key={s.id}
+              aria-pressed={activeSection === s.id}
               onClick={() => setActiveSection(s.id)}
               className={`flex items-center gap-1.5 px-4 py-2 rounded-[var(--radius-lg)] text-xs font-semibold whitespace-nowrap transition-all ${
                 activeSection === s.id
@@ -34,7 +33,7 @@ export default function PronunciationPage() {
               }`}
             >
               {s.title}
-            </button>
+            </Button>
           ))}
         </div>
 
@@ -51,7 +50,7 @@ export default function PronunciationPage() {
           </div>
         )}
       </div>
-    </PageWrapper>
+    </VocabularyPage>
   );
 }
 
@@ -68,17 +67,17 @@ function SoundCard({
         <div>
           <code className="text-lg font-bold text-[var(--color-text-link)] font-mono">/{sound.symbol}/</code>
           <p className="text-xs text-[var(--color-text-secondary)] mt-1">{sound.audioDescription}</p>
-          <p className="text-xs text-[var(--color-text-secondary)] italic font-arabic mt-0.5" lang="ar">{sound.arabic}</p>
+          <p className="text-xs text-[var(--color-text-secondary)] italic font-arabic mt-0.5" lang="ar" dir="rtl">{sound.arabic}</p>
         </div>
       </div>
       <div className="flex flex-wrap items-center gap-2">
         <span className="text-xs text-[var(--color-text-secondary)]">{sound.example}</span>
-        <button
-          onClick={() => onSpeak(sound.example.split(",")[0].trim())}
+        <Button variant="unstyled" size="unstyled"
+          aria-label={`Listen to ${sound.example.split(",")[0].trim()}`} onClick={() => onSpeak(sound.example.split(",")[0].trim())}
           className="text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors"
         >
           <Volume2 className="w-3.5 h-3.5" />
-        </button>
+        </Button>
       </div>
     </div>
   );

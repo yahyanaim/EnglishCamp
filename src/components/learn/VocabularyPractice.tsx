@@ -18,9 +18,10 @@ function normalize(s: string) {
 
 const MotionPracticeButton = motion.create(PracticeButton);
 
-export function VocabularyPractice() {
+export function VocabularyPractice({ mode: controlledMode, showModeSwitch = true }: { mode?: VocabMode; showModeSwitch?: boolean } = {}) {
   const { getAll } = useVocabulary();
-  const [mode, setMode] = useState<VocabMode>("quiz");
+  const [localMode, setMode] = useState<VocabMode>("quiz");
+  const mode = controlledMode ?? localMode;
   const [index, setIndex] = useState(0);
   const [session, setSession] = useState({ correct: 0, incorrect: 0, total: 0 });
 
@@ -65,7 +66,7 @@ export function VocabularyPractice() {
 
   function advance() {
     resetState();
-    setIndex((i) => Math.min(i + 1, words.length - 1));
+    setIndex((i) => Math.min(i + 1, words.length));
   }
 
   function handleQuizSelect(opt: string) {
@@ -85,7 +86,7 @@ export function VocabularyPractice() {
   function handleWriteSubmit() {
     if (!input.trim() || writeSubmitted) return;
     setWriteSubmitted(true);
-    if (isCorrect) playCorrect();
+    if (acceptable.some((answer) => normalize(answer) === normalize(input))) playCorrect();
   }
 
   function handleWriteNext() {
@@ -115,7 +116,7 @@ export function VocabularyPractice() {
       <PracticeCard data-practice-surface="question" className="bg-[var(--color-surface)] rounded-[16px] border border-[var(--color-border-default)] p-5 sm:p-6 shadow-[0_2px_8px_rgba(0,0,0,0.08)] text-center">
         <LearningArt name="🎉" size={36} className=" block mb-3" />
         <p className="text-lg font-display font-extrabold text-[var(--color-text-primary)]">Session complete!</p>
-        <p className="text-sm text-[var(--color-text-secondary)] mt-1">You reviewed all {session.total} words</p>
+        <p className="text-sm text-[var(--color-text-secondary)] mt-1">You reviewed {session.total} {session.total === 1 ? "word" : "words"}</p>
         <p className="text-2xl font-display font-extrabold text-[var(--color-text-link)] mt-3">{accuracy}% accuracy</p>
         <PracticeButton
           onClick={() => { setIndex(0); setSession({ correct: 0, incorrect: 0, total: 0 }); }}
@@ -131,7 +132,7 @@ export function VocabularyPractice() {
 
   return (
     <div className="space-y-4">
-      <div className="flex gap-2 bg-[var(--color-surface-alt)] rounded-[12px] p-1 w-fit">
+      {showModeSwitch && <div className="flex gap-2 bg-[var(--color-surface-alt)] rounded-[12px] p-1 w-fit">
         {(["quiz", "write"] as const).map((m) => (
           <PracticeButton
             key={m}
@@ -144,7 +145,7 @@ export function VocabularyPractice() {
             {m === "quiz" ? "Quiz" : "Write"}
           </PracticeButton>
         ))}
-      </div>
+      </div>}
 
       <div className="grid grid-cols-3 gap-2.5">
         <PracticeCard data-practice-surface="question" className="bg-[var(--color-surface)] rounded-[12px] border border-[var(--color-border-default)] p-2.5">
@@ -206,7 +207,7 @@ export function VocabularyPractice() {
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={handleWriteKey}
-              disabled={writeSubmitted}
+              readOnly={writeSubmitted}
               placeholder="Type your answer..."
               className={`w-full h-[48px] px-4 bg-[var(--color-surface)] rounded-[12px] border text-sm font-medium outline-none transition-all ${
                 !writeSubmitted
@@ -215,12 +216,12 @@ export function VocabularyPractice() {
               }`}
             />
             {!writeSubmitted ? (
-              <PracticeButton onClick={handleWriteSubmit} disabled={!input.trim()}
+              <PracticeButton aria-label="Check answer" onClick={handleWriteSubmit} disabled={!input.trim()}
                 className="absolute right-1.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-[8px] bg-[var(--color-primary)] text-[var(--color-on-brand)] flex items-center justify-center hover:bg-[var(--color-primary-hover)] disabled:opacity-40 transition-all">
                 <Send className="w-3.5 h-3.5" />
               </PracticeButton>
             ) : (
-              <PracticeButton onClick={handleWriteNext}
+              <PracticeButton aria-label="Next word" onClick={handleWriteNext}
                 className="absolute right-1.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-[8px] bg-[var(--color-border-default)] text-[var(--color-text-secondary)] flex items-center justify-center hover:bg-slate-300 transition-all">
                 <RefreshCw className="w-3.5 h-3.5" />
               </PracticeButton>

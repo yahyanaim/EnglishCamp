@@ -1,6 +1,9 @@
 "use client";
+
+import { BackButton } from "@/components/ui/BackButton";
 import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
+import { PageBanner } from "@/components/ui/PageBanner";
 import { PageWrapper } from "@/components/layout/PageWrapper";
 import { Search, X, ChevronLeft } from "lucide-react";
 import { DISCOURSE_MARKERS } from "@/data/modalpartikel";
@@ -21,10 +24,13 @@ export default function ModalpartikelPage() {
 
   if (particle) {
     return (
-      <PageWrapper>
-        <button onClick={() => setSelected(null)} className="flex items-center gap-1.5 text-sm font-medium text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors mb-6">
-          <ChevronLeft className="w-4 h-4" /> Back to all markers
-        </button>
+      <PageWrapper className="camp-grammar-page">
+        <PageBanner>
+          <h1 className="font-display text-2xl font-extrabold text-[var(--color-text-primary)]">Discourse Markers</h1>
+          <p className="text-sm text-[var(--color-text-secondary)] mt-1">actually, basically, honestly, anyway, though, well, you know — essential discourse markers</p>
+        </PageBanner>
+
+        <BackButton onClick={() => setSelected(null)}>Back to all markers</BackButton>
 
         <div className="bg-gradient-to-br from-[var(--color-warning)] to-[#FFD700] rounded-[var(--radius-lg)] ring-1 ring-[var(--color-warning)] p-6 shadow-sm mb-6">
           <div className="flex items-center gap-4 mb-3">
@@ -37,10 +43,10 @@ export default function ModalpartikelPage() {
         </div>
 
         <div className="space-y-3">
-          <div className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-4 shadow-sm">
+          <div className="camp-grammar-panel bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-4 shadow-sm">
             <p className="text-sm font-mono font-medium text-[var(--color-text-primary)] mb-0.5">{particle.example}</p>
             <p className="text-xs text-[var(--color-text-secondary)] italic">{particle.exampleEn}</p>
-            {particle.arabic && <p className="text-xs text-[var(--color-text-secondary)] italic font-arabic mt-0.5" lang="ar">{particle.arabic}</p>}
+            {particle.arabic && <p className="text-xs text-[var(--color-text-secondary)] italic font-arabic mt-0.5" lang="ar" dir="rtl">{particle.arabic}</p>}
           </div>
         </div>
       </PageWrapper>
@@ -48,12 +54,12 @@ export default function ModalpartikelPage() {
   }
 
   return (
-    <PageWrapper>
+    <PageWrapper className="camp-grammar-page">
       <div className="space-y-6">
-        <div>
+        <PageBanner>
           <h1 className="font-display text-2xl font-extrabold text-[var(--color-text-primary)]">Discourse Markers</h1>
           <p className="text-sm text-[var(--color-text-secondary)] mt-1">actually, basically, honestly, anyway, though, well, you know — essential discourse markers</p>
-        </div>
+        </PageBanner>
 
         <div className="bg-gradient-to-br from-[var(--color-warning)] to-amber-50 rounded-[var(--radius-lg)] ring-1 ring-[var(--color-warning)] p-4 shadow-sm">
           <p className="text-xs text-[var(--color-text-warning)] leading-relaxed">
@@ -67,7 +73,7 @@ export default function ModalpartikelPage() {
             placeholder="Search markers..."
             className="w-full h-[52px] pl-11 pr-10 bg-[var(--color-surface)] rounded-[var(--radius-md)] border border-[var(--color-border-default)] text-[16px] font-body font-medium text-[var(--color-text-secondary)] placeholder:text-[var(--color-text-secondary)] placeholder:italic outline-none transition-all duration-150 focus:border-[#7E22CE] focus:shadow-[0_0_0_3px_rgba(126,34,206,0.15)]"
           />
-          {search && <button onClick={() => setSearch("")} className="absolute right-3.5 top-1/2 -translate-y-1/2"><X className="w-4 h-4 text-[var(--color-text-secondary)] hover:text-[var(--color-text-secondary)]" /></button>}
+          {search && <button onClick={() => setSearch("")} className="camp-grammar-control absolute right-3.5 top-1/2 -translate-y-1/2" aria-label="Clear search"><X className="w-4 h-4 text-[var(--color-text-secondary)] hover:text-[var(--color-text-secondary)]" /></button>}
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
@@ -75,7 +81,7 @@ export default function ModalpartikelPage() {
             <motion.button key={m.marker} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.04 }}
               whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}
               onClick={() => setSelected(m.marker)}
-              className="text-left bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-4 shadow-sm hover:shadow-md transition-all"
+              className="camp-grammar-topic-card text-left bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-4 shadow-sm hover:shadow-md transition-all"
             >
               <div className="text-2xl font-mono font-display font-extrabold text-[var(--color-text-primary)] mb-1">{m.marker}</div>
               <p className="text-xs text-[var(--color-text-secondary)] line-clamp-2">{m.meaning}</p>

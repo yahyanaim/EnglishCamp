@@ -1,7 +1,10 @@
 "use client";
 import { useState, useEffect, useCallback, useRef } from "react";
 import { motion } from "framer-motion";
-import { PageWrapper } from "@/components/layout/PageWrapper";
+import { Button } from "@/components/ui/shadcn/button";
+import { BackButton } from "@/components/ui/BackButton";
+import { LearningArt } from "@/components/brand/LearningArt";
+import { VocabularyPage } from "@/components/layout/VocabularyPage";
 import { useProgress } from "@/store/useProgress";
 import { CONVERSATIONS, type ConversationScenario } from "@/data/conversations";
 import { Badge } from "@/components/ui/Badge";
@@ -87,12 +90,9 @@ export default function ConversationPage() {
 
   if (!scenario) {
     return (
-      <PageWrapper>
+      <VocabularyPage title="Conversation practice" description="Listen to both speakers and respond in context.">
         <div className="space-y-6">
-          <div>
-            <h1 className="font-display text-2xl font-extrabold text-[var(--color-text-primary)]">Conversation Practice</h1>
-            <p className="text-sm text-[var(--color-text-secondary)] mt-1">Practice realistic English conversations</p>
-          </div>
+
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {CONVERSATIONS.map((s, i) => (
@@ -100,24 +100,19 @@ export default function ConversationPage() {
                 key={s.id}
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.05 }}
+                transition={{ delay: Math.min(i * 0.05, 0.2) }}
                 whileHover={{ y: -2 }}
                 onClick={() => startScenario(s)}
                 className="text-left bg-[var(--color-surface)] rounded-[var(--radius-lg)] p-5 shadow-sm border border-[var(--color-border-default)] hover:shadow-md hover:ring-brand-200 transition-all"
               >
                 <div className="flex items-start gap-3">
                   <div className="w-10 h-10 rounded-[var(--radius-lg)] bg-[var(--color-primary-subtle)] flex items-center justify-center flex-shrink-0">
-                    <MessageSquare className="w-5 h-5 text-[var(--color-text-link)]" />
+                    <LearningArt name="chat" size={24} />
                   </div>
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2 mb-0.5">
                       <h3 className="text-sm font-bold text-[var(--color-text-primary)]">{s.title}</h3>
-                      <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded-full ${
-                        s.level === "A1" ? "bg-[var(--color-success-bg)] text-[var(--color-text-success)] text-green-700" :
-                        s.level === "A2" ? "bg-[var(--color-success-bg)] text-[var(--color-text-success)]" :
-                        s.level === "B1" ? "bg-[var(--color-warning-bg)] text-[var(--color-text-warning)]" :
-                        "bg-[var(--color-warning-bg)] text-[var(--color-text-warning)]"
-                      }`}>{s.level}</span>
+                      <span className="camp-vocab-level-badge">{s.level}</span>
                     </div>
                     <p className="text-xs text-[var(--color-text-secondary)]">{s.subtitle}</p>
                     <p className="text-xs text-[var(--color-text-secondary)] mt-1 line-clamp-1">{s.context}</p>
@@ -127,13 +122,13 @@ export default function ConversationPage() {
             ))}
           </div>
         </div>
-      </PageWrapper>
+      </VocabularyPage>
     );
   }
 
   if (completed) {
     return (
-      <PageWrapper>
+      <VocabularyPage title="Conversation practice" description="Listen to both speakers and respond in context.">
         <div className="text-center py-12 space-y-6">
           <div className="w-16 h-16 rounded-[var(--radius-lg)] bg-[var(--color-success-bg)] text-[var(--color-text-success)] flex items-center justify-center mx-auto">
             <Check className="w-8 h-8 text-[var(--color-text-success)]" />
@@ -151,26 +146,23 @@ export default function ConversationPage() {
             </div>
           </div>
           <div className="flex gap-3 justify-center">
-            <button onClick={() => startScenario(scenario)} className="inline-flex items-center gap-2 px-5 py-2.5 bg-slate-800 text-white rounded-[var(--radius-lg)] font-semibold text-sm hover:bg-slate-700 transition-colors">
+            <Button variant="unstyled" size="unstyled" onClick={() => startScenario(scenario)} className="inline-flex items-center gap-2 px-5 py-2.5 bg-[var(--camp-purple)] text-white rounded-[var(--radius-lg)] font-semibold text-sm hover:bg-[var(--camp-purple-hover)] transition-colors">
               <RotateCcw className="w-4 h-4" /> Practice Again
-            </button>
-            <button onClick={reset} className="inline-flex items-center gap-2 px-5 py-2.5 bg-[var(--color-surface)] border border-[var(--color-border-default)] rounded-[var(--radius-lg)] font-semibold text-sm hover:bg-[var(--color-surface-alt)] transition-colors">
+            </Button>
+            <Button variant="unstyled" size="unstyled" onClick={reset} className="inline-flex items-center gap-2 px-5 py-2.5 bg-[var(--color-surface)] border border-[var(--color-border-default)] rounded-[var(--radius-lg)] font-semibold text-sm hover:bg-[var(--color-surface-alt)] transition-colors">
               All Scenarios
-            </button>
+            </Button>
           </div>
         </div>
-      </PageWrapper>
+      </VocabularyPage>
     );
   }
 
   return (
-    <PageWrapper>
+    <VocabularyPage title={scenario.title} description={scenario.subtitle}><BackButton onClick={reset}>Back to conversations</BackButton>
       <div className="space-y-6">
         <div className="flex items-center justify-between">
-          <div>
-            <h1 className="font-display text-2xl font-extrabold text-[var(--color-text-primary)]">{scenario.title}</h1>
-            <p className="text-sm text-[var(--color-text-secondary)] mt-1">{scenario.subtitle}</p>
-          </div>
+
           <Badge variant="info">{scenario.level} · {currentLine + 1}/{scenario.lines.length}</Badge>
         </div>
 
@@ -183,12 +175,12 @@ export default function ConversationPage() {
         </div>
 
         {scenario.tips.length > 0 && currentLine === 0 && (
-          <div className="bg-[var(--color-warning-bg)] text-[var(--color-text-warning)] rounded-[var(--radius-lg)] p-4 ring-1 ring-amber-200">
-            <p className="text-xs font-bold text-[var(--color-text-warning)] uppercase tracking-wider mb-2">Tips</p>
+          <div className="bg-[var(--camp-purple-soft)] text-[var(--camp-control-ink)] rounded-[var(--radius-lg)] p-4 border border-[var(--color-border-default)]">
+            <p className="text-xs font-bold text-[var(--camp-control-ink)] uppercase tracking-wider mb-2">Tips</p>
             <ul className="space-y-1">
               {scenario.tips.map((tip, i) => (
-                <li key={i} className="text-xs text-[var(--color-text-warning)] flex items-start gap-1.5">
-                  <span className="text-[var(--color-text-warning)] mt-0.5">•</span>
+                <li key={i} className="text-xs text-[var(--camp-control-ink)] flex items-start gap-1.5">
+                  <span className="text-[var(--camp-control-ink)] mt-0.5">•</span>
                   {tip}
                 </li>
               ))}
@@ -223,12 +215,12 @@ export default function ConversationPage() {
                   </div>
                   <div className="flex items-center gap-2">
                     <NaturalSpeechButton src={conversationRecording(scenario.id, i)} />
-                    <button
+                    <Button variant="unstyled" size="unstyled"
                       onClick={() => setShowTranslation(showTranslation === i ? null : i)}
                       className="inline-flex items-center gap-1.5 text-xs text-[var(--color-text-secondary)] hover:text-[var(--color-text-secondary)] transition-colors"
                     >
                       {showTranslation === i ? "Hide" : "Show"} translation
-                    </button>
+                    </Button>
                   </div>
                   {showTranslation === i && (
                     <motion.div
@@ -237,7 +229,7 @@ export default function ConversationPage() {
                       className="bg-[var(--color-surface-alt)] rounded-[var(--radius-lg)] p-3"
                     >
                       <p className="text-xs text-[var(--color-text-secondary)] italic">{l.translation}</p>
-                      {l.ar && <p className="text-xs text-[var(--color-text-secondary)] italic font-arabic mt-0.5" lang="ar">{l.ar}</p>}
+                      {l.ar && <p className="text-xs text-[var(--color-text-secondary)] italic font-arabic mt-0.5" lang="ar" dir="rtl">{l.ar}</p>}
                     </motion.div>
                   )}
                   {isCurrent && blank && !selectedAnswer && (
@@ -245,24 +237,24 @@ export default function ConversationPage() {
                       <p className="text-xs font-semibold text-[var(--color-text-secondary)] mb-3">What did you say?</p>
                       <div className="flex flex-wrap gap-2">
                         {blank.options.map((opt) => (
-                          <button
+                          <Button variant="unstyled" size="unstyled"
                             key={opt}
                             onClick={() => handleSelectAnswer(opt)}
                             className="px-4 py-2 rounded-[var(--radius-lg)] text-sm font-medium bg-[var(--color-surface)] border border-[var(--color-border-default)] hover:ring-[var(--color-primary)] hover:bg-[var(--color-primary-subtle)] transition-all"
                           >
                             {opt}
-                          </button>
+                          </Button>
                         ))}
                       </div>
                     </div>
                   )}
                   {isCurrent && !blank && (
                     <div className="pt-2">
-                      <button onClick={advanceLine}
-                        className="text-xs font-medium bg-[var(--color-primary-subtle)] text-[var(--color-text-link)] border border-[var(--color-primary)] px-4 py-2 rounded-[var(--radius-lg)] hover:bg-[var(--color-primary)] transition-all inline-flex items-center gap-1"
+                      <Button variant="unstyled" size="unstyled" onClick={advanceLine}
+                        className="text-xs font-medium bg-[var(--color-primary-subtle)] text-[var(--color-text-link)] border border-[var(--color-primary)] px-4 py-2 rounded-[var(--radius-lg)] hover:bg-[var(--camp-purple-soft)] transition-all inline-flex items-center gap-1"
                       >
                         Continue →
-                      </button>
+                      </Button>
                     </div>
                   )}
                   {isCurrent && blank && selectedAnswer && (
@@ -285,6 +277,6 @@ export default function ConversationPage() {
           </div>
         </div>
       </div>
-    </PageWrapper>
+    </VocabularyPage>
   );
 }

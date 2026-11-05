@@ -6,6 +6,7 @@ import dynamic from "next/dynamic";
 import { useState, type ComponentType } from "react";
 import { motion } from "framer-motion";
 import { PageWrapper } from "@/components/layout/PageWrapper";
+import { BackButton } from "@/components/ui/BackButton";
 import { PracticeFrame } from "@/components/ui/PracticeFrame";
 const NounGenderTrainer = dynamic(() => import("@/components/learn/NounGenderTrainer").then(module => module.NounGenderTrainer), { ssr: false, loading: () => <div className="camp-loading" role="status">Loading practice…</div> });
 const ConjugationTrainer = dynamic(() => import("@/components/learn/ConjugationTrainer").then(module => module.ConjugationTrainer), { ssr: false, loading: () => <div className="camp-loading" role="status">Loading practice…</div> });
@@ -337,22 +338,8 @@ export default function PracticePage() {
     const Component = TRAINER_COMPONENTS[activeTrainer];
     const cat = CATEGORIES.flatMap((c) => c.trainers).find((t) => t.id === activeTrainer);
     return (
-      <PageWrapper>
-        <div className="flex flex-wrap items-center gap-3 mb-6">
-          <button
-            onClick={() => setActiveTrainer(null)}
-            className="camp-secondary inline-flex shrink-0 min-h-11 items-center gap-1.5 font-display font-extrabold text-sm px-4 py-2 rounded-[var(--radius-md)] border border-[var(--color-border-default)] text-[var(--color-text-primary)] bg-[var(--color-surface)] transition-all duration-150 hover:border-[var(--color-border-strong)] active:translate-y-0.5"
-            style={{ boxShadow: "0 2px 0 var(--color-border-default)" }}
-          >
-            <ArrowLeft className="w-4 h-4" />
-            Practice Hub
-          </button>
-          {cat && (
-            <span className="basis-full sm:basis-auto min-w-0 font-body text-sm text-[var(--color-text-secondary)]">
-              / <LearningArt name={cat.icon} size={18} /> {cat.label}
-            </span>
-          )}
-        </div>
+      <PageWrapper back={<nav className="camp-page-back" aria-label="Return navigation"><BackButton onClick={() => setActiveTrainer(null)}>Back to practice</BackButton></nav>}>
+        <PageBanner><h1 className="camp-library-activity-title">{cat && <LearningArt name={cat.icon} size={24}/>}<span>{cat?.label || "Practice"}</span></h1>{cat && <p>{cat.desc}</p>}</PageBanner>
         <PracticeFrame illustration="none" topic={activeTrainer} layout={activeTrainer === "grammar-reference" || activeTrainer === "verb-explorer" ? "reference" : ["speed-match", "memory-match", "word-search", "crossword", "verb-puzzle", "idiom-match"].includes(activeTrainer) ? "matching" : activeTrainer === "briefe" ? "writing" : "quiz"}><Component /></PracticeFrame>
       </PageWrapper>
     );

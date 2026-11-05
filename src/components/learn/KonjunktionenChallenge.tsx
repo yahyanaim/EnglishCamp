@@ -1,5 +1,7 @@
 "use client";
 
+
+import { BackButton } from "@/components/ui/BackButton";
 import { LearningArt } from "@/components/brand/LearningArt";
 import { PracticeCard, PracticeButton } from "@/components/ui/PracticeSurface";
 import { useState, useMemo } from "react";
@@ -151,7 +153,7 @@ export function ConnectorsChallenge() {
     return (
       <div className="text-center py-10">
         <p className="text-[var(--color-text-secondary)]">Not enough items for this category. Try &ldquo;All&rdquo;.</p>
-        <PracticeButton onClick={() => setPhase("ready")} className="mt-4 text-[var(--color-primary)] font-medium text-sm">Go back</PracticeButton>
+        <BackButton onClick={() => setPhase("ready")}>Back</BackButton>
       </div>
     );
   }

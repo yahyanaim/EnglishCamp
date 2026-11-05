@@ -1,9 +1,12 @@
 "use client";
 
+
+import { BackButton } from "@/components/ui/BackButton";
 import { LearningArt } from "@/components/brand/LearningArt";
 import { SelectField } from "@/components/ui/shadcn/select-field";
 import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
+import { PageBanner } from "@/components/ui/PageBanner";
 import { PageWrapper } from "@/components/layout/PageWrapper";
 import { Search, X, ChevronLeft } from "lucide-react";
 import { REFLEXIVE_VERBS } from "@/data/reflexive-verben";
@@ -28,12 +31,15 @@ export default function ReflexiveVerbenPage() {
 
   if (entry) {
     return (
-      <PageWrapper>
-        <button onClick={() => setSelected(null)} className="flex items-center gap-1.5 text-sm font-medium text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors mb-6">
-          <ChevronLeft className="w-4 h-4" /> Back to all verbs
-        </button>
+      <PageWrapper className="camp-grammar-page">
+        <PageBanner>
+          <h1 className="font-display text-2xl font-extrabold text-[var(--color-text-primary)]">Reflexive Verbs</h1>
+          <p className="text-sm text-[var(--color-text-secondary)] mt-1">English reflexive verbs with case and preposition information</p>
+        </PageBanner>
 
-        <div className="bg-[var(--color-surface-alt)]    rounded-[var(--radius-lg)] ring-1 ring-teal-200/50 p-6 shadow-sm mb-6">
+        <BackButton onClick={() => setSelected(null)}>Back to all verbs</BackButton>
+
+        <div className="camp-grammar-panel bg-[var(--color-surface-alt)]    rounded-[var(--radius-lg)] ring-1 ring-teal-200/50 p-6 shadow-sm mb-6">
           <div className="flex items-center gap-4 mb-3">
             <LearningArt name="🔄" size={24} className="" />
             <div>
@@ -45,7 +51,7 @@ export default function ReflexiveVerbenPage() {
           </div>
         </div>
 
-        <div className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-5 shadow-sm">
+        <div className="camp-grammar-panel bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-5 shadow-sm">
           <h3 className="text-xs font-bold text-[var(--color-text-secondary)] uppercase tracking-wider mb-2">Example</h3>
           <p className="text-sm font-medium text-[var(--color-text-primary)] mb-1">{entry.example}</p>
         </div>
@@ -54,12 +60,12 @@ export default function ReflexiveVerbenPage() {
   }
 
   return (
-    <PageWrapper>
+    <PageWrapper className="camp-grammar-page">
       <div className="space-y-6">
-        <div>
+        <PageBanner>
           <h1 className="font-display text-2xl font-extrabold text-[var(--color-text-primary)]">Reflexive Verbs</h1>
           <p className="text-sm text-[var(--color-text-secondary)] mt-1">English reflexive verbs with case and preposition information</p>
-        </div>
+        </PageBanner>
 
         <div className="flex flex-col sm:flex-row gap-3">
           <div className="relative flex-1">
@@ -68,7 +74,7 @@ export default function ReflexiveVerbenPage() {
               placeholder="Search reflexive verbs..."
               className="w-full h-[52px] pl-11 pr-10 bg-[var(--color-surface)] rounded-[var(--radius-md)] border border-[var(--color-border-default)] text-[16px] font-body font-medium text-[var(--color-text-secondary)] placeholder:text-[var(--color-text-secondary)] placeholder:italic outline-none transition-all duration-150 focus:border-[#7E22CE] focus:shadow-[0_0_0_3px_rgba(126,34,206,0.15)]"
             />
-            {search && <button onClick={() => setSearch("")} className="absolute right-3.5 top-1/2 -translate-y-1/2"><X className="w-4 h-4 text-[var(--color-text-secondary)] hover:text-[var(--color-text-secondary)]" /></button>}
+            {search && <button onClick={() => setSearch("")} className="camp-grammar-control absolute right-3.5 top-1/2 -translate-y-1/2" aria-label="Clear search"><X className="w-4 h-4 text-[var(--color-text-secondary)] hover:text-[var(--color-text-secondary)]" /></button>}
           </div>
           <SelectField value={caseFilter} onValueChange={value => setCaseFilter(value as "all")}
             className="px-3 py-2.5 bg-[var(--color-surface)] rounded-[var(--radius-lg)] shadow-[0_2px_8px_rgba(0,0,0,0.08),0_1px_3px_rgba(0,0,0,0.05)] border border-[var(--color-border-default)] text-sm text-[var(--color-text-primary)] outline-none focus:ring-2 focus:ring-[var(--color-primary)]"
@@ -88,7 +94,7 @@ export default function ReflexiveVerbenPage() {
             <motion.button key={r.verb} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.015 }}
               whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}
               onClick={() => { const idx = REFLEXIVE_VERBS.indexOf(r); setSelected(idx); }}
-              className="text-left bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-3.5 shadow-sm hover:shadow-md transition-all"
+              className="camp-grammar-topic-card text-left bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-3.5 shadow-sm hover:shadow-md transition-all"
             >
               <div className="flex items-center gap-2 mb-1">
                 <span className="text-sm font-mono font-bold text-[var(--color-text-primary)]">{r.verb}</span>

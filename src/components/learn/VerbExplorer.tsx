@@ -117,7 +117,7 @@ export function VerbExplorer() {
   return (
     <PracticeCard data-practice-surface="question" className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-6 shadow-sm" style={{ boxShadow: "0 3px 0 var(--color-border-default)" }}>
       <div className="flex items-center justify-between mb-4">
-        <span className="text-xs font-semibold text-indigo-500 uppercase tracking-wider flex items-center gap-1.5">
+        <span className="text-xs font-semibold text-[var(--camp-control-ink)] uppercase tracking-wider flex items-center gap-1.5">
           <LearningArt name="BookOpen" size={14} className="w-3.5 h-3.5" /> English Verb Explorer
         </span>
         <span className="text-xs text-[var(--color-text-secondary)]">{filtered.length} verbs available</span>
@@ -132,7 +132,7 @@ export function VerbExplorer() {
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Search verb or meaning..."
-              className="w-full pl-8 pr-3 py-2 text-sm border border-[var(--color-border-default)] rounded-[var(--radius-lg)] bg-[var(--color-surface)] text-[var(--color-text-primary)] placeholder:text-[var(--color-text-secondary)] focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100 outline-none transition-all"
+              className="w-full pl-8 pr-3 py-2 text-sm border border-[var(--color-border-default)] rounded-[var(--radius-lg)] bg-[var(--color-surface)] text-[var(--color-text-primary)] placeholder:text-[var(--color-text-secondary)] focus:border-[var(--color-primary-light)] focus:ring-2 focus:ring-[var(--color-primary-light)] outline-none transition-all"
             />
           </div>
           <div className="space-y-0.5 max-h-96 overflow-y-auto scrollbar-thin pr-1">
@@ -142,7 +142,7 @@ export function VerbExplorer() {
                 onClick={() => setSelectedVerb(v)}
                 className={`w-full text-left px-3 py-2 rounded-[var(--radius-md)] text-sm transition-all flex items-center justify-between ${
                   activeVerb.infinitive === v.infinitive
-                    ? "bg-[var(--color-info-bg)] text-indigo-700 font-semibold ring-1 ring-indigo-200"
+                    ? "bg-[var(--color-info-bg)] text-[var(--camp-control-ink)] font-semibold ring-1 ring-[var(--color-primary-light)]"
                     : "text-[var(--color-text-secondary)] hover:bg-[var(--color-surface-alt)]"
                 }`}
               >

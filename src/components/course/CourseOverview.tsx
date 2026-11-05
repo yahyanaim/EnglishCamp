@@ -4,8 +4,9 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { courseCatalogue as levels, type CourseSummary } from "@/data/course-catalogue";
-import { resumeModule, cycleComplete } from "@/lib/courseProgress";
+import { resumeModule, cycleComplete, courseSnapshot } from "@/lib/courseProgress";
 import { useProgress } from "@/store/useProgress";
+import { lessonReadKey } from "./LessonDoneButton";
 import { Progress } from "@/components/ui/Progress";
 import { CheckCircle, Lock, Play, BookOpen, Zap, Dumbbell, Headphones, BookText, PenTool, Mic, Sparkles } from "lucide-react";
 
@@ -13,11 +14,12 @@ export function CourseOverview({ level }: { level: CourseSummary }) {
   const [ready, setReady] = useState(false);
   useEffect(() => setReady(true), []);
   const [filter, setFilter] = useState<string>("all");
-  const { isLessonDone, getLevelProgress, getBestScore, modules, lessons } = useProgress();
+  const { isLessonDone, getLevelProgress, getBestScore, modules, lessons, exercisesDone } = useProgress();
   const resume = ready ? resumeModule(level.lessons.map(l => l.id), modules, lessons) : level.lessons[0]?.id;
   const hasHistory = ready && level.lessons.some(l => modules[l.id]?.lastActiveAt || isLessonDone(l.id));
   const practiceCount = ready ? level.lessons.filter(l => cycleComplete(modules[l.id])).length : 0;
   const progress = !ready ? 0 : getLevelProgress(level.id, level.lessons.length, (id) => isLessonDone(id), level.lessons.map(l => l.id));
+  const snapshot = courseSnapshot(level.lessons.map(l=>l.id), ready?modules:{}, ready?lessons:{});
   const bestQuiz = ready ? getBestScore(level.id as any) : 0;
 
   const filteredLessons = level.lessons.filter(lesson => filter === "all" || lesson.skills.includes(filter));
@@ -71,7 +73,7 @@ export function CourseOverview({ level }: { level: CourseSummary }) {
             <p className="camp-course-hero-subtitle">{level.subtitle}</p>
             <p className="camp-course-description">{level.intro}</p>
             <Progress value={progress} color="var(--camp-purple)" size="lg" label />
-            <p className="text-xs text-[var(--color-text-secondary)] mt-3">{practiceCount}/25 current practice cycles completed. Course credit includes retained historical completions. Writing and Speaking are self-reviewed; this percentage is not an exam score.</p>
+            <p className="text-xs text-[var(--color-text-secondary)] mt-3">{snapshot.completed}/{level.lessons.length} modules completed · {snapshot.started} in progress · {snapshot.stages}/{level.lessons.length * 3} stages finished. Course credit includes retained historical completions. Writing and Speaking are self-reviewed; this percentage is not an exam score.</p>
           </div>
           <div className="camp-course-hero-actions">
             <Link prefetch={false} href={`/levels/${level.id}/lessons/${resume}`} className="camp-course-action inline-flex justify-center items-center gap-2 rounded-[var(--radius-md)] px-4 py-2.5 font-display font-semibold text-sm bg-[var(--camp-purple)] hover:bg-[var(--camp-purple-hover)] text-white shadow-sm">
@@ -182,6 +184,7 @@ export function CourseOverview({ level }: { level: CourseSummary }) {
                         <span className="text-[10px] font-bold text-[var(--color-text-warning)] flex items-center gap-1">
                           <LearningArt name="Zap" size={12} className="w-3 h-3 text-amber-500" /> +{lesson.xpReward} module XP
                         </span>
+                        {ready && exercisesDone[lessonReadKey(lesson.id)] && <span className="camp-read-badge">Read</span>}
                       </div>
                       <h3 className="font-display font-bold text-base text-[var(--color-text-primary)] break-words">
                         {lesson.title}

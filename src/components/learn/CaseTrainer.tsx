@@ -2,7 +2,7 @@
 import { LearningArt } from "@/components/brand/LearningArt";
 import { PracticeCard, PracticeButton } from "@/components/ui/PracticeSurface";
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { useProgress } from "@/store/useProgress";
 import { useErrors } from "@/store/useErrors";
 import { playCorrect, playWrong } from "@/lib/audio";
@@ -29,13 +29,16 @@ const CASE_QS: { sentence: string; answer: "subject" | "object" | "possessive" |
   { sentence: "The company announced ___ new environmental policy.", answer: "possessive", word: "its", options: ["it", "its", "it's", "itself"], en: "Possessive pronoun without apostrophe: 'its policy'." },
 ];
 
-const CASES = ["subject", "object", "possessive", "reflexive"] as const;
 const CASE_NAMES: Record<string, string> = {
   subject: "Subject (I / he / they)",
   object: "Object (me / him / them)",
   possessive: "Possessive (my / their / whose)",
   reflexive: "Reflexive (myself / himself)",
 };
+
+export function PronounQuestion({ sentence, word, answered }: { sentence: string; word: string; answered: boolean }) {
+  return <><div className="flex items-start gap-2 mb-2"><p className="text-base font-medium text-[var(--color-text-primary)]">{word === "herself" ? "She learned without a teacher. " : ""}{sentence}</p>{answered && <SpeakerButton text={sentence.replace("___", word)} />}</div><p className="text-xs text-[var(--color-text-secondary)] italic">Choose the word that completes the sentence. Review its grammatical role after answering.</p></>;
+}
 
 export function CaseTrainer() {
   const { completeExercise } = useProgress();
@@ -47,6 +50,7 @@ export function CaseTrainer() {
   const [answered, setAnswered] = useState(false);
   const [correct, setCorrect] = useState(false);
   const [done, setDone] = useState(false);
+  const [selected, setSelected] = useState<string | null>(null);
 
   useEffect(() => { setPool([...CASE_QS].sort(() => Math.random() - 0.5).slice(0, 12)); }, []);
 
@@ -54,7 +58,8 @@ export function CaseTrainer() {
 
   function handleAnswer(choice: string) {
     if (answered || !item) return;
-    const isCorrect = choice === item.answer;
+    const isCorrect = choice === item.word;
+    setSelected(choice);
     setCorrect(isCorrect);
     setAnswered(true);
     setTotal((t) => t + 1);
@@ -63,8 +68,8 @@ export function CaseTrainer() {
       playWrong();
       addError({
         question: `Pronoun Case for: "${item.sentence.replace("___", "…")}"`,
-        userAnswer: CASE_NAMES[choice] || choice,
-        correctAnswer: CASE_NAMES[item.answer],
+        userAnswer: choice,
+        correctAnswer: `${item.word} (${CASE_NAMES[item.answer]})`,
         explanation: `${item.word} is ${CASE_NAMES[item.answer]}: ${item.en}`,
         source: "exercise",
         sourceId: `case-${current}`
@@ -79,6 +84,7 @@ export function CaseTrainer() {
     setCurrent((c) => c + 1);
     setAnswered(false);
     setCorrect(false);
+    setSelected(null);
   }
 
   function restart() {
@@ -89,13 +95,14 @@ export function CaseTrainer() {
     setAnswered(false);
     setCorrect(false);
     setDone(false);
+    setSelected(null);
   }
 
   if (done) {
     const pct = total > 0 ? Math.round((score / total) * 100) : 0;
     return (
-      <div className="text-center py-8">
-        <span className="text-5xl block mb-3">{pct >= 80 ? "🏆" : "👍"}</span>
+      <div data-practice-surface="result" className="practice-card text-center">
+        <LearningArt name="trophy" size={30} className="camp-result-art"/>
         <h3 className="text-xl font-display font-extrabold text-[var(--color-text-primary)] mb-1">Pronoun Cases Trainer Done!</h3>
         <p className="text-lg font-display font-extrabold text-[var(--color-text-link)]">{score}/{total} ({pct}%)</p>
         <PracticeButton onClick={restart} className="text-sm font-medium bg-[var(--color-primary-subtle)] text-[var(--color-text-link)] border border-[var(--color-primary)] px-5 py-2 rounded-[var(--radius-lg)] hover:bg-[var(--color-primary)] transition-all mt-4">Play Again <LearningArt name="🔄" size={16} /></PracticeButton>
@@ -108,29 +115,23 @@ export function CaseTrainer() {
   return (
     <PracticeCard data-practice-surface="question" className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-6 shadow-sm" style={{ boxShadow: "0 3px 0 var(--color-border-default)" }}>
       <div className="flex items-center justify-between mb-4">
-        <span className="text-xs font-semibold text-indigo-600 uppercase tracking-wider">Pronoun &amp; Noun Cases</span>
+        <span className="text-xs font-semibold text-[var(--camp-control-ink)] uppercase tracking-wider">Pronoun &amp; Noun Cases</span>
         <span className="text-xs text-[var(--color-text-secondary)]">{current + 1}/{pool.length}</span>
       </div>
-      <AnimatePresence mode="wait">
-        <motion.div key={current} initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="mb-4">
-          <div className="flex items-start gap-2 mb-2">
-            <p className="text-base font-medium text-[var(--color-text-primary)]">{item.sentence}</p>
-            <SpeakerButton text={item.sentence.replace("___", item.word)} />
-          </div>
-          <p className="text-xs text-[var(--color-text-secondary)] italic">Choose the correct grammatical case for: <strong className="text-[var(--color-text-primary)]">{item.word}</strong></p>
+        <motion.div key={current} initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} className="mb-4">
+          <PronounQuestion sentence={item.sentence} word={item.word} answered={answered} />
         </motion.div>
-      </AnimatePresence>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-4">
-        {CASES.map((c) => {
+        {item.options.map((c) => {
           let style = "bg-[var(--color-surface-alt)] border-[var(--color-border-default)] hover:bg-[var(--color-primary-subtle)] hover:border-[var(--color-primary)]";
           if (answered) {
-            if (c === item.answer) style = "bg-[var(--color-success-bg)] text-[var(--color-text-success)] border-[var(--color-success)] ring-2 ring-[var(--color-success)]";
-            else if (c !== item.answer && answered) style = "bg-[var(--color-error-bg)] text-[var(--color-text-error)] border-[var(--color-error)]";
+            if (c === item.word) style = "bg-[var(--color-success-bg)] text-[var(--color-text-success)] border-[var(--color-success)] ring-2 ring-[var(--color-success)]";
+            else if (c === selected) style = "bg-[var(--color-error-bg)] text-[var(--color-text-error)] border-[var(--color-error)]";
           }
           return (
             <PracticeButton key={c} onClick={() => handleAnswer(c)} disabled={answered}
               className={`p-3 rounded-[var(--radius-lg)] border text-sm font-semibold transition-all text-left ${style}`}>
-              {CASE_NAMES[c]}
+              {c}
             </PracticeButton>
           );
         })}

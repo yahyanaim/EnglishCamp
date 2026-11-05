@@ -3,6 +3,7 @@
 import { LearningArt } from "@/components/brand/LearningArt";
 import { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { PageBanner } from "@/components/ui/PageBanner";
 import { PageWrapper } from "@/components/layout/PageWrapper";
 import { PHRASAL_VERBS, PHRASAL_VERB_PARTICLES } from "@/data/prefix-verbs";
 import { Search, X, ChevronDown, BookMarked } from "lucide-react";
@@ -41,12 +42,12 @@ export default function PrefixVerbsPage() {
     PHRASAL_VERB_PARTICLES.find((p) => p.particle === particle);
 
   return (
-    <PageWrapper>
+    <PageWrapper className="camp-grammar-page">
       <div className="space-y-6">
-        <div>
+        <PageBanner>
           <h1 className="font-display text-2xl font-extrabold text-[var(--color-text-primary)]">Phrasal Verbs</h1>
           <p className="text-sm text-[var(--color-text-secondary)] mt-1">English phrasal verbs grouped by particle</p>
-        </div>
+        </PageBanner>
 
         <div className="relative">
           <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-[var(--color-text-secondary)]" />
@@ -54,7 +55,7 @@ export default function PrefixVerbsPage() {
             placeholder="Search phrasal verbs..."
             className="w-full h-[52px] pl-11 pr-10 bg-[var(--color-surface)] rounded-[var(--radius-md)] border border-[var(--color-border-default)] text-[16px] font-body font-medium text-[var(--color-text-secondary)] placeholder:text-[var(--color-text-secondary)] placeholder:italic outline-none transition-all duration-150 focus:border-[var(--color-info)] focus:shadow-[0_0_0_3px_rgba(126,34,206,0.15)]"
           />
-          {search && <button onClick={() => setSearch("")} className="absolute right-3 top-1/2 -translate-y-1/2"><X className="w-4 h-4 text-[var(--color-text-secondary)]" /></button>}
+          {search && <button onClick={() => setSearch("")} className="camp-grammar-control absolute right-3 top-1/2 -translate-y-1/2" aria-label="Clear search"><X className="w-4 h-4 text-[var(--color-text-secondary)]" /></button>}
         </div>
 
         <div className="space-y-3">
@@ -62,8 +63,8 @@ export default function PrefixVerbsPage() {
             const open = expanded === particle;
             const meta = particleMeta(particle);
             return (
-              <motion.div key={particle} layout className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] overflow-hidden" style={{ boxShadow: "0 3px 0 var(--color-border-default)" }}>
-                <button onClick={() => setExpanded(open ? null : particle)} className="w-full text-left p-5 hover:bg-[var(--color-surface-alt)] transition-colors">
+              <motion.div key={particle} layout className="camp-grammar-panel bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] overflow-hidden" style={{ boxShadow: "0 3px 0 var(--color-border-default)" }}>
+                <button aria-expanded={open} onClick={() => setExpanded(open ? null : particle)} className="camp-grammar-disclosure w-full text-left p-5 hover:bg-[var(--color-surface-alt)] transition-colors">
                   <div className="flex items-start gap-4">
                     <div className="flex items-center justify-center w-10 h-10 rounded-[var(--radius-md)] bg-[var(--color-surface-alt)] font-bold text-sm shrink-0">
                       {particle}
@@ -89,7 +90,7 @@ export default function PrefixVerbsPage() {
                     >
                       <div className="px-5 pb-5 space-y-2 border-t border-[var(--color-border-default)] pt-4">
                         {verbs.map((v, i) => (
-                          <div key={v.verb + v.particle} className="bg-[var(--color-surface-alt)] rounded-[var(--radius-md)] p-3">
+                          <div key={v.verb + v.particle} className="camp-grammar-formation bg-[var(--color-surface-alt)] rounded-[var(--radius-md)] p-3">
                             <div className="flex items-center gap-2 mb-1">
                               <LearningArt name="BookMarked" size={14} className="w-3.5 h-3.5 text-[var(--color-text-secondary)]" />
                               <span className="text-sm font-bold font-mono text-[var(--color-text-primary)]">{v.verb} {v.particle}</span>

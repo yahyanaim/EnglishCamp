@@ -76,7 +76,7 @@ test('the reviewed consistency changes preserve course banks, state stores, orig
 test('the downloadable grammar PDF stays in sync with the complete online reference',()=>{
  const p=path.join(__dirname,'../public/media/grammar/englishcamp-grammar-reference.pdf');const pdf=fs.readFileSync(p),manifest=JSON.parse(fs.readFileSync(p.replace(/pdf$/,'json')));
  const hash=x=>crypto.createHash('sha256').update(x).digest('hex');
- assert.equal(pdf.subarray(0,5).toString(),'%PDF-');assert.equal(hash(pdf),manifest.pdfSha256);assert.equal(hash(JSON.stringify(GRAMMAR_SECTIONS,null,2)),manifest.sourceSha256);assert.equal(manifest.sections,11);assert.deepEqual(manifest.fonts,['Nunito','DM Sans']);
+ assert.equal(pdf.subarray(0,5).toString(),'%PDF-');assert.equal(hash(pdf),manifest.pdfSha256);assert.equal(hash(JSON.stringify(require('../src/data/grammar-reference-content.ts').GRAMMAR_PRINT_SECTIONS,null,2)),manifest.sourceSha256);assert.equal(manifest.sections,15);assert.deepEqual(manifest.fonts,['Nunito','DM Sans']);
 });
 
 

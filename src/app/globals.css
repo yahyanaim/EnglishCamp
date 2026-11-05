@@ -1,4 +1,7 @@
 @import "./reference.css";
+@import "./placement.css";
+@import "./practice-polish.css";
+@import "./vocab-speaking.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

@@ -1,4 +1,5 @@
 "use client";
+import { WelcomeOrnaments } from "@/components/brand/WelcomeOrnaments";
 import { courseCatalogue } from "@/data/course-catalogue";
 import { CoursePreviewCard } from "@/components/course/CoursePreviewCard";
 import { useEffect, useState } from "react";
@@ -36,7 +37,8 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       {/* ─── Hero ─── */}
-      <section className="relative pt-16 pb-20 text-center overflow-hidden">
+      <section className="camp-welcome-hero relative pt-16 pb-20 text-center overflow-hidden">
+        <WelcomeOrnaments/>
         <div className="absolute inset-0 bg-gradient-to-b from-[var(--color-primary-subtle)]/40 to-transparent pointer-events-none" />
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -70,22 +72,22 @@ export default function Home() {
             >
               <div
                 className="inline-flex items-center gap-2 rounded-[var(--radius-pill)] px-4 py-2"
-                style={{ background: "var(--color-warning-bg)", border: "1.5px solid var(--color-warning)" }}
+                style={{ background: "var(--camp-purple-soft)", border: "1px solid var(--color-primary-light)" }}
               >
                 <LearningArt name="Zap" size={16} className="w-4 h-4" />
-                <span className="font-display font-extrabold text-base" style={{ color: "var(--color-text-warning)" }}>
+                <span className="font-display font-extrabold text-base" style={{ color: "var(--camp-control-ink)" }}>
                   {getTotalXP()} XP
                 </span>
               </div>
               <div
                 className="inline-flex items-center gap-2 rounded-[var(--radius-pill)] px-4 py-2"
-                style={{ background: "var(--color-warning-bg)", border: "1.5px solid var(--color-warning)" }}
+                style={{ background: "var(--camp-purple-soft)", border: "1px solid var(--color-primary-light)" }}
               >
                 <LearningArt name="Flame" size={16} className="w-4 h-4" />
-                <span className="font-display font-extrabold text-base" style={{ color: "var(--color-text-warning)" }}>
+                <span className="font-display font-extrabold text-base" style={{ color: "var(--camp-control-ink)" }}>
                   {streak}
                 </span>
-                <span className="font-body text-xs" style={{ color: "var(--color-text-warning)" }}>day streak</span>
+                <span className="font-body text-xs" style={{ color: "var(--camp-control-ink)" }}>day streak</span>
               </div>
             </motion.div>
           )}

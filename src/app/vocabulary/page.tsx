@@ -1,13 +1,15 @@
 "use client";
+
+import { PageWrapper } from "@/components/layout/PageWrapper";
 import { PageBanner } from "@/components/ui/PageBanner";
 import dynamic from "next/dynamic";
 import { ReadingIllustration } from "@/components/brand/ReadingIllustration";
 import { LearningArt } from "@/components/brand/LearningArt";
 import { PracticeFrame } from "@/components/ui/PracticeFrame";
 import { SelectField } from "@/components/ui/shadcn/select-field";
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useVocabulary } from "@/store/useVocabulary";
+import { useVocabulary, vocabId } from "@/store/useVocabulary";
 import { VocabularyPractice } from "@/components/learn/VocabularyPractice";
 import { SpeakerButton } from "@/components/ui/SpeakerButton";
 import { Search, Trash2, BookOpenCheck, ArrowUpDown, Download, Upload, Brain, PenLine, Eye, Target, BarChart3, BookHeart, Library, Plus, BookOpenText, ArrowLeft, ChevronRight, Bookmark } from "lucide-react";
@@ -43,6 +45,7 @@ export default function VocabularyPage() {
   const [readLevel, setReadLevel] = useState<string>("all");
   const [readCat, setReadCat] = useState<string>("all");
   const [readSelected, setReadSelected] = useState<ReadingArticle | null>(null);
+  useEffect(()=>{if(new URLSearchParams(window.location.search).get("view")==="browse")setView("browse");},[]);
   const wordList = useMemo(() => {
     let items = query ? search(query) : getAll();
     if (filter !== "all") items = items.filter(([, v]) => v.category === filter);
@@ -88,9 +91,9 @@ export default function VocabularyPage() {
   }, [bankQuery, bankFilter]);
 
   function handleAddFromBank(entry: VocabBankEntry) {
-    const id = entry.w.toLowerCase().replace(/[^a-z0-9]/g, "-");
+    const id = vocabId(entry.w);
     if (words[id]) return;
-    addWord(entry.w, entry.a, entry.c);
+    addWord(entry.w, entry.a, entry.c, {definition:entry.d,translationKind:"word"});
     setAddedIds((prev) => new Set(prev).add(entry.w.toLowerCase()));
   }
 
@@ -135,8 +138,7 @@ export default function VocabularyPage() {
     input.click();
   }
 
-  return (
-    <motion.div variants={container} initial="hidden" animate="show" className="camp-vocabulary-page space-y-6">
+  return (<PageWrapper><motion.div variants={container} initial="hidden" animate="show" className="camp-vocabulary-page space-y-6">
       {/* Header */}
       <PageBanner><h1>Vocabulary & Reading</h1><p>Read, listen and practise useful words.</p></PageBanner>
 
@@ -162,8 +164,8 @@ export default function VocabularyPage() {
       {/* View switcher */}
       <motion.div variants={itemAnim} className="flex flex-wrap gap-1.5 bg-[var(--color-neutral-100)] rounded-[var(--radius-lg)] p-1 w-fit max-w-full">
         {([
-          { id: "browse" as const, label: "Browse", icon: Eye },
-          { id: "bank" as const, label: "Bank", icon: Library },
+          { id: "browse" as const, label: "My Bank", icon: Eye },
+          { id: "bank" as const, label: "Word library", icon: Library },
           { id: "read" as const, label: "Read & Listen", icon: BookOpenText },
           { id: "quiz" as const, label: "Quiz", icon: Brain },
           { id: "write" as const, label: "Write", icon: PenLine },
@@ -248,11 +250,11 @@ export default function VocabularyPage() {
                 className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] p-4 border border-[var(--color-border-default)] transition-all duration-200"
                 style={{ boxShadow: "0 3px 0 var(--color-border-default)" }}
               >
-                <div className="flex items-center justify-between">
+                <div className="camp-saved-word-top">
                   <div className="flex items-center gap-2 min-w-0">
                     <span className="font-display font-bold text-base text-[var(--color-text-primary)]">{word.de}</span>
                     <SpeakerButton text={word.de} />
-                    <span className="font-body text-sm text-[var(--color-text-secondary)] italic hidden sm:inline">{word.en}</span>
+
                   </div>
                   <div className="flex items-center gap-2 flex-shrink-0">
                     <span className="font-body text-[10px] font-semibold text-[var(--color-text-secondary)] bg-[var(--color-surface-alt)] px-2 py-0.5 rounded-[var(--radius-pill)]">{word.category}</span>
@@ -261,7 +263,10 @@ export default function VocabularyPage() {
                         <button
                           key={level}
                           onClick={() => updateMastery(id, level as 0 | 1 | 2 | 3)}
-                          className={`w-4 h-4 rounded-[var(--radius-circle)] border transition-all ${
+                          aria-label={`Mastery level ${level}`} aria-pressed={word.mastery === level}
+                          className="camp-mastery-control"
+                          title={`Mastery level ${level}`}
+                        ><span aria-hidden="true" className={`camp-mastery-dot ${
                             word.mastery >= level
                               ? level === 3
                                 ? "bg-[var(--color-success-bg)] border-[var(--color-success)]"
@@ -272,8 +277,7 @@ export default function VocabularyPage() {
                                     : "bg-[var(--color-neutral-200)] border-[var(--color-neutral-200)]"
                               : "bg-[var(--color-surface)] border-[var(--color-border-default)]"
                           }`}
-                          title={`Mastery level ${level}`}
-                        />
+                          /></button>
                       ))}
                     </div>
                     <button onClick={() => removeWord(id)} className="text-[var(--color-text-secondary)] hover:text-[var(--color-text-error)] transition-colors p-1">
@@ -281,6 +285,7 @@ export default function VocabularyPage() {
                     </button>
                   </div>
                 </div>
+                <p className="camp-saved-word-arabic" lang="ar" dir="rtl">{word.en}</p>{word.example&&<p className="camp-saved-word-example">{word.example}</p>}
                 <div className="flex items-center gap-3 mt-1.5">
                   <span className="font-body text-xs text-[var(--color-text-secondary)]">Added: {new Date(word.addedAt).toLocaleDateString()}</span>
                   {word.timesReviewed > 0 && <span className="font-body text-xs text-[var(--color-text-secondary)]">Reviewed: {word.timesReviewed}x</span>}
@@ -328,7 +333,7 @@ export default function VocabularyPage() {
           {/* Bank Word List */}
           <motion.div variants={itemAnim} className="space-y-2.5">
             {bankWordList.map((entry, i) => {
-              const isAdded = addedIds.has(entry.w.toLowerCase()) || !!words[entry.w.toLowerCase().replace(/[^a-z0-9]/g, "-")];
+              const isAdded = addedIds.has(entry.w.toLowerCase()) || !!words[vocabId(entry.w)];
               return (
                 <motion.div
                   key={entry.w + entry.c}
@@ -372,7 +377,7 @@ export default function VocabularyPage() {
         </>
       ) : view === "read" ? (
         readSelected ? (
-          <ArticleReader key={readSelected.id} article={readSelected} onBack={() => setReadSelected(null)} />
+          <ArticleReader key={readSelected.id} article={readSelected} onBack={() => setReadSelected(null)} onOpenBank={()=>{setReadSelected(null);setView("browse");}} />
         ) : (
           <>
             <motion.div variants={itemAnim} className="flex flex-wrap gap-3 items-center">
@@ -440,8 +445,7 @@ export default function VocabularyPage() {
           </>
         )
       ) : (
-        <PracticeFrame layout="quiz"><VocabularyPractice /></PracticeFrame>
+        <PracticeFrame layout="quiz"><VocabularyPractice key={view} mode={view === "write" ? "write" : "quiz"} showModeSwitch={false} /></PracticeFrame>
       )}
-    </motion.div>
-  );
+    </motion.div></PageWrapper>);
 }

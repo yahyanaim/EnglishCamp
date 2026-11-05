@@ -1,6 +1,6 @@
 "use client";
 import { Button } from "./shadcn/button";
-import { useVocabulary } from "@/store/useVocabulary";
+import { useVocabulary, vocabId, type VocabEntry } from "@/store/useVocabulary";
 import { useState } from "react";
 import { BookPlus } from "lucide-react";
 
@@ -8,17 +8,19 @@ export function AddToVocabButton({
   de,
   en,
   category,
+  details,
 }: {
   de: string;
   en: string;
   category?: string;
+  details?: Pick<VocabEntry,"example"|"definition"|"translationKind">;
 }) {
-  const { addWord } = useVocabulary();
+  const { addWord, words } = useVocabulary();
   const [added, setAdded] = useState(false);
 
   function handleAdd(e: React.MouseEvent) {
     e.stopPropagation();
-    addWord(de, en, category);
+    addWord(de, en, category, details);
     setAdded(true);
     setTimeout(() => setAdded(false), 2000);
   }
@@ -31,10 +33,10 @@ export function AddToVocabButton({
           ? "bg-[var(--color-success-bg)] text-[var(--color-text-success)]"
           : "text-[var(--color-text-secondary)] hover:text-[var(--color-text-link)] hover:bg-[var(--color-primary-subtle)]"
       }`}
-      title={added ? "Saved!" : "Add to vocabulary"}
+      title={words[vocabId(de)] ? "Saved in My Bank" : "Add to My Bank"}
     >
       <BookPlus className="w-3 h-3" />
-      {added ? "Saved" : "Save"}
+      {words[vocabId(de)] ? "Saved in My Bank" : "Save to My Bank"}
     </Button>
   );
 }

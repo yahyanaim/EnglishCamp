@@ -1,0 +1,16 @@
+# Learning UI consistency — 2 November 2026
+
+This pass preserves the existing fonts, default violet and custom accent settings, course material, question banks, natural recordings and YouTube frame.
+
+- Shared back control: learning section entry points and 33 local detail views use the same 44 px control. Section pages return to their grammar, practice or vocabulary parent; local views return to their list. A local back control replaces the section control visually, preventing duplicate back rows.
+- Shared quiz geometry: panels fill the available content column; the former 840 px wrapper and narrower inner cards no longer leave unused side margins. Panels share a 12 px radius and 20 px padding, reduced to 16 px on phones. Multiple-choice lists use two columns on desktop and one on phones, with at least 48 px answer targets.
+- Quiz results: 35 older result panels use the common surface, with small vector icons replacing large emoji artwork. Scoring, questions, answer IDs and rewards are unchanged.
+- Phrases Practice: the explanation, scenario and translation appear after an answer. The phrase itself remains the question, with the existing answer options and grading.
+- Grammar Reference and Grammar Cheat Sheet: removed Arabic explanation controls and Arabic explanations from these two pages at the user's explicit request. English rules and examples remain. Sections still start collapsed, and printing includes all sections.
+- Shadowing: removed level selectors and repeated level labels. Levels remain on video thumbnails only. All twelve clips are accessible in one list, with compact topic badges. The existing video player, line model, recording and speed controls remain.
+- Verb conjugation: a semantic pronoun/form table wraps long forms, uses balanced columns and stacks the rule panel below on narrow screens. All twelve tense choices remain.
+- Course reading: every lesson uses the shared Done control after the written lesson. This saves a zero-XP reading acknowledgement in the existing learner progress store and shows a Read badge in the course library. Practice completion still requires the existing three accepted stages; reading does not fabricate assessed results. Existing learner session storage handles persistence and name isolation.
+
+Validation includes the regression suite plus navigation aliases, link/button semantics, thumbnail-only levels and topics, idempotent reading acknowledgement and English grammar rendering. Browser verification covers desktop and phone widths, quiz answers and feedback, back navigation, long tense forms, collapsed reference sections, saved reading state after reload and the course library badge.
+
+The final build passes 189 tests and type checking. An audit of generated HTML found the back row on all 82 existing static learning pages. Eight representative pages were checked at 320 px without horizontal overflow; the quiz and long verb forms were also checked at 390 px. Desktop quiz cards use the complete content-column width and two answer columns. Browser checks confirmed a single 44 px back button in article detail views and a compact vector icon on a completed quiz result. No application console warnings or errors were recorded in the final browser check.

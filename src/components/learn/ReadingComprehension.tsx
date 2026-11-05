@@ -108,7 +108,7 @@ export function ReadingComprehension() {
   return (
     <PracticeCard data-practice-surface="question" className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-6 shadow-sm" style={{ boxShadow: "0 3px 0 var(--color-border-default)" }}>
       <div className="flex items-center justify-between mb-4">
-        <span className="text-xs font-semibold text-sky-600 uppercase tracking-wider">Reading Comprehension</span>
+        <span className="text-xs font-semibold text-[var(--camp-control-ink)] uppercase tracking-wider">Reading Comprehension</span>
         <span className="text-xs text-[var(--color-text-secondary)]">Text {index + 1}/{TEXTS.length} &middot; Q{qIndex + 1}/{text.questions.length}</span>
       </div>
 
@@ -117,7 +117,7 @@ export function ReadingComprehension() {
           <p className="text-sm text-[var(--color-text-primary)] leading-relaxed flex-1">{text.text}</p>
           <SpeakerButton text={text.text} />
         </div>
-        <PracticeButton onClick={() => setShowTranslation(!showTranslation)} className="text-xs text-sky-600 hover:text-sky-700 font-medium mt-2">
+        <PracticeButton onClick={() => setShowTranslation(!showTranslation)} className="text-xs text-[var(--camp-control-ink)] hover:text-[var(--camp-control-ink)] font-medium mt-2">
           {showTranslation ? "Hide translation" : "Show translation"}
         </PracticeButton>
         {showTranslation && <>

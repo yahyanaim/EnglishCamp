@@ -1,7 +1,7 @@
 require('./register.cjs');
 const {test}=require('node:test'),assert=require('node:assert/strict'),fs=require('fs'),path=require('path');
 const React=require('react'),{renderToStaticMarkup}=require('react-dom/server');
-const {SHADOW_LESSONS,SHADOW_LEVELS,normalizeDictation}=require('../src/data/shadowing.ts');
+const {ORIGINAL_SHADOW_LESSONS,SHADOW_LESSONS,SHADOW_LEVELS,normalizeDictation}=require('../src/data/shadowing.ts');
 const {resourceParts,RESOURCE_LINKS}=require('../src/data/resource-links.ts');
 const {ResourceText}=require('../src/components/ui/ResourceText.tsx');
 const {CHALLENGE_WORDS}=require('../src/data/challenge-words.ts');
@@ -9,10 +9,10 @@ const {encodeChallenge,decodeChallenge,matchesChallengeMeaning}=require('../src/
 const {isFixedSpeech,neuralVoice}=require('../src/lib/speechServer.ts');
 const {POST}=require('../src/app/api/speech/route.ts');
 
-test('shadowing provides a verified short video and meaningful practice text at every requested level',()=>{
- assert.deepEqual(SHADOW_LEVELS,['A1','A2','B1','B2']);assert.equal(SHADOW_LESSONS.length,4);assert.equal(new Set(SHADOW_LESSONS.map(l=>l.id)).size,4);
- const verified={A1:['65iWtWqWmgY',29],A2:['C_HDrYHJrzo',31],B1:['Tn7a8Cv64B4',60],B2:['J8EWSLZ36s0',60]};
- for(const lesson of SHADOW_LESSONS){assert.deepEqual([lesson.videoId,lesson.duration],verified[lesson.level]);assert.ok(lesson.duration>0&&lesson.duration<120);assert.ok(lesson.focus&&lesson.task);assert.ok(lesson.lines.length>=2);for(const line of lesson.lines){assert.ok(line.text.trim());assert.match(line.ar,/[\u0600-\u06ff]/);assert.ok(isFixedSpeech(line.text),line.text);for(const word of line.text.match(/[a-z]+(?:['’][a-z]+)?/gi)||[])assert.ok(isFixedSpeech(word),word);}}
+test('the original short-video bank remains verified and the visible selection contains real conversations',()=>{
+ assert.deepEqual(SHADOW_LEVELS,['A1','A2','B1','B2']);assert.equal(ORIGINAL_SHADOW_LESSONS.length,12);assert.equal(new Set(SHADOW_LESSONS.map(l=>l.id)).size,SHADOW_LESSONS.length);
+ const verified={'introduce-yourself':['65iWtWqWmgY',29],'connected-youre':['C_HDrYHJrzo',31],'break-the-ice':['Tn7a8Cv64B4',60],'give-and-take':['J8EWSLZ36s0',60],'wait-a-moment':['mqPgWweY1vA',60],'productive-day':['DLi2txV9IVc',59],'obvious-choice':['b_ka3-253h0',60],'plans-and-dreams':['gBYnewP1MmY',61],'say-thank-you':['VDDB2tWE0jU',20],'making-party-plans':['fNk6ZFK8NsI',60],'sharing-difficult-news':['BKNJxpdNAtY',61],'fresh-start':['iVk7Ft6gl5w',60]};
+ for(const lesson of ORIGINAL_SHADOW_LESSONS){assert.deepEqual([lesson.videoId,lesson.duration],verified[lesson.id]);assert.ok(lesson.duration>0&&lesson.duration<120);assert.ok(lesson.focus&&lesson.task);assert.ok(lesson.lines.length>=2);for(const line of lesson.lines){assert.ok(line.text.trim());assert.match(line.ar,/[\u0600-\u06ff]/);assert.ok(isFixedSpeech(line.text),line.text);for(const word of line.text.match(/[a-z]+(?:['’][a-z]+)?/gi)||[])assert.ok(isFixedSpeech(word),word);}}
  assert.equal(normalizeDictation("You're here!"),normalizeDictation('you’re here.'));assert.notEqual(normalizeDictation('you are here'),normalizeDictation("you're here"));
 });
 test('resource links preserve text and avoid matching names inside unrelated words',()=>{
@@ -35,5 +35,5 @@ test('browser pronunciation has no SpeechSynthesisUtterance fallback anywhere in
  const walk=dir=>fs.readdirSync(dir,{withFileTypes:true}).flatMap(e=>e.isDirectory()?walk(path.join(dir,e.name)):[path.join(dir,e.name)]);for(const file of walk(path.join(__dirname,'../src')).filter(p=>/\.tsx?$/.test(p)))assert.ok(!fs.readFileSync(file,'utf8').includes('new SpeechSynthesisUtterance'),file);
 });
 test('package metadata and dependencies remain unchanged apart from speech-catalogue build commands',()=>{
- const crypto=require('crypto'),pkg=require('../package.json'),prior=require('./fixtures/notes-brand-contract.json').files['package.json'].after;const copy=JSON.parse(JSON.stringify(pkg));assert.equal(copy.scripts.prebuild,'node scripts/collect-speech-catalogue.cjs');assert.equal(copy.scripts['voice:catalogue'],'node scripts/collect-speech-catalogue.cjs');delete copy.scripts.prebuild;delete copy.scripts['voice:catalogue'];assert.equal(crypto.createHash('sha256').update(JSON.stringify(copy,null,2)+'\n').digest('hex'),prior);
+ const crypto=require('crypto'),pkg=require('../package.json'),prior=require('./fixtures/notes-brand-contract.json').files['package.json'].after;const copy=JSON.parse(JSON.stringify(pkg));assert.equal(copy.scripts.prebuild,'node scripts/collect-speech-catalogue.cjs');assert.equal(copy.scripts['voice:catalogue'],'node scripts/collect-speech-catalogue.cjs');delete copy.scripts.prebuild;delete copy.scripts['voice:catalogue'];assert.equal(copy.dependencies.qrcode,'^1.5.4');assert.ok(copy.devDependencies['@types/qrcode']);delete copy.dependencies.qrcode;delete copy.devDependencies['@types/qrcode'];assert.equal(crypto.createHash('sha256').update(JSON.stringify(copy,null,2)+'\n').digest('hex'),prior);
 });

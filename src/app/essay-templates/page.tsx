@@ -1,5 +1,7 @@
 "use client";
 
+import { PageBanner } from "@/components/ui/PageBanner";
+import { Button } from "@/components/ui/shadcn/button";
 import { LearningArt } from "@/components/brand/LearningArt";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -23,28 +25,28 @@ export default function EssayTemplatesPage() {
   );
 
   return (
-    <PageWrapper>
+    <PageWrapper className="camp-essay-library">
       <div className="space-y-6">
-        <div>
+        <PageBanner>
           <h1 className="font-display text-2xl font-extrabold text-[var(--color-text-primary)]">Essay Templates</h1>
           <p className="text-sm text-[var(--color-text-secondary)] mt-1">Structured templates with phrase banks for English writing tasks</p>
-        </div>
+        </PageBanner>
 
         <div className="relative">
           <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-[var(--color-text-secondary)]" />
-          <input type="text" value={search} onChange={(e) => setSearch(e.target.value)}
+          <input aria-label="Search essay templates" type="text" value={search} onChange={(e) => setSearch(e.target.value)}
             placeholder="Search templates..."
             className="w-full h-[52px] pl-11 pr-10 bg-[var(--color-surface)] rounded-[var(--radius-md)] border border-[var(--color-border-default)] text-[16px] font-body font-medium text-[var(--color-text-secondary)] placeholder:text-[var(--color-text-secondary)] placeholder:italic outline-none transition-all duration-150 focus:border-[var(--color-info)] focus:shadow-[0_0_0_3px_rgba(126,34,206,0.15)]"
           />
-          {search && <button onClick={() => setSearch("")} className="absolute right-3 top-1/2 -translate-y-1/2"><X className="w-4 h-4 text-[var(--color-text-secondary)]" /></button>}
+          {search && <Button variant="unstyled" aria-label="Clear template search" onClick={() => setSearch("")} className="absolute right-3 top-1/2 -translate-y-1/2"><X className="w-4 h-4 text-[var(--color-text-secondary)]" /></Button>}
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
           {filtered.map((template) => {
             const open = expanded === template.id;
             return (
-              <motion.div key={template.id} layout className="bg-[var(--color-surface)] rounded-[var(--radius-lg)]  border border-[var(--color-border-default)] overflow-hidden" style={{ boxShadow: "0 3px 0 var(--color-border-default)" }}>
-                <button onClick={() => setExpanded(open ? null : template.id)} className="w-full text-left p-5 hover:bg-[var(--color-surface-alt)] transition-colors">
+              <motion.div key={template.id} layout className="camp-essay-template-card bg-[var(--color-surface)] rounded-[var(--radius-lg)]  border border-[var(--color-border-default)] overflow-hidden" style={{ boxShadow: "0 3px 0 var(--color-border-default)" }}>
+                <Button variant="unstyled" aria-expanded={open} onClick={() => setExpanded(open ? null : template.id)} className="w-full text-left p-5 hover:bg-[var(--color-surface-alt)] transition-colors">
                   <div className="flex items-start justify-between gap-3">
                     <div className="flex-1 min-w-0">
                       <h3 className="font-display font-bold text-[var(--color-text-primary)]">{template.title}</h3>
@@ -58,7 +60,7 @@ export default function EssayTemplatesPage() {
                     </div>
                     <ChevronDown className={`w-4 h-4 text-[var(--color-text-secondary)] mt-1 transition-transform shrink-0 ${open ? "rotate-180" : ""}`} />
                   </div>
-                </button>
+                </Button>
 
                 <AnimatePresence>
                   {open && (

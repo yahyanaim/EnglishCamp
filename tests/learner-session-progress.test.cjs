@@ -9,14 +9,15 @@ const { useAchievements } = require('../src/store/useAchievements.ts');
 const { useNotes } = require('../src/store/useNotes.ts');
 function memory() { const values = new Map(); return { get length() { return values.size; }, key: i => [...values.keys()][i] ?? null, getItem: k => values.get(k) ?? null, setItem: (k,v) => values.set(k,String(v)), removeItem: k => values.delete(k), clear: () => values.clear() }; }
 
-test('named storage changes no XP rewards, levels, achievement conditions or authored curriculum data', () => {
-  const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto'),contract=require('./fixtures/named-learner-contract.json');
+test('named storage preserves reviewed rewards, levels, achievements and authored curriculum boundaries', () => {
+  const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto'),contract=require('./fixtures/named-learner-contract.json'),reviewed=require('./fixtures/connected-learning-contract.json');
   const hash=value=>crypto.createHash('sha256').update(value).digest('hex'),root=path.join(__dirname,'..');
   for(const [file,digest] of Object.entries(contract.stores)) {
     const source=fs.readFileSync(path.join(root,file),'utf8').replace('import { learnerStorage } from "@/lib/learnerStorage";\n','').replaceAll('learnerStorage','localStorage').replace('skipHydration: true, ','');
-    assert.equal(hash(source),digest,file+' changes only the storage route and hydration timing');
+    if(reviewed.normalizedStores[file]) assert.equal(reviewed.normalizedStores[file].before,digest,file+' prior reviewed boundary');
+    assert.equal(hash(source),reviewed.normalizedStores[file]?.after??digest,file+' reviewed storage/connected-learning boundary');
   }
-  for(const [file,digest] of Object.entries(contract.preserved)) assert.equal(hash(fs.readFileSync(path.join(root,file))),digest,file);
+  for(const [file,digest] of Object.entries(contract.preserved)) assert.equal(hash(fs.readFileSync(path.join(root,file))),reviewed.files[file]?.after??digest,file);
 });
 
 test('same name restores its stable profile, progress and badges; another name starts separately', () => {

@@ -3,6 +3,7 @@
 import { LearningArt } from "@/components/brand/LearningArt";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { PageBanner } from "@/components/ui/PageBanner";
 import { PageWrapper } from "@/components/layout/PageWrapper";
 import { CONFUSED_PAIRS } from "@/data/wortpaare";
 import { Search, X, ChevronDown, ArrowLeftRight } from "lucide-react";
@@ -30,12 +31,12 @@ export default function WortpaarePage() {
   };
 
   return (
-    <PageWrapper>
+    <PageWrapper className="camp-grammar-page">
       <div className="space-y-6">
-        <div>
+        <PageBanner>
           <h1 className="font-display text-2xl font-extrabold text-[var(--color-text-primary)]">Word Pairs</h1>
           <p className="text-sm text-[var(--color-text-secondary)] mt-1">Easily confused English words — side by side</p>
-        </div>
+        </PageBanner>
 
         <div className="relative">
           <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-[var(--color-text-secondary)]" />
@@ -43,15 +44,15 @@ export default function WortpaarePage() {
             placeholder="Search word pairs..."
             className="w-full h-[52px] pl-11 pr-10 bg-[var(--color-surface)] rounded-[var(--radius-md)] border border-[var(--color-border-default)] text-[16px] font-body font-medium text-[var(--color-text-secondary)] placeholder:text-[var(--color-text-secondary)] placeholder:italic outline-none transition-all duration-150 focus:border-[#7E22CE] focus:shadow-[0_0_0_3px_rgba(126,34,206,0.15)]"
           />
-          {search && <button onClick={() => setSearch("")} className="absolute right-3 top-1/2 -translate-y-1/2"><X className="w-4 h-4 text-[var(--color-text-secondary)]" /></button>}
+          {search && <button onClick={() => setSearch("")} className="camp-grammar-control absolute right-3 top-1/2 -translate-y-1/2" aria-label="Clear search"><X className="w-4 h-4 text-[var(--color-text-secondary)]" /></button>}
         </div>
 
         <div className="space-y-3">
           {filtered.map((pair) => {
             const open = expanded.has(pair.word1 + pair.word2);
             return (
-              <motion.div key={pair.word1 + pair.word2} layout className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] shadow-[0_2px_8px_rgba(0,0,0,0.08),0_1px_3px_rgba(0,0,0,0.05)] border border-[var(--color-border-default)] overflow-hidden" style={{ boxShadow: "0 3px 0 var(--color-border-default)" }}>
-                <button onClick={() => toggle(pair.word1 + pair.word2)} className="w-full text-left p-5 hover:bg-[var(--color-surface-alt)] transition-colors">
+              <motion.div key={pair.word1 + pair.word2} layout className="camp-grammar-panel bg-[var(--color-surface)] rounded-[var(--radius-lg)] shadow-[0_2px_8px_rgba(0,0,0,0.08),0_1px_3px_rgba(0,0,0,0.05)] border border-[var(--color-border-default)] overflow-hidden" style={{ boxShadow: "0 3px 0 var(--color-border-default)" }}>
+                <button onClick={() => toggle(pair.word1 + pair.word2)} className="camp-grammar-disclosure w-full text-left p-5 hover:bg-[var(--color-surface-alt)] transition-colors">
                   <div className="flex items-start gap-4">
                     <div className="flex items-center gap-3 flex-shrink-0 mt-0.5">
                       <span className="text-lg font-bold text-[var(--color-text-link)] font-mono">{pair.word1}</span>
@@ -76,24 +77,24 @@ export default function WortpaarePage() {
                           <div className="bg-[var(--color-primary-subtle)] rounded-[var(--radius-lg)] p-4">
                             <p className="text-xs font-bold text-[var(--color-text-link)] mb-1 uppercase tracking-wider">{pair.word1}</p>
                             <p className="text-xs text-[var(--color-text-link)]/80">{pair.meaning1}</p>
-                            <p className="text-xs text-[var(--color-text-link)]/80 font-arabic mt-0.5" lang="ar">{pair.arabic1}</p>
+                            <p className="text-xs text-[var(--color-text-link)]/80 font-arabic mt-0.5" lang="ar" dir="rtl">{pair.arabic1}</p>
                           </div>
-                          <div className="bg-[var(--color-warning-bg)] text-[var(--color-text-warning)] rounded-[var(--radius-lg)] p-4">
+                          <div className="camp-grammar-note bg-[var(--color-warning-bg)] text-[var(--color-text-warning)] rounded-[var(--radius-lg)] p-4">
                             <p className="text-xs font-bold text-[var(--color-text-warning)] mb-1 uppercase tracking-wider">{pair.word2}</p>
                             <p className="text-xs text-[var(--color-text-warning)]/80">{pair.meaning2}</p>
-                            <p className="text-xs text-[var(--color-text-warning)]/80 font-arabic mt-0.5" lang="ar">{pair.arabic2}</p>
+                            <p className="text-xs text-[var(--color-text-warning)]/80 font-arabic mt-0.5" lang="ar" dir="rtl">{pair.arabic2}</p>
                           </div>
                         </div>
 
                         <div className="space-y-2">
                           <p className="text-xs font-semibold text-[var(--color-text-secondary)] uppercase tracking-wider">Examples</p>
-                          <div className="flex items-start gap-3 bg-[var(--color-surface-alt)] rounded-[var(--radius-lg)] p-3">
+                          <div className="camp-grammar-formation flex items-start gap-3 bg-[var(--color-surface-alt)] rounded-[var(--radius-lg)] p-3">
                             <span className="text-xs font-bold text-[var(--color-text-link)] mt-0.5">{pair.word1}</span>
                             <div>
                               <p className="text-sm font-mono text-[var(--color-text-primary)]">{pair.example1}</p>
                             </div>
                           </div>
-                          <div className="flex items-start gap-3 bg-[var(--color-surface-alt)] rounded-[var(--radius-lg)] p-3">
+                          <div className="camp-grammar-formation flex items-start gap-3 bg-[var(--color-surface-alt)] rounded-[var(--radius-lg)] p-3">
                             <span className="text-xs font-bold text-[var(--color-text-warning)] mt-0.5">{pair.word2}</span>
                             <div>
                               <p className="text-sm font-mono text-[var(--color-text-primary)]">{pair.example2}</p>

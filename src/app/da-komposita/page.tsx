@@ -1,8 +1,11 @@
 "use client";
 
+
+import { BackButton } from "@/components/ui/BackButton";
 import { LearningArt } from "@/components/brand/LearningArt";
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { PageBanner } from "@/components/ui/PageBanner";
 import { PageWrapper } from "@/components/layout/PageWrapper";
 import { ChevronLeft } from "lucide-react";
 import { COMPOUND_WORDS } from "@/data/da-komposita";
@@ -21,12 +24,15 @@ export default function DaKompositaPage() {
 
   if (word) {
     return (
-      <PageWrapper>
-        <button onClick={() => setSelectedWord(null)} className="flex items-center gap-1.5 text-sm font-medium text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors mb-6">
-          <ChevronLeft className="w-4 h-4" /> Back to words
-        </button>
+      <PageWrapper className="camp-grammar-page">
+        <PageBanner>
+          <h1 className="font-display text-2xl font-extrabold text-[var(--color-text-primary)]">English Compound Words</h1>
+          <p className="text-sm text-[var(--color-text-secondary)] mt-1">Common pronominal adverbs (thereof, thereby, etc.) and compound words (everyone, nevertheless, etc.) explained</p>
+        </PageBanner>
 
-        <div className="bg-[var(--color-surface-alt)]    rounded-[var(--radius-lg)] border border-[var(--color-border-default)]/50 p-6 shadow-sm mb-6">
+        <BackButton onClick={() => setSelectedWord(null)}>Back to words</BackButton>
+
+        <div className="camp-grammar-panel bg-[var(--color-surface-alt)]    rounded-[var(--radius-lg)] border border-[var(--color-border-default)]/50 p-6 shadow-sm mb-6">
           <div className="flex items-center gap-4 mb-4">
             <span className="text-3xl">{TYPE_LABELS[word.type]?.icon || "📝"}</span>
             <div>
@@ -34,11 +40,11 @@ export default function DaKompositaPage() {
               <p className="text-sm text-[var(--color-text-secondary)] mt-1">{word.meaning}</p>
             </div>
           </div>
-          <div className="bg-[var(--color-surface)]/60 rounded-[var(--radius-lg)] p-3 mt-2">
+          <div className="camp-grammar-formation bg-[var(--color-surface)]/60 rounded-[var(--radius-lg)] p-3 mt-2">
             <p className="text-xs font-bold text-[var(--color-text-secondary)] uppercase tracking-wider mb-1">Example</p>
             <p className="text-sm font-mono text-[var(--color-text-primary)]">{word.example}</p>
             <p className="text-xs text-[var(--color-text-secondary)] italic mt-1">{word.exampleEn}</p>
-            {word.arabic && <p className="text-xs text-[var(--color-text-secondary)] italic font-arabic mt-1" lang="ar">{word.arabic}</p>}
+            {word.arabic && <p className="text-xs text-[var(--color-text-secondary)] italic font-arabic mt-1" lang="ar" dir="rtl">{word.arabic}</p>}
           </div>
         </div>
       </PageWrapper>
@@ -46,12 +52,12 @@ export default function DaKompositaPage() {
   }
 
   return (
-    <PageWrapper>
+    <PageWrapper className="camp-grammar-page">
       <div className="space-y-6">
-        <div>
+        <PageBanner>
           <h1 className="font-display text-2xl font-extrabold text-[var(--color-text-primary)]">English Compound Words</h1>
           <p className="text-sm text-[var(--color-text-secondary)] mt-1">Common pronominal adverbs (thereof, thereby, etc.) and compound words (everyone, nevertheless, etc.) explained</p>
-        </div>
+        </PageBanner>
 
         {TYPE_ORDER.map((type) => {
           const items = COMPOUND_WORDS.filter((w) => w.type === type);
@@ -68,7 +74,7 @@ export default function DaKompositaPage() {
                     key={w.word} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.04 }}
                     whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}
                     onClick={() => setSelectedWord(w.word)}
-                    className="text-left bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-4 shadow-sm hover:shadow-md transition-all"
+                    className="camp-grammar-topic-card text-left bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-4 shadow-sm hover:shadow-md transition-all"
                   >
                     <div className="flex items-start gap-3">
                       <LearningArt name={meta.icon} size={24} className="" />
@@ -84,9 +90,9 @@ export default function DaKompositaPage() {
           );
         })}
 
-        <div className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-5 shadow-sm">
+        <div className="camp-grammar-panel bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-5 shadow-sm">
           <h3 className="text-sm font-bold text-[var(--color-text-primary)] mb-3">All Compound Words</h3>
-          <div className="overflow-x-auto">
+          <div className="camp-grammar-table-scroll overflow-x-auto" tabIndex={0} role="region" aria-label="Grammar reference table">
             <table className="w-full text-xs">
               <thead>
                 <tr className="border-b border-[var(--color-border-default)]">

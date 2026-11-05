@@ -242,13 +242,14 @@ function CollapsibleSection({ section, pathname, isOpen, onToggle }: {
 }
 
 export function Sidebar({ open, onClose }: { open?: boolean; onClose?: () => void }) {
-  const pathname = usePathname().replace(/^\/(?:en|ar)(?=\/)/, "");
+  const browserPathname = usePathname();
+  const [mounted, setMounted] = useState(false);
+  const pathname = mounted ? browserPathname.replace(/^\/(?:en|ar)(?=\/)/, "") : "";
   const drawerRef = useRef<HTMLElement>(null);
   const closeRef = useRef<HTMLButtonElement>(null);
   const xp = useProgress(state => state.xp);
-  const levelInfo = getLevelInfo(xp);
+  const levelInfo = getLevelInfo(mounted ? xp : 0);
   const [openSections, setOpenSections] = useState<Record<string, boolean>>({});
-  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     setOpenSections(getDefaultOpen());

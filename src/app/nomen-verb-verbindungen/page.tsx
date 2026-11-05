@@ -1,9 +1,12 @@
 "use client";
 
+
+import { BackButton } from "@/components/ui/BackButton";
 import { LearningArt } from "@/components/brand/LearningArt";
 import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
-import { PageWrapper } from "@/components/layout/PageWrapper";
+import { Button } from "@/components/ui/shadcn/button";
+import { VocabularyPage } from "@/components/layout/VocabularyPage";
 import { Search, X, ChevronLeft } from "lucide-react";
 import { NOUN_VERB_COLLOCATIONS } from "@/data/nomen-verb-verbindungen";
 
@@ -23,10 +26,8 @@ export default function NomenVerbVerbindungenPage() {
 
   if (selectedEntry !== null) {
     return (
-      <PageWrapper>
-        <button onClick={() => setSelected(null)} className="flex items-center gap-1.5 text-sm font-medium text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors mb-6 font-body">
-          <ChevronLeft className="w-4 h-4" /> Back to all expressions
-        </button>
+      <VocabularyPage title="Verb–noun collocations" description="Learn natural combinations and practise them in context.">
+        <BackButton onClick={() => setSelected(null)}>Back to all expressions</BackButton>
 
         <div className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-6 mb-6" style={{ boxShadow: "0 3px 0 var(--color-border-default)" }}>
           <div className="flex items-center gap-4 mb-3">
@@ -34,7 +35,7 @@ export default function NomenVerbVerbindungenPage() {
             <div>
               <h2 className="text-xl font-bold text-[var(--color-text-primary)] font-display">{selectedEntry.verb} {selectedEntry.noun}</h2>
               <p className="text-sm text-[var(--color-text-secondary)] italic mt-0.5 font-body">{selectedEntry.meaning}</p>
-              <p className="text-sm text-[var(--color-text-secondary)] italic font-arabic mt-0.5" lang="ar">{selectedEntry.arabic}</p>
+              <p className="text-sm text-[var(--color-text-secondary)] italic font-arabic mt-0.5" lang="ar" dir="rtl">{selectedEntry.arabic}</p>
             </div>
           </div>
         </div>
@@ -46,32 +47,24 @@ export default function NomenVerbVerbindungenPage() {
             <p className="text-xs text-[var(--color-text-secondary)] italic mt-0.5 font-body">{selectedEntry.exampleEn}</p>
           </div>
         </div>
-      </PageWrapper>
+      </VocabularyPage>
     );
   }
 
   return (
-    <PageWrapper>
+    <VocabularyPage title="Verb–noun collocations" description="Learn natural combinations and practise them in context.">
       <div className="space-y-6">
-        <div>
-          <div className="flex items-center gap-3 mb-2">
-            <LearningArt name="🔗" size={24} className="inline-flex items-center justify-center w-10 h-10 rounded-[var(--radius-md)] bg-[var(--color-primary-subtle)] " />
-            <h1 className="font-display text-2xl font-extrabold text-[var(--color-text-primary)]">Nomen-Verb-Verbindungen</h1>
-          </div>
-          <p className="text-sm text-[var(--color-text-secondary)] font-body">
-            Fixed noun-verb combinations essential for B2 level
-          </p>
-        </div>
+
 
         <div className="relative">
           <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-[var(--color-text-secondary)]" />
           <input
-            type="text" value={search} onChange={(e) => setSearch(e.target.value)}
+            aria-label="Search verb and noun collocations" type="text" value={search} onChange={(e) => setSearch(e.target.value)}
             placeholder="Search expressions..."
             className="w-full h-12 pl-11 pr-10 bg-[var(--color-surface)] rounded-[var(--radius-md)] border border-[var(--color-border-default)] text-[16px] font-body font-medium text-[var(--color-text-primary)] placeholder:text-[var(--color-text-secondary)] placeholder:italic outline-none transition-all duration-150 focus:border-[var(--color-info)]"
             style={{ boxShadow: "0 2px 0 var(--color-border-default)" }}
           />
-          {search && <button onClick={() => setSearch("")} className="absolute right-3.5 top-1/2 -translate-y-1/2"><X className="w-4 h-4 text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]" /></button>}
+          {search && <Button variant="unstyled" size="unstyled" aria-label="Clear search" onClick={() => setSearch("")} className="absolute right-3.5 top-1/2 -translate-y-1/2"><X className="w-4 h-4 text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]" /></Button>}
         </div>
 
         <div className="flex items-center gap-2">
@@ -84,7 +77,7 @@ export default function NomenVerbVerbindungenPage() {
               key={n.verb + n.noun}
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.015 }}
+              transition={{ delay: Math.min(i * 0.015, 0.2) }}
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               onClick={() => {
@@ -98,7 +91,7 @@ export default function NomenVerbVerbindungenPage() {
                 <span className="text-base font-bold text-[var(--color-text-primary)]">{n.verb} {n.noun}</span>
               </div>
               <p className="text-xs text-[var(--color-text-secondary)] italic truncate font-body">{n.meaning}</p>
-              <p className="text-xs text-[var(--color-text-secondary)] italic font-arabic truncate mt-0.5" lang="ar">{n.arabic}</p>
+              <p className="text-xs text-[var(--color-text-secondary)] italic font-arabic truncate mt-0.5" lang="ar" dir="rtl">{n.arabic}</p>
             </motion.button>
           ))}
           {filtered.length === 0 && (
@@ -109,6 +102,6 @@ export default function NomenVerbVerbindungenPage() {
           )}
         </div>
       </div>
-    </PageWrapper>
+    </VocabularyPage>
   );
 }

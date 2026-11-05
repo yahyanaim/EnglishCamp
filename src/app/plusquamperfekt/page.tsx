@@ -1,6 +1,9 @@
 "use client";
+
+import { BackButton } from "@/components/ui/BackButton";
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { PageBanner } from "@/components/ui/PageBanner";
 import { PageWrapper } from "@/components/layout/PageWrapper";
 import { ChevronLeft } from "lucide-react";
 import { PAST_PERFECT_RULES } from "@/data/plusquamperfekt";
@@ -12,29 +15,32 @@ export default function PastPerfectPage() {
 
   if (rule) {
     return (
-      <PageWrapper>
-        <button onClick={() => setSelectedRule(null)} className="flex items-center gap-1.5 text-sm font-medium text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors mb-6">
-          <ChevronLeft className="w-4 h-4" /> Back to rules
-        </button>
+      <PageWrapper className="camp-grammar-page">
+        <PageBanner>
+          <h1 className="font-display text-2xl font-extrabold text-[var(--color-text-primary)]">Past Perfect</h1>
+          <p className="text-sm text-[var(--color-text-secondary)] mt-1">Past-before-the-past: tense sequences with after, before, and temporal relationships</p>
+        </PageBanner>
 
-        <div className="bg-[var(--color-surface-alt)]    rounded-[var(--radius-lg)] border border-[var(--color-border-default)]/50 p-6 shadow-sm mb-6">
+        <BackButton onClick={() => setSelectedRule(null)}>Back to rules</BackButton>
+
+        <div className="camp-grammar-panel bg-[var(--color-surface-alt)]    rounded-[var(--radius-lg)] border border-[var(--color-border-default)]/50 p-6 shadow-sm mb-6">
           <div>
             <h2 className="text-xl font-bold text-[var(--color-text-primary)]">{rule.title}</h2>
             <p className="text-sm text-[var(--color-text-secondary)] mt-1">{rule.explanation}</p>
           </div>
-          <div className="bg-[var(--color-surface)]/60 rounded-[var(--radius-lg)] p-3 mt-2">
+          <div className="camp-grammar-formation bg-[var(--color-surface)]/60 rounded-[var(--radius-lg)] p-3 mt-2">
             <p className="text-xs font-bold text-[var(--color-text-secondary)] uppercase tracking-wider mb-1">Formula</p>
             <p className="text-sm font-mono text-[var(--color-text-primary)]">{rule.formula}</p>
           </div>
         </div>
 
-        <div className="space-y-4 mb-8">
+        <div className="camp-grammar-example-list mb-8">
           {rule.examples.map((ex, i) => (
             <motion.div key={i} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.08 }}
-              className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-4 shadow-sm"
+              className="camp-grammar-panel bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-4 shadow-sm"
             >
               <p className="text-sm font-mono font-medium text-[var(--color-text-primary)] mb-1 leading-relaxed">{ex.english}</p>
-              <p className="text-xs text-[var(--color-text-secondary)] italic font-arabic" lang="ar">{ex.arabic}</p>
+              <p className="text-xs text-[var(--color-text-secondary)] italic font-arabic" lang="ar" dir="rtl">{ex.arabic}</p>
             </motion.div>
           ))}
         </div>
@@ -43,12 +49,12 @@ export default function PastPerfectPage() {
   }
 
   return (
-    <PageWrapper>
+    <PageWrapper className="camp-grammar-page">
       <div className="space-y-6">
-        <div>
+        <PageBanner>
           <h1 className="font-display text-2xl font-extrabold text-[var(--color-text-primary)]">Past Perfect</h1>
           <p className="text-sm text-[var(--color-text-secondary)] mt-1">Past-before-the-past: tense sequences with after, before, and temporal relationships</p>
-        </div>
+        </PageBanner>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
           {PAST_PERFECT_RULES.map((r, i) => (
@@ -56,7 +62,7 @@ export default function PastPerfectPage() {
               key={r.id} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.04 }}
               whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}
               onClick={() => setSelectedRule(r.id)}
-              className="text-left bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-4 shadow-sm hover:shadow-md transition-all"
+              className="camp-grammar-topic-card text-left bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-4 shadow-sm hover:shadow-md transition-all"
             >
               <div>
                 <h3 className="text-sm font-bold text-[var(--color-text-primary)] mb-0.5">{r.title}</h3>

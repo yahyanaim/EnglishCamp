@@ -79,7 +79,7 @@ test('lesson-specific diagrams recap the teaching before practice without import
  const overview=fs.readFileSync(path.join(__dirname,'../src/components/course/CourseOverview.tsx'),'utf8');
  assert.ok(module.indexOf('<CourseVideoLesson')<module.indexOf('<IllustratedLessonContent'));
  assert.ok(module.indexOf('<CourseEnrichment key=')<module.indexOf('<LessonPrinciple'));
- assert.ok(module.indexOf('<LessonPrinciple')<module.indexOf('</details>\n    <section id="practice"'));
+ assert.ok(module.indexOf('<LessonPrinciple')<module.indexOf('<section id="practice"'));
  assert.match(module,/href="#lesson-principle"/);
  assert.match(module,/Jump to the visual explanation/);
  assert.match(module,/!enrichment.teachingDiagram/);

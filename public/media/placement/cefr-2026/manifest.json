@@ -1,0 +1,56 @@
+[
+  {
+    "level": "A1",
+    "src": "/media/placement/cefr-2026/a1.mp3",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-30%",
+    "scriptSha256": "65b2caea495e559c209818363a34ad81bc7227bff24467bce9d49f86180b52bb",
+    "sha256": "a2825edef2c55c9490b080776615946f68c0287739519c3618cce9d53b689475",
+    "bytes": 157824
+  },
+  {
+    "level": "A2",
+    "src": "/media/placement/cefr-2026/a2.mp3",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-18%",
+    "scriptSha256": "c45d04f2734929ed3f1ee45d15def67dd275e25da9bd29250e262f1f1af4c704",
+    "sha256": "af2309891ae32ab95475efbc4160b18b7cbbc95840fac1fdcdfda71d685ed2dd",
+    "bytes": 208944
+  },
+  {
+    "level": "B1",
+    "src": "/media/placement/cefr-2026/b1.mp3",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-8%",
+    "scriptSha256": "e2191d511ff88e188f35bf58e04ea369c22b8ebbe0ea216c76565d3f0b7a4ef6",
+    "sha256": "0c514a0d1ef4292896cba04241b9907e3da552ab9ee2380defe6282f5d84b21b",
+    "bytes": 290736
+  },
+  {
+    "level": "B2",
+    "src": "/media/placement/cefr-2026/b2.mp3",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-2%",
+    "scriptSha256": "8a95576e4e8278585bde778c086cbb7e0d4df069d9fc600a6f07f90f254411bd",
+    "sha256": "565fdae80a0ebdca49395d3e776b86a28746bf03e947b6ee1c334c3a2264794b",
+    "bytes": 308592
+  },
+  {
+    "level": "C1",
+    "src": "/media/placement/cefr-2026/c1.mp3",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-2%",
+    "scriptSha256": "86df7136335a66dfa2a6cc450672f8b6173c0b7c2490be3dbefe38c5bc51bdad",
+    "sha256": "ce8f1489244a8ac2ea64b0b79fde280e574d21bb6792f54e561cac3b9d4255b6",
+    "bytes": 468432
+  },
+  {
+    "level": "C2",
+    "src": "/media/placement/cefr-2026/c2.mp3",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-2%",
+    "scriptSha256": "b91d16733afc1b7765070fccf30e864cc44674f467b51988275c97ca11b9f722",
+    "sha256": "a8e7490321d1869bd601a49812704964a2d9de96db4c14a9a4ec440a8c9f2bd0",
+    "bytes": 561744
+  }
+]

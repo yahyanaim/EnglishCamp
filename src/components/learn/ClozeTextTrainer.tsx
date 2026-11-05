@@ -68,7 +68,7 @@ export function ClozeTextTrainer() {
 
   if (done) {
     return (
-      <div className="text-center py-8">
+      <div data-practice-surface="result" className="practice-card text-center">
         <LearningArt name="📖" size={36} className=" block mb-3" />
         <h3 className="text-xl font-display font-extrabold text-[var(--color-text-primary)] mb-1">Cloze Reading Complete!</h3>
         <p className="text-sm text-[var(--color-text-secondary)] mb-6">{score} / {pool.reduce((n,item)=>n+item.blanks.length,0)} gaps correct</p>

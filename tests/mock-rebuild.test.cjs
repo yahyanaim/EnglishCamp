@@ -366,8 +366,8 @@ test("integration uses native recording and preserves the established design tok
     "grid-cols-1 lg:grid-cols-12",
     "lg:col-span-7",
     "lg:col-span-5",
-    "max-w-5xl",
-    "max-w-6xl",
+    "camp-mock-page",
+    "w-full min-w-0 space-y-5",
     "#065f46",
   ])
     assert.ok(source.includes(token), token);

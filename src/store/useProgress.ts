@@ -2,10 +2,13 @@ import { learnerStorage } from "@/lib/learnerStorage";
 import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
 import type { ProgressStore, BandId, QuizResult } from "@/data/types";
-import { migrateCourseProgress, hasModuleCredit, cycleComplete, type ModuleProgress, type ActivityAttempt, type StageEvidence } from "@/lib/courseProgress";
+import { migrateCourseProgress, hasModuleCredit, cycleComplete, courseSnapshot, type ModuleProgress, type ActivityAttempt, type StageEvidence } from "@/lib/courseProgress";
 import { getLevelInfo } from "@/lib/xp";
+import { learningEvent, localDay, legacyStreakDays, type LearningEvent } from "@/lib/learningActivity";
 
 interface ProgressActions {
+  events: LearningEvent[];
+  legacyActiveDays: string[];
   modules: Record<string, ModuleProgress>;
   activityAttempts: ActivityAttempt[];
   registerContent: (id: string, signatures: string[]) => void;
@@ -44,6 +47,8 @@ export const useProgress = create<ProgressStore & ProgressActions>()(
       ...INITIAL,
       modules: {},
       activityAttempts: [],
+      events: [],
+      legacyActiveDays: [],
       registerContent: (id, signatures) => set(s => {
         const previous = s.modules[id] ?? { stages: {} };
         const changed = previous.expectedSignatures && signatures.some((signature, i) => signature !== previous.expectedSignatures![i]);
@@ -74,6 +79,7 @@ export const useProgress = create<ProgressStore & ProgressActions>()(
 
         set((s) => ({
           xp: s.xp + xp,
+          events: [...s.events, learningEvent("lesson", lessonId, xp)].slice(-2000),
           lessons: {
             ...s.lessons,
             [lessonId]: {
@@ -94,6 +100,7 @@ export const useProgress = create<ProgressStore & ProgressActions>()(
       recordQuizResult: (levelId, result) => {
         set((s) => ({
           xp: s.xp + result.xpEarned,
+          events: [...s.events, {...learningEvent("quiz", levelId, result.xpEarned), at:result.takenAt}].slice(-2000),
           quizResults: {
             ...s.quizResults,
             [levelId]: [...(s.quizResults[levelId] ?? []), result],
@@ -111,6 +118,7 @@ export const useProgress = create<ProgressStore & ProgressActions>()(
         if (get().exercisesDone[exerciseId]) return 0;
         set((s) => ({
           xp: s.xp + xp,
+          events: [...s.events, learningEvent("exercise", exerciseId, xp)].slice(-2000),
           exercisesDone: { ...s.exercisesDone, [exerciseId]: true },
         }));
         get().updateStreak();
@@ -119,31 +127,35 @@ export const useProgress = create<ProgressStore & ProgressActions>()(
 
       markCardSeen: (cardId) => {
         set((s) => ({
+          events: [...s.events, learningEvent("flashcard", cardId)].slice(-2000),
           flashcardSeen: {
             ...s.flashcardSeen,
             [cardId]: (s.flashcardSeen[cardId] ?? 0) + 1,
           },
         }));
+        get().updateStreak();
       },
 
       getCardSeenCount: (cardId) => get().flashcardSeen[cardId] ?? 0,
 
       addXP: (amount) => {
-        set((s) => ({ xp: s.xp + amount }));
+        if (!Number.isFinite(amount) || amount <= 0) return;
+        set((s) => ({ xp: s.xp + amount, events: [...s.events, learningEvent("practice", "practice", amount)].slice(-2000) }));
         get().updateStreak();
       },
 
       updateStreak: () => {
-        const today = new Date().toISOString().split("T")[0];
+        const today = localDay();
         const last  = get().lastActiveDate;
 
         if (last === today) return;
 
         const yesterday = new Date();
         yesterday.setDate(yesterday.getDate() - 1);
-        const yd = yesterday.toISOString().split("T")[0];
+        const yd = localDay(yesterday);
 
         set((s) => ({
+          legacyActiveDays: Array.from(new Set([...s.legacyActiveDays,...legacyStreakDays(s)])).slice(-90),
           streak:         last === yd ? s.streak + 1 : 1,
           lastActiveDate: today,
         }));
@@ -160,15 +172,11 @@ export const useProgress = create<ProgressStore & ProgressActions>()(
         const ids = lessonIds ?? [];
         const count = ids.length || totalLessons;
         if (count === 0) return 0;
-        let done = 0;
-        for (let i = 0; i < count; i++) {
-          const id = ids[i] || `${levelId}-lesson-${i}`;
-          done += hasModuleCredit(id, get().modules, get().lessons) || doneFn(id) ? 1 : 0;
-        }
-        return Math.round((done / count) * 100);
+        if (!ids.length) return Math.round(Array.from({length:count},(_,i)=>`${levelId}-lesson-${i}`).filter(doneFn).length/count*100);
+        return courseSnapshot(ids, get().modules, get().lessons).percent;
       },
 
-      reset: () => set({ ...INITIAL, modules: {}, activityAttempts: [] }),
+      reset: () => set({ ...INITIAL, modules: {}, activityAttempts: [], events: [], legacyActiveDays: [] }),
     }),
     {
       name:    "englishcamp-progress",

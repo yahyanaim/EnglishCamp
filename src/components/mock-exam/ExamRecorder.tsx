@@ -40,9 +40,11 @@ export const ExamRecorder = forwardRef<
     onSaved: () => void;
     onBusy: (busy: boolean) => void;
     review?: boolean;
+    privacyNotice?: string;
+    allowRetake?: boolean;
   }
 >(function ExamRecorder(
-  { task, storageKey, onSaved, onBusy, review = false },
+  { task, storageKey, onSaved, onBusy, review = false, privacyNotice, allowRetake = false },
   ref,
 ) {
   const [phase, setPhase] = useState<Phase>("idle"),
@@ -93,7 +95,7 @@ export const ExamRecorder = forwardRef<
         setSaved(true);
         setError("");
       }
-      callbacks.current.onSaved();
+      if (alive.current) callbacks.current.onSaved();
     } catch {
       if (alive.current)
         setError(
@@ -346,9 +348,9 @@ export const ExamRecorder = forwardRef<
         </div>
       </div>
       <p className={smallClass}>
-        Speaking recordings are saved only in this browser on this device.
+        {privacyNotice || <>Speaking recordings are saved only in this browser on this device.
         Nothing is uploaded. Writing and speaking remain unassessed until
-        reviewed by a qualified assessor.
+        reviewed by a qualified assessor.</>}
       </p>
       {error && (
         <p role="alert" className="text-sm text-[var(--color-text-error)]">
@@ -364,6 +366,10 @@ export const ExamRecorder = forwardRef<
             className="w-full"
           />
           <div className="flex flex-wrap gap-3">
+            {allowRetake && !review && saved && <ControlButton variant="unstyled" size="unstyled" className={secondaryButton} onClick={() => {
+              if (objectUrl.current) URL.revokeObjectURL(objectUrl.current);
+              objectUrl.current = ''; blob.current = null; setUrl(''); changePhase('idle');
+            }}>Record another response</ControlButton>}
             <a
               href={url}
               download={`${task.id}.${blob.current?.type.includes("mp4") ? "m4a" : blob.current?.type.includes("ogg") ? "ogg" : "webm"}`}

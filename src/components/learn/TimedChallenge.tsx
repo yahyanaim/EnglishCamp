@@ -109,7 +109,7 @@ export function TimedChallenge() {
   return (
     <PracticeCard data-practice-surface="question" className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-6 shadow-sm" style={{ boxShadow: "0 3px 0 var(--color-border-default)" }}>
       <div className="flex items-center justify-between mb-4">
-        <span className="text-xs font-semibold text-[#FFD700] uppercase tracking-wider">Timed Challenge</span>
+        <span className="text-xs font-semibold text-[var(--camp-control-ink)] uppercase tracking-wider">Timed Challenge</span>
         <div className="flex items-center gap-3">
           <span className={`text-sm font-mono font-bold ${timeLeft <= 10 ? "text-[var(--color-text-error)]" : "text-[var(--color-text-secondary)]"}`}>{timeLeft}s</span>
           <span className="text-xs text-[var(--color-text-secondary)]">Score: {score}/{total}</span>

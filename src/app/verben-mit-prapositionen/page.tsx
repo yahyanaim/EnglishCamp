@@ -1,16 +1,19 @@
 "use client";
 
+
+import { BackButton } from "@/components/ui/BackButton";
 import { LearningArt } from "@/components/brand/LearningArt";
 import { SelectField } from "@/components/ui/shadcn/select-field";
 import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
-import { PageWrapper } from "@/components/layout/PageWrapper";
+import { Button } from "@/components/ui/shadcn/button";
+import { VocabularyPage } from "@/components/layout/VocabularyPage";
 import { Search, X, ChevronLeft } from "lucide-react";
 import { VERB_PREPOSITIONS } from "@/data/verben-mit-prapositionen";
 
 export default function VerbenMitPrapositionenPage() {
   const [search, setSearch] = useState("");
-  const [caseFilter, setCaseFilter] = useState<"all">("all");
+  const [caseFilter, setCaseFilter] = useState("all");
   const [selected, setSelected] = useState<number | null>(null);
 
   const filtered = useMemo(() => {
@@ -21,6 +24,7 @@ export default function VerbenMitPrapositionenPage() {
         (v) => v.verb.toLowerCase().includes(q) || v.meaning.toLowerCase().includes(q) || v.preposition.toLowerCase().includes(q)
       );
     }
+    if (caseFilter !== "all") items = items.filter(v => v.preposition.split("/").includes(caseFilter));
     return items;
   }, [search, caseFilter]);
 
@@ -28,10 +32,8 @@ export default function VerbenMitPrapositionenPage() {
 
   if (selectedEntry !== null) {
     return (
-      <PageWrapper>
-        <button onClick={() => setSelected(null)} className="flex items-center gap-1.5 text-sm font-medium text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors mb-6 font-body">
-          <ChevronLeft className="w-4 h-4" /> Back to all verbs
-        </button>
+      <VocabularyPage title="Verbs and prepositions" description="Learn which preposition belongs with each verb.">
+        <BackButton onClick={() => setSelected(null)}>Back to all verbs</BackButton>
 
         <div className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-6 mb-6" style={{ boxShadow: "0 3px 0 var(--color-border-default)" }}>
           <div className="flex items-center gap-4 mb-3">
@@ -53,43 +55,34 @@ export default function VerbenMitPrapositionenPage() {
             <p className="text-xs text-[var(--color-text-secondary)] italic mt-0.5 font-body">{selectedEntry.exampleEn}</p>
           </div>
         </div>
-      </PageWrapper>
+      </VocabularyPage>
     );
   }
 
   return (
-    <PageWrapper>
+    <VocabularyPage title="Verbs and prepositions" description="Learn which preposition belongs with each verb.">
       <div className="space-y-6">
-        <div>
-          <div className="flex items-center gap-3 mb-2">
-            <LearningArt name="📌" size={24} className="inline-flex items-center justify-center w-10 h-10 rounded-[var(--radius-md)] bg-[var(--color-primary-subtle)] " />
-            <h1 className="font-display text-2xl font-extrabold text-[var(--color-text-primary)]">Verbs with Prepositions</h1>
-          </div>
-          <p className="text-sm text-[var(--color-text-secondary)] font-body">
-            English verbs that require fixed prepositions
-          </p>
-        </div>
+
 
         <div className="flex flex-col sm:flex-row gap-3">
           <div className="relative flex-1">
             <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-[var(--color-text-secondary)]" />
             <input
-              type="text" value={search} onChange={(e) => setSearch(e.target.value)}
+              aria-label="Search verbs and prepositions" type="text" value={search} onChange={(e) => setSearch(e.target.value)}
               placeholder="Search verb or preposition..."
               className="w-full h-12 pl-11 pr-10 bg-[var(--color-surface)] rounded-[var(--radius-md)] border border-[var(--color-border-default)] text-[16px] font-body font-medium text-[var(--color-text-primary)] placeholder:text-[var(--color-text-secondary)] placeholder:italic outline-none transition-all duration-150 focus:border-[var(--color-info)]"
               style={{ boxShadow: "0 2px 0 var(--color-border-default)" }}
             />
-            {search && <button onClick={() => setSearch("")} className="absolute right-3.5 top-1/2 -translate-y-1/2"><X className="w-4 h-4 text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]" /></button>}
+            {search && <Button variant="unstyled" size="unstyled" aria-label="Clear search" onClick={() => setSearch("")} className="absolute right-3.5 top-1/2 -translate-y-1/2"><X className="w-4 h-4 text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]" /></Button>}
           </div>
           <SelectField
-            value={caseFilter}
-            onValueChange={value => setCaseFilter(value as "all")}
+            aria-label="Filter by preposition" value={caseFilter}
+            onValueChange={value => setCaseFilter(value)}
             className="px-3 py-2.5 bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] text-sm text-[var(--color-text-primary)] outline-none focus:border-[var(--color-info)]"
             style={{ boxShadow: "0 2px 0 var(--color-border-default)" }}
           >
-            <option value="all">All cases</option>
-            <option value="Accusative">+ Accusative</option>
-            <option value="Dative">+ Dative</option>
+            <option value="all">All prepositions</option>
+            {Array.from(new Set(VERB_PREPOSITIONS.flatMap(v => v.preposition.split("/")))).sort().map(prep => <option key={prep} value={prep}>{prep}</option>)}
           </SelectField>
         </div>
 
@@ -103,7 +96,7 @@ export default function VerbenMitPrapositionenPage() {
               key={`${v.verb}-${v.preposition}`}
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.015 }}
+              transition={{ delay: Math.min(i * 0.015, 0.2) }}
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               onClick={() => {
@@ -128,6 +121,6 @@ export default function VerbenMitPrapositionenPage() {
           )}
         </div>
       </div>
-    </PageWrapper>
+    </VocabularyPage>
   );
 }

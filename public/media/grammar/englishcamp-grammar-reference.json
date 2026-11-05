@@ -1,10 +1,12 @@
 {
-  "sourceSha256": "be5ceae82ab62cf0f4c12c3a0bb965200674eeac2f36b0f406c7ea9d99eea9fa",
-  "pdfSha256": "62acf657273f79246e43d41d5db91f20efd7644474468583cd776ecb2d4e54ac",
-  "sections": 11,
+  "sourceSha256": "e3b08b72fe1f962c27c4cf5f604cfdf4ee5d26bcd14daaf658a18b76e3ac2657",
+  "pdfSha256": "51d40ba49e049dbc21eabb3939bd7e61ca1b7c2ca1ffdacb656435f8aaa30acf",
+  "sections": 15,
   "fonts": [
     "Nunito",
     "DM Sans"
   ],
-  "language": "English; online reference retains Arabic examples"
+  "language": "English",
+  "positionDiagrams": 16,
+  "positionSourceSha256": "c1a7bdb4ed662c7134c39b33ad846ae6055005fcb3b3b01f0285ad47a521763f"
 }

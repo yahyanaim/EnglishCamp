@@ -9,7 +9,7 @@ import { PracticeBanner as PageBanner } from "@/components/ui/PracticeBanner";
 import { motion } from "framer-motion";
 import { useProgress } from "@/store/useProgress";
 import { getLevelInfo } from "@/lib/xp";
-import { hasModuleCredit } from "@/lib/courseProgress";
+import { hasModuleCredit, courseSnapshot } from "@/lib/courseProgress";
 import { courseCatalogue as levels } from "@/data/course-catalogue";
 import { Progress } from "@/components/ui/Progress";
 import { Card } from "@/components/ui/Card";
@@ -283,7 +283,7 @@ export default function Dashboard() {
         <SectionHeader icon={GraduationCap} label="Level Progress" color="#CE82FF" />
         <div className="camp-course-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {levels.map((lv) => {
-            const p = lv.lessons.length ? Math.round(lv.lessons.filter(lesson => hasModuleCredit(lesson.id, modules, lessons) || !!lessons[lesson.id]?.completed).length / lv.lessons.length * 100) : 0;
+            const p = courseSnapshot(lv.lessons.map(lesson=>lesson.id),modules,lessons).percent;
             const best = Math.max(0, ...(quizResults[lv.id]?.map((r) => r.score) ?? []));
             return (
               <CoursePreviewCard key={lv.id} course={lv} progress={p} best={best} />

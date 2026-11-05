@@ -1,5 +1,7 @@
 "use client";
 
+
+import { BackButton } from "@/components/ui/BackButton";
 import { ResourceText } from "@/components/ui/ResourceText";
 import { LearningArt } from "@/components/brand/LearningArt";
 import { useState } from "react";
@@ -16,9 +18,7 @@ export default function IELTSGuidePage() {
   if (section) {
     return (
       <PageWrapper>
-        <button onClick={() => setSelectedSection(null)} className="flex items-center gap-1.5 text-sm font-medium text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors mb-6">
-          <ChevronLeft className="w-4 h-4" /> Back to overview
-        </button>
+        <BackButton onClick={() => setSelectedSection(null)}>Back to overview</BackButton>
         <div className="space-y-6">
           <div className="bg-[var(--color-surface-alt)]    rounded-[var(--radius-lg)] border border-[var(--color-border-default)]/50 p-6 shadow-sm">
             <div className="flex items-center gap-4">

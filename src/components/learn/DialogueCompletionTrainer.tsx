@@ -63,8 +63,8 @@ export function DialogueCompletionTrainer() {
   if (done) {
     const pct = pool.length > 0 ? Math.round((score / pool.length) * 100) : 0;
     return (
-      <div className="text-center py-8">
-        <span className="text-5xl block mb-3">{pct >= 80 ? "🏆" : pct >= 50 ? "👍" : "💪"}</span>
+      <div data-practice-surface="result" className="practice-card text-center">
+        <LearningArt name="trophy" size={30} className="camp-result-art"/>
         <h3 className="text-xl font-display font-extrabold text-[var(--color-text-primary)] mb-1">Dialogue Practice Complete!</h3>
         <p className="text-lg font-display font-extrabold text-[var(--color-text-link)] mb-1">{score}/{pool.length} correct ({pct}%)</p>
         <p className="text-sm text-[var(--color-text-secondary)] mb-6">{pct >= 80 ? "Excellent dialogue skills!" : "Keep practicing!"}</p>

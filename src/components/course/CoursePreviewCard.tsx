@@ -17,6 +17,6 @@ export function CoursePreviewCard({ course, progress, best, expanded = false }: 
     <div className="camp-course-card-copy"><h3>{course.title}</h3><p>{course.subtitle}</p>{expanded && <p className="camp-course-intro">{COURSE_SUMMARIES[course.id] || course.subtitle}</p>}</div>
     <div className="camp-course-card-meta"><span><LearningArt name="BookOpen" size={14}  />{course.lessons.length} modules{expanded && ` · ${course.duration}`}</span>{best > 0 && <span>Best: {best}%</span>}</div>
     <div className="camp-course-meter" role="progressbar" aria-label={`${course.title} progress`} aria-valuemin={0} aria-valuemax={100} aria-valuenow={progress}><span style={{ width: `${Math.min(100, Math.max(0, progress))}%` }} /></div>
-    <div className="camp-course-card-bottom"><span>{progress}% lessons</span><Link prefetch={false} href={`/levels/${course.id}`} aria-label={`View ${course.title}`}>View course <ArrowUpRight size={15} /></Link></div>
+    <div className="camp-course-card-bottom"><span>{progress}% course stages</span><Link prefetch={false} href={`/levels/${course.id}`} aria-label={`View ${course.title}`}>View course <ArrowUpRight size={15} /></Link></div>
   </article>;
 }

@@ -153,7 +153,7 @@ export function Sprint() {
         <h2 className="text-xl font-display font-extrabold text-[var(--color-text-primary)]">Sprint</h2>
         <p className="text-sm text-[var(--color-text-secondary)] mt-2">Answer as many questions as you can in 60 seconds!</p>
         {bestScore > 0 && (
-          <p className="mt-3 text-sm bg-amber-500 text-[var(--color-on-brand)] font-extrabold shadow-sm rounded-[10px] px-4 py-2 inline-flex items-center gap-1.5">
+          <p className="mt-3 text-sm bg-[var(--camp-purple-soft)] text-[var(--camp-control-ink)] font-extrabold shadow-sm rounded-[10px] px-4 py-2 inline-flex items-center gap-1.5">
             <LearningArt name="Trophy" size={16} className="w-4 h-4" /> Best: {bestScore} correct
           </p>
         )}
@@ -188,7 +188,7 @@ export function Sprint() {
           </div>
         </div>
         <div className="flex items-center justify-center gap-4 mt-4">
-          <p className="text-sm font-bold bg-amber-500 text-[var(--color-on-brand)] font-extrabold shadow-sm px-4 py-2 rounded-[10px] inline-flex items-center gap-1.5">
+          <p className="text-sm font-bold bg-[var(--camp-purple-soft)] text-[var(--camp-control-ink)] font-extrabold shadow-sm px-4 py-2 rounded-[10px] inline-flex items-center gap-1.5">
             <LearningArt name="Sparkles" size={16} className="w-4 h-4" /> +{correct * 5 + (totalAnswered >= 20 ? 20 : totalAnswered >= 10 ? 10 : 0)} XP
           </p>
           {correct >= bestScore && correct > 0 && (

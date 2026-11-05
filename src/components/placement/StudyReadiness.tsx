@@ -1,0 +1,19 @@
+"use client";
+import { Button } from '@/components/ui/shadcn/button';
+import { LEVEL_STUDY_PLANS } from '@/data/level-study-plans';
+import { LEVEL_PRACTICE,levelPracticeLinks } from '@/data/study-practice';
+import type { PlacementLevel } from '@/data/placement/questions';
+import { emptyStudyReview,studyReadinessStatus,type StudyReview } from '@/lib/studyReadiness';
+import { localDateKey } from '@/lib/studyPlanner';
+export function StudyReadiness({level,cycle,review,onChange}:{level:PlacementLevel;cycle:number;review?:StudyReview;onChange:(next:StudyReview)=>void}){
+ const value=review||emptyStudyReview(),plan=LEVEL_STUDY_PLANS[level],today=localDateKey(new Date()),status=studyReadinessStatus(value,today);
+ return <section className="camp-study-readiness" aria-label={`Cycle ${cycle} readiness review`}>
+  <header><span>Cycle {cycle} · {level}</span><h3>Before trying harder material</h3><p>Use a fresh task on another day. Check what you can do with less help, then get feedback on speaking and writing.</p></header>
+  <div className="camp-readiness-checks">{plan.ready.map((item,i)=><label key={item}><input type="checkbox" checked={value.checks[i]} onChange={e=>onChange({...value,checks:value.checks.map((n,j)=>j===i?e.target.checked:n)})}/><span>{item}</span></label>)}</div>
+  <form className="camp-readiness-dates" onSubmit={event=>{event.preventDefault();const fields=new FormData(event.currentTarget);onChange({...value,practiceDate:String(fields.get('practiceDate')||''),retestDate:String(fields.get('retestDate')||'')});}}><label>First practice date<input type="date" name="practiceDate" defaultValue={value.practiceDate} max={today}/></label><label>Fresh task on another day<input type="date" name="retestDate" defaultValue={value.retestDate} max={today}/></label><Button type="submit" variant="outline">Save review dates</Button></form>
+  <fieldset><legend>Feedback received</legend><p>Ask a teacher, proficient partner or the configured assessment service for specific corrections.</p>{(['speaking','writing'] as const).map(skill=><label key={skill}><input type="checkbox" checked={value.feedback[skill]} onChange={e=>onChange({...value,feedback:{...value.feedback,[skill]:e.target.checked}})}/><span>{skill==='speaking'?'Speaking':'Writing'} feedback received</span></label>)}</fieldset>
+  <label className="camp-readiness-note">One correction to apply next time<textarea rows={2} maxLength={1000} value={value.note} placeholder="For example: put the subject before the verb in statements." onChange={e=>onChange({...value,note:e.target.value})}/></label>
+  <div className="camp-readiness-decision" role="status"><strong>{status.ready?'Try a small step up, then check again':'Keep practising at this level'}</strong><p>{status.ready?'Your checks, repeat task and feedback are recorded. Choose one slightly harder task; keep supporting any weaker skill.':'If several points still need support, repeat the four-week cycle with new examples. Keep the same level until your work is secure.'}</p><ul>{!status.canDo&&<li>Review the three can-do checks above.</li>}{!status.freshTask&&<li>Record a fresh task completed after the first practice date.</li>}{!status.feedback&&<li>Get feedback on both a spoken and a written response.</li>}</ul><small>This planning reflection does not change your test result or award a level.</small></div>
+  <details><summary>Choose fresh material for the review</summary><p><strong>Listening:</strong> {LEVEL_PRACTICE[level].listening}</p><p><strong>Speaking:</strong> {LEVEL_PRACTICE[level].speaking}</p><p><strong>Writing:</strong> {LEVEL_PRACTICE[level].writing}</p><div className="camp-practice-links">{levelPracticeLinks(level).map(link=><a key={link.href} href={link.href} target="_blank" rel="noreferrer">{link.title} ↗</a>)}</div></details>
+ </section>;
+}

@@ -1,5 +1,9 @@
 "use client";
 
+
+import { PageBanner } from "@/components/ui/PageBanner";
+import { ArabicText } from "@/components/ui/ArabicText";
+import { BackButton } from "@/components/ui/BackButton";
 import { LearningArt } from "@/components/brand/LearningArt";
 import { SelectField } from "@/components/ui/shadcn/select-field";
 import { Button } from "@/components/ui/shadcn/button";
@@ -94,18 +98,7 @@ export default function WritingPage() {
   return (
     <PageWrapper>
       <motion.div variants={container} initial="hidden" animate="show" className="camp-writing space-y-6">
-        {/* Header */}
-        <motion.div variants={itemAnim} className="flex items-center gap-3">
-          <div className="camp-writing-symbol">
-            <LearningArt name="note" size={22} />
-          </div>
-          <div>
-            <h1 className="font-display font-extrabold text-[var(--color-text-primary)]" style={{ fontSize: "26px", letterSpacing: "0.3px" }}>
-              Writing Practice
-            </h1>
-            <p className="font-body text-sm text-[var(--color-text-secondary)] mt-0.5">Practice your English writing with guided prompts</p>
-          </div>
-        </motion.div>
+        <PageBanner><h1>Writing Practice</h1><p>Practise English writing with guided prompts.</p></PageBanner>
 
         {!selectedPrompt ? (
           <>
@@ -143,8 +136,7 @@ export default function WritingPage() {
                   </div>
                   <div className="camp-writing-card-copy">
                     <h3>{prompt.titleEn}</h3>
-                    {prompt.titleAr && <p className="font-arabic" lang="ar" dir="rtl">{prompt.titleAr}</p>}
-                    {prompt.titleDe !== prompt.titleEn && <p>{prompt.titleDe}</p>}
+                    {prompt.titleAr && <ArabicText text={prompt.titleAr} />}
                   </div>
                   <div className="camp-writing-tags">
                     {prompt.tags.slice(0, 3).map((t) => <span key={t}>{t}</span>)}
@@ -160,15 +152,12 @@ export default function WritingPage() {
         ) : (
           <AnimatePresence mode="wait">
             <motion.div key={selectedPrompt.id} variants={itemAnim} className="camp-writing-detail space-y-5">
-              {/* Back & title */}
+              <BackButton onClick={handleReset}>Back to prompts</BackButton>
+              {/* Prompt title */}
               <div className="camp-writing-detail-heading">
                 <div className="min-w-0">
-                  <Button variant="outline" onClick={handleReset} className="mb-3">
-                    <ArrowLeft className="w-4 h-4" /> Back
-                  </Button>
                   <h2 className="font-display font-extrabold text-lg text-[var(--color-text-primary)]">{selectedPrompt.titleEn}</h2>
-                  {selectedPrompt.titleAr && <p className="font-arabic text-sm text-[var(--color-text-secondary)] mt-2" lang="ar" dir="rtl">{selectedPrompt.titleAr}</p>}
-                  {selectedPrompt.titleDe !== selectedPrompt.titleEn && <p className="font-body text-sm text-[var(--color-text-secondary)]">{selectedPrompt.titleDe}</p>}
+                  {selectedPrompt.titleAr && <ArabicText text={selectedPrompt.titleAr} className="text-sm text-[var(--color-text-secondary)] mt-2" />}
                 </div>
                 <span className="camp-writing-level">{selectedPrompt.levelId.replace("band", "Band ").replace("-", "–")}</span>
               </div>
@@ -180,7 +169,7 @@ export default function WritingPage() {
                   <div>
                     <p className="font-display font-extrabold text-sm text-[var(--color-info-dark)]">Instructions</p>
                     <p className="font-body text-sm text-[var(--color-text-primary)] mt-1">{selectedPrompt.instructions}</p>
-                    {selectedPrompt.instructionsAr && <p className="font-body text-sm text-[var(--color-text-primary)] font-arabic mt-1" lang="ar">{selectedPrompt.instructionsAr}</p>}
+                    {selectedPrompt.instructionsAr && <ArabicText text={selectedPrompt.instructionsAr} className="text-sm text-[var(--color-text-primary)] mt-1" />}
                   </div>
                 </div>
               </div>
@@ -202,7 +191,7 @@ export default function WritingPage() {
                             <span className="camp-writing-hint-number">{i + 1}.</span>
                             <div>
                               <span>{hint}</span>
-                              {selectedPrompt.hintsAr?.[i] && <p className="text-sm text-[var(--color-text-secondary)] font-arabic mt-1" lang="ar" dir="rtl">{selectedPrompt.hintsAr[i]}</p>}
+                              {selectedPrompt.hintsAr?.[i] && <ArabicText text={selectedPrompt.hintsAr[i]} className="text-sm text-[var(--color-text-secondary)] mt-1" />}
                             </div>
                           </div>
                         ))}
@@ -282,14 +271,10 @@ export default function WritingPage() {
                         </div>
                         <div className="space-y-3">
                           <div>
-                            <p className="font-display font-bold text-xs text-[var(--color-success-dark)] mb-1">DE</p>
-                            <p className="font-body text-sm text-[var(--color-text-primary)] whitespace-pre-wrap leading-relaxed">{selectedPrompt.correction.de}</p>
-                          </div>
-                          <div>
-                            <p className="font-display font-bold text-xs text-[var(--color-success-dark)] mb-1">EN</p>
-                            <p className="font-body text-sm text-[var(--color-text-secondary)] italic whitespace-pre-wrap leading-relaxed">{selectedPrompt.correction.en}</p>
-                            {selectedPrompt.correction.ar && <p className="font-body text-sm text-[var(--color-text-secondary)] italic whitespace-pre-wrap leading-relaxed font-arabic mt-1" lang="ar">{selectedPrompt.correction.ar}</p>}
-                          </div>
+                            <p className="font-display font-bold text-xs text-[var(--color-success-dark)] mb-1">English</p>
+                            <p className="font-body text-sm text-[var(--color-text-primary)] whitespace-pre-wrap leading-relaxed">{selectedPrompt.correction.en}</p>
+                            </div>
+                          {selectedPrompt.correction.ar && <div className="camp-writing-model-arabic"><p className="camp-writing-language-label">العربية</p><ArabicText text={selectedPrompt.correction.ar} className="text-sm text-[var(--color-text-primary)] whitespace-pre-wrap mt-1" /></div>}
                         </div>
                       </div>
                     </motion.div>

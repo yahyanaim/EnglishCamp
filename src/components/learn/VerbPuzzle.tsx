@@ -129,13 +129,13 @@ export function VerbPuzzle() {
   return (
     <PracticeCard data-practice-surface="question" className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-6 shadow-[var(--shadow-1)] max-w-2xl mx-auto">
       <div className="flex items-center justify-between mb-4">
-        <span className="text-xs font-semibold text-[#9B59B6] uppercase tracking-wider">Verb-Puzzle</span>
+        <span className="text-xs font-semibold text-[var(--camp-control-ink)] uppercase tracking-wider">Verb-Puzzle</span>
         <span className="text-xs text-[var(--color-text-secondary)]">{index + 1}/{round.length}</span>
       </div>
 
       <div className="flex gap-1.5 mb-6">
         {round.map((_, i) => (
-          <div key={i} className={`h-1.5 flex-1 rounded-[var(--radius-pill)] transition-colors ${i < index ? "bg-emerald-400" : i === index ? "bg-[#9B59B6]" : "bg-[var(--color-border-default)]"}`} />
+          <div key={i} className={`h-1.5 flex-1 rounded-[var(--radius-pill)] transition-colors ${i < index ? "bg-emerald-400" : i === index ? "bg-[var(--camp-purple)]" : "bg-[var(--color-border-default)]"}`} />
         ))}
       </div>
 
@@ -145,7 +145,7 @@ export function VerbPuzzle() {
             <span className="text-2xl font-display font-extrabold text-[var(--color-text-primary)]">{current.verb.infinitive}</span>
             <span className="text-sm text-[var(--color-text-secondary)] ml-2">({current.verb.english})</span>
             <div className="inline-flex items-center gap-2 mt-2">
-              <span className="text-[10px] font-semibold bg-[var(--color-info-bg)] text-violet-700 px-2.5 py-1 rounded-[var(--radius-pill)]">{TENSE_LABELS[current.tense]}</span>
+              <span className="text-[10px] font-semibold bg-[var(--color-info-bg)] text-[var(--camp-control-ink)] px-2.5 py-1 rounded-[var(--radius-pill)]">{TENSE_LABELS[current.tense]}</span>
               <span className="text-[10px] font-semibold bg-[var(--color-surface-alt)] text-[var(--color-text-secondary)] px-2.5 py-1 rounded-[var(--radius-pill)]">{current.verb.thirdPerson}</span>
             </div>
           </div>
@@ -183,7 +183,7 @@ export function VerbPuzzle() {
                               ? isCorrect
                                 ? "border-[var(--color-success)] bg-[var(--color-success-bg)] text-[var(--color-text-success)] "
                                 : "border-red-300 bg-[var(--color-error-bg)] text-[var(--color-text-error)] "
-                              : "border-[var(--color-border-default)] bg-[var(--color-surface)] text-[var(--color-text-primary)] focus:border-violet-400"
+                              : "border-[var(--color-border-default)] bg-[var(--color-surface)] text-[var(--color-text-primary)] focus:border-[var(--color-primary-light)]"
                           }`}
                         />
                       ) : (
@@ -208,7 +208,7 @@ export function VerbPuzzle() {
               <PracticeButton
                 onClick={handleCheck}
                 disabled={current.cells.some((c) => !inputs[c.pronounIdx]?.trim())}
-                className="flex items-center gap-2 px-6 py-2.5 bg-violet-600 text-white rounded-[var(--radius-lg)] font-semibold text-sm hover:bg-violet-700 disabled:opacity-50 transition-all"
+                className="flex items-center gap-2 px-6 py-2.5 bg-[var(--camp-purple)] text-white rounded-[var(--radius-lg)] font-semibold text-sm hover:bg-[var(--camp-purple)] disabled:opacity-50 transition-all"
               >
                 <CheckCircle2 className="w-4 h-4" /> Check Answers
               </PracticeButton>
@@ -236,7 +236,7 @@ export function VerbPuzzle() {
               <div className="flex justify-end">
                 <PracticeButton
                   onClick={next}
-                  className="flex items-center gap-2 px-6 py-2.5 bg-violet-600 text-white rounded-[var(--radius-lg)] font-semibold text-sm hover:bg-violet-700 transition-all"
+                  className="flex items-center gap-2 px-6 py-2.5 bg-[var(--camp-purple)] text-white rounded-[var(--radius-lg)] font-semibold text-sm hover:bg-[var(--camp-purple)] transition-all"
                 >
                   {index + 1 >= round.length ? "See Results" : "Next"} \u2192
                 </PracticeButton>

@@ -342,8 +342,8 @@ function MockExamContent() {
   );
   if (!attempt)
     return (
-      <PageWrapper>
-        <div className="max-w-5xl mx-auto space-y-5">
+      <PageWrapper className="camp-mock-page">
+        <div className="w-full min-w-0 space-y-5">
           <PageBanner>
             <div className="relative z-10 max-w-3xl space-y-2.5">
               <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-[var(--radius-sm)] bg-white/10 text-xs font-display font-bold tracking-wider uppercase text-blue-200">
@@ -366,7 +366,7 @@ function MockExamContent() {
             <h2 className="font-display text-xl font-bold text-[var(--color-text-primary)]">
               Choose Your Examination Track
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {examIds.map((id) => {
                 const p = MOCK_PAPERS[id];
                 return (
@@ -375,7 +375,8 @@ function MockExamContent() {
                     whileHover={{ y: -4 }}
                     transition={{ duration: 0.2 }}
                     onClick={() => setSelected(id)}
-                    className={`bg-[var(--color-surface)] border rounded-[var(--radius-lg)] p-4 cursor-pointer flex flex-col justify-between transition-all ${selected === id ? "border-[var(--color-primary)] ring-1 ring-[var(--color-primary)]/20 shadow-[var(--shadow-1)]" : "border-[var(--color-border-default)] hover:border-[var(--color-border-strong)]"}`}
+                    data-selected={selected === id}
+                    className={`camp-exam-choice bg-[var(--color-surface)] border rounded-[var(--radius-lg)] p-4 cursor-pointer flex flex-col justify-between transition-all ${selected === id ? "border-[var(--color-primary)] ring-1 ring-[var(--color-primary)]/20 shadow-[var(--shadow-1)]" : "border-[var(--color-border-default)] hover:border-[var(--color-border-strong)]"}`}
                   >
                     <div className="space-y-3">
                       <div className="flex items-center justify-between">
@@ -394,9 +395,7 @@ function MockExamContent() {
                           Form {p.form}
                         </span>
                       </div>
-                      <h3 className="font-display text-lg font-extrabold text-[var(--color-text-primary)]">
-                        {p.title}
-                      </h3>
+                      <h3 className="font-display text-lg font-extrabold text-[var(--color-text-primary)]"><button type="button" aria-pressed={selected === id} onClick={() => setSelected(id)} className="camp-exam-select-title">{p.title}<span className="sr-only">{selected===id?", selected":", select track"}</span></button></h3>
                       <p className={smallClass}>{p.description}</p>
                       <ul className="space-y-1.5 pt-2 text-xs font-body text-[var(--color-text-primary)]">
                         {p.order.map((key) => {
@@ -421,31 +420,7 @@ function MockExamContent() {
                       <ControlButton variant="unstyled" size="unstyled"
                         disabled={!ready}
                         onClick={() => start(id, !!saved[id])}
-                        className={
-                          id === "ielts-general"
-                            ? primaryButton
-                                .replace(
-                                  "bg-[var(--color-primary)]",
-                                  "bg-emerald-600",
-                                )
-                                .replace(
-                                  "hover:bg-[var(--color-primary-hover)]",
-                                  "hover:bg-emerald-700",
-                                )
-
-                            : id === "toefl-ibt"
-                              ? primaryButton
-                                  .replace(
-                                    "bg-[var(--color-primary)]",
-                                    "bg-purple-600",
-                                  )
-                                  .replace(
-                                    "hover:bg-[var(--color-primary-hover)]",
-                                    "hover:bg-purple-700",
-                                  )
-                                  .replace("text-[var(--color-on-brand)]", "text-white")
-                              : primaryButton
-                        }
+                        className={primaryButton}
                       >
                         {saved[id]
                           ? saved[id]!.finishedAt
@@ -541,7 +516,7 @@ function MockExamContent() {
     );
   if (attempt.finishedAt || reviewingHistory)
     return (
-      <PageWrapper>
+      <PageWrapper className="camp-mock-page">
         {storageError && (
           <p role="alert" className="text-sm text-[var(--color-text-error)]">
             {storageError}
@@ -593,8 +568,8 @@ function MockExamContent() {
     else commit();
   }
   return (
-    <PageWrapper>
-      <div className="max-w-6xl mx-auto space-y-5 pb-12">
+    <PageWrapper className="camp-mock-page">
+      <div className="w-full min-w-0 space-y-5 pb-12">
         <div className="bg-[var(--color-surface)] border border-[var(--color-border-default)] rounded-[var(--radius-lg)] p-4 flex flex-wrap items-center justify-between gap-4 sticky top-16 sm:top-[72px] z-20 shadow-sm">
           <div className="flex items-center gap-3">
             <div className="w-9 h-9 rounded-[var(--radius-md)] bg-[var(--camp-purple-soft)] text-[var(--camp-control-ink)] flex items-center justify-center font-display font-black text-sm">
@@ -1028,7 +1003,7 @@ export default function MockExamPage() {
   return (
     <Suspense
       fallback={
-        <PageWrapper>
+        <PageWrapper className="camp-mock-page">
           <p className="font-body text-sm text-[var(--color-text-secondary)]">
             Loading exam papers…
           </p>

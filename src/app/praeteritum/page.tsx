@@ -1,8 +1,11 @@
 "use client";
 
+
+import { BackButton } from "@/components/ui/BackButton";
 import { LearningArt } from "@/components/brand/LearningArt";
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { PageBanner } from "@/components/ui/PageBanner";
 import { PageWrapper } from "@/components/layout/PageWrapper";
 import { ChevronLeft, History } from "lucide-react";
 import { PRAETERITUM_RULES, PRAETERITUM_ENGLISH_COMPARE } from "@/data/praeteritum";
@@ -14,12 +17,18 @@ export default function PraeteritumPage() {
 
   if (rule) {
     return (
-      <PageWrapper>
-        <button onClick={() => setSelectedRule(null)} className="flex items-center gap-1.5 text-sm font-medium text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors mb-6 font-body">
-          <ChevronLeft className="w-4 h-4" /> Back to rules
-        </button>
+      <PageWrapper className="camp-grammar-page">
+        <PageBanner>
+          <div className="flex items-center gap-3 mb-2">
+            <LearningArt name="📜" size={24} className="inline-flex items-center justify-center w-10 h-10 rounded-[var(--radius-md)] bg-[var(--color-primary-subtle)] " />
+            <h1 className="font-display text-2xl font-extrabold text-[var(--color-text-primary)]">Simple Past (Past Simple)</h1>
+          </div>
+          <p className="text-sm text-[var(--color-text-secondary)] font-body">Regular & irregular verbs, negation, questions, and past vs. present perfect</p>
+        </PageBanner>
 
-        <div className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-6 mb-6" style={{ boxShadow: "0 3px 0 var(--color-border-default)" }}>
+        <BackButton onClick={() => setSelectedRule(null)}>Back to rules</BackButton>
+
+        <div className="camp-grammar-panel bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-6 mb-6" style={{ boxShadow: "0 3px 0 var(--color-border-default)" }}>
           <div className="flex items-center gap-4 mb-4">
             <LearningArt name={rule.icon} size={24} className="" />
             <div>
@@ -27,21 +36,21 @@ export default function PraeteritumPage() {
               <p className="text-sm text-[var(--color-text-secondary)] mt-1 font-body">{rule.explanation}</p>
             </div>
           </div>
-          <div className="bg-[var(--color-surface-alt)] rounded-[var(--radius-md)] p-3 mt-2">
+          <div className="camp-grammar-formation bg-[var(--color-surface-alt)] rounded-[var(--radius-md)] p-3 mt-2">
             <p className="text-xs font-bold text-[var(--color-text-secondary)] uppercase tracking-wider mb-1">Formation</p>
             <p className="text-sm font-mono text-[var(--color-text-primary)]">{rule.formation}</p>
           </div>
         </div>
 
-        <div className="space-y-4 mb-8">
+        <div className="camp-grammar-example-list mb-8">
           {rule.examples.map((ex, i) => (
             <motion.div key={i} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.08 }}
-              className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-4"
+              className="camp-grammar-panel bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-4"
               style={{ boxShadow: "0 3px 0 var(--color-border-default)" }}
             >
               <p className="text-sm font-mono font-medium text-[var(--color-text-primary)] mb-1 leading-relaxed">{ex.de}</p>
               {ex.en && ex.en !== ex.de && <p className="text-xs text-[var(--color-text-secondary)] italic font-body">{ex.en}</p>}
-              {ex.ar && <p className="text-xs text-[var(--color-text-secondary)] italic font-arabic mt-0.5" lang="ar">{ex.ar}</p>}
+              {ex.ar && <p className="text-xs text-[var(--color-text-secondary)] italic font-arabic mt-0.5" lang="ar" dir="rtl">{ex.ar}</p>}
             </motion.div>
           ))}
         </div>
@@ -49,7 +58,7 @@ export default function PraeteritumPage() {
         {rule.subRules && (
           <div className="space-y-4">
             {rule.subRules.map((sr) => (
-              <div key={sr.label} className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-4" style={{ boxShadow: "0 3px 0 var(--color-border-default)" }}>
+              <div key={sr.label} className="camp-grammar-panel bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-4" style={{ boxShadow: "0 3px 0 var(--color-border-default)" }}>
                 <h4 className="text-xs font-bold text-[var(--color-text-secondary)] uppercase tracking-wider mb-2">{sr.label}</h4>
                 <ul className="space-y-1">
                   {sr.items.map((item, i) => (
@@ -68,15 +77,15 @@ export default function PraeteritumPage() {
   }
 
   return (
-    <PageWrapper>
+    <PageWrapper className="camp-grammar-page">
       <div className="space-y-6">
-        <div>
+        <PageBanner>
           <div className="flex items-center gap-3 mb-2">
             <LearningArt name="📜" size={24} className="inline-flex items-center justify-center w-10 h-10 rounded-[var(--radius-md)] bg-[var(--color-primary-subtle)] " />
             <h1 className="font-display text-2xl font-extrabold text-[var(--color-text-primary)]">Simple Past (Past Simple)</h1>
           </div>
           <p className="text-sm text-[var(--color-text-secondary)] font-body">Regular & irregular verbs, negation, questions, and past vs. present perfect</p>
-        </div>
+        </PageBanner>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
           {PRAETERITUM_RULES.map((r, i) => (
@@ -84,7 +93,7 @@ export default function PraeteritumPage() {
               key={r.id} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.04 }}
               whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}
               onClick={() => setSelectedRule(r.id)}
-              className="text-left bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-4 transition-all"
+              className="camp-grammar-topic-card text-left bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-4 transition-all"
               style={{ boxShadow: "0 3px 0 var(--color-border-default)" }}
             >
               <div className="flex items-start gap-3">
@@ -98,13 +107,13 @@ export default function PraeteritumPage() {
           ))}
         </div>
 
-        <div className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-5" style={{ boxShadow: "0 3px 0 var(--color-border-default)" }}>
+        <div className="camp-grammar-panel bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-5" style={{ boxShadow: "0 3px 0 var(--color-border-default)" }}>
           <h3 className="text-sm font-bold text-[var(--color-text-primary)] mb-3 font-display">English Past Tense Comparison</h3>
           <div className="space-y-3">
             {PRAETERITUM_ENGLISH_COMPARE.map((row, i) => (
               <div key={i} className="pb-3 border-b border-[var(--color-border-default)] last:border-0 last:pb-0">
                 <p className="text-sm text-[var(--color-text-secondary)] mb-0.5 font-body">{row.english}</p>
-                {row.arabic && <p className="text-sm text-[var(--color-text-secondary)] font-arabic" lang="ar">{row.arabic}</p>}
+                {row.arabic && <p className="text-sm text-[var(--color-text-secondary)] font-arabic" lang="ar" dir="rtl">{row.arabic}</p>}
                 <p className="text-sm font-mono font-medium text-[var(--color-text-primary)]">{row.example}</p>
               </div>
             ))}
