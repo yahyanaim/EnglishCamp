@@ -61,13 +61,15 @@ Create an Azure Speech resource with the **Free F0** pricing tier. Set these Clo
 | Secret | Value |
 | --- | --- |
 | `AZURE_SPEECH_KEY` | The Speech resource key |
-| `AZURE_SPEECH_REGION` | Its region, for example `westeurope` |
+| `AZURE_SPEECH_REGION` | The resource's exact region; the configured EnglishCamp resource uses `northeurope` |
 
 Use server secrets, never `NEXT_PUBLIC_*` variables. Do not commit keys or paste them into chat. For local Worker testing, copy `.dev.vars.example` to `.dev.vars` and set values there; that file is ignored by Git. Avoid putting Cloudflare service secrets into frontend build variables.
 
 The adapter uses `en-GB-SoniaNeural` and `ar-SA-ZariyahNeural`, retaining the current voices. Fixed learning text is checked against the generated catalogue; personal text still requires the existing learner consent. Origin checks, bounded request/audio sizes, limited concurrency and provider errors are enforced. The per-isolate request guard is supplemental, not a global quota or authentication system; Azure's resource quota is authoritative.
 
-F0 currently includes **500,000 neural TTS characters per month** and **20 transactions per minute**. Keep the resource on F0 if you want a hard free service choice; do not upgrade it to a paid tier. Azure account eligibility or registration requirements are separate from Cloudflare. Real Azure synthesis cannot be verified until a resource is configured. Bundled recordings do not consume this quota. [Microsoft pricing](https://azure.microsoft.com/en-us/pricing/details/speech/), [Speech quotas](https://learn.microsoft.com/en-us/azure/ai-services/speech-service/speech-services-quotas-and-limits), [REST synthesis](https://learn.microsoft.com/en-us/azure/ai-services/speech-service/rest-text-to-speech).
+F0 currently includes **500,000 neural TTS characters per month** and **20 transactions per minute**. Keep the resource on F0 if you want a hard free service choice; do not upgrade it to a paid tier. Azure account eligibility or registration requirements are separate from Cloudflare. Bundled recordings do not consume this quota. [Microsoft pricing](https://azure.microsoft.com/en-us/pricing/details/speech/), [Speech quotas](https://learn.microsoft.com/en-us/azure/ai-services/speech-service/speech-services-quotas-and-limits), [REST synthesis](https://learn.microsoft.com/en-us/azure/ai-services/speech-service/rest-text-to-speech).
+
+On 6 November 2026, the real Microsoft resource in North Europe was verified through the local Cloudflare runtime: `absorb` returned HTTP 200 with valid MP3 audio, and the Vocabulary page successfully played `acceleration`. The key is held only in the ignored `.dev.vars` file locally. **That file is not uploaded during deployment**: configure the two Worker secrets above before expecting live pronunciation on the public site. The hosted HTTPS origin must be tested again after deployment.
 
 ## Optional automatic assessment
 
