@@ -1,6 +1,10 @@
 # Free Cloudflare hosting
 
-Prepared on 5 November 2026 for EnglishCamp 1.0.0. The project is ready for a Cloudflare **Workers Free** account. No live deployment, account, custom domain or paid Cloudflare resource has been created.
+Deployed on 6 November 2026 for EnglishCamp 1.0.0 using a Cloudflare Worker with Static Assets and a configuration that fits the Workers Free limits. No paid Cloudflare binding, container, database or custom domain was added.
+
+**Live site: [EnglishCamp](https://englishcamp.yahyanaim2001.workers.dev/).** Microsoft Azure Speech is configured on the live Worker using encrypted secrets, with the resource region set to `northeurope`.
+
+Live verification passed for the homepage, Vocabulary, grammar cheat sheet, course overview, a direct lesson, its exercise, mock exams and Shadowing. Old URLs redirect with query parameters intact, missing pages return 404, and `.dev.vars` is inaccessible. The public speech API returned HTTP 200 with valid MP3 audio for `absorb`; the live Vocabulary page played `acceleration` and returned to its ready state without an audio error. The phone check at 390 px had no horizontal overflow. Bundled MP3 and WAV files were delivered successfully; Range requests returned full HTTP 200 responses rather than partial 206 responses, so early seeking still depends on browser buffering.
 
 ## What is deployed
 
@@ -19,7 +23,9 @@ No Containers, paid plan, database, R2 bucket, KV namespace or Durable Object is
 
 On-demand synthesis for text without a bundled recording needs a Microsoft Speech resource. Automatic speaking/writing assessment needs an OpenAI API key and separately billed API usage. These services are **not included in free Cloudflare hosting**. They return a configuration message when unavailable; the app does not invent an assessment or silently use a robotic browser voice. Paid assessment is disabled in `wrangler.jsonc` by default.
 
-## Deploy later through GitHub
+## Future deployments through GitHub
+
+The first deployment was made through Wrangler. Automatic deployment on every GitHub push has not been connected; use the setup below if you want that workflow. The Microsoft secrets are already installed on the current Worker and should remain server secrets.
 
 1. Create a Cloudflare account and keep the Workers **Free** plan.
 2. Open **Workers & Pages → Create application → import/connect a Git repository**. Choose `yahyanaim/EnglishCamp` and production branch `main`.
@@ -69,7 +75,7 @@ The adapter uses `en-GB-SoniaNeural` and `ar-SA-ZariyahNeural`, retaining the cu
 
 F0 currently includes **500,000 neural TTS characters per month** and **20 transactions per minute**. Keep the resource on F0 if you want a hard free service choice; do not upgrade it to a paid tier. Azure account eligibility or registration requirements are separate from Cloudflare. Bundled recordings do not consume this quota. [Microsoft pricing](https://azure.microsoft.com/en-us/pricing/details/speech/), [Speech quotas](https://learn.microsoft.com/en-us/azure/ai-services/speech-service/speech-services-quotas-and-limits), [REST synthesis](https://learn.microsoft.com/en-us/azure/ai-services/speech-service/rest-text-to-speech).
 
-On 6 November 2026, the real Microsoft resource in North Europe was verified through the local Cloudflare runtime: `absorb` returned HTTP 200 with valid MP3 audio, and the Vocabulary page successfully played `acceleration`. The key is held only in the ignored `.dev.vars` file locally. **That file is not uploaded during deployment**: configure the two Worker secrets above before expecting live pronunciation on the public site. The hosted HTTPS origin must be tested again after deployment.
+On 6 November 2026, the real Microsoft resource in North Europe was verified through the local Cloudflare runtime: `absorb` returned HTTP 200 with valid MP3 audio, and the Vocabulary page successfully played `acceleration`. The local key copy is kept in the ignored `.dev.vars` file, and the hosted copy is stored as an encrypted Worker secret. **The local file is not uploaded during deployment**. The hosted HTTPS origin was tested separately after configuring the two Worker secrets, with the successful results recorded above.
 
 ## Optional automatic assessment
 
@@ -89,7 +95,7 @@ Current Workers Free limits are 20,000 static files, 25 MiB per asset, 64 MiB un
 
 The build rejects assets exceeding the free file-count or individual-size limits. `.cloudflare-build/manifest.json` records generated page coverage. `npm run check:cloudflare` reports the real Worker bundle size without publishing. Generated build output, local runtime state and secrets are excluded from Git.
 
-Local validation on 5–6 November 2026: 2,100 output files; largest asset 23,667,884 bytes; Worker bundle approximately 5 MiB uncompressed. All 310 exported HTML documents were checked in the local Cloudflare runtime, along with legacy redirects, unavailable optional APIs and bundled MP3/WAV delivery. The 273-test suite and TypeScript check passed. Desktop navigation, interactive answer feedback, named sign-in, saved reading state after refresh and a 390 px phone viewport were checked. Local asset preview returned full audio responses to Range requests; seeking/range behavior still needs confirmation on the real hosted origin. Real Azure synthesis and OpenAI assessment were not called. Lint still reports the existing `@next/next/no-assign-module-variable` error in `src/lib/courseProgress.ts:33`, plus existing warnings; it does not block the existing build configuration. No progress or UI source was edited for this hosting work.
+Local validation on 5–6 November 2026: 2,100 output files; largest asset 23,667,884 bytes; Worker bundle approximately 5 MiB uncompressed. All 310 exported HTML documents were checked in the local Cloudflare runtime, along with legacy redirects, unavailable optional APIs and bundled MP3/WAV delivery. The full suite subsequently passed 274 tests, including the shared Azure adapter, and TypeScript checking passed. Desktop navigation, interactive answer feedback, named sign-in, saved reading state after refresh and a 390 px phone viewport were checked. Initial checks used a simulated Microsoft response; the later real Azure and public-site checks are recorded above. OpenAI assessment was not called. Lint still reports the existing `@next/next/no-assign-module-variable` error in `src/lib/courseProgress.ts:33`, plus existing warnings; it does not block the existing build configuration. No progress or UI source was edited for this hosting work.
 
 ```sh
 npm run build:cloudflare
