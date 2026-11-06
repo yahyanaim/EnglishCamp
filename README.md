@@ -130,7 +130,9 @@ The existing course scripts and the new fixed mock-exam scripts were sent to Mic
 
 **Live website: [EnglishCamp](https://englishcamp.yahyanaim2001.workers.dev/)** — published 6 November 2026. Microsoft natural pronunciation has been verified on the public Vocabulary page. The Microsoft key and region are stored as encrypted Worker secrets.
 
-The project uses **Cloudflare Workers with Static Assets** and fits the Free plan limits, retaining the existing UI, courses and local progress. No paid container is required. See the [complete setup and deployment instructions](docs/cloudflare-free-hosting.md), including GitHub build settings, Microsoft neural speech and service limits. A custom domain can be added later.
+Every push to `main` now builds, tests and deploys automatically through [GitHub Actions](https://github.com/yahyanaim/EnglishCamp/actions/workflows/cloudflare-deploy.yml), then checks the live pages and Microsoft pronunciation. The deployment token is limited to EnglishCamp and must be renewed by **4 February 2027**; the Microsoft key stays in Cloudflare.
+
+The project uses **Cloudflare Workers with Static Assets** and fits the Free plan limits, retaining the existing UI, courses and local progress. No paid container is required. See the [complete setup and deployment instructions](docs/cloudflare-free-hosting.md), including automatic updates, Microsoft neural speech and service limits. A custom domain can be added later.
 
 ```sh
 npm run build:cloudflare

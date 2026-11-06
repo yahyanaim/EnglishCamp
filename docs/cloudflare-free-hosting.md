@@ -25,7 +25,7 @@ On-demand synthesis for text without a bundled recording needs a Microsoft Speec
 
 ## Automatic deployments through GitHub Actions
 
-The production workflow is `.github/workflows/cloudflare-deploy.yml`. It listens to pushes to `main` and also supports **Actions → Deploy EnglishCamp to Cloudflare → Run workflow**. It deploys the existing `englishcamp` Worker, retaining the live address, local progress origin and Microsoft runtime secrets. Setup still needs the approved repository deployment secret and a successful push-triggered run.
+Automatic deployment is enabled and verified. The production workflow is `.github/workflows/cloudflare-deploy.yml`. It listens to pushes to `main` and also supports **Actions → Deploy EnglishCamp to Cloudflare → Run workflow**. It deploys the existing `englishcamp` Worker, retaining the live address, local progress origin and Microsoft runtime secrets.
 
 GitHub Actions is used so the deployment credential can have **Individual Workers Editor** access to `englishcamp` only. Cloudflare's native Builds setup offered an automatically generated token with unrelated account-wide permissions; that connection was not saved. Do not enable both pipelines for the same branch.
 
@@ -47,13 +47,15 @@ The workflow installs the locked dependencies, including the build tools. Offici
 
 The repository needs one encrypted Actions secret: `CLOUDFLARE_API_TOKEN`. Create it from **Cloudflare → englishcamp → Settings → Builds → API token for external CI/CD → Create token**, with scope `englishcamp`, role **Individual Workers Editor** and a 90-day expiry. Save the value under **GitHub → EnglishCamp → Settings → Secrets and variables → Actions**. Renew it before expiry and replace that GitHub secret. Never commit it or paste it into chat.
 
+The configured deployment token expires **5 February 2027 at 00:59:59 Europe/Paris**. Renew it by **4 February 2027** to avoid interrupting automatic updates. Expiration stops new deployments; it does not remove the published site or the separate Microsoft runtime secrets.
+
 Push to `main` and inspect the run for that exact commit under **GitHub → Actions**. A build, test or bundle-check failure prevents publication. The post-deployment check visits six public pages and requests the fixed word `absorb` from the live Microsoft speech endpoint; it fails if the endpoint is unavailable or returns invalid audio. A failed post-deployment check reports a failed run after publication and does not automatically roll back the Worker.
 
 The public repository can use standard GitHub-hosted runners without paid Actions minutes. Cloudflare remains on the Workers Free setup. Add a custom domain later through **Settings → Domains & Routes → Add → Custom domain**; this is separate from automatic deployment. [GitHub Actions billing](https://docs.github.com/en/billing/concepts/product-billing/github-actions), [Cloudflare GitHub Actions guide](https://developers.cloudflare.com/workers/ci-cd/external-cicd/github-actions/), [Worker-specific permissions](https://developers.cloudflare.com/workers/authorization/workers/).
 
 The Microsoft key and region belong in the Worker's **Variables and Secrets**, not in build variables, GitHub secrets or the repository. Wrangler preserves existing encrypted Worker secrets during normal deployment. No `.dev.vars` file or Azure key is needed in the build environment. The post-deployment check reads no credentials; it uses the same public speech API as Vocabulary and consumes only one short synthesis request.
 
-Before connecting GitHub on 6 November 2026, all 278 tests passed and `node scripts/check-cloudflare-live.cjs` passed against the live site: six pages and a valid 11,232-byte Microsoft MP3. This is a baseline check, not evidence that automatic deployment has completed.
+On 6 November 2026, [push-triggered run #1](https://github.com/yahyanaim/EnglishCamp/actions/runs/42301033280) succeeded for commit `65e1135`: all 278 tests passed with none skipped, the Worker deployed as version `bd1b1e4b-db5a-4bfc-8b39-5ac77d683f96`, and the live check verified six pages and a valid 11,232-byte Microsoft MP3. Cloudflare separately confirmed that `AZURE_SPEECH_KEY` and `AZURE_SPEECH_REGION` remained encrypted `secret_text` bindings after the deployment.
 
 Alternatively, from a local checkout after the account exists:
 
