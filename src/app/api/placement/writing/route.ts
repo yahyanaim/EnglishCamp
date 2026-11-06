@@ -1,9 +1,8 @@
-import { NextResponse } from 'next/server';
 import { assessPlacementWriting } from '@/lib/writingAssessmentServer';
 import { AssessmentError,speakingServiceReady } from '@/lib/speakingAssessmentServer';
 import { WRITING_CONSENT_VERSION } from '@/lib/cefrPlacement';
 export const runtime='nodejs';export const dynamic='force-dynamic';
-const json=(body:object,status=200)=>NextResponse.json(body,{status,headers:{'Cache-Control':'no-store','X-Content-Type-Options':'nosniff'}});
+const json=(body:object,status=200)=>Response.json(body,{status,headers:{'Cache-Control':'no-store','X-Content-Type-Options':'nosniff'}});
 let active=0,used=0,windowStart=0;
 export async function GET(){return json({available:speakingServiceReady(),provider:'OpenAI',consentVersion:WRITING_CONSENT_VERSION});}
 export async function POST(request:Request){

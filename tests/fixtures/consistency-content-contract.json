@@ -983,7 +983,7 @@
     },
     "package.json": {
       "before": "ddb86bd04ebf6bbe33284e67547c7514e44e1f2b96498693a2ceca68dbbf7a8b",
-      "after": "2079795fafc518e0d033efddf1247c3ff455ef11476462171d64ea423b3f4dba"
+      "after": "240ed9d6bc862d1b353b2ed199f152b4324ee868e2a4817f4a801908ecf79907"
     },
     "tailwind.config.ts": {
       "before": "b5436dc30a7d66729e549264c86a2b32e01c8ea51804808d6b250dab13b8de94",
@@ -1055,7 +1055,7 @@
     },
     "package-lock.json": {
       "before": "90b5d6216d19e3dabb4a2281265f5ab96841eb2fd8b4e285ee35e88476298f0f",
-      "after": "1c0684238519c5b01b2e8b785ea7d822b696ef215752f1b257417ab30a8358d3"
+      "after": "c79b296bc875533b2b2dda111deebd5563c1e7a6dd94ee3154ec87da294cce17"
     },
     "scripts/render-grammar-reference.py": {
       "before": "c4488a1fde369d2ee101457c0c97cc9225a6cca546c453cbe9a708d15da1725a",

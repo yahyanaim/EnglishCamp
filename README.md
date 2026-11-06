@@ -126,6 +126,18 @@ Data is specific to the browser, device and site origin. Changing the host or po
 
 The existing course scripts and the new fixed mock-exam scripts were sent to Microsoft with the project owner's approval to generate the bundled narration. Learner answers, notes and microphone recordings were not part of that generation process.
 
+## Free Cloudflare hosting
+
+The project supports **Cloudflare Workers Free with Static Assets**, retaining the existing UI, courses and local progress. No paid container is required. See the [complete setup and deployment instructions](docs/cloudflare-free-hosting.md), including GitHub build settings, optional Microsoft neural speech and service limits. A Cloudflare account and optional custom domain can be added later; preparing the build does not publish the site.
+
+```sh
+npm run build:cloudflare
+npm run check:cloudflare
+npm run preview:cloudflare
+```
+
+Bundled recordings work without extra keys. On-demand speech requires a Microsoft Speech resource; automatic speaking/writing assessment requires separately billed OpenAI usage and stays disabled by default on the free setup. Browser progress is specific to the site origin and will not automatically move from localhost to a hosted address.
+
 ## Run locally
 
 Use Node.js and npm. The installed Next.js version declares Node.js `>=18.17.0`; use an actively supported Node.js release compatible with the lockfile.

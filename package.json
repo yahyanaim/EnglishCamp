@@ -9,7 +9,11 @@
     "lint": "next lint",
     "test": "node --test tests/*.test.cjs",
     "prebuild": "node scripts/collect-speech-catalogue.cjs",
-    "voice:catalogue": "node scripts/collect-speech-catalogue.cjs"
+    "voice:catalogue": "node scripts/collect-speech-catalogue.cjs",
+    "build:cloudflare": "node scripts/build-cloudflare.cjs",
+    "preview:cloudflare": "wrangler dev --ip 127.0.0.1 --port 3034",
+    "deploy:cloudflare": "wrangler deploy",
+    "check:cloudflare": "wrangler deploy --dry-run --outdir .cloudflare-build/worker"
   },
   "dependencies": {
     "@radix-ui/react-dialog": "1.1.15",
@@ -40,6 +44,7 @@
     "eslint-config-next": "^14.2.0",
     "postcss": "^8.4.38",
     "tailwindcss": "^3.4.3",
-    "typescript": "^5.4.0"
+    "typescript": "^5.4.0",
+    "wrangler": "4.158.0"
   }
 }

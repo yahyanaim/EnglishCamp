@@ -1,10 +1,9 @@
-import { NextResponse } from 'next/server';
 import { assessSpeakingAudio, AssessmentError, MAX_ASSESSMENT_BYTES, speakingServiceReady } from '@/lib/speakingAssessmentServer';
 import { SPEAKING_CONSENT_VERSION } from '@/lib/speakingAssessment';
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
 const headers = { 'Cache-Control': 'no-store', 'X-Content-Type-Options': 'nosniff' };
-const json = (body: object, status = 200) => NextResponse.json(body, { status, headers });
+const json = (body: object, status = 200) => Response.json(body, { status, headers });
 let active = 0, used = 0, windowStart = 0;
 export async function GET() { return json({ available: speakingServiceReady(), provider: 'OpenAI', consentVersion: SPEAKING_CONSENT_VERSION }); }
 export async function POST(request: Request) {

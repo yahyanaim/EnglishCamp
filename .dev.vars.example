@@ -1,0 +1,7 @@
+# Optional Microsoft Speech resource: select the Free F0 tier in Azure.
+# Add real values only to .dev.vars locally or Cloudflare's secret settings.
+AZURE_SPEECH_KEY=""
+AZURE_SPEECH_REGION=""
+# OpenAI assessment has separate API costs and stays disabled unless configured.
+ENGLISHCAMP_SPEAKING_ENABLED="false"
+OPENAI_API_KEY=""
