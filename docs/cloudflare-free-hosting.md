@@ -25,26 +25,32 @@ On-demand synthesis for text without a bundled recording needs a Microsoft Speec
 
 ## Future deployments through GitHub
 
-The first deployment was made through Wrangler. Automatic deployment on every GitHub push has not been connected; use the setup below if you want that workflow. The Microsoft secrets are already installed on the current Worker and should remain server secrets.
+The existing production Worker is `englishcamp`. Connect GitHub to **that Worker** so the live address and its Microsoft runtime secrets are retained. Repository preparation is complete; the dashboard connection and a push-triggered build still need to be verified.
 
-1. Create a Cloudflare account and keep the Workers **Free** plan.
-2. Open **Workers & Pages → Create application → import/connect a Git repository**. Choose `yahyanaim/EnglishCamp` and production branch `main`.
+1. Keep the Workers **Free** plan.
+2. Open **Workers & Pages → englishcamp → Settings → Builds → Connect**. Choose GitHub, `yahyanaim/EnglishCamp`, and production branch `main`. If GitHub asks to install the **Cloudflare Workers & Pages** app, choose **Only select repositories → EnglishCamp**.
 3. Use these settings:
 
 | Setting | Value |
 | --- | --- |
 | Root directory | Repository root (`/`) |
-| Node version | Node 22 or newer; set `NODE_VERSION=22` if needed |
-| Build command | `npm run build:cloudflare` |
-| Deploy command | `npm run deploy:cloudflare` |
+| Node version | `22` (also recorded in `.node-version`) |
+| Build command | `npm run build:cloudflare && npm test` |
+| Deploy command | `npm run deploy:cloudflare && node scripts/check-cloudflare-live.cjs` |
 | Wrangler configuration | `wrangler.jsonc` |
+| Production branch | `main` |
+| Other branch builds | Disabled until a separate preview environment is configured |
 
 Cloudflare's build environment installs dependencies from `package-lock.json`. Include development dependencies because Next.js, TypeScript, Tailwind and Wrangler are build tools. Do not set `NODE_ENV=production` during dependency installation if that omits them.
 
-4. Deploy. Cloudflare assigns the Worker a `workers.dev` address after the account's Workers subdomain is configured. The `englishcamp` name can be changed in `wrangler.jsonc` if that Worker name is already used in your account.
+4. Save the connection, then push a commit to `main`. Verify a successful build for that exact commit under **englishcamp → Deployments**. A build or test failure prevents the deploy command from running. The post-deployment check visits six public pages and requests the fixed word `absorb` from the live Microsoft speech endpoint; it fails if the endpoint is unavailable or returns invalid audio. A failed post-deployment check reports a failed build after publication and does not automatically roll back the Worker.
 5. Add a custom domain later through **Settings → Domains & Routes → Add → Custom domain**. No domain is required for the initial `workers.dev` deployment.
 
-See [Workers GitHub integration](https://developers.cloudflare.com/workers/ci-cd/builds/git-integration/github-integration/) and [Workers build configuration](https://developers.cloudflare.com/workers/ci-cd/builds/configuration/).
+The Microsoft key and region belong in the Worker's **Variables and Secrets**, not in build variables, GitHub secrets or the repository. Wrangler preserves existing encrypted Worker secrets during normal deployment. No `.dev.vars` file or Azure key is needed in the build environment. The post-deployment check reads no credentials; it uses the same public speech API as Vocabulary and consumes only one short synthesis request.
+
+Workers Builds currently includes 3,000 build minutes/month on the Free plan with one concurrent build. See [build limits and pricing](https://developers.cloudflare.com/workers/ci-cd/builds/limits-and-pricing/), [Workers GitHub integration](https://developers.cloudflare.com/workers/ci-cd/builds/git-integration/github-integration/) and [Workers build configuration](https://developers.cloudflare.com/workers/ci-cd/builds/configuration/).
+
+Before connecting GitHub on 6 November 2026, all 278 tests passed and `node scripts/check-cloudflare-live.cjs` passed against the live site: six pages and a valid 11,232-byte Microsoft MP3. This is a baseline check, not evidence that automatic deployment is already connected.
 
 Alternatively, from a local checkout after the account exists:
 
