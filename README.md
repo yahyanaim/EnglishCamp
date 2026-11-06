@@ -88,7 +88,7 @@ The application's existing fonts, colour tokens, navigation and activity interfa
 
 `/shadowing-english` provides A1–B2 starter practice with four short YouTube clips. A video/practice column sits beside transcript and clip choices, stacking on phones. It includes Arabic meanings, word spelling, local dictation, independent video/model speed controls and optional local recording replay. Practice cards use small centered vector icons. Vocabulary, Flashcards, Partner Challenges and Study Strategies follow the shared violet styling; strategies include an interactive learning journey.
 
-All synthetic pronunciation controls use Microsoft neural speech. Missing clips use the Python helper configured in `.env.example`; install `requirements-voice.txt` in that environment. Fixed lesson text can generate on demand; personal text requires the learner’s approval. See [setup, sources and scope](docs/shadowing-and-ui-consistency.md).
+All synthetic pronunciation controls use Microsoft neural speech. Missing clips use Microsoft Azure Speech through the server; configure `AZURE_SPEECH_KEY` and `AZURE_SPEECH_REGION` in `.env.local` for Next.js or `.dev.vars` for the Cloudflare preview. Fixed lesson text can generate on demand; personal text requires the learner’s approval. See the [Arabic Microsoft setup guide](docs/microsoft-speech-setup-ar.md) and [sources and scope](docs/shadowing-and-ui-consistency.md).
 
 ## Illustrated reading and practice voices
 
@@ -105,7 +105,7 @@ The courses include **99 AI-generated neural recordings**, approximately **33.7 
 - Playback does not require a Microsoft speech-service connection or API key.
 - `audio-manifest.json` records scripts, voices, durations, checksums and provenance.
 
-These are original educational recordings generated with Microsoft neural voices, not human performances or examination-board recordings. All other synthetic pronunciation buttons also use Microsoft neural speech: existing clips play locally and missing clips generate through the configured Python helper.
+These are original educational recordings generated with Microsoft neural voices, not human performances or examination-board recordings. All other synthetic pronunciation buttons also use Microsoft neural speech: existing clips play locally and missing clips generate through the configured Azure Speech service.
 
 ## Full mock papers — content version 2026.2
 

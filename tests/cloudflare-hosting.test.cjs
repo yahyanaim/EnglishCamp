@@ -72,6 +72,30 @@ test('cloud speech sends escaped SSML to the fixed Microsoft region and returns 
  assert.equal(calls,1);
 });
 
+test('the local Next.js route uses the same official Microsoft adapter and never sends the key to the browser',async()=>{
+ const {POST}=require('../src/app/api/speech/route.ts');
+ const oldKey=process.env.AZURE_SPEECH_KEY,oldRegion=process.env.AZURE_SPEECH_REGION,oldFetch=global.fetch;
+ process.env.AZURE_SPEECH_KEY='mock-private-key';process.env.AZURE_SPEECH_REGION='westeurope';
+ let calls=0;
+ global.fetch=async(url,options)=>{
+  calls++;assert.equal(url,'https://westeurope.tts.speech.microsoft.com/cognitiveservices/v1');
+  assert.equal(options.headers['Ocp-Apim-Subscription-Key'],'mock-private-key');
+  assert.match(options.body,/ar-SA-ZariyahNeural/);return new Response(new Uint8Array(1300));
+ };
+ try{
+  const response=await POST(speech({text:'مرحبا',approvedPersonal:true}));
+  assert.equal(response.status,200);assert.equal(response.headers.get('content-type'),'audio/mpeg');assert.equal(calls,1);
+  assert.ok(![...response.headers.values()].join(' ').includes('mock-private-key'));await response.arrayBuffer();
+  delete process.env.AZURE_SPEECH_KEY;
+  const unavailable=await POST(speech({text:fixed}));assert.equal(unavailable.status,503);assert.equal(calls,1);
+  assert.match((await unavailable.json()).error,/not been configured/);
+ }finally{
+  global.fetch=oldFetch;
+  if(oldKey===undefined)delete process.env.AZURE_SPEECH_KEY;else process.env.AZURE_SPEECH_KEY=oldKey;
+  if(oldRegion===undefined)delete process.env.AZURE_SPEECH_REGION;else process.env.AZURE_SPEECH_REGION=oldRegion;
+ }
+});
+
 test('Cloudflare build source cannot copy local secrets or deploy the Python/Next server; content and UI are exported unchanged',()=>{
  const script=fs.readFileSync('scripts/build-cloudflare.cjs','utf8'),config=JSON.parse(fs.readFileSync('wrangler.jsonc','utf8'));
  assert.match(script,/output:'export'/);assert.match(script,/QuizPage params=\{params\}/);assert.ok(!script.includes('QuizPage {...props}'));

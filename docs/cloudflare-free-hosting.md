@@ -8,7 +8,7 @@ The same Next.js pages are exported as static HTML, CSS and JavaScript. All four
 
 The build runs in `.cloudflare-build/app`; it does not change the source route directories or the normal local Next.js configuration. Public English URLs are generated as actual English routes so direct links and client navigation agree. Older German URLs and `/en` or `/ar` prefixes redirect to their English equivalents. Query parameters are retained. Invalid lesson IDs produce a 404.
 
-No Containers, paid plan, database, R2 bucket, KV namespace or Durable Object is needed. The Python speech helper remains available for the normal local server; Cloudflare uses the Microsoft REST adapter instead.
+No Containers, paid plan, database, R2 bucket, KV namespace or Durable Object is needed. The legacy Python helper is retained for offline recording generation; Next.js and Cloudflare both use the shared Microsoft REST adapter for live speech.
 
 ## What works without extra service keys
 
@@ -53,6 +53,8 @@ npm run deploy:cloudflare
 `check:cloudflare` is a dry run and does not publish. `deploy:cloudflare` uploads the existing build; rebuild first after every source change. Do not deploy from a stale `out` directory.
 
 ## Optional Microsoft neural speech
+
+Direct Microsoft Azure Speech is now shared by the Cloudflare Worker and the normal Next.js server. See the [Arabic setup walkthrough](microsoft-speech-setup-ar.md). The local Next.js server reads `.env.local`; Wrangler reads `.dev.vars`. The legacy Python helper is retained for offline recording generation and is not called by the live speech route.
 
 Create an Azure Speech resource with the **Free F0** pricing tier. Set these Cloudflare Worker secrets under **Settings → Variables and Secrets**:
 
