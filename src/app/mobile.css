@@ -31,6 +31,8 @@
   /* Core content stays visible while a slower phone loads the animation bundle. */
   .camp-welcome-hero > .relative,
   .camp-welcome-hero .camp-home-symbol,
+  .camp-welcome-hero .camp-home-actions,
+  .camp-welcome-hero .camp-home-stats,
   .camp-home-features > div { opacity:1!important; transform:none!important; }
   .camp-level-quiz [data-practice-surface="question"] { transform:none!important; }
   .camp-welcome-hero .camp-home-symbol { width:56px; height:56px; margin-bottom:14px; }
