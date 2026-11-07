@@ -1,0 +1,65 @@
+/* Phone sizing, shared across the existing learning layouts. */
+.camp-mobile-brand { align-items:center; justify-content:center; flex:none; width:44px; height:44px; border-radius:8px; }
+.camp-mobile-brand:focus-visible { outline:2px solid var(--camp-focus); outline-offset:2px; }
+@media(max-width:1023px) { .camp-mobile-brand { display:flex; } }
+@media(max-width:639px) {
+  .camp-workspace { --camp-page-pad:14px; --camp-panel-pad:16px; --camp-section-gap:16px; --camp-control-height:44px; }
+  .camp-toolbar { height:60px; gap:4px; padding-inline:10px; }
+  .camp-toolbar > button:first-child,
+  .camp-toolbar .camp-search,
+  .camp-toolbar .camp-theme-toggle,
+  .camp-toolbar .camp-accent-toggle { flex:none; width:44px; min-width:44px; max-width:44px; height:44px; padding:0; }
+  .camp-toolbar .camp-session-entry { flex:1 1 0; min-width:0; max-width:100%; padding:4px; gap:5px; justify-content:flex-start; }
+  .camp-toolbar .camp-session-label { max-width:none; }
+  .camp-content { padding:16px 14px calc(80px + env(safe-area-inset-bottom,0px)); }
+  .camp-frame .camp-page-banner { min-height:0; padding:18px 16px; }
+  .camp-frame .camp-page-banner h1 { font-size:20px!important; line-height:1.3; }
+  .camp-frame .camp-page-banner p { font-size:13px; line-height:1.55; max-width:100%; }
+  .camp-frame .camp-page-banner .camp-banner-copy { max-width:100%; }
+  .camp-banner-art { opacity:.2; }
+  .camp-frame .practice-card,
+  .camp-frame main.camp-content .camp-practice [data-practice-surface] { padding:16px; }
+  .camp-frame .camp-practice .practice-button,
+  .camp-frame .camp-back-button { max-width:100%; white-space:normal; overflow-wrap:break-word; }
+  .camp-frame .camp-course-card,.camp-frame .camp-module-card,.camp-frame .camp-course-hero { padding:16px; }
+  .camp-frame .camp-course-hero-title { font-size:22px; }
+  .camp-frame .camp-video-toolbar { padding:8px 12px; }
+  .camp-video-toolbar > span { flex:1; min-width:0; }
+  .camp-video-toolbar a { flex:none; min-width:44px; min-height:44px; }
+
+  .camp-content .camp-welcome-hero { padding-top:24px; padding-bottom:28px; }
+  /* Core content stays visible while a slower phone loads the animation bundle. */
+  .camp-welcome-hero > .relative,
+  .camp-welcome-hero .camp-home-symbol,
+  .camp-home-features > div { opacity:1!important; transform:none!important; }
+  .camp-level-quiz [data-practice-surface="question"] { transform:none!important; }
+  .camp-welcome-hero .camp-home-symbol { width:56px; height:56px; margin-bottom:14px; }
+  .camp-home-symbol .camp-learning-art { width:32px!important; height:32px!important; }
+  .camp-frame main.camp-content .camp-welcome-hero h1 { font-size:30px; line-height:1.2; margin-bottom:10px; }
+  .camp-welcome-hero > div > p { max-width:30ch; margin-inline:auto; font-size:15px; line-height:1.55; }
+  .camp-content .camp-home-actions { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; margin-top:18px; }
+  .camp-home-actions > a { display:flex; min-width:0; }
+  .camp-home-actions > a > button { width:100%; min-height:46px; padding:10px; font-size:14px; gap:6px; white-space:normal; }
+  .camp-home-actions > a > button svg { flex:none; width:14px; height:14px; }
+  .camp-content .camp-home-stats { flex-wrap:wrap; gap:8px; margin-block:16px; }
+  .camp-home-stats > div { padding:6px 10px; }
+  .camp-content .camp-home-features { gap:12px; margin-bottom:24px; align-items:stretch; }
+  .camp-home-features > div { display:flex; min-width:0; }
+  .camp-home-features .camp-home-feature { width:100%; height:100%; min-height:144px; padding:16px 10px; }
+  .camp-home-feature > div { width:40px; height:40px; margin-bottom:10px; }
+  .camp-home-feature > p:first-of-type { font-size:14px; line-height:1.4; }
+  .camp-home-feature > p:last-of-type { font-size:12px; line-height:1.5; }
+  .camp-welcome-orbit-3,.camp-welcome-orbit-4 { display:none; }
+
+  .camp-workspace .camp-mobile-nav { border-top-width:1px; }
+  .camp-mobile-nav > div { min-height:60px; height:auto; padding-block:4px; }
+  .camp-mobile-nav a { min-height:48px; gap:3px; }
+  .camp-mobile-nav a[aria-current="page"] { background:var(--camp-purple-soft); color:var(--camp-control-ink); }
+}
+@media(max-width:359px) {
+  .camp-toolbar { gap:2px; padding-inline:8px; }
+  .camp-toolbar .camp-session-entry > .camp-learning-art,
+  .camp-toolbar .camp-session-label { display:none; }
+  .camp-toolbar .camp-session-entry { justify-content:center; }
+  .camp-home-actions > a > button { font-size:13px; padding-inline:8px; }
+}

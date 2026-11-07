@@ -50,7 +50,7 @@ export default function Home() {
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{ duration: 0.4, ease: [0.34, 1.56, 0.64, 1], delay: 0.1 }}
-            className="inline-flex items-center justify-center w-20 h-20 rounded-[var(--radius-2xl)] bg-[var(--color-primary-subtle)] text-4xl mb-6"
+            className="camp-home-symbol inline-flex items-center justify-center w-20 h-20 rounded-[var(--radius-2xl)] bg-[var(--color-primary-subtle)] text-4xl mb-6"
           >
             <LearningArt name="globe" size={40} />
           </motion.span>
@@ -68,7 +68,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.25, duration: 0.35 }}
-              className="flex items-center justify-center gap-3 mt-6 mb-8"
+              className="camp-home-stats flex items-center justify-center gap-3 mt-6 mb-8"
             >
               <div
                 className="inline-flex items-center gap-2 rounded-[var(--radius-pill)] px-4 py-2"
@@ -97,7 +97,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.35, duration: 0.35 }}
-            className="flex items-center justify-center gap-3 flex-wrap mt-2"
+            className="camp-home-actions flex items-center justify-center gap-3 flex-wrap mt-2"
           >
             <Link href="/dashboard">
               <Button size="lg">
@@ -118,14 +118,14 @@ export default function Home() {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-40px" }}
-        className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8"
+        className="camp-home-features grid grid-cols-2 md:grid-cols-4 gap-4 mb-8"
       >
         {FEATURES.map((f) => {
           return (
             <motion.div key={f.label} variants={childVariants}>
               <Link
                 href={f.href}
-                className="group block bg-[var(--color-surface)] rounded-[var(--radius-lg)] p-6 text-center shadow-[var(--shadow-2)] border border-[var(--color-border-default)] hover:border-[var(--color-border-strong)] transition-all duration-200 hover:-translate-y-0.5"
+                className="camp-home-feature group block bg-[var(--color-surface)] rounded-[var(--radius-lg)] p-6 text-center shadow-[var(--shadow-2)] border border-[var(--color-border-default)] hover:border-[var(--color-border-strong)] transition-all duration-200 hover:-translate-y-0.5"
                 style={{ boxShadow: "0 3px 0 var(--color-border-default)" }}
               >
                 <div

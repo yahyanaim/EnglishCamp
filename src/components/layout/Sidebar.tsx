@@ -298,7 +298,7 @@ export function Sidebar({ open, onClose }: { open?: boolean; onClose?: () => voi
   const sidebarContent = (
     <>
       <div className="px-4 py-4 border-b border-[var(--color-border-default)] flex items-center justify-between gap-2">
-        <Link prefetch={false} href="/" className="flex items-center gap-3" onClick={onClose ? (e) => { e.preventDefault(); onClose(); } : undefined}>
+        <Link prefetch={false} href="/" aria-label="EnglishCamp home" className="flex items-center gap-3" onClick={onClose}>
           <BrandMark size={36} />
           <div>
             <span className="font-display text-lg font-extrabold tracking-tight block leading-tight">

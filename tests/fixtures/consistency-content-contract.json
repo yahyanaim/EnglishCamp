@@ -99,7 +99,7 @@
     },
     "src/app/globals.css": {
       "before": "db5239ba370465f4cef1e256f88936c44270e3cfa955f57da56973ac10ff3090",
-      "after": "0be087647da9021db710762f9207f7f636af37f2da68425eb2b52e47ccc82046"
+      "after": "dab2c5e5cf0691fdefcd3b5d7ee444651593c5230a195b702bd346ff362c464f"
     },
     "src/app/grammar/cheat-sheet/page.tsx": {
       "before": "f4080ddd53ece06906532fd13250f1f330090a616ed75efd598abc078f6ba282",
@@ -203,7 +203,7 @@
     },
     "src/app/page.tsx": {
       "before": "dd8d13298d7dc1ad99d2af8f2a01799700322107e50c62e67c295cdc587afa36",
-      "after": "9f784a1fbf9ec849466e77f51edca85713a789bd627020617f475ad18869e910"
+      "after": "31353d383cf5875733d9c47ab822ef829d00496c649513657e98b269bf3f68fb"
     },
     "src/app/partizipien-als-adjektive/page.tsx": {
       "before": "57d076670010208f52acb7d761cd495ba870eadb06649afa43c4bad9c1cec655",
@@ -491,7 +491,7 @@
     },
     "src/components/layout/MobileBottomNav.tsx": {
       "before": "f9fd8e4ece09c72a292efbfa16024a303960227aa7656bd2844e87a2c2e70e5f",
-      "after": "5ddd5df39305a2f259cd4b2d898e020f05e9bab5b0b6fad156381b4ad34b3ad2"
+      "after": "0a56c62a1040279841e058a6212885fbe5840607e4973d6d68ecbb67a16c8c13"
     },
     "src/components/layout/Navbar.tsx": {
       "before": "5f1a41f2278defb74176caf3fea342342620d74fbbe2f88d04a182a61ca17693",
@@ -503,11 +503,11 @@
     },
     "src/components/layout/Sidebar.tsx": {
       "before": "d7c0a0e3b5a1cc1711f3efe53d7b1ec0d3056979c4e545e5b3b1af5ba5580e81",
-      "after": "296986419790495b355af9ebc82a04a8f815fff9a92c33ed775da0e8d78254ba"
+      "after": "4024ec5fb01dad2c0a8a990740f710fad97a5d30720795af597f24006a531194"
     },
     "src/components/layout/TopBar.tsx": {
       "before": "e421516f0d9520a3ceeb16620d89017c823cc512a3bbc0c1ea73fd58ddc82243",
-      "after": "9029d60b12b33f4ee849e894316af5001a9c341e23e04f979399df28da3f346f"
+      "after": "071d422817a8a186938f60955946f636838308e93eb589922d84582f06ea6dcd"
     },
     "src/components/learn/AdjectiveEndingsTrainer.tsx": {
       "before": "2d1429c729d166a1daffab0ba83e6b4878321873453eb840938de02a634e2217",

@@ -1,0 +1,309 @@
+route,320px,390px
+/,PASS,PASS
+/article-master,PASS,PASS
+/b2-first-guide,PASS,PASS
+/badges,PASS,PASS
+/british-vs-american,PASS,PASS
+/challenge,PASS,PASS
+/collocation-practice,PASS,PASS
+/collocations,PASS,PASS
+/common-mistakes,PASS,PASS
+/comparison-practice,PASS,PASS
+/comparisons,PASS,PASS
+/compound-adverbs-practice,PASS,PASS
+/compound-words,PASS,PASS
+/conditionals-and-wishes,PASS,PASS
+/conjunction-challenge,PASS,PASS
+/conversation,PASS,PASS
+/culture-quiz,PASS,PASS
+/custom-flashcards,PASS,PASS
+/daily-challenge,PASS,PASS
+/dashboard,PASS,PASS
+/dialogue-practice,PASS,PASS
+/discourse-marker-practice,PASS,PASS
+/discourse-markers,PASS,PASS
+/essay-templates,PASS,PASS
+/exercises/band1-grammar-agreement,PASS,not sampled
+/exercises/band1-grammar-articles,PASS,not sampled
+/exercises/band1-ielts-intro,PASS,not sampled
+/exercises/band1-ielts-vs-toefl,PASS,not sampled
+/exercises/band1-listening-attitude,PASS,not sampled
+/exercises/band1-listening-format,PASS,not sampled
+/exercises/band1-listening-gist,PASS,not sampled
+/exercises/band1-practice-listening,PASS,not sampled
+/exercises/band1-reading-completion,PASS,not sampled
+/exercises/band1-reading-scanning,PASS,not sampled
+/exercises/band1-reading-skimming,PASS,not sampled
+/exercises/band1-review,PASS,not sampled
+/exercises/band1-speaking-hometown,PASS,not sampled
+/exercises/band1-speaking-independent,PASS,not sampled
+/exercises/band1-speaking-part1-intro,PASS,not sampled
+/exercises/band1-time-reading,PASS,not sampled
+/exercises/band1-time-writing,PASS,not sampled
+/exercises/band1-toefl-intro,PASS,not sampled
+/exercises/band1-vocab-awl1,PASS,not sampled
+/exercises/band1-vocab-synonyms,PASS,not sampled
+/exercises/band1-writing-brainstorming,PASS,not sampled
+/exercises/band1-writing-essay-structure,PASS,not sampled
+/exercises/band1-writing-integrated,PASS,not sampled
+/exercises/band1-writing-task1-overview,PASS,not sampled
+/exercises/band1-writing-trends,PASS,not sampled
+/exercises/band2-grammar-complex,PASS,not sampled
+/exercises/band2-grammar-tenses,PASS,not sampled
+/exercises/band2-listening-form-completion,PASS,not sampled
+/exercises/band2-listening-maps,PASS,not sampled
+/exercises/band2-listening-mcq,PASS,not sampled
+/exercises/band2-mistakes-countable,PASS,not sampled
+/exercises/band2-mistakes-prepositions,PASS,not sampled
+/exercises/band2-practice-reading,PASS,not sampled
+/exercises/band2-reading-headings,PASS,not sampled
+/exercises/band2-reading-mcq,PASS,not sampled
+/exercises/band2-reading-tfng,PASS,not sampled
+/exercises/band2-review,PASS,not sampled
+/exercises/band2-speaking-cue-card,PASS,not sampled
+/exercises/band2-speaking-describe,PASS,not sampled
+/exercises/band2-speaking-integrated,PASS,not sampled
+/exercises/band2-vocab-awl2,PASS,not sampled
+/exercises/band2-vocab-collocations,PASS,not sampled
+/exercises/band2-vocab-environment,PASS,not sampled
+/exercises/band2-vocab-technology,PASS,not sampled
+/exercises/band2-writing-bar-pie,PASS,not sampled
+/exercises/band2-writing-cohesion,PASS,not sampled
+/exercises/band2-writing-letter,PASS,not sampled
+/exercises/band2-writing-line-graphs,PASS,not sampled
+/exercises/band2-writing-opinion,PASS,not sampled
+/exercises/band2-writing-problem-solution,PASS,not sampled
+/exercises/band3-error-analysis,PASS,not sampled
+/exercises/band3-grammar-conditionals,PASS,not sampled
+/exercises/band3-grammar-passive,PASS,not sampled
+/exercises/band3-listening-lecture,PASS,not sampled
+/exercises/band3-listening-multiple-speakers,PASS,not sampled
+/exercises/band3-listening-section3,PASS,not sampled
+/exercises/band3-paraphrasing,PASS,not sampled
+/exercises/band3-practice-essay,PASS,not sampled
+/exercises/band3-reading-flowchart,PASS,not sampled
+/exercises/band3-reading-matching-features,PASS,not sampled
+/exercises/band3-reading-summary-completion,PASS,not sampled
+/exercises/band3-review,PASS,not sampled
+/exercises/band3-speaking-opinions,PASS,not sampled
+/exercises/band3-speaking-part3,PASS,not sampled
+/exercises/band3-speaking-toefl4,PASS,not sampled
+/exercises/band3-vocab-awl3,PASS,not sampled
+/exercises/band3-vocab-education,PASS,not sampled
+/exercises/band3-vocab-health,PASS,not sampled
+/exercises/band3-vocab-work,PASS,not sampled
+/exercises/band3-writing-advantages,PASS,not sampled
+/exercises/band3-writing-discussion,PASS,not sampled
+/exercises/band3-writing-formality,PASS,not sampled
+/exercises/band3-writing-maps-processes,PASS,not sampled
+/exercises/band3-writing-multiple-charts,PASS,not sampled
+/exercises/band3-writing-task-response,PASS,not sampled
+/exercises/band4-exam-day-strategies,PASS,not sampled
+/exercises/band4-grammar-inversion,PASS,not sampled
+/exercises/band4-grammar-participles,PASS,not sampled
+/exercises/band4-listening-accents,PASS,not sampled
+/exercises/band4-listening-distractors,PASS,not sampled
+/exercises/band4-listening-inference,PASS,not sampled
+/exercises/band4-mock-ielts-listening,PASS,not sampled
+/exercises/band4-mock-toefl-reading,PASS,not sampled
+/exercises/band4-reading-difficult-texts,PASS,not sampled
+/exercises/band4-reading-time-pressure,PASS,not sampled
+/exercises/band4-reading-writers-views,PASS,not sampled
+/exercises/band4-review,PASS,not sampled
+/exercises/band4-speaking-abstract-topics,PASS,not sampled
+/exercises/band4-speaking-pronunciation,PASS,not sampled
+/exercises/band4-speaking-storytelling,PASS,not sampled
+/exercises/band4-vocab-awl4,PASS,not sampled
+/exercises/band4-vocab-globalization,PASS,not sampled
+/exercises/band4-vocab-idioms,PASS,not sampled
+/exercises/band4-vocab-science,PASS,not sampled
+/exercises/band4-writing-band8-essay,PASS,not sampled
+/exercises/band4-writing-complex-comparisons,PASS,not sampled
+/exercises/band4-writing-complex-ideas,PASS,not sampled
+/exercises/band4-writing-grammatical-range,PASS,not sampled
+/exercises/band4-writing-lexical-resource,PASS,not sampled
+/exercises/band4-writing-sophisticated,PASS,not sampled
+/false-friends,PASS,PASS
+/false-friends-practice,PASS,PASS
+/flashcards,PASS,PASS
+/future-tenses,PASS,PASS
+/grammar,PASS,PASS
+/grammar-compare,PASS,PASS
+/grammar/cheat-sheet,PASS,PASS
+/idiom-match,PASS,PASS
+/idiom-practice,PASS,PASS
+/idioms,PASS,PASS
+/ielts,PASS,PASS
+/ielts/ielts-guide,PASS,not sampled
+/irregular-plurals,PASS,PASS
+/irregular-verbs,PASS,PASS
+/knowledge-check,PASS,PASS
+/letter-writing,PASS,PASS
+/levels/band4-5,PASS,not sampled
+/levels/band4-5/lessons/band1-grammar-agreement,PASS,not sampled
+/levels/band4-5/lessons/band1-grammar-articles,PASS,not sampled
+/levels/band4-5/lessons/band1-ielts-intro,PASS,not sampled
+/levels/band4-5/lessons/band1-ielts-vs-toefl,PASS,not sampled
+/levels/band4-5/lessons/band1-listening-attitude,PASS,not sampled
+/levels/band4-5/lessons/band1-listening-format,PASS,not sampled
+/levels/band4-5/lessons/band1-listening-gist,PASS,not sampled
+/levels/band4-5/lessons/band1-practice-listening,PASS,not sampled
+/levels/band4-5/lessons/band1-reading-completion,PASS,not sampled
+/levels/band4-5/lessons/band1-reading-scanning,PASS,not sampled
+/levels/band4-5/lessons/band1-reading-skimming,PASS,not sampled
+/levels/band4-5/lessons/band1-review,PASS,not sampled
+/levels/band4-5/lessons/band1-speaking-hometown,PASS,not sampled
+/levels/band4-5/lessons/band1-speaking-independent,PASS,not sampled
+/levels/band4-5/lessons/band1-speaking-part1-intro,PASS,not sampled
+/levels/band4-5/lessons/band1-time-reading,PASS,not sampled
+/levels/band4-5/lessons/band1-time-writing,PASS,not sampled
+/levels/band4-5/lessons/band1-toefl-intro,PASS,not sampled
+/levels/band4-5/lessons/band1-vocab-awl1,PASS,not sampled
+/levels/band4-5/lessons/band1-vocab-synonyms,PASS,not sampled
+/levels/band4-5/lessons/band1-writing-brainstorming,PASS,not sampled
+/levels/band4-5/lessons/band1-writing-essay-structure,PASS,not sampled
+/levels/band4-5/lessons/band1-writing-integrated,PASS,not sampled
+/levels/band4-5/lessons/band1-writing-task1-overview,PASS,not sampled
+/levels/band4-5/lessons/band1-writing-trends,PASS,not sampled
+/levels/band5-6,PASS,not sampled
+/levels/band5-6/lessons/band2-grammar-complex,PASS,not sampled
+/levels/band5-6/lessons/band2-grammar-tenses,PASS,not sampled
+/levels/band5-6/lessons/band2-listening-form-completion,PASS,not sampled
+/levels/band5-6/lessons/band2-listening-maps,PASS,not sampled
+/levels/band5-6/lessons/band2-listening-mcq,PASS,not sampled
+/levels/band5-6/lessons/band2-mistakes-countable,PASS,not sampled
+/levels/band5-6/lessons/band2-mistakes-prepositions,PASS,not sampled
+/levels/band5-6/lessons/band2-practice-reading,PASS,not sampled
+/levels/band5-6/lessons/band2-reading-headings,PASS,not sampled
+/levels/band5-6/lessons/band2-reading-mcq,PASS,not sampled
+/levels/band5-6/lessons/band2-reading-tfng,PASS,not sampled
+/levels/band5-6/lessons/band2-review,PASS,not sampled
+/levels/band5-6/lessons/band2-speaking-cue-card,PASS,not sampled
+/levels/band5-6/lessons/band2-speaking-describe,PASS,not sampled
+/levels/band5-6/lessons/band2-speaking-integrated,PASS,not sampled
+/levels/band5-6/lessons/band2-vocab-awl2,PASS,not sampled
+/levels/band5-6/lessons/band2-vocab-collocations,PASS,not sampled
+/levels/band5-6/lessons/band2-vocab-environment,PASS,not sampled
+/levels/band5-6/lessons/band2-vocab-technology,PASS,not sampled
+/levels/band5-6/lessons/band2-writing-bar-pie,PASS,not sampled
+/levels/band5-6/lessons/band2-writing-cohesion,PASS,not sampled
+/levels/band5-6/lessons/band2-writing-letter,PASS,not sampled
+/levels/band5-6/lessons/band2-writing-line-graphs,PASS,not sampled
+/levels/band5-6/lessons/band2-writing-opinion,PASS,not sampled
+/levels/band5-6/lessons/band2-writing-problem-solution,PASS,not sampled
+/levels/band6-7,PASS,not sampled
+/levels/band6-7/lessons/band3-error-analysis,PASS,not sampled
+/levels/band6-7/lessons/band3-grammar-conditionals,PASS,not sampled
+/levels/band6-7/lessons/band3-grammar-passive,PASS,not sampled
+/levels/band6-7/lessons/band3-listening-lecture,PASS,not sampled
+/levels/band6-7/lessons/band3-listening-multiple-speakers,PASS,not sampled
+/levels/band6-7/lessons/band3-listening-section3,PASS,not sampled
+/levels/band6-7/lessons/band3-paraphrasing,PASS,not sampled
+/levels/band6-7/lessons/band3-practice-essay,PASS,not sampled
+/levels/band6-7/lessons/band3-reading-flowchart,PASS,not sampled
+/levels/band6-7/lessons/band3-reading-matching-features,PASS,not sampled
+/levels/band6-7/lessons/band3-reading-summary-completion,PASS,not sampled
+/levels/band6-7/lessons/band3-review,PASS,not sampled
+/levels/band6-7/lessons/band3-speaking-opinions,PASS,not sampled
+/levels/band6-7/lessons/band3-speaking-part3,PASS,not sampled
+/levels/band6-7/lessons/band3-speaking-toefl4,PASS,not sampled
+/levels/band6-7/lessons/band3-vocab-awl3,PASS,not sampled
+/levels/band6-7/lessons/band3-vocab-education,PASS,not sampled
+/levels/band6-7/lessons/band3-vocab-health,PASS,not sampled
+/levels/band6-7/lessons/band3-vocab-work,PASS,not sampled
+/levels/band6-7/lessons/band3-writing-advantages,PASS,not sampled
+/levels/band6-7/lessons/band3-writing-discussion,PASS,not sampled
+/levels/band6-7/lessons/band3-writing-formality,PASS,not sampled
+/levels/band6-7/lessons/band3-writing-maps-processes,PASS,not sampled
+/levels/band6-7/lessons/band3-writing-multiple-charts,PASS,not sampled
+/levels/band6-7/lessons/band3-writing-task-response,PASS,not sampled
+/levels/band7-8,PASS,not sampled
+/levels/band7-8/lessons/band4-exam-day-strategies,PASS,not sampled
+/levels/band7-8/lessons/band4-grammar-inversion,PASS,not sampled
+/levels/band7-8/lessons/band4-grammar-participles,PASS,not sampled
+/levels/band7-8/lessons/band4-listening-accents,PASS,not sampled
+/levels/band7-8/lessons/band4-listening-distractors,PASS,not sampled
+/levels/band7-8/lessons/band4-listening-inference,PASS,not sampled
+/levels/band7-8/lessons/band4-mock-ielts-listening,PASS,not sampled
+/levels/band7-8/lessons/band4-mock-toefl-reading,PASS,not sampled
+/levels/band7-8/lessons/band4-reading-difficult-texts,PASS,not sampled
+/levels/band7-8/lessons/band4-reading-time-pressure,PASS,not sampled
+/levels/band7-8/lessons/band4-reading-writers-views,PASS,not sampled
+/levels/band7-8/lessons/band4-review,PASS,not sampled
+/levels/band7-8/lessons/band4-speaking-abstract-topics,PASS,not sampled
+/levels/band7-8/lessons/band4-speaking-pronunciation,PASS,not sampled
+/levels/band7-8/lessons/band4-speaking-storytelling,PASS,not sampled
+/levels/band7-8/lessons/band4-vocab-awl4,PASS,not sampled
+/levels/band7-8/lessons/band4-vocab-globalization,PASS,not sampled
+/levels/band7-8/lessons/band4-vocab-idioms,PASS,not sampled
+/levels/band7-8/lessons/band4-vocab-science,PASS,not sampled
+/levels/band7-8/lessons/band4-writing-band8-essay,PASS,not sampled
+/levels/band7-8/lessons/band4-writing-complex-comparisons,PASS,not sampled
+/levels/band7-8/lessons/band4-writing-complex-ideas,PASS,not sampled
+/levels/band7-8/lessons/band4-writing-grammatical-range,PASS,not sampled
+/levels/band7-8/lessons/band4-writing-lexical-resource,PASS,not sampled
+/levels/band7-8/lessons/band4-writing-sophisticated,PASS,not sampled
+/linking-words,PASS,PASS
+/listening-lab,PASS,PASS
+/mock-exam,PASS,PASS
+/my-notes,PASS,PASS
+/paired-conjunctions,PASS,PASS
+/participle-adjectives,PASS,PASS
+/passive-voice,PASS,PASS
+/past-perfect,PASS,PASS
+/past-tense-practice,PASS,PASS
+/phonics,PASS,PASS
+/phrases-practice,PASS,PASS
+/picture-description,PASS,PASS
+/placement-test,PASS,PASS
+/practice,PASS,PASS
+/prefix-verbs,PASS,PASS
+/prepositions,PASS,PASS
+/pronunciation,PASS,PASS
+/proofreading,PASS,PASS
+/question-formation,PASS,PASS
+/question-practice,PASS,PASS
+/quiz/band4-5,PASS,not sampled
+/quiz/band5-6,PASS,not sampled
+/quiz/band6-7,PASS,not sampled
+/quiz/band7-8,PASS,not sampled
+/reflexive-verbs,PASS,PASS
+/relative-clauses,PASS,PASS
+/reported-speech,PASS,PASS
+/review,PASS,PASS
+/search,PASS,PASS
+/sentence-pattern-practice,PASS,PASS
+/sentence-patterns,PASS,PASS
+/sentence-structure,PASS,PASS
+/sentence-translation,PASS,PASS
+/shadowing-english,PASS,PASS
+/simple-past,PASS,PASS
+/speed-match,PASS,PASS
+/sprint,PASS,PASS
+/stats,PASS,PASS
+/study-plan,PASS,PASS
+/study-strategies,PASS,PASS
+/subordinate-clauses,PASS,PASS
+/tenses-guide,PASS,PASS
+/tenses-quiz,PASS,PASS
+/text-analyzer,PASS,PASS
+/toefl,PASS,PASS
+/toefl/toefl-guide,PASS,not sampled
+/topic-vocabulary,PASS,PASS
+/topic-vocabulary-practice,PASS,PASS
+/useful-phrases,PASS,PASS
+/verb-conjugation,PASS,PASS
+/verb-noun-collocation-practice,PASS,PASS
+/verb-noun-collocations,PASS,PASS
+/verb-preposition-practice,PASS,PASS
+/verb-puzzle,PASS,PASS
+/verb-tables,PASS,PASS
+/verbs-and-prepositions,PASS,PASS
+/vocabulary,PASS,PASS
+/weak-areas,PASS,PASS
+/weekly-report,PASS,PASS
+/word-formation,PASS,PASS
+/word-pairs,PASS,PASS
+/word-pairs-quiz,PASS,PASS
+/word-scramble,PASS,PASS
+/writing,PASS,PASS
