@@ -1,5 +1,6 @@
 /* Phone sizing, shared across the existing learning layouts. */
-@media(max-width:639px) {
+.camp-cheat-topic-toggle { display:none; }
+@media(max-width:767px) {
   .camp-workspace { --camp-page-pad:14px; --camp-panel-pad:16px; --camp-section-gap:16px; --camp-control-height:44px; }
   .camp-toolbar { height:60px; gap:4px; padding-inline:10px; }
   .camp-toolbar > button:first-child,
@@ -8,10 +9,12 @@
   .camp-toolbar .camp-accent-toggle { flex:none; width:44px; min-width:44px; max-width:44px; height:44px; padding:0; }
   .camp-toolbar .camp-session-entry { flex:1 1 0; min-width:0; max-width:100%; padding:4px; gap:5px; justify-content:flex-start; }
   .camp-toolbar .camp-session-label { max-width:none; }
+  .camp-toolbar .camp-search :is(span,kbd) { display:none; }
+  .camp-toolbar .camp-toolbar-xp { display:none; }
   .camp-content { padding:16px 14px calc(80px + env(safe-area-inset-bottom,0px)); }
   .camp-frame .camp-page-banner { min-height:0; padding:18px 16px; }
   .camp-frame .camp-page-banner h1 { font-size:20px!important; line-height:1.3; }
-  .camp-frame .camp-page-banner p { font-size:13px; line-height:1.55; max-width:100%; }
+  .camp-frame .camp-page-banner p { font-size:14px; line-height:1.6; max-width:100%; }
   .camp-frame .camp-page-banner .camp-banner-copy { max-width:100%; }
   .camp-banner-art { opacity:.2; }
   .camp-frame .practice-card,
@@ -54,6 +57,130 @@
   .camp-mobile-nav > div { min-height:60px; height:auto; padding-block:4px; }
   .camp-mobile-nav a { min-height:48px; gap:3px; }
   .camp-mobile-nav a[aria-current="page"] { background:var(--camp-purple-soft); color:var(--camp-control-ink); }
+
+  /* Readable fields avoid browser zoom; controls share a usable touch target. */
+  .camp-frame main.camp-content input:not([type=checkbox]):not([type=radio]):not([type=range]):not([type=color]),
+  .camp-frame main.camp-content textarea,
+  .camp-frame main.camp-content select { font-size:16px; min-height:44px; max-width:100%; }
+  .camp-frame main.camp-content textarea { line-height:1.7; }
+  .camp-frame main.camp-content :is(.camp-back-button,[data-variant]:not([data-variant=unstyled]):not([data-size=icon]),.camp-select-trigger) { font-size:14px; min-height:44px; }
+  .camp-frame main.camp-content :is(.camp-course-action,.camp-primary-action,.translation-directions button) { min-height:44px; font-size:14px; }
+  .camp-select-menu { font-size:14px; }
+  .camp-select-option { min-height:44px; }
+  [role=dialog] input:not([type=checkbox]):not([type=radio]):not([type=range]):not([type=color]),
+  [role=dialog] textarea,
+  [role=dialog] select { font-size:16px; min-height:44px; }
+  [role=dialog] button[data-size=icon] { width:44px; height:44px; min-width:44px; min-height:44px; }
+  .camp-session-dialog-heading { padding-right:40px; }
+  .camp-content :is(input,textarea,[id]) { scroll-margin-top:76px; scroll-margin-bottom:88px; }
+
+  /* Show every course choice instead of a clipped strip and a large scrollbar. */
+  .camp-frame .camp-course-switcher { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; padding:0; overflow:visible; }
+  .camp-course-switcher > span { display:none; }
+  .camp-course-switcher > a { display:flex; align-items:center; justify-content:center; min-width:0; min-height:44px; padding:8px; border-radius:8px; font-size:12px; text-align:center; white-space:normal; }
+  .camp-frame main.camp-content .camp-course-hero-title { font-size:22px; }
+  .camp-course-hero-actions { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .camp-course-hero-actions > :first-child { grid-column:1/-1; }
+  .camp-course-hero-actions > * { justify-content:center; min-width:0; white-space:normal; }
+  .camp-frame .camp-module-toolbar { gap:12px; padding-bottom:16px; }
+  .camp-frame .camp-course-filters { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); align-self:stretch; gap:4px; padding:4px; }
+  .camp-frame .camp-course-filters button { justify-content:center; min-width:0; min-height:44px; padding:8px 5px; font-size:12px; gap:5px; }
+  .camp-course-filters button:first-child { grid-column:1/-1; }
+  .camp-course-filters .camp-learning-art { flex:none; width:16px; height:16px; }
+  .camp-module-actions { display:grid; width:100%; grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .camp-module-actions > a { justify-content:center; min-width:0; padding:10px 8px; font-size:13px!important; white-space:normal; }
+  .camp-module-card .camp-number-seal { width:38px; height:38px; flex-basis:38px; }
+  .camp-module-card > .flex { gap:10px; }
+  .camp-frame .camp-module-card h3 { line-height:1.45; }
+  .camp-course-card-copy p { font-size:14px; line-height:1.65; }
+  .camp-course-card-meta,.camp-course-card-bottom { font-size:12px; }
+  .camp-course-card-bottom a { min-height:44px; }
+  .camp-course-goal,.camp-module-toolbar p { font-size:14px; line-height:1.65; }
+
+  /* Keep reference navigation available without repeating a screenful of titles. */
+  .camp-frame main.camp-content .camp-cheat-topic-toggle { display:flex; justify-content:space-between; width:100%; margin-bottom:16px; }
+  .camp-frame .camp-cheat-index[data-mobile-expanded=false] { display:none; }
+  .camp-frame .camp-cheat-index { display:grid; grid-template-columns:minmax(0,1fr); gap:6px; margin-bottom:16px; }
+  .camp-cheat-index > a { min-height:44px; font-size:14px; }
+  .camp-frame .camp-print-controls > div { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; }
+  .camp-print-controls > div > * { justify-content:center; white-space:normal; min-width:0; padding:10px 8px; }
+  .camp-frame .camp-grammar-page .camp-grammar-accordion-body { padding:16px; }
+  .camp-frame .camp-grammar-page .camp-grammar-section-header > .practice-button { font-size:15px; }
+  .camp-frame main.camp-content :is(.camp-cheat-item,.camp-foundation-lesson,.camp-grammar-panel) :is(p,li):not([lang=ar]):not(.camp-arabic-support) { font-size:14px; line-height:1.75; }
+  .camp-frame .camp-words-lesson { padding-inline:16px; padding-bottom:16px; }
+  .camp-words-lesson .camp-essential-topic { padding:0; }
+  .camp-words-lesson > p,.camp-essential-example { font-size:13px; line-height:1.7; }
+  .camp-essential-grid figcaption :is(h3,h4) { font-size:14px; line-height:1.5; overflow-wrap:anywhere; }
+  .camp-words-lesson .camp-essential-grid { align-items:stretch; }
+  .camp-essential-word figcaption { flex:1; display:flex; flex-direction:column; }
+  .camp-essential-word figcaption > div:last-child { margin-top:auto; padding-top:8px; }
+  .camp-essential-word button { width:100%; white-space:normal; }
+
+  /* Align library tabs and filters while retaining the current content order. */
+  .camp-frame main.camp-content .camp-vocabulary-page > div:has(> button[aria-pressed]) { display:grid; grid-template-columns:repeat(6,minmax(0,1fr)); width:100%; gap:6px; }
+  .camp-frame .camp-vocabulary-page > div > button[aria-pressed] { grid-column:span 2; justify-content:center; padding:9px 6px; min-width:0; font-size:13px; line-height:1.4; }
+  .camp-frame .camp-vocabulary-page > div > button[aria-pressed]:nth-child(n+4) { grid-column:span 3; }
+  .camp-vocabulary-page > div:has(input) > .relative { flex:1 1 100%; width:100%; }
+  .camp-vocabulary-page > div:has(input) > .camp-select-trigger { flex:1 1 130px; min-width:0; }
+  .camp-frame .camp-writing-filters { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; }
+  .camp-writing-filters .camp-select-trigger { width:100%; min-width:0; }
+  .camp-writing-count { grid-column:1/-1; }
+  .camp-frame .camp-writing-card { padding:16px; gap:12px; }
+  .camp-frame .camp-writing-card-copy p[lang=ar] { font-size:17px; line-height:1.75; }
+  .camp-writing-tags > span { font-size:12px; }
+  .camp-frame :is(.camp-writing-card-footer,.camp-writing-hint,.camp-writing-task-note,.camp-letter-wordcount) { font-size:13px; line-height:1.7; }
+  .camp-frame .camp-letter-topic-grid .practice-button p:first-child { font-size:14px; }
+  .camp-frame .camp-letter-topic-grid .practice-button p:last-child { font-size:13px; }
+  .camp-letter-workspace > .flex:has(button) { display:grid; grid-template-columns:1fr; gap:8px; }
+  .camp-letter-workspace > .flex > button { width:100%; justify-content:center; }
+  .camp-frame .camp-article-card { padding:16px; }
+  .camp-article-card p,.camp-reader-controls > p,.camp-reader-vocab-item p:not([lang=ar]) { font-size:14px; line-height:1.7; }
+  .camp-frame .camp-reader-text section > p:first-child { font-size:16px; line-height:1.9; }
+  .camp-reader-control-row > button:not([data-size=icon]) { flex:1 1 130px; justify-content:center; }
+  .camp-reader-seek input { min-height:44px; }
+  .camp-frame main.camp-content .camp-vocabulary-page button.camp-mastery-control { width:40px; min-width:40px; }
+
+  /* Essential content should not wait for staggered entrance animations. */
+  .camp-vocabulary-page > div,
+  .camp-vocabulary-page .camp-article-card,
+  .camp-verbs .camp-verb-card { opacity:1!important; transform:none!important; }
+
+  /* Balanced playback rows instead of one small selector on its own line. */
+  .camp-frame main .camp-shadow-playbar { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:8px; padding:12px; }
+  .camp-shadow-playbar .shadow-control-divider { display:none; }
+  .camp-frame main .camp-shadow-playbar .camp-shadow-transport { width:100%; min-width:44px; height:44px; }
+  .camp-shadow-playbar .camp-shadow-time { grid-column:1/3; display:flex; align-items:center; justify-content:center; height:44px; font-size:14px; }
+  .camp-shadow-playbar .camp-select-trigger { grid-column:3/5; width:100%; height:44px; font-size:13px; }
+  .camp-shadow-sentence-tools { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; }
+  .camp-shadow-sentence-tools > * { width:100%; min-width:0; justify-content:center; min-height:44px; }
+  .camp-shadow-sentence-tools > :last-child { grid-column:1/-1; }
+  .camp-shadow-sentence-tools .camp-select-trigger { width:100%; height:44px; font-size:13px; }
+  .camp-shadow-sentence-meta,.camp-shadow-line-text button small { font-size:12px; }
+  .camp-shadow-practice { padding:16px; }
+  .camp-shadow-current { padding-block:18px; min-height:0; }
+  .camp-shadow-side-tabs { display:grid; grid-template-columns:1fr 1fr; gap:8px; padding:12px; }
+  .camp-shadow-side-tabs > button { padding-inline:8px; font-size:13px; white-space:normal; }
+  .camp-shadow-video-list strong { font-size:14px; line-height:1.5; }
+  .camp-shadow-topic-list .camp-shadow-topic { font-size:11px; }
+  .camp-shadow-record-bar { flex-wrap:wrap; gap:10px!important; }
+  .camp-shadow-record-bar > span:nth-child(2) { text-align:left; }
+  .camp-shadow-record-bar .camp-shadow-local-label { margin-left:56px; }
+  .camp-shadow-record-bar small,.camp-shadow-recording-note { font-size:12px!important; }
+  .camp-shadow-practice-progress p { font-size:13px; }
+  .camp-shadow-practice-progress > button { width:100%; justify-content:center; }
+  .camp-shadow-credit a { display:inline-flex; align-items:center; min-height:44px; }
+}
+@media(max-width:1023px) {
+  .camp-home-features > div { display:flex; min-width:0; }
+  .camp-home-features .camp-home-feature { width:100%; height:100%; }
+  .camp-frame .camp-mobile-sidebar { width:min(320px,calc(100vw - 32px)); padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px); }
+  .camp-mobile-sidebar :is(nav a,nav button,summary) { font-size:14px; }
+}
+@media(max-width:1023px) and (max-height:500px) {
+  .camp-toolbar { height:56px; }
+  .camp-frame .camp-page-banner { min-height:0; padding-block:16px; }
+  .camp-mobile-nav > div { min-height:52px; }
+  [role=dialog]:not([aria-label="Navigation menu"]) { max-height:calc(100dvh - 24px); }
 }
 @media(max-width:359px) {
   .camp-toolbar { gap:2px; padding-inline:8px; }
@@ -61,4 +188,5 @@
   .camp-toolbar .camp-session-label { display:none; }
   .camp-toolbar .camp-session-entry { justify-content:center; }
   .camp-home-actions > a > button { font-size:13px; padding-inline:8px; }
+  .camp-frame .camp-course-filters { grid-template-columns:repeat(2,minmax(0,1fr)); }
 }

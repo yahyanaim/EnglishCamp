@@ -29,7 +29,7 @@ export function CourseOverview({ level }: { level: CourseSummary }) {
     <div className="camp-section-stack space-y-6">
       {/* Practice Courses Switcher Bar */}
       {level.examBadge && (
-        <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none text-xs">
+        <div className="camp-course-switcher flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none text-xs">
           <span className="text-[var(--color-text-secondary)] font-bold shrink-0 hidden sm:inline">Practice Courses:</span>
           {levels.filter((l) => l.examBadge).map((lvl) => {
             const isCurrent = lvl.id === level.id;

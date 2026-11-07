@@ -103,7 +103,7 @@
     },
     "src/app/grammar/cheat-sheet/page.tsx": {
       "before": "f4080ddd53ece06906532fd13250f1f330090a616ed75efd598abc078f6ba282",
-      "after": "01d92fdedef313c9a7c4fa5aa83d0170a57c39c8478f280767b2094840e30053"
+      "after": "2be0d5ad8f4de4a84c57fe829cf48339c0699bea0b975b618e66cfc8714ed5ec"
     },
     "src/app/grammar/page.tsx": {
       "before": "b055f20f199441ae7ca4dd65addc3cf5ccdb76b597cecfcc3d8398661ad6371f",
@@ -419,7 +419,7 @@
     },
     "src/components/course/CourseOverview.tsx": {
       "before": "9b23c0b1e8e9248b32ad29d86a40b8d63706500bc75520988497f7b371e8d407",
-      "after": "a46e047530bac2ea61b33e98622d75ebfee9f9363a268d546e91dd84dd1e1f5c"
+      "after": "e446bfcbc4e79ddcb7751480feafe29474ce84762036ad28ebbb0d6a7178db62"
     },
     "src/components/course/CoursePreviewCard.tsx": {
       "before": "2fd553fae0053d4fd95b82ea3435f85fff5102a63c3ca6d59bf69665ce02a700",
