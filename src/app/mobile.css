@@ -1,7 +1,4 @@
 /* Phone sizing, shared across the existing learning layouts. */
-.camp-mobile-brand { align-items:center; justify-content:center; flex:none; width:44px; height:44px; border-radius:8px; }
-.camp-mobile-brand:focus-visible { outline:2px solid var(--camp-focus); outline-offset:2px; }
-@media(max-width:1023px) { .camp-mobile-brand { display:flex; } }
 @media(max-width:639px) {
   .camp-workspace { --camp-page-pad:14px; --camp-panel-pad:16px; --camp-section-gap:16px; --camp-control-height:44px; }
   .camp-toolbar { height:60px; gap:4px; padding-inline:10px; }

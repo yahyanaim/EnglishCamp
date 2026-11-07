@@ -13,7 +13,7 @@ The route results are recorded in [mobile-audit-2026-11-07.csv](audits/mobile-au
 | Homepage hero used too much of the phone screen | Reduced phone spacing, logo size and heading size. At 390 px the guest hero measures approximately 255 px, previously 402 px. |
 | Feature cards had different heights | Equal-height phone cards with consistent padding, artwork and text sizes. |
 | Slow loading could leave the hero and cards invisible | Essential phone content stays visible while the animation bundle loads. |
-| No visible home logo in the phone header | Added a compact, accessible EnglishCamp home link. |
+| Home navigation from the existing logo | The existing logo inside the hamburger menu returns home; no additional phone-header mascot is used. |
 | Drawer logo cancelled its own navigation | Removed the cancellation; tapping the logo navigates home and closes the drawer. |
 | Phone controls competed for header space | Consistent 44 px targets, flexible learner-name area and truncation; narrow phones retain the avatar and accessible learner name. |
 | Course quiz entrance moved outside the screen | Disabled the horizontal card movement on phones for all four course quizzes. |
@@ -24,10 +24,10 @@ The route results are recorded in [mobile-audit-2026-11-07.csv](audits/mobile-au
 
 - **308 pages at 320 px:** main sections, 100 lessons, 100 focused exercises, course overviews and course quizzes.
 - **98 pages at 390 px:** every main section and the grammar cheat sheet.
-- **Additional widths:** 360, 430, 768, 1024 and 1440 px. Desktop sidebar behaviour and the desktop/mobile logo breakpoint remain intact.
+- **Additional widths:** 360, 430, 768, 1024 and 1440 px. Desktop sidebar behaviour remains intact.
 - **Short phone viewport:** 320 × 568 px sign-in dialog, including the form and privacy text.
-- **Navigation:** header home link and drawer home link both return to `/`; the drawer closes after navigation.
-- **Named learner:** a long test name fits the header; all six header controls retain 44 px height at 320 px.
+- **Navigation:** the existing drawer home link returns to `/`; the drawer closes after navigation. The extra header logo was removed following feedback.
+- **Named learner:** a long test name fits the header; shared phone controls retain 44 px height at 320 px.
 - **Interactive states:** culture quiz question and feedback, active IELTS mock listening section, expanded Words reference, selected verb and tense menu, writing editor, vocabulary article reader, shadowing line navigation and transcript, lesson navigation and video frame.
 - **Video proportions:** sampled lesson frame remains 16:9 at 320 px.
 - **Themes:** phone layout checked with a green accent and dark mode, then restored to light violet.

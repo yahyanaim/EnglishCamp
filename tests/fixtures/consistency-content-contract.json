@@ -507,7 +507,7 @@
     },
     "src/components/layout/TopBar.tsx": {
       "before": "e421516f0d9520a3ceeb16620d89017c823cc512a3bbc0c1ea73fd58ddc82243",
-      "after": "071d422817a8a186938f60955946f636838308e93eb589922d84582f06ea6dcd"
+      "after": "9029d60b12b33f4ee849e894316af5001a9c341e23e04f979399df28da3f346f"
     },
     "src/components/learn/AdjectiveEndingsTrainer.tsx": {
       "before": "2d1429c729d166a1daffab0ba83e6b4878321873453eb840938de02a634e2217",
