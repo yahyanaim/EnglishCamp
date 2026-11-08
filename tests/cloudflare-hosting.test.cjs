@@ -102,7 +102,12 @@ test('Cloudflare build source cannot copy local secrets or deploy the Python/Nex
  assert.deepEqual(config.assets.run_worker_first,['/api/*','/reading','/reading/','/en','/en/*','/ar','/ar/*']);
  assert.equal(config.vars.ENGLISHCAMP_SPEAKING_ENABLED,'false');assert.equal(config.observability.enabled,false);
  assert.equal(config.assets.not_found_handling,'none','legacy URLs must reach the redirect Worker before a static 404 fallback');
- for(const binding of ['containers','r2_buckets','kv_namespaces','d1_databases','durable_objects'])assert.equal(config[binding],undefined);
+ for(const binding of ['containers','r2_buckets','kv_namespaces','durable_objects'])assert.equal(config[binding],undefined);
+ assert.equal(config.d1_databases.length,1);
+ assert.equal(config.d1_databases[0].binding,'LEARNERS_DB');
+ assert.equal(config.d1_databases[0].database_name,'englishcamp-learners');
+ assert.match(config.d1_databases[0].database_id,/^[a-f0-9-]{36}$/);
+ assert.equal(config.d1_databases[0].migrations_dir,'migrations');
  assert.ok(!fs.readFileSync('cloudflare/worker.ts','utf8').includes('next/server'));
  assert.ok(!fs.readFileSync('cloudflare/speech.ts','utf8').includes('child_process'));
 });

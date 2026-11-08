@@ -19,7 +19,7 @@ type Section = {
 };
 
 export const SECTIONS: Section[] = [
-  ...GRAMMAR_EXTENSIONS.map(lesson=>({id:lesson.id,title:lesson.title,content:<GrammarFoundationLesson lesson={lesson}/>})),
+  ...GRAMMAR_EXTENSIONS.map(lesson=>({id:lesson.id,title:lesson.title,content:<GrammarFoundationLesson lesson={lesson} translateOnInteraction/>})),
   {
     id: "articles",
     title: "Articles (a/an/the)",

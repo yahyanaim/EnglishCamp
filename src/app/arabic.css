@@ -1,0 +1,8 @@
+/* Arabic is an isolated reading run; the surrounding English interface stays LTR. */
+[lang="ar"]{direction:rtl;unicode-bidi:isolate;font-family:var(--font-arabic),serif;letter-spacing:normal}
+:is(p,li,blockquote,h2,h3,h4,section,aside,div)[lang="ar"]{text-align:start;line-height:1.9}
+.camp-arabic-support{direction:rtl;unicode-bidi:isolate;text-align:start!important}
+.camp-arabic-support bdi{direction:ltr;unicode-bidi:isolate;display:inline;font-family:var(--font-body),sans-serif}
+.camp-frame .camp-grammar-page [lang="ar"],.camp-frame .camp-vocab-speaking-content [lang="ar"],.camp-frame .camp-writing-card-copy p[lang="ar"],.camp-frame .camp-reader-vocab-item p[lang="ar"],.camp-frame .camp-strategies-page [lang="ar"],.camp-frame .camp-strategy-step [lang="ar"],.camp-frame .camp-tense-rule [lang="ar"],.camp-frame .camp-conjugation-practice [lang="ar"]{direction:rtl;unicode-bidi:isolate;text-align:start}
+.camp-grammar-translation-tooltip .camp-arabic-support,.camp-frame .camp-linking-example .camp-arabic-support{unicode-bidi:isolate;text-align:start!important}
+.camp-writing-language-label{unicode-bidi:isolate;text-align:start}

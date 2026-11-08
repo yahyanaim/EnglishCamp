@@ -118,7 +118,7 @@ export default function ConditionalsPage() {
                   {item.ar && <p className="text-xs text-[var(--color-text-secondary)] font-arabic mt-0.5" lang="ar" dir="rtl">{item.ar}</p>}
                 </div>
                 <span className="text-[11px] text-[var(--color-text-secondary)] italic whitespace-nowrap font-body">{item.note}</span>
-                {item.noteAr && <span className="text-[11px] text-[var(--color-text-secondary)] italic font-arabic whitespace-nowrap" lang="ar">{item.noteAr}</span>}
+                {item.noteAr && <span className="text-[11px] text-[var(--color-text-secondary)] italic font-arabic whitespace-nowrap" lang="ar" dir="rtl">{item.noteAr}</span>}
               </div>
             ))}
           </div>

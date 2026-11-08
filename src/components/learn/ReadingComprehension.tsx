@@ -122,7 +122,7 @@ export function ReadingComprehension() {
         </PracticeButton>
         {showTranslation && <>
           <p className="text-xs text-[var(--color-text-secondary)] italic mt-1">{text.translation}</p>
-          {text.ar && <span className="block font-arabic mt-1 text-xs text-[var(--color-text-secondary)] italic" lang="ar">{text.ar}</span>}
+          {text.ar && <span className="block font-arabic mt-1 text-xs text-[var(--color-text-secondary)] italic" lang="ar" dir="rtl">{text.ar}</span>}
         </>}
       </div>
 

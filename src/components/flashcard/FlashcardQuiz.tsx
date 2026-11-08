@@ -114,7 +114,7 @@ export function FlashcardQuiz({ card, pool, onComplete, index, total }: Props) {
           <p className="font-body text-sm" style={{ color: "var(--color-text-primary)" }}>{card.example.de}</p>
           <p className="font-body text-xs italic mt-0.5" style={{ color: "var(--color-text-disabled)" }}>{card.example.en}</p>
           {card.example.ar && (
-            <p className="font-arabic text-xs italic mt-0.5" style={{ color: "var(--color-text-disabled)" }} lang="ar">
+            <p className="font-arabic text-xs italic mt-0.5" style={{ color: "var(--color-text-disabled)" }} lang="ar" dir="rtl">
               {card.example.ar}
             </p>
           )}

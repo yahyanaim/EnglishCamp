@@ -8,7 +8,7 @@ import { GRAMMAR_PARAGRAPH_TRANSLATIONS, grammarTranslationKey } from '@/data/gr
 export function GrammarTranslation({ children, translation }: { children: ReactNode; translation: string }) {
  const [open,setOpen]=useState(false);
  return <Tooltip.Provider delayDuration={180}><Tooltip.Root open={open} onOpenChange={setOpen}>
-  <Tooltip.Trigger asChild><span className="camp-grammar-translation-trigger" tabIndex={0} onClick={()=>setOpen(true)}>{children}</span></Tooltip.Trigger>
+  <Tooltip.Trigger asChild><span className="camp-grammar-translation-trigger" tabIndex={0} onClick={event=>{event.preventDefault();setOpen(true);}} onKeyDown={event=>{if(event.key==='Enter'||event.key===' '){event.preventDefault();setOpen(value=>!value);}}}>{children}</span></Tooltip.Trigger>
   <Tooltip.Portal><Tooltip.Content side="bottom" align="start" sideOffset={8} collisionPadding={16} className="camp-grammar-translation-tooltip"><ArabicText text={translation}/><Tooltip.Arrow className="camp-grammar-translation-arrow"/></Tooltip.Content></Tooltip.Portal>
  </Tooltip.Root></Tooltip.Provider>;
 }

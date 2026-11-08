@@ -2,13 +2,14 @@ import { readSessionProfile, type SessionStorage } from "./sessionProfile";
 
 export const PROFILE_DIRECTORY_KEY = "englishcamp-session-learners-v1";
 export const learnerPrefix = (number: number) => `englishcamp-learner-v1:${number}:`;
+export const cloudLearnerPrefix = (id: string) => `englishcamp-cloud-learner-v1:${id}:`;
 type BrowserStorage = SessionStorage & Pick<Storage, "key" | "length">;
 
 /** Guests keep the original device storage. Named learners have separate tab-local records. */
 export function createLearnerStorage(device: SessionStorage, session: SessionStorage): SessionStorage {
   function target(key: string) {
     const profile = readSessionProfile(session);
-    return profile ? { storage: session, key: learnerPrefix(profile.number) + key } : { storage: device, key };
+    return profile?.cloudId ? {storage:device,key:cloudLearnerPrefix(profile.cloudId)+key} : profile ? { storage: session, key: learnerPrefix(profile.number) + key } : { storage: device, key };
   }
   return {
     getItem(key) { const value = target(key); return value.storage.getItem(value.key); },
@@ -25,7 +26,7 @@ export const learnerStorage: SessionStorage = {
 
 const excluded = new Set(["englishcamp-settings", "englishcamp-sidebar-sections"]);
 export function isLearningKey(key: string) {
-  return !excluded.has(key) && !key.startsWith("englishcamp-session-") && !key.startsWith("englishcamp-learner-") &&
+  return !excluded.has(key) && !key.startsWith("englishcamp-session-") && !key.startsWith("englishcamp-learner-") && !key.startsWith("englishcamp-cloud-") &&
     (key.startsWith("englishcamp-") || key.startsWith("srs-") || key === "speedmatch-best");
 }
 

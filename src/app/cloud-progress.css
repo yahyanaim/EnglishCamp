@@ -1,0 +1,12 @@
+.camp-session-modes{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.camp-session-modes>button{white-space:normal;min-width:0}
+.camp-cloud-panel,.camp-cloud-recovery{padding:16px;border:1px solid var(--color-border-default);border-radius:12px;background:var(--color-surface)}
+.camp-cloud-panel h2,.camp-cloud-recovery h2{font-size:16px;font-weight:700;margin-bottom:8px;color:var(--color-text-primary)}
+.camp-cloud-panel p,.camp-cloud-recovery p{font-size:14px;line-height:1.7;color:var(--color-text-secondary);margin-bottom:12px}
+.camp-cloud-panel form{display:grid;gap:10px}
+.camp-cloud-panel label{font-size:14px;font-weight:600}
+.camp-cloud-panel .camp-cloud-fine,.camp-cloud-recovery small{display:block;font-size:12px;line-height:1.7;margin:12px 0 0;color:var(--color-text-secondary)}
+.camp-cloud-recovery{background:var(--camp-purple-soft);border-color:var(--camp-purple)}
+.camp-cloud-recovery code{display:block;padding:12px;border-radius:8px;background:var(--color-surface);color:var(--camp-control-ink);font:500 14px/1.7 var(--font-mono),monospace;overflow-wrap:anywhere;user-select:all;margin-bottom:12px}
+.camp-cloud-recovery>div{display:flex;flex-wrap:wrap;gap:8px}
+@media(max-width:767px){.camp-cloud-recovery>div{display:grid;grid-template-columns:1fr}.camp-cloud-panel>button,.camp-cloud-recovery button{width:100%;min-height:44px;white-space:normal}.camp-session-modes>button{font-size:13px;min-height:44px}}

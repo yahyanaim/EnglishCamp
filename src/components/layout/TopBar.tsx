@@ -59,7 +59,7 @@ export function TopBar({ onMenuClick, menuOpen = false }: { onMenuClick?: () => 
       <Button variant="ghost" size="icon" onClick={onMenuClick} className="lg:hidden shrink-0" aria-label="Open navigation menu" aria-haspopup="dialog" aria-expanded={menuOpen}>
         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M3 5h14M3 10h14M3 15h14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" /></svg>
       </Button>
-      <SessionEntry />
+      <SessionEntry offerRecovery />
       <span className="sr-only">{pageTitle}</span>
       <Button variant="outline" aria-label="Search courses, lessons and practice" disabled={!mounted} onClick={() => setPaletteOpen(true)} className="camp-search" onPointerEnter={() => { void import("./CommandPalette"); }} onFocus={() => { void import("./CommandPalette"); }}>
         <Search size={17} /><span>Search courses, lessons and practice...</span><kbd>⌘ K</kbd>

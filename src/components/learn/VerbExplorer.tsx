@@ -147,7 +147,7 @@ export function VerbExplorer() {
                 }`}
               >
                 <span className="font-mono font-bold">{v.infinitive}</span>
-                <span className="text-xs text-[var(--color-text-secondary)] truncate max-w-[100px]">{v.arabic || v.english}</span>
+                <span className="text-xs text-[var(--color-text-secondary)] truncate max-w-[100px]" lang={v.arabic?'ar':'en'} dir={v.arabic?'rtl':'ltr'}>{v.arabic || v.english}</span>
               </PracticeButton>
             ))}
           </div>
@@ -170,7 +170,7 @@ export function VerbExplorer() {
               {activeVerb.arabic && (
                 <>
                   <span className="text-[var(--color-text-secondary)]">•</span>
-                  <span className="font-arabic text-sm text-[var(--color-text-primary)]" lang="ar">{activeVerb.arabic}</span>
+                  <span className="font-arabic text-sm text-[var(--color-text-primary)]" lang="ar" dir="rtl">{activeVerb.arabic}</span>
                 </>
               )}
             </div>
@@ -229,7 +229,7 @@ export function VerbExplorer() {
                 {activeVerb.examples.map((ex, i) => (
                   <div key={i} className="text-xs">
                     <p className="font-medium text-[var(--color-text-primary)]">• {ex.en}</p>
-                    {ex.ar && <p className="font-arabic text-[var(--color-text-secondary)] pl-3 mt-0.5" lang="ar">{ex.ar}</p>}
+                    {ex.ar && <p className="font-arabic text-[var(--color-text-secondary)] pl-3 mt-0.5" lang="ar" dir="rtl">{ex.ar}</p>}
                   </div>
                 ))}
               </div>

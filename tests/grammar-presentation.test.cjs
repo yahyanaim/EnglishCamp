@@ -15,7 +15,7 @@ test('the grammar UI pass preserves teaching banks, event handlers and initial l
 });
 test('the inline grammar explanations, examples and section labels remain unchanged',()=>{
  for(const [file,digest]of Object.entries(contract.inlineTeachingText)){
-  const source=fs.readFileSync(path.join(root,file),'utf8').replace('  ...GRAMMAR_EXTENSIONS.map(lesson=>({id:lesson.id,title:lesson.title,content:<GrammarFoundationLesson lesson={lesson}/>})),\n',''),a=ts.createSourceFile(file,source,99,true,4),words=[];
+  const source=fs.readFileSync(path.join(root,file),'utf8').replace('  ...GRAMMAR_EXTENSIONS.map(lesson=>({id:lesson.id,title:lesson.title,content:<GrammarFoundationLesson lesson={lesson}/>})),\n','').replace('  ...GRAMMAR_EXTENSIONS.map(lesson=>({id:lesson.id,title:lesson.title,content:<GrammarFoundationLesson lesson={lesson} translateOnInteraction/>})),\n',''),a=ts.createSourceFile(file,source,99,true,4),words=[];
   function walk(n){if(ts.isJsxText(n)){const text=n.text.replace(/\s+/g,' ').trim();if(text)words.push(text);}if(ts.isJsxAttribute(n)&&['de','en'].includes(n.name.text))words.push(n.name.text+':'+n.initializer.getText(a));if(ts.isPropertyAssignment(n)&&['title','id'].includes(n.name.getText(a)))words.push(n.name.getText(a)+':'+n.initializer.getText(a));ts.forEachChild(n,walk);}walk(a);
   assert.equal(hash(JSON.stringify(words)),digest,file);
  }

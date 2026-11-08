@@ -84,7 +84,7 @@ export default function ShadowingPage() {
         </section>
         <ShadowRecorder key={`recorder:${lesson.id}:${active}`} lineId={`${lesson.id}:${active}`} />
         <ShadowPracticeProgress key={`progress:${lesson.id}:${active}`} lesson={lesson} index={active}/>
-        <div className="camp-shadow-session-save"><ShieldCheck size={20}/><div><strong>{profile ? `Practising as ${profile.name}` : "Keep your learning under your name"}</strong><p>{profile ? "Your level and badges stay with this learning session." : "Sign in with a name. Your progress stays in this tab."}</p></div><SessionEntry/></div>
+        <div className="camp-shadow-session-save"><ShieldCheck size={20}/><div><strong>{profile ? `Practising as ${profile.name}` : "Keep your learning under your name"}</strong><p>{profile?.cloudId ? "Your progress and badges sync across your devices." : profile ? "This device-only session keeps your level and badges in this tab." : "Create a profile to keep progress and badges across devices."}</p></div><SessionEntry/></div>
         <details className="camp-shadow-task"><summary>Try it yourself</summary><p>{lesson.task}</p></details>
       </div>
       <aside className="camp-shadow-side" aria-label="Transcript and practice videos">

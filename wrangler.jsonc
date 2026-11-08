@@ -5,6 +5,14 @@
   "compatibility_date": "2026-11-05",
   "compatibility_flags": ["nodejs_compat"],
   "workers_dev": true,
+  "d1_databases": [
+    {
+      "binding": "LEARNERS_DB",
+      "database_name": "englishcamp-learners",
+      "database_id": "850283ff-e819-4c4f-8ed2-86360dcdb37d",
+      "migrations_dir": "migrations"
+    }
+  ],
   "assets": {
     "directory": ".cloudflare-build/app/out",
     "binding": "ASSETS",

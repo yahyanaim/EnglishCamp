@@ -9,6 +9,7 @@ import { useGoals } from "@/store/useGoals";
 
 let restoring = false;
 export const isRestoringLearner = () => restoring;
+export function restoringLearner<T>(apply:()=>T):T { const before=restoring;restoring=true;try{return apply();}finally{restoring=before;} }
 export function restoreLearnerStores() {
   restoring = true;
   try {

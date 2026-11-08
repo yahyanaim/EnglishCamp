@@ -136,7 +136,7 @@ export default function TypischeFehlerPage() {
                         <div className="camp-grammar-formation mt-2 p-3 bg-[var(--color-surface-alt)] rounded-[var(--radius-lg)]">
                           <p className="text-xs text-[var(--color-text-secondary)] leading-relaxed">{m.explanation}</p>
                         </div>
-                        <div className="camp-grammar-formation p-3 bg-[var(--color-surface-alt)] rounded-[var(--radius-lg)]" lang="ar">
+                        <div className="camp-grammar-formation p-3 bg-[var(--color-surface-alt)] rounded-[var(--radius-lg)]" lang="ar" dir="rtl">
                           <p className="text-xs text-[var(--color-text-secondary)] leading-relaxed">{m.explanationArabic}</p>
                         </div>
                         {m.tip && (

@@ -3,6 +3,8 @@
 @import "./practice-polish.css";
 @import "./vocab-speaking.css";
 @import "./mobile.css";
+@import "./arabic.css";
+@import "./cloud-progress.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

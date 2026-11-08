@@ -1,5 +1,5 @@
 {
-  "scope": "Site-wide decorative vector art and shared study surfaces; responsive course cards/filters, contrast, printable grammar, richer lesson recaps, explicit reviewed conjunction/word-pair/cloze/culture/letter practice corrections. Preserve full courses, mock banks, IDs, progress and notes. Reviewed vocabulary/speaking UI, English preposition filtering, additive themed word diagrams, listening/local speaking placement and level-specific planning. Automatic placement audio assessment, combined skill profile and adapted study sessions; existing course and mock content preserved. CEFR-aligned v2 diagnostic and certificate QR; additive grammar foundations and printable reference. Legacy test data, existing courses and saved learner progress retained. Reference-matched portrait certificate, compact result badge and evidence-based study readiness reviews; assessed scores and existing course content retained. The four new foundation lessons are listed only in the Cheat Sheet, as requested; Grammar Reference retains its original ten topics. Reviewed practice answer leaks, accepted grammar variants and gap placement; six distinct sourced grammar extensions, 60 new contextual word cards, shared reference completion and progress-aware planning. All prior course/module credit and all 207 earlier word cards remain unchanged. User-requested reference-only lessons and words: remove checks and reference XP controls; retain earned records and authored reading content. Remove only Grammar Reference from the Practice Hub. Shared numbered seals and automatic mascot celebrations for newly earned badges.",
+  "scope": "Site-wide decorative vector art and shared study surfaces; responsive course cards/filters, contrast, printable grammar, richer lesson recaps, explicit reviewed conjunction/word-pair/cloze/culture/letter practice corrections. Preserve full courses, mock banks, IDs, progress and notes. Reviewed vocabulary/speaking UI, English preposition filtering, additive themed word diagrams, listening/local speaking placement and level-specific planning. Automatic placement audio assessment, combined skill profile and adapted study sessions; existing course and mock content preserved. CEFR-aligned v2 diagnostic and certificate QR; additive grammar foundations and printable reference. Legacy test data, existing courses and saved learner progress retained. Reference-matched portrait certificate, compact result badge and evidence-based study readiness reviews; assessed scores and existing course content retained. The four new foundation lessons are listed only in the Cheat Sheet, as requested; Grammar Reference retains its original ten topics. Reviewed practice answer leaks, accepted grammar variants and gap placement; six distinct sourced grammar extensions, 60 new contextual word cards, shared reference completion and progress-aware planning. All prior course/module credit and all 207 earlier word cards remain unchanged. User-requested reference-only lessons and words: remove checks and reference XP controls; retain earned records and authored reading content. Remove only Grammar Reference from the Practice Hub. Shared numbered seals and automatic mascot celebrations for newly earned badges. Reviewed mobile answer-label wrapping and Arabic RTL/hover translations. User-approved D1 online profiles add hashed recovery/session credentials and privacy-filtered progress/badge sync; legacy guest and device-only learning remain available. Educational banks, task fingerprints, original fonts and Microsoft voice implementation are unchanged.",
   "files": {
     "src/app/artikel-meister/page.tsx": {
       "before": "2b14bdfc889f1933125eadc0cedc8c517d97d6bd0ea45f3cd0ba884b16c1dd08",
@@ -71,7 +71,7 @@
     },
     "src/app/essay-templates/page.tsx": {
       "before": "88b141f4574d39578f88202e65fe55878b752d0981a4904a35ecdf535e7fed71",
-      "after": "ef458a49064c71919185ed380cb103b13a015bbadcde8a4e23086fa89d663c43"
+      "after": "bd01dbbcbad9d17b1570daca23f02583c6a3282a1d3421065043d9d9df4f04d2"
     },
     "src/app/false-friends/page.tsx": {
       "before": "246c292596d397ee5a3980fa77c8d224b2292774db4778decc3f3408d58a6c52",
@@ -99,7 +99,7 @@
     },
     "src/app/globals.css": {
       "before": "db5239ba370465f4cef1e256f88936c44270e3cfa955f57da56973ac10ff3090",
-      "after": "dab2c5e5cf0691fdefcd3b5d7ee444651593c5230a195b702bd346ff362c464f"
+      "after": "d73c36c6643621f92a6f3a8857da4fc634511c8930d2d7cdda39588ccf8521bf"
     },
     "src/app/grammar/cheat-sheet/page.tsx": {
       "before": "f4080ddd53ece06906532fd13250f1f330090a616ed75efd598abc078f6ba282",
@@ -147,7 +147,7 @@
     },
     "src/app/konjunktiv-ii/page.tsx": {
       "before": "dbf8ef3077f8463b2725305dc06b94fdd6094f0d37b6ec8358bf63065cce74a0",
-      "after": "6fd0b2e07f3abac62c9d62144289a3620fef7be59c00312144ab47c83fa5e4c2"
+      "after": "25e451cc1f299b4cb585ce0b8c80a1da9c22dec0ee9a503e8d9d08d8034f42d5"
     },
     "src/app/konnektoren/page.tsx": {
       "before": "37b38a7810b9217b15e6b46898a3b80e556fb72782038c30746c5ef61ef224a8",
@@ -351,11 +351,11 @@
     },
     "src/app/typische-fehler/page.tsx": {
       "before": "9b48b964f76e3a7f752ac3db630c32f27de03782a9af98432dfceb5481be096c",
-      "after": "802a69a9c40f9d5f5d13e2d00e48b2cd38730479520c3f723cdbe89cbba76a3d"
+      "after": "bbca5e669c2ddafde151402d876f77fd19477b373c502798c5162b9415c0f8fc"
     },
     "src/app/unregelmaessige-verben/page.tsx": {
       "before": "8992e2d73640e905f0e0ee48e26a16a7900ede3ef847b977b6ecdcb82b166bea",
-      "after": "f15437170e6bb377f303b1b5dea89db9c01c68f9796b3703ea89ad72d3dae05c"
+      "after": "d09a995f65504808a231ecead669187a355aad6045da2ed14ec8afafc1ae36b2"
     },
     "src/app/verb-puzzle/page.tsx": {
       "before": "ee487bea2ad25cf571145ac1899d6fde030b330acf6c9de230423a57ff18c037",
@@ -471,11 +471,11 @@
     },
     "src/components/flashcard/FlashcardQuiz.tsx": {
       "before": "1c7c9de9cdf1f2b31f6f07d69bc0e62a23caa9b363816a8dfcba0bf31fd2bc75",
-      "after": "b170900569e635226c0d388e7a8a0afe8b6aea87f2efd16ac5fb7eba0e6eaf28"
+      "after": "c65ab3fd207c97f1a19fdd0b225a6752f88e839cc19f6e70ca8f56857c8da43c"
     },
     "src/components/flashcard/FlashcardWrite.tsx": {
       "before": "604ce84aef5c66badb79e4341e3f391e1409774e5b9d4aa083884b1fd6a9dde7",
-      "after": "9b56b9fafa6eaacfdb826e5d6afa8493343acfc89205ed15868c8934a3d75a68"
+      "after": "10492c93fa33d7ee5b1036b1fdced8b5c516ed1f178e8d4873367b957a4d37dd"
     },
     "src/components/layout/CommandPalette.tsx": {
       "before": "2566974f27dfaff52fd6acb2ad4c4261fde20f512ca9ae4ece9cdb636ca3cca2",
@@ -507,7 +507,7 @@
     },
     "src/components/layout/TopBar.tsx": {
       "before": "e421516f0d9520a3ceeb16620d89017c823cc512a3bbc0c1ea73fd58ddc82243",
-      "after": "9029d60b12b33f4ee849e894316af5001a9c341e23e04f979399df28da3f346f"
+      "after": "5d8a0daac1bd91c2a143d18caa22ec40f89c387321ab6fdb6e8aa62b71fef152"
     },
     "src/components/learn/AdjectiveEndingsTrainer.tsx": {
       "before": "2d1429c729d166a1daffab0ba83e6b4878321873453eb840938de02a634e2217",
@@ -603,7 +603,7 @@
     },
     "src/components/learn/GrammarReference.tsx": {
       "before": "a67934465a39090dc3814bd9f2047477c33cc399523d826bafb9c847e2c11a97",
-      "after": "82715ec559580de78708f87cff179e2552e0a09f48581a22026058510e10aa70"
+      "after": "f388680878861c07b535f8c3e5aff76aa9ce175c13aa051d68b288bdb9d5b661"
     },
     "src/components/learn/Hangman.tsx": {
       "before": "3372fb264472e3459fe0263777a1fe567713827bfc15c2076055031fa1cf4d03",
@@ -711,7 +711,7 @@
     },
     "src/components/learn/ReadingComprehension.tsx": {
       "before": "a497b33bc9d86aedfd2c95e35df7a9996a196934eb5c10d50423b06e55cb3c5b",
-      "after": "17247caa05655c5d2521b7bc7347e1c4b5a76e12dcda5af544a5e820a1dd149f"
+      "after": "4e95585db05f79af6632ac185a361015d890f86112492c4c1c40eff33c3d80e1"
     },
     "src/components/learn/RedemittelPraxis.tsx": {
       "before": "b49d64a2e0a39bcc916572973dbf2f7d1613f85d642274edeb7e6702af42667c",
@@ -719,7 +719,7 @@
     },
     "src/components/learn/ReflexiveVerbsTrainer.tsx": {
       "before": "1bc233d7d01a3e5326d122f976f749b30022db68a3c961b3dba928e848363260",
-      "after": "274fdecafa19678637fb4ad6869b97dc365c42315d5cfb174ff5431bd0eff35e"
+      "after": "20f220f6ac1a6fdbf0b11044b6849912d09284e67217fc745674ecf9b3b9ec83"
     },
     "src/components/learn/RelativeClausesTrainer.tsx": {
       "before": "6e8074bf5f16a54e99b9804f2bc30d786f644aed7ab3a9a34f69ffcb14c15862",
@@ -783,7 +783,7 @@
     },
     "src/components/learn/VerbExplorer.tsx": {
       "before": "bcbf30416d1e152457b9a16d96039edfc7c87f66511d27700a95891cfe498e99",
-      "after": "1022ad57892626332c677d96c2a6f61016bae3c729cc92d1d7228a45ca51ad6d"
+      "after": "92772ce36d9906b96c321d338c9cb247e6fad1c0562d60b77155362787d33c5a"
     },
     "src/components/learn/VerbPuzzle.tsx": {
       "before": "705efb6a554ae1e91d95ef87006a735bf942b7cde96649332564fdf0e6eebac5",
@@ -835,15 +835,15 @@
     },
     "src/components/session/SessionDialog.tsx": {
       "before": "38eff5e4d826c3b89f84482b8dcdd53a182e604ac5eecd360fc1ca81608a14ce",
-      "after": "ad40b965db0dc559609378ef9a72378488581a7ab9b7a30aa7238bcc23ef890a"
+      "after": "3b1aaaf2f17f531208fb549e9858519f1e1efd2aee09ce76ab373dc1d46171b4"
     },
     "src/components/session/SessionEntry.tsx": {
       "before": "774dfdf7e795974e910f31f48faca89a18a13c86926418319d3bfe5bf279385a",
-      "after": "b8f0993b731b8d0b981c2a3cea15b42e604eb8bfc1c03f47b27623929a2d111f"
+      "after": "f815de21300c9b506b1e9af0209c6fc995a3860c8288af4e2900889c79538cd6"
     },
     "src/components/session/SessionProvider.tsx": {
       "before": "99f785a510b7788f2cb36cd4290b444364144f99bb7ea5227956a055b60ecf18",
-      "after": "d6969e4cdc071017fc81e369318db782c2fb53414f1e35cbcfeb146234a6120f"
+      "after": "94948d36684972f116c385838d90b43d7378134802313c42a39bb196d05742e9"
     },
     "src/components/ui/ActivityChart.tsx": {
       "before": "d79e5ede0d1bb70546327ea32c91916a5a5ba22a201181224782a1be233d3df2",
@@ -1043,7 +1043,7 @@
     },
     "src/data/speech-catalogue.json": {
       "before": "d382431ade61fb7afa7a77b79a7a36589c5e90dac40c595ccc89108b8fc6c7c0",
-      "after": "dde1b5e238a469ff6a1feb2664db34f168adc914923680571722aa0f0f08a4cf"
+      "after": "f593d560f8b54f32ec3cd86ccf8905f5573cd00061ceef75adcfac953acea175"
     },
     "src/lib/speakingAssessment.ts": {
       "before": "dc9918177f3692537afa7f2cce98f892180313e0a7abf3f87f1a1adbeb191361",
@@ -1079,7 +1079,7 @@
     },
     "src/components/learn/GrammarFoundationLesson.tsx": {
       "before": "8e391b31d8d3c0d9eb91fc50fd5a6c65b245b2fc06d786041d8225f3bd7373cf",
-      "after": "7597d21701f98ae7358f9b22cbaf3c36c69c9f79dfa36f7bfb85c2994bf8e25f"
+      "after": "50e2b4b9804ecd31573162f611db549c1d4804729c9a5c248f9bb3b3d65b7316"
     },
     "src/data/essential-vocabulary-extra.ts": {
       "before": "cee96e17c02749a460e25d8a8404d49099d278c6f22f315e97fa5578ccf98374",
@@ -1112,6 +1112,42 @@
     "src/data/grammar-extensions.ts": {
       "before": "6d5d92f8bb2f633187827ee9901c2cc7103d62cb0cb88ac770046233b4a14230",
       "after": "18cb1df6ef65b1b10828a653e722bbf5cdcdb332f78e861899f1859b22973109"
+    },
+    "cloudflare/worker.ts": {
+      "before": "7d6da51677884a4087d9b9726461de5814651ff930922efea40a586f49f89b28",
+      "after": "fe9d9506fde0b5267eec1c5b9cb2ef9319c703ea466acadde009b41e927fca5e"
+    },
+    "src/app/practice-polish.css": {
+      "before": "5faf385352e78ded7cb8f4949608bd4fbd9438044f3556e47104e54a344d1047",
+      "after": "4774b531c67b2c015fe8eb903a80f15dd66fe50ad107a1e6447d6a8097923959"
+    },
+    "src/app/shadowing-english/page.tsx": {
+      "before": "f7c42cd10c28857f8cf7a866e45231254b20f89b25898e64793464094e349685",
+      "after": "f111c820a5cf701c75a5764ca435b6e36da416d446905073163c694a27cee38f"
+    },
+    "src/components/learn/GrammarTranslation.tsx": {
+      "before": "3ae512ce0a8eaebfc3f5975125f1ebd4d0d49a7d9aab4c187f2e8d8cc0a81f16",
+      "after": "971a72ce86508198d6295bc572e9cf62142d478e7e94dabfebefc52d3246956d"
+    },
+    "src/components/ui/ArabicText.tsx": {
+      "before": "0aa7469e29fc917803b57e5e26a7bcdea8b8e208dc418fd4f82ec7a7409e5901",
+      "after": "16442bf846fd9e0d21a92e2b18a401f44c1d501f15ae2b113f1866b61a503d45"
+    },
+    "src/lib/learnerProfiles.ts": {
+      "before": "fcc995ae9875de9ffed50f0f99bd8b585b93a5ffd734d3f31cf611f38b0c0fe6",
+      "after": "e247aa790387145210dd4d03711b54568fd29279df7d8f325b0b53cebcf47ac0"
+    },
+    "src/lib/learnerStorage.ts": {
+      "before": "ebf54c2c56443a7362f5ac925bcef31e7c14f4cf57bf0659c47655fe57c1f183",
+      "after": "61fdc733679520ff3549e9d1d63694f5418b650fc808910e2f597c33f1226050"
+    },
+    "src/lib/learnerStores.ts": {
+      "before": "38c2c3112dce2fb02860e99e4b584277b41231cd1757d40d5334441bacf67c26",
+      "after": "90e9b17e8840cb42ff90e2aadb4b1fd88d66e2fa84de78a09be7ce2000bc877f"
+    },
+    "src/lib/sessionProfile.ts": {
+      "before": "9cfd1ed7fa90ada87bc4f413b53e138b62da3a4e0d9631e7549329147b95e913",
+      "after": "385712efbd3195a152a04a4850db7231f48429c92c36dab8b753021c8060361e"
     }
   },
   "practicePresentation": {
@@ -1209,7 +1245,7 @@
     },
     "src/components/learn/GrammarReference.tsx": {
       "before": "26e7958c81cf35b50a9a44e133d6a67c94b68e811c0963cc2c993b0033a46269",
-      "after": "d5419c37ca4e9b56467729c124c07c1fc23dc41fa339d22c65dbc07bd2be4ad3"
+      "after": "03bf12c7b980c25f33e91865a9c011141ee5408b1a6f6bba42b03d0cf2de5e1c"
     },
     "src/components/learn/Hangman.tsx": {
       "before": "b0a9edefc1e0fe178fcdd7df85db67af5c3e59dbb2faa875d68ccf99bc87feb0",
@@ -1317,7 +1353,7 @@
     },
     "src/components/learn/ReadingComprehension.tsx": {
       "before": "9c5a30c3f58d75056628218d93182d6348fa9d32733e152c7e2d9e9b6f05064c",
-      "after": "8bb0ac0e5ab891b8134186b68f2407646b82dc115cbca7a03b3c320b393e0ae6"
+      "after": "bb8f476375a9c59f5c8c761fb263ff40fb923338ef08e08e5ba1840922a42950"
     },
     "src/components/learn/RedemittelPraxis.tsx": {
       "before": "0ae4006c82e99012f4cffc7e4220b1f5af6e5835a3fef27c1e5d6dead8416bd1",
@@ -1325,7 +1361,7 @@
     },
     "src/components/learn/ReflexiveVerbsTrainer.tsx": {
       "before": "b750778378e9bfc006543cb0c3b6c78c2557752e303a0ac9d2e0a3dd8f1c7ded",
-      "after": "d953437bc7e442adbb30d0cf9f411bf7afde6e588b25d6902a008091a3cf195c"
+      "after": "ee830980c0229da19d6dadcb4cdf1632d9ddfe34294b253ec27b47112ca9eb64"
     },
     "src/components/learn/RelativeClausesTrainer.tsx": {
       "before": "a2bef9f923aa4b00b07145b75e9b28ae993bec0e4150a1a29b9826c4f1d884bd",
@@ -1389,7 +1425,7 @@
     },
     "src/components/learn/VerbExplorer.tsx": {
       "before": "adec3091a65d9d2c73851ac25e0413ac8534641a505bb9b80182226b4031efc1",
-      "after": "fc1e4d5c392be2f3af09dddbee214c4667a31283a6c114479deb5ff629dea017"
+      "after": "c70662558fa923b1be62869101aeaeeaecca8714556bf27745ee852da38aadd8"
     },
     "src/components/learn/VerbPuzzle.tsx": {
       "before": "7a4629eb60e9af4d348f948823f22225fbb4dc601881590a65e8b9b93b4f5ef7",
@@ -1569,7 +1605,6 @@
     "src/lib/english-routes.mjs": "2c0ce9c39f978b80d05841a7488df8877955a70c82e3a9315a64c17d4ace1935",
     "src/lib/lessonNotes.ts": "a2ffa537a5237d20d06823a8c1d440274ce4f1eca7d202cfe5b1255165094601",
     "src/lib/mockExam.ts": "196e5509f6643884e37c8052fbf96367233553e081c8172aa87eb3b93861f640",
-    "src/lib/sessionProfile.ts": "9cfd1ed7fa90ada87bc4f413b53e138b62da3a4e0d9631e7549329147b95e913",
     "src/lib/streak.ts": "0ee11eab388dbbdca9b987ef036e86e3186beeedd689c7a9d836d8d4447d6977",
     "src/lib/translationPractice.ts": "fff4a1fd7dc2c2e34b08ae83257fe513e61c1ce049a3f30aa448f9e543699a24",
     "src/lib/useAppTranslation.ts": "a0dad8c6642545640789f2673fda7c2e5462882cc9059144c2c08b2279985e13",

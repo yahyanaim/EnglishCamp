@@ -112,7 +112,7 @@ export function ReflexiveVerbsTrainer() {
         </motion.div>
       </AnimatePresence>
 
-      <div className="flex flex-wrap justify-center gap-3 mb-5">
+      <div className="camp-reflexive-choices mb-5" role="group" aria-label="Reflexive pronoun choices">
         {ALL_REFLEXIVE.map((r) => {
           let style = "bg-[var(--color-surface-alt)] border-[var(--color-border-default)] hover:bg-[var(--camp-purple-soft)] hover:border-[var(--color-primary-light)] hover:text-[var(--camp-control-ink)]";
           if (selected) {
@@ -121,8 +121,8 @@ export function ReflexiveVerbsTrainer() {
             else style = "opacity-40";
           }
           return (
-            <PracticeButton key={r} onClick={() => handleSelect(r)} disabled={!!selected} className={`w-16 h-12 text-sm font-bold rounded-[var(--radius-lg)] border transition-all duration-200 ${style}`}>
-              {r}
+            <PracticeButton key={r} aria-label={r} data-long-choice={r.includes("/")} onClick={() => handleSelect(r)} disabled={!!selected} className={`min-h-12 px-3 py-3 text-sm font-bold rounded-[var(--radius-lg)] border transition-all duration-200 ${style}`}>
+              {r.replaceAll("/", " / ")}
             </PracticeButton>
           );
         })}

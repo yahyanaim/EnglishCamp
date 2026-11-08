@@ -50,9 +50,9 @@ export default function EssayTemplatesPage() {
                   <div className="flex items-start justify-between gap-3">
                     <div className="flex-1 min-w-0">
                       <h3 className="font-display font-bold text-[var(--color-text-primary)]">{template.title}</h3>
-                      {template.titleAr && <p className="text-xs font-arabic text-[var(--color-text-secondary)]" lang="ar">{template.titleAr}</p>}
+                      {template.titleAr && <p className="text-xs font-arabic text-[var(--color-text-secondary)]" lang="ar" dir="rtl">{template.titleAr}</p>}
                       <p className="text-xs text-[var(--color-text-secondary)] mt-0.5">{template.task}</p>
-                      {template.taskAr && <p className="text-xs text-[var(--color-text-secondary)] font-arabic" lang="ar">{template.taskAr}</p>}
+                      {template.taskAr && <p className="text-xs text-[var(--color-text-secondary)] font-arabic" lang="ar" dir="rtl">{template.taskAr}</p>}
                       <div className="flex items-center gap-2 mt-2">
                         <span className="text-[10px] font-display font-bold uppercase px-2 py-0.5 rounded-[var(--radius-pill)] bg-[var(--color-primary-subtle)] text-[var(--color-text-link)]">{template.level}</span>
                         <span className="text-[10px] text-[var(--color-text-secondary)]">{template.structure}</span>
@@ -78,14 +78,14 @@ export default function EssayTemplatesPage() {
                               <LearningArt name="BookOpen" size={14} className="w-3.5 h-3.5 text-[var(--color-primary)]" />
                               <p className="text-xs font-bold text-[var(--color-text-primary)] uppercase tracking-wider">{section.name}</p>
                               <span className="text-[10px] text-[var(--color-text-secondary)]">— {section.description}</span>
-                              {section.descriptionAr && <span className="text-[10px] text-[var(--color-text-secondary)] font-arabic" lang="ar">— {section.descriptionAr}</span>}
+                              {section.descriptionAr && <span className="text-[10px] text-[var(--color-text-secondary)] font-arabic" lang="ar" dir="rtl">— {section.descriptionAr}</span>}
                             </div>
                             <div className="flex flex-wrap gap-1.5">
                               {section.phrases.map((phrase, j) => (
                                 <span key={j} className="group relative text-xs bg-[var(--color-surface-alt)] text-[var(--color-text-secondary)] px-2.5 py-1.5 rounded-[var(--radius-md)] border border-[var(--color-border-default)] cursor-default transition-all hover:bg-[var(--color-primary-subtle)] hover:ring-brand-200">
                                   <span className="block group-hover:hidden">{phrase.de}</span>
                                   <span className="hidden group-hover:block text-[var(--color-text-link)] font-body font-semibold">{phrase.en}</span>
-                                  {phrase.ar && <span className="hidden group-hover:block text-xs text-[var(--color-text-secondary)] font-arabic" lang="ar">{phrase.ar}</span>}
+                                  {phrase.ar && <span className="hidden group-hover:block text-xs text-[var(--color-text-secondary)] font-arabic" lang="ar" dir="rtl">{phrase.ar}</span>}
                                 </span>
                               ))}
                             </div>
@@ -102,7 +102,7 @@ export default function EssayTemplatesPage() {
                                   <ArrowRight className="w-3 h-3 mt-0.5 shrink-0" />
                                   <div>
                                     <span>{tip}</span>
-                                    {template.tipsAr?.[i] && <p className="text-xs text-[var(--color-text-warning)]/80 font-arabic mt-0.5" lang="ar">{template.tipsAr[i]}</p>}
+                                    {template.tipsAr?.[i] && <p className="text-xs text-[var(--color-text-warning)]/80 font-arabic mt-0.5" lang="ar" dir="rtl">{template.tipsAr[i]}</p>}
                                   </div>
                                 </li>
                               ))}

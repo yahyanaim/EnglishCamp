@@ -2,19 +2,20 @@ export const PROFILE_KEY = "englishcamp-session-profile-v1";
 export const SIGN_IN_COUNT_KEY = "englishcamp-session-sign-ins-v1";
 export const FRUITS = ["apple", "pear", "orange", "lemon", "cherry", "strawberry", "grapes", "peach"] as const;
 export type Fruit = typeof FRUITS[number];
-export type SessionProfile = { version: 1; name: string; fruit: Fruit; number: number };
+export type SessionProfile = { version: 1; name: string; fruit: Fruit; number: number; cloudId?: string; cloudNumber?: number };
 export type SessionStorage = Pick<Storage, "getItem" | "setItem" | "removeItem">;
 
 export function profileTag(profile: SessionProfile) {
   const name = profile.name.normalize("NFKC").toLowerCase().replace(new RegExp("[^\\p{L}\\p{N}]+", "gu"), "").slice(0, 20) || "learner";
-  return `#${name}-${String(profile.number).padStart(4, "0")}`;
+  return `#${name}-${String(profile.cloudNumber ?? profile.number).padStart(4, "0")}`;
 }
 
 export function readSessionProfile(storage: SessionStorage): SessionProfile | null {
   try {
     const profile = JSON.parse(storage.getItem(PROFILE_KEY) || "null");
     if (profile?.version !== 1 || typeof profile.name !== "string" || !profile.name.trim() || profile.name.length > 40 || !FRUITS.includes(profile.fruit) || !Number.isSafeInteger(profile.number) || profile.number < 1) return null;
-    return { version: 1, name: profile.name, fruit: profile.fruit, number: profile.number };
+    const cloud=typeof profile.cloudId==='string'&&/^[a-f0-9-]{36}$/.test(profile.cloudId)&&Number.isSafeInteger(profile.cloudNumber)&&profile.cloudNumber>0?{cloudId:profile.cloudId,cloudNumber:profile.cloudNumber}:{};
+    return { version: 1, name: profile.name, fruit: profile.fruit, number: profile.number,...cloud };
   } catch { return null; }
 }
 

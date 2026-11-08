@@ -62,7 +62,7 @@ export default function UnregelmaessigeVerbenPage() {
                   <td className="px-4 py-2.5 font-mono font-bold text-[var(--color-text-primary)]">{v.infinitive}</td>
                   <td className="px-4 py-2.5 font-mono text-[var(--color-text-primary)]">{v.pastSimple || v.praeteritum}</td>
                   <td className="px-4 py-2.5 font-mono text-[var(--color-text-primary)]">{v.pastParticiple || v.perfekt}</td>
-                  <td className="px-4 py-2.5 text-[var(--color-text-secondary)] italic">{v.english}<br />{v.arabic && <span className="font-arabic" lang="ar">{v.arabic}</span>}</td>
+                  <td className="px-4 py-2.5 text-[var(--color-text-secondary)] italic">{v.english}<br />{v.arabic && <span className="font-arabic" lang="ar" dir="rtl">{v.arabic}</span>}</td>
                 </tr>
               ))}
             </tbody>
@@ -99,7 +99,7 @@ export default function UnregelmaessigeVerbenPage() {
               <span className="font-mono text-[var(--color-text-secondary)]">{allVerbs.verb.pastSimple || allVerbs.verb.praeteritum}</span>
               <span className="font-mono text-[var(--color-text-secondary)]">{allVerbs.verb.pastParticiple || allVerbs.verb.perfekt}</span>
               <span className="text-[var(--color-text-secondary)] italic">{allVerbs.verb.english}</span>
-              {allVerbs.verb.arabic && <span className="text-[var(--color-text-secondary)] italic font-arabic" lang="ar">{allVerbs.verb.arabic}</span>}
+              {allVerbs.verb.arabic && <span className="text-[var(--color-text-secondary)] italic font-arabic" lang="ar" dir="rtl">{allVerbs.verb.arabic}</span>}
             </div>
           </div>
         )}
