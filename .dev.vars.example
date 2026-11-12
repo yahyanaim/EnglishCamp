@@ -5,3 +5,8 @@ AZURE_SPEECH_REGION=""
 # OpenAI assessment has separate API costs and stays disabled unless configured.
 ENGLISHCAMP_SPEAKING_ENABLED="false"
 OPENAI_API_KEY=""
+# Google AI Studio key from a Free project. Never use a NEXT_PUBLIC_ variable.
+GEMINI_API_KEY=""
+# Optional private CPU service. Leave empty until that service is deployed.
+OPENPRONOUNCE_URL=""
+OPENPRONOUNCE_TOKEN=""

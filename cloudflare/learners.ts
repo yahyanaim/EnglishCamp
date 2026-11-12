@@ -1,5 +1,6 @@
 import { cleanProgress, cleanBadges, cleanEvents, eventKey, mergeProgress, mergeBadges, type CloudAccount, type CloudSnapshot } from '../src/lib/cloudProgress';
 import { FRUITS } from '../src/lib/sessionProfile';
+import {notesResponse} from './notes';
 
 interface Statement {
  bind(...values:unknown[]):Statement;
@@ -54,6 +55,7 @@ export async function learnerResponse(request:Request,env:LearnerEnv):Promise<Re
   if(action==='session'&&request.method==='GET')return reply({available:true,account:current?.account??null});
   if(!current)return reply({error:'Restore your profile with its recovery code to reconnect.'},401);
   if(request.headers.get('X-EnglishCamp-Learner')!==current.account.id)return reply({error:'Another learner is signed in in this browser. Reconnect your profile before syncing.',code:'learner_changed'},409);
+  if(action==='notes')return await notesResponse(request,db,current.account.id,request.method==='PUT'?await body(request):undefined);
   if(action==='logout'&&request.method==='POST'){await db.prepare('DELETE FROM cloud_sessions WHERE token_hash=?').bind(current.tokenHash).run();return reply({ok:true},200,cookie(request,'',0));}
   if(action==='profile'&&request.method==='DELETE'){const input=await body(request);if(input.confirm!=='delete')return reply({error:'Confirm deletion first.'},400);await db.prepare('DELETE FROM cloud_learners WHERE id=?').bind(current.account.id).run();return reply({ok:true},200,cookie(request,'',0));}
   if(action==='progress'&&request.method==='GET')return reply({account:current.account,snapshot:await snapshot(db,current.account.id)});

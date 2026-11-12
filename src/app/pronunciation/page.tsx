@@ -5,6 +5,7 @@ import { VocabularyPage } from "@/components/layout/VocabularyPage";
 import { speak } from "@/lib/audio";
 import { PRONUNCIATION_GUIDE, type PronunciationSound } from "@/data/pronunciation";
 import { Volume2 } from "lucide-react";
+import {PronunciationLab} from '@/components/speaking/PronunciationLab';
 
 export default function PronunciationPage() {
   const [activeSection, setActiveSection] = useState<string>(PRONUNCIATION_GUIDE[0]?.id ?? "");
@@ -18,6 +19,7 @@ export default function PronunciationPage() {
   return (
     <VocabularyPage title="Pronunciation guide" description="Listen, compare sounds and practise clear speech.">
       <div className="space-y-6">
+        <PronunciationLab/>
 
 
         <div className="camp-vocab-tabs">

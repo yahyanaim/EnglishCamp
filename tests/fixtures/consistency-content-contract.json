@@ -1,5 +1,5 @@
 {
-  "scope": "Site-wide decorative vector art and shared study surfaces; responsive course cards/filters, contrast, printable grammar, richer lesson recaps, explicit reviewed conjunction/word-pair/cloze/culture/letter practice corrections. Preserve full courses, mock banks, IDs, progress and notes. Reviewed vocabulary/speaking UI, English preposition filtering, additive themed word diagrams, listening/local speaking placement and level-specific planning. Automatic placement audio assessment, combined skill profile and adapted study sessions; existing course and mock content preserved. CEFR-aligned v2 diagnostic and certificate QR; additive grammar foundations and printable reference. Legacy test data, existing courses and saved learner progress retained. Reference-matched portrait certificate, compact result badge and evidence-based study readiness reviews; assessed scores and existing course content retained. The four new foundation lessons are listed only in the Cheat Sheet, as requested; Grammar Reference retains its original ten topics. Reviewed practice answer leaks, accepted grammar variants and gap placement; six distinct sourced grammar extensions, 60 new contextual word cards, shared reference completion and progress-aware planning. All prior course/module credit and all 207 earlier word cards remain unchanged. User-requested reference-only lessons and words: remove checks and reference XP controls; retain earned records and authored reading content. Remove only Grammar Reference from the Practice Hub. Shared numbered seals and automatic mascot celebrations for newly earned badges. Reviewed mobile answer-label wrapping and Arabic RTL/hover translations. User-approved D1 online profiles add hashed recovery/session credentials and privacy-filtered progress/badge sync; legacy guest and device-only learning remain available. Educational banks, task fingerprints, original fonts and Microsoft voice implementation are unchanged.",
+  "scope": "Site-wide decorative vector art and shared study surfaces; responsive course cards/filters, contrast, printable grammar, richer lesson recaps, explicit reviewed conjunction/word-pair/cloze/culture/letter practice corrections. Preserve full courses, mock banks, IDs, progress and notes. Reviewed vocabulary/speaking UI, English preposition filtering, additive themed word diagrams, listening/local speaking placement and level-specific planning. Automatic placement audio assessment, combined skill profile and adapted study sessions; existing course and mock content preserved. CEFR-aligned v2 diagnostic and certificate QR; additive grammar foundations and printable reference. Legacy test data, existing courses and saved learner progress retained. Reference-matched portrait certificate, compact result badge and evidence-based study readiness reviews; assessed scores and existing course content retained. The four new foundation lessons are listed only in the Cheat Sheet, as requested; Grammar Reference retains its original ten topics. Reviewed practice answer leaks, accepted grammar variants and gap placement; six distinct sourced grammar extensions, 60 new contextual word cards, shared reference completion and progress-aware planning. All prior course/module credit and all 207 earlier word cards remain unchanged. User-requested reference-only lessons and words: remove checks and reference XP controls; retain earned records and authored reading content. Remove only Grammar Reference from the Practice Hub. Shared numbered seals and automatic mascot celebrations for newly earned badges. Reviewed mobile answer-label wrapping and Arabic RTL/hover translations. User-approved D1 online profiles add hashed recovery/session credentials and privacy-filtered progress/badge sync; legacy guest and device-only learning remain available. Educational banks, task fingerprints, original fonts and Microsoft voice implementation are unchanged. November 2026 notes and AI: explicitly requested D1 lesson-note synchronization, EnglishCamp-mascot Gemini coach and optional OpenPronounce recording assessment; existing course banks, rewards, theme tokens, fonts and Microsoft implementation remain preserved.",
   "files": {
     "src/app/artikel-meister/page.tsx": {
       "before": "2b14bdfc889f1933125eadc0cedc8c517d97d6bd0ea45f3cd0ba884b16c1dd08",
@@ -99,7 +99,7 @@
     },
     "src/app/globals.css": {
       "before": "db5239ba370465f4cef1e256f88936c44270e3cfa955f57da56973ac10ff3090",
-      "after": "d73c36c6643621f92a6f3a8857da4fc634511c8930d2d7cdda39588ccf8521bf"
+      "after": "1553bede381e835f5a57300a7ac0e558d095f70f104ddb470ae538adbba96265"
     },
     "src/app/grammar/cheat-sheet/page.tsx": {
       "before": "f4080ddd53ece06906532fd13250f1f330090a616ed75efd598abc078f6ba282",
@@ -179,7 +179,7 @@
     },
     "src/app/my-notes/page.tsx": {
       "before": "a6c14b78108fbdf41abf353afef056673ce6891b31c69071f72c289f92dcba5e",
-      "after": "f53734189e7bf63529edc044f882b66bda003e50163e11bedecec1a711d8a780"
+      "after": "0c9cf8fce7f9d6f9a0b41a6f3853176173d5098ef21f9892d01c60cabee44963"
     },
     "src/app/n-deklination/page.tsx": {
       "before": "fa54d9ec79b0127b5c4c15c692100c951224b77557659fa4f4968a05e41df573",
@@ -239,7 +239,7 @@
     },
     "src/app/pronunciation/page.tsx": {
       "before": "b049355572096c2d0d56705a186af4ed3cf6663de44bc580a452b4d20c796b05",
-      "after": "fea4e86e4dfa91eff511643a63bfd5a7d9738d7fe0fa580adaa777ddaeecc4a4"
+      "after": "41c86cc0bd3c1697fc1a3b9f89cc0197a1ecd8738fc60b3145f009ab3b2e2481"
     },
     "src/app/quiz/[levelId]/page.tsx": {
       "before": "ea366100c581c82244eb9e56732d6a80e153aea6d25a5edead977739145b6cd0",
@@ -503,11 +503,11 @@
     },
     "src/components/layout/Sidebar.tsx": {
       "before": "d7c0a0e3b5a1cc1711f3efe53d7b1ec0d3056979c4e545e5b3b1af5ba5580e81",
-      "after": "4024ec5fb01dad2c0a8a990740f710fad97a5d30720795af597f24006a531194"
+      "after": "7805a6ffa30a28dfb8c68e395eee4aeb7ece65ce034d7705dfbeb6b9e45d413e"
     },
     "src/components/layout/TopBar.tsx": {
       "before": "e421516f0d9520a3ceeb16620d89017c823cc512a3bbc0c1ea73fd58ddc82243",
-      "after": "5d8a0daac1bd91c2a143d18caa22ec40f89c387321ab6fdb6e8aa62b71fef152"
+      "after": "e12f1c62c76f92f4da36b5712c0c8e4df57f10ed83c1eb5461f2df8a4ce653e5"
     },
     "src/components/learn/AdjectiveEndingsTrainer.tsx": {
       "before": "2d1429c729d166a1daffab0ba83e6b4878321873453eb840938de02a634e2217",
@@ -835,7 +835,7 @@
     },
     "src/components/session/SessionDialog.tsx": {
       "before": "38eff5e4d826c3b89f84482b8dcdd53a182e604ac5eecd360fc1ca81608a14ce",
-      "after": "3b1aaaf2f17f531208fb549e9858519f1e1efd2aee09ce76ab373dc1d46171b4"
+      "after": "972c35615cea5080bfcb941057a439b4121e4689fe543985d7543eb203fdef05"
     },
     "src/components/session/SessionEntry.tsx": {
       "before": "774dfdf7e795974e910f31f48faca89a18a13c86926418319d3bfe5bf279385a",
@@ -843,7 +843,7 @@
     },
     "src/components/session/SessionProvider.tsx": {
       "before": "99f785a510b7788f2cb36cd4290b444364144f99bb7ea5227956a055b60ecf18",
-      "after": "94948d36684972f116c385838d90b43d7378134802313c42a39bb196d05742e9"
+      "after": "5513352874bf40ab26c19a2dec1829003bac0bd56ad8ccbb385b77e56964be01"
     },
     "src/components/ui/ActivityChart.tsx": {
       "before": "d79e5ede0d1bb70546327ea32c91916a5a5ba22a201181224782a1be233d3df2",
@@ -855,7 +855,7 @@
     },
     "src/components/ui/NotesEditor.tsx": {
       "before": "552f69032b523d729cf39699b112cfdbe6a22607e11d0889a47c55b461185322",
-      "after": "a84fa1b82a0b6a6639192c8a23abfa8a0e7abe0b9bcdbe9080bc1fb25c08c9a7"
+      "after": "c5bba59582a744eeb0530ecb11c911a08813b1dac9b0f211a621e3717f5dd8cd"
     },
     "src/components/ui/PracticeSurface.tsx": {
       "before": "a33a40a61c0c1368878b47a8bd6bef5a4c9ebda27f134cba20553e5e1d67f643",
@@ -1115,7 +1115,7 @@
     },
     "cloudflare/worker.ts": {
       "before": "7d6da51677884a4087d9b9726461de5814651ff930922efea40a586f49f89b28",
-      "after": "fe9d9506fde0b5267eec1c5b9cb2ef9319c703ea466acadde009b41e927fca5e"
+      "after": "acd41ad9a8fcce86198af054d0855dcf0b9cceef473b848d6314ff416c6bd866"
     },
     "src/app/practice-polish.css": {
       "before": "5faf385352e78ded7cb8f4949608bd4fbd9438044f3556e47104e54a344d1047",
@@ -1123,7 +1123,7 @@
     },
     "src/app/shadowing-english/page.tsx": {
       "before": "f7c42cd10c28857f8cf7a866e45231254b20f89b25898e64793464094e349685",
-      "after": "f111c820a5cf701c75a5764ca435b6e36da416d446905073163c694a27cee38f"
+      "after": "17d9582102a274a8e5968a085a709e435cbaf580e548980f6c575b78939743ed"
     },
     "src/components/learn/GrammarTranslation.tsx": {
       "before": "3ae512ce0a8eaebfc3f5975125f1ebd4d0d49a7d9aab4c187f2e8d8cc0a81f16",
@@ -1148,6 +1148,14 @@
     "src/lib/sessionProfile.ts": {
       "before": "9cfd1ed7fa90ada87bc4f413b53e138b62da3a4e0d9631e7549329147b95e913",
       "after": "385712efbd3195a152a04a4850db7231f48429c92c36dab8b753021c8060361e"
+    },
+    "src/app/cloud-progress.css": {
+      "before": "a0cc6f4fdb0ab2d78993ee088ab9245c4e204bb66057986d31d9f608ae101f79",
+      "after": "4f30bc0336dd44a34431146087be17d09e65511899872fac22e26aace523b640"
+    },
+    "src/components/shadowing/ShadowRecorder.tsx": {
+      "before": "61af729bc2aaee757fc1731e82074525b143c855fc6312fed0094fe6b3dfc54e",
+      "after": "2733e6b72b22bae9c49ef296c00883648949ca27ac59a7ad60e9949d7809f321"
     }
   },
   "practicePresentation": {

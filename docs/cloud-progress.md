@@ -6,10 +6,10 @@ An online learner signs in with a display name and a generated `EC1-` recovery c
 
 - Display name, generated fruit avatar and stable profile number.
 - Course stages and completion evidence, completed exercises, XP, activity dates, flashcard review counters and quiz score summaries.
-- Completed daily-challenge summary and earned badges.
+- Completed daily-challenge summary, earned badges and saved lesson notes.
 - Hashed recovery credentials, hashed session tokens with expiry, and short-lived hashed rate-limit buckets for sign-in protection.
 
-Written answers, quiz answer arrays, notes, saved word-bank content, placement response text, assessment audio and microphone recordings are not included in synchronization. The server validates an explicit field allowlist before storing progress. Online profiles use a per-account device cache; they never share a cache merely because names match.
+Written answers, quiz answer arrays, saved word-bank content, placement response text, assessment audio and microphone recordings are not included in synchronization. The server validates an explicit field allowlist before storing progress. Online profiles use a per-account device cache; they never share a cache merely because names match.
 
 ## Synchronization
 
@@ -34,3 +34,7 @@ Database administration needs D1 access. The earlier Wrangler authorization cove
 ## Local verification
 
 The isolated QA configuration under `.camp-cache` uses a separate local D1 database and does not deploy it. Run both migrations with the local configuration and persist directory used by the QA Worker. `tests/cloud-progress-rtl.test.cjs` runs the same SQL against an in-memory SQLite database, checking recovery, account isolation, request validation, idempotent XP, privacy filtering and deletion boundaries. Browser QA additionally checks the real registration and recovery interfaces.
+
+## Lesson notes
+
+Saved lesson notes now synchronize through `/api/learners/notes`, separately from the progress allowlist. Existing online profiles import their current device notes. Notes retain a revision and each update has an idempotent operation ID. Offline edits remain queued. An edit based on an older revision cannot overwrite another device’s note: both copies remain available and the learner chooses which to retain. Clearing a note creates an empty tombstone, preventing stale copies from reappearing. Deleting the profile cascades its notes and operation IDs. Device-only notes stay local. New note edits are limited to 12,000 characters and sync in batches of four to remain within Workers Free query limits.

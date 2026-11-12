@@ -16,6 +16,7 @@ const PAGE_TITLES: Record<string, string> = {
   "/shadowing-english": "Shadowing English",
   "/dashboard": "Dashboard",
   "/my-notes": "My notes",
+  "/english-coach": "English coach",
   "/phrases-practice": "Phrases Practice",
   "/mock-exam": "Mock Examinations",
   "/verb-conjugation": "Verb Conjugation",

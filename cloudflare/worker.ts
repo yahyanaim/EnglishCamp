@@ -3,8 +3,10 @@ import { speechResponse, type SpeechEnv } from './speech';
 import { GET as speakingStatus, POST as speakingAssessment } from '../src/app/api/placement/speaking/route';
 import { GET as writingStatus, POST as writingAssessment } from '../src/app/api/placement/writing/route';
 import { learnerResponse, type LearnerEnv } from './learners';
+import {coachResponse,type CoachEnv} from './coach';
+import {pronunciationResponse,type PronunciationEnv} from './pronunciation';
 
-type Env = SpeechEnv & LearnerEnv & { ASSETS: { fetch(request: Request): Promise<Response> } };
+type Env = SpeechEnv & LearnerEnv & CoachEnv & PronunciationEnv & { ASSETS: { fetch(request: Request): Promise<Response> } };
 const json = (body: object, status: number) => Response.json(body, { status, headers: { 'Cache-Control': 'no-store' } });
 export default {
   async fetch(request: Request, env: Env): Promise<Response> {
@@ -15,6 +17,8 @@ export default {
     if (legacy || locale) { if (legacy) parts[0] = englishRoutes[legacy]; url.pathname = '/' + parts.join('/'); return Response.redirect(url.toString(), 308); }
     if (url.pathname === '/reading' || url.pathname === '/reading/') { url.pathname = '/vocabulary'; return Response.redirect(url.toString(), 307); }
     if (url.pathname.startsWith('/api/')) {
+      if(url.pathname==='/api/coach')return coachResponse(request,env);
+      if(url.pathname==='/api/pronunciation')return pronunciationResponse(request,env);
       if (url.pathname.startsWith('/api/learners/')) return learnerResponse(request,env);
       if (url.pathname === '/api/speech') return request.method === 'POST' ? speechResponse(request, env) : json({ error: 'Method not allowed.' }, 405);
       const endpoint = url.pathname === '/api/placement/speaking' ? { GET: speakingStatus, POST: speakingAssessment } : url.pathname === '/api/placement/writing' ? { GET: writingStatus, POST: writingAssessment } : undefined;

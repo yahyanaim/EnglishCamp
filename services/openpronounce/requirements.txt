@@ -1,0 +1,1 @@
+openpronounce[app,tts-piper] @ git+https://github.com/Halleck45/OpenPronounce.git@74bc17ea406e6f057f15eea0e70951e1931af868

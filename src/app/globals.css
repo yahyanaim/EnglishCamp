@@ -5,6 +5,7 @@
 @import "./mobile.css";
 @import "./arabic.css";
 @import "./cloud-progress.css";
+@import "./ai-practice.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

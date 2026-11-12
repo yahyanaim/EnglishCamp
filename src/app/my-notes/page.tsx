@@ -12,24 +12,27 @@ import { PageBanner } from "@/components/ui/PageBanner";
 import { NotesEditor } from "@/components/ui/NotesEditor";
 import { Input } from "@/components/ui/shadcn/input";
 import { Button } from "@/components/ui/shadcn/button";
+import {useCloudNotes} from '@/components/session/CloudNotesProvider';
+import {NoteConflictNotice} from '@/components/ui/NoteConflictNotice';
 
 export default function MyNotes() {
+  const cloud=useCloudNotes();
   const notes = useNotes(state => state.notes);
   const [ready, setReady] = useState(false);
   const [query, setQuery] = useState("");
   const [editing, setEditing] = useState<string | null>(null);
   useEffect(() => setReady(true), []);
-  const entries = useMemo(() => ready ? organiseLessonNotes(notes, courseCatalogue, query) : [], [ready, notes, query]);
+  const entries = useMemo(() => {if(!ready)return [];const visible={...notes};for(const id of Object.keys(cloud.conflicts))if(!visible[id]?.trim())visible[id]='This device cleared the note. Review the other device’s version below.';return organiseLessonNotes(visible,courseCatalogue,query);}, [ready, notes, query, cloud.conflicts]);
   const groups = Array.from(new Set(entries.map(note => note.courseId)));
   return <PageWrapper>
     <PageBanner><h1>My notes</h1><p>Your rules, examples and questions, organised by course and lesson.</p></PageBanner>
     <div className="camp-notes-toolbar"><label htmlFor="notes-search"><Search size={17} /><Input aria-label="Search my notes" id="notes-search" type="search" value={query} onChange={event => setQuery(event.target.value)} placeholder="Search lesson titles or your notes" /></label><span>{entries.length} {entries.length === 1 ? "lesson note" : "lesson notes"}</span></div>
-    <p className="camp-notes-privacy">Saved only in this browser on this device. Signing out of your name profile keeps your lesson notes. No note text is sent to an EnglishCamp server.</p>
+    <div className="camp-notes-sync"><p role="status">{cloud.status==='local'?'Device-only notes stay in this tab. Save your profile online to sync them across devices.':cloud.status==='syncing'?'Syncing your lesson notes…':cloud.message}</p>{cloud.status!=='local'&&<Button size="sm" variant="outline" disabled={cloud.status==='syncing'} onClick={()=>void cloud.sync()}>Sync notes</Button>}</div>
     {!ready ? <p role="status">Loading your notes…</p> : entries.length === 0 ? <div className="camp-notes-empty"><LearningArt name="NotebookPen" className="" /><h2>{query ? "No matching notes" : "A space for your own learning"}</h2><p>{query ? "Try another lesson name or a word from your note." : "Choose Add a note underneath a lesson video. It will appear here under the lesson’s name."}</p><Link prefetch={false} href="/dashboard#courses">Browse your courses <ArrowUpRight size={15} /></Link></div> : groups.map(group => {
       const items = entries.filter(note => note.courseId === group);
       return <section className="camp-notes-group" key={group}><h2>{items[0].courseTitle}<span>{items.length}</span></h2><div className="camp-notes-list">{items.map(note => <article className="camp-saved-note" key={note.lessonId}>
         <div className="camp-saved-note-heading"><div>{note.moduleNumber && <small>Module {note.moduleNumber}</small>}<h3>{note.title}</h3></div><Button variant="outline" size="sm" onClick={() => setEditing(editing === note.lessonId ? null : note.lessonId)}>{editing === note.lessonId ? "Close editor" : "Edit note"}</Button></div>
-        {editing === note.lessonId ? <NotesEditor key={note.lessonId} lessonId={note.lessonId} lessonTitle={note.title} /> : <p className="camp-note-text">{note.text}</p>}
+        {editing === note.lessonId ? <NotesEditor key={note.lessonId} lessonId={note.lessonId} lessonTitle={note.title} /> : <><p className="camp-note-text" dir="auto">{note.text}</p><NoteConflictNotice lessonId={note.lessonId}/></>}
         {note.href && <Link prefetch={false} href={note.href}>Open lesson <ArrowUpRight size={14} /></Link>}
       </article>)}</div></section>;
     })}

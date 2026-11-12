@@ -10,6 +10,7 @@ import { readPlacement } from "@/lib/placement";
 import { learnerStorage } from "@/lib/learnerStorage";
 import { learnerRecordingPrefix } from "@/lib/learnerStorage";
 import { CloudProgressProvider } from './CloudProgressProvider';
+import { CloudNotesProvider } from './CloudNotesProvider';
 
 type SessionContext = { profile: SessionProfile | null; ready: boolean; storageNotice: string; placementOffer: boolean; closePlacementOffer: () => void; offerPlacement:()=>void; signIn: (name: string) => boolean; signOut: () => boolean; deleteSession: () => boolean; activateCloud:(account:CloudAccount,linkCurrent?:boolean)=>boolean; canSwitch:()=>boolean };
 const Context = createContext<SessionContext | null>(null);
@@ -48,7 +49,7 @@ export function SessionProvider({ children }: { children: ReactNode }) {
     try { const prefix = learnerRecordingPrefix(profile.number); deleteLearnerSession(window.sessionStorage, profile, window.localStorage); void deleteLearnerTakes(prefix).catch(() => {}); stopNaturalSpeech(); restoreLearnerStores(); setProfile(null); setPlacementOffer(false); setStorageNotice(""); return true; }
     catch { setStorageNotice("Could not delete the learning session. Please retry."); return false; }
   }
-  return <Context.Provider value={{ profile, ready, storageNotice, placementOffer, closePlacementOffer: () => setPlacementOffer(false),offerPlacement:()=>setPlacementOffer(readPlacement(learnerStorage).status==='new'), signIn, signOut, deleteSession,activateCloud,canSwitch }}><CloudProgressProvider><div key={profile?.number ?? "guest"} className="camp-session-scope">{children}</div></CloudProgressProvider></Context.Provider>;
+  return <Context.Provider value={{ profile, ready, storageNotice, placementOffer, closePlacementOffer: () => setPlacementOffer(false),offerPlacement:()=>setPlacementOffer(readPlacement(learnerStorage).status==='new'), signIn, signOut, deleteSession,activateCloud,canSwitch }}><CloudProgressProvider><CloudNotesProvider><div key={profile?.number ?? "guest"} className="camp-session-scope">{children}</div></CloudNotesProvider></CloudProgressProvider></Context.Provider>;
 }
 export function useSessionProfile() {
   const value = useContext(Context);

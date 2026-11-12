@@ -37,6 +37,7 @@ const NAV_MAIN: NavLink[] = [
   { href: "/vocabulary", label: "Vocabulary", icon: BookHeart },
   { href: "/flashcards", label: "Flashcards", icon: BookOpen },
   { href: "/shadowing-english", label: "Shadowing English", icon: Mic },
+  { href: "/english-coach", label: "English coach", icon: MessageCircle },
 ];
 
 const NAV_SECTIONS: NavSection[] = [

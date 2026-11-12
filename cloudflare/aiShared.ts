@@ -1,0 +1,19 @@
+import type {LearnerDatabase} from './learners';
+export class AiError extends Error{constructor(message:string,readonly status=400){super(message);}}
+export const aiJson=(body:object,status=200)=>Response.json(body,{status,headers:{'Cache-Control':'no-store, private','X-Content-Type-Options':'nosniff'}});
+export function aiOrigin(request:Request){if(request.headers.get('origin')!==new URL(request.url).origin)throw new AiError('Open this activity on EnglishCamp to continue.',403);}
+export async function boundedBytes(request:Request,max:number){const length=Number(request.headers.get('content-length')||0);if(length>max)throw new AiError('This submission is too large.',413);const reader=request.body?.getReader();if(!reader)throw new AiError('Add a message or recording first.');const chunks:Uint8Array[]=[];let size=0;while(true){const next=await reader.read();if(next.done)break;size+=next.value.length;if(size>max){await reader.cancel();throw new AiError('This submission is too large.',413);}chunks.push(next.value);}const bytes=new Uint8Array(size);let at=0;for(const c of chunks){bytes.set(c,at);at+=c.length;}return bytes;}
+export async function aiBody(request:Request,max:number){if(!request.headers.get('content-type')?.startsWith('application/json'))throw new AiError('Use a valid JSON submission.');try{const value=JSON.parse(new TextDecoder().decode(await boundedBytes(request,max)));if(!value||typeof value!=='object'||Array.isArray(value))throw new AiError('Use a valid submission.');return value;}catch(e){if(e instanceof AiError)throw e;throw new AiError('This submission could not be read.');}}
+/** Validate only the small canonical header at the edge; expensive signal analysis runs on the CPU service. */
+export function wavBase64(audio:unknown,maxSeconds=30):audio is string{
+ if(typeof audio!=='string'||audio.length>1410000||audio.length%4!==0||!/^[A-Za-z0-9+/]+={0,2}$/.test(audio))return false;
+ try{const size=audio.length/4*3-(audio.endsWith('==')?2:audio.endsWith('=')?1:0),header=Uint8Array.from(atob(audio.slice(0,64)),c=>c.charCodeAt(0));if(header.length<44)return false;const v=new DataView(header.buffer),label=(at:number,length:number)=>new TextDecoder().decode(header.slice(at,at+length)),seconds=(size-44)/32000;return label(0,4)==='RIFF'&&label(8,4)==='WAVE'&&label(12,4)==='fmt '&&label(36,4)==='data'&&v.getUint32(4,true)===size-8&&v.getUint32(16,true)===16&&v.getUint16(20,true)===1&&v.getUint16(22,true)===1&&v.getUint32(24,true)===16000&&v.getUint32(28,true)===32000&&v.getUint16(32,true)===2&&v.getUint16(34,true)===16&&v.getUint32(40,true)===size-44&&(size-44)%2===0&&seconds>=3&&seconds<=maxSeconds+3;}catch{return false;}
+}
+async function digest(value:string){return Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(value)))).map(x=>x.toString(16).padStart(2,'0')).join('');}
+/** Shared SQL limits survive Worker restarts. No messages, recordings or raw IP addresses are stored. */
+export async function aiQuota(request:Request,db:LearnerDatabase,kind:'coach'|'pronunciation'){
+ const now=Math.floor(Date.now()/1000),ip=request.headers.get('CF-Connecting-IP')||'local';
+ const limits=kind==='coach'?[[60,5,false],[86400,30,false],[86400,200,true]]:[[60,2,false],[86400,15,false],[86400,100,true]];
+ await db.prepare('DELETE FROM cloud_ai_limits WHERE expires_at<?').bind(now).run();
+ for(const [period,limit,global] of limits){const expiry=(Math.floor(now/Number(period))+1)*Number(period),bucket=await digest(`${kind}:${global?'global':ip}:${period}:${expiry}`);const result=await db.prepare('INSERT INTO cloud_ai_limits(bucket,used,expires_at) VALUES(?,1,?) ON CONFLICT(bucket) DO UPDATE SET used=used+1 WHERE used<? RETURNING used').bind(bucket,expiry,limit).first<{used:number}>();if(!result)throw new AiError('The practice allowance has been reached. Please try again later; your draft is kept.',429);}
+}
