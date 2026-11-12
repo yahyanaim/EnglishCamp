@@ -835,7 +835,7 @@
     },
     "src/components/session/SessionDialog.tsx": {
       "before": "38eff5e4d826c3b89f84482b8dcdd53a182e604ac5eecd360fc1ca81608a14ce",
-      "after": "972c35615cea5080bfcb941057a439b4121e4689fe543985d7543eb203fdef05"
+      "after": "a81155d80146c41cdc40659dbd11af4e2669cae8dee79321b4a1ba4f7d4fae8f"
     },
     "src/components/session/SessionEntry.tsx": {
       "before": "774dfdf7e795974e910f31f48faca89a18a13c86926418319d3bfe5bf279385a",
@@ -1151,7 +1151,7 @@
     },
     "src/app/cloud-progress.css": {
       "before": "a0cc6f4fdb0ab2d78993ee088ab9245c4e204bb66057986d31d9f608ae101f79",
-      "after": "4f30bc0336dd44a34431146087be17d09e65511899872fac22e26aace523b640"
+      "after": "e58f316e008b6425d368a2a1206840bf460792262c7c2f36629c6756424a242b"
     },
     "src/components/shadowing/ShadowRecorder.tsx": {
       "before": "61af729bc2aaee757fc1731e82074525b143c855fc6312fed0094fe6b3dfc54e",

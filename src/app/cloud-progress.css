@@ -11,3 +11,14 @@
 .camp-cloud-recovery code{display:block;padding:12px;border-radius:8px;background:var(--color-surface);color:var(--camp-control-ink);font:500 14px/1.7 var(--font-mono),monospace;overflow-wrap:anywhere;user-select:all;margin-bottom:12px}
 .camp-cloud-recovery>div{display:flex;flex-wrap:wrap;gap:8px}
 @media(max-width:767px){.camp-cloud-recovery>div{display:grid;grid-template-columns:1fr}.camp-cloud-panel>button,.camp-cloud-recovery button{width:100%;min-height:44px;white-space:normal}.camp-session-modes>button{font-size:13px;min-height:44px}}
+
+/* Private device connection uses the same session panel and library controls. */
+.camp-device-sync{border:1px solid var(--color-border-default);border-radius:12px;padding:16px;background:var(--color-surface)}
+.camp-device-sync h3{display:flex;align-items:center;gap:8px;font-size:15px;font-weight:700;color:var(--color-text-primary)}
+.camp-device-sync p,.camp-device-connect p{font-size:14px;line-height:1.75;color:var(--color-text-secondary);margin-block:10px}
+.camp-device-sync p:empty{display:none}.camp-device-actions{display:flex;flex-wrap:wrap;gap:8px}
+.camp-device-qr{display:grid;justify-items:center;gap:8px;margin-block:14px}.camp-device-qr img{display:block;width:224px;height:auto;max-width:100%;border-radius:8px;background:white}.camp-device-qr span{font-size:12px;color:var(--color-text-secondary);font-variant-numeric:tabular-nums}
+.camp-device-connect{padding:20px;max-width:640px;min-width:0}.camp-device-connect>header{display:flex;align-items:center;gap:12px}.camp-device-connect h2{font:800 20px/1.4 var(--font-display),sans-serif}.camp-device-connect header p{margin:3px 0 0;font-size:13px}
+.camp-device-identity{display:flex;align-items:center;gap:12px;padding:14px;background:var(--camp-purple-soft);border-radius:10px;margin-block:18px}.camp-device-identity>div{min-width:0;display:grid;gap:3px}.camp-device-identity small{font-size:12px;color:var(--color-text-secondary)}.camp-device-identity strong{overflow-wrap:anywhere;font-size:17px;color:var(--color-text-primary)}
+.camp-device-sync .camp-device-error,.camp-device-connect .camp-device-error{color:var(--color-text-error);font-size:13px}.camp-device-connect .camp-device-fine{font-size:12px;line-height:1.75;margin-top:16px}
+@media(max-width:600px){.camp-device-sync,.camp-device-connect{padding:14px}.camp-device-actions{display:grid;grid-template-columns:1fr}.camp-device-sync button,.camp-device-connect>button{min-height:44px;max-width:100%;width:100%;white-space:normal}.camp-device-connect h2{font-size:18px}}

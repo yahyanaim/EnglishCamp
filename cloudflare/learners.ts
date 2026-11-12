@@ -1,6 +1,7 @@
 import { cleanProgress, cleanBadges, cleanEvents, eventKey, mergeProgress, mergeBadges, type CloudAccount, type CloudSnapshot } from '../src/lib/cloudProgress';
 import { FRUITS } from '../src/lib/sessionProfile';
 import {notesResponse} from './notes';
+import { DEVICE_LINK_TTL, validDeviceToken } from '../src/lib/deviceLink';
 
 interface Statement {
  bind(...values:unknown[]):Statement;
@@ -51,10 +52,46 @@ export async function learnerResponse(request:Request,env:LearnerEnv):Promise<Re
    const token=secret(),now=Math.floor(Date.now()/1000);await db.batch([db.prepare('DELETE FROM cloud_sessions WHERE expires_at<?').bind(now),db.prepare('INSERT INTO cloud_sessions(token_hash,learner_id,expires_at) VALUES(?,?,?)').bind(await hash(token),account.id,now+2592000)]);
    return reply({account,snapshot:await snapshot(db,account.id)},200,cookie(request,token));
   }
+  if(['device-link/preview','device-link/claim'].includes(action)&&request.method==='POST'){
+   if(!await rate(request,db,action))return reply({error:'Too many connection attempts. Please try again shortly.'},429);
+   const input=await body(request);if(!validDeviceToken(input.token))return reply({error:'This connection link is invalid. Scan a new QR code.'},400);
+   const tokenHash=await hash(input.token),now=Math.floor(Date.now()/1000);
+   const link=await db.prepare('SELECT l.id,l.name,l.number,l.fruit,d.expires_at FROM cloud_device_links d JOIN cloud_learners l ON l.id=d.learner_id WHERE d.token_hash=? AND d.expires_at>? AND d.used_at IS NULL').bind(tokenHash,now).first<CloudAccount&{expires_at:number}>();
+   if(!link)return reply({error:'This QR code has expired or was already used. Create a new code on your other device.'},410);
+   if(action==='device-link/preview')return reply({name:link.name,fruit:link.fruit,expiresAt:link.expires_at});
+   if(input.confirm!==true)return reply({error:'Confirm connecting this device first.'},400);
+   const token=secret();
+   // D1 runs this batch as one transaction: only the first claimant gets a session.
+   const result=await db.batch([
+    db.prepare('INSERT INTO cloud_sessions(token_hash,learner_id,expires_at) SELECT ?,learner_id,? FROM cloud_device_links WHERE token_hash=? AND expires_at>? AND used_at IS NULL').bind(await hash(token),now+2592000,tokenHash,now),
+    db.prepare('UPDATE cloud_device_links SET used_at=? WHERE token_hash=? AND expires_at>? AND used_at IS NULL').bind(now,tokenHash,now),
+   ]);
+   if(result[0]?.meta.changes!==1)return reply({error:'This QR code was already used. Create another code on your other device.'},410);
+   const account:CloudAccount={id:link.id,name:link.name,number:link.number,fruit:link.fruit};
+   return reply({account,snapshot:await snapshot(db,link.id)},200,cookie(request,token));
+  }
   const current=await session(request,db);
   if(action==='session'&&request.method==='GET')return reply({available:true,account:current?.account??null});
   if(!current)return reply({error:'Restore your profile with its recovery code to reconnect.'},401);
   if(request.headers.get('X-EnglishCamp-Learner')!==current.account.id)return reply({error:'Another learner is signed in in this browser. Reconnect your profile before syncing.',code:'learner_changed'},409);
+  if(action==='device-link'&&request.method==='POST'){
+   if(!await rate(request,db,'device-link/create'))return reply({error:'Too many QR codes. Please wait before creating another.'},429);
+   const token=secret(),now=Math.floor(Date.now()/1000),expiresAt=now+DEVICE_LINK_TTL;
+   await db.batch([
+    db.prepare('DELETE FROM cloud_device_links WHERE expires_at<=?').bind(now),
+    db.prepare('INSERT INTO cloud_device_links(token_hash,learner_id,expires_at,used_at) VALUES(?,?,?,NULL) ON CONFLICT(learner_id) DO UPDATE SET token_hash=excluded.token_hash,expires_at=excluded.expires_at,used_at=NULL').bind(await hash(token),current.account.id,expiresAt),
+   ]);
+   return reply({token,expiresAt},201);
+  }
+  if(action==='device-link'&&request.method==='DELETE'){
+   const input=await body(request);if(!validDeviceToken(input.token))return reply({error:'Invalid device link.'},400);
+   await db.prepare('DELETE FROM cloud_device_links WHERE learner_id=? AND token_hash=?').bind(current.account.id,await hash(input.token)).run();return reply({ok:true});
+  }
+  if(action==='device-link/status'&&request.method==='POST'){
+   const input=await body(request);if(!validDeviceToken(input.token))return reply({error:'Invalid device link.'},400);
+   const link=await db.prepare('SELECT used_at,expires_at FROM cloud_device_links WHERE learner_id=? AND token_hash=?').bind(current.account.id,await hash(input.token)).first<{used_at:number|null;expires_at:number}>();
+   return reply({state:link?.used_at!=null?'connected':!link||link.expires_at<=Math.floor(Date.now()/1000)?'expired':'pending'});
+  }
   if(action==='notes')return await notesResponse(request,db,current.account.id,request.method==='PUT'?await body(request):undefined);
   if(action==='logout'&&request.method==='POST'){await db.prepare('DELETE FROM cloud_sessions WHERE token_hash=?').bind(current.tokenHash).run();return reply({ok:true},200,cookie(request,'',0));}
   if(action==='profile'&&request.method==='DELETE'){const input=await body(request);if(input.confirm!=='delete')return reply({error:'Confirm deletion first.'},400);await db.prepare('DELETE FROM cloud_learners WHERE id=?').bind(current.account.id).run();return reply({ok:true},200,cookie(request,'',0));}
