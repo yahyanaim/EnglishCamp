@@ -22,9 +22,11 @@ Apply `0004_ai_limits.sql`, configure the Gemini key as a Cloudflare Worker secr
 
 ## Verification
 
-The release passes the 295 JavaScript tests, TypeScript checking, the complete static course export and the Worker dry run. Six Python adapter tests cover the transport with a stubbed engine; they do not establish real pronunciation inference.
+The release includes 295 application tests and two font-bundling tests, TypeScript checking, the complete static course export and the Worker dry run. Six Python adapter tests cover the transport with a stubbed engine; they do not establish real pronunciation inference.
 
 Two separate browser origins restored the same test profile and retrieved its lesson note. A draft started before another device's edit retained its original revision: saving it displayed both versions, and the selected version synchronized successfully. The conversation page received a real Gemini reply and corrected “Yesterday I go” to “Yesterday I went”. A separate real audio request transcribed a fixed, authored learning recording. Responsive checks include a 320 CSS-pixel conversation viewport. Temporary provider overloads preserve the draft and show an error instead of inventing a result.
+
+The first GitHub build encountered a Google Fonts URL-format failure in Next.js's remote font loader. The same four font families and versions are now bundled as WOFF2 with their licences, retaining the original requested weights, variables and fallback lists. No Google download is needed during deployment. See [font provenance and checks](../src/assets/fonts/README.md).
 
 ## OpenPronounce
 

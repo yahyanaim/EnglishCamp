@@ -1,0 +1,62 @@
+[
+  {
+    "family": "Nunito",
+    "file": "nunito.woff2",
+    "version": "Version 3.602",
+    "axes": {
+      "wght": [
+        200.0,
+        1000.0
+      ]
+    },
+    "sha256": "acd37088f076ae2aa320961831e308b56d18f25ae5c18ea5ab3e6a7c6c83bad3",
+    "source": "https://github.com/google/fonts/tree/main/ofl/nunito",
+    "licence": "nunito-OFL.txt"
+  },
+  {
+    "family": "DM Sans",
+    "file": "dmsans.woff2",
+    "version": "Version 4.004;gftools[0.9.30]",
+    "axes": {
+      "opsz": [
+        9.0,
+        40.0
+      ],
+      "wght": [
+        100.0,
+        1000.0
+      ]
+    },
+    "sha256": "a383f9ddc1ad42bc68f8e2a461f0cf4e95a3783555b21d529d63fdd751029f44",
+    "source": "https://github.com/google/fonts/tree/main/ofl/dmsans",
+    "licence": "dmsans-OFL.txt"
+  },
+  {
+    "family": "JetBrains Mono",
+    "file": "jetbrainsmono.woff2",
+    "version": "Version 2.211",
+    "axes": {
+      "wght": [
+        100.0,
+        800.0
+      ]
+    },
+    "sha256": "8904ab9b64a59635228491aa027ca609fb676d87fa1dd759d241bb8940832994",
+    "source": "https://github.com/google/fonts/tree/main/ofl/jetbrainsmono",
+    "licence": "jetbrainsmono-OFL.txt"
+  },
+  {
+    "family": "Noto Naskh Arabic",
+    "file": "notonaskharabic.woff2",
+    "version": "Version 2.021",
+    "axes": {
+      "wght": [
+        400.0,
+        700.0
+      ]
+    },
+    "sha256": "16807fcb7534fce0096cc7a28c6059fbd2f57adcbd4e6e7e800b49be7cd98ecf",
+    "source": "https://github.com/google/fonts/tree/main/ofl/notonaskharabic",
+    "licence": "notonaskharabic-OFL.txt"
+  }
+]

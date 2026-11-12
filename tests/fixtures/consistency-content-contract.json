@@ -1156,6 +1156,10 @@
     "src/components/shadowing/ShadowRecorder.tsx": {
       "before": "61af729bc2aaee757fc1731e82074525b143c855fc6312fed0094fe6b3dfc54e",
       "after": "2733e6b72b22bae9c49ef296c00883648949ca27ac59a7ad60e9949d7809f321"
+    },
+    "src/app/layout.tsx": {
+      "before": "3ee603b8cfabce8458e3bdd0d818d0ac6c2da0fce842b0e8f2927298e184411f",
+      "after": "a9c15a1a3691462324854c163256fd647c6472245806ebddd1980929f91b4a27"
     }
   },
   "practicePresentation": {
@@ -1619,9 +1623,10 @@
     "src/lib/utils.ts": "d1f1e0d62cb8d8d1e04c26e14de842d8a151f75812d81b046c65b5d1fe8e4b27",
     "src/lib/xp.ts": "e9cc14c22fd2891ce06b5d1d6380073189612875a437f9659c64dd56da4f7a46"
   },
-  "fontSetup": "aeed29b7ba90cc97ff2b5d6ca48b9185379860ee0e003f8b53400f20a8a7e3df",
+  "fontSetup": "d864b2a30b2a6c31d500c68c0ef1ef698e76ed623558a6964647d923f041fdca",
   "practiceCatalogue": {
     "before": "82b1d90f269b581479ed2f366e8a0a62398a19d44975f08faab17fa1934afc7c",
     "after": "0d449f22d5c4356e07d8e23597df5841827e14c38dea29a76a350b5552a532dd"
-  }
+  },
+  "fontSetupBeforeLocalFiles": "aeed29b7ba90cc97ff2b5d6ca48b9185379860ee0e003f8b53400f20a8a7e3df"
 }

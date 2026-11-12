@@ -1,34 +1,50 @@
 import { ThemeProvider } from "next-themes";
 import { LayoutShell } from "@/components/layout/LayoutShell";
 import { FocusProvider } from "@/components/ui/FocusMode";
-import { Nunito, DM_Sans, JetBrains_Mono, Noto_Naskh_Arabic } from "next/font/google";
+import localFont from "next/font/local";
 import type { Metadata } from "next";
 import "./globals.css";
 
-const nunito = Nunito({
-  subsets: ["latin"],
+// Bundle the same font families so deployment does not depend on a remote CSS response.
+const nunito = localFont({
+  src: [
+    {path: "../assets/fonts/nunito.woff2", weight: "400", style: "normal"},
+    {path: "../assets/fonts/nunito.woff2", weight: "600", style: "normal"},
+    {path: "../assets/fonts/nunito.woff2", weight: "700", style: "normal"},
+    {path: "../assets/fonts/nunito.woff2", weight: "800", style: "normal"},
+    {path: "../assets/fonts/nunito.woff2", weight: "900", style: "normal"},
+  ],
   variable: "--font-display",
-  weight: ["400", "600", "700", "800", "900"],
   display: "swap",
   fallback: ["system-ui", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "sans-serif"],
 });
-const dmSans = DM_Sans({
-  subsets: ["latin"],
+const dmSans = localFont({
+  src: [
+    {path: "../assets/fonts/dmsans.woff2", weight: "400", style: "normal"},
+    {path: "../assets/fonts/dmsans.woff2", weight: "500", style: "normal"},
+    {path: "../assets/fonts/dmsans.woff2", weight: "600", style: "normal"},
+    {path: "../assets/fonts/dmsans.woff2", weight: "700", style: "normal"},
+  ],
   variable: "--font-body",
-  weight: ["400", "500", "600", "700"],
   display: "swap",
   fallback: ["system-ui", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "sans-serif"],
 });
-const jbMono = JetBrains_Mono({
-  subsets: ["latin"],
+const jbMono = localFont({
+  src: "../assets/fonts/jetbrainsmono.woff2",
+  weight: "100 800",
+  style: "normal",
   variable: "--font-mono",
   display: "swap",
   fallback: ["ui-monospace", "SFMono-Regular", "Menlo", "Monaco", "Consolas", "monospace"],
 });
-const arabicFont = Noto_Naskh_Arabic({
-  subsets: ["arabic"],
+const arabicFont = localFont({
+  src: [
+    {path: "../assets/fonts/notonaskharabic.woff2", weight: "400", style: "normal"},
+    {path: "../assets/fonts/notonaskharabic.woff2", weight: "500", style: "normal"},
+    {path: "../assets/fonts/notonaskharabic.woff2", weight: "600", style: "normal"},
+    {path: "../assets/fonts/notonaskharabic.woff2", weight: "700", style: "normal"},
+  ],
   variable: "--font-arabic",
-  weight: ["400", "500", "600", "700"],
   display: "swap",
   fallback: ["system-ui", "Arial", "sans-serif"],
 });

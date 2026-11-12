@@ -11,7 +11,7 @@ test('recaps, notes and branding preserve authored course data, saved learning s
   if(prior.files[file])assert.equal(delta.before,prior.files[file].after,file+' prior reviewed boundary');
   assert.equal(hash(read(file)),consistency.files[file]?.after??delta.after,file+' authorised feature delta');
  }
- assert.equal(hash(read('src/app/layout.tsx').toString().split('export const metadata')[0]),contract.fontSetup,'font declarations stay exactly the same');
+ assert.equal(hash(read('src/app/layout.tsx').toString().split('export const metadata')[0]),consistency.fontSetup,'reviewed font declarations retain the same families and weights; bundled assets are checked separately');
 });
 
 test('all 14 migrated selectors retain their original values, option text and state-update handlers',()=>{
