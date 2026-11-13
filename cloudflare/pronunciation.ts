@@ -20,7 +20,9 @@ export async function pronunciationResponse(request:Request,env:PronunciationEnv
   if(signal?.aborted)controller.abort();else signal?.addEventListener('abort',abort,{once:true});
   const headers:Record<string,string>={Authorization:'Bearer '+env.OPENPRONOUNCE_TOKEN,'Content-Type':'application/json'};
   if(url!.hostname.endsWith('.modal.run')){headers['Modal-Key']=env.OPENPRONOUNCE_MODAL_KEY!.trim();headers['Modal-Secret']=env.OPENPRONOUNCE_MODAL_SECRET!.trim();}
-  try{const response=await fetcher(url!,{method:'POST',headers,body:JSON.stringify({audio:input.audio,expected_text:text,lang:'en'}),signal:controller.signal,redirect:'error'});
+  // Workers supports manual redirects; every non-2xx reply is rejected below.
+  // Never follow a redirect carrying either layer of service credentials.
+  try{const response=await fetcher(url!,{method:'POST',headers,body:JSON.stringify({audio:input.audio,expected_text:text,lang:'en'}),signal:controller.signal,redirect:'manual'});
    if(!response.ok){await response.body?.cancel();if(response.status===422)throw new AiError('No clear speech could be assessed. Record the displayed line again in a quiet place.',422);throw new AiError(response.status===429?'The pronunciation server is busy. Please try again shortly.':'Pronunciation feedback is temporarily unavailable. Your recording stays on this device.',response.status===429?429:502);}
    const result=await response.json();if(!validPronunciationResult(result,text)||result.audioHash!==audioHash)throw new AiError('The pronunciation result did not match this recording. No score was saved.',502);
    return aiJson({result});

@@ -45,4 +45,6 @@ A 27.4-second synthetic take finished in 74.73 seconds after a cold start; short
 
 The Worker's compatibility date predates incoming request cancellation becoming the default. `enable_request_signal` opts into the documented behavior, and the forwarding code also tolerates an absent signal on older runtimes. Without that guard an incoming request could fail before reaching Modal. See [Cloudflare's request-signal compatibility flag](https://developers.cloudflare.com/workers/configuration/compatibility-flags/#enable-requestsignal-for-incoming-requests).
 
+A real Cloudflare remote preview identified an additional transport incompatibility: Workers rejects Fetch's `redirect: error` option with a TypeError. Forwarding uses `manual` and rejects every non-2xx response instead, so neither the recording nor authentication headers follow redirects. See [Cloudflare Request redirect modes](https://developers.cloudflare.com/workers/runtime-apis/request/).
+
 Unauthenticated requests returned 401 at the Modal proxy, and requests with a proxy token but without the adapter bearer key also returned 401. The account dashboard showed $0.00 total spend, with usage covered by its recurring credit and the provider-locked $1 limit still in force. No payment method was added.
