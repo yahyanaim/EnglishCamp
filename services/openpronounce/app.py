@@ -14,6 +14,7 @@ from contextlib import asynccontextmanager
 
 from fastapi import FastAPI, HTTPException, Request
 from starlette.concurrency import run_in_threadpool
+from engine import assess
 
 TOKEN = os.environ.get("OPENPRONOUNCE_TOKEN", "")
 VERSION = "englishcamp-openpronounce-v1"
@@ -77,11 +78,10 @@ async def health():
 
 def analyze(raw: bytes, reference: str):
     import numpy as np
-    from openpronounce import compare_audio_with_text
     wave = np.frombuffer(raw, dtype="<i2", offset=44).astype(np.float32)/32768
     if np.count_nonzero(np.abs(wave) > .006) < 8000:
         raise ValueError("Record clear audible speech.")
-    result = compare_audio_with_text(wave, reference, lang="en", use_phone_model=True)
+    result = assess(wave, reference)
     if not result["transcribe"].strip():
         raise ValueError("No clear speech was detected. Record the line again in a quiet place.")
     # The pinned engine emits each heard phone as one string, including an empty

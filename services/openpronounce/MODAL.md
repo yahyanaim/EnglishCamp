@@ -14,9 +14,11 @@ Sources checked November 12, 2026: [pricing](https://modal.com/pricing), [billin
 
 ## Deployment configuration
 
-`modal_app.py` uses Python 3.12, the pinned OpenPronounce commit, two CPU cores and 12 GiB of memory. It has zero minimum warm containers, one maximum container and a five-second idle window. Memory snapshots preserve loaded model weights between cold starts. There are no GPUs, paid model Volumes or keep-alive jobs. The adapter permits one inference at a time and returns 429 for overlapping assessments.
+`modal_app.py` uses Python 3.12, the pinned OpenPronounce commit, two physical CPU cores with a two-core hard cap, and a 4 GiB memory request with an 8 GiB safety cap. It has zero minimum warm containers, one maximum container and the existing five-second idle window. Memory snapshots preserve loaded models, initialized inference kernels and public reference state between cold starts. There are no GPUs, paid model Volumes or keep-alive jobs. The adapter permits one inference at a time and returns 429 for overlapping assessments.
 
 The build downloads fixed public checkpoints and an offline reference voice. Modal includes the public deployment module for its build function, and the image includes the public adapter. It does not include `.dev.vars`, learner data, recordings or local deployment credentials. Model downloads happen before accepting learner traffic; the existing adapter processes selected WAV bytes in memory.
+
+The image also bakes the embeddings for all 80 published reference lines. Only these authored references can use the bounded embedding cache; learner waveforms, transcripts and results are never cached. New published lines have a compatible uncached fallback. Refresh the authored list from the repository root with `node services/openpronounce/collect_references.cjs` before rebuilding the backend. The application tests reject any difference between the cache list and the canonical practice/shadowing lines.
 
 Both authentication layers are required:
 
@@ -37,7 +39,7 @@ See [Modal Proxy Tokens](https://modal.com/docs/guide/webhook-proxy-auth). The W
 
 The production API must continue returning `available:false` until the remote engine is deployed, genuinely tested and configured. Local adapter tests stub the model and do not establish engine accuracy or a successful deployment.
 
-## Live engine verification — November 13, 2026
+## Baseline live engine verification — November 13, 2026
 
 The deployed service passed real inference using a fixed synthetic Microsoft sentence, with no personal microphone recording. A matching line scored 85.8/100, while the same audio against a different reference scored 2.35/100 and returned word-level sound feedback. Both result payloads passed the site's strict schema and recording-fingerprint validation. Silence and seeded noise returned 422 with no practice score.
 
@@ -48,3 +50,11 @@ The Worker's compatibility date predates incoming request cancellation becoming 
 A real Cloudflare remote preview identified an additional transport incompatibility: Workers rejects Fetch's `redirect: error` option with a TypeError. Forwarding uses `manual` and rejects every non-2xx response instead, so neither the recording nor authentication headers follow redirects. See [Cloudflare Request redirect modes](https://developers.cloudflare.com/workers/runtime-apis/request/).
 
 Unauthenticated requests returned 401 at the Modal proxy, and requests with a proxy token but without the adapter bearer key also returned 401. The account dashboard showed $0.00 total spend, with usage covered by its recurring credit and the provider-locked $1 limit still in force. No payment method was added.
+
+## Optimized deployment — November 13, 2026
+
+The same private endpoint now runs the optimized engine with the configuration above. A paired real-model comparison on nine fixed synthetic cases produced identical scores, transcripts and phoneme error reports. For the five short cases after initial legacy warmup, mean inference time fell from 5.51 to 2.79 seconds (49.4%); a 27.4-second input fell from 26.13 to 16.64 seconds. A separate maximum-length 33-second take completed in 20.34 seconds with peak process RSS of 4104.7 MiB, within the 8 GiB safety cap.
+
+Through the production Cloudflare endpoint, the first request after deployment finished in 30.59 seconds, compared with the earlier 52.2-second baseline. A later public request after the idle window finished in 10.56 seconds. These are individual observations, not a latency guarantee or a controlled network comparison. Consent and origin rejection, silent-audio rejection, strict result validation, recording identity and actual Microsoft MP3 playback also passed.
+
+The lower resource reservation reduces the base CPU-plus-memory rate by 33.6%. A planning range is roughly 700–1,200 corrections per full $1 monthly allowance, shared by all users, depending on recording length and restarts. This is an estimate, not a measured monthly quota; builds, retries, other usage and actual memory above the reservation reduce capacity. The existing website rate limits and account's $1 cap remain unchanged. See [PERFORMANCE.md](PERFORMANCE.md) for the calculation and reproducible benchmark procedure.

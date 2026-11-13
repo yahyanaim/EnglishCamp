@@ -28,6 +28,14 @@ def cache_models():
     text2speech("Hello, it is nice to meet you.")
 
 
+def cache_references():
+    import sys
+    sys.path.insert(0, "/srv")
+    from engine import build_reference_cache
+    count = build_reference_cache()
+    print(f"Cached {count} fixed public reference embeddings.")
+
+
 image = (
     modal.Image.debian_slim(python_version="3.12")
     .apt_install("git", "ffmpeg", "espeak-ng", "libsndfile1", "g++")
@@ -51,6 +59,9 @@ image = (
         f"openpronounce[app,tts-piper] @ git+https://github.com/Halleck45/OpenPronounce.git@{UPSTREAM}",
     )
     .run_function(cache_models, cpu=2, memory=12288, timeout=1800)
+    .add_local_file(HERE / "engine.py", "/srv/engine.py", copy=True)
+    .add_local_file(HERE / "references.json", "/srv/references.json", copy=True)
+    .run_function(cache_references, cpu=(2, 2), memory=8192, timeout=600)
     # The SDK includes this public deployment module for the build function;
     # separately include the adapter, never local credentials or learner data.
     .add_local_file(HERE / "app.py", "/srv/openpronounce_service.py", copy=True)
@@ -62,8 +73,8 @@ app = modal.App("englishcamp-pronunciation")
 @app.cls(
     image=image,
     secrets=[modal.Secret.from_name("englishcamp-openpronounce", required_keys=["OPENPRONOUNCE_TOKEN"])],
-    cpu=2,
-    memory=12288,
+    cpu=(2, 2),
+    memory=(4096, 8192),
     min_containers=0,
     max_containers=1,
     buffer_containers=0,
@@ -76,13 +87,10 @@ app = modal.App("englishcamp-pronunciation")
 class Pronunciation:
     @modal.enter(snap=True)
     def load_models(self):
-        import torch
-        from openpronounce.speech import MODEL_NAME, _load_models
-        from openpronounce.phones import _load_model
-
-        torch.set_num_threads(2)
-        _load_models(MODEL_NAME)
-        _load_model()
+        import sys
+        sys.path.insert(0, "/srv")
+        from engine import warmup
+        warmup()
 
     @modal.asgi_app(requires_proxy_auth=True)
     def http(self):

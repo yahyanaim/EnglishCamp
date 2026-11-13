@@ -9,7 +9,8 @@ COPY requirements.txt .
 RUN pip install torch --index-url https://download.pytorch.org/whl/cpu && pip install -r requirements.txt
 # Download models while building; inference does not fetch a learner's voice from a third party.
 RUN python -c "from openpronounce.speech import _load_models; _load_models(); from openpronounce.phones import _load_model; _load_model(); from openpronounce.audio import text2speech; text2speech('Hello, it is nice to meet you.')"
-COPY app.py .
+COPY app.py engine.py references.json ./
+RUN python -c "from engine import build_reference_cache; build_reference_cache()"
 RUN useradd --uid 1000 --create-home camp && chown -R camp:camp /app /models /tmp/openpronounce
 USER camp
 EXPOSE 8000

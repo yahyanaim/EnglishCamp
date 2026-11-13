@@ -6,7 +6,7 @@ The wrapper's JSON transport differs from the upstream demo's public multipart e
 
 ## Hosting requirement
 
-OpenPronounce requires Python, PyTorch, ffmpeg, espeak-ng and two Wav2Vec2 checkpoints of roughly 1.2 GB each. It cannot run inside a 128 MB Cloudflare Worker. Keep the website and D1 on Workers Free; run this service on a separate CPU host. Start with at least 8 GB RAM, two CPU cores and sufficient model/build disk space, then measure actual latency and memory before accepting traffic. This is a deployment recommendation, not a completed hardware benchmark.
+OpenPronounce requires Python, PyTorch, ffmpeg, espeak-ng and two Wav2Vec2 checkpoints of roughly 1.2 GB each. It cannot run inside a 128 MB Cloudflare Worker. Keep the website and D1 on Workers Free; run this service on a separate CPU host. For a fixed VM, start with at least 8 GB RAM, two CPU cores and sufficient model/build disk space, then measure actual latency and memory before accepting traffic. The current Modal deployment uses a measured 4 GiB reservation with an 8 GiB safety cap, described below.
 
 A possible no-monthly-fee route is an **Always Free-eligible Oracle A1 VM**, if the account and home region have capacity and sufficient free memory. Confirm the current eligible allowance in the console, remain inside it, and build/test the image on that machine's architecture. Signup and resource availability are not guaranteed. See [Oracle's current free-resource documentation](https://docs.oracle.com/en-us/iaas/Content/FreeTier/freetier_topic-Always_Free_Resources.htm).
 
@@ -19,6 +19,12 @@ The separately hosted engine is deployed on Modal Starter. The production pronun
 [`modal_app.py`](modal_app.py) prepares a private CPU endpoint that scales to zero. Modal advertises $30 of monthly Starter credit after payment-method verification. This project's new cardless account instead shows **$1 per month**, with its usage limit locked by Modal to that same $1. Keep that account cardless and its provider-locked cap intact. If payment details are ever added, first set **out-of-pocket spend limit: $0** and a usage budget covered by the actually available credits. This is a credit-limited deployment, not unlimited free hosting. When its allowance is exhausted, pronunciation must stop instead of generating a bill. See [the deployment guide](MODAL.md).
 
 On November 13, 2026, the real remote models passed matching, mismatched-reference, silence, noise and long-take checks. The adapter normalizes the pinned engine's phone strings into the site's list format and rejects audio without a recognisable transcript. Tests with stubbed models remain separate from these live checks. Activation requires the four encrypted Worker secrets described in the guide; no key is stored in source.
+
+### Optimized inference
+
+`engine.py` reuses a single Wav2Vec2 pass for transcription and acoustic embeddings, prepares only the fixed public lesson references during the image build, and omits unused prosody plots. It retains the original float32 checkpoints, phone recogniser, decoder and scoring formula. No learner recording, transcript or result is cached. Refresh `references.json` with `node services/openpronounce/collect_references.cjs` when published practice lines change, then rebuild/deploy the backend; an uncached fallback handles a new line in the meantime.
+
+The deployed service caps CPU at two cores, requests 4 GiB memory with an 8 GiB limit, and scales to zero after the existing five-second idle window. Warmup runs before the model memory snapshot. Controlled short-take processing fell from 5.51 to 2.79 seconds; all nine paired cases had identical scores, transcripts and phoneme feedback. See [the performance report](PERFORMANCE.md) for production latency, memory measurements, cost estimates and verification limits.
 
 ## Build and run on the chosen server
 
@@ -52,7 +58,7 @@ The service processes only the selected audio and displayed reference. It does n
 
 ## Verification boundaries
 
-`test_adapter.py` checks authentication, body limits, canonical WAV headers, readiness, overload rejection and error redaction with the inference engine stubbed. It needs FastAPI and httpx; it does not download models. Run it with:
+`test_adapter.py` checks authentication, body limits, canonical WAV headers, readiness, overload rejection and error redaction with the inference engine stubbed. `test_engine.py` checks reference identity and bounded, validated cache loading. These lightweight tests need FastAPI, httpx and NumPy; they do not download models. Run them with:
 
 ```sh
 python -m unittest discover -s services/openpronounce -p 'test_*.py'

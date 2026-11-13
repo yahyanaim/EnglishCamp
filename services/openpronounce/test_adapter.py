@@ -82,8 +82,7 @@ class AdapterTests(unittest.TestCase):
             adapter.validate_wav(wav()[:-2])
 
     def test_engine_phone_strings_and_deletions_use_the_client_contract(self):
-        engine = sys.modules['openpronounce']
-        engine.compare_audio_with_text = lambda *a, **k: {
+        result = {
             'score': 42, 'transcribe': 'HELLO', 'differences': {'errors': [{
                 'position': 0, 'word': 'hello', 'expected': 'həloʊ', 'actual': 'heloʊ',
                 'confidence': .9, 'actual_word': '', 'phone_distance': 1,
@@ -91,17 +90,18 @@ class AdapterTests(unittest.TestCase):
                            {'expected': 'h', 'heard': '', 'confidence': .8}],
             }]},
         }
-        result = adapter.analyze(wav(), 'Hello there.')
+        with patch.object(adapter, 'assess', return_value=result):
+            result = adapter.analyze(wav(), 'Hello there.')
         self.assertEqual(result['errors'][0]['phones'][0]['heard'], ['e'])
         self.assertEqual(result['errors'][0]['phones'][1]['heard'], [])
         self.assertNotIn('actual_word', result['errors'][0])
         self.assertEqual(result['audioHash'], hashlib.sha256(wav()).hexdigest())
 
     def test_audio_without_recognisable_speech_has_no_practice_score(self):
-        sys.modules['openpronounce'].compare_audio_with_text = lambda *a, **k: {
+        result = {
             'score': 0, 'transcribe': ' ', 'differences': {'errors': []},
         }
-        with self.assertRaisesRegex(ValueError, 'No clear speech'):
+        with patch.object(adapter, 'assess', return_value=result), self.assertRaisesRegex(ValueError, 'No clear speech'):
             adapter.analyze(wav(), 'Hello there.')
 
     def test_no_provider_trace_is_returned(self):

@@ -7,6 +7,7 @@ const {pronunciationResponse}=require('../cloudflare/pronunciation.ts');
 const {COACH_CONSENT}=require('../src/lib/englishCoach.ts');
 const {PRONUNCIATION_CONSENT,PRONUNCIATION_LINES,validPronunciationResult}=require('../src/lib/pronunciationAssessment.ts');
 const {wavBase64}=require('../cloudflare/aiShared.ts');
+const {SHADOW_LESSONS}=require('../src/data/shadowing.ts');
 const {encodeSpeakingWav}=require('../src/lib/speakingAudio.ts');
 function fixture(){
  const sql=new DatabaseSync(':memory:');for(const f of fs.readdirSync('migrations').filter(f=>f.endsWith('.sql')).sort())sql.exec(fs.readFileSync('migrations/'+f,'utf8'));
@@ -55,6 +56,10 @@ test('a busy Gemini model uses one documented free-tier fallback, while quota re
  }finally{f.sql.close();}
 });
 function recording(){const samples=Float32Array.from({length:16000*3},(_,i)=>.1*Math.sin(i/8));const bytes=encodeSpeakingWav([samples],16000);return{bytes,audio:Buffer.from(bytes).toString('base64'),hash:crypto.createHash('sha256').update(bytes).digest('hex')};}
+test('the backend precomputation contains exactly the published fixed lines and no learner data',()=>{
+ const expected=[...new Set([...PRONUNCIATION_LINES.map(x=>x.text),...SHADOW_LESSONS.flatMap(l=>l.lines.map(x=>x.text))])];
+ assert.deepEqual(JSON.parse(fs.readFileSync('services/openpronounce/references.json','utf8')),expected);
+});
 test('edge audio validation rejects malformed and overlong media without decoding whole recordings',()=>{
  const {bytes,audio}=recording();assert.equal(wavBase64(audio),true);assert.equal(wavBase64('not audio'),false);const bad=bytes.slice();bad[22]=2;assert.equal(wavBase64(Buffer.from(bad).toString('base64')),false);assert.equal(wavBase64(audio.slice(0,-4)),false);
 });
