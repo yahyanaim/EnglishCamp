@@ -40,9 +40,11 @@ async def lifespan(app):
     if len(TOKEN) < 32:
         raise RuntimeError("Set a private OPENPRONOUNCE_TOKEN of at least 32 characters.")
     # Import and warm the real models before reporting readiness.
-    from openpronounce.speech import _load_models
+    from openpronounce.speech import MODEL_NAME, _load_models
     from openpronounce.phones import _load_model
-    await run_in_threadpool(_load_models)
+    # Match the engine's explicit checkpoint argument, avoiding a second lru_cache
+    # entry (and a duplicate 1.2 GB model) for the argument-free default call.
+    await run_in_threadpool(_load_models, MODEL_NAME)
     await run_in_threadpool(_load_model)
     yield
 
@@ -80,8 +82,19 @@ def analyze(raw: bytes, reference: str):
     if np.count_nonzero(np.abs(wave) > .006) < 8000:
         raise ValueError("Record clear audible speech.")
     result = compare_audio_with_text(wave, reference, lang="en", use_phone_model=True)
+    if not result["transcribe"].strip():
+        raise ValueError("No clear speech was detected. Record the line again in a quiet place.")
+    # The pinned engine emits each heard phone as one string, including an empty
+    # string for a deletion. The site's transport uses a list of detected phones.
+    errors = [{"position": error["position"], "word": error["word"],
+               "expected": error["expected"], "actual": error["actual"],
+               "confidence": error["confidence"],
+               "phones": [{"expected": phone["expected"],
+                           "heard": [phone["heard"]] if phone["heard"] else [],
+                           "confidence": phone["confidence"]} for phone in error["phones"]]}
+              for error in result["differences"]["errors"]]
     return {"version": VERSION, "score": result["score"], "transcript": result["transcribe"][:2000],
-            "errors": result["differences"]["errors"], "audioHash": hashlib.sha256(raw).hexdigest()}
+            "errors": errors, "audioHash": hashlib.sha256(raw).hexdigest()}
 
 
 @app.post("/pronunciation")

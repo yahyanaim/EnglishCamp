@@ -68,3 +68,27 @@ test('OpenPronounce sends only the canonical line and selected audio to the priv
   assert.equal(validPronunciationResult({...result,errors:[{position:99,word:'invented',expected:'x',actual:'y',confidence:1,phones:[]}]},PRONUNCIATION_LINES[0].text),false);
  }finally{f.sql.close();}
 });
+test('Modal pronunciation stays unavailable with incomplete edge credentials and never sends them to another host',async()=>{
+ const f=fixture(),{audio,hash}=recording(),payload={reference:{kind:'practice',id:PRONUNCIATION_LINES[0].id},audio,audioHash:hash,consent:PRONUNCIATION_CONSENT};
+ const base={LEARNERS_DB:f.db,OPENPRONOUNCE_URL:'https://camp--pronunciation.modal.run/pronunciation',OPENPRONOUNCE_TOKEN:'adapter-token'};
+ try{for(const extra of [{},{OPENPRONOUNCE_MODAL_KEY:'private-proxy-key'},{OPENPRONOUNCE_MODAL_SECRET:'private-proxy-secret'},{OPENPRONOUNCE_URL:'https://other.test/pronunciation',OPENPRONOUNCE_MODAL_KEY:'private-proxy-key',OPENPRONOUNCE_MODAL_SECRET:'private-proxy-secret'}]){
+  const env={...base,...extra};let forwarded=false;
+  const status=await pronunciationResponse(f.request('/api/pronunciation'),env);assert.equal((await status.json()).available,false);
+  const response=await pronunciationResponse(f.request('/api/pronunciation','POST',payload),env,async()=>{forwarded=true;return Response.json({});});assert.equal(response.status,503);assert.equal(forwarded,false);assert.ok(!(await response.text()).includes('private-proxy'));
+ }}finally{f.sql.close();}
+});
+test('Modal receives private edge headers only after consent; its errors and credentials stay off the client',async()=>{
+ const f=fixture(),{audio,hash}=recording(),payload={reference:{kind:'practice',id:PRONUNCIATION_LINES[0].id},audio,audioHash:hash,consent:PRONUNCIATION_CONSENT};
+ const env={LEARNERS_DB:f.db,OPENPRONOUNCE_URL:'https://camp--pronunciation.modal.run/pronunciation',OPENPRONOUNCE_TOKEN:'adapter-token',OPENPRONOUNCE_MODAL_KEY:'private-proxy-key',OPENPRONOUNCE_MODAL_SECRET:'private-proxy-secret'};
+ try{let forwarded=false;
+  const unapproved=await pronunciationResponse(f.request('/api/pronunciation','POST',{...payload,consent:false}),env,async()=>{forwarded=true;return Response.json({});});assert.equal(unapproved.status,403);assert.equal(forwarded,false);
+  const response=await pronunciationResponse(f.request('/api/pronunciation','POST',payload),env,async(url,options)=>{forwarded=true;assert.equal(options.redirect,'error');assert.equal(options.headers.Authorization,'Bearer adapter-token');assert.equal(options.headers['Modal-Key'],'private-proxy-key');assert.equal(options.headers['Modal-Secret'],'private-proxy-secret');assert.ok(!options.body.includes('private-proxy'));return Response.json({version:PRONUNCIATION_CONSENT,score:80,transcript:'HELLO IT IS NICE TO MEET YOU',errors:[],audioHash:hash});});assert.equal(response.status,200);assert.equal(forwarded,true);assert.ok(!(await response.text()).includes('private-proxy'));
+  const denied=await pronunciationResponse(f.request('/api/pronunciation','POST',payload),env,async()=>new Response('private-proxy-secret upstream details',{status:401}));assert.equal(denied.status,502);assert.ok(!(await denied.text()).includes('private-proxy'));
+ }finally{f.sql.close();}
+});
+test('unassessable speech gets a retry instruction without exposing engine details or inventing a score',async()=>{
+ const f=fixture(),{audio,hash}=recording(),payload={reference:{kind:'practice',id:PRONUNCIATION_LINES[0].id},audio,audioHash:hash,consent:PRONUNCIATION_CONSENT};
+ try{const response=await pronunciationResponse(f.request('/api/pronunciation','POST',payload),{LEARNERS_DB:f.db,OPENPRONOUNCE_URL:'https://pronunciation.test/pronunciation',OPENPRONOUNCE_TOKEN:'private-token'},async()=>new Response('PRIVATE engine detail',{status:422}));
+  assert.equal(response.status,422);const body=await response.json();assert.match(body.error,/Record the displayed line again/);assert.ok(!JSON.stringify(body).includes('PRIVATE'));assert.equal(body.result,undefined);
+ }finally{f.sql.close();}
+});

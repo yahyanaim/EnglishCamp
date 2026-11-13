@@ -10,3 +10,5 @@ GEMINI_API_KEY=""
 # Optional private CPU service. Leave empty until that service is deployed.
 OPENPRONOUNCE_URL=""
 OPENPRONOUNCE_TOKEN=""
+OPENPRONOUNCE_MODAL_KEY=""
+OPENPRONOUNCE_MODAL_SECRET=""

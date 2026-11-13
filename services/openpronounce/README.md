@@ -12,7 +12,13 @@ A possible no-monthly-fee route is an **Always Free-eligible Oracle A1 VM**, if 
 
 An existing always-on computer can run the service for a trial, but availability then depends on that computer and network. A public production endpoint also needs HTTPS, normally through an owned hostname and reverse proxy. Cloudflare Containers requires a paid plan. Current [Hugging Face Spaces documentation](https://huggingface.co/docs/hub/spaces-overview) says creating a Docker/Gradio Space requires a paid plan even though CPU Basic has no hourly price; do not promise it as an entirely free new account deployment.
 
-No separate CPU host has been supplied for this project yet. Until one is deployed and verified, the production pronunciation API intentionally reports unavailable and does not upload recordings.
+The separately hosted engine is deployed on Modal Starter. The production pronunciation API reports unavailable whenever its private service configuration is absent; recordings are then kept on the device.
+
+### Alternative: Modal Starter
+
+[`modal_app.py`](modal_app.py) prepares a private CPU endpoint that scales to zero. Modal advertises $30 of monthly Starter credit after payment-method verification. This project's new cardless account instead shows **$1 per month**, with its usage limit locked by Modal to that same $1. Keep that account cardless and its provider-locked cap intact. If payment details are ever added, first set **out-of-pocket spend limit: $0** and a usage budget covered by the actually available credits. This is a credit-limited deployment, not unlimited free hosting. When its allowance is exhausted, pronunciation must stop instead of generating a bill. See [the deployment guide](MODAL.md).
+
+On November 13, 2026, the real remote models passed matching, mismatched-reference, silence, noise and long-take checks. The adapter normalizes the pinned engine's phone strings into the site's list format and rejects audio without a recognisable transcript. Tests with stubbed models remain separate from these live checks. Activation requires the four encrypted Worker secrets described in the guide; no key is stored in source.
 
 ## Build and run on the chosen server
 

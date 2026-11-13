@@ -8,6 +8,7 @@ const {CHALLENGE_WORDS}=require('../src/data/challenge-words.ts');
 const {encodeChallenge,decodeChallenge,matchesChallengeMeaning}=require('../src/lib/challengeLink.ts');
 const {isFixedSpeech,neuralVoice}=require('../src/lib/speechServer.ts');
 const {POST}=require('../src/app/api/speech/route.ts');
+const {PRONUNCIATION_LINES}=require('../src/lib/pronunciationAssessment.ts');
 
 test('the original short-video bank remains verified and the visible selection contains real conversations',()=>{
  assert.deepEqual(SHADOW_LEVELS,['A1','A2','B1','B2']);assert.equal(ORIGINAL_SHADOW_LESSONS.length,12);assert.equal(new Set(SHADOW_LESSONS.map(l=>l.id)).size,SHADOW_LESSONS.length);
@@ -26,6 +27,7 @@ test('partner challenges contain English prompts and Arabic meanings, with Unico
  for(const value of ['%',btoa('{}'),encodeChallenge({...input,words:[]}),encodeChallenge({...input,words:[{de:'der Hund',en:'dog'}]})])assert.equal(decodeChallenge(value),null);
 });
 test('speech recognises fixed published text and never silently approves personal text',async()=>{
+ for(const line of PRONUNCIATION_LINES)assert.ok(isFixedSpeech(line.text),line.id);
  assert.ok(isFixedSpeech('I am Pete.'));assert.ok(isFixedSpeech('European'));assert.ok(!isFixedSpeech('PRIVATE_QA_SENTENCE_c0263f'));assert.equal(neuralVoice('hello'),'en-GB-SoniaNeural');assert.equal(neuralVoice('مرحبا'),'ar-SA-ZariyahNeural');
  const request=(body,headers={})=>new Request('http://localhost:3030/api/speech',{method:'POST',headers:{'content-type':'application/json',...headers},body:typeof body==='string'?body:JSON.stringify(body)});
  const denied=await POST(request({text:'PRIVATE_QA_SENTENCE_c0263f'}));assert.equal(denied.status,403);assert.deepEqual(await denied.json(),{requiresConsent:true});

@@ -3,6 +3,7 @@
 These tests verify transport, not pronunciation accuracy or a successful model build.
 """
 import base64
+import hashlib
 import importlib.util
 import os
 from pathlib import Path
@@ -31,7 +32,8 @@ class AdapterTests(unittest.TestCase):
     def setUp(self):
         speech = types.ModuleType('openpronounce.speech')
         phones = types.ModuleType('openpronounce.phones')
-        speech._load_models = lambda: None
+        speech.MODEL_NAME = 'facebook/wav2vec2-large-960h'
+        speech._load_models = lambda name: None
         phones._load_model = lambda: None
         self.modules = patch.dict(sys.modules, {
             'openpronounce': types.ModuleType('openpronounce'),
@@ -78,6 +80,29 @@ class AdapterTests(unittest.TestCase):
             adapter.validate_wav(bytes(raw))
         with self.assertRaises(ValueError):
             adapter.validate_wav(wav()[:-2])
+
+    def test_engine_phone_strings_and_deletions_use_the_client_contract(self):
+        engine = sys.modules['openpronounce']
+        engine.compare_audio_with_text = lambda *a, **k: {
+            'score': 42, 'transcribe': 'HELLO', 'differences': {'errors': [{
+                'position': 0, 'word': 'hello', 'expected': 'həloʊ', 'actual': 'heloʊ',
+                'confidence': .9, 'actual_word': '', 'phone_distance': 1,
+                'phones': [{'expected': 'ə', 'heard': 'e', 'confidence': .9},
+                           {'expected': 'h', 'heard': '', 'confidence': .8}],
+            }]},
+        }
+        result = adapter.analyze(wav(), 'Hello there.')
+        self.assertEqual(result['errors'][0]['phones'][0]['heard'], ['e'])
+        self.assertEqual(result['errors'][0]['phones'][1]['heard'], [])
+        self.assertNotIn('actual_word', result['errors'][0])
+        self.assertEqual(result['audioHash'], hashlib.sha256(wav()).hexdigest())
+
+    def test_audio_without_recognisable_speech_has_no_practice_score(self):
+        sys.modules['openpronounce'].compare_audio_with_text = lambda *a, **k: {
+            'score': 0, 'transcribe': ' ', 'differences': {'errors': []},
+        }
+        with self.assertRaisesRegex(ValueError, 'No clear speech'):
+            adapter.analyze(wav(), 'Hello there.')
 
     def test_no_provider_trace_is_returned(self):
         with patch.object(adapter, 'analyze', side_effect=RuntimeError('PRIVATE engine details')):

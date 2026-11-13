@@ -4,4 +4,10 @@ function add(s){s=norm(s);if(s.length&&s.length<=12000&&/[a-z\u0600-\u06ff]/i.te
 function scan(file){const source=ts.createSourceFile(file,fs.readFileSync(file,'utf8'),ts.ScriptTarget.Latest,true,file.endsWith('x')?ts.ScriptKind.TSX:ts.ScriptKind.TS);function visit(n){if((ts.isStringLiteral(n)||ts.isNoSubstitutionTemplateLiteral(n))&&!ts.isImportDeclaration(n.parent)&&!ts.isExportDeclaration(n.parent))add(n.text);if(ts.isVariableDeclaration(n)&&n.name.getText(source)==='CASE_QS'&&n.initializer){const code=ts.transpileModule('const items='+n.initializer.getText(source)+'; items;',{compilerOptions:{target:ts.ScriptTarget.ES2020}}).outputText;for(const q of eval(code))add(q.sentence.replace('___',q.word));}ts.forEachChild(n,visit);}visit(source);}
 function walk(dir){for(const item of fs.readdirSync(dir,{withFileTypes:true})){const file=path.join(dir,item.name);if(item.isDirectory())walk(file);else if(/\.tsx?$/.test(file))scan(file);}}
 walk('src/data');for(const file of ['CaseTrainer','NounGenderTrainer','SentenceBuilder','Dictation'])scan(`src/components/learn/${file}.tsx`);
+// Only authored reference text belongs in speech, not validator patterns or IDs.
+{
+ const file='src/lib/pronunciationAssessment.ts',source=ts.createSourceFile(file,fs.readFileSync(file,'utf8'),ts.ScriptTarget.Latest,true);
+ function visit(n){if(ts.isPropertyAssignment(n)&&n.name.getText(source)==='text'&&ts.isStringLiteral(n.initializer))add(n.initializer.text);ts.forEachChild(n,visit);}
+ visit(source);
+}
 fs.writeFileSync('src/data/speech-catalogue.json',JSON.stringify([...words].sort())+'\n');console.log('Fixed speech catalogue:',words.size);
