@@ -101,6 +101,7 @@ test('Cloudflare build source cannot copy local secrets or deploy the Python/Nex
  assert.match(script,/output:'export'/);assert.match(script,/QuizPage params=\{params\}/);assert.ok(!script.includes('QuizPage {...props}'));
  assert.deepEqual(config.assets.run_worker_first,['/api/*','/reading','/reading/','/en','/en/*','/ar','/ar/*']);
  assert.equal(config.vars.ENGLISHCAMP_SPEAKING_ENABLED,'false');assert.equal(config.observability.enabled,false);
+ assert.ok(config.compatibility_flags.includes('enable_request_signal'),'incoming client cancellation must be enabled for pronunciation uploads');
  assert.equal(config.assets.not_found_handling,'none','legacy URLs must reach the redirect Worker before a static 404 fallback');
  for(const binding of ['containers','r2_buckets','kv_namespaces','durable_objects'])assert.equal(config[binding],undefined);
  assert.equal(config.d1_databases.length,1);

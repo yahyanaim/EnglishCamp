@@ -92,3 +92,16 @@ test('unassessable speech gets a retry instruction without exposing engine detai
   assert.equal(response.status,422);const body=await response.json();assert.match(body.error,/Record the displayed line again/);assert.ok(!JSON.stringify(body).includes('PRIVATE'));assert.equal(body.result,undefined);
  }finally{f.sql.close();}
 });
+test('pronunciation supports older incoming Workers requests without an AbortSignal',async()=>{
+ const f=fixture(),{audio,hash}=recording(),payload={reference:{kind:'practice',id:PRONUNCIATION_LINES[0].id},audio,audioHash:hash,consent:PRONUNCIATION_CONSENT};
+ try{const request=f.request('/api/pronunciation','POST',payload);Object.defineProperty(request,'signal',{value:undefined});let forwarded=false;
+  const response=await pronunciationResponse(request,{LEARNERS_DB:f.db,OPENPRONOUNCE_URL:'https://pronunciation.test/pronunciation',OPENPRONOUNCE_TOKEN:'private-token'},async(url,options)=>{forwarded=true;assert.ok(options.signal instanceof AbortSignal);return Response.json({version:PRONUNCIATION_CONSENT,score:80,transcript:'HELLO',errors:[],audioHash:hash});});
+  assert.equal(response.status,200);assert.ok(forwarded);
+ }finally{f.sql.close();}
+});
+test('a client already disconnected before the provider call passes an aborted upstream signal and gets no score',async()=>{
+ const f=fixture(),{audio,hash}=recording(),payload={reference:{kind:'practice',id:PRONUNCIATION_LINES[0].id},audio,audioHash:hash,consent:PRONUNCIATION_CONSENT};
+ try{const request=f.request('/api/pronunciation','POST',payload),controller=new AbortController();controller.abort();Object.defineProperty(request,'signal',{value:controller.signal});
+  const response=await pronunciationResponse(request,{LEARNERS_DB:f.db,OPENPRONOUNCE_URL:'https://pronunciation.test/pronunciation',OPENPRONOUNCE_TOKEN:'private-token'},async(url,options)=>{assert.equal(options.signal.aborted,true);throw new DOMException('Aborted','AbortError');});assert.equal(response.status,503);assert.equal((await response.json()).result,undefined);
+ }finally{f.sql.close();}
+});

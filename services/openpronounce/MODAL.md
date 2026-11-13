@@ -43,4 +43,6 @@ The deployed service passed real inference using a fixed synthetic Microsoft sen
 
 A 27.4-second synthetic take finished in 74.73 seconds after a cold start; short warm requests took about five seconds. These are observations, not latency guarantees. The Worker retains its 90-second timeout, and local recordings remain available on a timeout or provider failure. The engine warmup uses the same explicit checkpoint argument as inference to avoid loading a duplicate model into a second cache entry.
 
+The Worker's compatibility date predates incoming request cancellation becoming the default. `enable_request_signal` opts into the documented behavior, and the forwarding code also tolerates an absent signal on older runtimes. Without that guard an incoming request could fail before reaching Modal. See [Cloudflare's request-signal compatibility flag](https://developers.cloudflare.com/workers/configuration/compatibility-flags/#enable-requestsignal-for-incoming-requests).
+
 Unauthenticated requests returned 401 at the Modal proxy, and requests with a proxy token but without the adapter bearer key also returned 401. The account dashboard showed $0.00 total spend, with usage covered by its recurring credit and the provider-locked $1 limit still in force. No payment method was added.

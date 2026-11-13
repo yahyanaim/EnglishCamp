@@ -16,13 +16,14 @@ export async function pronunciationResponse(request:Request,env:PronunciationEnv
   const text=pronunciationText(input.reference);if(!text||text.length>600)throw new AiError('Choose a valid short practice line.');
   if(!wavBase64(input.audio)||typeof input.audioHash!=='string'||!/^[a-f0-9]{64}$/.test(input.audioHash))throw new AiError('Use three to 30 seconds of clear recorded speech.');const audioHash=input.audioHash;
   await aiQuota(request,env.LEARNERS_DB!,'pronunciation');
-  const controller=new AbortController(),timeout=setTimeout(()=>controller.abort(),90000),abort=()=>controller.abort();request.signal.addEventListener('abort',abort,{once:true});
+  const controller=new AbortController(),timeout=setTimeout(()=>controller.abort(),90000),abort=()=>controller.abort(),signal=request.signal;
+  if(signal?.aborted)controller.abort();else signal?.addEventListener('abort',abort,{once:true});
   const headers:Record<string,string>={Authorization:'Bearer '+env.OPENPRONOUNCE_TOKEN,'Content-Type':'application/json'};
   if(url!.hostname.endsWith('.modal.run')){headers['Modal-Key']=env.OPENPRONOUNCE_MODAL_KEY!.trim();headers['Modal-Secret']=env.OPENPRONOUNCE_MODAL_SECRET!.trim();}
   try{const response=await fetcher(url!,{method:'POST',headers,body:JSON.stringify({audio:input.audio,expected_text:text,lang:'en'}),signal:controller.signal,redirect:'error'});
    if(!response.ok){await response.body?.cancel();if(response.status===422)throw new AiError('No clear speech could be assessed. Record the displayed line again in a quiet place.',422);throw new AiError(response.status===429?'The pronunciation server is busy. Please try again shortly.':'Pronunciation feedback is temporarily unavailable. Your recording stays on this device.',response.status===429?429:502);}
    const result=await response.json();if(!validPronunciationResult(result,text)||result.audioHash!==audioHash)throw new AiError('The pronunciation result did not match this recording. No score was saved.',502);
    return aiJson({result});
-  }finally{clearTimeout(timeout);request.signal.removeEventListener('abort',abort);}
+  }finally{clearTimeout(timeout);signal?.removeEventListener('abort',abort);}
  }catch(e){return e instanceof AiError?aiJson({error:e.message},e.status):aiJson({error:'The pronunciation service could not finish. Your recording is kept; please try again later.'},503);}
 }
