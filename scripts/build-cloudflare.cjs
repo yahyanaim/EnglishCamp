@@ -16,6 +16,7 @@ async function files(directory) {
 }
 async function main() {
   run(process.execPath, ['scripts/collect-speech-catalogue.cjs']);
+  run(process.execPath, ['scripts/admin-coverage.cjs']);
   await fs.mkdir(build, { recursive: true });
   await fs.rm(app, { recursive: true, force: true });
   await fs.mkdir(app);

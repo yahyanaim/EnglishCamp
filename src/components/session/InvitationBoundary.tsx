@@ -3,8 +3,9 @@ import { useEffect, useState, type ReactNode } from 'react';
 import { usePathname } from 'next/navigation';
 import { Button } from '@/components/ui/shadcn/button';
 import '@/app/invitations.css';
+import '@/components/admin/admin.css';
 
-export const isEntryPage = (path: string) => ['/invite', '/admin/invitations'].includes(path.replace(/\/$/, ''));
+export const isEntryPage = (path: string) => (path.startsWith('/admin/') || path==='/invite');
 
 /** Protect client navigation too; all actual authorization still runs in the Worker. */
 export function InvitationBoundary({ children }: { children: ReactNode }) {

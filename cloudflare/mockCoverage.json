@@ -1,0 +1,94 @@
+[
+  {
+    "id": "ielts-academic",
+    "title": "IELTS Academic",
+    "sections": [
+      {
+        "name": "reading",
+        "count": 3
+      },
+      {
+        "name": "listening",
+        "count": 4
+      },
+      {
+        "name": "writing",
+        "count": 2
+      },
+      {
+        "name": "speaking",
+        "count": 3
+      }
+    ]
+  },
+  {
+    "id": "ielts-general",
+    "title": "IELTS General Training",
+    "sections": [
+      {
+        "name": "reading",
+        "count": 3
+      },
+      {
+        "name": "listening",
+        "count": 4
+      },
+      {
+        "name": "writing",
+        "count": 2
+      },
+      {
+        "name": "speaking",
+        "count": 3
+      }
+    ]
+  },
+  {
+    "id": "toefl-ibt",
+    "title": "TOEFL iBT® 2026",
+    "sections": [
+      {
+        "name": "reading",
+        "count": 15
+      },
+      {
+        "name": "listening",
+        "count": 44
+      },
+      {
+        "name": "writing",
+        "count": 2
+      },
+      {
+        "name": "speaking",
+        "count": 11
+      },
+      {
+        "name": "sentenceBuilding",
+        "count": 10
+      }
+    ]
+  },
+  {
+    "id": "b2-first",
+    "title": "Cambridge B2 First",
+    "sections": [
+      {
+        "name": "reading",
+        "count": 7
+      },
+      {
+        "name": "listening",
+        "count": 15
+      },
+      {
+        "name": "writing",
+        "count": 4
+      },
+      {
+        "name": "speaking",
+        "count": 8
+      }
+    ]
+  }
+]

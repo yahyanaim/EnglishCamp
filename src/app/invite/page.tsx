@@ -47,6 +47,6 @@ export default function InvitePage() {
       {cloud.message&&!cloud.recoveryCode&&!granted&&<p className="camp-access-message" role="status">{cloud.message}</p>}
       {session.storageNotice&&<p className="camp-access-message" role="alert">{session.storageNotice}</p>}
     </Card><p className="camp-access-fine">We store your name, learning progress, badges and saved lesson notes. No email is required. Recordings stay on your device unless you approve an assessment.</p>
-    <footer className="camp-access-footer"><span>Have a private QR connection? Open the link from your other device.</span><Link href="/admin/invitations">Manage invitations</Link></footer>
+    <footer className="camp-access-footer"><span>Have a private QR connection? Open the link from your other device.</span></footer>
   </div>;
 }

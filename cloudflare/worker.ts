@@ -35,7 +35,7 @@ export default {
     if (request.method !== 'GET' && request.method !== 'HEAD') return json({ error: 'Method not allowed.' }, 405);
     const asset = await env.ASSETS.fetch(request);
     if (asset.status !== 404) {
-      if(invitationRequired(env)&&!publicAccessPath(url.pathname)){
+      if(decodeURIComponent(url.pathname).startsWith('/admin/')||(invitationRequired(env)&&!publicAccessPath(url.pathname))){
         const response=new Response(asset.body,asset);response.headers.set('Cache-Control','no-store, private');response.headers.set('Vary','Cookie');return response;
       }
       return asset;

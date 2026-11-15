@@ -1,0 +1,830 @@
+[
+  {
+    "id": "band4-5",
+    "title": "Foundation & B2 First Course",
+    "exam": "Cambridge B2 First",
+    "modules": [
+      {
+        "id": "band1-ielts-intro",
+        "title": "B2 Use of English: cloze and transformations",
+        "stages": 3,
+        "video": true,
+        "illustration": true,
+        "audio": false
+      },
+      {
+        "id": "band1-toefl-intro",
+        "title": "B2 Word Formation: building meaning in context",
+        "stages": 3,
+        "video": true,
+        "illustration": true,
+        "audio": false
+      },
+      {
+        "id": "band1-ielts-vs-toefl",
+        "title": "Tense and aspect: events, duration and evidence",
+        "stages": 3,
+        "video": true,
+        "illustration": true,
+        "audio": false
+      },
+      {
+        "id": "band1-listening-format",
+        "title": "B2 Listening: short extracts and precise detail",
+        "stages": 3,
+        "video": true,
+        "illustration": true,
+        "audio": true
+      },
+      {
+        "id": "band1-listening-gist",
+        "title": "B2 Listening: gist and sentence completion",
+        "stages": 3,
+        "video": true,
+        "illustration": true,
+        "audio": true
+      },
+      {
+        "id": "band1-listening-attitude",
+        "title": "B2 Listening: attitude and multiple matching",
+        "stages": 3,
+        "video": true,
+        "illustration": true,
+        "audio": true
+      },
+      {
+        "id": "band1-reading-skimming",
+        "title": "B2 Reading: main ideas, evidence and multiple choice",
+        "stages": 3,
+        "video": true,
+        "illustration": true,
+        "audio": false
+      },
+      {
+        "id": "band1-reading-scanning",
+        "title": "B2 Reading: multiple matching and accurate scanning",
+        "stages": 3,
+        "video": true,
+        "illustration": true,
+        "audio": false
+      },
+      {
+        "id": "band1-reading-completion",
+        "title": "B2 Reading: gapped text, reference and cohesion",
+        "stages": 3,
+        "video": true,
+        "illustration": true,
+        "audio": false
+      },
+      {
+        "id": "band1-writing-task1-overview",
+        "title": "B2 Writing: the compulsory essay",
+        "stages": 3,
+        "video": true,
+        "illustration": true,
+        "audio": false
+      },
+      {
+        "id": "band1-writing-trends",
+        "title": "B2 Writing: articles and engaging a reader",
+        "stages": 3,
+        "video": true,
+        "illustration": true,
+        "audio": false
+      },
+      {
+        "id": "band1-writing-integrated",
+        "title": "B2 Writing: letters and emails",
+        "stages": 3,
+        "video": true,
+        "illustration": true,
+        "audio": false
+      },
+      {
+        "id": "band1-writing-essay-structure",
+        "title": "B2 Writing: reviews and reports",
+        "stages": 3,
+        "video": true,
+        "illustration": true,
+        "audio": false
+      },
+      {
+        "id": "band1-writing-brainstorming",
+        "title": "B2 Writing: planning and developing arguments",
+        "stages": 3,
+        "video": true,
+        "illustration": true,
+        "audio": false
+      },
+      {
+        "id": "band1-speaking-part1-intro",
+        "title": "B2 Speaking: interview answers and development",
+        "stages": 3,
+        "video": true,
+        "illustration": true,
+        "audio": true
+      },
+      {
+        "id": "band1-speaking-independent",
+        "title": "B2 Speaking: comparing two visual prompts",
+        "stages": 3,
+        "video": true,
+        "illustration": true,
+        "audio": true
+      },
+      {
+        "id": "band1-speaking-hometown",
+        "title": "B2 Speaking: collaboration and discussion",
+        "stages": 3,
+        "video": true,
+        "illustration": true,
+        "audio": true
+      },
+      {
+        "id": "band1-grammar-articles",
+        "title": "B2 Articles: reference and shared knowledge",
+        "stages": 3,
+        "video": true,
+        "illustration": true,
+        "audio": false
+      },
+      {
+        "id": "band1-grammar-agreement",
+        "title": "B2 Agreement: complex subjects and open cloze",
+        "stages": 3,
+        "video": true,
+        "illustration": true,
+        "audio": false
+      },
+      {
+        "id": "band1-vocab-awl1",
+        "title": "B2 Vocabulary: collocations and word families",
+        "stages": 3,
+        "video": true,
+        "illustration": true,
+        "audio": false
+      },
+      {
+        "id": "band1-vocab-synonyms",
+        "title": "B2 Phrasal verbs and meaning-preserving paraphrase",
+        "stages": 3,
+        "video": true,
+        "illustration": true,
+        "audio": false
+      },
+      {
+        "id": "band1-time-reading",
+        "title": "B2 Reading: timed evidence checkpoint",
+        "stages": 3,
+        "video": true,
+        "illustration": true,
+        "audio": false
+      },
+      {
+        "id": "band1-time-writing",
+        "title": "B2 Writing: planning under time pressure",
+        "stages": 3,
+        "video": true,
+        "illustration": true,
+        "audio": false
+      },
+      {
+        "id": "band1-practice-listening",
+        "title": "B2 Listening: a longer interview",
+        "stages": 3,
+        "video": true,
+        "illustration": true,
+        "audio": true
+      },
+      {
+        "id": "band1-review",
+        "title": "B2 Review: demonstrate and reflect",
+        "stages": 3,
+        "video": true,
+        "illustration": true,
+        "audio": false
+      }
+    ]
+  },
+  {
+    "id": "band5-6",
+    "title": "IELTS Academic Practice Course",
+    "exam": "IELTS Academic",
+    "modules": [
+      {
+        "id": "band2-listening-mcq",
+        "title": "Listening: Part 1 Details, Corrections and Distractors",
+        "stages": 3,
+        "video": true,
+        "illustration": true,
+        "audio": true
+      },
+      {
+        "id": "band2-listening-maps",
+        "title": "Listening: Part 2 Plans, Directions and Matching",
+        "stages": 3,
+        "video": true,
+        "illustration": true,
+        "audio": true
+      },
+      {
+        "id": "band2-listening-form-completion",
+        "title": "Listening: Parts 3–4 Opinions, Lectures and Note Completion",
+        "stages": 3,
+        "video": true,
+        "illustration": true,
+        "audio": true
+      },
+      {
+        "id": "band2-reading-tfng",
+        "title": "Reading: True/False/Not Given and Yes/No/Not Given",
+        "stages": 3,
+        "video": true,
+        "illustration": true,
+        "audio": false
+      },
+      {
+        "id": "band2-reading-headings",
+        "title": "Reading: Headings, Information and Features",
+        "stages": 3,
+        "video": true,
+        "illustration": true,
+        "audio": false
+      },
+      {
+        "id": "band2-reading-mcq",
+        "title": "Reading: Multiple Choice, Inference and Time Management",
+        "stages": 3,
+        "video": true,
+        "illustration": true,
+        "audio": false
+      },
+      {
+        "id": "band2-writing-line-graphs",
+        "title": "Writing Task 1: Line Graphs, Bar Charts and Overviews",
+        "stages": 3,
+        "video": true,
+        "illustration": true,
+        "audio": false
+      },
+      {
+        "id": "band2-writing-bar-pie",
+        "title": "Writing Task 1: Tables, Pie Charts and Proportions",
+        "stages": 3,
+        "video": true,
+        "illustration": true,
+        "audio": false
+      },
+      {
+        "id": "band2-writing-letter",
+        "title": "Writing Task 1: Maps and Processes",
+        "stages": 3,
+        "video": true,
+        "illustration": true,
+        "audio": false
+      },
+      {
+        "id": "band2-writing-opinion",
+        "title": "Writing Task 2: Opinion and Discussion Essays",
+        "stages": 3,
+        "video": true,
+        "illustration": true,
+        "audio": false
+      },
+      {
+        "id": "band2-writing-problem-solution",
+        "title": "Writing Task 2: Problems, Trade-offs and Two-Part Questions",
+        "stages": 3,
+        "video": true,
+        "illustration": true,
+        "audio": false
+      },
+      {
+        "id": "band2-writing-cohesion",
+        "title": "Writing: Assessment Criteria, Coherence and Cohesion",
+        "stages": 3,
+        "video": true,
+        "illustration": true,
+        "audio": false
+      },
+      {
+        "id": "band2-speaking-cue-card",
+        "title": "Speaking: Part 1 Answers and Part 2 Cue-Card Planning",
+        "stages": 3,
+        "video": true,
+        "illustration": true,
+        "audio": true
+      },
+      {
+        "id": "band2-speaking-describe",
+        "title": "Speaking: Part 2 Description, Fluency and Pronunciation",
+        "stages": 3,
+        "video": true,
+        "illustration": true,
+        "audio": true
+      },
+      {
+        "id": "band2-speaking-integrated",
+        "title": "Speaking: Part 3 Reasons, Examples and Qualified Judgements",
+        "stages": 3,
+        "video": true,
+        "illustration": true,
+        "audio": true
+      },
+      {
+        "id": "band2-grammar-tenses",
+        "title": "Grammar for Writing: Time Reference and Accurate Tenses",
+        "stages": 3,
+        "video": true,
+        "illustration": true,
+        "audio": false
+      },
+      {
+        "id": "band2-grammar-complex",
+        "title": "Grammar for Writing: Clauses, Contrast and Control",
+        "stages": 3,
+        "video": true,
+        "illustration": true,
+        "audio": false
+      },
+      {
+        "id": "band2-vocab-awl2",
+        "title": "Reading and Vocabulary: Paraphrase, Summary and Sentence Completion",
+        "stages": 3,
+        "video": true,
+        "illustration": true,
+        "audio": false
+      },
+      {
+        "id": "band2-vocab-collocations",
+        "title": "Writing Vocabulary: Precise Comparisons and Collocations",
+        "stages": 3,
+        "video": true,
+        "illustration": true,
+        "audio": false
+      },
+      {
+        "id": "band2-vocab-environment",
+        "title": "Listening: Academic Talks, Cause and Note Completion",
+        "stages": 3,
+        "video": true,
+        "illustration": true,
+        "audio": true
+      },
+      {
+        "id": "band2-vocab-technology",
+        "title": "Writing: Two-Part Questions and Technology Arguments",
+        "stages": 3,
+        "video": true,
+        "illustration": true,
+        "audio": false
+      },
+      {
+        "id": "band2-mistakes-prepositions",
+        "title": "Grammar and Editing: Prepositions, Rates and Evidence",
+        "stages": 3,
+        "video": true,
+        "illustration": true,
+        "audio": false
+      },
+      {
+        "id": "band2-mistakes-countable",
+        "title": "Grammar and Vocabulary: Countability in Academic Reporting",
+        "stages": 3,
+        "video": true,
+        "illustration": true,
+        "audio": false
+      },
+      {
+        "id": "band2-practice-reading",
+        "title": "Reading: Evidence-Based Mixed-Question Practice",
+        "stages": 3,
+        "video": true,
+        "illustration": true,
+        "audio": false
+      },
+      {
+        "id": "band2-review",
+        "title": "IELTS Academic: Review, Criteria and Independent Study Plan",
+        "stages": 3,
+        "video": true,
+        "illustration": true,
+        "audio": false
+      }
+    ]
+  },
+  {
+    "id": "band6-7",
+    "title": "TOEFL iBT Practice Course",
+    "exam": "TOEFL iBT · from 21 January 2026",
+    "modules": [
+      {
+        "id": "band3-listening-section3",
+        "title": "Listening: Listen and Choose a Response",
+        "stages": 3,
+        "video": true,
+        "illustration": true,
+        "audio": true
+      },
+      {
+        "id": "band3-listening-lecture",
+        "title": "Listening: Academic Talks, Structure and Qualified Claims",
+        "stages": 3,
+        "video": true,
+        "illustration": true,
+        "audio": true
+      },
+      {
+        "id": "band3-listening-multiple-speakers",
+        "title": "Listening: Conversations, Problems and Implied Decisions",
+        "stages": 3,
+        "video": true,
+        "illustration": true,
+        "audio": true
+      },
+      {
+        "id": "band3-reading-summary-completion",
+        "title": "Reading: Complete the Words in Context",
+        "stages": 3,
+        "video": true,
+        "illustration": true,
+        "audio": false
+      },
+      {
+        "id": "band3-reading-matching-features",
+        "title": "Reading: Read in Daily Life—Notices and Practical Conditions",
+        "stages": 3,
+        "video": true,
+        "illustration": true,
+        "audio": false
+      },
+      {
+        "id": "band3-reading-flowchart",
+        "title": "Reading: Academic Passages, Evidence and Author Purpose",
+        "stages": 3,
+        "video": true,
+        "illustration": true,
+        "audio": false
+      },
+      {
+        "id": "band3-writing-multiple-charts",
+        "title": "Writing: Write for an Academic Discussion",
+        "stages": 3,
+        "video": true,
+        "illustration": true,
+        "audio": false
+      },
+      {
+        "id": "band3-writing-maps-processes",
+        "title": "Writing: Write an Email—Purpose, Detail and Tone",
+        "stages": 3,
+        "video": true,
+        "illustration": true,
+        "audio": false
+      },
+      {
+        "id": "band3-writing-discussion",
+        "title": "Writing: Build a Sentence—Word Forms and Agreement",
+        "stages": 3,
+        "video": true,
+        "illustration": true,
+        "audio": false
+      },
+      {
+        "id": "band3-writing-advantages",
+        "title": "Writing: Build a Sentence—Statements and Questions",
+        "stages": 3,
+        "video": true,
+        "illustration": true,
+        "audio": false
+      },
+      {
+        "id": "band3-writing-task-response",
+        "title": "Writing: Email Task Fulfilment and Actionable Requests",
+        "stages": 3,
+        "video": true,
+        "illustration": true,
+        "audio": false
+      },
+      {
+        "id": "band3-writing-formality",
+        "title": "Writing: Academic Discussion Development and Register",
+        "stages": 3,
+        "video": true,
+        "illustration": true,
+        "audio": false
+      },
+      {
+        "id": "band3-speaking-part3",
+        "title": "Speaking: Listen and Repeat—Accuracy and Meaning Groups",
+        "stages": 3,
+        "video": true,
+        "illustration": true,
+        "audio": true
+      },
+      {
+        "id": "band3-speaking-opinions",
+        "title": "Speaking: Take an Interview—Relevant Developed Answers",
+        "stages": 3,
+        "video": true,
+        "illustration": true,
+        "audio": true
+      },
+      {
+        "id": "band3-speaking-toefl4",
+        "title": "Speaking: Listen and Repeat—Longer Clauses and Precision",
+        "stages": 3,
+        "video": true,
+        "illustration": true,
+        "audio": true
+      },
+      {
+        "id": "band3-grammar-conditionals",
+        "title": "Grammar for Writing: Sentence Building with Questions and Conditions",
+        "stages": 3,
+        "video": true,
+        "illustration": true,
+        "audio": false
+      },
+      {
+        "id": "band3-grammar-passive",
+        "title": "Grammar for Writing: Active, Passive and Reference",
+        "stages": 3,
+        "video": true,
+        "illustration": true,
+        "audio": false
+      },
+      {
+        "id": "band3-vocab-awl3",
+        "title": "Reading and Vocabulary: Word Families, Evidence and Hedging",
+        "stages": 3,
+        "video": true,
+        "illustration": true,
+        "audio": false
+      },
+      {
+        "id": "band3-vocab-health",
+        "title": "Reading: Health Research, Comparisons and Causal Limits",
+        "stages": 3,
+        "video": true,
+        "illustration": true,
+        "audio": false
+      },
+      {
+        "id": "band3-vocab-education",
+        "title": "Listening: Announcements, Changes and Required Actions",
+        "stages": 3,
+        "video": true,
+        "illustration": true,
+        "audio": true
+      },
+      {
+        "id": "band3-vocab-work",
+        "title": "Reading: Daily-Life Messages and Workplace Inference",
+        "stages": 3,
+        "video": true,
+        "illustration": true,
+        "audio": false
+      },
+      {
+        "id": "band3-paraphrasing",
+        "title": "Speaking: Interview Comparison and Precise Paraphrasing",
+        "stages": 3,
+        "video": true,
+        "illustration": true,
+        "audio": true
+      },
+      {
+        "id": "band3-error-analysis",
+        "title": "Writing: Error Analysis and Meaning-Preserving Revision",
+        "stages": 3,
+        "video": true,
+        "illustration": true,
+        "audio": false
+      },
+      {
+        "id": "band3-practice-essay",
+        "title": "Writing: Timed Email and Academic Discussion Practice",
+        "stages": 3,
+        "video": true,
+        "illustration": true,
+        "audio": false
+      },
+      {
+        "id": "band3-review",
+        "title": "TOEFL iBT 2026: Format, Score Terminology and Study Review",
+        "stages": 3,
+        "video": true,
+        "illustration": true,
+        "audio": true
+      }
+    ]
+  },
+  {
+    "id": "band7-8",
+    "title": "IELTS General & High-Band Masterclass",
+    "exam": "IELTS General",
+    "modules": [
+      {
+        "id": "band4-listening-accents",
+        "title": "Listening: connected speech and careful detail",
+        "stages": 3,
+        "video": true,
+        "illustration": true,
+        "audio": true
+      },
+      {
+        "id": "band4-listening-inference",
+        "title": "Listening: inference and qualified attitudes",
+        "stages": 3,
+        "video": true,
+        "illustration": true,
+        "audio": true
+      },
+      {
+        "id": "band4-listening-distractors",
+        "title": "Listening: distractors and final decisions",
+        "stages": 3,
+        "video": true,
+        "illustration": true,
+        "audio": true
+      },
+      {
+        "id": "band4-reading-writers-views",
+        "title": "Reading: Identifying Writer's Views",
+        "stages": 3,
+        "video": true,
+        "illustration": true,
+        "audio": false
+      },
+      {
+        "id": "band4-reading-difficult-texts",
+        "title": "Reading: Dealing with Difficult Texts",
+        "stages": 3,
+        "video": true,
+        "illustration": true,
+        "audio": false
+      },
+      {
+        "id": "band4-reading-time-pressure",
+        "title": "Reading: Time Pressure Strategies",
+        "stages": 3,
+        "video": true,
+        "illustration": true,
+        "audio": false
+      },
+      {
+        "id": "band4-writing-sophisticated",
+        "title": "General Training Task 1: formal, semi-formal and informal letters",
+        "stages": 3,
+        "video": true,
+        "illustration": true,
+        "audio": false
+      },
+      {
+        "id": "band4-writing-complex-comparisons",
+        "title": "IELTS General Reading: Workplace & Public Notices Masterclass",
+        "stages": 3,
+        "video": true,
+        "illustration": true,
+        "audio": false
+      },
+      {
+        "id": "band4-writing-complex-ideas",
+        "title": "General Training Task 2: developing a complex position",
+        "stages": 3,
+        "video": true,
+        "illustration": true,
+        "audio": false
+      },
+      {
+        "id": "band4-writing-lexical-resource",
+        "title": "Lexical precision and natural register",
+        "stages": 3,
+        "video": true,
+        "illustration": true,
+        "audio": false
+      },
+      {
+        "id": "band4-writing-grammatical-range",
+        "title": "Grammatical range with control",
+        "stages": 3,
+        "video": true,
+        "illustration": true,
+        "audio": false
+      },
+      {
+        "id": "band4-writing-band8-essay",
+        "title": "General Training Task 2: full model and critical comparison",
+        "stages": 3,
+        "video": true,
+        "illustration": true,
+        "audio": false
+      },
+      {
+        "id": "band4-speaking-storytelling",
+        "title": "Part 2: coherent storytelling",
+        "stages": 3,
+        "video": true,
+        "illustration": true,
+        "audio": true
+      },
+      {
+        "id": "band4-speaking-abstract-topics",
+        "title": "Part 3: abstract questions with concrete support",
+        "stages": 3,
+        "video": true,
+        "illustration": true,
+        "audio": true
+      },
+      {
+        "id": "band4-speaking-pronunciation",
+        "title": "Pronunciation: intelligibility, stress and phrasing",
+        "stages": 3,
+        "video": true,
+        "illustration": true,
+        "audio": true
+      },
+      {
+        "id": "band4-grammar-inversion",
+        "title": "Inversion and cleft sentences without forced complexity",
+        "stages": 3,
+        "video": true,
+        "illustration": true,
+        "audio": false
+      },
+      {
+        "id": "band4-grammar-participles",
+        "title": "Participle clauses and unambiguous subjects",
+        "stages": 3,
+        "video": true,
+        "illustration": true,
+        "audio": false
+      },
+      {
+        "id": "band4-vocab-awl4",
+        "title": "Vocabulary: precise claims and natural collocations",
+        "stages": 3,
+        "video": true,
+        "illustration": true,
+        "audio": false
+      },
+      {
+        "id": "band4-vocab-science",
+        "title": "Vocabulary: Topic-Specific — Science & Research",
+        "stages": 3,
+        "video": true,
+        "illustration": true,
+        "audio": false
+      },
+      {
+        "id": "band4-vocab-globalization",
+        "title": "Vocabulary: Topic-Specific — Globalization",
+        "stages": 3,
+        "video": true,
+        "illustration": true,
+        "audio": false
+      },
+      {
+        "id": "band4-vocab-idioms",
+        "title": "Natural vocabulary and idioms in spoken answers",
+        "stages": 3,
+        "video": true,
+        "illustration": true,
+        "audio": true
+      },
+      {
+        "id": "band4-mock-ielts-listening",
+        "title": "Listening: a mixed lesson checkpoint",
+        "stages": 3,
+        "video": true,
+        "illustration": true,
+        "audio": true
+      },
+      {
+        "id": "band4-mock-toefl-reading",
+        "title": "General Training Reading: mixed evidence checkpoint",
+        "stages": 3,
+        "video": true,
+        "illustration": true,
+        "audio": false
+      },
+      {
+        "id": "band4-exam-day-strategies",
+        "title": "Exam-day planning and realistic practice",
+        "stages": 3,
+        "video": true,
+        "illustration": true,
+        "audio": false
+      },
+      {
+        "id": "band4-review",
+        "title": "General Training review: evidence and next steps",
+        "stages": 3,
+        "video": true,
+        "illustration": true,
+        "audio": false
+      }
+    ]
+  }
+]

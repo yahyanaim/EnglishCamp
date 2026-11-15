@@ -1,3 +1,4 @@
+import {adminSession} from './invitationAdmin';
 import type { LearnerDatabase, LearnerEnv } from './learners';
 
 export const invitationRequired = (env: LearnerEnv) => env.INVITATION_REQUIRED === 'true';
@@ -30,7 +31,7 @@ export function publicAccessPath(path: string) {
   try { const decoded=decodeURIComponent(path);if(decoded.includes('\\')||decoded.includes('%')||/(?:^|\/)\.{1,2}(?:\/|$)/.test(decoded))return false; }
   catch { return false; }
   const page = path.replace(/\.(?:html|txt)$/, '').replace(/\/$/, '') || '/';
-  return ['/invite', '/admin/invitations', '/connect-device'].includes(page)
+  return ['/invite', '/admin/login', '/connect-device'].includes(page)
     || (path.startsWith('/_next/static/') && /\.(?:js|css|woff2?|png|webp|jpg|svg)$/.test(path))
     || /^\/media\/brand\/[A-Za-z0-9_.-]+\.(?:png|webp|svg|ico)$/.test(path)
     || ['/favicon.ico', '/robots.txt'].includes(path)
@@ -41,6 +42,12 @@ export function publicAccessPath(path: string) {
 }
 /** Authorize HTML, exported RSC payloads, media and APIs before asset serving or provider calls. */
 export async function accessGuard(request: Request, env: LearnerEnv): Promise<Response | null> {
+  let normalized:string;try{const decoded=decodeURIComponent(new URL(request.url).pathname);if(decoded.includes('%')||decoded.includes('\\'))return accessJson({error:'Invalid path.'},400);normalized=new URL(decoded,request.url).pathname;}catch{return accessJson({error:'Invalid path.'},400);}
+  const adminPath=normalized.replace(/\.(?:html|txt)$/,'').replace(/\/$/,'');
+  if(adminPath.startsWith('/admin/')&&adminPath!=='/admin/login'){
+    try{if(env.LEARNERS_DB&&await adminSession(request,env))return null;}catch{return accessJson({error:'Administration is temporarily unavailable.'},503);}
+    return new Response(null,{status:303,headers:{Location:new URL('/admin/login',request.url).toString(),'Cache-Control':'no-store, private'}});
+  }
   if (!invitationRequired(env) || publicAccessPath(new URL(request.url).pathname)) return null;
   try {
     if (!env.LEARNERS_DB) throw new Error('Unavailable');

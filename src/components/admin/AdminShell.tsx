@@ -1,0 +1,21 @@
+"use client";
+import {useEffect,useState,type ReactNode} from 'react';
+import {usePathname} from 'next/navigation';
+import Link from 'next/link';
+import {LearningArt} from '@/components/brand/LearningArt';
+import {BrandMark} from '@/components/brand/BrandMark';
+import {Button} from '@/components/ui/shadcn/button';
+import {AccentPicker} from '@/components/layout/AccentPicker';
+import './admin.css';
+export const adminPages=['dashboard','learners','invitations','analytics','courses','achievements','infrastructure','settings'];
+export function AdminShell({children}:{children:ReactNode}){const pathname=usePathname(),login=pathname==='/admin/login';const[ready,setReady]=useState(false),[open,setOpen]=useState(false),[collapsed,setCollapsed]=useState(false),[error,setError]=useState('');
+ useEffect(()=>{if(login)return;let active=true;void fetch('/api/invitations/admin/session',{cache:'no-store'}).then(r=>r.json()).then(d=>{if(!active)return;if(d.authenticated)setReady(true);else window.location.replace('/admin/login');}).catch(()=>setError('Could not check your management session. Reload to retry.'));return()=>{active=false;};},[login,pathname]);
+ useEffect(()=>{setOpen(false);},[pathname]);
+ useEffect(()=>{if(login)return;const verify=()=>{void fetch('/api/invitations/admin/session',{cache:'no-store'}).then(r=>r.json()).then(d=>{if(d.authenticated===false)window.location.replace('/admin/login');}).catch(()=>{});};window.addEventListener('focus',verify);return()=>window.removeEventListener('focus',verify);},[login]);
+ useEffect(()=>{if(!open)return;const before=document.activeElement as HTMLElement|null,root=document.getElementById('admin-navigation'),items=()=>Array.from(root?.querySelectorAll<HTMLElement>('a,button')||[]);items()[0]?.focus();function key(e:KeyboardEvent){if(e.key==='Escape')setOpen(false);if(e.key==='Tab'){const a=items(),first=a[0],last=a.at(-1);if(e.shiftKey&&document.activeElement===first){e.preventDefault();last?.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first?.focus();}}}window.addEventListener('keydown',key);return()=>{window.removeEventListener('keydown',key);before?.focus();};},[open]);
+ async function logout(){const r=await fetch('/api/invitations/admin/logout',{method:'POST',headers:{'Content-Type':'application/json'},body:'{}'});if(r.ok)window.location.replace('/admin/login');else setError('Sign out failed. Please try again.');}
+ if(login)return <>{children}</>;if(!ready)return <p role="status">{error||'Checking owner access…'}</p>;
+ return <div className={`camp-admin ${collapsed?'is-collapsed':''}`}><a href="#admin-content" className="sr-only focus:not-sr-only">Skip to content</a>{open&&<button className="admin-scrim" aria-label="Close navigation" onClick={()=>setOpen(false)}/>}
+ <aside id="admin-navigation" role={open?'dialog':undefined} aria-modal={open?true:undefined} aria-label="Admin navigation" className={open?'admin-sidebar is-open':'admin-sidebar'}><Link href="/admin/dashboard" className="camp-access-brand"><BrandMark size={32}/><strong>EnglishCamp</strong></Link><span className="admin-owner">Owner workspace</span>{open&&<Button variant="outline" onClick={()=>setOpen(false)}>Close navigation</Button>}<nav aria-label="Administration">{adminPages.map((p,i)=><Link key={p} href={'/admin/'+p} aria-label={p} aria-current={pathname==='/admin/'+p?'page':undefined}><LearningArt name={['table','chat','document','pattern','book','trophy','review','plan'][i]} size={20}/><span>{p[0].toUpperCase()+p.slice(1)}</span></Link>)}</nav><Button variant="outline" onClick={()=>setCollapsed(v=>!v)} className="admin-collapse">{collapsed?'Expand':'Collapse'} navigation</Button></aside>
+ <div className="admin-main"><header className="admin-header"><Button variant="outline" className="admin-menu" aria-expanded={open} onClick={()=>setOpen(v=>!v)}>Menu</Button><span>Administration / <strong>{pathname.split('/').at(-1)}</strong></span><div><AccentPicker/><Button variant="outline" onClick={logout}>Sign out</Button></div></header>{error&&<p role="alert">{error}</p>}<section id="admin-content" className="admin-content" aria-label="Admin page">{children}</section><footer>Online learning records only · XP and practice completion are not proficiency scores.</footer></div></div>;
+}

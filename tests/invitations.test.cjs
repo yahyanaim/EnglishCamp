@@ -48,7 +48,7 @@ test('pages, exported payloads and every costly API are blocked before assets or
   for(const path of ['/','/dashboard','/grammar.html','/grammar.txt','/levels/band4-5/lessons/band1-toefl-intro','/audio/course.mp3','/_next/static/%2e%2e%2fdashboard.html','/media/brand/%2e%2e%2fdashboard.html']){const r=await f.call(path);assert.equal(r.status,303,path);assert.equal(new URL(r.headers.get('location')).pathname,'/invite');assert.match(r.headers.get('cache-control'),/no-store/);}
   for(const path of ['/api/speech','/api/coach','/api/pronunciation','/api/placement/speaking','/api/placement/writing'])assert.equal((await f.call(path,'POST',{text:'absorb'})).status,401,path);
   assert.equal(assets,0);assert.equal(f.sql.prepare('SELECT COUNT(*) n FROM cloud_ai_limits').get().n,0);
-  for(const path of ['/invite','/invite.txt','/admin/invitations','/connect-device','/_next/static/test.js'])assert.equal((await f.call(path)).status,200,path);
+  for(const path of ['/invite','/invite.txt','/admin/login','/connect-device','/_next/static/test.js'])assert.equal((await f.call(path)).status,200,path);
  }finally{f.sql.close();}
 });
 test('only the owner key opens management; CSRF and brute-force attempts are rejected',async()=>{

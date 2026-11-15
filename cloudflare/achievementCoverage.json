@@ -1,0 +1,158 @@
+[
+  {
+    "id": "first-login",
+    "title": "First Steps",
+    "description": "Earn your first XP",
+    "category": "xp"
+  },
+  {
+    "id": "xp-100",
+    "title": "Dedicated Learner",
+    "description": "Earn 100 XP",
+    "category": "xp"
+  },
+  {
+    "id": "xp-500",
+    "title": "Vocabulary Star",
+    "description": "Earn 500 XP",
+    "category": "xp"
+  },
+  {
+    "id": "xp-1000",
+    "title": "Grammar Hero",
+    "description": "Earn 1,000 XP",
+    "category": "xp"
+  },
+  {
+    "id": "xp-2000",
+    "title": "Band 6 Achiever",
+    "description": "Earn 2,000 XP",
+    "category": "xp"
+  },
+  {
+    "id": "xp-4000",
+    "title": "Band 7 Achiever",
+    "description": "Earn 4,000 XP",
+    "category": "xp"
+  },
+  {
+    "id": "xp-7500",
+    "title": "IELTS Master",
+    "description": "Earn 7,500 XP",
+    "category": "xp"
+  },
+  {
+    "id": "streak-3",
+    "title": "Getting Started",
+    "description": "3-day streak",
+    "category": "streak"
+  },
+  {
+    "id": "streak-7",
+    "title": "Week Warrior",
+    "description": "7-day streak",
+    "category": "streak"
+  },
+  {
+    "id": "streak-14",
+    "title": "Fortnight Fire",
+    "description": "14-day streak",
+    "category": "streak"
+  },
+  {
+    "id": "streak-30",
+    "title": "Monthly Master",
+    "description": "30-day streak",
+    "category": "streak"
+  },
+  {
+    "id": "lessons-5",
+    "title": "Student",
+    "description": "Complete 5 lessons",
+    "category": "exercises"
+  },
+  {
+    "id": "lessons-20",
+    "title": "Scholar",
+    "description": "Complete 20 lessons",
+    "category": "exercises"
+  },
+  {
+    "id": "lessons-50",
+    "title": "Academic",
+    "description": "Complete 50 lessons",
+    "category": "exercises"
+  },
+  {
+    "id": "exercises-25",
+    "title": "Exercise Enthusiast",
+    "description": "Complete 25 exercises",
+    "category": "exercises"
+  },
+  {
+    "id": "exercises-100",
+    "title": "Practice Machine",
+    "description": "Complete 100 exercises",
+    "category": "exercises"
+  },
+  {
+    "id": "exercises-250",
+    "title": "Drill Master",
+    "description": "Complete 250 exercises",
+    "category": "exercises"
+  },
+  {
+    "id": "vocab-10",
+    "title": "Word Collector",
+    "description": "Add 10 words to vocabulary",
+    "category": "vocab"
+  },
+  {
+    "id": "vocab-50",
+    "title": "Lexicon Builder",
+    "description": "Add 50 words to vocabulary",
+    "category": "vocab"
+  },
+  {
+    "id": "vocab-200",
+    "title": "Walking Dictionary",
+    "description": "Add 200 words to vocabulary",
+    "category": "vocab"
+  },
+  {
+    "id": "quiz-1",
+    "title": "Quiz Rookie",
+    "description": "Take your first quiz",
+    "category": "quiz"
+  },
+  {
+    "id": "quiz-10",
+    "title": "Quiz Veteran",
+    "description": "Take 10 quizzes",
+    "category": "quiz"
+  },
+  {
+    "id": "quiz-perfect",
+    "title": "Perfect Score",
+    "description": "Get 100% on any quiz",
+    "category": "quiz"
+  },
+  {
+    "id": "errors-10",
+    "title": "Error Fixer",
+    "description": "Review 10 errors",
+    "category": "errors"
+  },
+  {
+    "id": "errors-50",
+    "title": "Bug Squasher",
+    "description": "Review 50 errors",
+    "category": "errors"
+  },
+  {
+    "id": "review-50",
+    "title": "Card Reviewer",
+    "description": "Review 50 flashcards",
+    "category": "vocab"
+  }
+]
