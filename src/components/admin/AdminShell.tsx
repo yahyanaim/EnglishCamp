@@ -3,7 +3,7 @@ import {useEffect,useState,type ReactNode} from 'react';
 import {usePathname} from 'next/navigation';
 import {useTheme} from 'next-themes';
 import Link from 'next/link';
-import {Menu,X,Sun,Moon,LogOut,Search,ChevronRight} from 'lucide-react';
+import {AdminIcon} from './AdminIcon';
 import {LearningArt} from '@/components/brand/LearningArt';
 import {BrandMark} from '@/components/brand/BrandMark';
 import {Button} from '@/components/ui/shadcn/button';
@@ -62,27 +62,26 @@ export function AdminShell({children}:{children:ReactNode}){
     <a href="#admin-content" className="sr-only focus:not-sr-only">Skip to content</a>
     <header className="admin-header">
       <div className="admin-header-brand">
-        <Button variant="unstyled" className="admin-icon-button admin-menu" aria-label="Menu" aria-expanded={open} onClick={()=>setOpen(true)}><Menu size={18}/></Button>
+        <Button variant="unstyled" className="admin-icon-button admin-menu" aria-label="Menu" aria-expanded={open} onClick={()=>setOpen(true)}><AdminIcon name="menu" size={18}/></Button>
         <Link href="/admin/dashboard" className="admin-brand"><BrandMark size={42}/><span><strong>EnglishCamp</strong><small>Admin workspace</small></span></Link>
       </div>
-      <div className="admin-header-location"><span>Administration</span><ChevronRight size={13}/><strong>{active.label}</strong></div>
+      <nav className="admin-topnav" aria-label="Admin workspace sections">{adminGroups.map(group=><Link key={group} href={'/admin/'+adminNavigation.find(p=>p.group===group)!.id} aria-current={active.group===group?'true':undefined}>{group}</Link>)}</nav>
       <div className="admin-utilities">
         <div className="admin-utility-pill">
-          <Link href="/admin/learners" className="admin-icon-button" aria-label="Search learners" title="Search learners"><Search size={17}/></Link>
-          <button className="admin-icon-button" onClick={()=>setTheme(resolvedTheme==='dark'?'light':'dark')} aria-label="Toggle theme"><Sun size={17} className="admin-light-icon"/><Moon size={17} className="admin-dark-icon"/></button>
+          <Link href="/admin/learners" className="admin-icon-button" aria-label="Search learners" title="Search learners"><AdminIcon name="search" size={18}/></Link>
+          <button className="admin-icon-button" onClick={()=>setTheme(resolvedTheme==='dark'?'light':'dark')} aria-label="Toggle theme"><AdminIcon name="sun" size={18} className="admin-light-icon"/><AdminIcon name="moon" size={18} className="admin-dark-icon"/></button>
           <AccentPicker/>
         </div>
-        <Button variant="unstyled" className="admin-signout" onClick={logout}><LogOut size={16}/><span>Sign out</span></Button>
+        <Button variant="unstyled" className="admin-signout" onClick={logout}><AdminIcon name="logout" size={18}/><span>Sign out</span></Button>
       </div>
     </header>
     {open&&<button className="admin-scrim" aria-label="Close navigation" onClick={()=>setOpen(false)}/>}
     <div className="admin-workspace">
       <aside id="admin-navigation" role={open?'dialog':undefined} aria-modal={open?true:undefined} aria-label="Admin navigation" className={'admin-sidebar'+(open?' is-open':'')}>
-        <div className="admin-drawer-heading"><BrandMark size={32}/><strong>Administration</strong><button className="admin-icon-button" aria-label="Close navigation" onClick={()=>setOpen(false)}><X size={18}/></button></div>
-        <Link href="/admin/dashboard" className="admin-sidebar-brand"><BrandMark size={34}/><span><strong>EnglishCamp</strong><small>Administration</small></span></Link>
-        <nav aria-label="Administration">{adminGroups.map(group=><div className="admin-nav-group" key={group}><p>{group}</p>{adminNavigation.filter(p=>p.group===group).map(p=><Link key={p.id} href={'/admin/'+p.id} aria-label={p.label} aria-current={active.id===p.id?'page':undefined}><LearningArt name={p.icon} size={20}/><span>{p.label}</span></Link>)}</div>)}</nav>
-        <div className="admin-sidebar-owner"><LearningArt name="document" size={20}/><div><strong>Owner workspace</strong><small>Protected administrator access</small></div></div>
-        <button className="admin-rail-logout" onClick={logout} aria-label="Sign out"><LogOut size={18}/><span>Sign out</span></button>
+        <div className="admin-drawer-heading"><BrandMark size={32}/><strong>Administration</strong><button className="admin-icon-button" aria-label="Close navigation" onClick={()=>setOpen(false)}><AdminIcon name="close" size={18}/></button></div>
+        <div className="admin-rail-theme"><button onClick={()=>setTheme('light')} aria-label="Light mode" aria-pressed={resolvedTheme!=='dark'}><AdminIcon name="sun" size={17}/></button><button onClick={()=>setTheme('dark')} aria-label="Dark mode" aria-pressed={resolvedTheme==='dark'}><AdminIcon name="moon" size={17}/></button></div>
+        <nav aria-label="Administration">{adminNavigation.map(p=><Link key={p.id} href={'/admin/'+p.id} aria-label={p.label} aria-current={active.id===p.id?'page':undefined}><LearningArt name={p.icon} size={20}/><span>{p.label}</span></Link>)}</nav>
+        <button className="admin-rail-logout" onClick={logout} aria-label="Sign out"><AdminIcon name="logout" size={18}/><span>Sign out</span></button>
       </aside>
       <div className="admin-main">
 
