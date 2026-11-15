@@ -65,9 +65,7 @@ export function AdminShell({children}:{children:ReactNode}){
         <Button variant="unstyled" className="admin-icon-button admin-menu" aria-label="Menu" aria-expanded={open} onClick={()=>setOpen(true)}><Menu size={18}/></Button>
         <Link href="/admin/dashboard" className="admin-brand"><BrandMark size={42}/><span><strong>EnglishCamp</strong><small>Admin workspace</small></span></Link>
       </div>
-      <nav className="admin-topnav" aria-label="Admin workspace sections">
-        {adminGroups.map(group=><Link key={group} href={'/admin/'+adminNavigation.find(p=>p.group===group)!.id} aria-current={active.group===group?'true':undefined}>{group}</Link>)}
-      </nav>
+      <div className="admin-header-location"><span>Administration</span><ChevronRight size={13}/><strong>{active.label}</strong></div>
       <div className="admin-utilities">
         <div className="admin-utility-pill">
           <Link href="/admin/learners" className="admin-icon-button" aria-label="Search learners" title="Search learners"><Search size={17}/></Link>
@@ -81,12 +79,13 @@ export function AdminShell({children}:{children:ReactNode}){
     <div className="admin-workspace">
       <aside id="admin-navigation" role={open?'dialog':undefined} aria-modal={open?true:undefined} aria-label="Admin navigation" className={'admin-sidebar'+(open?' is-open':'')}>
         <div className="admin-drawer-heading"><BrandMark size={32}/><strong>Administration</strong><button className="admin-icon-button" aria-label="Close navigation" onClick={()=>setOpen(false)}><X size={18}/></button></div>
-        <div className="admin-rail-theme"><button onClick={()=>setTheme('light')} aria-label="Light mode" aria-pressed={resolvedTheme!=='dark'}><Sun size={16}/></button><button onClick={()=>setTheme('dark')} aria-label="Dark mode" aria-pressed={resolvedTheme==='dark'}><Moon size={16}/></button></div>
-        <nav aria-label="Administration">{adminNavigation.map(p=><Link key={p.id} href={'/admin/'+p.id} aria-label={p.label} aria-current={active.id===p.id?'page':undefined}><LearningArt name={p.icon} size={20}/><span>{p.label}</span></Link>)}</nav>
+        <Link href="/admin/dashboard" className="admin-sidebar-brand"><BrandMark size={34}/><span><strong>EnglishCamp</strong><small>Administration</small></span></Link>
+        <nav aria-label="Administration">{adminGroups.map(group=><div className="admin-nav-group" key={group}><p>{group}</p>{adminNavigation.filter(p=>p.group===group).map(p=><Link key={p.id} href={'/admin/'+p.id} aria-label={p.label} aria-current={active.id===p.id?'page':undefined}><LearningArt name={p.icon} size={20}/><span>{p.label}</span></Link>)}</div>)}</nav>
+        <div className="admin-sidebar-owner"><LearningArt name="document" size={20}/><div><strong>Owner workspace</strong><small>Protected administrator access</small></div></div>
         <button className="admin-rail-logout" onClick={logout} aria-label="Sign out"><LogOut size={18}/><span>Sign out</span></button>
       </aside>
       <div className="admin-main">
-        <div className="admin-environment"><div><LearningArt name="document" size={18}/><strong>Owner workspace</strong><span className="admin-status">Protected access</span></div><span>Cloudflare <ChevronRight size={12}/> D1 learning records</span></div>
+
         {error&&<p role="alert" className="admin-notice">{error}</p>}
         <section id="admin-content" className="admin-content" aria-label="Admin page">{children}</section>
         <footer>EnglishCamp administration <span>Online records only · Practice completion is not a proficiency score.</span></footer>

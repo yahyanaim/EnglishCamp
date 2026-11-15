@@ -15,7 +15,9 @@ import {InvitationBoundary,isEntryPage} from '@/components/session/InvitationBou
 export function LayoutShell({ children }: { children: React.ReactNode }) {
   const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
   const closeMobileSidebar = useCallback(() => setMobileSidebarOpen(false), []);
-  const entry=isEntryPage(usePathname());
+  const pathname=usePathname(),entry=isEntryPage(pathname);
+  // Admin sessions and pages do not mount learner storage/synchronization providers.
+  if(pathname.startsWith('/admin/'))return <main className="camp-entry">{children}</main>;
 
   return (
     <SessionProvider><InvitationBoundary>{entry?<main className="camp-entry">{children}</main>:<><WeeklyProgressSync/><div className="camp-workspace">

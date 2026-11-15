@@ -483,7 +483,7 @@
     },
     "src/components/layout/LayoutShell.tsx": {
       "before": "c1201d8814e786fbeabb7bab73e28e6cb1e51bd575c75c0757228c94ac26eee3",
-      "after": "869285255f368a708f4c05b3b97f7e37c571778240db3496d20a93fd605ed554"
+      "after": "5ea41b2b865d4c6ed1f4c7501aad613ddf67b338a5e01ef4090b38bd382c122d"
     },
     "src/components/layout/LearningRail.tsx": {
       "before": "3f470675cbf1b02591272ed4fc93f7c1aeb8be9fdfe8962c3fde25f14dfa8481",
