@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState, type FormEvent } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { BrandMark } from '@/components/brand/BrandMark';
 import { PageBanner } from '@/components/ui/PageBanner';
 import { Card } from '@/components/ui/shadcn/card';
@@ -15,6 +16,7 @@ function destination() {
   } catch { return '/dashboard'; }
 }
 export default function InvitePage() {
+  const router=useRouter();
   const cloud = useCloudProgress(), session = useSessionProfile();
   const [mode, setMode] = useState<'invite'|'restore'>('invite'), [name, setName] = useState(''), [code, setCode] = useState(''), [granted, setGranted] = useState(false);
   useEffect(() => { document.title = 'Join EnglishCamp'; void fetch('/api/access/session', {cache:'no-store'}).then(r=>r.json()).then(data=>setGranted(data.granted===true)).catch(()=>{}); }, []);
@@ -32,7 +34,7 @@ export default function InvitePage() {
     <Link href="/" className="camp-access-brand"><BrandMark size={36}/><strong>EnglishCamp</strong></Link>
     <PageBanner><h1>Your invitation to learn</h1><p>A small learning community, with room to practise.</p></PageBanner>
     <Card className="camp-access-card">
-      {cloud.recoveryCode ? <section className="camp-access-form"><h2>Keep your recovery code</h2><p>Use your name and this private code to return on any device. Your invitation has been used successfully.</p><strong dir="auto">{session.profile?.name}</strong><code className="camp-access-code" dir="ltr">{cloud.recoveryCode}</code><Button variant="outline" onClick={downloadRecovery}>Download recovery details</Button><Button onClick={()=>{cloud.clearRecoveryCode();window.location.replace(destination());}}>I saved my code · continue</Button><small>Save it before leaving this page. It will not be shown again.</small></section>
+      {cloud.recoveryCode ? <section className="camp-access-form"><h2>Keep your recovery code</h2><p>Use your name and this private code to return on any device. Your invitation has been used successfully.</p><strong dir="auto">{session.profile?.name}</strong><code className="camp-access-code" dir="ltr">{cloud.recoveryCode}</code><Button variant="outline" onClick={downloadRecovery}>Download recovery details</Button><Button onClick={()=>{cloud.clearRecoveryCode();router.replace(destination());}}>I saved my code · continue</Button><small>Save it before leaving this page. It will not be shown again.</small></section>
       : granted && session.profile?.cloudId ? <section className="camp-access-form"><h2>Welcome back, <bdi>{session.profile.name}</bdi></h2><p>Your learning profile is ready.</p><Button onClick={()=>window.location.replace(destination())}>Continue learning</Button></section>
       : <><div className="camp-access-tabs" role="group" aria-label="How to enter"><Button variant={mode==='invite'?'secondary':'ghost'} aria-pressed={mode==='invite'} onClick={()=>{setMode('invite');setCode('');}}>I have an invitation</Button><Button variant={mode==='restore'?'secondary':'ghost'} aria-pressed={mode==='restore'} onClick={()=>{setMode('restore');setCode('');}}>I already have a profile</Button></div>
         <form onSubmit={submit} className="camp-access-form"><h2>{mode==='invite'?'Join EnglishCamp':'Welcome back'}</h2><p>{mode==='invite'?'Enter the code shared with you by the owner.':'Use your existing name and recovery code. No new invitation is needed.'}</p>
