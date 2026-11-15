@@ -21,3 +21,9 @@ The only lint configuration change scopes an existing Next.js lint rule to the e
 Future work, requiring separate scope: instructor roles/classes, centrally authorized assessment workflows, a deliberate versioned content editor, provider billing integrations and opt-in operational error aggregation. None is presented as an existing feature.
 
 The Worker preservation hash is updated only for the reviewed no-store protection on admin assets, including when invitation gating is disabled. Dedicated routing/cache authorization tests cover that change; teaching banks, fonts and learner stores retain their existing preservation checks.
+
+## Dashboard visual reference
+
+The administration presentation follows the floating workspace in [AI-hub's AdminDashboardClient](https://github.com/yahyanaim/AI-hub/blob/main/components/admin/AdminDashboardClient.tsx): grouped header navigation, a compact desktop icon rail, an identity strip, contextual page headers, illustrated KPI cards, responsive charts and a learner detail drawer. The reference's orange accent, quotas, payments, Redis/Vercel integrations and backend operations are not imported. EnglishCamp retains its palette, fonts, learning content, APIs, permissions and service limits.
+
+Time charts use only timestamped records returned by EnglishCamp. Gaps are not filled with invented historical observations. Values remain available in expandable tables, and points can be focused by keyboard. Metric coverage explanations remain available under “How metrics work.” The interface uses existing SVG/icon assets and React components; no chart dependency or polling is added.
