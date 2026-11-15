@@ -9,13 +9,16 @@ import { MobileBottomNav } from "./MobileBottomNav";
 import { SessionProvider } from "@/components/session/SessionProvider";
 import { LearningRail } from "./LearningRail";
 import { WeeklyProgressSync } from "@/components/session/WeeklyProgressSync";
+import {usePathname} from 'next/navigation';
+import {InvitationBoundary,isEntryPage} from '@/components/session/InvitationBoundary';
 
 export function LayoutShell({ children }: { children: React.ReactNode }) {
   const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
   const closeMobileSidebar = useCallback(() => setMobileSidebarOpen(false), []);
+  const entry=isEntryPage(usePathname());
 
   return (
-    <SessionProvider><WeeklyProgressSync/><div className="camp-workspace">
+    <SessionProvider><InvitationBoundary>{entry?<main className="camp-entry">{children}</main>:<><WeeklyProgressSync/><div className="camp-workspace">
       <div className="camp-frame">
       <div className="camp-navigation hidden lg:block">
         <Sidebar />
@@ -38,6 +41,6 @@ export function LayoutShell({ children }: { children: React.ReactNode }) {
       <SpeechFeedback />
       <LevelCelebration />
       <PlacementOffer />
-    </div></SessionProvider>
+    </div></>}</InvitationBoundary></SessionProvider>
   );
 }

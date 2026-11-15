@@ -57,10 +57,12 @@ jobs:
           npm run deploy:cloudflare
 
       - name: Verify live pages and Microsoft pronunciation
+        env:
+          ENGLISHCAMP_SMOKE_PROFILE: ${{ secrets.ENGLISHCAMP_SMOKE_PROFILE }}
         run: node scripts/check-cloudflare-live.cjs
 
       - name: Record the deployment result
         run: |
           echo 'EnglishCamp deployed from the pushed main commit.' >> "$GITHUB_STEP_SUMMARY"
           echo 'Live site: https://englishcamp.yahyanaim2001.workers.dev/' >> "$GITHUB_STEP_SUMMARY"
-          echo 'Public pages and real Microsoft pronunciation passed verification.' >> "$GITHUB_STEP_SUMMARY"
+          echo 'Invitation access, signed-in pages and real Microsoft pronunciation passed verification.' >> "$GITHUB_STEP_SUMMARY"

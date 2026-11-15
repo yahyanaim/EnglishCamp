@@ -5,6 +5,8 @@ import { GET as writingStatus, POST as writingAssessment } from '../src/app/api/
 import { learnerResponse, type LearnerEnv } from './learners';
 import {coachResponse,type CoachEnv} from './coach';
 import {pronunciationResponse,type PronunciationEnv} from './pronunciation';
+import {accessGuard,accessStatus,invitationRequired,publicAccessPath} from './access';
+import {invitationAdmin} from './invitationAdmin';
 
 type Env = SpeechEnv & LearnerEnv & CoachEnv & PronunciationEnv & { ASSETS: { fetch(request: Request): Promise<Response> } };
 const json = (body: object, status: number) => Response.json(body, { status, headers: { 'Cache-Control': 'no-store' } });
@@ -16,7 +18,10 @@ export default {
     const legacy = parts[0] && Object.prototype.hasOwnProperty.call(englishRoutes, parts[0]) ? parts[0] as keyof typeof englishRoutes : undefined;
     if (legacy || locale) { if (legacy) parts[0] = englishRoutes[legacy]; url.pathname = '/' + parts.join('/'); return Response.redirect(url.toString(), 308); }
     if (url.pathname === '/reading' || url.pathname === '/reading/') { url.pathname = '/vocabulary'; return Response.redirect(url.toString(), 307); }
+    const denied=await accessGuard(request,env);if(denied)return denied;
     if (url.pathname.startsWith('/api/')) {
+      if(url.pathname==='/api/access/session')return accessStatus(request,env);
+      if(url.pathname.startsWith('/api/invitations/admin/'))return invitationAdmin(request,env);
       if(url.pathname==='/api/coach')return coachResponse(request,env);
       if(url.pathname==='/api/pronunciation')return pronunciationResponse(request,env);
       if (url.pathname.startsWith('/api/learners/')) return learnerResponse(request,env);
@@ -29,7 +34,12 @@ export default {
     }
     if (request.method !== 'GET' && request.method !== 'HEAD') return json({ error: 'Method not allowed.' }, 405);
     const asset = await env.ASSETS.fetch(request);
-    if (asset.status !== 404) return asset;
+    if (asset.status !== 404) {
+      if(invitationRequired(env)&&!publicAccessPath(url.pathname)){
+        const response=new Response(asset.body,asset);response.headers.set('Cache-Control','no-store, private');response.headers.set('Vary','Cookie');return response;
+      }
+      return asset;
+    }
     // Let missing legacy URLs reach this Worker before serving the exported 404.
     // assets.not_found_handling='404-page' would swallow those redirects first.
     await asset.body?.cancel();

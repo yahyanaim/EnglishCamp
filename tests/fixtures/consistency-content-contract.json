@@ -483,7 +483,7 @@
     },
     "src/components/layout/LayoutShell.tsx": {
       "before": "c1201d8814e786fbeabb7bab73e28e6cb1e51bd575c75c0757228c94ac26eee3",
-      "after": "6c2d7ddc030f83123dbef0759811494ab951e367197aa92a487c4439ad82300f"
+      "after": "869285255f368a708f4c05b3b97f7e37c571778240db3496d20a93fd605ed554"
     },
     "src/components/layout/LearningRail.tsx": {
       "before": "3f470675cbf1b02591272ed4fc93f7c1aeb8be9fdfe8962c3fde25f14dfa8481",
@@ -1115,7 +1115,7 @@
     },
     "cloudflare/worker.ts": {
       "before": "7d6da51677884a4087d9b9726461de5814651ff930922efea40a586f49f89b28",
-      "after": "acd41ad9a8fcce86198af054d0855dcf0b9cceef473b848d6314ff416c6bd866"
+      "after": "5b20dec8b5cc00c5f8ead1e686cd73e0580b4b2ee653639af384db700becfd26"
     },
     "src/app/practice-polish.css": {
       "before": "5faf385352e78ded7cb8f4949608bd4fbd9438044f3556e47104e54a344d1047",

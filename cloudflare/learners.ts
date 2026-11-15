@@ -2,6 +2,7 @@ import { cleanProgress, cleanBadges, cleanEvents, eventKey, mergeProgress, merge
 import { FRUITS } from '../src/lib/sessionProfile';
 import {notesResponse} from './notes';
 import { DEVICE_LINK_TTL, validDeviceToken } from '../src/lib/deviceLink';
+import { accessHash, invitationRequired, learnerApproved } from './access';
 
 interface Statement {
  bind(...values:unknown[]):Statement;
@@ -9,7 +10,7 @@ interface Statement {
  run():Promise<{meta:{changes:number}}>;
 }
 export interface LearnerDatabase { prepare(sql:string):Statement; batch(statements:Statement[]):Promise<{meta:{changes:number}}[]> }
-export type LearnerEnv={LEARNERS_DB?:LearnerDatabase};
+export type LearnerEnv={LEARNERS_DB?:LearnerDatabase;INVITATION_REQUIRED?:string;INVITATION_ADMIN_HASH?:string};
 type Stored={revision:number;progress_json:string;badges_json:string;imported_keys:string;baseline_xp:number;awarded_xp:number;updated_at:string};
 const reply=(body:object,status=200,cookie?:string)=>Response.json(body,{status,headers:{'Cache-Control':'no-store, private','X-Content-Type-Options':'nosniff',...(cookie?{'Set-Cookie':cookie}:{})}});
 const secret=()=>{const bytes=crypto.getRandomValues(new Uint8Array(24));return btoa(String.fromCharCode(...Array.from(bytes))).replaceAll('+','-').replaceAll('/','_').replaceAll('=','');};
@@ -35,11 +36,24 @@ export async function learnerResponse(request:Request,env:LearnerEnv):Promise<Re
    const id=crypto.randomUUID(),recoveryCode='EC1-'+secret(),token=secret(),now=new Date().toISOString(),progress=cleanProgress(input.progress),badges=cleanBadges(input.badges);
    const importedKeys=Array.from(new Set([...progress.events.map(eventKey),...Object.entries(progress.lessons).filter(([,v])=>v.completed).map(([key])=>'lesson:'+key),...Object.keys(progress.exercisesDone).filter(key=>progress.exercisesDone[key]).map(key=>'exercise:'+key)]));
    const fruit=FRUITS.includes(input.fruit)?input.fruit:FRUITS[crypto.getRandomValues(new Uint8Array(1))[0]%FRUITS.length];
-   await db.batch([
-    db.prepare('INSERT INTO cloud_learners(id,name,fruit,recovery_hash,created_at) VALUES(?,?,?,?,?)').bind(id,displayName,fruit,await hash(recoveryCode),now),
-    db.prepare('INSERT INTO cloud_progress(learner_id,progress_json,badges_json,imported_keys,baseline_xp,updated_at) VALUES(?,?,?,?,?,?)').bind(id,JSON.stringify(progress),JSON.stringify(badges),JSON.stringify(importedKeys),progress.xp,now),
-    db.prepare('INSERT INTO cloud_sessions(token_hash,learner_id,expires_at) VALUES(?,?,?)').bind(await hash(token),id,Math.floor(Date.now()/1000)+2592000),
+   const required=invitationRequired(env),invitation=typeof input.invitationCode==='string'?input.invitationCode.trim():'',seconds=Math.floor(Date.now()/1000);
+   if(required&&!/^ECI-[A-Za-z0-9_-]{32}$/.test(invitation))return reply({error:'Enter your invitation code, or restore an existing profile.',code:'invitation_required'},403);
+   const codeHash=required?await accessHash(invitation):'';
+   // D1 executes this batch atomically. Every dependent insert is conditional on
+   // the new random learner ID existing; a rejected/replayed code creates nothing.
+   const created=required?db.prepare(`INSERT INTO cloud_learners(id,name,fruit,recovery_hash,created_at)
+    SELECT ?,?,?,?,? FROM cloud_invitations i JOIN cloud_invitation_settings s ON s.id=1
+    WHERE i.code_hash=? AND i.redeemed_at IS NULL AND i.revoked_at IS NULL AND i.expires_at>? AND s.accepting=1`)
+    .bind(id,displayName,fruit,await hash(recoveryCode),now,codeHash,seconds)
+    :db.prepare('INSERT INTO cloud_learners(id,name,fruit,recovery_hash,created_at) VALUES(?,?,?,?,?)').bind(id,displayName,fruit,await hash(recoveryCode),now);
+   const result=await db.batch([
+    created,
+    ...(required?[db.prepare('UPDATE cloud_invitations SET redeemed_at=?,redeemed_by=? WHERE code_hash=? AND redeemed_at IS NULL AND EXISTS(SELECT 1 FROM cloud_learners WHERE id=?)').bind(seconds,id,codeHash,id)]:[]),
+    db.prepare("INSERT INTO cloud_access(learner_id,status,source,granted_at) SELECT ?,'approved',?,? WHERE EXISTS(SELECT 1 FROM cloud_learners WHERE id=?)").bind(id,required?'invitation':'existing',seconds,id),
+    db.prepare('INSERT INTO cloud_progress(learner_id,progress_json,badges_json,imported_keys,baseline_xp,updated_at) SELECT ?,?,?,?,?,? WHERE EXISTS(SELECT 1 FROM cloud_learners WHERE id=?)').bind(id,JSON.stringify(progress),JSON.stringify(badges),JSON.stringify(importedKeys),progress.xp,now,id),
+    db.prepare('INSERT INTO cloud_sessions(token_hash,learner_id,expires_at) SELECT ?,?,? WHERE EXISTS(SELECT 1 FROM cloud_learners WHERE id=?)').bind(await hash(token),id,seconds+2592000,id),
    ]);
+   if(result[0]?.meta.changes!==1)return reply({error:'This invitation is unavailable, expired or already used. Ask the owner for a new code.',code:'invitation_required'},403);
    const account=await db.prepare('SELECT id,name,number,fruit FROM cloud_learners WHERE id=?').bind(id).first<CloudAccount>();
    return reply({account,recoveryCode,snapshot:{progress,badges,revision:0,updatedAt:now}},201,cookie(request,token));
   }
@@ -49,6 +63,7 @@ export async function learnerResponse(request:Request,env:LearnerEnv):Promise<Re
    if(!/^EC1-[A-Za-z0-9_-]{32}$/.test(code))return reply({error:'The name or recovery code is incorrect.'},401);
    const account=await db.prepare('SELECT id,name,number,fruit FROM cloud_learners WHERE recovery_hash=?').bind(await hash(code)).first<CloudAccount>();
    if(!account||account.name.normalize('NFKC').toLowerCase()!==displayName.toLowerCase())return reply({error:'The name or recovery code is incorrect.'},401);
+   if(invitationRequired(env)&&!await learnerApproved(account.id,db))return reply({error:'Access to this profile is paused. Contact the owner; your progress is kept.'},403);
    const token=secret(),now=Math.floor(Date.now()/1000);await db.batch([db.prepare('DELETE FROM cloud_sessions WHERE expires_at<?').bind(now),db.prepare('INSERT INTO cloud_sessions(token_hash,learner_id,expires_at) VALUES(?,?,?)').bind(await hash(token),account.id,now+2592000)]);
    return reply({account,snapshot:await snapshot(db,account.id)},200,cookie(request,token));
   }
@@ -58,6 +73,7 @@ export async function learnerResponse(request:Request,env:LearnerEnv):Promise<Re
    const tokenHash=await hash(input.token),now=Math.floor(Date.now()/1000);
    const link=await db.prepare('SELECT l.id,l.name,l.number,l.fruit,d.expires_at FROM cloud_device_links d JOIN cloud_learners l ON l.id=d.learner_id WHERE d.token_hash=? AND d.expires_at>? AND d.used_at IS NULL').bind(tokenHash,now).first<CloudAccount&{expires_at:number}>();
    if(!link)return reply({error:'This QR code has expired or was already used. Create a new code on your other device.'},410);
+   if(invitationRequired(env)&&!await learnerApproved(link.id,db))return reply({error:'Access to this profile is paused. Your saved progress is kept.'},403);
    if(action==='device-link/preview')return reply({name:link.name,fruit:link.fruit,expiresAt:link.expires_at});
    if(input.confirm!==true)return reply({error:'Confirm connecting this device first.'},400);
    const token=secret();
@@ -71,6 +87,7 @@ export async function learnerResponse(request:Request,env:LearnerEnv):Promise<Re
    return reply({account,snapshot:await snapshot(db,link.id)},200,cookie(request,token));
   }
   const current=await session(request,db);
+  if(current&&invitationRequired(env)&&!['logout','profile'].includes(action)&&!await learnerApproved(current.account.id,db))return reply({error:'Access to this profile is paused. Your saved progress is kept.',code:'access_suspended'},403);
   if(action==='session'&&request.method==='GET')return reply({available:true,account:current?.account??null});
   if(!current)return reply({error:'Restore your profile with its recovery code to reconnect.'},401);
   if(request.headers.get('X-EnglishCamp-Learner')!==current.account.id)return reply({error:'Another learner is signed in in this browser. Reconnect your profile before syncing.',code:'learner_changed'},409);

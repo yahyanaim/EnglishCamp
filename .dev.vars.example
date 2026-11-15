@@ -12,3 +12,6 @@ OPENPRONOUNCE_URL=""
 OPENPRONOUNCE_TOKEN=""
 OPENPRONOUNCE_MODAL_KEY=""
 OPENPRONOUNCE_MODAL_SECRET=""
+# Owner-only invitation management. Generate locally; never paste the real key here.
+# node scripts/prepare-invitation-owner.cjs writes only its hash into .dev.vars.
+INVITATION_ADMIN_HASH=""

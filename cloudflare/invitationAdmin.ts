@@ -1,0 +1,100 @@
+import type { LearnerEnv, LearnerDatabase } from './learners';
+import { accessHash, accessJson, accessSecret, readCookie } from './access';
+
+const now = () => Math.floor(Date.now() / 1000);
+const cookieName = (r: Request) => new URL(r.url).protocol === 'https:' ? '__Host-camp-invite-admin' : 'camp_local_admin';
+const cookie = (r: Request, token: string, age = 28800) => `${cookieName(r)}=${token}; Path=/; HttpOnly; SameSite=Strict; Max-Age=${age}${new URL(r.url).protocol === 'https:' ? '; Secure' : ''}`;
+const configured = (env: LearnerEnv) => /^[a-f0-9]{64}$/.test(env.INVITATION_ADMIN_HASH || '');
+class AdminError extends Error { constructor(message: string, readonly status = 400) { super(message); } }
+async function input(request: Request) {
+  if (!request.headers.get('content-type')?.startsWith('application/json')) throw new AdminError('Use a valid form.');
+  const reader = request.body?.getReader(); if (!reader) throw new AdminError('Complete the form.');
+  let bytes = 0; const chunks: Uint8Array[] = [];
+  while (true) { const next = await reader.read(); if (next.done) break; bytes += next.value.length;
+    if (bytes > 4096) { await reader.cancel(); throw new AdminError('This request is too large.', 413); } chunks.push(next.value); }
+  const data = new Uint8Array(bytes); let offset = 0; for (const chunk of chunks) { data.set(chunk, offset); offset += chunk.length; }
+  try { const value = JSON.parse(new TextDecoder().decode(data)); if (!value || typeof value !== 'object' || Array.isArray(value)) throw new Error(); return value; }
+  catch { throw new AdminError('Use a valid form.'); }
+}
+async function adminSession(request: Request, env: LearnerEnv) {
+  const token = readCookie(request, cookieName(request));
+  if (!configured(env) || !token || !/^[A-Za-z0-9_-]{32}$/.test(token)) return null;
+  const hash = await accessHash(token);
+  return await env.LEARNERS_DB!.prepare('SELECT token_hash FROM cloud_admin_sessions WHERE token_hash=? AND credential_version=? AND expires_at>?')
+    .bind(hash, await accessHash(env.INVITATION_ADMIN_HASH!), now()).first() ? hash : null;
+}
+async function loginRate(request: Request, db: LearnerDatabase) {
+  const expiry = (Math.floor(now() / 600) + 1) * 600;
+  await db.prepare('DELETE FROM cloud_auth_limits WHERE expires_at<?').bind(now()).run();
+  for (const [subject, limit] of [[request.headers.get('CF-Connecting-IP') || 'local', 6], ['global', 60]] as const) {
+    const row = await db.prepare('INSERT INTO cloud_auth_limits(bucket,attempts,expires_at) VALUES(?,1,?) ON CONFLICT(bucket) DO UPDATE SET attempts=attempts+1 WHERE attempts<? RETURNING attempts')
+      .bind(await accessHash(`invitation-admin:${subject}:${expiry}`), expiry, limit).first();
+    if (!row) throw new AdminError('Too many attempts. Please wait ten minutes.', 429);
+  }
+}
+async function items(db: LearnerDatabase, sql: string) {
+  const row = await db.prepare(sql).first<{ payload: string }>(); return JSON.parse(row?.payload || '[]');
+}
+export async function invitationAdmin(request: Request, env: LearnerEnv): Promise<Response> {
+  const url = new URL(request.url), action = url.pathname.slice('/api/invitations/admin/'.length), db = env.LEARNERS_DB;
+  if (!db || !configured(env)) return accessJson({ error: 'Invitation management is not configured.', configured: false }, 503);
+  if (!['GET', 'POST'].includes(request.method)) return accessJson({ error: 'Method not allowed.' }, 405);
+  if (request.method !== 'GET' && request.headers.get('origin') !== url.origin) return accessJson({ error: 'Open invitation management on EnglishCamp.' }, 403);
+  try {
+    if (action === 'login' && request.method === 'POST') {
+      await loginRate(request, db); const body = await input(request);
+      const password = typeof body.password === 'string' && body.password.length <= 256 ? body.password : '';
+      const actual = await accessHash(password), expected = env.INVITATION_ADMIN_HASH!;
+      let different = 0; for (let i = 0; i < 64; i++) different |= actual.charCodeAt(i) ^ expected.charCodeAt(i);
+      if (!password || different) return accessJson({ error: 'The management key is incorrect.' }, 401);
+      const token = accessSecret();
+      await db.batch([db.prepare('DELETE FROM cloud_admin_sessions WHERE expires_at<=?').bind(now()),
+        db.prepare('INSERT INTO cloud_admin_sessions(token_hash,credential_version,expires_at) VALUES(?,?,?)').bind(await accessHash(token), await accessHash(expected), now() + 28800)]);
+      return accessJson({ authenticated: true }, 200, cookie(request, token));
+    }
+    const session = await adminSession(request, env);
+    if (action === 'session' && request.method === 'GET') return accessJson({ configured: true, authenticated: !!session });
+    if (!session) return accessJson({ error: 'Sign in to manage invitations.' }, 401);
+    if (action === 'logout' && request.method === 'POST') {
+      await db.prepare('DELETE FROM cloud_admin_sessions WHERE token_hash=?').bind(session).run();
+      return accessJson({ ok: true }, 200, cookie(request, '', 0));
+    }
+    if (action === 'list' && request.method === 'GET') {
+      const invitations = await items(db, `SELECT json_group_array(json_object('id',id,'displayCode',display_code,'label',label,'createdAt',created_at,'expiresAt',expires_at,'revokedAt',revoked_at,'redeemedAt',redeemed_at)) payload FROM (SELECT * FROM cloud_invitations ORDER BY created_at DESC,rowid DESC LIMIT 200)`);
+      const learners = await items(db, `SELECT json_group_array(json_object('id',id,'name',name,'number',number,'status',status,'source',source)) payload FROM (SELECT l.id,l.name,l.number,a.status,a.source FROM cloud_learners l JOIN cloud_access a ON a.learner_id=l.id ORDER BY l.number DESC LIMIT 200)`);
+      const settings = await db.prepare('SELECT accepting FROM cloud_invitation_settings WHERE id=1').first<{ accepting: number }>();
+      return accessJson({ invitations, learners, accepting: settings?.accepting === 1, limits: { pronunciationDaily: 1, pronunciationMonthlyTotal: 500, coachDaily: 20 } });
+    }
+    if (action === 'create' && request.method === 'POST') {
+      const body = await input(request), count = Number(body.count), days = Number(body.days);
+      const label = typeof body.label === 'string' ? body.label.trim().replace(/[\u0000-\u001f\u007f]/g, '') : '';
+      if (!Number.isInteger(count) || count < 1 || count > 20 || ![1,7,14,30].includes(days) || label.length > 64) throw new AdminError('Choose 1–20 codes, a valid expiry and a label up to 64 characters.');
+      const pending = await db.prepare('SELECT COUNT(*) total FROM cloud_invitations WHERE redeemed_at IS NULL AND revoked_at IS NULL AND expires_at>?').bind(now()).first<{ total: number }>();
+      if ((pending?.total || 0) + count > 100) throw new AdminError('You already have enough unused codes. Revoke unused invitations before creating more.', 409);
+      const codes = Array.from({ length: count }, () => ({ id: crypto.randomUUID(), code: 'ECI-' + accessSecret() }));
+      await db.batch(await Promise.all(codes.map(async item => db.prepare('INSERT INTO cloud_invitations(id,code_hash,display_code,label,created_at,expires_at) VALUES(?,?,?,?,?,?)')
+        .bind(item.id, await accessHash(item.code), item.code.slice(0,8) + '…' + item.code.slice(-4), label, now(), now() + days * 86400))));
+      return accessJson({ codes, expiresAt: now() + days * 86400 }, 201);
+    }
+    if (action === 'revoke' && request.method === 'POST') {
+      const body = await input(request); if (typeof body.id !== 'string' || body.id.length > 64) throw new AdminError('Choose an invitation.');
+      await db.prepare('UPDATE cloud_invitations SET revoked_at=? WHERE id=? AND redeemed_at IS NULL AND revoked_at IS NULL').bind(now(), body.id).run();
+      return accessJson({ ok: true });
+    }
+    if (action === 'admissions' && request.method === 'POST') {
+      const body = await input(request); if (typeof body.accepting !== 'boolean') throw new AdminError('Choose an admission setting.');
+      await db.prepare('UPDATE cloud_invitation_settings SET accepting=? WHERE id=1').bind(body.accepting ? 1 : 0).run();
+      return accessJson({ ok: true });
+    }
+    if (action === 'learner' && request.method === 'POST') {
+      const body = await input(request);
+      if (typeof body.id !== 'string' || body.id.length > 64 || !['approved','suspended'].includes(body.status)) throw new AdminError('Choose a learner and access status.');
+      await db.prepare('UPDATE cloud_access SET status=? WHERE learner_id=?').bind(body.status, body.id).run();
+      return accessJson({ ok: true });
+    }
+    return accessJson({ error: 'Not found.' }, 404);
+  } catch (error) {
+    return error instanceof AdminError ? accessJson({ error: error.message }, error.status)
+      : accessJson({ error: 'Invitation management is temporarily unavailable. No learner records have been deleted.' }, 503);
+  }
+}

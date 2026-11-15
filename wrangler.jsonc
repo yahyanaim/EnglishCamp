@@ -18,9 +18,10 @@
     "binding": "ASSETS",
     "html_handling": "drop-trailing-slash",
     "not_found_handling": "none",
-    "run_worker_first": ["/api/*", "/reading", "/reading/", "/en", "/en/*", "/ar", "/ar/*"]
+    "run_worker_first": true
   },
   "vars": {
+    "INVITATION_REQUIRED": "true",
     "ENGLISHCAMP_SPEAKING_ENABLED": "false",
     "ENGLISHCAMP_SPEAKING_HOURLY_LIMIT": "10"
   },
