@@ -1,3 +1,4 @@
+import {membership,billingEnabled} from './membership';
 import {adminSession} from './invitationAdmin';
 import type { LearnerDatabase, LearnerEnv } from './learners';
 
@@ -31,14 +32,14 @@ export function publicAccessPath(path: string) {
   try { const decoded=decodeURIComponent(path);if(decoded.includes('\\')||decoded.includes('%')||/(?:^|\/)\.{1,2}(?:\/|$)/.test(decoded))return false; }
   catch { return false; }
   const page = path.replace(/\.(?:html|txt)$/, '').replace(/\/$/, '') || '/';
-  return ['/invite', '/admin/login', '/connect-device'].includes(page)
+  return ['/invite', '/membership', '/admin/login', '/connect-device'].includes(page)
     || (path.startsWith('/_next/static/') && /\.(?:js|css|woff2?|png|webp|jpg|svg)$/.test(path))
     || /^\/media\/brand\/[A-Za-z0-9_.-]+\.(?:png|webp|svg|ico)$/.test(path)
     || ['/favicon.ico', '/robots.txt'].includes(path)
     || ['/api/access/session', '/api/invitations/request', '/api/learners/create', '/api/learners/restore', '/api/learners/session',
       '/api/learners/device-link/preview', '/api/learners/device-link/claim'].includes(path)
     || ['/api/learners/logout', '/api/learners/profile'].includes(path)
-    || path.startsWith('/api/invitations/admin/');
+    || path.startsWith('/api/invitations/admin/')||path.startsWith('/api/billing/');
 }
 /** Authorize HTML, exported RSC payloads, media and APIs before asset serving or provider calls. */
 export async function accessGuard(request: Request, env: LearnerEnv): Promise<Response | null> {
@@ -51,7 +52,12 @@ export async function accessGuard(request: Request, env: LearnerEnv): Promise<Re
   if (!invitationRequired(env) || publicAccessPath(new URL(request.url).pathname)) return null;
   try {
     if (!env.LEARNERS_DB) throw new Error('Unavailable');
-    if (await approvedLearner(request, env.LEARNERS_DB)) return null;
+    const learner=await approvedLearner(request, env.LEARNERS_DB);
+    if(learner){
+      if(new URL(request.url).pathname.startsWith('/api/learners/')||(await membership(env.LEARNERS_DB,learner,env)).allowed)return null;
+      if(new URL(request.url).pathname.startsWith('/api/'))return accessJson({error:'Your free period has ended. Open membership to continue; your progress is saved.',code:'membership_required'},402);
+      return new Response(null,{status:303,headers:{Location:new URL('/membership',request.url).toString(),'Cache-Control':'no-store, private'}});
+    }
     const url = new URL(request.url);
     if (url.pathname.startsWith('/api/')) return accessJson({ error: 'Sign in with an invitation or restore your existing profile.', code: 'invitation_required' }, 401);
     const destination = new URL('/invite', url);
@@ -66,6 +72,7 @@ export async function accessStatus(request: Request, env: LearnerEnv) {
   if (!invitationRequired(env)) return accessJson({ required: false, granted: true });
   try {
     if (!env.LEARNERS_DB) throw new Error('Unavailable');
-    return accessJson({ required: true, granted: !!await approvedLearner(request, env.LEARNERS_DB) });
+    const id=await approvedLearner(request,env.LEARNERS_DB),allowed=id?(await membership(env.LEARNERS_DB,id,env)).allowed:false;
+    return accessJson({required:true,granted:allowed,destination:id&&!allowed?'/membership':'/invite',trialDays:billingEnabled(env)?7:null});
   } catch { return accessJson({ error: 'Access is temporarily unavailable. Please try again.' }, 503); }
 }

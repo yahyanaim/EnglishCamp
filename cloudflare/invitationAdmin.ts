@@ -2,6 +2,7 @@ import type { LearnerEnv, LearnerDatabase } from './learners';
 import {adminReport} from './adminReports';
 import { accessHash, accessJson, accessSecret, readCookie } from './access';
 import {InvitationMailError,invitationRequests,sendInvitation,declineInvitation,reopenInvitation} from './invitationEmail';
+import {emailLearner,deleteLearner} from './adminLearnerActions';
 import {securityReport} from './adminSecurity';
 
 const now = () => Math.floor(Date.now() / 1000);
@@ -9,12 +10,12 @@ const cookieName = (r: Request) => new URL(r.url).protocol === 'https:' ? '__Hos
 const cookie = (r: Request, token: string, age = 28800) => `${cookieName(r)}=${token}; Path=/; HttpOnly; SameSite=Strict; Max-Age=${age}${new URL(r.url).protocol === 'https:' ? '; Secure' : ''}`;
 const configured = (env: LearnerEnv) => /^[a-f0-9]{64}$/.test(env.INVITATION_ADMIN_HASH || '');
 class AdminError extends Error { constructor(message: string, readonly status = 400) { super(message); } }
-async function input(request: Request) {
+async function input(request: Request,maximum=4096) {
   if (!request.headers.get('content-type')?.startsWith('application/json')) throw new AdminError('Use a valid form.');
   const reader = request.body?.getReader(); if (!reader) throw new AdminError('Complete the form.');
   let bytes = 0; const chunks: Uint8Array[] = [];
   while (true) { const next = await reader.read(); if (next.done) break; bytes += next.value.length;
-    if (bytes > 4096) { await reader.cancel(); throw new AdminError('This request is too large.', 413); } chunks.push(next.value); }
+    if (bytes > maximum) { await reader.cancel(); throw new AdminError('This request is too large.', 413); } chunks.push(next.value); }
   const data = new Uint8Array(bytes); let offset = 0; for (const chunk of chunks) { data.set(chunk, offset); offset += chunk.length; }
   try { const value = JSON.parse(new TextDecoder().decode(data)); if (!value || typeof value !== 'object' || Array.isArray(value)) throw new Error(); return value; }
   catch { throw new AdminError('Use a valid form.'); }
@@ -60,7 +61,9 @@ export async function invitationAdmin(request: Request, env: LearnerEnv): Promis
     if (!session) return accessJson({ error: 'Sign in to manage invitations.' }, 401);
     if(action==='security'&&request.method==='GET')return accessJson(await securityReport(url,env));
     if(['report','directory','detail','catalogue','infrastructure','settings','invitation-directory'].includes(action)&&request.method==='GET')return accessJson(await adminReport(action,url,env));
-    if(request.method==='POST'&&['create','revoke','admissions','learner','profile','revoke-sessions','email-invitation','decline-request','reopen-request'].includes(action)){const expiry=(Math.floor(now()/600)+1)*600;const used=await db.prepare('INSERT INTO cloud_auth_limits(bucket,attempts,expires_at) VALUES(?,1,?) ON CONFLICT(bucket) DO UPDATE SET attempts=attempts+1 WHERE attempts<120 RETURNING attempts').bind(await accessHash(`admin-write:${session}:${expiry}`),expiry).first();if(!used)throw new AdminError('Too many changes. Wait a few minutes.',429);}
+    if(request.method==='POST'&&['create','revoke','admissions','learner','profile','revoke-sessions','email-invitation','decline-request','reopen-request','email-learner','delete-learner'].includes(action)){const expiry=(Math.floor(now()/600)+1)*600;const used=await db.prepare('INSERT INTO cloud_auth_limits(bucket,attempts,expires_at) VALUES(?,1,?) ON CONFLICT(bucket) DO UPDATE SET attempts=attempts+1 WHERE attempts<120 RETURNING attempts').bind(await accessHash(`admin-write:${session}:${expiry}`),expiry).first();if(!used)throw new AdminError('Too many changes. Wait a few minutes.',429);}
+    if(action==='email-learner'&&request.method==='POST')return accessJson(await emailLearner(request,env,await input(request,20000)));
+    if(action==='delete-learner'&&request.method==='POST')return accessJson(await deleteLearner(env,await input(request)));
     if(action==='requests'&&request.method==='GET')return accessJson(await invitationRequests(url,env));
     if(action==='email-invitation'&&request.method==='POST')return accessJson(await sendInvitation(request,env,await input(request)));
     if(action==='reopen-request'&&request.method==='POST')return accessJson(await reopenInvitation(env,(await input(request)).id));

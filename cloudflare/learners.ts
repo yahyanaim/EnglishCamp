@@ -1,6 +1,8 @@
 import { cleanProgress, cleanBadges, cleanEvents, eventKey, mergeProgress, mergeBadges, type CloudAccount, type CloudSnapshot } from '../src/lib/cloudProgress';
 import { FRUITS } from '../src/lib/sessionProfile';
+import {eraseLearner} from './learnerDeletion';
 import {notesResponse} from './notes';
+import {billingEnabled,hasRenewal,type BillingEnv} from './membership';
 import { DEVICE_LINK_TTL, validDeviceToken } from '../src/lib/deviceLink';
 import { accessHash, invitationRequired, learnerApproved } from './access';
 import {invitationEmail} from '../src/lib/invitationEmail';
@@ -11,7 +13,7 @@ interface Statement {
  run():Promise<{meta:{changes:number}}>;
 }
 export interface LearnerDatabase { prepare(sql:string):Statement; batch(statements:Statement[]):Promise<{meta:{changes:number}}[]> }
-export type LearnerEnv={LEARNERS_DB?:LearnerDatabase;INVITATION_REQUIRED?:string;INVITATION_ADMIN_HASH?:string;RESEND_API_KEY?:string;BREVO_API_KEY?:string;INVITATION_EMAIL_PROVIDER?:string;INVITATION_EMAIL_FROM?:string};
+export type LearnerEnv=BillingEnv & {LEARNERS_DB?:LearnerDatabase;INVITATION_REQUIRED?:string;INVITATION_ADMIN_HASH?:string;RESEND_API_KEY?:string;BREVO_API_KEY?:string;INVITATION_EMAIL_PROVIDER?:string;INVITATION_EMAIL_FROM?:string};
 type Stored={revision:number;progress_json:string;badges_json:string;imported_keys:string;baseline_xp:number;awarded_xp:number;updated_at:string};
 const reply=(body:object,status=200,cookie?:string)=>Response.json(body,{status,headers:{'Cache-Control':'no-store, private','X-Content-Type-Options':'nosniff',...(cookie?{'Set-Cookie':cookie}:{})}});
 const secret=()=>{const bytes=crypto.getRandomValues(new Uint8Array(24));return btoa(String.fromCharCode(...Array.from(bytes))).replaceAll('+','-').replaceAll('/','_').replaceAll('=','');};
@@ -52,6 +54,7 @@ export async function learnerResponse(request:Request,env:LearnerEnv):Promise<Re
     ...(required?[db.prepare('UPDATE cloud_invitations SET redeemed_at=?,redeemed_by=? WHERE code_hash=? AND redeemed_at IS NULL AND EXISTS(SELECT 1 FROM cloud_learners WHERE id=?)').bind(seconds,id,codeHash,id)]:[]),
     db.prepare("INSERT INTO cloud_access(learner_id,status,source,granted_at) SELECT ?,'approved',?,? WHERE EXISTS(SELECT 1 FROM cloud_learners WHERE id=?)").bind(id,required?'invitation':'existing',seconds,id),
     db.prepare('INSERT INTO cloud_progress(learner_id,progress_json,badges_json,imported_keys,baseline_xp,updated_at) SELECT ?,?,?,?,?,? WHERE EXISTS(SELECT 1 FROM cloud_learners WHERE id=?)').bind(id,JSON.stringify(progress),JSON.stringify(badges),JSON.stringify(importedKeys),progress.xp,now,id),
+    db.prepare('INSERT INTO cloud_memberships(learner_id,mode,trial_until,created_at) SELECT ?,?,?,? WHERE EXISTS(SELECT 1 FROM cloud_learners WHERE id=?)').bind(id,billingEnabled(env)?'trial':'legacy',billingEnabled(env)?seconds+7*86400:null,seconds,id),
     db.prepare('INSERT INTO cloud_sessions(token_hash,learner_id,expires_at) SELECT ?,?,? WHERE EXISTS(SELECT 1 FROM cloud_learners WHERE id=?)').bind(await hash(token),id,seconds+2592000,id),
    ]);
    if(result[0]?.meta.changes!==1)return reply({error:'This invitation is unavailable, expired, already used or does not match your email. Check the details from your invitation.',code:'invitation_required'},403);
@@ -112,7 +115,7 @@ export async function learnerResponse(request:Request,env:LearnerEnv):Promise<Re
   }
   if(action==='notes')return await notesResponse(request,db,current.account.id,request.method==='PUT'?await body(request):undefined);
   if(action==='logout'&&request.method==='POST'){await db.prepare('DELETE FROM cloud_sessions WHERE token_hash=?').bind(current.tokenHash).run();return reply({ok:true},200,cookie(request,'',0));}
-  if(action==='profile'&&request.method==='DELETE'){const input=await body(request);if(input.confirm!=='delete')return reply({error:'Confirm deletion first.'},400);await db.prepare('DELETE FROM cloud_learners WHERE id=?').bind(current.account.id).run();return reply({ok:true},200,cookie(request,'',0));}
+  if(action==='profile'&&request.method==='DELETE'){const input=await body(request);if(input.confirm!=='delete')return reply({error:'Confirm deletion first.'},400);if(await hasRenewal(db,current.account.id))return reply({error:'Cancel your PayPal subscription or pending checkout before deleting this profile.'},409);if(!await eraseLearner(db,current.account.id))return reply({error:'A checkout is still open. Cancel it before deleting your profile.'},409);return reply({ok:true},200,cookie(request,'',0));}
   if(action==='progress'&&request.method==='GET')return reply({account:current.account,snapshot:await snapshot(db,current.account.id)});
   if(action==='progress'&&request.method==='PUT'){
    const input=await body(request);if(!Array.isArray(input.pendingEvents)||input.pendingEvents.length>100)return reply({error:'Send up to 100 learning events at a time.'},400);

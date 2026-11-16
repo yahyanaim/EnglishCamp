@@ -1,3 +1,4 @@
+import {billingResponse} from './billing';
 import englishRoutes from '../src/lib/english-routes.mjs';
 import { speechResponse, type SpeechEnv } from './speech';
 import { GET as speakingStatus, POST as speakingAssessment } from '../src/app/api/placement/speaking/route';
@@ -21,6 +22,7 @@ async function handleRequest(request: Request, env: Env): Promise<Response> {
     if (url.pathname === '/reading' || url.pathname === '/reading/') { url.pathname = '/vocabulary'; return Response.redirect(url.toString(), 307); }
     const denied=await accessGuard(request,env);if(denied)return denied;
     if (url.pathname.startsWith('/api/')) {
+      if(url.pathname.startsWith('/api/billing/'))return billingResponse(request,env);
       if(url.pathname==='/api/invitations/request')return requestInvitation(request,env);
       if(url.pathname==='/api/access/session')return accessStatus(request,env);
       if(url.pathname.startsWith('/api/invitations/admin/'))return invitationAdmin(request,env);

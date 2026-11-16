@@ -2,6 +2,7 @@ import type {LearnerEnv,LearnerDatabase} from './learners';
 import {deliverInvitation,emailConfigured,invitationProvider,InvitationDeliveryError} from './invitationDelivery';
 export {emailConfigured} from './invitationDelivery';
 import {accessHash,accessJson,accessSecret} from './access';
+import {brandedMail,escapeMail} from './emailBrand';
 import {invitationEmail,invitationName} from '../src/lib/invitationEmail';
 export class InvitationMailError extends Error{constructor(message:string,readonly status=400){super(message);}}
 const now=()=>Math.floor(Date.now()/1000);
@@ -14,6 +15,9 @@ async function smallInput(request:Request){
  const reader=request.body?.getReader();let size=0,text='';const decoder=new TextDecoder();
  if(reader)while(true){const c=await reader.read();if(c.done)break;size+=c.value.length;if(size>2048){await reader.cancel();throw new InvitationMailError('This request is too large.',413);}text+=decoder.decode(c.value,{stream:true});}
  try{const data=JSON.parse(text+decoder.decode());if(!data||typeof data!=='object'||Array.isArray(data))throw Error();return data;}catch{throw new InvitationMailError('Complete the invitation form.');}
+}
+export async function reserveEmailAttempt(db:LearnerDatabase){
+ if(!await limit(db,'invitation-send-day',30,86400)||!await limit(db,'invitation-send-month',500,31*86400))throw new InvitationMailError('The email sending allowance has been reached. Try again after the current window.',429);
 }
 export async function requestInvitation(request:Request,env:LearnerEnv){
  if(request.method!=='POST')return accessJson({error:'Method not allowed.'},405);
@@ -39,7 +43,6 @@ export async function invitationRequests(url:URL,env:LearnerEnv){
  const list=await db.prepare(`SELECT json_group_array(json_object('id',id,'name',name,'email',email,'status',status,'created',created_at,'updated',updated_at,'invitationId',invitation_id,'canReopen',CASE WHEN status='declined' THEN 1 WHEN status='accepted' THEN EXISTS(SELECT 1 FROM cloud_invitations i WHERE i.id=r.invitation_id AND i.redeemed_at IS NULL AND (i.revoked_at IS NOT NULL OR i.expires_at<=unixepoch())) ELSE 0 END)) payload FROM (SELECT * FROM cloud_invitation_requests WHERE ${where} ORDER BY created_at DESC,id LIMIT 25 OFFSET ?) r`).bind(...args,(current-1)*25).first<{payload:string}>();
  return{items:JSON.parse(list?.payload||'[]'),page:current,total,emailConfigured:emailConfigured(env),emailProvider:invitationProvider(env),counts:await db.prepare("SELECT COUNT(*) total,COALESCE(SUM(status IN ('pending','processing')),0) pending,COALESCE(SUM(status='accepted'),0) accepted,COALESCE(SUM(status='declined'),0) declined FROM cloud_invitation_requests").first()};
 }
-const escape=(s:string)=>s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]!));
 export async function sendInvitation(request:Request,env:LearnerEnv,body:{id?:unknown;days?:unknown}){
  const db=env.LEARNERS_DB!,days=Number(body.days||7);
  if(typeof body.id!=='string'||body.id.length>64||![1,7,14,30].includes(days))throw new InvitationMailError('Choose a request and a valid expiry.');
@@ -54,7 +57,7 @@ export async function sendInvitation(request:Request,env:LearnerEnv,body:{id?:un
  const id=crypto.randomUUID(),code='ECI-'+accessSecret();
  try{
   if(previous.invitation_id)await db.prepare('UPDATE cloud_invitations SET revoked_at=? WHERE id=? AND redeemed_at IS NULL').bind(stamp,previous.invitation_id).run();
-  if(!await limit(db,'invitation-send-day',30,86400)||!await limit(db,'invitation-send-month',500,31*86400))throw new InvitationMailError('The email sending allowance has been reached. Try again after the current window.',429);
+  await reserveEmailAttempt(db);
   const inserted=await db.prepare(`INSERT INTO cloud_invitations(id,code_hash,display_code,label,created_at,expires_at,recipient_name,recipient_email,delivery_state)
    SELECT ?,?,?,?,?,?,?,?,'sending' WHERE (SELECT COUNT(*) FROM cloud_invitations WHERE redeemed_at IS NULL AND revoked_at IS NULL AND expires_at>?)<100`).bind(id,await accessHash(code),code.slice(0,8)+'…'+code.slice(-4),'Email invitation',stamp,stamp+days*86400,claim.name,claim.email,stamp).run();
   if(!inserted.meta.changes)throw new InvitationMailError('All 100 invitation slots are occupied. Revoke an unused code first.',409);
@@ -62,7 +65,7 @@ export async function sendInvitation(request:Request,env:LearnerEnv,body:{id?:un
   if(assigned.meta.changes!==1)throw new InvitationMailError('This invitation request changed. Refresh and try again.',409);
   const link=new URL('/invite',request.url);link.hash=new URLSearchParams({invite:code,email:claim.email,name:claim.name}).toString();
   const text=`Hello ${claim.name},\n\nYour EnglishCamp invitation has been approved.\n\nInvitation code: ${code}\nEmail: ${claim.email}\nValid for ${days} days. This code creates one profile.\n\nOpen EnglishCamp: ${link}\n\nAfter registration, save your private recovery code to return on other devices.\nIf you did not request this invitation, ignore this email.`;
-  await deliverInvitation(env,{id,to:claim,subject:'Your EnglishCamp invitation',text,html:`<div style="font-family:system-ui,sans-serif;max-width:520px;margin:auto;padding:32px;color:#30243c"><p style="color:#7e22ce;font-weight:700">EnglishCamp</p><h1 style="font-size:26px">Your invitation is ready</h1><p>Hello ${escape(claim.name)}, your request has been approved.</p><p>Use this single-use code within ${days} days:</p><p style="background:#f4edf9;padding:16px;border-radius:12px;font-family:monospace;overflow-wrap:anywhere">${code}</p><p><a href="${escape(link.toString())}" style="display:inline-block;background:#7e22ce;color:white;text-decoration:none;padding:12px 20px;border-radius:9px">Join EnglishCamp</a></p><p style="font-size:13px">Use ${escape(claim.email)} when registering. Then save your recovery code to keep your progress across devices.</p><p style="font-size:12px;color:#736a7b">If you did not request this invitation, ignore this email.</p></div>`});
+  await deliverInvitation(env,{id,to:claim,subject:'Your EnglishCamp invitation',text,html:brandedMail(new URL(request.url).origin,'Your invitation is ready',`<p>Hello ${escapeMail(claim.name)}, your request has been approved.</p><p>Use this single-use code within ${days} days:</p><p style="background:#f4edf9;padding:16px;border-radius:12px;font-family:monospace;overflow-wrap:anywhere">${code}</p><p><a href="${escapeMail(link.toString())}" style="display:inline-block;background:#7e22ce;color:white;text-decoration:none;padding:12px 20px;border-radius:9px">Join EnglishCamp</a></p><p style="font-size:13px">Use ${escapeMail(claim.email)} when registering. Then save your recovery code to keep your progress across devices.</p><p style="font-size:12px;color:#736a7b">If you did not request this invitation, ignore this email.</p>`)});
   const activated=await db.batch([db.prepare("UPDATE cloud_invitations SET delivery_state='accepted' WHERE id=? AND revoked_at IS NULL").bind(id),db.prepare("UPDATE cloud_invitation_requests SET status='accepted',updated_at=? WHERE id=? AND invitation_id=? AND EXISTS(SELECT 1 FROM cloud_invitations WHERE id=? AND delivery_state='accepted' AND revoked_at IS NULL)").bind(now(),body.id,id,id)]);
   if(activated.some(r=>r.meta.changes!==1))throw new InvitationMailError('This invitation changed before activation. Refresh and try again.',409);
   return{ok:true,accepted:true}; // Provider acceptance is not inbox delivery.

@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/shadcn/button';
 import '@/app/invitations.css';
 import '@/components/admin/admin.css';
 
-export const isEntryPage = (path: string) => (path.startsWith('/admin/') || path==='/invite');
+export const isEntryPage = (path: string) => (path.startsWith('/admin/') || (path==='/invite'||path==='/membership'));
 
 /** Protect client navigation too; all actual authorization still runs in the Worker. */
 export function InvitationBoundary({ children }: { children: ReactNode }) {
@@ -22,7 +22,7 @@ export function InvitationBoundary({ children }: { children: ReactNode }) {
         const data = await response.json(); if (!response.ok) throw new Error('Please try again. Your learning records are kept.');
         if (disposed) return;
         if (data.granted === true) setAllowed(path);
-        else { setAllowed(''); window.location.replace('/invite?next=' + encodeURIComponent(window.location.pathname + window.location.search)); }
+        else { setAllowed(''); window.location.replace(data.destination==='/membership'?'/membership':'/invite?next='+encodeURIComponent(window.location.pathname+window.location.search)); }
       } catch { if (!disposed) { setAllowed(''); setError('We could not check your access. Your saved progress is kept.'); } }
       finally { clearTimeout(timeout); }
     }
