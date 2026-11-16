@@ -3,6 +3,7 @@ import { FRUITS } from '../src/lib/sessionProfile';
 import {notesResponse} from './notes';
 import { DEVICE_LINK_TTL, validDeviceToken } from '../src/lib/deviceLink';
 import { accessHash, invitationRequired, learnerApproved } from './access';
+import {invitationEmail} from '../src/lib/invitationEmail';
 
 interface Statement {
  bind(...values:unknown[]):Statement;
@@ -10,7 +11,7 @@ interface Statement {
  run():Promise<{meta:{changes:number}}>;
 }
 export interface LearnerDatabase { prepare(sql:string):Statement; batch(statements:Statement[]):Promise<{meta:{changes:number}}[]> }
-export type LearnerEnv={LEARNERS_DB?:LearnerDatabase;INVITATION_REQUIRED?:string;INVITATION_ADMIN_HASH?:string};
+export type LearnerEnv={LEARNERS_DB?:LearnerDatabase;INVITATION_REQUIRED?:string;INVITATION_ADMIN_HASH?:string;RESEND_API_KEY?:string;INVITATION_EMAIL_FROM?:string};
 type Stored={revision:number;progress_json:string;badges_json:string;imported_keys:string;baseline_xp:number;awarded_xp:number;updated_at:string};
 const reply=(body:object,status=200,cookie?:string)=>Response.json(body,{status,headers:{'Cache-Control':'no-store, private','X-Content-Type-Options':'nosniff',...(cookie?{'Set-Cookie':cookie}:{})}});
 const secret=()=>{const bytes=crypto.getRandomValues(new Uint8Array(24));return btoa(String.fromCharCode(...Array.from(bytes))).replaceAll('+','-').replaceAll('/','_').replaceAll('=','');};
@@ -43,8 +44,8 @@ export async function learnerResponse(request:Request,env:LearnerEnv):Promise<Re
    // the new random learner ID existing; a rejected/replayed code creates nothing.
    const created=required?db.prepare(`INSERT INTO cloud_learners(id,name,fruit,recovery_hash,created_at)
     SELECT ?,?,?,?,? FROM cloud_invitations i JOIN cloud_invitation_settings s ON s.id=1
-    WHERE i.code_hash=? AND i.redeemed_at IS NULL AND i.revoked_at IS NULL AND i.expires_at>? AND s.accepting=1`)
-    .bind(id,displayName,fruit,await hash(recoveryCode),now,codeHash,seconds)
+    WHERE i.code_hash=? AND i.redeemed_at IS NULL AND i.revoked_at IS NULL AND i.expires_at>? AND s.accepting=1 AND (i.recipient_email IS NULL OR i.recipient_email=?) AND i.delivery_state IN ('manual','accepted')`)
+    .bind(id,displayName,fruit,await hash(recoveryCode),now,codeHash,seconds,invitationEmail(input.email))
     :db.prepare('INSERT INTO cloud_learners(id,name,fruit,recovery_hash,created_at) VALUES(?,?,?,?,?)').bind(id,displayName,fruit,await hash(recoveryCode),now);
    const result=await db.batch([
     created,
@@ -53,7 +54,7 @@ export async function learnerResponse(request:Request,env:LearnerEnv):Promise<Re
     db.prepare('INSERT INTO cloud_progress(learner_id,progress_json,badges_json,imported_keys,baseline_xp,updated_at) SELECT ?,?,?,?,?,? WHERE EXISTS(SELECT 1 FROM cloud_learners WHERE id=?)').bind(id,JSON.stringify(progress),JSON.stringify(badges),JSON.stringify(importedKeys),progress.xp,now,id),
     db.prepare('INSERT INTO cloud_sessions(token_hash,learner_id,expires_at) SELECT ?,?,? WHERE EXISTS(SELECT 1 FROM cloud_learners WHERE id=?)').bind(await hash(token),id,seconds+2592000,id),
    ]);
-   if(result[0]?.meta.changes!==1)return reply({error:'This invitation is unavailable, expired or already used. Ask the owner for a new code.',code:'invitation_required'},403);
+   if(result[0]?.meta.changes!==1)return reply({error:'This invitation is unavailable, expired, already used or does not match your email. Check the details from your invitation.',code:'invitation_required'},403);
    const account=await db.prepare('SELECT id,name,number,fruit FROM cloud_learners WHERE id=?').bind(id).first<CloudAccount>();
    return reply({account,recoveryCode,snapshot:{progress,badges,revision:0,updatedAt:now}},201,cookie(request,token));
   }

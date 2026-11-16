@@ -15,3 +15,7 @@ OPENPRONOUNCE_MODAL_SECRET=""
 # Owner-only invitation management. Generate locally; never paste the real key here.
 # node scripts/prepare-invitation-owner.cjs writes only its hash into .dev.vars.
 INVITATION_ADMIN_HASH=""
+# Optional invitation email. Free Resend account + verified sending domain required.
+# Store real values in .dev.vars locally and as Cloudflare Worker secrets.
+RESEND_API_KEY=""
+INVITATION_EMAIL_FROM=""

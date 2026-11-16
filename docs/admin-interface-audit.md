@@ -18,3 +18,12 @@ Reference: the actual [AIhubtools workspace source](https://github.com/yahyanaim
 Charts retain EnglishCamp's recorded series, palette and existing information scope. Custom report boundaries apply to registrations, event counts, awarded XP, redemptions, quiz attempts and badge awards. Cumulative totals remain labelled as cumulative. No traffic, billing, unread activity or provider availability is invented.
 
 Learner and administrator authentication remain independent. Recovery codes, optional placement, private notes, account progress and all service caps retain the existing implementation. No database migration or credential change is needed. The preservation contract changes only for the reviewed invitation-field additions to the original signup modal; its existing styles are unchanged.
+
+## 2026-11-16 follow-up: missing page content and email admissions
+
+- Compared the actual AIhubtools Users section (three KpiCard panels, segmented distribution, filtered table) and Settings section (compact two-column forms) with the EnglishCamp pages. Learners now includes global account cards/distribution without changing the table's filter scope or source progress data.
+- Added `/admin/security` and a distinct faceted rail icon. Actual API response totals start at activation; daily data is retained for 90 days. It exposes aggregate counts and enforced protections, and can revoke other admin sessions while preserving the current session and every learner session.
+- Settings now includes a real server-saved admin display name/title, compact admission/appearance/limits cards, email setup and a separate session row. Display metadata does not alter roles, keys or authorization.
+- Invitations defaults to consented access requests, not a batch-generation screen. Review/decline and approval/email follow the same table, button, KPI and modal system. Manual single-use codes remain in their own tab. Email acceptance is never labelled inbox delivery.
+- Public `/invite` includes the matching request form and recipient-email field for emailed codes. The existing signup modal retains its established layout and styling, with the optional invitation-email field added. No replacement authentication provider or new password system was introduced.
+- Email delivery is prepared but cannot be verified live until the owner configures a verified sending domain and Resend secrets. No fake provider configuration or real learner email is used for UI QA.

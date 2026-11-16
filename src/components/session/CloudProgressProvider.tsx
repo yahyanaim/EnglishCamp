@@ -11,7 +11,7 @@ import {isRestoringLearner,restoringLearner} from '@/lib/learnerStores';
 
 type Status='connecting'|'local'|'syncing'|'saved'|'offline'|'reconnect'|'unavailable';
 type Metadata={observed:string[];pending:ReturnType<typeof cleanEvents>;dirty:boolean;change:number};
-type CloudContext={status:Status;message:string;busy:boolean;recoveryCode:string|null;clearRecoveryCode:()=>void;create:(name:string,invitationCode?:string)=>Promise<boolean>;restore:(name:string,code:string)=>Promise<boolean>;connectDevice:(token:string)=>Promise<boolean>;sync:()=>Promise<boolean>;disconnect:()=>Promise<boolean>;remove:()=>Promise<boolean>};
+type CloudContext={status:Status;message:string;busy:boolean;recoveryCode:string|null;clearRecoveryCode:()=>void;create:(name:string,invitationCode?:string,email?:string)=>Promise<boolean>;restore:(name:string,code:string)=>Promise<boolean>;connectDevice:(token:string)=>Promise<boolean>;sync:()=>Promise<boolean>;disconnect:()=>Promise<boolean>;remove:()=>Promise<boolean>};
 const Context=createContext<CloudContext|null>(null);
 const metadataKey=(id:string)=>cloudLearnerPrefix(id)+'englishcamp-cloud-sync-v1';
 function metadata(id:string):Metadata{try{const data=JSON.parse(localStorage.getItem(metadataKey(id))||'null');return{observed:Array.isArray(data?.observed)?data.observed.filter((s:unknown)=>typeof s==='string').slice(-2000):[],pending:cleanEvents(data?.pending,Array.isArray(data?.pending)?data.pending.length:0),dirty:data?.dirty===true,change:Number.isSafeInteger(data?.change)?data.change:0};}catch{return{observed:[],pending:[],dirty:false,change:0};}}
@@ -52,10 +52,10 @@ export function CloudProgressProvider({children}:{children:ReactNode}){
   if(!data.observed.length&&!data.pending.length)saveMetadata(remote.id,{observed:cleanEvents(useProgress.getState().events).map(eventKey),pending:[],dirty:false,change:0});
   apply(snapshot,remote.id,!link&&!data.dirty&&!data.pending.length);setStatus('saved');setMessage('Your progress and badges are up to date.');return true;
  }
- async function create(name:string,invitationCode?:string){if(operation.current||!sessionRef.current.canSwitch())return false;setBusy(true);operation.current=true;setMessage('');try{
+ async function create(name:string,invitationCode?:string,email?:string){if(operation.current||!sessionRef.current.canSwitch())return false;setBusy(true);operation.current=true;setMessage('');try{
    if(!sessionRef.current.profile&&!sessionRef.current.signIn(name))return false;sessionRef.current.closePlacementOffer();
    const profile=readSessionProfile(sessionStorage);if(!profile)throw new Error('Start a named session first.');if(profile.cloudId)throw new Error('This profile already has online storage. Use its recovery code to reconnect.');
-   const result=await api('create','POST',{name:profile.name,fruit:profile.fruit,progress:currentProgress(),badges:cleanBadges(useAchievements.getState().unlocked),...(invitationCode?{invitationCode}:{})});
+   const result=await api('create','POST',{name:profile.name,fruit:profile.fruit,progress:currentProgress(),badges:cleanBadges(useAchievements.getState().unlocked),...(invitationCode?{invitationCode}:{}),...(email?{email}:{})});
    setRecoveryCode(result.recoveryCode);if(!await connect(result.account,result.snapshot,true))throw new Error('Online profile created, but this device could not open it. Keep the recovery code.');return true;
   }catch(error){fail(error);return false;}finally{operation.current=false;setBusy(false);}}
  async function restore(name:string,code:string){if(operation.current||!sessionRef.current.canSwitch())return false;if(account.current&&!await sync())return false;setBusy(true);operation.current=true;setMessage('');try{const result=await api('restore','POST',{name,code});const connected=await connect(result.account,result.snapshot);return connected;}catch(error){fail(error);return false;}finally{operation.current=false;setBusy(false);if(account.current)void sync();}}

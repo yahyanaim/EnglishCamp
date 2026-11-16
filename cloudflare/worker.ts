@@ -7,11 +7,12 @@ import {coachResponse,type CoachEnv} from './coach';
 import {pronunciationResponse,type PronunciationEnv} from './pronunciation';
 import {accessGuard,accessStatus,invitationRequired,publicAccessPath} from './access';
 import {invitationAdmin} from './invitationAdmin';
+import {requestInvitation} from './invitationEmail';
+import {recordSecurity} from './adminSecurity';
 
 type Env = SpeechEnv & LearnerEnv & CoachEnv & PronunciationEnv & { ASSETS: { fetch(request: Request): Promise<Response> } };
 const json = (body: object, status: number) => Response.json(body, { status, headers: { 'Cache-Control': 'no-store' } });
-export default {
-  async fetch(request: Request, env: Env): Promise<Response> {
+async function handleRequest(request: Request, env: Env): Promise<Response> {
     const url = new URL(request.url), parts = url.pathname.split('/').filter(Boolean);
     const locale = parts[0] === 'en' || parts[0] === 'ar';
     if (locale) parts.shift();
@@ -20,6 +21,7 @@ export default {
     if (url.pathname === '/reading' || url.pathname === '/reading/') { url.pathname = '/vocabulary'; return Response.redirect(url.toString(), 307); }
     const denied=await accessGuard(request,env);if(denied)return denied;
     if (url.pathname.startsWith('/api/')) {
+      if(url.pathname==='/api/invitations/request')return requestInvitation(request,env);
       if(url.pathname==='/api/access/session')return accessStatus(request,env);
       if(url.pathname.startsWith('/api/invitations/admin/'))return invitationAdmin(request,env);
       if(url.pathname==='/api/coach')return coachResponse(request,env);
@@ -46,5 +48,11 @@ export default {
     url.pathname = '/404.html'; url.search = '';
     const missing = await env.ASSETS.fetch(new Request(url, { method: request.method }));
     return new Response(missing.body, { status: 404, headers: missing.headers });
-  },
+}
+export default {
+  async fetch(request:Request,env:Env,context?:{waitUntil(promise:Promise<unknown>):void}){
+    const response=await handleRequest(request,env),metrics=recordSecurity(request,response,env);
+    if(context)context.waitUntil(metrics);else await metrics;
+    return response;
+  }
 };

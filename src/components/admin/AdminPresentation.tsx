@@ -17,7 +17,7 @@ export function MetricScope({children}:{children:ReactNode}){
 }
 export function StatCard({label,value,sub,icon='table',trend}:{label:string;value:number;sub:string;icon?:string;trend?:number[]}){
   const max=Math.max(1,...(trend||[])),points=trend?.map((v,i)=>`${i/Math.max(1,trend.length-1)*72},${24-v/max*20}`).join(' ');
-  return <article className="admin-stat"><div className="admin-stat-top"><div><span>{label}</span><strong>{number(value||0)}</strong></div><span className="admin-stat-icon"><LearningArt name={icon} size={20}/></span></div><div className="admin-stat-bottom"><small>{sub}</small>{trend&&trend.length>1&&<svg width="72" height="28" viewBox="0 0 72 28" aria-hidden="true"><polyline points={points} fill="none" stroke="currentColor" strokeWidth="1.75"/></svg>}</div></article>;
+  return <article className="admin-stat"><div className="admin-stat-top"><div><span>{label}</span><strong>{number(value||0)}</strong></div><span className="admin-stat-icon">{['users','shield','lock','mail','server','ticket'].includes(icon)?<AdminIcon name={icon} size={20}/>:<LearningArt name={icon} size={20}/>}</span></div><div className="admin-stat-bottom"><small>{sub}</small>{trend&&trend.length>1&&<svg width="72" height="28" viewBox="0 0 72 28" aria-hidden="true"><polyline points={points} fill="none" stroke="currentColor" strokeWidth="1.75"/></svg>}</div></article>;
 }
 export function Breakdown({title,rows}:{title:string;rows:ChartRow[]}){
   const max=Math.max(1,...rows.map(r=>r.value)),sum=rows.reduce((n,r)=>n+r.value,0);

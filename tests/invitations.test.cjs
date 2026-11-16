@@ -19,7 +19,7 @@ test('the access boundary leaves the existing workspace chrome and original font
  assert.equal(crypto.createHash('sha256').update(fs.readFileSync('src/app/layout.tsx')).digest('hex'),'a9c15a1a3691462324854c163256fd647c6472245806ebddd1980929f91b4a27');
 });
 function fixture(skipAccess=false){
- const sql=new DatabaseSync(':memory:');for(const file of fs.readdirSync('migrations').filter(f=>f.endsWith('.sql')).sort())if(!skipAccess||file!=='0006_invitations.sql')sql.exec(fs.readFileSync('migrations/'+file,'utf8'));
+ const sql=new DatabaseSync(':memory:');for(const file of fs.readdirSync('migrations').filter(f=>f.endsWith('.sql')).sort())if(!skipAccess||!['0006_invitations.sql','0009_email_invitations.sql'].includes(file))sql.exec(fs.readFileSync('migrations/'+file,'utf8'));
  function prepare(query){let values=[];const execute=()=>({meta:{changes:Number(sql.prepare(query).run(...values).changes)}});return{bind(...v){values=v;return this;},async first(){return sql.prepare(query).get(...values)||null;},async run(){return execute();},execute};}
  const db={prepare,async batch(statements){sql.exec('BEGIN');try{const result=statements.map(s=>s.execute());sql.exec('COMMIT');return result;}catch(error){sql.exec('ROLLBACK');throw error;}}};
  const password='only-a-synthetic-management-test-key',env={LEARNERS_DB:db,INVITATION_REQUIRED:'true',INVITATION_ADMIN_HASH:crypto.createHash('sha256').update(password).digest('hex'),ASSETS:{fetch:async request=>new Response('<title>EnglishCamp</title>'+new URL(request.url).pathname,{headers:{'Content-Type':'text/html'}})}};

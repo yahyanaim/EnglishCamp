@@ -5,6 +5,7 @@ export const adminNavigation = [
   {id:'achievements',label:'Achievements',group:'Learning',icon:'trophy',description:'Understand earned badges and recorded awards across the platform.'},
   {id:'invitations',label:'Invitations',group:'Operations',icon:'ticket',description:'Welcome learners at a pace your platform can support.'},
   {id:'infrastructure',label:'Infrastructure',group:'Operations',icon:'server',description:'Check the database, configured services and available request counters.'},
-  {id:'settings',label:'Settings',group:'Operations',icon:'settings',description:'Review protected platform settings and existing service guardrails.'},
+  {id:'security',label:'Security',group:'Security',icon:'shield',description:'Review access protections, response counters and administrator sessions.'},
+  {id:'settings',label:'Settings',group:'Security',icon:'settings',description:'Manage your administrator profile, admissions and workspace preferences.'},
 ] as const;
-export const adminGroups = ['Overview','Learners','Learning','Operations'];
+export const adminGroups = ['Overview','Learners','Learning','Operations','Security'];

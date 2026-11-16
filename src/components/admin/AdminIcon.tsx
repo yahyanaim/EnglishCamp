@@ -4,6 +4,7 @@ const p={main:'var(--camp-art-main,#7E22CE)',deep:'var(--camp-art-deep,#6B21A8)'
 export function AdminIcon({name,size=18,className}:{name:string;size?:number;className?:string}){
  let drawing:ReactNode;
  switch(name){
+ case 'mail':drawing=<><path d="M4 13h56v40H4Z" fill={p.light}/><path d="m4 13 28 23 28-23" fill={p.main}/><path d="m4 53 19-20 9 7 9-7 19 20Z" fill={p.deep}/><path d="M4 13v40l19-20Z" fill={p.pale}/></>;break;
  case 'shield':drawing=<><path d="m32 3 26 10v20c0 15-26 29-26 29S6 48 6 33V13Z" fill={p.main}/><path d="M32 3 6 13v20c0 15 26 29 26 29Z" fill={p.light}/><path d="m17 31 10 10 21-22" fill="none" stroke={p.pale} strokeWidth="6"/></>;break;
  case 'lock':drawing=<><path d="M18 30V18a14 14 0 0 1 28 0v12" stroke={p.main} strokeWidth="7"/><path d="M32 4a14 14 0 0 0-14 14v12" stroke={p.light} strokeWidth="7"/><path d="M10 27h44v34H10Z" fill={p.main}/><path d="m10 27 44 34V27Z" fill={p.deep}/><circle cx="32" cy="41" r="5" fill={p.pale}/><path d="M30 44h4v9h-4Z" fill={p.pale}/></>;break;
  case 'eye':case 'eye-off':drawing=<><path d="M3 32S15 12 32 12s29 20 29 20-12 20-29 20S3 32 3 32Z" fill={p.light}/><path d="M32 12c17 0 29 20 29 20S49 52 32 52Z" fill={p.main}/><circle cx="32" cy="32" r="11" fill={p.deep}/><circle cx="35" cy="28" r="4" fill={p.pale}/>{name==='eye-off'&&<path d="m9 6 49 52" stroke={p.deep} strokeWidth="6"/>}</>;break;

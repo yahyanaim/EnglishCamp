@@ -1,6 +1,8 @@
 import type { LearnerEnv, LearnerDatabase } from './learners';
 import {adminReport} from './adminReports';
 import { accessHash, accessJson, accessSecret, readCookie } from './access';
+import {InvitationMailError,invitationRequests,sendInvitation,declineInvitation,reopenInvitation} from './invitationEmail';
+import {securityReport} from './adminSecurity';
 
 const now = () => Math.floor(Date.now() / 1000);
 const cookieName = (r: Request) => new URL(r.url).protocol === 'https:' ? '__Host-camp-invite-admin' : 'camp_local_admin';
@@ -56,8 +58,24 @@ export async function invitationAdmin(request: Request, env: LearnerEnv): Promis
     const session = await adminSession(request, env);
     if (action === 'session' && request.method === 'GET') return accessJson({ configured: true, authenticated: !!session });
     if (!session) return accessJson({ error: 'Sign in to manage invitations.' }, 401);
+    if(action==='security'&&request.method==='GET')return accessJson(await securityReport(url,env));
     if(['report','directory','detail','catalogue','infrastructure','settings','invitation-directory'].includes(action)&&request.method==='GET')return accessJson(await adminReport(action,url,env));
-    if(request.method==='POST'&&['create','revoke','admissions','learner'].includes(action)){const expiry=(Math.floor(now()/600)+1)*600;const used=await db.prepare('INSERT INTO cloud_auth_limits(bucket,attempts,expires_at) VALUES(?,1,?) ON CONFLICT(bucket) DO UPDATE SET attempts=attempts+1 WHERE attempts<120 RETURNING attempts').bind(await accessHash(`admin-write:${session}:${expiry}`),expiry).first();if(!used)throw new AdminError('Too many changes. Wait a few minutes.',429);}
+    if(request.method==='POST'&&['create','revoke','admissions','learner','profile','revoke-sessions','email-invitation','decline-request','reopen-request'].includes(action)){const expiry=(Math.floor(now()/600)+1)*600;const used=await db.prepare('INSERT INTO cloud_auth_limits(bucket,attempts,expires_at) VALUES(?,1,?) ON CONFLICT(bucket) DO UPDATE SET attempts=attempts+1 WHERE attempts<120 RETURNING attempts').bind(await accessHash(`admin-write:${session}:${expiry}`),expiry).first();if(!used)throw new AdminError('Too many changes. Wait a few minutes.',429);}
+    if(action==='requests'&&request.method==='GET')return accessJson(await invitationRequests(url,env));
+    if(action==='email-invitation'&&request.method==='POST')return accessJson(await sendInvitation(request,env,await input(request)));
+    if(action==='reopen-request'&&request.method==='POST')return accessJson(await reopenInvitation(env,(await input(request)).id));
+    if(action==='decline-request'&&request.method==='POST')return accessJson(await declineInvitation(env,(await input(request)).id));
+    if(action==='profile'&&request.method==='POST'){
+      const value=await input(request),clean=(v:unknown)=>typeof v==='string'?v.normalize('NFKC').replace(/[\u0000-\u001f\u007f]/g,'').trim():'';
+      const displayName=clean(value.displayName),roleTitle=clean(value.roleTitle);
+      if(!displayName||displayName.length>60||!roleTitle||roleTitle.length>60)throw new AdminError('Enter a display name and role of 1–60 characters.');
+      await db.prepare('UPDATE cloud_admin_profile SET display_name=?,role_title=? WHERE id=1').bind(displayName,roleTitle).run();
+      return accessJson({ok:true});
+    }
+    if(action==='revoke-sessions'&&request.method==='POST'){
+      const result=await db.prepare('DELETE FROM cloud_admin_sessions WHERE token_hash<>?').bind(session).run();
+      return accessJson({ok:true,revoked:result.meta.changes});
+    }
     if (action === 'logout' && request.method === 'POST') {
       await db.prepare('DELETE FROM cloud_admin_sessions WHERE token_hash=?').bind(session).run();
       return accessJson({ ok: true }, 200, cookie(request, '', 0));
@@ -106,7 +124,7 @@ export async function invitationAdmin(request: Request, env: LearnerEnv): Promis
     }
     return accessJson({ error: 'Not found.' }, 404);
   } catch (error) {
-    return error instanceof TypeError ? accessJson({error:'Choose valid filters and pagination.'},400) : error instanceof AdminError ? accessJson({ error: error.message }, error.status)
+    return error instanceof TypeError ? accessJson({error:'Choose valid filters and pagination.'},400) : (error instanceof AdminError || error instanceof InvitationMailError) ? accessJson({ error: error.message }, error.status)
       : accessJson({ error: 'Invitation management is temporarily unavailable. No learner records have been deleted.' }, 503);
   }
 }

@@ -35,7 +35,7 @@ export function publicAccessPath(path: string) {
     || (path.startsWith('/_next/static/') && /\.(?:js|css|woff2?|png|webp|jpg|svg)$/.test(path))
     || /^\/media\/brand\/[A-Za-z0-9_.-]+\.(?:png|webp|svg|ico)$/.test(path)
     || ['/favicon.ico', '/robots.txt'].includes(path)
-    || ['/api/access/session', '/api/learners/create', '/api/learners/restore', '/api/learners/session',
+    || ['/api/access/session', '/api/invitations/request', '/api/learners/create', '/api/learners/restore', '/api/learners/session',
       '/api/learners/device-link/preview', '/api/learners/device-link/claim'].includes(path)
     || ['/api/learners/logout', '/api/learners/profile'].includes(path)
     || path.startsWith('/api/invitations/admin/');
