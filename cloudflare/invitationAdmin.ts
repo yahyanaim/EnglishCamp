@@ -56,7 +56,7 @@ export async function invitationAdmin(request: Request, env: LearnerEnv): Promis
     const session = await adminSession(request, env);
     if (action === 'session' && request.method === 'GET') return accessJson({ configured: true, authenticated: !!session });
     if (!session) return accessJson({ error: 'Sign in to manage invitations.' }, 401);
-    if(['report','directory','detail','catalogue','infrastructure','invitation-directory'].includes(action)&&request.method==='GET')return accessJson(await adminReport(action,url,env));
+    if(['report','directory','detail','catalogue','infrastructure','settings','invitation-directory'].includes(action)&&request.method==='GET')return accessJson(await adminReport(action,url,env));
     if(request.method==='POST'&&['create','revoke','admissions','learner'].includes(action)){const expiry=(Math.floor(now()/600)+1)*600;const used=await db.prepare('INSERT INTO cloud_auth_limits(bucket,attempts,expires_at) VALUES(?,1,?) ON CONFLICT(bucket) DO UPDATE SET attempts=attempts+1 WHERE attempts<120 RETURNING attempts').bind(await accessHash(`admin-write:${session}:${expiry}`),expiry).first();if(!used)throw new AdminError('Too many changes. Wait a few minutes.',429);}
     if (action === 'logout' && request.method === 'POST') {
       await db.prepare('DELETE FROM cloud_admin_sessions WHERE token_hash=?').bind(session).run();
@@ -72,16 +72,25 @@ export async function invitationAdmin(request: Request, env: LearnerEnv): Promis
       const body = await input(request), count = Number(body.count), days = Number(body.days);
       const label = typeof body.label === 'string' ? body.label.trim().replace(/[\u0000-\u001f\u007f]/g, '') : '';
       if (!Number.isInteger(count) || count < 1 || count > 20 || ![1,7,14,30].includes(days) || label.length > 64) throw new AdminError('Choose 1–20 codes, a valid expiry and a label up to 64 characters.');
-      const pending = await db.prepare('SELECT COUNT(*) total FROM cloud_invitations WHERE redeemed_at IS NULL AND revoked_at IS NULL AND expires_at>?').bind(now()).first<{ total: number }>();
-      if ((pending?.total || 0) + count > 100) throw new AdminError('You already have enough unused codes. Revoke unused invitations before creating more.', 409);
       const codes = Array.from({ length: count }, () => ({ id: crypto.randomUUID(), code: 'ECI-' + accessSecret() }));
-      await db.batch(await Promise.all(codes.map(async item => db.prepare('INSERT INTO cloud_invitations(id,code_hash,display_code,label,created_at,expires_at) VALUES(?,?,?,?,?,?)')
-        .bind(item.id, await accessHash(item.code), item.code.slice(0,8) + '…' + item.code.slice(-4), label, now(), now() + days * 86400))));
-      return accessJson({ codes, expiresAt: now() + days * 86400 }, 201);
+      const createdAt=now(),expiresAt=createdAt+days*86400;
+      const records=await Promise.all(codes.map(async item=>({id:item.id,hash:await accessHash(item.code),display:item.code.slice(0,8)+'…'+item.code.slice(-4)})));
+      // The capacity check and complete batch insert share one SQLite write statement.
+      // Concurrent requests can never pass a separate read and exceed the ready-code limit.
+      const inserted=await db.prepare(`INSERT INTO cloud_invitations(id,code_hash,display_code,label,created_at,expires_at)
+        SELECT json_extract(value,'$.id'),json_extract(value,'$.hash'),json_extract(value,'$.display'),?,?,?
+        FROM json_each(?) WHERE (SELECT COUNT(*) FROM cloud_invitations WHERE redeemed_at IS NULL AND revoked_at IS NULL AND expires_at>?) + ? <= 100`)
+        .bind(label,createdAt,expiresAt,JSON.stringify(records),createdAt,count).run();
+      if(inserted.meta.changes!==count)throw new AdminError('This batch exceeds the limit of 100 ready codes. Reduce its size or revoke unused invitations.',409);
+      return accessJson({ codes, label, createdAt, expiresAt }, 201);
     }
     if (action === 'revoke' && request.method === 'POST') {
       const body = await input(request); if (typeof body.id !== 'string' || body.id.length > 64) throw new AdminError('Choose an invitation.');
-      await db.prepare('UPDATE cloud_invitations SET revoked_at=? WHERE id=? AND redeemed_at IS NULL AND revoked_at IS NULL').bind(now(), body.id).run();
+      const changed=await db.prepare('UPDATE cloud_invitations SET revoked_at=? WHERE id=? AND redeemed_at IS NULL AND revoked_at IS NULL AND expires_at>? RETURNING id').bind(now(), body.id,now()).first();
+      if(!changed){const existing=await db.prepare('SELECT redeemed_at,revoked_at FROM cloud_invitations WHERE id=?').bind(body.id).first<{redeemed_at:number|null;revoked_at:number|null}>();
+        if(!existing)throw new AdminError('This invitation no longer exists.',404);
+        if(!existing.revoked_at||existing.redeemed_at)throw new AdminError('This invitation has already been used or expired. Refresh the list.',409);
+      }
       return accessJson({ ok: true });
     }
     if (action === 'admissions' && request.method === 'POST') {

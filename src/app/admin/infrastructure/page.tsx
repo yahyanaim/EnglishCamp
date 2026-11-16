@@ -1,2 +1,2 @@
-import {AdminView} from '@/components/admin/AdminView';
-export default function Page(){return <AdminView section="infrastructure"/>;}
+import {AdminInfrastructure} from '@/components/admin/AdminInfrastructure';
+export default function Page(){return <AdminInfrastructure/>;}

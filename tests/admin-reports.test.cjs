@@ -24,3 +24,44 @@ test('administrator and learner sign-in use independent sessions and cannot exch
   assert.equal((await(await f.call('/api/access/session','GET',undefined,learnerCookie)).json()).granted,true);
  }finally{f.sql.close();}
 });
+
+test('invitation batches enforce ready-code capacity atomically and never leave partial batches',async()=>{
+ const f=fixture();try{const expiry=Math.floor(Date.now()/1000)+86400;for(let i=0;i<94;i++)f.sql.prepare('INSERT INTO cloud_invitations(id,code_hash,display_code,label,created_at,expires_at) VALUES(?,?,?,?,unixepoch(),?)').run('seed-'+i,'hash-'+i,'masked-'+i,'Capacity fixture',expiry);
+ const owner=await f.login(),create=()=>f.call('/api/invitations/admin/create','POST',{count:4,days:7,label:'Atomic batch'},owner);
+ const results=await Promise.all([create(),create()]);assert.deepEqual(results.map(r=>r.status).sort(),[201,409]);
+ assert.equal(f.sql.prepare('SELECT COUNT(*) n FROM cloud_invitations').get().n,98);assert.equal(f.sql.prepare("SELECT COUNT(*) n FROM cloud_invitations WHERE label='Atomic batch'").get().n,4);
+ const rejected=await f.call('/api/invitations/admin/create','POST',{count:3,days:7,label:'Rejected batch'},owner);assert.equal(rejected.status,409);assert.equal(f.sql.prepare("SELECT COUNT(*) n FROM cloud_invitations WHERE label='Rejected batch'").get().n,0);
+ const fill=await f.call('/api/invitations/admin/create','POST',{count:2,days:7,label:'Final slots'},owner);assert.equal(fill.status,201);const d=await fill.json();assert.equal(d.codes.length,2);assert.equal(d.label,'Final slots');assert.equal(d.expiresAt-d.createdAt,7*86400);
+ assert.equal(f.sql.prepare('SELECT COUNT(*) n FROM cloud_invitations').get().n,100);assert.ok(!JSON.stringify(f.sql.prepare('SELECT * FROM cloud_invitations WHERE id=?').get(d.codes[0].id)).includes(d.codes[0].code));
+ }finally{f.sql.close();}
+});
+test('revocation reports stale used or expired invitations, remains idempotent and preserves learners',async()=>{
+ const f=fixture();try{const owner=await f.login(),res=await f.call('/api/invitations/admin/create','POST',{count:3,days:7,label:'Revoke fixture'},owner),{codes}=await res.json();
+ f.sql.prepare('UPDATE cloud_invitations SET redeemed_at=unixepoch() WHERE id=?').run(codes[0].id);f.sql.prepare('UPDATE cloud_invitations SET expires_at=0 WHERE id=?').run(codes[1].id);
+ for(const id of [codes[0].id,codes[1].id])assert.equal((await f.call('/api/invitations/admin/revoke','POST',{id},owner)).status,409);
+ assert.equal((await f.call('/api/invitations/admin/revoke','POST',{id:'missing'},owner)).status,404);
+ for(let i=0;i<2;i++)assert.equal((await f.call('/api/invitations/admin/revoke','POST',{id:codes[2].id},owner)).status,200);
+ assert.equal(f.sql.prepare('SELECT COUNT(*) n FROM cloud_invitations WHERE revoked_at IS NOT NULL').get().n,1);
+ }finally{f.sql.close();}
+});
+test('invitation and settings reads expose bounded safe management metadata without refreshing learning summaries',async()=>{
+ const f=fixture();try{f.sql.prepare('INSERT INTO cloud_learners(id,name,fruit,recovery_hash,created_at) VALUES(?,?,?,?,?)').run('uncached','Synthetic learner','apple','private','2026-11-16');f.sql.prepare("INSERT INTO cloud_access VALUES('uncached','approved','existing',unixepoch())").run();f.sql.prepare("INSERT INTO cloud_progress(learner_id,progress_json,badges_json,imported_keys,baseline_xp,updated_at) VALUES('uncached','{}','{}','[]',0,'2026-11-16')").run();
+ assert.equal((await f.call('/api/invitations/admin/settings')).status,401);const owner=await f.login();await f.call('/api/invitations/admin/create','POST',{count:2,days:7,label:'Safe metadata'},owner);
+ const list=await(await f.call('/api/invitations/admin/invitation-directory?page=99','GET',undefined,owner)).json();assert.equal(list.page,1);assert.equal(list.counts.ready,2);assert.equal(list.limits.readyCodes,100);assert.ok(!JSON.stringify(list).includes('code_hash'));
+ const settings=await(await f.call('/api/invitations/admin/settings','GET',undefined,owner)).json();assert.equal(settings.accepting,true);assert.equal(settings.limits.pronunciationMonthlyTotal,500);assert.equal(settings.limits.sessionHours,8);assert.equal(f.sql.prepare('SELECT COUNT(*) n FROM cloud_admin_summaries').get().n,0);
+ }finally{f.sql.close();}
+});
+test('learner sorting and access/activity filters apply to the full directory, with stable ID search and clamped pages',async()=>{
+ const f=fixture();try{for(let i=0;i<28;i++){const id='sort-'+i;f.sql.prepare('INSERT INTO cloud_learners(id,name,fruit,recovery_hash,created_at) VALUES(?,?,?,?,?)').run(id,'Learner '+String(i).padStart(2,'0'),'apple','hash-'+i,new Date().toISOString());f.sql.prepare('INSERT INTO cloud_access VALUES(?,?,?,unixepoch())').run(id,i%2?'suspended':'approved','existing');}
+ const owner=await f.login(),call=async(q)=>await(await f.call('/api/invitations/admin/directory?'+q,'GET',undefined,owner)).json();
+ const name=await call('sort=name&direction=asc');assert.equal(name.items[0].name,'Learner 00');assert.equal(name.items.length,25);assert.equal(name.total,28);assert.equal(name.counts.approved,14);
+ const last=await call('sort=name&direction=asc&page=9');assert.equal(last.page,2);assert.equal(last.items.length,3);assert.equal(last.items[0].name,'Learner 25');
+ const id=await call('q=EC-'+String(name.items[0].number).padStart(4,'0'));assert.equal(id.total,1);assert.equal(id.items[0].id,name.items[0].id);
+ const paused=await call('status=suspended&activity=inactive');assert.equal(paused.total,14);assert.ok(paused.items.every(i=>i.status==='suspended'));assert.equal((await call('activity=active')).total,0);
+ for(const q of ['sort=unknown','direction=sideways','activity=unknown'])assert.equal((await f.call('/api/invitations/admin/directory?'+q,'GET',undefined,owner)).status,400);
+ }finally{f.sql.close();}
+});
+test('visible-page CSV export escapes quotes and neutralizes spreadsheet formulas in learner names',()=>{
+ const{adminCsv}=require('../src/lib/adminExport.ts');const csv=adminCsv([['Name','XP'],['=HYPERLINK("https://example.test")',5],[' @SUM(1,2)',10],['A "quoted" name',0],['اسم عربي',2]]);
+ assert.ok(csv.startsWith('\uFEFF'));assert.ok(csv.includes('"\'=HYPERLINK(""https://example.test"")"'));assert.ok(csv.includes('"\' @SUM(1,2)"'));assert.ok(csv.includes('"A ""quoted"" name"'));assert.ok(csv.includes('اسم عربي'));
+});

@@ -80,7 +80,7 @@ export function AdminShell({children}:{children:ReactNode}){
       <aside id="admin-navigation" role={open?'dialog':undefined} aria-modal={open?true:undefined} aria-label="Admin navigation" className={'admin-sidebar'+(open?' is-open':'')}>
         <div className="admin-drawer-heading"><BrandMark size={32}/><strong>Administration</strong><button className="admin-icon-button" aria-label="Close navigation" onClick={()=>setOpen(false)}><AdminIcon name="close" size={18}/></button></div>
         <div className="admin-rail-theme"><button onClick={()=>setTheme('light')} aria-label="Light mode" aria-pressed={resolvedTheme!=='dark'}><AdminIcon name="sun" size={17}/></button><button onClick={()=>setTheme('dark')} aria-label="Dark mode" aria-pressed={resolvedTheme==='dark'}><AdminIcon name="moon" size={17}/></button></div>
-        <nav aria-label="Administration">{adminNavigation.map(p=><Link key={p.id} href={'/admin/'+p.id} aria-label={p.label} aria-current={active.id===p.id?'page':undefined}><LearningArt name={p.icon} size={20}/><span>{p.label}</span></Link>)}</nav>
+        <nav aria-label="Administration">{adminNavigation.map(p=><Link key={p.id} href={'/admin/'+p.id} aria-label={p.label} aria-current={active.id===p.id?'page':undefined}>{p.icon==='trophy'?<LearningArt name="trophy" size={21}/>:<AdminIcon name={p.icon} size={21}/>}<span>{p.label}</span></Link>)}</nav>
         <button className="admin-rail-logout" onClick={logout} aria-label="Sign out"><AdminIcon name="logout" size={18}/><span>Sign out</span></button>
       </aside>
       <div className="admin-main">
