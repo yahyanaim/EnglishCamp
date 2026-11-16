@@ -11,7 +11,7 @@ interface Statement {
  run():Promise<{meta:{changes:number}}>;
 }
 export interface LearnerDatabase { prepare(sql:string):Statement; batch(statements:Statement[]):Promise<{meta:{changes:number}}[]> }
-export type LearnerEnv={LEARNERS_DB?:LearnerDatabase;INVITATION_REQUIRED?:string;INVITATION_ADMIN_HASH?:string;RESEND_API_KEY?:string;INVITATION_EMAIL_FROM?:string};
+export type LearnerEnv={LEARNERS_DB?:LearnerDatabase;INVITATION_REQUIRED?:string;INVITATION_ADMIN_HASH?:string;RESEND_API_KEY?:string;BREVO_API_KEY?:string;INVITATION_EMAIL_PROVIDER?:string;INVITATION_EMAIL_FROM?:string};
 type Stored={revision:number;progress_json:string;badges_json:string;imported_keys:string;baseline_xp:number;awarded_xp:number;updated_at:string};
 const reply=(body:object,status=200,cookie?:string)=>Response.json(body,{status,headers:{'Cache-Control':'no-store, private','X-Content-Type-Options':'nosniff',...(cookie?{'Set-Cookie':cookie}:{})}});
 const secret=()=>{const bytes=crypto.getRandomValues(new Uint8Array(24));return btoa(String.fromCharCode(...Array.from(bytes))).replaceAll('+','-').replaceAll('/','_').replaceAll('=','');};

@@ -15,7 +15,11 @@ OPENPRONOUNCE_MODAL_SECRET=""
 # Owner-only invitation management. Generate locally; never paste the real key here.
 # node scripts/prepare-invitation-owner.cjs writes only its hash into .dev.vars.
 INVITATION_ADMIN_HASH=""
-# Optional invitation email. Free Resend account + verified sending domain required.
-# Store real values in .dev.vars locally and as Cloudflare Worker secrets.
-RESEND_API_KEY=""
+# Invitation emails: Brevo is selected for the current setup.
+# Use an API v3 key (not an SMTP password) and a verified sender address.
+# Keep real values in .dev.vars locally and in Cloudflare Worker secrets.
+INVITATION_EMAIL_PROVIDER="brevo"
+BREVO_API_KEY=""
 INVITATION_EMAIL_FROM=""
+# Optional alternative: set INVITATION_EMAIL_PROVIDER="resend" with a verified domain.
+RESEND_API_KEY=""
