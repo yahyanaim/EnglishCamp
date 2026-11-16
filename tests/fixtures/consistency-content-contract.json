@@ -835,7 +835,8 @@
     },
     "src/components/session/SessionDialog.tsx": {
       "before": "38eff5e4d826c3b89f84482b8dcdd53a182e604ac5eecd360fc1ca81608a14ce",
-      "after": "a81155d80146c41cdc40659dbd11af4e2669cae8dee79321b4a1ba4f7d4fae8f"
+      "after": "5d6b9ee78b402cf86e9f8151b0dcc74f98c8bcfe73049dc633b96dbacd058569",
+      "note": "Preserve the existing named-session UI and storage behavior; pass the required invitation code from the added field when creating online profiles."
     },
     "src/components/session/SessionEntry.tsx": {
       "before": "774dfdf7e795974e910f31f48faca89a18a13c86926418319d3bfe5bf279385a",

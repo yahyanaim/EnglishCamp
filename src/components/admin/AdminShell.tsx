@@ -7,9 +7,10 @@ import {AdminIcon} from './AdminIcon';
 import {LearningArt} from '@/components/brand/LearningArt';
 import {BrandMark} from '@/components/brand/BrandMark';
 import {Button} from '@/components/ui/shadcn/button';
-import {AccentPicker} from '@/components/layout/AccentPicker';
+import {AdminWorkspaceProvider,AdminEnvironment,AdminWorkspaceTools} from './AdminWorkspace';
 import {adminNavigation,adminGroups} from './adminNavigation';
 import './admin.css';
+import './workspace.css';
 export const adminPages=adminNavigation.map(p=>p.id);
 
 export function AdminShell({children}:{children:ReactNode}){
@@ -58,7 +59,7 @@ export function AdminShell({children}:{children:ReactNode}){
   }
   if(login)return <>{children}</>;
   if(!ready)return <p role="status">{error||'Checking owner access…'}</p>;
-  return <div className="camp-admin">
+  return <AdminWorkspaceProvider><div className="camp-admin admin-console">
     <a href="#admin-content" className="sr-only focus:not-sr-only">Skip to content</a>
     <header className="admin-header">
       <div className="admin-header-brand">
@@ -66,14 +67,7 @@ export function AdminShell({children}:{children:ReactNode}){
         <Link href="/admin/dashboard" className="admin-brand"><BrandMark size={42}/><span><strong>EnglishCamp</strong><small>Admin workspace</small></span></Link>
       </div>
       <nav className="admin-topnav" aria-label="Admin workspace sections">{adminGroups.map(group=><Link key={group} href={'/admin/'+adminNavigation.find(p=>p.group===group)!.id} aria-current={active.group===group?'true':undefined}>{group}</Link>)}</nav>
-      <div className="admin-utilities">
-        <div className="admin-utility-pill">
-          <Link href="/admin/learners" className="admin-icon-button" aria-label="Search learners" title="Search learners"><AdminIcon name="search" size={18}/></Link>
-          <button className="admin-icon-button" onClick={()=>setTheme(resolvedTheme==='dark'?'light':'dark')} aria-label="Toggle theme"><AdminIcon name="sun" size={18} className="admin-light-icon"/><AdminIcon name="moon" size={18} className="admin-dark-icon"/></button>
-          <AccentPicker/>
-        </div>
-        <Button variant="unstyled" className="admin-signout" onClick={logout}><AdminIcon name="logout" size={18}/><span>Sign out</span></Button>
-      </div>
+      <AdminWorkspaceTools/>
     </header>
     {open&&<button className="admin-scrim" aria-label="Close navigation" onClick={()=>setOpen(false)}/>}
     <div className="admin-workspace">
@@ -83,12 +77,12 @@ export function AdminShell({children}:{children:ReactNode}){
         <nav aria-label="Administration">{adminNavigation.map(p=><Link key={p.id} href={'/admin/'+p.id} aria-label={p.label} aria-current={active.id===p.id?'page':undefined}>{p.icon==='trophy'?<LearningArt name="trophy" size={21}/>:<AdminIcon name={p.icon} size={21}/>}<span>{p.label}</span></Link>)}</nav>
         <button className="admin-rail-logout" onClick={logout} aria-label="Sign out"><AdminIcon name="logout" size={18}/><span>Sign out</span></button>
       </aside>
-      <div className="admin-main">
+      <div className="admin-main"><AdminEnvironment/>
 
         {error&&<p role="alert" className="admin-notice">{error}</p>}
         <section id="admin-content" className="admin-content" aria-label="Admin page">{children}</section>
         <footer>EnglishCamp administration <span>Online records only · Practice completion is not a proficiency score.</span></footer>
       </div>
     </div>
-  </div>;
+  </div></AdminWorkspaceProvider>;
 }

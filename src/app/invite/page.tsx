@@ -2,8 +2,10 @@
 import { useEffect, useState, type FormEvent } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import {EntryHeader} from '@/components/session/EntryHeader';
 import { BrandMark } from '@/components/brand/BrandMark';
-import { PageBanner } from '@/components/ui/PageBanner';
+import {LearningArt} from '@/components/brand/LearningArt';
+import {AdminIcon} from '@/components/admin/AdminIcon';
 import { Card } from '@/components/ui/shadcn/card';
 import { Button } from '@/components/ui/shadcn/button';
 import { Input } from '@/components/ui/shadcn/input';
@@ -18,35 +20,29 @@ function destination() {
 export default function InvitePage() {
   const router=useRouter();
   const cloud = useCloudProgress(), session = useSessionProfile();
-  const [mode, setMode] = useState<'invite'|'restore'>('invite'), [name, setName] = useState(''), [code, setCode] = useState(''), [granted, setGranted] = useState(false);
+  const [mode, setMode] = useState<'invite'|'restore'>('invite'), [name, setName] = useState(''), [code, setCode] = useState(''), [granted, setGranted] = useState(false),[visible,setVisible]=useState(false),[failed,setFailed]=useState(false),[dismissedMessage,setDismissedMessage]=useState('');
   useEffect(() => { document.title = 'Join EnglishCamp'; void fetch('/api/access/session', {cache:'no-store'}).then(r=>r.json()).then(data=>setGranted(data.granted===true)).catch(()=>{}); }, []);
   useEffect(() => { if(session.profile?.cloudId&&!cloud.recoveryCode){setMode('restore');setName(session.profile.name);} }, [session.profile?.cloudId,cloud.recoveryCode]);
+  const hasError=!!cloud.message&&!cloud.busy&&['offline','unavailable','reconnect'].includes(cloud.status)&&cloud.message!==dismissedMessage;
   const savedLocalName = !session.profile?.cloudId ? session.profile?.name : undefined;
   async function submit(event: FormEvent) {
-    event.preventDefault(); if (mode === 'restore') { if (await cloud.restore(name, code.trim())) window.location.replace(destination()); }
-    else await cloud.create(savedLocalName || name, code.trim());
+    event.preventDefault();setFailed(false);setDismissedMessage('');if(mode==='restore'){if(await cloud.restore(name,code.trim()))window.location.replace(destination());else setFailed(true);}
+    else if(!await cloud.create(savedLocalName||name,code.trim()))setFailed(true);
   }
   function downloadRecovery() {
     const blob = new Blob([`EnglishCamp recovery details\nName: ${session.profile?.name || name}\nRecovery code: ${cloud.recoveryCode}\nSign in at https://englishcamp.yahyanaim2001.workers.dev/invite\nKeep this file private. Anyone with these details can open your learning profile.\n`],{type:'text/plain;charset=utf-8'});
     const url = URL.createObjectURL(blob), link = document.createElement('a'); link.href=url;link.download='englishcamp-recovery.txt';link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
   }
-  return <div className="camp-access camp-access-narrow">
-    <Link href="/" className="camp-access-brand"><BrandMark size={36}/><strong>EnglishCamp</strong></Link>
-    <PageBanner><h1>Your invitation to learn</h1><p>A small learning community, with room to practise.</p></PageBanner>
-    <Card className="camp-access-card">
-      {cloud.recoveryCode ? <section className="camp-access-form"><h2>Keep your recovery code</h2><p>Use your name and this private code to return on any device. Your invitation has been used successfully.</p><strong dir="auto">{session.profile?.name}</strong><code className="camp-access-code" dir="ltr">{cloud.recoveryCode}</code><Button variant="outline" onClick={downloadRecovery}>Download recovery details</Button><Button onClick={()=>{cloud.clearRecoveryCode();router.replace(destination());}}>I saved my code · continue</Button><small>Save it before leaving this page. It will not be shown again.</small></section>
-      : granted && session.profile?.cloudId ? <section className="camp-access-form"><h2>Welcome back, <bdi>{session.profile.name}</bdi></h2><p>Your learning profile is ready.</p><Button onClick={()=>window.location.replace(destination())}>Continue learning</Button></section>
-      : <><div className="camp-access-tabs" role="group" aria-label="How to enter"><Button variant={mode==='invite'?'secondary':'ghost'} aria-pressed={mode==='invite'} onClick={()=>{setMode('invite');setCode('');}}>I have an invitation</Button><Button variant={mode==='restore'?'secondary':'ghost'} aria-pressed={mode==='restore'} onClick={()=>{setMode('restore');setCode('');}}>I already have a profile</Button></div>
-        <form onSubmit={submit} className="camp-access-form"><h2>{mode==='invite'?'Join EnglishCamp':'Welcome back'}</h2><p>{mode==='invite'?'Enter the code shared with you by the owner.':'Use your existing name and recovery code. No new invitation is needed.'}</p>
-          <label htmlFor="invite-name">Your name</label><Input id="invite-name" value={mode==='invite'&&savedLocalName?savedLocalName:name} readOnly={mode==='invite'&&!!savedLocalName} onChange={event=>setName(event.target.value)} required maxLength={40} autoComplete="off"/>
-          {mode==='invite'&&savedLocalName&&<Button type="button" variant="link" onClick={()=>session.signOut()}>Use a different name · keep saved progress</Button>}
-          <label htmlFor="invite-code">{mode==='invite'?'Invitation code':'Recovery code'}</label><Input id="invite-code" value={code} onChange={event=>setCode(event.target.value)} required type="password" autoComplete="off" spellCheck={false} maxLength={80} placeholder={mode==='invite'?'ECI-…':'EC1-…'}/>
-          <Button type="submit" disabled={cloud.busy||!session.ready}>{cloud.busy?'Opening your profile…':mode==='invite'?'Use invitation':'Restore my progress'}</Button>
-          {mode==='invite'&&<small>Each invitation works once. Saved local progress is kept and copied into your profile.</small>}
-        </form></>}
-      {cloud.message&&!cloud.recoveryCode&&!granted&&<p className="camp-access-message" role="status">{cloud.message}</p>}
-      {session.storageNotice&&<p className="camp-access-message" role="alert">{session.storageNotice}</p>}
-    </Card><p className="camp-access-fine">We store your name, learning progress, badges and saved lesson notes. No email is required. Recordings stay on your device unless you approve an assessment.</p>
-    <footer className="camp-access-footer"><span>Have a private QR connection? Open the link from your other device.</span></footer>
+  return <div className="camp-entry-auth camp-learner-entry"><EntryHeader/>
+    <main className="camp-auth-stage"><Card className="camp-auth-card camp-learner-auth-card">
+      <header className="camp-session-dialog-heading"><BrandMark size={36}/><div><h1>{cloud.recoveryCode?'Your learning starts here':granted&&session.profile?.cloudId?'Welcome back':'Make yourself at home'}</h1><p>{cloud.recoveryCode?'One last step to keep your progress safe.':'Your name, your progress, your space to learn.'}</p></div></header>
+      {cloud.recoveryCode?<section className="camp-session-form camp-recovery-step"><h2>Keep your recovery code</h2><p>Use your name and this private code to return on another device. Your invitation has been accepted.</p><div className="camp-entry-saved-name"><LearningArt name="document" size={20}/><strong dir="auto">{session.profile?.name}</strong></div><code className="camp-access-code" dir="ltr">{cloud.recoveryCode}</code><Button variant="outline" onClick={downloadRecovery}>Download recovery details</Button><Button onClick={()=>{cloud.clearRecoveryCode();router.replace(destination());}}>I saved my code · continue<AdminIcon name="arrow" size={14}/></Button><small>Save the code privately. It will not be shown again.</small></section>
+      :granted&&session.profile?.cloudId?<section className="camp-session-form"><h2 dir="auto">Welcome back, {session.profile.name}</h2><p>Your progress and badges are ready.</p><Button onClick={()=>window.location.replace(destination())}>Continue learning<AdminIcon name="arrow" size={14}/></Button></section>
+      :<><div className="camp-session-modes camp-entry-modes" role="group" aria-label="How to enter"><Button disabled={cloud.busy} type="button" variant={mode==='invite'?'secondary':'ghost'} aria-pressed={mode==='invite'} onClick={()=>{setMode('invite');setCode('');setFailed(false);setDismissedMessage(cloud.message);setVisible(false);}}>New profile</Button><Button disabled={cloud.busy} type="button" variant={mode==='restore'?'secondary':'ghost'} aria-pressed={mode==='restore'} onClick={()=>{setMode('restore');setCode('');setFailed(false);setDismissedMessage(cloud.message);setVisible(false);}}>I have a recovery code</Button></div>
+       <form onSubmit={submit} className="camp-session-form camp-auth-form"><p className="camp-entry-form-intro">{mode==='invite'?'Enter your name and the invitation code shared with you.':'Pick up where you left off with your name and saved recovery code.'}</p><label htmlFor="invite-name">Your name</label><Input id="invite-name" dir="auto" value={mode==='invite'&&savedLocalName?savedLocalName:name} readOnly={mode==='invite'&&!!savedLocalName} onChange={event=>setName(event.target.value)} required maxLength={40} autoComplete="nickname" placeholder="What should we call you?" disabled={cloud.busy}/>{mode==='invite'&&savedLocalName&&<Button type="button" variant="link" disabled={cloud.busy} onClick={()=>session.signOut()}>Use a different name · keep saved progress</Button>}
+       <label htmlFor="invite-code">{mode==='invite'?'Invitation code':'Recovery code'}</label><div className="camp-auth-secret camp-learner-secret"><Input id="invite-code" dir="ltr" value={code} onChange={event=>setCode(event.target.value)} required type={visible?'text':'password'} autoComplete="off" autoCapitalize="none" spellCheck={false} maxLength={80} placeholder={mode==='invite'?'ECI-…':'EC1-…'} disabled={cloud.busy} aria-describedby="entry-code-help" aria-invalid={failed||hasError}/><button type="button" disabled={cloud.busy} aria-label={visible?'Hide code':'Show code'} aria-pressed={visible} onClick={()=>setVisible(v=>!v)}><AdminIcon name={visible?'eye-off':'eye'} size={17}/></button></div><small id="entry-code-help">{mode==='invite'?'Each invitation creates one profile. Existing local progress is kept.':'Returning learners use their recovery code. No new invitation is needed.'}</small>
+       {(failed||hasError)&&cloud.message&&<p className="camp-auth-error" role="alert">{cloud.message}</p>}<Button type="submit" disabled={cloud.busy||!session.ready}>{cloud.busy?'Opening your profile…':mode==='invite'?'Start my session':'Restore my progress'}<AdminIcon name="arrow" size={14}/></Button></form></>}
+      {session.storageNotice&&<p className="camp-auth-error" role="alert">{session.storageNotice}</p>}<div className="camp-entry-privacy"><LearningArt name="book" size={18}/><p>No email required. Your progress, badges and saved notes stay with your learning profile.</p></div>
+    </Card>{!cloud.recoveryCode&&!(granted&&session.profile?.cloudId)&&<p className="camp-entry-support">{mode==='invite'?'Already joined?':'Have a new invitation?'} <button onClick={()=>{setMode(mode==='invite'?'restore':'invite');setCode('');setFailed(false);setDismissedMessage(cloud.message);setVisible(false);}} disabled={cloud.busy}>{mode==='invite'?'Restore your progress':'Create your profile'}</button></p>}</main><footer className="camp-entry-auth-footer">EnglishCamp <span>Learn a little. Come back stronger.</span></footer>
   </div>;
 }

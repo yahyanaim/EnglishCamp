@@ -2,9 +2,9 @@
 import {useEffect,useState,type FormEvent} from 'react';
 import {useTheme} from 'next-themes';
 import Link from 'next/link';
-import {ArrowRight,Eye,EyeOff,LockKeyhole,Moon,Sun,ShieldCheck} from 'lucide-react';
-import {BrandMark} from '@/components/brand/BrandMark';
-import {LearningArt} from '@/components/brand/LearningArt';
+import {AdminIcon} from '@/components/admin/AdminIcon';
+import {EntryHeader} from '@/components/session/EntryHeader';
+import '@/app/invitations.css';
 import {Button} from '@/components/ui/shadcn/button';
 import {Input} from '@/components/ui/shadcn/input';
 import {useSettings} from '@/store/useSettings';
@@ -24,14 +24,11 @@ export default function Login(){
       setKey('');window.location.replace('/admin/dashboard');
     }catch(e){setError(e instanceof Error&&e.name!=='TimeoutError'?e.message:'Connection timed out. Please try again.');}finally{setBusy(false);}
   }
-  return <div className="admin-auth">
-    <header className="admin-auth-header"><Link href="/" className="admin-auth-brand"><BrandMark size={36}/><strong>EnglishCamp</strong><span>Administration</span></Link><button className="admin-auth-theme" onClick={()=>setTheme(resolvedTheme==='dark'?'light':'dark')} aria-label="Toggle theme">{resolvedTheme==='dark'?<Sun size={18}/>:<Moon size={18}/>}</button></header>
-    <div className="admin-auth-layout">
-      <section className="admin-auth-story"><span className="admin-auth-eyebrow">THE MANAGEMENT WORKSPACE</span><h2>A clearer view<br/>of learning.</h2><p>Understand progress, welcome learners and keep EnglishCamp moving forward.</p><div className="admin-auth-art" aria-hidden="true"><div className="admin-auth-art-main"><BrandMark size={88}/></div><span><LearningArt name="book" size={30}/></span><span><LearningArt name="trophy" size={30}/></span><span><LearningArt name="headphones" size={30}/></span></div><div className="admin-auth-principles"><span>Learning insights</span><span>Access management</span><span>Course oversight</span></div></section>
-      <section className="admin-auth-form-panel" aria-label="Administrator sign-in"><div className="admin-auth-form-inner"><span className="admin-auth-lock"><LockKeyhole size={22}/></span><p className="admin-auth-eyebrow">PRIVATE ADMINISTRATOR ACCESS</p><h1>Admin sign in</h1><p>Sign in to the EnglishCamp management console.</p>
-        {checking?<p role="status">Checking your administrator session…</p>:<form onSubmit={submit}><label htmlFor="owner-key">Management key</label><div className="admin-password-field"><Input id="owner-key" type={visible?'text':'password'} autoComplete="current-password" value={key} onChange={e=>setKey(e.target.value)} required maxLength={256} aria-describedby="admin-key-help"/><button type="button" aria-label={visible?'Hide management key':'Show management key'} aria-pressed={visible} onClick={()=>setVisible(v=>!v)}>{visible?<EyeOff size={18}/>:<Eye size={18}/>}</button></div><small id="admin-key-help">Use your private administrator key. Learner invitation and recovery codes belong to learner sign-in.</small>{error&&<p role="alert" className="admin-auth-error">{error}</p>}<Button type="submit" disabled={busy}>{busy?'Signing in…':'Sign in'}<ArrowRight size={16}/></Button></form>}
-        <div className="admin-auth-security"><ShieldCheck size={16}/><span>Separate administrator session · Protected access</span></div><div className="admin-auth-learner">Here to learn? <Link href="/invite">Go to learner sign-in <ArrowRight size={13}/></Link></div>
-      </div></section>
-    </div><footer className="admin-auth-footer">EnglishCamp administration <span>Learning records stay with their existing profiles.</span></footer>
+  return <div className="camp-entry-auth camp-admin-entry">
+    <EntryHeader admin/>
+    <main className="camp-auth-stage"><section className="camp-auth-card" aria-label="Administrator sign-in"><div className="camp-auth-intro"><span className="camp-auth-security"><AdminIcon name="shield" size={14}/>Private administration</span><h1>Admin sign in</h1><p>Manage learners, invitations and learning progress in EnglishCamp.</p></div>
+      {checking?<p role="status" className="camp-auth-checking">Checking your administrator session…</p>:<form onSubmit={submit} className="camp-auth-form"><label htmlFor="owner-key">Management key</label><div className="camp-auth-secret"><AdminIcon name="lock" size={17}/><Input id="owner-key" type={visible?'text':'password'} autoComplete="current-password" value={key} onChange={e=>setKey(e.target.value)} required maxLength={256} placeholder="Enter your private management key" aria-describedby="admin-key-help" disabled={busy}/><button type="button" disabled={busy} aria-label={visible?'Hide management key':'Show management key'} aria-pressed={visible} onClick={()=>setVisible(v=>!v)}><AdminIcon name={visible?'eye-off':'eye'} size={17}/></button></div><small id="admin-key-help">Use the private key issued for this administrator workspace.</small>{error&&<p role="alert" className="camp-auth-error">{error}</p>}<Button type="submit" disabled={busy}>{busy?'Signing in…':'Sign in'}<AdminIcon name="arrow" size={15}/></Button></form>}
+      <div className="camp-auth-divider"/><p className="camp-auth-return">Here to learn? <Link href="/invite">Open learner sign-in <AdminIcon name="arrow" size={12}/></Link></p>
+    </section></main><footer className="camp-entry-auth-footer">EnglishCamp administration <span>Secure access for platform administrators</span></footer>
   </div>;
 }

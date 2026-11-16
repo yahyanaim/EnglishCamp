@@ -65,3 +65,15 @@ test('visible-page CSV export escapes quotes and neutralizes spreadsheet formula
  const{adminCsv}=require('../src/lib/adminExport.ts');const csv=adminCsv([['Name','XP'],['=HYPERLINK("https://example.test")',5],[' @SUM(1,2)',10],['A "quoted" name',0],['اسم عربي',2]]);
  assert.ok(csv.startsWith('\uFEFF'));assert.ok(csv.includes('"\'=HYPERLINK(""https://example.test"")"'));assert.ok(csv.includes('"\' @SUM(1,2)"'));assert.ok(csv.includes('"A ""quoted"" name"'));assert.ok(csv.includes('اسم عربي'));
 });
+
+test('report boundaries support UTC Today and inclusive custom days with bounded, valid dates',()=>{
+ const{adminPeriod}=require('../src/lib/adminPeriod.ts'),now=new Date('2026-11-16T14:20:00Z');
+ assert.deepEqual(adminPeriod(new URL('https://camp.test/?days=1'),now),{since:'2026-11-16',until:now.toISOString()});
+ assert.deepEqual(adminPeriod(new URL('https://camp.test/?from=2026-11-01&to=2026-11-15'),now),{since:'2026-11-01',until:'2026-11-16'});
+ for(const q of ['from=2026-11-17&to=2026-11-16','from=2026-02-30&to=2026-03-01','from=2026-13-01&to=2026-13-02','from=2026-11-01','from=2020-01-01&to=2026-11-16','days=999'])assert.throws(()=>adminPeriod(new URL('https://camp.test/?'+q),now),TypeError);
+});
+test('custom reports include only registrations, rewards and redemptions inside both date boundaries',async()=>{
+ const f=fixture();try{for(const[date,id]of [['2026-11-01T00:00:00Z','before'],['2026-11-05T12:00:00Z','inside'],['2026-11-10T00:00:00Z','after']]){f.sql.prepare('INSERT INTO cloud_learners(id,name,fruit,recovery_hash,created_at) VALUES(?,?,?,?,?)').run(id,'Report fixture','apple','hash-'+id,date);f.sql.prepare("INSERT INTO cloud_access VALUES(?,'approved','existing',unixepoch())").run(id);f.sql.prepare("INSERT INTO cloud_progress(learner_id,progress_json,badges_json,imported_keys,baseline_xp,updated_at) VALUES(?,?,?,'[]',0,?)").run(id,JSON.stringify({quizResults:{'band4-5':[{takenAt:date,score:80}]}}),JSON.stringify({'first-login':{unlockedAt:date}}),date);f.sql.prepare("INSERT INTO cloud_events VALUES(?,'test-event','lesson','fixture',5,?)").run(id,date);f.sql.prepare("INSERT INTO cloud_invitations(id,code_hash,display_code,label,created_at,expires_at,redeemed_at) VALUES(?,?,?,'Report fixture',0,9999999999,?)").run('invite-'+id,'hash-'+id,'masked-'+id,Date.parse(date)/1000);}
+ const owner=await f.login(),r=await(await f.call('/api/invitations/admin/report?from=2026-11-05&to=2026-11-09','GET',undefined,owner)).json();assert.equal(r.totals.learners,3);assert.equal(r.totals.registrations,1);assert.equal(r.registrations.length,1);assert.equal(r.registrations[0].day,'2026-11-05');assert.equal(r.period.until,'2026-11-10');assert.equal(r.quiz.count,1);assert.equal(r.activity.length,1);assert.equal(r.activity[0].xp,5);assert.equal(r.redemptions.length,1);assert.equal(r.xpByActivity[0].value,5);assert.equal(r.awards.find(a=>a.id==='first-login').period,1);
+ }finally{f.sql.close();}
+});

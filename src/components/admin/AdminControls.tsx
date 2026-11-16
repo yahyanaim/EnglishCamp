@@ -14,6 +14,7 @@ export async function adminRequest<T=any>(action:string,{body,signal}:{body?:obj
 }
 export function useAdminResource<T=any>(action:string|null){
  const[data,setData]=useState<T|null>(null),[error,setError]=useState(''),[busy,setBusy]=useState(!!action),[revision,setRevision]=useState(0),[loadedAction,setLoadedAction]=useState<string|null>(null);
+ useEffect(()=>{const refresh=()=>setRevision(v=>v+1);window.addEventListener('camp-admin-refresh',refresh);return()=>window.removeEventListener('camp-admin-refresh',refresh);},[]);
  useEffect(()=>{if(!action){setData(null);setError('');setBusy(false);return;}const controller=new AbortController();setBusy(true);setError('');
   void adminRequest<T>(action,{signal:controller.signal}).then(d=>{if(!controller.signal.aborted){setData(d);setLoadedAction(action);}}).catch(e=>{if(!controller.signal.aborted)setError(e instanceof Error?e.message:'Could not load records.');}).finally(()=>{if(!controller.signal.aborted)setBusy(false);});
   return()=>controller.abort();
