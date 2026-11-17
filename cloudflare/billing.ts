@@ -12,7 +12,7 @@ async function rate(env:LearnerEnv,id:string,period=60,max=5){const end=(Math.fl
 async function reconcile(env:LearnerEnv,subscriptionId:string,api:Awaited<ReturnType<typeof paypal>>,allowPendingMissing=false){
  const db=env.LEARNERS_DB!,stored=await db.prepare('SELECT learner_id,plan_id,created_at,status FROM cloud_subscriptions WHERE id=?').bind(subscriptionId).first<any>();if(!stored)return false;
  let sub;try{sub=await api('/v1/billing/subscriptions/'+subscriptionId);}catch(e){if(allowPendingMissing&&stored.status==='APPROVAL_PENDING'&&e instanceof BillingError&&e.providerStatus===404)return true;throw e;}
- if(sub.id!==subscriptionId||sub.plan_id!==stored.plan_id||sub.plan_id!==env.PAYPAL_PLAN_ID||sub.custom_id!==stored.learner_id||sub.plan_overridden===true||Number(sub.quantity||1)!==1)throw new BillingError('PayPal subscription ownership or plan could not be verified.');
+ if(sub.id!==subscriptionId||sub.plan_id!==stored.plan_id||sub.plan_id!==env.PAYPAL_PLAN_ID||(stored.learner_id!==null&&sub.custom_id!==stored.learner_id)||sub.plan_overridden===true||Number(sub.quantity||1)!==1)throw new BillingError('PayPal subscription ownership or plan could not be verified.');
  if(!['APPROVAL_PENDING','APPROVED','ACTIVE','SUSPENDED','CANCELLED','EXPIRED'].includes(sub.status))throw new BillingError('PayPal subscription status was not recognized.');
  const start=new Date(Math.max(stored.created_at*1000-86400000,Date.now()-89*86400000)).toISOString(),end=new Date().toISOString();
  const transactions=await api('/v1/billing/subscriptions/'+subscriptionId+'/transactions?'+new URLSearchParams({start_time:start,end_time:end}));
@@ -50,6 +50,7 @@ async function webhook(request:Request,env:LearnerEnv){
   await db.prepare('INSERT INTO cloud_billing_reversals(sale_id,state) VALUES(?,?) ON CONFLICT(sale_id) DO UPDATE SET state=excluded.state').bind(saleId,event.event_type.endsWith('REVERSED')?'reversed':'refunded').run();
  }
  if(idOk(subscriptionId)&&!await reconcile(env,subscriptionId,api))throw new BillingError('Subscription creation is still being confirmed. Retry this event.');
+ if(event.event_type==='PAYMENT.SALE.COMPLETED'&&(!idOk(subscriptionId)||typeof resource.id!=='string'||!await db.prepare('SELECT id FROM cloud_subscription_payments WHERE id=? AND subscription_id=?').bind(resource.id,subscriptionId).first()))throw new BillingError('PayPal payment history is still being confirmed. Retry this event.');
  // Reconciliation is idempotent. Marking occurs afterwards so a crash is retried, never dropped.
  await db.prepare('INSERT OR IGNORE INTO cloud_billing_webhooks VALUES(?,?,?)').bind(event.id,event.event_type,now()).run();return accessJson({ok:true});
 }
