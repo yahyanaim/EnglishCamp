@@ -1,6 +1,20 @@
 # EnglishCamp membership
 
-The 7-day trial and $2.00 USD monthly PayPal integration are **disabled** until the merchant setup and actual sandbox checks are complete. No real subscription has been tested or created by automated tests.
+The 7-day trial and **$2.00 USD monthly** PayPal integration are enabled with the dedicated live Business app. The live product, ACTIVE plan and webhook registration were checked against PayPal. Existing grandfathered profiles retain free access. No real-money payment was created or approved during acceptance testing.
+
+## Acceptance evidence · 17 November 2026
+
+These checks used a real PayPal **Sandbox** buyer and the deployed EnglishCamp Worker, rather than mocked provider responses:
+
+- A synthetic invited profile received a seven-day trial. Only synthetic test profiles had their trials manually expired for checkout testing.
+- The buyer approved the displayed $2 USD subscription and returned to EnglishCamp. A genuine signature-verified payment notification granted one calendar month, without a manual refresh granting access.
+- Cancelling renewal through EnglishCamp returned `CANCELLED` and retained the already-paid period.
+- PayPal completed a full Sandbox refund. Its genuine notification revoked that payment's entitlement; the profile and progress remained available to synchronize, while paid speech access returned HTTP 402.
+- PayPal accepted a request to resend the original completed-payment event after refund. Access remained revoked. The public event-details endpoint did not provide a delivery receipt, so this is not claimed as independent proof of redelivery; automated tests separately cover duplicate and stale events.
+- Both synthetic profiles and their two labelled invitations were removed. The cancelled/refunded Sandbox payment references were cleaned up, and its Sandbox webhook listener was removed before switching to live credentials.
+- The five PayPal bindings were changed together; Azure, D1, invitation and AI bindings were retained. Production verification confirmed live mode, unchanged legacy-profile access, invitation protection, six signed-in pages and a usable Microsoft MP3.
+
+The application suite contains 361 passing tests, including a regression for D1 counting cascaded deletions in `meta.changes`. TypeScript checks pass. Automated tests cover account isolation, signature rejection, payment-history lag, duplicate notifications, refund-before-payment ordering, deletion races and unchanged learning records. These automated checks do not establish real-money PayPal compatibility. No real-money purchase, live refund or future monthly renewal was performed.
 
 ## Access policy
 
@@ -19,7 +33,7 @@ Create a service product and one ACTIVE plan with a single infinite REGULAR mont
 
 Use an app dedicated to EnglishCamp. Register the HTTPS listener `/api/billing/webhook` for BILLING.SUBSCRIPTION.CREATED, ACTIVATED, UPDATED, CANCELLED, SUSPENDED, EXPIRED, PAYMENT.FAILED and PAYMENT.SALE.COMPLETED, REFUNDED, REVERSED. The listener verifies each notification through PayPal's signature-verification API. PayPal's simulator is not a substitute for a real sandbox subscription: its mock events cannot use that postback verification method.
 
-## Required acceptance checks before enabling live billing
+## Checks to repeat when changing the payment integration
 
 1. Sandbox: new synthetic account receives 7 days, expires safely; a legacy account stays accessible.
 2. Approve one **sandbox** $2 subscription with a sandbox buyer. A browser redirect or ACTIVE status alone must not grant paid access. Confirm a completed transaction and a verified real sandbox notification.
