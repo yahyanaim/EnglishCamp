@@ -2,6 +2,7 @@ import type {LearnerEnv} from './learners';
 import {accessHash} from './access';
 import {billingConfigured,billingEnabled} from './membership';
 import assets from './assetCoverage.json';
+import {pronunciationConfigured} from './pronunciation';
 
 /** Read existing counters only. Refreshing this report never calls a model or changes allowances. */
 export async function infrastructureReport(env:LearnerEnv){
@@ -15,7 +16,7 @@ export async function infrastructureReport(env:LearnerEnv){
   windows:{dayResetsAt:new Date(day*1000).toISOString(),monthResetsAt:new Date(month*1000).toISOString()},
   limits:{pronunciationMonthly:500,pronunciationDailyGlobal:100,coachDailyGlobal:200,pronunciationDailyPerLearner:1,coachDailyPerLearner:20,modalMonthlyUSD:1},
   worker:'Responding',database:'Connected',invitationRequired:env.INVITATION_REQUIRED==='true',speakingEnabled:flags.ENGLISHCAMP_SPEAKING_ENABLED==='true',speechHourlyLimit:flags.ENGLISHCAMP_SPEAKING_HOURLY_LIMIT||null,
-  microsoftConfigured:!!flags.AZURE_SPEECH_KEY&&!!flags.AZURE_SPEECH_REGION,coachConfigured:!!flags.GEMINI_API_KEY,pronunciationConfigured:!!flags.OPENPRONOUNCE_URL&&!!flags.OPENPRONOUNCE_TOKEN,
+  microsoftConfigured:!!flags.AZURE_SPEECH_KEY&&!!flags.AZURE_SPEECH_REGION,coachConfigured:!!flags.GEMINI_API_KEY,pronunciationConfigured:pronunciationConfigured(env),
   observability:'Disabled',deployment:assets.deployment||'Not connected',billing:billingEnabled(env)?(env.PAYPAL_ENV==='live'?'Live PayPal enabled':'Sandbox test mode'):billingConfigured(env)?'Configured; payments disabled':'Not connected',apiErrors:'Not collected',syncErrors:'Not collected',
   authCounters:await db.prepare('SELECT COUNT(*) buckets,COALESCE(SUM(attempts),0) attempts FROM cloud_auth_limits WHERE expires_at>?').bind(seconds).first(),
   note:'A D1 read is a point-in-time check, not uptime or end-to-end latency. Provider rows show configuration only. Counters record attempts, not completed corrections, tokens or charges. No provider requests are made.'};

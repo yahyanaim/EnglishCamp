@@ -8,6 +8,8 @@ function endpoint(env:PronunciationEnv){try{const u=new URL(env.OPENPRONOUNCE_UR
  // Modal authenticates at its edge before starting the metered model container.
  // Never forward workspace credentials to a different hosting provider.
  if(modal?(!key||!secret):(!!key||!!secret))return null;return u;}catch{return null;}}
+/** Same validation as the runtime, with no provider request or credential disclosure. */
+export function pronunciationConfigured(env:PronunciationEnv){return !!endpoint(env);}
 export async function pronunciationResponse(request:Request,env:PronunciationEnv,fetcher:typeof fetch=fetch):Promise<Response>{
  const url=endpoint(env),available=!!url&&!!env.LEARNERS_DB;
  if(request.method==='GET')return aiJson({available,provider:'OpenPronounce',consentVersion:PRONUNCIATION_CONSENT});

@@ -93,6 +93,9 @@ test('infrastructure snapshot reads exact UTC quota windows and safe storage cou
   assert.equal(d.synchronization.profiles,1);assert.equal(d.synchronization.snapshots,1);assert.equal(d.synchronization.latestSavedAt,now.toISOString());assert.equal(d.synchronization.notes,1);
   assert.ok(Number.isFinite(d.databaseReadMs)&&d.databaseReadMs>=0);assert.equal(d.microsoftConfigured,true);assert.equal(d.coachConfigured,true);assert.equal(d.pronunciationConfigured,true);
   assert.equal(f.sql.prepare('SELECT SUM(used) total FROM cloud_ai_limits').get().total,before);assert.ok(!JSON.stringify(d).includes('PRIVATE'));assert.ok(!JSON.stringify(d).includes('private-service'));
+  f.env.OPENPRONOUNCE_URL='https://synthetic.modal.run/score';let configured=await(await f.call('/api/invitations/admin/infrastructure','GET',undefined,owner)).json();assert.equal(configured.pronunciationConfigured,false);
+  f.env.OPENPRONOUNCE_MODAL_KEY='PRIVATE_MODAL_KEY';f.env.OPENPRONOUNCE_MODAL_SECRET='PRIVATE_MODAL_SECRET';configured=await(await f.call('/api/invitations/admin/infrastructure','GET',undefined,owner)).json();assert.equal(configured.pronunciationConfigured,true);assert.ok(!JSON.stringify(configured).includes('PRIVATE'));
+  f.env.OPENPRONOUNCE_URL='http://unsafe.example/score';configured=await(await f.call('/api/invitations/admin/infrastructure','GET',undefined,owner)).json();assert.equal(configured.pronunciationConfigured,false);
  }finally{f.sql.close();}
 });
 
