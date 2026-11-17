@@ -73,7 +73,7 @@ export async function adminReport(action:string,url:URL,env:LearnerEnv){
   const {progress_json,badges_json,...account}=record,progress=cleanProgress(safe(progress_json)),summary=summarize(progress_json,badges_json,record.xp),level=getLevelInfo(record.xp);
   return{emailConfigured:emailConfigured(env),learner:{...account,summary,learningLevel:{level:level.level,title:level.title,nextXP:Number.isFinite(level.nextXP)?level.nextXP:null},
    membership:await membership(db,id,env),
-   notesCount:(await db.prepare('SELECT COUNT(*) total FROM cloud_notes WHERE learner_id=?').bind(id).first<{total:number}>())?.total||0,
+   notesCount:(await db.prepare("SELECT COUNT(*) total FROM cloud_notes WHERE learner_id=? AND body<>''").bind(id).first<{total:number}>())?.total||0,
    mail:await db.prepare("SELECT COALESCE(SUM(status='accepted'),0) accepted,MAX(CASE WHEN status='accepted' THEN created_at END) lastSent FROM cloud_admin_mail WHERE learner_id=?").bind(id).first(),
    badgeDetails:summary.badges.map(b=>({...b,title:ACHIEVEMENTS.find(a=>a.id===b.id)?.title||b.id})),
    evidence:courseCatalogue.flatMap(c=>c.lessons.filter(l=>progress.lessons[l.id]?.completed||progress.modules[l.id]).map(l=>({id:l.id,course:c.title,title:l.title,completed:!!progress.lessons[l.id]?.completed,stages:Object.entries(progress.modules[l.id]?.stages||{}).map(([stage,s])=>({stage,finishedAt:s.finishedAt,outcome:s.outcome}))})))},sync:'Last synchronized learning records only.'};
