@@ -1,0 +1,15 @@
+"use client";
+import {useId,useState,type ReactNode} from 'react';
+import {AdminIcon} from './AdminIcon';
+import {LearningArt} from '@/components/brand/LearningArt';
+import './insights.css';
+export const adminNumber=(n:number)=>new Intl.NumberFormat('en',{maximumFractionDigits:0}).format(n);
+export function AdminMetricStrip({items,label='Key statistics'}:{items:{label:string;value:ReactNode;detail:string;icon:string}[];label?:string}){return <section className="admin-insight-metrics" aria-label={label}>{items.map(item=><article key={item.label}><div><span>{item.label}</span>{['book','trophy','spark','calendar'].includes(item.icon)?<LearningArt name={item.icon} size={18}/>:<AdminIcon name={item.icon} size={18}/>}</div><strong>{item.value}</strong><small>{item.detail}</small></article>)}</section>;}
+export function AdminSectionTitle({title,description,children}:{title:string;description:string;children?:ReactNode}){return <header className="admin-insight-title"><div><h2>{title}</h2><p>{description}</p></div>{children}</header>;}
+export type PieRow={label:string;value:number};
+/** Four disjoint response categories make up this pie. No success rate is inferred. */
+export function AdminPieChart({title,rows,description}:{title:string;rows:PieRow[];description:string}){
+ const id=useId(),[selected,setSelected]=useState<number|null>(null),total=rows.reduce((n,r)=>n+r.value,0);let angle=-Math.PI/2;
+ const point=(a:number)=>[110+92*Math.cos(a),110+92*Math.sin(a)],slices=rows.map((r,i)=>{const start=angle;angle+=total?r.value/total*Math.PI*2:0;const a=point(start),b=point(angle);return{...r,i,path:`M110,110 L${a.join(',')} A92,92 0 ${angle-start>Math.PI?1:0},1 ${b.join(',')} Z`};});
+ return <section className="admin-insight-panel admin-pie-panel" aria-label={title}><AdminSectionTitle title={title} description={description}/><div className="admin-pie-body"><svg viewBox="0 0 220 220" role="img" aria-labelledby={id+'-chart'}><title id={id+'-chart'}>{title}: {total?rows.map(r=>`${r.label}: ${adminNumber(r.value)}`).join('; '):'No recorded responses'}</title>{!total?<circle cx="110" cy="110" r="92" fill="var(--color-surface-alt)" stroke="var(--color-border-default)"/>:slices.filter(r=>r.value>0).map(r=><g key={r.label} className={'admin-pie-slice admin-data-series-'+r.i+(selected===r.i?' is-selected':'')} aria-hidden="true">{r.value===total?<circle cx="110" cy="110" r="92"/>:<path d={r.path}/>}</g>)}</svg><div className="admin-pie-total"><strong>{adminNumber(total)}</strong><span>recorded responses</span></div></div><ul className="admin-pie-legend">{rows.map((r,i)=><li key={r.label}><button type="button" data-active={selected===i} onPointerEnter={()=>setSelected(i)} onPointerLeave={()=>setSelected(null)} onFocus={()=>setSelected(i)} onBlur={()=>setSelected(null)} onClick={()=>setSelected(i)}><i className={'admin-data-series-'+i}/><span>{r.label}</span><strong>{adminNumber(r.value)}</strong><small>{total?(r.value/total*100).toLocaleString('en',{maximumFractionDigits:1})+'%':'—'}</small></button></li>)}</ul>{!total&&<p className="admin-insight-note">No responses recorded in this period.</p>}</section>;
+}

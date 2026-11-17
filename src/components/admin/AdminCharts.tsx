@@ -21,7 +21,7 @@ export function AdminTimeChart({title,series,area=false,showTotal=false}:{title:
   <div className="admin-series-legend">{series.map((s,i)=><span key={s.label}><i className={'admin-series-'+i}/>{s.label}</span>)}</div>
   {!all.length?<div className="admin-plot-empty"><LearningArt name="calendar" size={24}/><p>No recorded activity in this period.</p></div>:<>
    <div className="admin-time-plot">
-    <div className="admin-time-axis"><span>{format(max)}</span><span>{format(Math.round(max/2))}</span><span>0</span></div>
+    <div className="admin-time-axis"><span>{format(max)}</span><span>{new Intl.NumberFormat('en',{maximumFractionDigits:1}).format(max/2)}</span><span>0</span></div>
     <svg ref={ref} viewBox={`0 0 ${width} ${h}`} preserveAspectRatio="none" aria-label={title}>
      <defs><linearGradient id={'area-'+id} x1="0" y1="0" x2="0" y2="1"><stop offset="0" stopColor="var(--camp-purple)" stopOpacity=".22"/><stop offset="1" stopColor="var(--camp-purple)" stopOpacity=".01"/></linearGradient></defs>
      {[pad,h/2,h-pad].map(y=><line key={y} x1="0" x2={width} y1={y} y2={y} className="admin-time-grid"/>)}

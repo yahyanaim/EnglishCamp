@@ -77,3 +77,34 @@ test('custom reports include only registrations, rewards and redemptions inside 
  const owner=await f.login(),r=await(await f.call('/api/invitations/admin/report?from=2026-11-05&to=2026-11-09','GET',undefined,owner)).json();assert.equal(r.totals.learners,3);assert.equal(r.totals.registrations,1);assert.equal(r.registrations.length,1);assert.equal(r.registrations[0].day,'2026-11-05');assert.equal(r.period.until,'2026-11-10');assert.equal(r.quiz.count,1);assert.equal(r.activity.length,1);assert.equal(r.activity[0].xp,5);assert.equal(r.redemptions.length,1);assert.equal(r.xpByActivity[0].value,5);assert.equal(r.awards.find(a=>a.id==='first-login').period,1);
  }finally{f.sql.close();}
 });
+
+test('infrastructure snapshot reads exact UTC quota windows and safe storage counts without consuming allowances',async()=>{
+ const f=fixture();try{
+  const now=new Date(),day=(Math.floor(Date.now()/86400000)+1)*86400,month=Date.UTC(now.getUTCFullYear(),now.getUTCMonth()+1,1)/1000;
+  for(const[raw,used,expiry]of [[`pronunciation:invited-month:${month}`,17,month],[`pronunciation:global:86400:${day}`,8,day],[`coach:global:86400:${day}`,23,day]])f.sql.prepare('INSERT INTO cloud_ai_limits(bucket,used,expires_at) VALUES(?,?,?)').run(crypto.createHash('sha256').update(raw).digest('hex'),used,expiry);
+  f.sql.prepare('INSERT INTO cloud_learners(id,name,fruit,recovery_hash,created_at) VALUES(?,?,?,?,?)').run('infra-fixture','PRIVATE_LEARNER','apple','PRIVATE_HASH',now.toISOString());
+  f.sql.prepare("INSERT INTO cloud_progress(learner_id,progress_json,badges_json,imported_keys,updated_at) VALUES(?,'{}','{}','[]',?)").run('infra-fixture',now.toISOString());
+  f.sql.prepare('INSERT INTO cloud_notes(learner_id,lesson_id,body,revision,last_operation,updated_at) VALUES(?,?,?,?,?,?)').run('infra-fixture','lesson-test','PRIVATE_NOTE_BODY',1,'synthetic-operation',now.toISOString());
+  f.env.GEMINI_API_KEY='PRIVATE_GEMINI_KEY';f.env.AZURE_SPEECH_KEY='PRIVATE_AZURE_KEY';f.env.AZURE_SPEECH_REGION='northeurope';f.env.OPENPRONOUNCE_URL='https://private-service.example';f.env.OPENPRONOUNCE_TOKEN='PRIVATE_SERVICE_TOKEN';
+  const before=f.sql.prepare('SELECT SUM(used) total FROM cloud_ai_limits').get().total,owner=await f.login(),r=await f.call('/api/invitations/admin/infrastructure','GET',undefined,owner),d=await r.json();
+  assert.equal(r.status,200);assert.deepEqual(d.serviceUsage,{monthlyPronunciationAttempts:17,dailyPronunciationRequests:8,dailyCoachRequests:23});
+  assert.equal(d.windows.dayResetsAt,new Date(day*1000).toISOString());assert.equal(d.windows.monthResetsAt,new Date(month*1000).toISOString());
+  assert.equal(d.limits.modalMonthlyUSD,1);assert.equal(d.limits.pronunciationMonthly,500);assert.equal(d.limits.coachDailyGlobal,200);assert.equal(d.limits.pronunciationDailyGlobal,100);
+  assert.equal(d.synchronization.profiles,1);assert.equal(d.synchronization.snapshots,1);assert.equal(d.synchronization.latestSavedAt,now.toISOString());assert.equal(d.synchronization.notes,1);
+  assert.ok(Number.isFinite(d.databaseReadMs)&&d.databaseReadMs>=0);assert.equal(d.microsoftConfigured,true);assert.equal(d.coachConfigured,true);assert.equal(d.pronunciationConfigured,true);
+  assert.equal(f.sql.prepare('SELECT SUM(used) total FROM cloud_ai_limits').get().total,before);assert.ok(!JSON.stringify(d).includes('PRIVATE'));assert.ok(!JSON.stringify(d).includes('private-service'));
+ }finally{f.sql.close();}
+});
+
+test('achievement timeline and practice average respect the selected period and never invent a score for no attempts',async()=>{
+ const f=fixture();try{
+  const owner=await f.login(),empty=await(await f.call('/api/invitations/admin/report?from=2026-11-05&to=2026-11-09','GET',undefined,owner)).json();assert.equal(empty.quiz.average,null);assert.deepEqual(empty.awardsTimeline,[]);
+  const progress={quizResults:{'band4-5':[{score:50,takenAt:'2026-11-05T12:00:00Z'},{score:80,takenAt:'2026-11-09T12:00:00Z'},{score:100,takenAt:'2026-11-10T00:00:00Z'}]}};
+  f.sql.prepare('INSERT INTO cloud_learners(id,name,fruit,recovery_hash,created_at) VALUES(?,?,?,?,?)').run('achievement-fixture','Synthetic milestone','apple','synthetic-hash','2026-11-01T00:00:00Z');
+  f.sql.prepare("INSERT INTO cloud_access VALUES(?,'approved','existing',unixepoch())").run('achievement-fixture');
+  const badges={'first-login':{unlockedAt:'2026-11-05T18:00:00Z'},'first-lesson':{unlockedAt:'2026-11-05T19:00:00Z'},'next-day':{unlockedAt:'2026-11-09T01:00:00Z'},'outside':{unlockedAt:'2026-11-10T00:00:00Z'}};
+  f.sql.prepare("INSERT INTO cloud_progress(learner_id,progress_json,badges_json,imported_keys,updated_at) VALUES(?,?,?,'[]',?)").run('achievement-fixture',JSON.stringify(progress),JSON.stringify(badges),'2026-11-09T12:00:00Z');
+  const data=await(await f.call('/api/invitations/admin/report?from=2026-11-05&to=2026-11-09','GET',undefined,owner)).json();
+  assert.equal(data.quiz.average,65);assert.equal(data.quiz.count,2);assert.deepEqual(data.awardsTimeline,[{label:'2026-11-05',value:2},{label:'2026-11-09',value:1}]);
+ }finally{f.sql.close();}
+});
