@@ -59,7 +59,7 @@ export async function invitationAdmin(request: Request, env: LearnerEnv): Promis
     const session = await adminSession(request, env);
     if (action === 'session' && request.method === 'GET') return accessJson({ configured: true, authenticated: !!session });
     if (!session) return accessJson({ error: 'Sign in to manage invitations.' }, 401);
-    if(action==='security'&&request.method==='GET')return accessJson(await securityReport(url,env));
+    if(action==='security'&&request.method==='GET')return accessJson(await securityReport(url,env,session));
     if(['report','directory','detail','catalogue','infrastructure','settings','invitation-directory'].includes(action)&&request.method==='GET')return accessJson(await adminReport(action,url,env));
     if(request.method==='POST'&&['create','revoke','admissions','learner','profile','revoke-sessions','email-invitation','decline-request','reopen-request','email-learner','delete-learner'].includes(action)){const expiry=(Math.floor(now()/600)+1)*600;const used=await db.prepare('INSERT INTO cloud_auth_limits(bucket,attempts,expires_at) VALUES(?,1,?) ON CONFLICT(bucket) DO UPDATE SET attempts=attempts+1 WHERE attempts<120 RETURNING attempts').bind(await accessHash(`admin-write:${session}:${expiry}`),expiry).first();if(!used)throw new AdminError('Too many changes. Wait a few minutes.',429);}
     if(action==='email-learner'&&request.method==='POST')return accessJson(await emailLearner(request,env,await input(request,20000)));

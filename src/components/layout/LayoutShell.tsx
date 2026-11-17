@@ -10,7 +10,7 @@ import { SessionProvider } from "@/components/session/SessionProvider";
 import { LearningRail } from "./LearningRail";
 import { WeeklyProgressSync } from "@/components/session/WeeklyProgressSync";
 import {usePathname} from 'next/navigation';
-import {InvitationBoundary,isEntryPage} from '@/components/session/InvitationBoundary';
+import {InvitationBoundary,InvitationContent,isEntryPage} from '@/components/session/InvitationBoundary';
 
 export function LayoutShell({ children }: { children: React.ReactNode }) {
   const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
@@ -34,7 +34,7 @@ export function LayoutShell({ children }: { children: React.ReactNode }) {
       <div className="camp-centre flex min-w-0 flex-col">
         <TopBar onMenuClick={() => setMobileSidebarOpen(true)} menuOpen={mobileSidebarOpen} />
         <main className="app-canvas camp-content flex-1">
-          {children}
+          <InvitationContent><PlacementOffer/>{children}</InvitationContent>
         </main>
       </div>
       <LearningRail />
@@ -42,7 +42,6 @@ export function LayoutShell({ children }: { children: React.ReactNode }) {
       <MobileBottomNav />
       <SpeechFeedback />
       <LevelCelebration />
-      <PlacementOffer />
     </div></>}</InvitationBoundary></SessionProvider>
   );
 }

@@ -7,6 +7,7 @@ import {AdminIcon} from './AdminIcon';
 import {LearningArt} from '@/components/brand/LearningArt';
 import {BrandMark} from '@/components/brand/BrandMark';
 import {Button} from '@/components/ui/shadcn/button';
+import {PageLoading} from '@/components/ui/PageLoading';
 import {AdminWorkspaceProvider,AdminEnvironment,AdminWorkspaceTools} from './AdminWorkspace';
 import {adminNavigation,adminGroups} from './adminNavigation';
 import './admin.css';
@@ -21,16 +22,16 @@ export function AdminShell({children}:{children:ReactNode}){
   useEffect(()=>{
     if(login)return;
     let active=true;
-    void fetch('/api/invitations/admin/session',{cache:'no-store'}).then(r=>r.json()).then(d=>{
+    void fetch('/api/invitations/admin/session',{cache:'no-store',signal:AbortSignal.timeout(12000)}).then(r=>{if(!r.ok)throw new Error();return r.json();}).then(d=>{
       if(!active)return;
       if(d.authenticated)setReady(true);else window.location.replace('/admin/login');
-    }).catch(()=>setError('Could not check your management session. Reload to retry.'));
+    }).catch(()=>{if(active)setError('Could not check your management session. Your data is kept. Try again when connected.');});
     return()=>{active=false;};
   },[login,pathname]);
   useEffect(()=>{setOpen(false);},[pathname]);
   useEffect(()=>{
     if(login)return;
-    const verify=()=>{void fetch('/api/invitations/admin/session',{cache:'no-store'}).then(r=>r.json()).then(d=>{
+    const verify=()=>{void fetch('/api/invitations/admin/session',{cache:'no-store',signal:AbortSignal.timeout(12000)}).then(r=>{if(!r.ok)throw new Error();return r.json();}).then(d=>{
       if(d.authenticated===false)window.location.replace('/admin/login');
     }).catch(()=>{});};
     window.addEventListener('focus',verify);return()=>window.removeEventListener('focus',verify);
@@ -58,7 +59,7 @@ export function AdminShell({children}:{children:ReactNode}){
     if(r.ok)window.location.replace('/admin/login');else setError('Sign out failed. Please try again.');
   }
   if(login)return <>{children}</>;
-  if(!ready)return <p role="status">{error||'Checking owner access…'}</p>;
+  if(!ready)return error?<div className="camp-entry"><section className="camp-access-problem" role="alert"><h1>Let’s reconnect</h1><p>{error}</p><Button onClick={()=>location.reload()}>Try again</Button></section></div>:<PageLoading full admin label="Opening your admin workspace"/>;
   return <AdminWorkspaceProvider><div className="camp-admin admin-console">
     <a href="#admin-content" className="sr-only focus:not-sr-only">Skip to content</a>
     <header className="admin-header">

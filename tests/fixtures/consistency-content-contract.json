@@ -483,7 +483,7 @@
     },
     "src/components/layout/LayoutShell.tsx": {
       "before": "c1201d8814e786fbeabb7bab73e28e6cb1e51bd575c75c0757228c94ac26eee3",
-      "after": "5ea41b2b865d4c6ed1f4c7501aad613ddf67b338a5e01ef4090b38bd382c122d"
+      "after": "1a03fb08cd1508dbc056b67ddf7dcf6cbff0e9bedb34e4ef2ed68e11ed8c18bd"
     },
     "src/components/layout/LearningRail.tsx": {
       "before": "3f470675cbf1b02591272ed4fc93f7c1aeb8be9fdfe8962c3fde25f14dfa8481",
@@ -589,7 +589,7 @@
       "before": "cce42142e30b8a7a7a570504fe21c2cf21214e49ef1759eca07922a347e79abf",
       "after": "268b5ed32e16b346353f4853478ec029a94ad38bb08a23abf85883cd65b2c48b"
     },
-    "src/components/learn/FragewörterTrainer.tsx": {
+    "src/components/learn/Fragew\u00f6rterTrainer.tsx": {
       "before": "03740f6060969b732db769ff13d432e597d3bcc89f9c0c7782d76e478fc42d32",
       "after": "c936f6f1b3f03a1d95eb2bcc0e2f3a62de117058320a220647913d45bf7ac414"
     },
@@ -840,7 +840,7 @@
     },
     "src/components/session/SessionEntry.tsx": {
       "before": "774dfdf7e795974e910f31f48faca89a18a13c86926418319d3bfe5bf279385a",
-      "after": "f815de21300c9b506b1e9af0209c6fc995a3860c8288af4e2900889c79538cd6"
+      "after": "b425e03330aca11f250cd7e397cd081d5fd376069b8411d21d412e2278b6cda0"
     },
     "src/components/session/SessionProvider.tsx": {
       "before": "99f785a510b7788f2cb36cd4290b444364144f99bb7ea5227956a055b60ecf18",
@@ -996,7 +996,7 @@
     },
     "src/app/placement.css": {
       "before": "5afdc905aef2594805870384cc05019ea6f76e6a4be9af0ea0c688c21790be61",
-      "after": "b358759046f9fe07233c0ddb3951ad11ad78f4812c7aa1dac591e2cde4dbcf43"
+      "after": "a40f16ac15e9a71fc0f200703133a36572251acffdd34d71ac0ad2ced3b5f081"
     },
     "src/components/mock-exam/ExamRecorder.tsx": {
       "before": "41e2ace821f938ce98e4e786dfd61d4f4f1ddc20b5bba15867662269790e681e",
@@ -1008,7 +1008,7 @@
     },
     "src/components/placement/PlacementOffer.tsx": {
       "before": "e7fc750245f9a98330ae7178460cf65134bc404017025f62d0d4d7789503f6d0",
-      "after": "5f554a1fea7274260bacfdd3b77e9c23013811a779d77a034613ec88530449c0"
+      "after": "4d8025664837562a547abb18cb34a8efa9499622004a0b10e83a9f79c4bc487a"
     },
     "src/components/placement/PlacementSpeaking.tsx": {
       "before": "9baba1c9081c0abf8170073e6a1183d5d8d58126422c26697bb222b1184bec57",
@@ -1244,7 +1244,7 @@
       "before": "114135ec47ba1d956cb0800b26d92ef23580fb4c5692b064b036f3e2e7a71c6a",
       "after": "b9763e178ce2e430cf0d9b59b5522cd5d695c551f9787e64c2c91cfc15b25c45"
     },
-    "src/components/learn/FragewörterTrainer.tsx": {
+    "src/components/learn/Fragew\u00f6rterTrainer.tsx": {
       "before": "28d93862860743a53cba8b6f859134877d7f435c0ce3792ee49be1eda2084ee9",
       "after": "2c2aef73955f1179bce2f44b6579e69dd1d35de82087a2855295309768cd4bd8"
     },
@@ -1632,6 +1632,7 @@
   "fontSetupBeforeLocalFiles": "aeed29b7ba90cc97ff2b5d6ca48b9185379860ee0e003f8b53400f20a8a7e3df",
   "notes": [
     "2026-11-16: reviewed Worker invitation-request routing/security aggregation and optional recipient email fields in the original signup dialog/provider; original modal styling, course content and progress stores remain unchanged.",
-    "2026-11-16: user chose Brevo with their existing email; original signup privacy text now names the configured email provider. Modal layout, learning state and credentials are unchanged."
+    "2026-11-16: user chose Brevo with their existing email; original signup privacy text now names the configured email provider. Modal layout, learning state and credentials are unchanged.",
+    "2026-11-17: user-requested access UX review. Preserve the existing workspace chrome while gating each new page in its content slot; add reduced-motion-aware structural loading, one canonical sign-in entry, and an optional inline CEFR invitation. Reviewed only the four listed presentation hashes. Original fonts, teaching banks, assessment/scoring, progress/notes stores and provider implementations are unchanged. Admin settings/security expose additional read-only readiness and current-session expiry; authentication, quotas and the $1 Modal cap are preserved."
   ]
 }

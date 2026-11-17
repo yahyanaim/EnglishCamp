@@ -11,9 +11,11 @@ const origin='https://camp.test';
 test('the access boundary leaves the existing workspace chrome and original fonts unchanged',()=>{
  const shell=fs.readFileSync('src/components/layout/LayoutShell.tsx','utf8')
   .replace("import {usePathname} from 'next/navigation';\n",'')
-  .replace("import {InvitationBoundary,isEntryPage} from '@/components/session/InvitationBoundary';\n",'')
+  .replace("import {InvitationBoundary,InvitationContent,isEntryPage} from '@/components/session/InvitationBoundary';\n",'')
   .replace('  const pathname=usePathname(),entry=isEntryPage(pathname);\n  // Admin sessions and pages do not mount learner storage/synchronization providers.\n  if(pathname.startsWith(\'/admin/\'))return <main className="camp-entry">{children}</main>;\n','')
   .replace('<SessionProvider><InvitationBoundary>{entry?<main className="camp-entry">{children}</main>:<><WeeklyProgressSync/>','<SessionProvider><WeeklyProgressSync/>')
+  .replace('<InvitationContent><PlacementOffer/>{children}</InvitationContent>','{children}')
+  .replace('      <LevelCelebration />','      <LevelCelebration />\n      <PlacementOffer />')
   .replace('</div></>}</InvitationBoundary></SessionProvider>','</div></SessionProvider>');
  assert.equal(crypto.createHash('sha256').update(shell).digest('hex'),'6c2d7ddc030f83123dbef0759811494ab951e367197aa92a487c4439ad82300f');
  assert.equal(crypto.createHash('sha256').update(fs.readFileSync('src/app/layout.tsx')).digest('hex'),'a9c15a1a3691462324854c163256fd647c6472245806ebddd1980929f91b4a27');
