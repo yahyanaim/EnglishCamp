@@ -22,7 +22,7 @@
   },
   "vars": {
     "INVITATION_REQUIRED": "true",
-    "BILLING_ENABLED": "false",
+    "BILLING_ENABLED": "true",
     "INVITATION_EMAIL_PROVIDER": "brevo",
     "ENGLISHCAMP_SPEAKING_ENABLED": "false",
     "ENGLISHCAMP_SPEAKING_HOURLY_LIMIT": "10"
