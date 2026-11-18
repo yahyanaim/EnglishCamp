@@ -10,6 +10,7 @@ import {accessGuard,accessStatus,invitationRequired,publicAccessPath} from './ac
 import {invitationAdmin} from './invitationAdmin';
 import {requestInvitation} from './invitationEmail';
 import {recordSecurity} from './adminSecurity';
+import {voaListeningResponse} from './voaListening';
 
 type Env = SpeechEnv & LearnerEnv & CoachEnv & PronunciationEnv & { ASSETS: { fetch(request: Request): Promise<Response> } };
 const json = (body: object, status: number) => Response.json(body, { status, headers: { 'Cache-Control': 'no-store' } });
@@ -28,6 +29,7 @@ async function handleRequest(request: Request, env: Env): Promise<Response> {
       if(url.pathname.startsWith('/api/invitations/admin/'))return invitationAdmin(request,env);
       if(url.pathname==='/api/coach')return coachResponse(request,env);
       if(url.pathname==='/api/pronunciation')return pronunciationResponse(request,env);
+      if(url.pathname==='/api/vocabulary/listening')return voaListeningResponse(request);
       if (url.pathname.startsWith('/api/learners/')) return learnerResponse(request,env);
       if (url.pathname === '/api/speech') return request.method === 'POST' ? speechResponse(request, env) : json({ error: 'Method not allowed.' }, 405);
       const endpoint = url.pathname === '/api/placement/speaking' ? { GET: speakingStatus, POST: speakingAssessment } : url.pathname === '/api/placement/writing' ? { GET: writingStatus, POST: writingAssessment } : undefined;

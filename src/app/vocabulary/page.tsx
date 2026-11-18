@@ -12,14 +12,16 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useVocabulary, vocabId } from "@/store/useVocabulary";
 import { VocabularyPractice } from "@/components/learn/VocabularyPractice";
 import { SpeakerButton } from "@/components/ui/SpeakerButton";
-import { Search, Trash2, BookOpenCheck, ArrowUpDown, Download, Upload, Brain, PenLine, Eye, Target, BarChart3, BookHeart, Library, Plus, BookOpenText, ArrowLeft, ChevronRight, Bookmark } from "lucide-react";
+import { Search, Trash2, BookOpenCheck, ArrowUpDown, Download, Upload, Brain, PenLine, Eye, Target, BarChart3, BookHeart, Library, Plus, BookOpenText, ArrowLeft, ChevronRight, Bookmark, Headphones } from "lucide-react";
 import { VOCABULARY_BANK, VocabBankEntry } from "@/data/vocabulary-5000";
 import { ALL_ARTICLES, LEVELS, LEVEL_LABELS, CATEGORIES } from "@/data/articles/index";
 import type { ReadingArticle } from "@/data/articles/index";
 
 const ArticleReader = dynamic(() => import("@/components/learn/ArticleReader"), { loading: () => <p role="status" className="text-sm text-[var(--color-text-secondary)]">Opening article…</p> });
 
-type VocabView = "browse" | "quiz" | "write" | "bank" | "read";
+const VocabularyListening = dynamic(() => import("@/components/learn/VocabularyListening").then(module => module.VocabularyListening), { loading: () => <p role="status" className="text-sm text-[var(--color-text-secondary)]">Opening listening…</p> });
+
+type VocabView = "browse" | "quiz" | "write" | "bank" | "read" | "listening";
 
 const container = {
   hidden: {},
@@ -45,7 +47,10 @@ export default function VocabularyPage() {
   const [readLevel, setReadLevel] = useState<string>("all");
   const [readCat, setReadCat] = useState<string>("all");
   const [readSelected, setReadSelected] = useState<ReadingArticle | null>(null);
-  useEffect(()=>{if(new URLSearchParams(window.location.search).get("view")==="browse")setView("browse");},[]);
+  useEffect(() => {
+    const requested = new URLSearchParams(window.location.search).get("view");
+    if (requested === "browse" || requested === "listening") setView(requested);
+  }, []);
   const wordList = useMemo(() => {
     let items = query ? search(query) : getAll();
     if (filter !== "all") items = items.filter(([, v]) => v.category === filter);
@@ -167,6 +172,7 @@ export default function VocabularyPage() {
           { id: "browse" as const, label: "My Bank", icon: Eye },
           { id: "bank" as const, label: "Word library", icon: Library },
           { id: "read" as const, label: "Read & Listen", icon: BookOpenText },
+          { id: "listening" as const, label: "Listening", icon: Headphones },
           { id: "quiz" as const, label: "Quiz", icon: Brain },
           { id: "write" as const, label: "Write", icon: PenLine },
         ]).map((v) => {
@@ -375,6 +381,8 @@ export default function VocabularyPage() {
             )}
           </motion.div>
         </>
+      ) : view === "listening" ? (
+        <VocabularyListening onOpenBank={() => setView("browse")} />
       ) : view === "read" ? (
         readSelected ? (
           <ArticleReader key={readSelected.id} article={readSelected} onBack={() => setReadSelected(null)} onOpenBank={()=>{setReadSelected(null);setView("browse");}} />
