@@ -18,3 +18,5 @@ References:
 - [Cloudflare: Worker metrics and invocation errors](https://developers.cloudflare.com/workers/observability/metrics-and-analytics/).
 - [Cloudflare: observability](https://developers.cloudflare.com/workers/observability/).
 - [Carbon Design System: data visualization](https://www.carbondesignsystem.com/building-blocks/data-visualization/overview).
+
+Follow-up on 18 November 2026: the response chart now follows AIhubtools’ `HorizontalBreakdown` donut variant, with rounded ring segments, a centered total, hover/focus percentages and a matching legend. Adjacent infrastructure cards and desktop settings cards share equal widths and heights; phone cards keep natural heights in one column. Data, quotas, authentication and learner progress are unchanged. Reference: [AIhubtools chart implementation](https://github.com/yahyanaim/AI-hub/blob/main/components/admin/AdminCharts.tsx#L564).
