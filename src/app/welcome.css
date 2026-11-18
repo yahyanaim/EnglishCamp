@@ -55,33 +55,81 @@
 }
 .camp-welcome-motion-control:hover { background: var(--camp-purple-soft); }
 .camp-welcome-motion-control:focus-visible { outline: 2px solid var(--camp-focus); outline-offset: 3px; }
-.camp-welcome-copy { min-width: 0; }
-.camp-welcome-copy .camp-welcome-label {
-  color: var(--camp-control-ink);
-  font-size: .84rem;
-  font-weight: 750;
-  letter-spacing: .035em;
-  margin-bottom: .8rem;
+.camp-welcome-copy {
+  min-width: 0;
+  text-align: center;
 }
 .camp-welcome-copy h1 {
-  font: 850 clamp(2.5rem, 5.2vw, 4.7rem)/1.03 var(--font-display);
-  letter-spacing: -.045em;
+  color: var(--color-text-primary);
+  font: 800 clamp(2.2rem, 4.1vw, 3.75rem)/1.09 var(--font-display);
+  letter-spacing: -.035em;
   text-wrap: balance;
 }
-.camp-welcome-copy h1 span { color: var(--camp-control-ink); }
-.camp-welcome-copy > p:not(.camp-welcome-label) {
-  margin-top: 1.25rem;
-  font-size: 1.05rem;
-  line-height: 1.65;
-  color: var(--color-text-secondary);
-  max-width: 36ch;
+.camp-welcome-copy h1 span {
+  display: block;
+  color: var(--camp-control-ink);
 }
-.camp-welcome-ctas { display: grid; width: min(100%, 305px); gap: 12px; margin-top: 1.6rem; }
-.camp-welcome-ctas a { min-height: 50px; border-radius: 12px; font-size: .97rem; font-weight: 750; }
-.camp-welcome-ctas a:first-child { gap: 10px; background: var(--camp-purple); color: #fff; }
-.camp-welcome-ctas a:first-child:hover { background: var(--camp-purple-hover); }
-.camp-welcome-ctas a:last-child { color: var(--camp-control-ink); }
-.camp-welcome-copy > .camp-welcome-hint:not(.camp-welcome-label) { font-size: .83rem; margin-top: .95rem; }
+.camp-welcome-description {
+  max-width: 34ch;
+  margin: 1rem auto 0;
+  font-size: clamp(.96rem, 1.5vw, 1.1rem);
+  line-height: 1.6;
+  text-wrap: pretty;
+  color: var(--color-text-secondary);
+}
+.camp-welcome-ctas {
+  display: grid;
+  width: min(100%, 326px);
+  gap: 15px;
+  margin: 1.65rem auto 0;
+}
+.camp-welcome-ctas a {
+  position: relative;
+  min-height: 52px;
+  padding-inline: 46px;
+  border: 1px solid transparent;
+  border-radius: 14px;
+  font-size: .98rem;
+  font-weight: 750;
+  white-space: normal;
+  text-align: center;
+  transition: transform .14s ease, background-color .14s ease, box-shadow .14s ease;
+}
+.camp-welcome-ctas .camp-welcome-primary {
+  background: var(--camp-purple);
+  color: var(--color-on-brand, #fff);
+  box-shadow: 0 4px 0 var(--camp-art-deep);
+}
+.camp-welcome-primary svg {
+  position: absolute;
+  inset-inline-end: 17px;
+}
+.camp-welcome-ctas .camp-welcome-primary:hover {
+  background: var(--camp-purple-hover);
+}
+.camp-welcome-ctas .camp-welcome-secondary {
+  border-color: var(--color-border-default);
+  background: var(--color-surface);
+  color: var(--camp-control-ink);
+  box-shadow: 0 4px 0 var(--color-border-default);
+}
+.camp-welcome-ctas .camp-welcome-secondary:hover {
+  background: var(--camp-purple-soft);
+}
+.camp-welcome-ctas a:active {
+  transform: translateY(3px);
+  box-shadow: 0 1px 0 var(--color-border-default);
+}
+.camp-welcome-ctas a:focus-visible {
+  outline: 2px solid var(--camp-focus);
+  outline-offset: 4px;
+}
+.camp-welcome-hint {
+  margin: 1rem auto 0;
+  color: var(--color-text-secondary);
+  font-size: .84rem;
+  line-height: 1.5;
+}
 @keyframes camp-float {
   0%, 100% { transform: translate(0, 0) rotate(0); }
   25% { transform: translate(calc(var(--float-x) * .65), calc(var(--float-y) * .35)) rotate(calc(var(--float-turn) * .45)); }
@@ -91,11 +139,11 @@
 @media (max-width: 740px) {
   .camp-welcome-layout { grid-template-columns: minmax(0, 1fr); gap: 18px; padding: 16px 0 24px; }
   .camp-welcome-scene { width: min(100%, 380px); margin: auto; }
-  .camp-welcome-copy { text-align: center; }
-  .camp-welcome-copy h1 { font-size: clamp(2.18rem, 8vw, 3.35rem); }
-  .camp-welcome-copy > p:not(.camp-welcome-label), .camp-welcome-ctas { margin-inline: auto; }
+  .camp-welcome-copy h1 { font-size: clamp(2.08rem, 8.5vw, 3.35rem); }
+  .camp-welcome-ctas { margin-top: 1.35rem; }
 }
 @media (prefers-reduced-motion: reduce) {
   .camp-world-motion { animation: none; }
   .camp-welcome-motion-control { display: none; }
+  .camp-welcome-ctas a { transition: none; }
 }

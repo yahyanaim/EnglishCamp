@@ -40,6 +40,11 @@ function FlyingLearners() {
         <path d="M-14-30q4-5 9 0m13-2q5-5 9 0" stroke="#3b2638" strokeWidth="2.8" strokeLinecap="round"/>
         <path d="M-5-19q9 3 17-2c-1 15-16 17-17 2z" fill="#783a52"/>
         <path d="M-4-18q7 1 14-2l-2 5q-7 2-11-1z" fill="#fff7f1"/>
+        <path d="M-25-2q14 8 29 5l9-4M-20 9l5 11m30-13-4 12" stroke="#e4c8ff" strokeWidth="2" strokeLinecap="round"/>
+        <path d="M-11 30q11 7 23 1l-2 7q-10 4-19 0z" fill="#c69af4"/>
+        <path d="m-62 69 14-4m67 25 13-10" stroke="#d9c9fb" strokeWidth="2.5" strokeLinecap="round"/>
+        <path d="M-22-48q5-10 15-12m4 1q6-3 12-2" stroke="#715365" strokeWidth="2.5" strokeLinecap="round"/>
+        <ellipse cx="-18" cy="-22" rx="4" ry="2.5" fill="#e79885"/>
       </Learner>
 
       <Learner name="Learner from Japan" pose="glide" placement="translate(408 94) rotate(29) scale(.92)">
@@ -59,6 +64,12 @@ function FlyingLearners() {
         <path d="M-5-22q7 6 13-1" stroke="#9b5163" strokeWidth="2.7" strokeLinecap="round"/>
         <circle cx="-16" cy="-24" r="3.2" fill="#ef957f" opacity=".75"/>
         <circle cx="18" cy="-24" r="3.2" fill="#ef957f" opacity=".75"/>
+        <path d="M-18 8q17 7 34 1m-28 24h21" stroke="#a1ede8" strokeWidth="2.5" strokeLinecap="round"/>
+        <path d="m7 14 11-2 1 9-10 3z" fill="#f6d68e"/>
+        <path d="m-65 48 11 5m71 34 14 1" stroke="#fff0d2" strokeWidth="2.5" strokeLinecap="round"/>
+        <path d="M-22-53q5-9 14-13m4 0q10-4 18 0" stroke="#49557b" strokeWidth="2.2" strokeLinecap="round"/>
+        <circle cx="-9.5" cy="-35" r=".8" fill="#fff"/>
+        <circle cx="12.5" cy="-35" r=".8" fill="#fff"/>
       </Learner>
 
       <Learner name="Learner from Brazil" pose="kick" placement="translate(121 316) rotate(-34) scale(1.03)">
@@ -76,6 +87,10 @@ function FlyingLearners() {
         <circle cx="-11" cy="-29" r="7" stroke="#582e4c" strokeWidth="2"/>
         <circle cx="12" cy="-29" r="7" stroke="#582e4c" strokeWidth="2"/>
         <path d="M-5-18q6 4 13-1" stroke="#8b4059" strokeWidth="2.9" strokeLinecap="round"/>
+        <path d="M-20 12q12 6 19 22m18-22q-7 10-9 23" stroke="#ffddaa" strokeWidth="2.4" strokeLinecap="round" opacity=".9"/>
+        <path d="m-36-4 7 7m61 16-5 6" stroke="#cb7e65" strokeWidth="2" strokeLinecap="round" opacity=".8"/>
+        <path d="m-14-34 5-2m19 2 5-2" stroke="#fff3da" strokeWidth="1.7" strokeLinecap="round"/>
+        <path d="m-2 82 9 5m52-31-1 7" stroke="#d4f7eb" strokeWidth="2.6" strokeLinecap="round"/>
       </Learner>
 
       <Learner name="Learner from Nigeria" pose="reach" placement="translate(436 314) rotate(18)">
@@ -95,6 +110,11 @@ function FlyingLearners() {
         <path d="M-5-20q7 4 15-3c0 12-11 15-15 3z" fill="#693747"/>
         <path d="M-4-19q7 2 13-3l-2 5-8 2z" fill="#fff2df"/>
         <circle cx="-25" cy="-15" r="4" stroke="#f2bf72" strokeWidth="2.5"/>
+        <path d="m-13 23 13 8 15-11m-29 14 14 8 8-5" stroke="#beb9fa" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M-22-65q8 2 15 7m23-7 6 6" stroke="#83c8b6" strokeWidth="2.3" strokeLinecap="round"/>
+        <path d="m-48 72 15-3m74 14 12 2" stroke="#ece2ff" strokeWidth="2.5" strokeLinecap="round"/>
+        <circle cx="-9.5" cy="-33" r=".85" fill="#fff3df"/>
+        <circle cx="13.5" cy="-33" r=".85" fill="#fff3df"/>
       </Learner>
 
       <g transform="translate(271 388) rotate(12)">
@@ -102,11 +122,17 @@ function FlyingLearners() {
           <path d="M-52-17q24-6 52 8 26-12 51-4l4 35Q29 14 0 27q-29-14-55-7z" fill="var(--camp-art-deep)"/>
           <path d="M-51-22q26-7 51 8 24-14 50-6l3 36Q27 8 0 22q-28-13-53-7z" fill="var(--camp-art-light)"/>
           <path d="M-44-28q20-5 44 12 23-17 44-12l4 36Q23 5 0 18q-21-13-48-10z" fill="#fff7e8"/>
+          <path d="m32-27 9 0 2 19-4-3-5 4z" fill="#db8a63"/>
+          <path d="M-42 11q23 0 42 9 24-10 46-9" stroke="var(--camp-art-mid)" strokeOpacity=".5" strokeWidth="1.5" strokeLinecap="round"/>
           <path d="M0-16v34m-34-36 20 4m-21 6 18 4m31-9 19-6m-16 14 18-5" stroke="var(--camp-art-mid)" strokeWidth="2" strokeLinecap="round" opacity=".55"/>
         </g>
       </g>
 
       <g className="camp-world-motion camp-world-sparks">
+        <path d="M192 45q0-9 9-9h20a9 9 0 0 1 9 9v8a9 9 0 0 1-9 9h-10l-9 7v-7h-1a9 9 0 0 1-9-9z" fill="var(--camp-purple-soft)" stroke="var(--camp-art-mid)" strokeOpacity=".65" strokeWidth="1.5"/>
+        <path d="M203 46h16m-16 6h10" stroke="var(--camp-art-main)" strokeWidth="2" strokeLinecap="round"/>
+        <path d="M340 356q0-8 8-8h20a8 8 0 0 1 8 8v6a8 8 0 0 1-8 8h-1v6l-8-6h-11a8 8 0 0 1-8-8z" fill="var(--camp-purple-soft)" stroke="var(--camp-art-mid)" strokeOpacity=".65" strokeWidth="1.5"/>
+        <path d="M349 357h18m-18 6h10" stroke="var(--camp-art-main)" strokeWidth="2" strokeLinecap="round"/>
         <path d="M259 54q7 20 22 23c-16 2-21 7-25 21-2-16-7-20-21-24 14-1 19-6 24-20z" fill="var(--camp-art-mid)"/>
         <path d="M332 417q5 12 14 14c-10 2-13 6-15 14-2-8-6-12-14-14 8-2 12-6 15-14z" fill="var(--camp-art-mid)"/>
         <path d="m44 277 7 3m440-85 8-4m-295-97 4-10" stroke="var(--camp-art-mid)" strokeWidth="4" strokeLinecap="round" opacity=".7"/>
