@@ -54,7 +54,8 @@ export async function voaListeningResponse(request: Request, fetcher: typeof fet
   let resolved = false;
   try {
     const options = {
-      redirect: 'error' as const,
+      // Inspect redirects explicitly so the Worker never follows an unverified destination.
+      redirect: 'manual' as const,
       signal: AbortSignal.any([request.signal, AbortSignal.timeout(4500)]),
       cf: { cacheEverything: true, cacheTtlByStatus: { '200-299': 86400, '400-599': 300 } },
     };

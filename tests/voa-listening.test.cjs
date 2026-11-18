@@ -27,8 +27,9 @@ test('the curated VOA catalogue contains two short clips and contextual Arabic v
 test('the resolver reads the selected VOA player or matching RSS item without accepting user-supplied source URLs', async () => {
   const audio = 'https://voa-audio.voanews.eu/vle/2025/01/01/updated.mp3';
   const lesson = VOA_LISTENING[0];
-  const media = await voaListeningResponse(request(lesson.id), async url => {
+  const media = await voaListeningResponse(request(lesson.id), async (url, options) => {
     assert.equal(url, 'https://learningenglish.voanews.com/pp/3181231/ppt0.html');
+    assert.equal(options.redirect, 'manual');
     return new Response(`<video><source src="https://invalid.test/other"></video><audio><source src="${audio}"></audio>`);
   });
   assert.deepEqual(await media.json(), { audioUrl: audio });
@@ -49,6 +50,7 @@ test('publisher failures and non-VOA audio URLs use the reviewed fallback', asyn
   const clip = VOA_LISTENING[0];
   for (const fetcher of [
     async () => new Response(null, { status: 503 }),
+    async () => new Response(null, { status: 302, headers: { Location: 'https://other.test/redirect' } }),
     async () => new Response('<audio><source src="https://other.test/audio.mp3"></audio>'),
     async () => new Response('x'.repeat(512 * 1024 + 1)),
   ]) {
