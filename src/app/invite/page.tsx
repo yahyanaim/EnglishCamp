@@ -1,50 +1,302 @@
 "use client";
-import {useEffect,useState,type FormEvent} from 'react';
-import {useRouter} from 'next/navigation';
-import {InvitationRequestForm} from '@/components/session/InvitationRequestForm';
-import {EntryHeader} from '@/components/session/EntryHeader';
-import {AdminIcon} from '@/components/admin/AdminIcon';
-import {BrandMark} from '@/components/brand/BrandMark';
-import {Button} from '@/components/ui/shadcn/button';
-import {Input} from '@/components/ui/shadcn/input';
-import {PageLoading} from '@/components/ui/PageLoading';
-import {useCloudProgress} from '@/components/session/CloudProgressProvider';
-import {useSessionProfile} from '@/components/session/SessionProvider';
+
+import { useEffect, useRef, useState, type FormEvent } from 'react';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import { ArrowLeft, ArrowRight, Check, Copy, Download, Eye, EyeOff, KeyRound, Mail, ShieldCheck } from 'lucide-react';
+import { InvitationRequestForm } from '@/components/session/InvitationRequestForm';
+import { EntryHeader } from '@/components/session/EntryHeader';
+import { BrandMark } from '@/components/brand/BrandMark';
+import { Button } from '@/components/ui/shadcn/button';
+import { Input } from '@/components/ui/shadcn/input';
+import { PageLoading } from '@/components/ui/PageLoading';
+import { useCloudProgress } from '@/components/session/CloudProgressProvider';
+import { useSessionProfile } from '@/components/session/SessionProvider';
 import './entry.css';
 
-type View='signin'|'join'|'request';
-function destination(){try{const url=new URL(new URL(location.href).searchParams.get('next')||'/dashboard',location.origin);return url.origin===location.origin&&url.pathname!=='/invite'&&!/^\/(admin|api|_next)(\/|$)/.test(url.pathname)?(url.pathname==='/'?'/learning-home':url.pathname+url.search+url.hash):'/dashboard';}catch{return '/dashboard';}}
-export default function InvitePage(){
- const router=useRouter(),cloud=useCloudProgress(),session=useSessionProfile();
- const[view,setView]=useState<View>('signin'),[name,setName]=useState(''),[code,setCode]=useState(''),[email,setEmail]=useState(''),[visible,setVisible]=useState(false),[failed,setFailed]=useState(false),[dismissed,setDismissed]=useState(''),[trialDays,setTrialDays]=useState<number|null>(null),[granted,setGranted]=useState(false),[copied,setCopied]=useState(false),[copyError,setCopyError]=useState(''),[requestSent,setRequestSent]=useState(false);
- useEffect(()=>{document.title='Sign in · EnglishCamp';const query=new URLSearchParams(location.search),fragment=new URLSearchParams(location.hash.slice(1));if(query.get('view')==='join'||query.get('view')==='request')setView(query.get('view') as View);if(fragment.get('invite')){setView('join');setCode((fragment.get('invite')||'').slice(0,80));setEmail((fragment.get('email')||'').slice(0,254));setName((fragment.get('name')||'').slice(0,40));history.replaceState(null,'',location.pathname+location.search);}let active=true;void fetch('/api/access/session',{cache:'no-store',signal:AbortSignal.timeout(12000)}).then(r=>r.ok?r.json():null).then(data=>{if(active){setGranted(data?.granted===true);setTrialDays(data?.trialDays||null);}}).catch(()=>{});return()=>{active=false;};},[]);
- useEffect(()=>{if(session.profile?.cloudId&&!cloud.recoveryCode)setName(session.profile.name);},[session.profile?.cloudId,session.profile?.name,cloud.recoveryCode]);
- useEffect(()=>{if(granted&&session.profile?.cloudId&&!cloud.recoveryCode)router.replace(destination());},[granted,session.profile?.cloudId,cloud.recoveryCode,router]);
- const localName=!session.profile?.cloudId?session.profile?.name:undefined,hasError=!!cloud.message&&!cloud.busy&&['offline','unavailable'].includes(cloud.status)&&cloud.message!==dismissed;
- function change(next:View){setRequestSent(false);setView(next);setCode('');setVisible(false);setFailed(false);setDismissed(cloud.message);}
- async function submit(e:FormEvent){e.preventDefault();if(cloud.busy)return;setFailed(false);setDismissed('');if(view==='signin'){if(await cloud.restore(name.trim(),code.trim()))router.replace(destination());else setFailed(true);}else if(!await cloud.create(localName||name.trim(),code.trim(),email.trim()))setFailed(true);}
- function download(){const content=`EnglishCamp sign-in details\nName: ${session.profile?.name||name}\nRecovery code: ${cloud.recoveryCode}\nSign in: https://englishcamp.yahyanaim2001.workers.dev/invite\nKeep this file private. These details open your learning profile.\n`,url=URL.createObjectURL(new Blob([content],{type:'text/plain;charset=utf-8'})),link=document.createElement('a');link.href=url;link.download='englishcamp-sign-in.txt';link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}
- async function copy(){try{await navigator.clipboard.writeText(cloud.recoveryCode!);setCopied(true);setCopyError('');}catch{setCopyError('Copy is unavailable. Download your sign-in details instead.');}}
- if(granted&&session.profile?.cloudId&&!cloud.recoveryCode)return <PageLoading full label="Opening your saved learning space"/>;
- const saving=!!cloud.recoveryCode;
- return <div className="camp-entry-auth camp-learner-entry"><EntryHeader/>
-  <main className="camp-access-stage"><section className="camp-access-card" aria-labelledby="access-title">
-   {view==='request'&&!saving&&<button className="camp-entry-back" onClick={()=>change('signin')}><AdminIcon name="chevron-left" size={12}/>Back to sign in</button>}
-   <header className="camp-access-heading"><span className="camp-access-emblem"><BrandMark size={48}/></span><p>YOUR ENGLISH. YOUR PACE.</p><h1 id="access-title">{saving?'You’re in. Keep your sign-in code.':view==='request'?(requestSent?'You’re on the list.':'A little invitation to learn.'):view==='join'?'Your English starts here.':'Welcome back.'}</h1><div>{saving?'Save these details once. They bring your progress back on any device.':view==='request'?(requestSent?'Your request is saved for the owner to review.':'Leave your name and email. We’ll send a code after the owner approves your request.'):view==='join'?'Create your account with the invitation you received.':'Sign in to your courses, notes and saved progress.'}</div></header>
-   {saving?<section className="camp-recovery-ready" aria-label="Save your sign-in details"><div className="camp-recovery-identity"><AdminIcon name="users" size={20}/><span><small>Your name</small><strong dir="auto">{session.profile?.name||name}</strong></span><span className="camp-recovery-ready-state"><AdminIcon name="shield" size={13}/>Account created</span></div><label>Recovery code</label><div className="camp-recovery-secret"><code dir="ltr">{cloud.recoveryCode}</code><button onClick={()=>void copy()} aria-label={copied?'Code copied':'Copy recovery code'}><AdminIcon name={copied?'shield':'copy'} size={18}/></button></div><p className="camp-recovery-hint">Your invitation is now used. Sign in next time with your name and this recovery code.</p><Button variant="outline" onClick={download}><AdminIcon name="download" size={17}/>Download sign-in details</Button>{(copied||copyError)&&<p role="status">{copyError||'Recovery code copied. Keep it somewhere private.'}</p>}<Button onClick={()=>{cloud.clearRecoveryCode();router.replace(destination());}}>I saved my code · continue<AdminIcon name="arrow" size={15}/></Button></section>
-   :<>{view!=='request'&&<nav className="camp-access-switch" aria-label="Account access"><button aria-pressed={view==='signin'} disabled={cloud.busy} onClick={()=>change('signin')}>Sign in</button><button aria-pressed={view==='join'} disabled={cloud.busy} onClick={()=>change('join')}>Create account</button></nav>}
-    {view==='request'?<InvitationRequestForm compact onSent={()=>setRequestSent(true)} onBack={()=>change('join')}/>:<form className="camp-auth-form camp-entry-form" onSubmit={submit}>
-     <div className="camp-entry-field"><label htmlFor="invite-name">Your name</label><Input id="invite-name" value={view==='join'&&localName?localName:name} readOnly={view==='join'&&!!localName} onChange={e=>setName(e.target.value)} dir="auto" autoComplete={view==='signin'?'username':'name'} placeholder="Your name" required maxLength={40} disabled={cloud.busy}/>{view==='join'&&localName&&<button className="camp-entry-inline-link" type="button" disabled={cloud.busy} onClick={()=>session.signOut()}>Use a different name</button>}</div>
-     {view==='join'&&<div className="camp-entry-field"><label htmlFor="invite-email">Invitation email <span>if your code was emailed</span></label><Input id="invite-email" type="email" dir="ltr" autoComplete="email" value={email} onChange={e=>setEmail(e.target.value)} maxLength={254} placeholder="you@example.com" disabled={cloud.busy}/></div>}
-     <div className="camp-entry-field"><label htmlFor="invite-code">{view==='join'?'Invitation code':'Recovery code'}</label><div className="camp-auth-secret camp-entry-secret"><AdminIcon name={view==='join'?'ticket':'lock'} size={17}/><Input id="invite-code" type={visible?'text':'password'} value={code} onChange={e=>setCode(e.target.value)} dir="ltr" autoComplete={view==='signin'?'current-password':'one-time-code'} autoCapitalize="none" spellCheck={false} required maxLength={80} placeholder={view==='join'?'Paste invitation code':'Paste recovery code'} disabled={cloud.busy} aria-describedby="entry-code-help" aria-invalid={failed||hasError}/><button type="button" aria-label={visible?'Hide code':'Show code'} aria-pressed={visible} onClick={()=>setVisible(v=>!v)} disabled={cloud.busy}><AdminIcon name={visible?'eye-off':'eye'} size={17}/></button></div><small id="entry-code-help">{view==='join'?'One invitation. Your own learning account.':'Use the code saved when you created your account.'}</small></div>
-     {(failed||hasError)&&cloud.message&&<p role="alert" className="camp-auth-error">{cloud.message}</p>}
-     <Button type="submit" disabled={cloud.busy||!session.ready}>{cloud.busy?'Opening your account…':view==='join'?'Create my account':'Sign in'}<AdminIcon name="arrow" size={15}/></Button>
-     {view==='signin'?<details className="camp-entry-help"><summary>Need help signing in?</summary><p>Use your name and recovery code from your downloaded EnglishCamp sign-in file. Already signed in on another device? Open your profile there and choose “Connect with QR code”.</p><p>Invitation codes create accounts; recovery codes open an existing account.</p><button type="button" onClick={()=>change('join')}>I have an invitation code<AdminIcon name="arrow" size={12}/></button></details>:<p className="camp-entry-request-link">No invitation yet? <button type="button" disabled={cloud.busy} onClick={()=>change('request')}>Request access<AdminIcon name="arrow" size={12}/></button></p>}
-    </form>}
-   </>}
-   {trialDays===7&&!saving&&view==='join'&&<p className="camp-entry-trial-note">7 days free, then $2 USD per month. No payment details needed to start.</p>}
-   {session.storageNotice&&<p role="alert" className="camp-auth-error">{session.storageNotice}</p>}
-  </section><p className="camp-entry-reassurance"><AdminIcon name="shield" size={14}/>Your progress stays with your account.</p></main>
-  <footer className="camp-entry-auth-footer">EnglishCamp<span>A little practice. A little more confidence.</span></footer>
- </div>;
+type View = 'signin' | 'join' | 'request';
+
+function destination() {
+  try {
+    const url = new URL(new URLSearchParams(location.search).get('next') || '/dashboard', location.origin);
+    if (url.origin !== location.origin || url.pathname === '/invite' || /^\/(admin|api|_next)(\/|$)/.test(url.pathname)) return '/dashboard';
+    return url.pathname === '/' ? '/learning-home' : url.pathname + url.search + url.hash;
+  } catch {
+    return '/dashboard';
+  }
+}
+
+function AccessIllustration({ request }: { request: boolean }) {
+  return (
+    <aside className="camp-access-art">
+      <div className="camp-access-postmark" aria-hidden="true">
+        <div className="camp-access-orbit" />
+        <span className="camp-access-art-star camp-access-star-a" />
+        <span className="camp-access-art-star camp-access-star-b" />
+        <BrandMark size={216} />
+      </div>
+      <div className="camp-access-art-copy">
+        {request ? (
+          <>
+            <h2>How invitations work</h2>
+            <ol className="camp-access-steps">
+              <li>Send your name and email.</li>
+              <li>We review your request.</li>
+              <li>If approved, use the emailed code to join.</li>
+            </ol>
+          </>
+        ) : (
+          <>
+            <h2>Pick up where<br />you left off.</h2>
+            <p>Your lessons, progress and notes follow you to any device when you sign in.</p>
+            <div className="camp-access-art-note"><ShieldCheck size={18} aria-hidden="true" /> Keep your recovery code private.</div>
+          </>
+        )}
+      </div>
+    </aside>
+  );
+}
+
+export default function InvitePage() {
+  const router = useRouter();
+  const cloud = useCloudProgress();
+  const session = useSessionProfile();
+  const titleRef = useRef<HTMLHeadingElement>(null);
+  const focusTitle = useRef(false);
+
+  const [view, setView] = useState<View | null>(null);
+  const [name, setName] = useState('');
+  const [code, setCode] = useState('');
+  const [email, setEmail] = useState('');
+  const [visible, setVisible] = useState(false);
+  const [failed, setFailed] = useState(false);
+  const [dismissed, setDismissed] = useState('');
+  const [trialDays, setTrialDays] = useState<number | null>(null);
+  const [granted, setGranted] = useState(false);
+  const [copied, setCopied] = useState(false);
+  const [copyError, setCopyError] = useState('');
+  const [requestSent, setRequestSent] = useState(false);
+  const [requestBusy, setRequestBusy] = useState(false);
+
+  useEffect(() => {
+    const query = new URLSearchParams(location.search);
+    const fragment = new URLSearchParams(location.hash.slice(1));
+    const invitation = fragment.get('invite');
+    const requestedView = query.get('view');
+    if (invitation) {
+      setView('join');
+      setCode(invitation.slice(0, 80));
+      setEmail((fragment.get('email') || '').slice(0, 254));
+      setName((fragment.get('name') || '').slice(0, 40));
+      query.set('view', 'join');
+      history.replaceState(null, '', location.pathname + '?' + query);
+    } else {
+      setView(requestedView === 'join' || requestedView === 'request' ? requestedView : 'signin');
+    }
+
+    const controller = new AbortController();
+    const timeout = window.setTimeout(() => controller.abort(), 12000);
+    void fetch('/api/access/session', { cache: 'no-store', signal: controller.signal })
+      .then(response => response.ok ? response.json() : null)
+      .then(data => {
+        if (controller.signal.aborted) return;
+        setGranted(data?.granted === true);
+        setTrialDays(data?.trialDays || null);
+      })
+      .catch(() => {})
+      .finally(() => window.clearTimeout(timeout));
+    return () => {
+      controller.abort();
+      window.clearTimeout(timeout);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (session.profile?.cloudId && !cloud.recoveryCode) setName(session.profile.name);
+  }, [session.profile?.cloudId, session.profile?.name, cloud.recoveryCode]);
+
+  useEffect(() => {
+    if (granted && session.profile?.cloudId && !cloud.recoveryCode) router.replace(destination());
+  }, [granted, session.profile?.cloudId, cloud.recoveryCode, router]);
+
+  const saving = !!cloud.recoveryCode;
+  const title = saving ? 'Save your recovery code' : requestSent ? 'Request received'
+    : view === 'request' ? 'Request an invitation'
+    : view === 'join' ? 'Create your account' : 'Welcome back.';
+  useEffect(() => {
+    document.title = title + ' · EnglishCamp';
+    if (focusTitle.current || saving) {
+      titleRef.current?.focus();
+      focusTitle.current = false;
+    }
+  }, [title, saving]);
+
+  const localName = !session.profile?.cloudId ? session.profile?.name : undefined;
+  const hasError = !!cloud.message && !cloud.busy
+    && ['offline', 'unavailable'].includes(cloud.status) && cloud.message !== dismissed;
+  const signInError = failed || hasError;
+
+  function change(next: View) {
+    if (next === view || cloud.busy || requestBusy) return;
+    focusTitle.current = true;
+    setRequestSent(false);
+    setView(next);
+    setCode('');
+    setVisible(false);
+    setFailed(false);
+    setDismissed(cloud.message);
+    const query = new URLSearchParams(location.search);
+    query.set('view', next);
+    history.replaceState(null, '', location.pathname + '?' + query);
+  }
+
+  async function submit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    if (cloud.busy) return;
+    setFailed(false);
+    setDismissed('');
+    if (view === 'signin') {
+      if (await cloud.restore(name.trim(), code.trim())) router.replace(destination());
+      else setFailed(true);
+    } else if (!await cloud.create(localName || name.trim(), code.trim(), email.trim())) {
+      setFailed(true);
+    }
+  }
+
+  function download() {
+    const content = [
+      'EnglishCamp sign-in details',
+      'Name: ' + (session.profile?.name || name),
+      'Recovery code: ' + cloud.recoveryCode,
+      'Sign in: ' + location.origin + '/invite',
+      'Keep this file private. These details open your learning profile.',
+    ].join('\n');
+    const url = URL.createObjectURL(new Blob([content], { type: 'text/plain;charset=utf-8' }));
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = 'englishcamp-sign-in.txt';
+    link.click();
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+  }
+
+  async function copy() {
+    if (!cloud.recoveryCode) return;
+    try {
+      await navigator.clipboard.writeText(cloud.recoveryCode);
+      setCopied(true);
+      setCopyError('');
+    } catch {
+      setCopyError('Copy is unavailable. Download your sign-in details instead.');
+    }
+  }
+
+  if (granted && session.profile?.cloudId && !saving) return <PageLoading full label="Opening your saved learning space" />;
+
+  return (
+    <div className="camp-entry-auth camp-learner-entry">
+      <EntryHeader />
+      <div className="camp-access-stage">
+        <Link href="/" className="camp-access-home"><ArrowLeft size={16} aria-hidden="true" /> Home</Link>
+        <div className="camp-access-shell">
+          <section className="camp-access-content" aria-labelledby={view ? 'access-title' : undefined} aria-busy={!view}>
+            {!view ? <div className="camp-access-preview" role="status"><span className="sr-only">Opening account access…</span><i /><i /><i /></div> : (
+              <>
+                {!saving && view !== 'request' && (
+                  <div className="camp-access-switch" role="group" aria-label="Account access">
+                    <button type="button" aria-pressed={view === 'signin'} disabled={cloud.busy} onClick={() => change('signin')}>Sign in</button>
+                    <button type="button" aria-pressed={view === 'join'} disabled={cloud.busy} onClick={() => change('join')}>Create account</button>
+                  </div>
+                )}
+                {!saving && view === 'request' && (
+                  <button type="button" className="camp-access-text-action camp-access-back" disabled={requestBusy} onClick={() => change('signin')}>
+                    <ArrowLeft size={16} aria-hidden="true" /> Back to sign in
+                  </button>
+                )}
+                <header className="camp-access-heading">
+                  {view === 'request' && <span className="camp-access-emblem">{requestSent ? <Check size={22} /> : <Mail size={22} />}</span>}
+                  <h1 id="access-title" ref={titleRef} tabIndex={-1}>{title}</h1>
+                  <p>{saving ? 'You’ll need this code and your name to sign in again.'
+                    : requestSent ? 'We’ll review your request and email you if it’s approved.'
+                    : view === 'request' ? 'Tell us where to send your code if your request is approved.'
+                    : view === 'join' ? 'Use your invitation code to set up your learning profile.'
+                    : 'Enter your name and recovery code to continue learning.'}</p>
+                </header>
+
+                {saving ? (
+                  <section className="camp-recovery-ready" aria-label="Save your sign-in details">
+                    <p><span>Your name</span><strong dir="auto">{session.profile?.name || name}</strong></p>
+                    <div className="camp-recovery-secret">
+                      <code dir="ltr">{cloud.recoveryCode}</code>
+                      <button type="button" onClick={() => void copy()} aria-label={copied ? 'Code copied' : 'Copy recovery code'}>
+                        {copied ? <Check size={18} /> : <Copy size={18} />}
+                      </button>
+                    </div>
+                    {(copied || copyError) && <p role="status">{copyError || 'Recovery code copied. Keep it private.'}</p>}
+                    <Button variant="outline" onClick={download}><Download size={17} aria-hidden="true" /> Download sign-in details</Button>
+                    <Button className="camp-access-submit" onClick={() => { cloud.clearRecoveryCode(); router.replace(destination()); }}>
+                      I saved my code · continue <ArrowRight size={17} aria-hidden="true" />
+                    </Button>
+                  </section>
+                ) : view === 'request' ? (
+                  <InvitationRequestForm
+                    onBusy={setRequestBusy}
+                    onSent={() => { focusTitle.current = true; setRequestSent(true); }}
+                    onBack={() => change('join')}
+                  />
+                ) : (
+                  <>
+                    <form className="camp-entry-form" onSubmit={submit} aria-busy={cloud.busy}>
+                      <div className="camp-entry-field">
+                        <label htmlFor="invite-name">Your name</label>
+                        <Input id="invite-name" value={view === 'join' && localName ? localName : name}
+                          readOnly={view === 'join' && !!localName} onChange={event => setName(event.target.value)}
+                          dir="auto" autoComplete={view === 'signin' ? 'username' : 'name'} required maxLength={40} disabled={cloud.busy} />
+                        {view === 'join' && localName && <button type="button" className="camp-access-text-action" disabled={cloud.busy} onClick={() => session.signOut()}>Use a different name</button>}
+                      </div>
+                      {view === 'join' && <div className="camp-entry-field">
+                        <label htmlFor="invite-email">Invitation email</label>
+                        <Input id="invite-email" type="email" dir="ltr" autoComplete="email" value={email}
+                          onChange={event => setEmail(event.target.value)} maxLength={254} disabled={cloud.busy} aria-describedby="invite-email-help" />
+                        <small id="invite-email-help">Only needed if your invitation arrived by email.</small>
+                      </div>}
+                      <div className="camp-entry-field">
+                        <label htmlFor="invite-code">{view === 'join' ? 'Invitation code' : 'Recovery code'}</label>
+                        <div className="camp-entry-secret">
+                          <KeyRound className="camp-entry-key" size={18} aria-hidden="true" />
+                          <Input id="invite-code" type={visible ? 'text' : 'password'} value={code}
+                            onChange={event => { setCode(event.target.value); setFailed(false); }} dir="ltr"
+                            autoComplete={view === 'signin' ? 'current-password' : 'one-time-code'}
+                            autoCapitalize="none" spellCheck={false} required maxLength={80} disabled={cloud.busy}
+                            aria-describedby={failed && cloud.message ? 'entry-code-help entry-auth-error' : 'entry-code-help'} aria-invalid={failed} />
+                          <button type="button" aria-label={visible ? 'Hide code' : 'Show code'} onClick={() => setVisible(!visible)} disabled={cloud.busy}>
+                            {visible ? <EyeOff size={19} /> : <Eye size={19} />}
+                          </button>
+                        </div>
+                        <small id="entry-code-help">{view === 'join' ? 'Paste the single-use code you received.' : 'Use the code you saved when you created your account.'}</small>
+                      </div>
+                      {signInError && cloud.message && <p role="alert" className="camp-access-error" id="entry-auth-error">{cloud.message}</p>}
+                      <Button type="submit" className="camp-access-submit" disabled={cloud.busy || !session.ready}>
+                        {cloud.busy ? 'Opening your account…' : view === 'join' ? 'Create my account' : 'Sign in'}
+                        <ArrowRight size={17} aria-hidden="true" />
+                      </Button>
+                    </form>
+                    {trialDays === 7 && view === 'join' && <p className="camp-entry-trial-note">7 days free, then $2 USD per month. No payment details needed to start.</p>}
+                    <div className="camp-access-support">
+                      <div><span>Need an invitation?</span><button className="camp-access-text-action" type="button" disabled={cloud.busy} onClick={() => change('request')}>Request access <ArrowRight size={14} aria-hidden="true" /></button></div>
+                      {view === 'signin' && <details>
+                        <summary>Can’t find your recovery code?</summary>
+                        <p>Look for your saved EnglishCamp sign-in file. If you’re signed in on another device, open your profile there and choose “Connect with QR code”.</p>
+                      </details>}
+                    </div>
+                  </>
+                )}
+                {session.storageNotice && <p role="alert" className="camp-access-error">{session.storageNotice}</p>}
+              </>
+            )}
+          </section>
+          <AccessIllustration request={view === 'request' || requestSent} />
+        </div>
+      </div>
+    </div>
+  );
 }

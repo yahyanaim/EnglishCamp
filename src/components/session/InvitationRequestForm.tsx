@@ -1,10 +1,82 @@
 "use client";
-import {useState,type FormEvent} from 'react';
-import {Input} from '@/components/ui/shadcn/input';
-import {Button} from '@/components/ui/shadcn/button';
-import {AdminIcon} from '@/components/admin/AdminIcon';
-export function InvitationRequestForm({onBack,compact=false,onSent}:{onBack:()=>void;compact?:boolean;onSent?:()=>void}){
- const[name,setName]=useState(''),[email,setEmail]=useState(''),[consent,setConsent]=useState(false),[busy,setBusy]=useState(false),[error,setError]=useState(''),[sent,setSent]=useState(false);
- async function submit(e:FormEvent){e.preventDefault();if(busy)return;setBusy(true);setError('');try{const r=await fetch('/api/invitations/request',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name,email,consent}),signal:AbortSignal.timeout(15000)}),data=await r.json();if(!r.ok)throw new Error(data.error||'Could not save your request.');setSent(true);onSent?.();}catch(e){setError((e as Error).message);}finally{setBusy(false);}}
- return sent?<section className="camp-session-form camp-request-success"><span className="camp-request-art"><AdminIcon name="mail" size={28}/></span><h2>Request received</h2><p>The owner will review your request. If approved, a private invitation will be sent to <strong dir="ltr">{email}</strong>. Check your inbox and spam folder after approval.</p><small>Your account starts when you use the invitation. No learning profile has been created yet.</small><Button variant="outline" onClick={onBack}>Use an invitation code</Button></section>:<form className="camp-session-form camp-auth-form" onSubmit={submit}>{!compact&&<div className="camp-request-intro"><span className="camp-request-art"><AdminIcon name="mail" size={24}/></span><div><h2>Request your invitation</h2><p>A small learning community, one invitation at a time.</p></div></div>}<label htmlFor="request-name">Your name</label><Input id="request-name" dir="auto" value={name} onChange={e=>setName(e.target.value)} autoComplete="name" maxLength={40} required disabled={busy}/><label htmlFor="request-email">Email address</label><Input id="request-email" type="email" dir="ltr" value={email} onChange={e=>setEmail(e.target.value)} autoComplete="email" maxLength={254} required disabled={busy} placeholder="you@example.com"/><label className="camp-request-consent"><input type="checkbox" checked={consent} onChange={e=>setConsent(e.target.checked)} required disabled={busy}/><span>I agree to share my name and email with the EnglishCamp owner and receive an invitation email if approved.</span></label><small>Invitations are reviewed by the owner. Requesting a code does not guarantee access.</small>{error&&<p className="camp-auth-error" role="alert">{error}</p>}<Button type="submit" disabled={busy||!consent}>{busy?'Saving your request…':'Request an invitation'}<AdminIcon name="arrow" size={14}/></Button><Button variant="ghost" type="button" disabled={busy} onClick={onBack}>Already have a code? Create account</Button></form>;
+
+import { useState, type FormEvent } from 'react';
+import { ArrowRight, Mail, Ticket } from 'lucide-react';
+import { Input } from '@/components/ui/shadcn/input';
+import { Button } from '@/components/ui/shadcn/button';
+
+export function InvitationRequestForm({ onBack, onSent, onBusy }: {
+  onBack: () => void;
+  onSent: () => void;
+  onBusy: (busy: boolean) => void;
+}) {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [consent, setConsent] = useState(false);
+  const [busy, setBusy] = useState(false);
+  const [error, setError] = useState('');
+  const [sent, setSent] = useState(false);
+
+  async function submit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    if (busy || !consent) return;
+    setBusy(true);
+    onBusy(true);
+    setError('');
+    try {
+      const response = await fetch('/api/invitations/request', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name: name.trim(), email: email.trim(), consent }),
+        signal: AbortSignal.timeout(15000),
+      });
+      const data = await response.json();
+      if (!response.ok) throw new Error(data.error || 'Could not save your request. Please try again.');
+      setSent(true);
+      onSent();
+    } catch (error) {
+      setError(error instanceof Error && error.name !== 'TimeoutError'
+        ? error.message : 'The request timed out. Please try again.');
+    } finally {
+      setBusy(false);
+      onBusy(false);
+    }
+  }
+
+  if (sent) return (
+    <section className="camp-access-request-result" aria-label="Invitation delivery">
+      <div className="camp-access-recipient"><Mail size={18} aria-hidden="true" /><div><span>Email address</span><strong dir="ltr">{email.trim()}</strong></div></div>
+      <p>Check your inbox and spam folder for the invitation after approval.</p>
+      <Button variant="outline" onClick={onBack}><Ticket size={18} aria-hidden="true" /> Use an invitation code</Button>
+    </section>
+  );
+
+  return (
+    <>
+      <form className="camp-entry-form" onSubmit={submit} aria-busy={busy}>
+        <div className="camp-entry-field">
+          <label htmlFor="request-name">Your name</label>
+          <Input id="request-name" dir="auto" value={name} onChange={event => setName(event.target.value)}
+            autoComplete="name" maxLength={40} required disabled={busy} />
+        </div>
+        <div className="camp-entry-field">
+          <label htmlFor="request-email">Email address</label>
+          <Input id="request-email" type="email" dir="ltr" value={email} onChange={event => setEmail(event.target.value)}
+            autoComplete="email" maxLength={254} required disabled={busy} />
+        </div>
+        <label className="camp-access-consent">
+          <input type="checkbox" checked={consent} onChange={event => setConsent(event.target.checked)} required disabled={busy} />
+          <span>I agree to share my name and email with the EnglishCamp owner for review and to receive an invitation email if approved.</span>
+        </label>
+        {error && <p className="camp-access-error" role="alert">{error}</p>}
+        <Button type="submit" className="camp-access-submit" disabled={!consent || busy}>
+          {busy ? 'Sending your request…' : 'Request an invitation'}
+          <ArrowRight size={17} aria-hidden="true" />
+        </Button>
+      </form>
+      <div className="camp-access-support">
+        <div><span>Already have an invitation?</span><button className="camp-access-text-action" type="button" disabled={busy} onClick={onBack}>Use my code <ArrowRight size={14} aria-hidden="true" /></button></div>
+      </div>
+    </>
+  );
 }
