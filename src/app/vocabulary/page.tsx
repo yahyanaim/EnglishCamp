@@ -15,7 +15,9 @@ import { SpeakerButton } from "@/components/ui/SpeakerButton";
 import { Search, Trash2, BookOpenCheck, ArrowUpDown, Download, Upload, Brain, PenLine, Eye, Target, BarChart3, BookHeart, Library, Plus, BookOpenText, ArrowLeft, ChevronRight, Bookmark } from "lucide-react";
 import { VOCABULARY_BANK, VocabBankEntry } from "@/data/vocabulary-5000";
 import { ALL_ARTICLES, LEVELS, LEVEL_LABELS, CATEGORIES } from "@/data/articles/index";
-import type { ReadingArticle } from "@/data/articles/index";
+import { WIKIPEDIA_ARTICLES, type VocabularyReadingArticle } from "@/data/articles/simple-wikipedia";
+
+const READING_ARTICLES: VocabularyReadingArticle[] = [...WIKIPEDIA_ARTICLES, ...ALL_ARTICLES];
 
 const ArticleReader = dynamic(() => import("@/components/learn/ArticleReader"), { loading: () => <p role="status" className="text-sm text-[var(--color-text-secondary)]">Opening article…</p> });
 
@@ -44,7 +46,8 @@ export default function VocabularyPage() {
   const [readQuery, setReadQuery] = useState("");
   const [readLevel, setReadLevel] = useState<string>("all");
   const [readCat, setReadCat] = useState<string>("all");
-  const [readSelected, setReadSelected] = useState<ReadingArticle | null>(null);
+  const [readSource, setReadSource] = useState("all");
+  const [readSelected, setReadSelected] = useState<VocabularyReadingArticle | null>(null);
   useEffect(()=>{if(new URLSearchParams(window.location.search).get("view")==="browse")setView("browse");},[]);
   const wordList = useMemo(() => {
     let items = query ? search(query) : getAll();
@@ -98,15 +101,16 @@ export default function VocabularyPage() {
   }
 
   const readFiltered = useMemo(() => {
-    let items = ALL_ARTICLES;
+    let items = READING_ARTICLES;
     if (readQuery) {
       const q = readQuery.toLowerCase();
       items = items.filter((a) => a.title.toLowerCase().includes(q) || a.paragraphs.some((p) => p.en.toLowerCase().includes(q)));
     }
     if (readLevel !== "all") items = items.filter((a) => a.level === readLevel);
     if (readCat !== "all") items = items.filter((a) => a.category === readCat);
+    if (readSource !== "all") items = items.filter((a) => readSource === "wikipedia" ? Boolean(a.source) : !a.source);
     return items;
-  }, [readQuery, readLevel, readCat]);
+  }, [readQuery, readLevel, readCat, readSource]);
 
   function handleExport() {
     const data = exportWords();
@@ -395,6 +399,7 @@ export default function VocabularyPage() {
                 />
               </div>
               <SelectField
+                aria-label="Reading level"
                 value={readLevel}
                 onValueChange={value => setReadLevel(value)}
                 className="font-body text-sm bg-[var(--color-surface)] border border-[var(--color-border-default)] rounded-[var(--radius-md)] px-3 py-2.5 outline-none text-[var(--color-text-primary)] transition-all duration-150"
@@ -404,6 +409,7 @@ export default function VocabularyPage() {
                 {LEVELS.map((l) => (<option key={l} value={l}>{LEVEL_LABELS[l]}</option>))}
               </SelectField>
               <SelectField
+                aria-label="Reading category"
                 value={readCat}
                 onValueChange={value => setReadCat(value)}
                 className="font-body text-sm bg-[var(--color-surface)] border border-[var(--color-border-default)] rounded-[var(--radius-md)] px-3 py-2.5 outline-none text-[var(--color-text-primary)] transition-all duration-150"
@@ -411,6 +417,11 @@ export default function VocabularyPage() {
               >
                 <option value="all">All Categories</option>
                 {CATEGORIES.map((c) => (<option key={c} value={c}>{c}</option>))}
+              </SelectField>
+              <SelectField aria-label="Reading source" value={readSource} onValueChange={setReadSource}>
+                <option value="all">All Sources</option>
+                <option value="wikipedia">Simple English Wikipedia</option>
+                <option value="englishcamp">EnglishCamp</option>
               </SelectField>
               <span className="font-body text-xs text-[var(--color-text-secondary)]">{readFiltered.length} articles</span>
             </motion.div>
@@ -428,6 +439,7 @@ export default function VocabularyPage() {
                     <span className="font-body text-[10px] font-semibold text-[var(--color-text-secondary)] bg-[var(--color-surface-alt)] px-2 py-0.5 rounded-[var(--radius-pill)]">{article.category}</span>
                   </div>
                   <h3 className="font-display font-bold text-sm text-[var(--color-text-primary)] leading-snug">{article.title}</h3>
+                  {article.source && <span className="mt-1 font-body text-xs text-[var(--color-text-secondary)]">Simple English Wikipedia</span>}
                   <p className="font-body text-xs text-[var(--color-text-secondary)] mt-2 line-clamp-2">{article.paragraphs[0]?.en.slice(0, 120)}...</p>
                   <div className="flex items-center gap-1 mt-3 text-[var(--color-primary)] font-body text-xs font-bold">
                     Read & listen <ChevronRight className="w-3 h-3" />
