@@ -17,10 +17,7 @@ test('recaps, notes and branding preserve authored course data, saved learning s
 test('all 14 migrated selectors retain their original values, option text and state-update handlers',()=>{
  let count=0;
  for(const[file,digest]of Object.entries(contract.selectors)){
-  const current=selectors(read(file).toString(),file).filter(
-   selector => file !== 'src/app/vocabulary/page.tsx' || selector.value !== '{readSource}'
-  );
-  count+=current.length;
+  const current=selectors(read(file).toString(),file);count+=current.length;
   assert.equal(hash(JSON.stringify(current)),consistency.selectors[file]?.after??digest,file);
  }
  assert.equal(count,14);
