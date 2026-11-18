@@ -90,6 +90,8 @@
 .camp-frame .camp-action:hover { filter:brightness(1.08); }
 .translation-groups { display:flex; flex-wrap:wrap; gap:5px; margin-bottom:24px; }
 .translation-groups button { font-size:11px; font-family:var(--font-body),sans-serif; font-weight:400; padding:5px 9px; min-height:34px; }
+.camp-frame .translation-groups button { max-width:100%; height:auto; white-space:normal; text-align:start; }
+.translation-groups button > .camp-learning-art { flex:none; }
 .translation-groups button[aria-pressed=true] { background:var(--camp-purple-soft); color:var(--color-course-band4-5); }
 .translation-session { width:100%; max-width:840px; margin:0 auto; }
 .translation-session-meta { display:flex; justify-content:space-between; align-items:center; gap:12px; font-size:11px; color:var(--color-text-secondary); margin-bottom:12px; }
@@ -210,7 +212,7 @@
 .camp-course-hero-body { display:flex; flex-direction:column; gap:20px; }
 .camp-frame main .camp-course-hero-title { font:700 24px/1.35 var(--font-display),sans-serif; letter-spacing:-.02em; margin:12px 0 6px; text-wrap:balance; }
 .camp-course-hero-subtitle { color:var(--camp-control-ink); font-size:14px; line-height:1.6; margin-bottom:12px; }
-.camp-course-description { font-size:14px; line-height:1.75; color:var(--color-text-secondary); max-width:75ch; margin-bottom:20px; }
+.camp-course-description { font-size:14px; line-height:1.75; color:var(--color-text-secondary); margin-bottom:20px; }
 .camp-course-hero-actions { display:flex; flex-wrap:wrap; gap:8px; }
 .camp-frame .camp-course-action { min-height:40px; border-radius:8px; font-family:var(--font-body),sans-serif; font-size:12px; font-weight:500; }
 .camp-course-goals { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; margin-top:24px; padding-top:20px; border-top:1px solid var(--color-border-default); }

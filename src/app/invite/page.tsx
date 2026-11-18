@@ -59,7 +59,6 @@ export default function InvitePage() {
   const [visible, setVisible] = useState(false);
   const [failed, setFailed] = useState(false);
   const [dismissed, setDismissed] = useState('');
-  const [trialDays, setTrialDays] = useState<number | null>(null);
   const [granted, setGranted] = useState(false);
   const [copied, setCopied] = useState(false);
   const [copyError, setCopyError] = useState('');
@@ -89,7 +88,6 @@ export default function InvitePage() {
       .then(data => {
         if (controller.signal.aborted) return;
         setGranted(data?.granted === true);
-        setTrialDays(data?.trialDays || null);
       })
       .catch(() => {})
       .finally(() => window.clearTimeout(timeout));
@@ -197,11 +195,7 @@ export default function InvitePage() {
                 <header className="camp-access-heading">
                   <div>
                     <h1 id="access-title" ref={titleRef} tabIndex={-1}>{title}</h1>
-                    <p id="access-intro">
-                      {!saving && view === 'join' && trialDays === 7
-                        ? <><strong>7 days free</strong>, then $2 USD/month. No payment details needed to start.</>
-                        : intro}
-                    </p>
+                    <p id="access-intro">{intro}</p>
                   </div>
                   <div className="camp-access-emblem" aria-hidden="true">
                     {requestSent ? <Check size={26} />

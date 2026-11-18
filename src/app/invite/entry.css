@@ -104,7 +104,6 @@
   line-height: 1.5;
   text-wrap: pretty;
 }
-.camp-access-heading p strong { color: var(--color-text-primary); }
 .camp-access-emblem { display: none; }
 .camp-access-switch {
   display: flex;
@@ -138,7 +137,7 @@
   min-height: var(--access-input-height);
   padding-inline: 13px;
   border: 1px solid var(--color-border-strong, var(--color-border-default));
-  border-radius: 10px;
+  border-radius: var(--radius-md);
   background: var(--color-surface-alt);
   font-size: 1rem;
 }
@@ -173,7 +172,7 @@
   width: 100%;
   min-height: var(--access-input-height);
   padding-inline: 40px;
-  border-radius: 10px;
+  border-radius: var(--radius-md);
   background: var(--camp-purple);
   color: #fff;
   font-size: .925rem;
@@ -311,9 +310,9 @@
   .camp-learner-entry .camp-entry-theme { gap: 0; padding: 1px; }
   .camp-learner-entry .camp-entry-theme button { width: 44px; height: 44px; }
   .camp-access-stage {
-    display: block;
+    align-content: safe center;
     width: min(100%, 460px);
-    padding-block: 12px 0;
+    padding-block: 12px 24px;
   }
   .camp-learner-entry .camp-entry-header { max-width: 460px; }
   .camp-access-shell { display: block; border: 0; border-radius: 0; }

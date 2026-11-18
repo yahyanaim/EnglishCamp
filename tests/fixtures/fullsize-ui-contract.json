@@ -260,7 +260,7 @@
     },
     "src/components/learn/DialogeUebersetzer.tsx": {
       "before": "0818601e2c7bd5f2dc5a7a00713159e212f47dc7a1b3c50a1cb4f796c07b1029",
-      "after": "f76190fae63af8adfe3604782d8651834965e582b7a3155def1f8995bc9f38ad"
+      "after": "3bafac7afea4c9e5571f17dc33c6fac7f83c6f6fb34f51112abe96623e67409b"
     },
     "src/components/learn/FragenUebersetzer.tsx": {
       "before": "aff61d6318b98ad456bf8d3abc5d1762aca5d786517406fe2ff4a76c6af319c8",

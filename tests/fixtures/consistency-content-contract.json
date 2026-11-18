@@ -107,7 +107,7 @@
     },
     "src/app/grammar/page.tsx": {
       "before": "b055f20f199441ae7ca4dd65addc3cf5ccdb76b597cecfcc3d8398661ad6371f",
-      "after": "26f27ea1cbb079a6f828a50d0ba4750ee00d86d46a51543b206918813c7cdbb1"
+      "after": "c79a1871f65b3b32ad51a71d7876f57cc523c24bbde73f40eda69c45324ee730"
     },
     "src/app/grammar-compare/page.tsx": {
       "before": "47f43bf7fc737fa361a67d0ea656660747e9b1a0cb702a281195314e43ee7eb0",
@@ -267,7 +267,7 @@
     },
     "src/app/reference.css": {
       "before": "73e1b3259dab29a91381945164e1e9091bd306feb802874871ed4a874294e642",
-      "after": "04b38609fb365ce54d752f2008c8b7cb23d5ed4c1273d08f7bdda54202c40512"
+      "after": "7938ba920487d7fccb06ca209006bb186dc95a42d1beaf1f6765fb035a6b1478"
     },
     "src/app/reflexive-verben/page.tsx": {
       "before": "76f4ee8503c88d03a44d42c80fad49e54ad123b962a2c44475a0efc8184747d1",
@@ -589,7 +589,7 @@
       "before": "cce42142e30b8a7a7a570504fe21c2cf21214e49ef1759eca07922a347e79abf",
       "after": "268b5ed32e16b346353f4853478ec029a94ad38bb08a23abf85883cd65b2c48b"
     },
-    "src/components/learn/Fragew\u00f6rterTrainer.tsx": {
+    "src/components/learn/FragewörterTrainer.tsx": {
       "before": "03740f6060969b732db769ff13d432e597d3bcc89f9c0c7782d76e478fc42d32",
       "after": "c936f6f1b3f03a1d95eb2bcc0e2f3a62de117058320a220647913d45bf7ac414"
     },
@@ -775,7 +775,7 @@
     },
     "src/components/learn/TranslationPractice.tsx": {
       "before": "6ac248cce0986b9b2ea3b22829fb3d0476a23bf9d7593364527895dd4793a5cb",
-      "after": "110dc212d514d74cafc0e04c7c150ea355b6dbc35410095954081191796e4489"
+      "after": "2d1e82d78b6d11a1d0ee15787a811fd4a062399439cd0b8f8307b9c01626b27e"
     },
     "src/components/learn/TwoWayPrepositionsTrainer.tsx": {
       "before": "0bf367f0056e95c65657386dcd9c14a49aad9e1bf3233c06bbbe94f78f9a9030",
@@ -1120,7 +1120,7 @@
     },
     "src/app/practice-polish.css": {
       "before": "5faf385352e78ded7cb8f4949608bd4fbd9438044f3556e47104e54a344d1047",
-      "after": "f0f6b97ec8d0c12af73505568752ff844321ed8d9a94bc508b7aae6af2f098d3"
+      "after": "5bdcb6f618d1ee00fea272f23ccb54f787199706ce34f184cb107b71f1ec433f"
     },
     "src/app/shadowing-english/page.tsx": {
       "before": "f7c42cd10c28857f8cf7a866e45231254b20f89b25898e64793464094e349685",
@@ -1161,6 +1161,10 @@
     "src/app/layout.tsx": {
       "before": "3ee603b8cfabce8458e3bdd0d818d0ac6c2da0fce842b0e8f2927298e184411f",
       "after": "a9c15a1a3691462324854c163256fd647c6472245806ebddd1980929f91b4a27"
+    },
+    "src/components/learn/DialogeUebersetzer.tsx": {
+      "before": "e82133192f9adf12dd87d667c4ead8af1e6110a2acb4d83c7dd8c192c98ef1da",
+      "after": "edd1dc5df4951fe4b1469aeaf493ea79ef7640d019a53d855ce6d4fd8993bade"
     }
   },
   "practicePresentation": {
@@ -1244,7 +1248,7 @@
       "before": "114135ec47ba1d956cb0800b26d92ef23580fb4c5692b064b036f3e2e7a71c6a",
       "after": "b9763e178ce2e430cf0d9b59b5522cd5d695c551f9787e64c2c91cfc15b25c45"
     },
-    "src/components/learn/Fragew\u00f6rterTrainer.tsx": {
+    "src/components/learn/FragewörterTrainer.tsx": {
       "before": "28d93862860743a53cba8b6f859134877d7f435c0ce3792ee49be1eda2084ee9",
       "after": "2c2aef73955f1179bce2f44b6579e69dd1d35de82087a2855295309768cd4bd8"
     },
@@ -1430,7 +1434,7 @@
     },
     "src/components/learn/TranslationPractice.tsx": {
       "before": "80e7cc2f4ffebf11046224bd23a9804683aa9671baf21bbc49d559cdc4f85080",
-      "after": "6f6af212e934fd860b938b11991ce92a5482335016821bfa90b03f3e608e9d8d"
+      "after": "f24edab0ae493e7e933fb5b475dab1b90deeff2584b4a146ec9b4e80807c7e5f"
     },
     "src/components/learn/TwoWayPrepositionsTrainer.tsx": {
       "before": "f8f97cf3807bfe3adf0889159048093a3b95483c986e77f35b6220871bed84e0",

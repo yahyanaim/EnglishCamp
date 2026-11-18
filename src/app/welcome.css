@@ -88,7 +88,8 @@
   min-height: 52px;
   padding-inline: 46px;
   border: 1px solid transparent;
-  border-radius: 14px;
+  border-radius: var(--radius-md);
+  box-shadow: 0 4px 0 var(--welcome-button-shadow);
   font-size: .98rem;
   font-weight: 750;
   white-space: normal;
@@ -98,7 +99,7 @@
 .camp-welcome-ctas .camp-welcome-primary {
   background: var(--camp-purple);
   color: var(--color-on-brand, #fff);
-  box-shadow: 0 4px 0 var(--camp-art-deep);
+  --welcome-button-shadow: var(--camp-art-deep);
 }
 .camp-welcome-primary svg {
   position: absolute;
@@ -111,14 +112,14 @@
   border-color: var(--color-border-default);
   background: var(--color-surface);
   color: var(--camp-control-ink);
-  box-shadow: 0 4px 0 var(--color-border-default);
+  --welcome-button-shadow: color-mix(in srgb, var(--camp-purple) 52%, var(--color-surface));
 }
 .camp-welcome-ctas .camp-welcome-secondary:hover {
   background: var(--camp-purple-soft);
 }
 .camp-welcome-ctas a:active {
   transform: translateY(3px);
-  box-shadow: 0 1px 0 var(--color-border-default);
+  box-shadow: 0 1px 0 var(--welcome-button-shadow);
 }
 .camp-welcome-ctas a:focus-visible {
   outline: 2px solid var(--camp-focus);

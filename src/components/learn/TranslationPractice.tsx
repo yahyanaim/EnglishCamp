@@ -9,7 +9,7 @@ import { playCorrect, playWrong, playXP } from "@/lib/audio";
 import { useProgress } from "@/store/useProgress";
 import { translationQuestion, translationSession, validTranslation, type TranslationDirection, type TranslationEntry } from "@/lib/translationPractice";
 
-type Props = { entries: readonly TranslationEntry[]; title: string; description: string; icon: LucideIcon; groups?: { id: string; label: string }[]; startLabel?: string };
+type Props = { entries: readonly TranslationEntry[]; title: string; description: string; icon: LucideIcon; groups?: { id: string; label: string; art?: string }[]; startLabel?: string };
 
 export function TranslationPractice({ entries, title, description, icon: Icon, groups, startLabel = "Start Practice" }: Props) {
   const addXP = useProgress(state => state.addXP);
@@ -49,7 +49,15 @@ export function TranslationPractice({ entries, title, description, icon: Icon, g
       <Button variant="unstyled" disabled={!ready} onClick={() => setDirection("ar")} aria-pressed={direction === "ar"} className={direction === "ar" ? "selected" : ""}>AR → EN</Button>
       <Button variant="unstyled" disabled={!ready} onClick={() => setDirection("en")} aria-pressed={direction === "en"} className={direction === "en" ? "selected" : ""}>EN → AR</Button>
     </div>
-    {groups && <div className="translation-groups" aria-label="Dialogue selection"><Button variant="ghost" aria-pressed={group === "all"} onClick={() => setGroup("all")}>All</Button>{groups.map(item => <Button key={item.id} variant="ghost" aria-pressed={group === item.id} onClick={() => setGroup(item.id)}>{item.label}</Button>)}</div>}
+    {groups && <div className="translation-groups" role="group" aria-label="Dialogue selection">
+      <Button variant="ghost" aria-pressed={group === "all"} onClick={() => setGroup("all")}>All</Button>
+      {groups.map(item => (
+        <Button key={item.id} variant="ghost" aria-pressed={group === item.id} onClick={() => setGroup(item.id)}>
+          {item.art && <LearningArt name={item.art} size={16} />}
+          <span>{item.label}</span>
+        </Button>
+      ))}
+    </div>}
     <Button className="camp-action" onClick={start} disabled={!ready || pool.length < 4}>{startLabel}<ArrowRight size={15} /></Button>
   </PracticeCard>;
 
