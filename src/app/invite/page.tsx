@@ -13,7 +13,7 @@ import {useSessionProfile} from '@/components/session/SessionProvider';
 import './entry.css';
 
 type View='signin'|'join'|'request';
-function destination(){try{const url=new URL(new URL(location.href).searchParams.get('next')||'/dashboard',location.origin);return url.origin===location.origin&&!['/invite'].includes(url.pathname)&&!/^\/(admin|api|_next)(\/|$)/.test(url.pathname)?url.pathname+url.search+url.hash:'/dashboard';}catch{return '/dashboard';}}
+function destination(){try{const url=new URL(new URL(location.href).searchParams.get('next')||'/dashboard',location.origin);return url.origin===location.origin&&url.pathname!=='/invite'&&!/^\/(admin|api|_next)(\/|$)/.test(url.pathname)?(url.pathname==='/'?'/learning-home':url.pathname+url.search+url.hash):'/dashboard';}catch{return '/dashboard';}}
 export default function InvitePage(){
  const router=useRouter(),cloud=useCloudProgress(),session=useSessionProfile();
  const[view,setView]=useState<View>('signin'),[name,setName]=useState(''),[code,setCode]=useState(''),[email,setEmail]=useState(''),[visible,setVisible]=useState(false),[failed,setFailed]=useState(false),[dismissed,setDismissed]=useState(''),[trialDays,setTrialDays]=useState<number|null>(null),[granted,setGranted]=useState(false),[copied,setCopied]=useState(false),[copyError,setCopyError]=useState(''),[requestSent,setRequestSent]=useState(false);

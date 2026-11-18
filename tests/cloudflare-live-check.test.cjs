@@ -52,6 +52,7 @@ test('invitation deployment checks reject public bypasses and authenticate Micro
   const path=new URL(url).pathname;if(path==='/api/access/session')return Response.json({required:true,granted:false});
   if(path==='/api/learners/restore'){assert.deepEqual(JSON.parse(options.body),{name:profile.name,code:profile.recoveryCode});return Response.json({account:{id:'test-profile'}},{headers:{'Set-Cookie':'__Host-camp-session=synthetic-session; HttpOnly; Secure'}});}
   if(path==='/api/learners/logout'){loggedOut=true;return Response.json({ok:true});}
+  if(path==='/')return new Response('<h1>Find your voice</h1><a>Request access</a>');
   if(path==='/api/speech')return options.headers.Cookie?new Response(mp3,{headers:{'Content-Type':'audio/mpeg'}}):Response.json({error:'Sign in'},{status:401});
   return options.headers?.Cookie?page():new Response(null,{status:303,headers:{Location:new URL('/invite',url).href}});
  };

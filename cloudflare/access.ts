@@ -32,7 +32,7 @@ export function publicAccessPath(path: string) {
   try { const decoded=decodeURIComponent(path);if(decoded.includes('\\')||decoded.includes('%')||/(?:^|\/)\.{1,2}(?:\/|$)/.test(decoded))return false; }
   catch { return false; }
   const page = path.replace(/\.(?:html|txt)$/, '').replace(/\/$/, '') || '/';
-  return ['/invite', '/membership', '/admin/login', '/connect-device'].includes(page)
+  return ['/', '/index.html', '/index.txt'].includes(path) || ['/invite', '/membership', '/admin/login', '/connect-device'].includes(page)
     || (path.startsWith('/_next/static/') && /\.(?:js|css|woff2?|png|webp|jpg|svg)$/.test(path))
     || /^\/media\/brand\/[A-Za-z0-9_.-]+\.(?:png|webp|svg|ico)$/.test(path)
     || ['/favicon.ico', '/robots.txt'].includes(path)

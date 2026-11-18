@@ -111,3 +111,24 @@ test('achievement timeline and practice average respect the selected period and 
   assert.equal(data.quiz.average,65);assert.equal(data.quiz.count,2);assert.deepEqual(data.awardsTimeline,[{label:'2026-11-05',value:2},{label:'2026-11-09',value:1}]);
  }finally{f.sql.close();}
 });
+
+test('learner directory exposes only effective payment dates and subscription status for the visible learner',async()=>{
+ const f=fixture();
+ try {
+  const now=Math.floor(Date.now()/1000),created=new Date(now*1000).toISOString();
+  f.sql.prepare('INSERT INTO cloud_learners(id,name,fruit,recovery_hash,created_at) VALUES(?,?,?,?,?)').run('billing-learner','Synthetic billing learner','apple','synthetic-hash',created);
+  f.sql.prepare("INSERT INTO cloud_access VALUES(?,'approved','invitation',?)").run('billing-learner',now);
+  f.sql.prepare("INSERT INTO cloud_memberships VALUES(?,'trial',?,?)").run('billing-learner',now+604800,now);
+  f.sql.prepare("INSERT INTO cloud_subscriptions(id,learner_id,plan_id,status,created_at) VALUES(?,?,?,'CANCELLED',?)").run('private-subscription-id','billing-learner','private-plan-id',now);
+  const pay=f.sql.prepare("INSERT INTO cloud_subscription_payments(id,subscription_id,state,paid_at,paid_until) VALUES(?,'private-subscription-id','paid',?,?)");
+  pay.run('private-valid-payment',now,now+1000);
+  pay.run('private-reversed-payment',now+10,now+5000);
+  f.sql.prepare("INSERT INTO cloud_billing_reversals VALUES(?,'reversed')").run('private-reversed-payment');
+  const owner=await f.login();
+  const response=await f.call('/api/invitations/admin/directory','GET',undefined,owner);
+  assert.equal(response.status,200);
+  const result=await response.json();
+  assert.deepEqual(result.items[0].payment,{mode:'trial',trialUntil:now+604800,subscriptionStatus:'CANCELLED',paidUntil:now+1000,lastPaidAt:now});
+  assert.doesNotMatch(JSON.stringify(result),/private-(subscription|plan|valid|reversed)|synthetic-hash/);
+ }finally{f.sql.close();}
+});

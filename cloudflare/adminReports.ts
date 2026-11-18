@@ -61,7 +61,31 @@ export async function adminReport(action:string,url:URL,env:LearnerEnv){
   const total=(await db.prepare('SELECT COUNT(*) total'+from+' WHERE '+where).bind(...filterArgs).first<{total:number}>())?.total||0,currentPage=Math.min(page,Math.max(1,Math.ceil(total/25)));
   const order={name:'l.name COLLATE NOCASE',created:'l.created_at',xp:"COALESCE(json_extract(s.summary_json,'$.xp'),0)"}[sort as 'name'|'created'|'xp'];
   const overview=await db.prepare("SELECT COUNT(*) total,COALESCE(SUM(a.status='approved'),0) approved,COALESCE(SUM(a.status='suspended'),0) paused FROM cloud_learners l JOIN cloud_access a ON a.learner_id=l.id").first();
-  return{total,page:currentPage,counts,overview,pending:pending?.pending,items:await rows(db,`SELECT json_object('id',l.id,'name',l.name,'number',l.number,'fruit',l.fruit,'email',(SELECT recipient_email FROM cloud_invitations WHERE redeemed_by=l.id AND recipient_email IS NOT NULL LIMIT 1),'created',l.created_at,'status',a.status,'source',a.source,'summary',json(s.summary_json)) row${from} WHERE ${where} ORDER BY ${order} ${direction.toUpperCase()},l.number DESC LIMIT 25 OFFSET ?`,[...filterArgs,(currentPage-1)*25])};
+  const visibleOrder={name:'v.name COLLATE NOCASE',created:'v.created_at',xp:"COALESCE(json_extract(v.summary_json,'$.xp'),0)"}[sort as 'name'|'created'|'xp'];
+  const items=await rows(db,`WITH visible AS (
+    SELECT l.id,l.name,l.number,l.fruit,l.created_at,a.status,a.source,s.summary_json
+    ${from} WHERE ${where} ORDER BY ${order} ${direction.toUpperCase()},l.number DESC LIMIT 25 OFFSET ?
+  )
+  SELECT json_object('id',v.id,'name',v.name,'number',v.number,'fruit',v.fruit,
+   'email',(SELECT recipient_email FROM cloud_invitations WHERE redeemed_by=v.id AND recipient_email IS NOT NULL LIMIT 1),
+   'created',v.created_at,'status',v.status,'source',v.source,'summary',json(v.summary_json),
+   'payment',json_object(
+    'mode',COALESCE(m.mode,'legacy'),
+    'trialUntil',COALESCE(m.trial_until,0),
+    'subscriptionStatus',(SELECT status FROM cloud_subscriptions WHERE learner_id=v.id ORDER BY created_at DESC,id DESC LIMIT 1),
+    'paidUntil',(SELECT COALESCE(MAX(p.paid_until),0) FROM cloud_subscriptions sub
+      JOIN cloud_subscription_payments p ON p.subscription_id=sub.id
+      WHERE sub.learner_id=v.id AND p.state='paid'
+        AND NOT EXISTS(SELECT 1 FROM cloud_billing_reversals r WHERE r.sale_id=p.id)),
+    'lastPaidAt',(SELECT COALESCE(MAX(p.paid_at),0) FROM cloud_subscriptions sub
+      JOIN cloud_subscription_payments p ON p.subscription_id=sub.id
+      WHERE sub.learner_id=v.id AND p.state='paid'
+        AND NOT EXISTS(SELECT 1 FROM cloud_billing_reversals r WHERE r.sale_id=p.id)))) row
+   FROM visible v LEFT JOIN cloud_memberships m ON m.learner_id=v.id
+   ORDER BY ${visibleOrder} ${direction.toUpperCase()},v.number DESC`,
+   [...filterArgs,(currentPage-1)*25]);
+  return{total,page:currentPage,counts,overview,pending:pending?.pending,items,
+   billing:{enabled:billingEnabled(env),sandbox:env.PAYPAL_ENV==='sandbox',asOf:Math.floor(Date.now()/1000)}};
  }
  const pending=await refreshSummaries(db);
  if(action==='detail'){

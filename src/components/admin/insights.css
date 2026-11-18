@@ -27,3 +27,14 @@
 @media(max-width:760px){.admin-settings-sheet{grid-template-columns:minmax(0,1fr);grid-auto-rows:auto}.admin-settings-section,.admin-settings-section:last-child{padding:23px 20px}.admin-workspace-settings .admin-preference-heading{min-height:0}.admin-workspace-settings .admin-preference-footer{margin-top:20px}}
 @media(max-width:540px){.admin-settings-section,.admin-settings-section:last-child{padding:22px 17px;border-radius:12px}.admin-pie-panel .admin-pie-legend button{min-height:44px}.admin-pie-panel .admin-insight-title{flex-wrap:wrap}.admin-donut-visual{width:min(100%,240px)}.admin-donut-center strong{font-size:28px}.admin-infrastructure .admin-insight-columns{align-items:start}}
 @media(prefers-reduced-motion:reduce){.admin-donut-segment{transition:none}}
+
+.admin-sync-figures { gap: 10px; padding-block: 0 18px; }
+.admin-sync-figures > div {
+  min-width: 0;
+  padding: clamp(8px, 1.3vw, 16px);
+  border: 1px solid var(--color-border-default);
+  border-radius: 10px;
+  background: var(--color-surface-alt);
+}
+.admin-sync-figures strong { overflow-wrap: anywhere; }
+.admin-infrastructure .admin-sync-panel .admin-insight-footer { margin-top: 0; }

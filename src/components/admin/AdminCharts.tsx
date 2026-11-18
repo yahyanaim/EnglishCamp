@@ -33,7 +33,7 @@ export function AdminTimeChart({title,series,area=false,showTotal=false}:{title:
     </svg>
     {selected&&<div className="admin-chart-tooltip" role="status"><strong>{selected}</strong>{series.map((s,i)=><div key={s.label}><span><i className={'admin-series-'+i}/>{s.label}</span><b>{s.rows.some(r=>r.label===selected)?format(s.rows.find(r=>r.label===selected)!.value):'Not recorded'}</b></div>)}</div>}
    </div><div className="admin-time-dates"><span>{dates[0]}</span>{dates.length>1&&<span>{dates.at(-1)}</span>}</div>
-   <details className="admin-chart-values"><summary>Recorded values</summary><div className="admin-table-wrap"><table><thead><tr><th>Date</th>{series.map(s=><th key={s.label}>{s.label}</th>)}</tr></thead><tbody>{dates.map(day=><tr key={day}><td>{day}</td>{series.map(s=><td key={s.label}>{s.rows.some(r=>r.label===day)?format(s.rows.find(r=>r.label===day)!.value):'Not recorded'}</td>)}</tr>)}</tbody></table></div></details>
+   <details className="admin-chart-values"><summary>Recorded values</summary><div className="admin-data-scroll admin-report-scroll" tabIndex={0}><table className="admin-data-table admin-report-table"><thead><tr><th>Date</th>{series.map(s=><th key={s.label}>{s.label}</th>)}</tr></thead><tbody>{dates.map(day=><tr key={day}><td>{day}</td>{series.map(s=><td key={s.label}>{s.rows.some(r=>r.label===day)?format(s.rows.find(r=>r.label===day)!.value):'Not recorded'}</td>)}</tr>)}</tbody></table></div></details>
   </>}
  </section>;
 }

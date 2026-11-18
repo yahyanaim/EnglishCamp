@@ -1,6 +1,6 @@
 /** Post-deployment check. Only a dedicated synthetic profile may be supplied; no secret is logged. */
 const origin = 'https://englishcamp.yahyanaim2001.workers.dev';
-const routes = ['/', '/vocabulary', '/grammar/cheat-sheet', '/levels/band4-5', '/mock-exam', '/shadowing-english'];
+const routes = ['/learning-home', '/vocabulary', '/grammar/cheat-sheet', '/levels/band4-5', '/mock-exam', '/shadowing-english'];
 
 async function checkLiveSite(fetcher = fetch, profile) {
   const status=await fetcher(origin+'/api/access/session',{signal:AbortSignal.timeout(30000)});
@@ -9,6 +9,9 @@ async function checkLiveSite(fetcher = fetch, profile) {
   if(access.required===true){
     for(const route of routes){const response=await fetcher(origin+route,{redirect:'manual',signal:AbortSignal.timeout(30000)});await response.body?.cancel();
       if(response.status!==303||new URL(response.headers.get('location')||'/',origin).pathname!=='/invite')throw new Error(`Invitation protection failed: ${route}.`);}
+    const welcome=await fetcher(origin+'/',{redirect:'manual',signal:AbortSignal.timeout(30000)});
+    const welcomeHtml=await welcome.text();
+    if(welcome.status!==200||!welcomeHtml.includes('Request access')||!welcomeHtml.includes('Find your voice'))throw new Error('Public welcome page check failed.');
     const blocked=await fetcher(origin+'/api/speech',{method:'POST',headers:{Origin:origin,'Content-Type':'application/json'},body:JSON.stringify({text:'absorb'}),signal:AbortSignal.timeout(30000)});await blocked.body?.cancel();
     if(blocked.status!==401)throw new Error('Unauthenticated Microsoft access was not blocked.');
     if(!profile?.name||!profile?.recoveryCode)throw new Error('Set the private deployment-check profile secret to verify invited access and Microsoft voice.');

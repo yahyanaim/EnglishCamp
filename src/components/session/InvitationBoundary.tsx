@@ -6,7 +6,7 @@ import {PageLoading} from '@/components/ui/PageLoading';
 import '@/app/invitations.css';
 import '@/components/admin/admin.css';
 
-export const isEntryPage=(path:string)=>path.startsWith('/admin/')||path==='/invite'||path==='/membership';
+export const isEntryPage=(path:string)=>path==='/'||path.startsWith('/admin/')||path==='/invite'||path==='/membership';
 const Access=createContext({pending:false,error:'',retry:()=>{}});
 function AccessProblem({error,retry}:{error:string;retry:()=>void}){return <section className="camp-access-problem" role="alert"><h1>Let’s reconnect</h1><p>{error}</p><Button onClick={retry}>Try again</Button></section>;}
 
