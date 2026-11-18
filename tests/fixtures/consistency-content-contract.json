@@ -203,7 +203,7 @@
     },
     "src/app/page.tsx": {
       "before": "dd8d13298d7dc1ad99d2af8f2a01799700322107e50c62e67c295cdc587afa36",
-      "after": "367e8e0f6c9969cc9b71e25402c1131a754271ff0a36be608eb6fd988d20ea51"
+      "after": "aeaddb44764d4bbdee9d21bb518070af9912ade48745879ebcdf4341e751971a"
     },
     "src/app/partizipien-als-adjektive/page.tsx": {
       "before": "57d076670010208f52acb7d761cd495ba870eadb06649afa43c4bad9c1cec655",

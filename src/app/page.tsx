@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
 import { EntryHeader } from '@/components/session/EntryHeader';
 import { Button } from '@/components/ui/shadcn/button';
@@ -11,12 +10,7 @@ export default function WelcomePage() {
     <div className="camp-entry-auth camp-public-welcome">
       <EntryHeader />
       <section className="camp-welcome-layout" aria-labelledby="welcome-heading">
-        <div className="camp-welcome-scene" aria-hidden="true">
-          <WelcomeWorld />
-          <div className="camp-welcome-fox">
-            <Image src="/media/brand/englishcamp-mascot-256.png" alt="" width={256} height={256} priority unoptimized />
-          </div>
-        </div>
+        <WelcomeWorld />
         <div className="camp-welcome-copy">
           <p className="camp-welcome-label">English practice for real life</p>
           <h1 id="welcome-heading">Find your voice <span>in English.</span></h1>

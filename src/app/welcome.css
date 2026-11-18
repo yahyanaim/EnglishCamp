@@ -13,19 +13,48 @@
   align-items: center;
 }
 .camp-welcome-scene { position: relative; min-width: 0; }
+/* Independent motion lets the group float instead of moving as one image. */
 .camp-welcome-world { display: block; width: 100%; height: auto; overflow: visible; }
 .camp-welcome-fox {
   position: absolute;
-  inset: 50% auto auto 50%;
-  width: 40%;
+  inset: 49% auto auto 50%;
+  width: 49%;
   transform: translate(-50%, -50%);
-  filter: drop-shadow(0 13px 13px color-mix(in srgb, var(--camp-art-dark) 20%, transparent));
+  pointer-events: none;
 }
-.camp-welcome-fox img { width: 100%; height: auto; }
-.camp-welcome-person { animation: camp-welcome-drift 4.6s ease-in-out 1; }
-.camp-welcome-person-1 { animation-duration: 4.8s; animation-delay: -.8s; }
-.camp-welcome-person-2 { animation-duration: 4.7s; animation-delay: -1.7s; }
-.camp-welcome-person-3 { animation-duration: 5s; animation-delay: -2.4s; }
+.camp-welcome-fox img {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 12px 12px color-mix(in srgb, var(--camp-art-dark) 18%, transparent));
+}
+.camp-world-motion {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: camp-float var(--float-duration, 6s) var(--float-delay, 0s) ease-in-out infinite;
+}
+.camp-world-wave { --float-duration: 6.8s; --float-x: 11px; --float-y: -13px; --float-turn: 9deg; --float-delay: -.6s; }
+.camp-world-glide { --float-duration: 7.1s; --float-x: -15px; --float-y: 11px; --float-turn: -13deg; --float-delay: -1.1s; }
+.camp-world-kick { --float-duration: 5.9s; --float-x: 10px; --float-y: -16px; --float-turn: -9deg; --float-delay: -3.2s; }
+.camp-world-reach { --float-duration: 7.6s; --float-x: 13px; --float-y: 12px; --float-turn: 12deg; --float-delay: -2.6s; }
+.camp-world-book { --float-duration: 7.3s; --float-x: 4px; --float-y: -8px; --float-turn: -6deg; --float-delay: -1.8s; }
+.camp-world-sparks { --float-duration: 8.2s; --float-x: 4px; --float-y: -9px; --float-turn: 2deg; }
+.camp-world-fox { --float-duration: 6.4s; --float-x: 5px; --float-y: -15px; --float-turn: -6deg; --float-delay: -1.7s; }
+.camp-welcome-scene[data-paused="true"] .camp-world-motion { animation-play-state: paused; }
+.camp-welcome-motion-control {
+  position: absolute;
+  inset: auto 0 0 auto;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--color-border-default);
+  border-radius: 50%;
+  background: var(--color-surface);
+  color: var(--camp-control-ink);
+}
+.camp-welcome-motion-control:hover { background: var(--camp-purple-soft); }
+.camp-welcome-motion-control:focus-visible { outline: 2px solid var(--camp-focus); outline-offset: 3px; }
 .camp-welcome-copy { min-width: 0; }
 .camp-welcome-copy .camp-welcome-label {
   color: var(--camp-control-ink);
@@ -53,7 +82,12 @@
 .camp-welcome-ctas a:first-child:hover { background: var(--camp-purple-hover); }
 .camp-welcome-ctas a:last-child { color: var(--camp-control-ink); }
 .camp-welcome-copy > .camp-welcome-hint:not(.camp-welcome-label) { font-size: .83rem; margin-top: .95rem; }
-@keyframes camp-welcome-drift { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-9px); } }
+@keyframes camp-float {
+  0%, 100% { transform: translate(0, 0) rotate(0); }
+  25% { transform: translate(calc(var(--float-x) * .65), calc(var(--float-y) * .35)) rotate(calc(var(--float-turn) * .45)); }
+  55% { transform: translate(var(--float-x), var(--float-y)) rotate(var(--float-turn)); }
+  80% { transform: translate(calc(var(--float-x) * -.25), calc(var(--float-y) * .55)) rotate(calc(var(--float-turn) * .32)); }
+}
 @media (max-width: 740px) {
   .camp-welcome-layout { grid-template-columns: minmax(0, 1fr); gap: 18px; padding: 16px 0 24px; }
   .camp-welcome-scene { width: min(100%, 380px); margin: auto; }
@@ -61,4 +95,7 @@
   .camp-welcome-copy h1 { font-size: clamp(2.18rem, 8vw, 3.35rem); }
   .camp-welcome-copy > p:not(.camp-welcome-label), .camp-welcome-ctas { margin-inline: auto; }
 }
-@media (prefers-reduced-motion: reduce) { .camp-welcome-person { animation: none; } }
+@media (prefers-reduced-motion: reduce) {
+  .camp-world-motion { animation: none; }
+  .camp-welcome-motion-control { display: none; }
+}
