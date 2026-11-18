@@ -1,12 +1,12 @@
 "use client";
 
 import { useEffect, useRef, useState, type FormEvent } from 'react';
-import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { ArrowLeft, ArrowRight, Check, Copy, Download, Eye, EyeOff, KeyRound, Mail, ShieldCheck } from 'lucide-react';
+import { ArrowRight, Check, CircleHelp, Copy, Download, Eye, EyeOff, KeyRound } from 'lucide-react';
 import { InvitationRequestForm } from '@/components/session/InvitationRequestForm';
 import { EntryHeader } from '@/components/session/EntryHeader';
 import { BrandMark } from '@/components/brand/BrandMark';
+import { LearningArt } from '@/components/brand/LearningArt';
 import { Button } from '@/components/ui/shadcn/button';
 import { Input } from '@/components/ui/shadcn/input';
 import { PageLoading } from '@/components/ui/PageLoading';
@@ -26,32 +26,20 @@ function destination() {
   }
 }
 
-function AccessIllustration({ request }: { request: boolean }) {
+function AccessIllustration({ view }: { view: View | null }) {
   return (
     <aside className="camp-access-art">
       <div className="camp-access-postmark" aria-hidden="true">
-        <div className="camp-access-orbit" />
-        <span className="camp-access-art-star camp-access-star-a" />
-        <span className="camp-access-art-star camp-access-star-b" />
-        <BrandMark size={216} />
+        <span className="camp-access-orbit" />
+        <BrandMark size={224} />
       </div>
       <div className="camp-access-art-copy">
-        {request ? (
-          <>
-            <h2>How invitations work</h2>
-            <ol className="camp-access-steps">
-              <li>Send your name and email.</li>
-              <li>We review your request.</li>
-              <li>If approved, use the emailed code to join.</li>
-            </ol>
-          </>
-        ) : (
-          <>
-            <h2>Pick up where<br />you left off.</h2>
-            <p>Your lessons, progress and notes follow you to any device when you sign in.</p>
-            <div className="camp-access-art-note"><ShieldCheck size={18} aria-hidden="true" /> Keep your recovery code private.</div>
-          </>
-        )}
+        <p>{view === 'request' ? 'Start learning with EnglishCamp.'
+          : view === 'join' ? 'Make English part of your day.'
+          : 'Pick up where you left off.'}</p>
+        <span>{view === 'request' ? 'Request a code, then use it to create your account.'
+          : view === 'join' ? 'Save lessons, notes and progress across devices.'
+          : 'Your lessons, notes and progress are ready on any device.'}</span>
       </div>
     </aside>
   );
@@ -123,6 +111,12 @@ export default function InvitePage() {
   const title = saving ? 'Save your recovery code' : requestSent ? 'Request received'
     : view === 'request' ? 'Request an invitation'
     : view === 'join' ? 'Create your account' : 'Welcome back.';
+  const intro = saving ? 'You’ll need your name and this code to sign in again.'
+    : requestSent ? 'We’ll review your request and email you if it’s approved.'
+    : view === 'request' ? 'If approved, your invitation code will arrive by email.'
+    : view === 'join' ? 'Use the invitation code you received to get started.'
+    : 'Use your name and the recovery code you saved.';
+  const codeHelp = view === 'join' ? 'entry-code-help' : 'access-intro';
   useEffect(() => {
     document.title = title + ' · EnglishCamp';
     if (focusTitle.current || saving) {
@@ -196,31 +190,30 @@ export default function InvitePage() {
     <div className="camp-entry-auth camp-learner-entry">
       <EntryHeader />
       <div className="camp-access-stage">
-        <Link href="/" className="camp-access-home" aria-label="Home"><ArrowLeft size={18} aria-hidden="true" /><span>Home</span></Link>
         <div className="camp-access-shell">
           <section className="camp-access-content" aria-labelledby={view ? 'access-title' : undefined} aria-busy={!view}>
             {!view ? <div className="camp-access-preview" role="status"><span className="sr-only">Opening account access…</span><i /><i /><i /></div> : (
               <>
+                <header className="camp-access-heading">
+                  <div>
+                    <h1 id="access-title" ref={titleRef} tabIndex={-1}>{title}</h1>
+                    <p id="access-intro">
+                      {!saving && view === 'join' && trialDays === 7
+                        ? <><strong>7 days free</strong>, then $2 USD/month. No payment details needed to start.</>
+                        : intro}
+                    </p>
+                  </div>
+                  <div className="camp-access-emblem" aria-hidden="true">
+                    {requestSent ? <Check size={26} />
+                      : <LearningArt name={view === 'request' ? '📄' : saving ? '🔤' : view === 'join' ? '📝' : '📖'} size={32} />}
+                  </div>
+                </header>
                 {!saving && view !== 'request' && (
                   <div className="camp-access-switch" role="group" aria-label="Account access">
                     <button type="button" aria-pressed={view === 'signin'} disabled={cloud.busy} onClick={() => change('signin')}>Sign in</button>
                     <button type="button" aria-pressed={view === 'join'} disabled={cloud.busy} onClick={() => change('join')}>Create account</button>
                   </div>
                 )}
-                {!saving && view === 'request' && (
-                  <button type="button" className="camp-access-text-action camp-access-back" disabled={requestBusy} onClick={() => change('signin')}>
-                    <ArrowLeft size={16} aria-hidden="true" /> Back to sign in
-                  </button>
-                )}
-                <header className="camp-access-heading">
-                  {view === 'request' && <span className="camp-access-emblem">{requestSent ? <Check size={22} /> : <Mail size={22} />}</span>}
-                  <h1 id="access-title" ref={titleRef} tabIndex={-1}>{title}</h1>
-                  <p>{saving ? 'You’ll need this code and your name to sign in again.'
-                    : requestSent ? 'We’ll review your request and email you if it’s approved.'
-                    : view === 'request' ? 'Tell us where to send your code if your request is approved.'
-                    : view === 'join' ? 'Use your invitation code to set up your learning profile.'
-                    : 'Enter your name and recovery code to continue learning.'}</p>
-                </header>
 
                 {saving ? (
                   <section className="camp-recovery-ready" aria-label="Save your sign-in details">
@@ -241,11 +234,12 @@ export default function InvitePage() {
                   <InvitationRequestForm
                     onBusy={setRequestBusy}
                     onSent={() => { focusTitle.current = true; setRequestSent(true); }}
-                    onBack={() => change('join')}
+                    onUseCode={() => change('join')}
+                    onSignIn={() => change('signin')}
                   />
                 ) : (
                   <>
-                    <form className="camp-entry-form" onSubmit={submit} aria-busy={cloud.busy}>
+                    <form className={view === 'join' ? 'camp-entry-form camp-entry-form-paired' : 'camp-entry-form'} onSubmit={submit} aria-busy={cloud.busy}>
                       <div className="camp-entry-field">
                         <label htmlFor="invite-name">Your name</label>
                         <Input id="invite-name" value={view === 'join' && localName ? localName : name}
@@ -257,9 +251,9 @@ export default function InvitePage() {
                         <label htmlFor="invite-email">Invitation email</label>
                         <Input id="invite-email" type="email" dir="ltr" autoComplete="email" value={email}
                           onChange={event => setEmail(event.target.value)} maxLength={254} disabled={cloud.busy} aria-describedby="invite-email-help" />
-                        <small id="invite-email-help">Only needed if your invitation arrived by email.</small>
+                        <small id="invite-email-help">Required for codes sent by email.</small>
                       </div>}
-                      <div className="camp-entry-field">
+                      <div className="camp-entry-field camp-entry-wide">
                         <label htmlFor="invite-code">{view === 'join' ? 'Invitation code' : 'Recovery code'}</label>
                         <div className="camp-entry-secret">
                           <KeyRound className="camp-entry-key" size={18} aria-hidden="true" />
@@ -267,12 +261,12 @@ export default function InvitePage() {
                             onChange={event => { setCode(event.target.value); setFailed(false); }} dir="ltr"
                             autoComplete={view === 'signin' ? 'current-password' : 'one-time-code'}
                             autoCapitalize="none" spellCheck={false} required maxLength={80} disabled={cloud.busy}
-                            aria-describedby={failed && cloud.message ? 'entry-code-help entry-auth-error' : 'entry-code-help'} aria-invalid={failed} />
+                            aria-describedby={failed && cloud.message ? `${codeHelp} entry-auth-error` : codeHelp} aria-invalid={failed} />
                           <button type="button" aria-label={visible ? 'Hide code' : 'Show code'} onClick={() => setVisible(!visible)} disabled={cloud.busy}>
                             {visible ? <EyeOff size={19} /> : <Eye size={19} />}
                           </button>
                         </div>
-                        <small id="entry-code-help">{view === 'join' ? 'Paste the single-use code you received.' : 'Use the code you saved when you created your account.'}</small>
+                        {view === 'join' && <small id="entry-code-help">Enter your single-use code.</small>}
                       </div>
                       {signInError && cloud.message && <p role="alert" className="camp-access-error" id="entry-auth-error">{cloud.message}</p>}
                       <Button type="submit" className="camp-access-submit" disabled={cloud.busy || !session.ready}>
@@ -280,11 +274,10 @@ export default function InvitePage() {
                         <ArrowRight size={17} aria-hidden="true" />
                       </Button>
                     </form>
-                    {trialDays === 7 && view === 'join' && <p className="camp-entry-trial-note">7 days free, then $2 USD per month. No payment details needed to start.</p>}
                     <div className="camp-access-support">
                       <div><span>Need an invitation?</span><button className="camp-access-text-action" type="button" disabled={cloud.busy} onClick={() => change('request')}>Request access <ArrowRight size={14} aria-hidden="true" /></button></div>
                       {view === 'signin' && <details>
-                        <summary>Can’t find your recovery code?</summary>
+                        <summary><CircleHelp size={15} aria-hidden="true" /> Can’t find your recovery code?</summary>
                         <p>Look for your saved EnglishCamp sign-in file. If you’re signed in on another device, open your profile there and choose “Connect with QR code”.</p>
                       </details>}
                     </div>
@@ -294,7 +287,7 @@ export default function InvitePage() {
               </>
             )}
           </section>
-          <AccessIllustration request={view === 'request' || requestSent} />
+          <AccessIllustration view={view} />
         </div>
       </div>
     </div>

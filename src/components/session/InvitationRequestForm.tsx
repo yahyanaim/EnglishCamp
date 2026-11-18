@@ -5,8 +5,9 @@ import { ArrowRight, Mail, Ticket } from 'lucide-react';
 import { Input } from '@/components/ui/shadcn/input';
 import { Button } from '@/components/ui/shadcn/button';
 
-export function InvitationRequestForm({ onBack, onSent, onBusy }: {
-  onBack: () => void;
+export function InvitationRequestForm({ onUseCode, onSignIn, onSent, onBusy }: {
+  onUseCode: () => void;
+  onSignIn: () => void;
   onSent: () => void;
   onBusy: (busy: boolean) => void;
 }) {
@@ -47,13 +48,14 @@ export function InvitationRequestForm({ onBack, onSent, onBusy }: {
     <section className="camp-access-request-result" aria-label="Invitation delivery">
       <div className="camp-access-recipient"><Mail size={18} aria-hidden="true" /><div><span>Email address</span><strong dir="ltr">{email.trim()}</strong></div></div>
       <p>Check your inbox and spam folder for the invitation after approval.</p>
-      <Button variant="outline" onClick={onBack}><Ticket size={18} aria-hidden="true" /> Use an invitation code</Button>
+      <Button variant="outline" onClick={onUseCode}><Ticket size={18} aria-hidden="true" /> Use an invitation code</Button>
+      <button className="camp-access-text-action justify-self-start" type="button" onClick={onSignIn}>Back to sign in</button>
     </section>
   );
 
   return (
     <>
-      <form className="camp-entry-form" onSubmit={submit} aria-busy={busy}>
+      <form className="camp-entry-form camp-entry-form-paired" onSubmit={submit} aria-busy={busy}>
         <div className="camp-entry-field">
           <label htmlFor="request-name">Your name</label>
           <Input id="request-name" dir="auto" value={name} onChange={event => setName(event.target.value)}
@@ -66,7 +68,7 @@ export function InvitationRequestForm({ onBack, onSent, onBusy }: {
         </div>
         <label className="camp-access-consent">
           <input type="checkbox" checked={consent} onChange={event => setConsent(event.target.checked)} required disabled={busy} />
-          <span>I agree to share my name and email with the EnglishCamp owner for review and to receive an invitation email if approved.</span>
+          <span>I agree to share my name and email with the EnglishCamp owner to review my request and send my invitation if approved.</span>
         </label>
         {error && <p className="camp-access-error" role="alert">{error}</p>}
         <Button type="submit" className="camp-access-submit" disabled={!consent || busy}>
@@ -74,8 +76,9 @@ export function InvitationRequestForm({ onBack, onSent, onBusy }: {
           <ArrowRight size={17} aria-hidden="true" />
         </Button>
       </form>
-      <div className="camp-access-support">
-        <div><span>Already have an invitation?</span><button className="camp-access-text-action" type="button" disabled={busy} onClick={onBack}>Use my code <ArrowRight size={14} aria-hidden="true" /></button></div>
+      <div className="camp-access-support camp-access-request-links">
+        <button className="camp-access-text-action" type="button" disabled={busy} onClick={onSignIn}>Back to sign in</button>
+        <button className="camp-access-text-action" type="button" disabled={busy} onClick={onUseCode}>Use my code <ArrowRight size={14} aria-hidden="true" /></button>
       </div>
     </>
   );
