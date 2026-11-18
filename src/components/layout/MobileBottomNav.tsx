@@ -3,6 +3,7 @@ import { LearningArt } from "@/components/brand/LearningArt";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
+import { learningBackDestination } from "@/lib/learningNavigation";
 import { BarChart3, Gamepad2, BookHeart, Languages, BarChart4 } from "lucide-react";
 
 const NAV_ITEMS = [
@@ -15,18 +16,20 @@ const NAV_ITEMS = [
 
 export function MobileBottomNav() {
   const pathname = usePathname();
+  const grammarGuide = learningBackDestination(pathname)?.href === "/grammar";
 
   return (
     <nav aria-label="Primary navigation" className="camp-mobile-nav lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-[var(--color-surface)] border-t-2 border-[var(--color-border-default)] px-2 pb-[env(safe-area-inset-bottom,0px)]">
       <div className="flex items-center justify-around h-14 max-w-lg mx-auto">
         {NAV_ITEMS.map((item) => {
-          const active = pathname === item.href || pathname.startsWith(item.href + "/");
+          const currentPage = pathname === item.href;
+          const active = currentPage || pathname.startsWith(item.href + "/") || (item.href === "/grammar" && grammarGuide);
           const Icon = item.icon;
           return (
             <Link prefetch={false}
               key={item.href}
               href={item.href}
-              aria-current={active ? "page" : undefined}
+              aria-current={currentPage ? "page" : active ? "location" : undefined}
               className={cn(
                 "flex flex-1 flex-col items-center justify-center gap-0.5 min-h-11 px-1 sm:px-3 py-1 rounded-[var(--radius-md)] transition-all min-w-0",
                 active

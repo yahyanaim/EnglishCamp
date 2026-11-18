@@ -107,7 +107,7 @@
     },
     "src/app/grammar/page.tsx": {
       "before": "b055f20f199441ae7ca4dd65addc3cf5ccdb76b597cecfcc3d8398661ad6371f",
-      "after": "865bce87f537898b7d1b7253621ca22d3647388b17a93cd2f2e02ad00610761c"
+      "after": "26f27ea1cbb079a6f828a50d0ba4750ee00d86d46a51543b206918813c7cdbb1"
     },
     "src/app/grammar-compare/page.tsx": {
       "before": "47f43bf7fc737fa361a67d0ea656660747e9b1a0cb702a281195314e43ee7eb0",
@@ -203,7 +203,7 @@
     },
     "src/app/page.tsx": {
       "before": "dd8d13298d7dc1ad99d2af8f2a01799700322107e50c62e67c295cdc587afa36",
-      "after": "57637a5ad505ceed95036f0f9ad7f18499ba6c89c0ef8028f778deece9e7ade1"
+      "after": "bcd56d431ec51f66c46a157575973c8b85d372cf7279a79ca15f8cd921159040"
     },
     "src/app/partizipien-als-adjektive/page.tsx": {
       "before": "57d076670010208f52acb7d761cd495ba870eadb06649afa43c4bad9c1cec655",
@@ -223,7 +223,7 @@
     },
     "src/app/practice/page.tsx": {
       "before": "5eb50d0c71617f03315587b07be05d687bb117f3935f787328f4eb7b46a5ba4a",
-      "after": "32c08d17623c622ea490d84a774406538fef00af93eaf3a3ec7511969cec2239"
+      "after": "4b8deb6076323dbe529912df9e1406142c34e56632f42cf932e04979b939216d"
     },
     "src/app/praeteritum/page.tsx": {
       "before": "491f006355353d8e5b80c9ebf64641ba23f493ca27e320630783a182d4a9fa4e",
@@ -479,7 +479,7 @@
     },
     "src/components/layout/CommandPalette.tsx": {
       "before": "2566974f27dfaff52fd6acb2ad4c4261fde20f512ca9ae4ece9cdb636ca3cca2",
-      "after": "e9068a046453d7178439475fca132afedc91f07b5cfc67ef70baca5f08707158"
+      "after": "ec12a1e5ccb9fd794b7d8aba07a148059ab60455f7d2ca454a17ed6af0d11e84"
     },
     "src/components/layout/LayoutShell.tsx": {
       "before": "c1201d8814e786fbeabb7bab73e28e6cb1e51bd575c75c0757228c94ac26eee3",
@@ -491,7 +491,7 @@
     },
     "src/components/layout/MobileBottomNav.tsx": {
       "before": "f9fd8e4ece09c72a292efbfa16024a303960227aa7656bd2844e87a2c2e70e5f",
-      "after": "0a56c62a1040279841e058a6212885fbe5840607e4973d6d68ecbb67a16c8c13"
+      "after": "cbddef5e6a9facc1c80ca2109f550a59963abb7d652a18ef6cd1fd491e3b243d"
     },
     "src/components/layout/Navbar.tsx": {
       "before": "5f1a41f2278defb74176caf3fea342342620d74fbbe2f88d04a182a61ca17693",
@@ -503,11 +503,11 @@
     },
     "src/components/layout/Sidebar.tsx": {
       "before": "d7c0a0e3b5a1cc1711f3efe53d7b1ec0d3056979c4e545e5b3b1af5ba5580e81",
-      "after": "7805a6ffa30a28dfb8c68e395eee4aeb7ece65ce034d7705dfbeb6b9e45d413e"
+      "after": "2a94206b4a6fcb8b811a4176560c6f5b5039b4fab8138a1e59a55bd6eaa0b21a"
     },
     "src/components/layout/TopBar.tsx": {
       "before": "e421516f0d9520a3ceeb16620d89017c823cc512a3bbc0c1ea73fd58ddc82243",
-      "after": "e12f1c62c76f92f4da36b5712c0c8e4df57f10ed83c1eb5461f2df8a4ce653e5"
+      "after": "756390d54e5b52d540494bc834198fdf14618144e7a46dfebefb087c8652c36b"
     },
     "src/components/learn/AdjectiveEndingsTrainer.tsx": {
       "before": "2d1429c729d166a1daffab0ba83e6b4878321873453eb840938de02a634e2217",
@@ -1120,7 +1120,7 @@
     },
     "src/app/practice-polish.css": {
       "before": "5faf385352e78ded7cb8f4949608bd4fbd9438044f3556e47104e54a344d1047",
-      "after": "4774b531c67b2c015fe8eb903a80f15dd66fe50ad107a1e6447d6a8097923959"
+      "after": "f0f6b97ec8d0c12af73505568752ff844321ed8d9a94bc508b7aae6af2f098d3"
     },
     "src/app/shadowing-english/page.tsx": {
       "before": "f7c42cd10c28857f8cf7a866e45231254b20f89b25898e64793464094e349685",

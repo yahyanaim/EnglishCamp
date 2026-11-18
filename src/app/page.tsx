@@ -10,7 +10,9 @@ export default function WelcomePage() {
     <div className="camp-entry-auth camp-public-welcome">
       <EntryHeader />
       <section className="camp-welcome-layout" aria-labelledby="welcome-heading">
-        <WelcomeWorld />
+        <div className="camp-welcome-illustration">
+          <WelcomeWorld />
+        </div>
         <div className="camp-welcome-copy">
           <h1 id="welcome-heading">Find your voice <span>in English.</span></h1>
           <p className="camp-welcome-description">Practise real conversations and build your English, one short lesson at a time.</p>

@@ -3,8 +3,8 @@
 import { LearningArt } from "@/components/brand/LearningArt";
 import { PracticeBanner as PageBanner } from "@/components/ui/PracticeBanner";
 import dynamic from "next/dynamic";
-import { useState, type ComponentType } from "react";
-import { motion } from "framer-motion";
+import { useEffect, useRef, useState, type ComponentType } from "react";
+import { ChevronRight } from "lucide-react";
 import { PageWrapper } from "@/components/layout/PageWrapper";
 import { BackButton } from "@/components/ui/BackButton";
 import { PracticeFrame } from "@/components/ui/PracticeFrame";
@@ -318,88 +318,86 @@ const TRAINER_COMPONENTS: Record<TrainerId, ComponentType> = {
   "idiom-match": IdiomMatch,
 };
 
-const container = {
-  hidden: {},
-  show: { transition: { staggerChildren: 0.03 } },
-};
-
-const itemAnim = {
-  hidden: { opacity: 0, y: 12 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.35, ease: [0, 0, 0.2, 1] } },
-};
+function trainerLabel(trainer: { id: TrainerId; label: string }) {
+  return trainer.id === "conjugation" ? "Conjugation Practice" : trainer.label;
+}
 
 export default function PracticePage() {
   const [activeTrainer, setActiveTrainer] = useState<TrainerId | null>(null);
+  const returnTo = useRef<TrainerId | null>(null);
+  const activityHeading = useRef<HTMLHeadingElement>(null);
+
+  useEffect(() => {
+    if (activeTrainer) {
+      activityHeading.current?.focus();
+    } else if (returnTo.current) {
+      document.getElementById(`trainer-${returnTo.current}`)?.focus();
+      returnTo.current = null;
+    }
+  }, [activeTrainer]);
 
   if (activeTrainer) {
     const Component = TRAINER_COMPONENTS[activeTrainer];
-    const cat = CATEGORIES.flatMap((c) => c.trainers).find((t) => t.id === activeTrainer);
+    const trainer = CATEGORIES.flatMap((category) => category.trainers).find((item) => item.id === activeTrainer);
     return (
       <PageWrapper back={<nav className="camp-page-back" aria-label="Return navigation"><BackButton onClick={() => setActiveTrainer(null)}>Back to practice</BackButton></nav>}>
-        <PageBanner><h1 className="camp-library-activity-title">{cat && <LearningArt name={cat.icon} size={24}/>}<span>{cat?.label || "Practice"}</span></h1>{cat && <p>{cat.desc}</p>}</PageBanner>
+        <PageBanner>
+          <h1 ref={activityHeading} tabIndex={-1} className="camp-library-activity-title">
+            {trainer && <LearningArt name={trainer.icon} size={24} />}
+            <span>{trainer ? trainerLabel(trainer) : "Practice"}</span>
+          </h1>
+          {trainer && <p>{trainer.desc}</p>}
+        </PageBanner>
         <PracticeFrame illustration="none" topic={activeTrainer} layout={activeTrainer === "verb-explorer" ? "reference" : ["speed-match", "memory-match", "word-search", "crossword", "verb-puzzle", "idiom-match"].includes(activeTrainer) ? "matching" : activeTrainer === "briefe" ? "writing" : "quiz"}><Component /></PracticeFrame>
       </PageWrapper>
     );
   }
 
-  const totalTrainers = CATEGORIES.reduce((sum, c) => sum + c.trainers.length, 0);
+  const totalTrainers = CATEGORIES.reduce((sum, category) => sum + category.trainers.length, 0);
 
   return (
-    <PageWrapper>
-      <motion.div variants={container} initial={false} animate="show" className="camp-section-stack space-y-6">
-        {/* Header */}
-        <PageBanner>
-          <div className="flex items-center gap-3 mb-1">
-            <div className="inline-flex items-center justify-center w-8 h-8 rounded-[var(--radius-md)] bg-[var(--color-primary)]">
-              <LearningArt name="Brain" className="w-4.5 h-4.5 text-white" />
-            </div>
-            <h1
-              className="font-display font-extrabold text-[var(--color-text-primary)]"
-              style={{ fontSize: "26px", letterSpacing: "0.3px" }}
-            >
-              Practice Hub
-            </h1>
-          </div>
-          <div className="flex items-center gap-2 mt-1.5">
-            <p className="font-body text-sm text-[var(--color-text-secondary)]">
-              {totalTrainers} trainers and games to practice your English
-            </p>
-            <span className="inline-flex items-center gap-1 font-display font-extrabold text-[10px] px-2.5 py-1 rounded-[var(--radius-pill)] border-[1.5px] text-[var(--color-text-warning)] bg-[var(--color-warning-bg)] border-[var(--color-warning)]">
-              <LearningArt name="Sparkles" size={12} className="w-3 h-3 text-[var(--color-text-warning)]" />
-              {CATEGORIES.length} categories
-            </span>
-          </div>
-        </PageBanner>
-
-        {/* Categories */}
-        {CATEGORIES.map((cat, ci) => (
-          <motion.section key={cat.id} variants={itemAnim}>
-            <h2 className="font-display font-extrabold text-[var(--color-text-primary)] mb-3" style={{ fontSize: "17px", letterSpacing: "0.2px" }}>
-              {cat.label}
-            </h2>
+    <PageWrapper className="camp-practice-hub">
+      <PageBanner>
+        <h1 className="camp-library-activity-title">
+          <LearningArt name="Brain" size={24} />
+          <span>Practice Hub</span>
+        </h1>
+        <p>{totalTrainers} trainers and games to practice your English</p>
+      </PageBanner>
+      <nav className="camp-practice-categories" aria-label="Practice categories">
+        {CATEGORIES.map(category => (
+          <a key={category.id} href={`#practice-${category.id}`}>{category.label}</a>
+        ))}
+      </nav>
+      {CATEGORIES.map(category => {
+        const sectionId = `practice-${category.id}`;
+        return (
+          <section key={category.id} className="camp-learning-library-group" aria-labelledby={sectionId}>
+            <h2 id={sectionId} tabIndex={-1}>{category.label}</h2>
             <div className="camp-trainer-grid">
-              {cat.trainers.map((trainer) => (
-                <motion.button
+              {category.trainers.map(trainer => (
+                <button
                   key={trainer.id}
-                  whileHover={{ y: -3 }}
-                  whileTap={{ scale: 0.98 }}
-                  onClick={() => setActiveTrainer(trainer.id)}
-                  className="text-left bg-[var(--color-surface)] rounded-[var(--radius-lg)] p-4 border border-[var(--color-border-default)] transition-all duration-200 hover:border-[var(--color-border-strong)]"
-                  style={{ boxShadow: "0 3px 0 var(--color-border-default)" }}
+                  id={`trainer-${trainer.id}`}
+                  type="button"
+                  className="camp-learning-library-card"
+                  onClick={() => {
+                    returnTo.current = trainer.id;
+                    setActiveTrainer(trainer.id);
+                  }}
                 >
-                  <div className="flex items-start gap-3">
-                    <LearningArt name={trainer.icon} size={24} className=" shrink-0" />
-                    <div className="min-w-0">
-                      <h3 className="font-display font-bold text-sm text-[var(--color-text-primary)]">{trainer.label}</h3>
-                      <p className="font-body text-xs text-[var(--color-text-secondary)] mt-0.5 leading-relaxed">{trainer.desc}</p>
-                    </div>
-                  </div>
-                </motion.button>
+                  <span className="camp-library-card-icon"><LearningArt name={trainer.icon} size={23} /></span>
+                  <span className="camp-library-card-copy">
+                    <strong>{trainerLabel(trainer)}</strong>
+                    <span>{trainer.desc}</span>
+                  </span>
+                  <ChevronRight className="camp-library-card-arrow" size={18} aria-hidden="true" />
+                </button>
               ))}
             </div>
-          </motion.section>
-        ))}
-      </motion.div>
+          </section>
+        );
+      })}
     </PageWrapper>
   );
 }

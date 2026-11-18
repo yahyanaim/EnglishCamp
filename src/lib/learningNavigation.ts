@@ -47,6 +47,7 @@ export const LEARNING_SECTIONS: Record<string, "grammar" | "practice" | "vocabul
   "/picture-description": "vocabulary",
   "/practice": "practice",
   "/prefix-verbs": "grammar",
+  "/prepositions": "grammar",
   "/pronunciation": "vocabulary",
   "/proofreading": "practice",
   "/question-formation": "grammar",

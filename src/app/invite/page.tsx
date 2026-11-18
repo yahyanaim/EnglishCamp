@@ -196,7 +196,7 @@ export default function InvitePage() {
     <div className="camp-entry-auth camp-learner-entry">
       <EntryHeader />
       <div className="camp-access-stage">
-        <Link href="/" className="camp-access-home"><ArrowLeft size={16} aria-hidden="true" /> Home</Link>
+        <Link href="/" className="camp-access-home" aria-label="Home"><ArrowLeft size={18} aria-hidden="true" /><span>Home</span></Link>
         <div className="camp-access-shell">
           <section className="camp-access-content" aria-labelledby={view ? 'access-title' : undefined} aria-busy={!view}>
             {!view ? <div className="camp-access-preview" role="status"><span className="sr-only">Opening account access…</span><i /><i /><i /></div> : (

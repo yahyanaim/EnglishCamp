@@ -20,6 +20,7 @@ const PAGE_TITLES: Record<string, string> = {
   "/phrases-practice": "Phrases Practice",
   "/mock-exam": "Mock Examinations",
   "/verb-conjugation": "Verb Conjugation",
+  "/prepositions": "Prepositions Guide",
   "/vocabulary": "Vocabulary & Reading",
   "/flashcards": "Flashcards",
   "/custom-flashcards": "My Cards",

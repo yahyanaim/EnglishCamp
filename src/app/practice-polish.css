@@ -126,3 +126,87 @@
 @media(max-width:639px){.camp-certificate-sheet{padding:20px 16px}.camp-certificate-sheet>header{gap:10px}.camp-certificate-brand strong{font-size:14px}.camp-certificate-completed{padding:5px;font-size:9px}.camp-certificate-copy h2{font-size:28px}.camp-certificate-copy h2 span{font-size:20px}.camp-certificate-recipient{font-size:25px}.camp-certificate-outcome{align-items:flex-start;gap:16px;flex-wrap:wrap}.camp-certificate-outcome dl{gap:14px}.camp-certificate-download button{width:100%}.camp-certificate-brand span{font-size:9px}}
 .camp-session-dialog-heading>div{text-align:left}
 .camp-session-dialog-refined .camp-session-form>[role=alert]{color:var(--color-text-error)}
+
+/* Reference links and practice activities use the same card proportions. */
+.camp-learning-library-group {
+  display: grid;
+  gap: 12px;
+  min-width: 0;
+}
+.camp-learning-library-group > h2 {
+  margin: 0;
+  scroll-margin-block-start: 16px;
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 750;
+}
+.camp-grammar-guide-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(245px, 100%), 1fr));
+  gap: 12px;
+}
+.camp-frame .camp-practice-hub .camp-trainer-grid { gap: 12px; grid-auto-rows: 1fr; }
+.camp-frame .camp-learning-library-card {
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr) 18px;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  min-width: 0;
+  min-height: 88px;
+  padding: 14px;
+  border: 1px solid var(--color-border-default);
+  border-radius: 12px;
+  background: var(--color-surface);
+  color: var(--color-text-primary);
+  text-align: start;
+  transition: background-color .16s ease, border-color .16s ease;
+}
+.camp-frame .camp-learning-library-card:is(:hover, :focus-visible) {
+  border-color: var(--camp-control-ink);
+  background: var(--camp-purple-soft);
+}
+.camp-library-card-icon {
+  display: grid;
+  place-items: center;
+  inline-size: 42px;
+  block-size: 42px;
+  border-radius: 10px;
+  background: var(--camp-purple-soft);
+}
+.camp-library-card-copy { display: grid; gap: 4px; overflow-wrap: anywhere; }
+.camp-library-card-copy strong { font: 750 .92rem/1.35 var(--font-display); }
+.camp-library-card-copy > span { font-size: .79rem; line-height: 1.5; color: var(--color-text-secondary); }
+.camp-library-card-arrow { color: var(--camp-control-ink); }
+.camp-practice-categories { display: flex; flex-wrap: wrap; gap: 7px; }
+.camp-practice-categories > a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 6px 12px;
+  border: 1px solid var(--color-border-default);
+  border-radius: 10px;
+  background: var(--color-surface);
+  color: var(--color-text-secondary);
+  font-size: .8rem;
+  font-weight: 650;
+}
+.camp-practice-categories > a:is(:hover, :focus-visible) {
+  background: var(--camp-purple-soft);
+  color: var(--camp-control-ink);
+}
+.camp-learning-library-card:focus-visible,
+.camp-practice-categories > a:focus-visible {
+  outline: 2px solid var(--camp-focus);
+  outline-offset: 2px;
+}
+@container camp-main (max-width: 579px) {
+  .camp-frame .camp-practice-hub .camp-trainer-grid { grid-auto-rows: auto; }
+  .camp-frame .camp-trainer-grid > .camp-learning-library-card { padding: 12px; }
+  .camp-practice-categories {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding: 3px;
+  }
+  .camp-practice-categories > a { flex: none; }
+}

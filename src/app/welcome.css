@@ -137,10 +137,66 @@
   80% { transform: translate(calc(var(--float-x) * -.25), calc(var(--float-y) * .55)) rotate(calc(var(--float-turn) * .32)); }
 }
 @media (max-width: 740px) {
-  .camp-welcome-layout { grid-template-columns: minmax(0, 1fr); gap: 18px; padding: 16px 0 24px; }
-  .camp-welcome-scene { width: min(100%, 380px); margin: auto; }
-  .camp-welcome-copy h1 { font-size: clamp(2.08rem, 8.5vw, 3.35rem); }
-  .camp-welcome-ctas { margin-top: 1.35rem; }
+  .camp-entry-auth.camp-public-welcome {
+    --welcome-sky: color-mix(in srgb, var(--camp-art-deep), var(--camp-art-main) 33%);
+    padding: 0;
+  }
+  .camp-public-welcome .camp-entry-header {
+    position: relative;
+    z-index: 1;
+    min-height: 72px;
+    padding-block-start: env(safe-area-inset-top);
+    padding-inline: max(20px, env(safe-area-inset-left)) max(20px, env(safe-area-inset-right));
+    background: var(--welcome-sky);
+  }
+  .camp-public-welcome .camp-entry-wordmark { color: #fff; }
+  .camp-public-welcome .camp-entry-theme { gap: 0; padding: 1px; }
+  .camp-public-welcome .camp-entry-theme button { width: 44px; height: 44px; }
+  .camp-welcome-layout {
+    grid-template-columns: minmax(0, 1fr);
+    align-items: start;
+    gap: 0;
+    margin: 0;
+    padding: 0;
+  }
+  .camp-welcome-illustration {
+    position: relative;
+    isolation: isolate;
+    display: grid;
+    place-items: center;
+    min-height: clamp(236px, 40svh, 370px);
+    padding: 0 12px 14px;
+    overflow: hidden;
+    border-radius: 0 0 30px 30px;
+    background:
+      radial-gradient(ellipse at 50% 58%, color-mix(in srgb, var(--camp-art-light) 56%, transparent), transparent 61%),
+      var(--welcome-sky);
+  }
+  .camp-welcome-illustration::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: -15% -15% 16%;
+    border: 1px solid #ffffff42;
+    border-radius: 50%;
+    transform: rotate(-12deg);
+    box-shadow: 0 10px 0 #ffffff0a, 0 22px 0 #ffffff08;
+  }
+  .camp-welcome-scene { width: min(100%, 430px, clamp(265px, 50svh, 430px)); }
+  .camp-welcome-motion-control { inset-inline-end: 0; inset-block-end: 0; }
+  .camp-welcome-copy {
+    width: min(100%, 500px);
+    margin-inline: auto;
+    padding: 28px max(22px, env(safe-area-inset-right)) max(24px, env(safe-area-inset-bottom)) max(22px, env(safe-area-inset-left));
+    text-align: start;
+  }
+  .camp-welcome-copy h1 {
+    font-size: clamp(2rem, 8.9vw, 3.1rem);
+    text-wrap: initial;
+  }
+  .camp-welcome-description { margin: 12px 0 0; }
+  .camp-welcome-ctas { width: 100%; gap: 11px; margin: 20px 0 0; }
+  .camp-welcome-hint { margin: 13px 0 0; }
 }
 @media (prefers-reduced-motion: reduce) {
   .camp-world-motion { animation: none; }

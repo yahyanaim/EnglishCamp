@@ -37,8 +37,6 @@ const MAIN_ITEMS: CmdItem[] = [
 const PRACTICE_ITEMS: CmdItem[] = [
   { id: "practice", label: "Practice Hub", href: "/practice", icon: Gamepad2, group: "Practice" },
   { id: "writing", label: "Writing", href: "/writing", icon: FileText, group: "Practice" },
-  { id: "conjugaise", label: "Verb Conjugation", href: "/verb-conjugation", icon: BookMarked, group: "Practice" },
-  { id: "declensions", label: "Prepositions Guide", href: "/prepositions", icon: Table2, group: "Practice" },
   { id: "text-analyzer", label: "Text Analyzer", href: "/text-analyzer", icon: FileText, group: "Practice" },
   { id: "search-page", label: "Search", href: "/search", icon: Search, group: "Practice" },
   { id: "knowledge-check", label: "Knowledge Check", href: "/knowledge-check", icon: Brain, group: "Practice" },
@@ -72,6 +70,8 @@ const PRACTICE_ITEMS: CmdItem[] = [
 
 const GRAMMAR_ITEMS: CmdItem[] = [
   { id: "grammar", label: "Grammar Ref", href: "/grammar", icon: Languages, group: "Grammar" },
+  { id: "conjugaise", label: "Verb Conjugation", href: "/verb-conjugation", icon: BookMarked, group: "Grammar" },
+  { id: "declensions", label: "Prepositions Guide", href: "/prepositions", icon: Table2, group: "Grammar" },
   { id: "grammar-compare", label: "Compare", href: "/grammar-compare", icon: ArrowLeftRight, group: "Grammar" },
   { id: "cheat-sheet", label: "Cheat Sheet", href: "/grammar/cheat-sheet", icon: Printer, group: "Grammar" },
   { id: "satzbau", label: "Sentence Structure", href: "/sentence-structure", icon: Layout, group: "Grammar" },

@@ -46,8 +46,6 @@ const NAV_SECTIONS: NavSection[] = [
     links: [
       { href: "/practice", label: "Practice Hub", icon: Gamepad2 },
       { href: "/writing", label: "Writing", icon: FileText },
-      { href: "/verb-conjugation", label: "Verb Conjugation", icon: BookMarked },
-      { href: "/prepositions", label: "Prepositions Guide", icon: Table2 },
       { href: "/text-analyzer", label: "Text Analyzer", icon: FileText },
       { href: "/search", label: "Search", icon: Search },
       { href: "/knowledge-check", label: "Knowledge Check", icon: Brain },
@@ -83,6 +81,8 @@ const NAV_SECTIONS: NavSection[] = [
     id: "grammar", label: "Grammar", icon: Languages,
     links: [
       { href: "/grammar", label: "Grammar Ref", icon: Languages },
+      { href: "/verb-conjugation", label: "Verb Conjugation", icon: BookMarked },
+      { href: "/prepositions", label: "Prepositions Guide", icon: Table2 },
       { href: "/grammar-compare", label: "Compare", icon: ArrowLeftRight },
       { href: "/grammar/cheat-sheet", label: "Cheat Sheet", icon: Printer },
       { href: "/sentence-structure", label: "Sentence Structure", icon: Layout },
