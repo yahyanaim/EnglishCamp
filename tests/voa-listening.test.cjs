@@ -8,10 +8,12 @@ function request(id, method = 'GET') {
   return new Request('https://example.test/api/vocabulary/listening?id=' + id, { method });
 }
 
-test('the curated VOA catalogue contains two short clips and contextual Arabic vocabulary per level', () => {
+test('the curated VOA catalogue has four short clips and varied situations at each level', () => {
   assert.equal(new Set(VOA_LISTENING.map(clip => clip.id)).size, VOA_LISTENING.length);
   for (const level of LISTENING_LEVELS) {
-    assert.equal(VOA_LISTENING.filter(clip => clip.level === level).length, 2);
+    const clips = VOA_LISTENING.filter(clip => clip.level === level);
+    assert.equal(clips.length, 4);
+    assert.ok(new Set(clips.map(clip => clip.topic)).size >= 3, level);
   }
   for (const clip of VOA_LISTENING) {
     assert.ok(clip.seconds > 20 && clip.seconds < 180, clip.id);
@@ -20,6 +22,20 @@ test('the curated VOA catalogue contains two short clips and contextual Arabic v
     for (const entry of clip.words) {
       assert.match(entry.arabic, /[\u0600-\u06ff]/);
       assert.ok(entry.example);
+    }
+  }
+});
+
+test('every VOA clip has two distinct questions with three choices and feedback', () => {
+  for (const clip of VOA_LISTENING) {
+    assert.equal(clip.questions.length, 2, clip.id);
+    assert.equal(new Set(clip.questions.map(question => question.prompt)).size, 2, clip.id);
+    for (const { prompt, choices, correct, feedback } of clip.questions) {
+      assert.ok(prompt.endsWith('?'), clip.id);
+      assert.equal(choices.length, 3, prompt);
+      assert.equal(new Set(choices).size, 3, prompt);
+      assert.ok(Number.isInteger(correct) && choices[correct], prompt);
+      assert.ok(feedback.trim().length > 0, prompt);
     }
   }
 });

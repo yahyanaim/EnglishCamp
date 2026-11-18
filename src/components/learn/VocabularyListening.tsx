@@ -127,6 +127,71 @@ function ClipPlayer({ clip }: { clip: VoaListeningClip }) {
   );
 }
 
+function ListeningQuestions({ questions }: Pick<VoaListeningClip, "questions">) {
+  const [answers, setAnswers] = useState<Record<number, number>>({});
+  const [checked, setChecked] = useState(false);
+  const firstChoice = useRef<HTMLInputElement>(null);
+  const ready = questions.every((_, index) => answers[index] !== undefined);
+  const score = questions.filter((question, index) => answers[index] === question.correct).length;
+
+  return (
+    <section className="camp-reader-text camp-listening-questions" aria-labelledby="listening-questions">
+      <h3 id="listening-questions" className="font-display text-lg font-bold">Check your understanding</h3>
+      <form onSubmit={event => {
+        event.preventDefault();
+        if (ready) setChecked(true);
+      }}>
+        <div className="camp-listening-question-grid">
+          {questions.map((question, index) => (
+            <fieldset key={question.prompt} disabled={checked}>
+              <legend>{index + 1}. {question.prompt}</legend>
+              <div className="camp-listening-options">
+                {question.choices.map((choice, choiceIndex) => {
+                  const selected = answers[index] === choiceIndex;
+                  const outcome = checked && (choiceIndex === question.correct ? "correct" : selected ? "incorrect" : undefined);
+                  return (
+                    <label key={choice} data-selected={selected} data-outcome={outcome || undefined}>
+                      <input
+                        ref={index === 0 && choiceIndex === 0 ? firstChoice : undefined}
+                        type="radio" name={`listening-question-${index}`} value={choiceIndex}
+                        checked={selected}
+                        onChange={() => setAnswers(previous => ({ ...previous, [index]: choiceIndex }))}
+                      />
+                      <span>{choice}</span>
+                    </label>
+                  );
+                })}
+              </div>
+              <div aria-live="polite">
+                {checked && (
+                  <p className="camp-listening-feedback">
+                    <strong>{answers[index] === question.correct ? "Correct." : "Not quite."}</strong> {question.feedback}
+                  </p>
+                )}
+              </div>
+            </fieldset>
+          ))}
+        </div>
+        <div className="camp-listening-question-actions">
+          {checked ? (
+            <Button type="button" variant="outline" onClick={() => {
+              setAnswers({});
+              setChecked(false);
+              requestAnimationFrame(() => firstChoice.current?.focus());
+            }}>
+              <RotateCcw size={16} aria-hidden="true" />
+              Try again
+            </Button>
+          ) : (
+            <Button type="submit" disabled={!ready}>Check answers</Button>
+          )}
+          <span role="status">{checked ? `${score} of ${questions.length} correct` : ""}</span>
+        </div>
+      </form>
+    </section>
+  );
+}
+
 export function VocabularyListening({ onOpenBank }: { onOpenBank: () => void }) {
   const [level, setLevel] = useState("all");
   const [selected, setSelected] = useState<VoaListeningClip | null>(null);
@@ -155,6 +220,7 @@ export function VocabularyListening({ onOpenBank }: { onOpenBank: () => void }) 
           </div>
         </header>
         <ClipPlayer key={selected.id} clip={selected} />
+        <ListeningQuestions key={selected.id} questions={selected.questions} />
         {selected.transcriptExcerpt && (
           <details className="camp-reader-text">
             <summary className="cursor-pointer font-semibold">Transcript excerpt</summary>

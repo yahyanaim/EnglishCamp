@@ -267,7 +267,7 @@
     },
     "src/app/reference.css": {
       "before": "73e1b3259dab29a91381945164e1e9091bd306feb802874871ed4a874294e642",
-      "after": "7938ba920487d7fccb06ca209006bb186dc95a42d1beaf1f6765fb035a6b1478"
+      "after": "dff037b9fb1dcae23f8aaa3bfbc8ec4a09e6bef6eed4f94344daac9b9d8b8bec"
     },
     "src/app/reflexive-verben/page.tsx": {
       "before": "76f4ee8503c88d03a44d42c80fad49e54ad123b962a2c44475a0efc8184747d1",
@@ -1044,7 +1044,7 @@
     },
     "src/data/speech-catalogue.json": {
       "before": "d382431ade61fb7afa7a77b79a7a36589c5e90dac40c595ccc89108b8fc6c7c0",
-      "after": "3a3b55c1d3d1d9d3666193fee2846252f70a5b49f89ddceb172b150d371c2b29"
+      "after": "3597f0ff04aaa2abc53cbf4f94728147685e1ed45b55f33d156f3057b4ab5578"
     },
     "src/lib/speakingAssessment.ts": {
       "before": "dc9918177f3692537afa7f2cce98f892180313e0a7abf3f87f1a1adbeb191361",
