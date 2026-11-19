@@ -29,3 +29,9 @@
 .camp-comprehension-hint { font-size:13px; color:var(--color-text-secondary); }
 /* Headings receive programmatic focus when a lesson opens; keyboard focus rings stay on controls. */
 .camp-article-reader h2[tabindex="-1"]:focus { outline:none; }
+
+/* Library pagination shared by Read and Listening. */
+.camp-library-pagination { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:12px; }
+.camp-library-pagination > div { display:flex; flex-wrap:wrap; gap:6px; }
+.camp-library-pagination button { min-width:44px; min-height:44px; }
+.camp-library-pagination-range { font-size:12px; color:var(--color-text-secondary); }

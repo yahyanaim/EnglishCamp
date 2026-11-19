@@ -35,6 +35,12 @@ export function AdminContent(){
   if(working)return;setWorking(id);setFailure('');
   try{await adminRequest(action,{body});after?.();reload();}catch(e){setFailure((e as Error).message);}finally{setWorking('');}
  }
+ const awaiting=(data?.library||[]).filter(r=>r.defaultStatus==='review'&&r.status!=='published');
+ /** Publishes every bundled lesson still awaiting its first review, after the administrator has read them. */
+ async function publishAwaiting(){
+  if(working||!window.confirm(`Publish ${awaiting.length} lessons? Read them first: they become visible to every learner.`))return;setWorking('bulk');setFailure('');
+  try{for(const r of awaiting)await adminRequest('content-state',{body:{id:r.id,kind:r.kind,status:'published',level:r.level===r.defaultLevel?null:r.level}});reload();}catch(e){setFailure((e as Error).message);reload();}finally{setWorking('');}
+ }
  async function importVoa(e:React.FormEvent){
   e.preventDefault();if(working)return;setWorking('import');setFailure('');setImportNote('');
   try{const r=await adminRequest<{id:string;payload:object;audioFound:boolean}>('content-import',{body:{url}});setUrl('');
@@ -78,7 +84,7 @@ export function AdminContent(){
       <Button variant="outline" disabled={!!working||(r.status==='draft'&&r.errors.length>0)} onClick={()=>void run(r.id,'content-publish',{id:r.id,published:r.status!=='published'})}>{r.status==='published'?'Unpublish':'Publish'}</Button></td>
     </tr>)}</tbody></table></div>:<p>No drafts yet. Import a VOA lesson or write a new reading passage.</p>}
    </section>
-   <section className="admin-panel"><div className="admin-panel-heading"><div><h2>Bundled library</h2><p>Reviewed lessons shipped with EnglishCamp. Publish, hide or re-level them without changing learner records.</p></div></div>
+   <section className="admin-panel"><div className="admin-panel-heading"><div><h2>Bundled library</h2><p>Lessons shipped with EnglishCamp. Publish, hide or re-level them without changing learner records.</p></div>{awaiting.length>0&&<Button disabled={!!working} onClick={()=>void publishAwaiting()}>{working==='bulk'?'Publishing…':`Publish ${awaiting.length} awaiting review`}</Button>}</div>
     <div className="admin-table-wrap"><table><thead><tr><th>Lesson</th><th>Type</th><th>Level</th><th>Status</th><th>Questions</th><th>Completions</th><th>Action</th></tr></thead><tbody>{library.map(r=><tr key={r.kind+r.id}>
      <td><strong>{r.title}</strong><small>{r.id}{r.defaultStatus==='review'?' · awaiting first review':''}</small></td><td>{r.kind}</td>
      <td><SelectField aria-label={`Level for ${r.title}`} value={r.level} onValueChange={level=>void run(r.id,'content-state',{id:r.id,kind:r.kind,status:r.status,level:level===r.defaultLevel?null:level})}>{CEFR_LEVELS.map(l=><option key={l} value={l}>{l}{l===r.defaultLevel?' (default)':''}</option>)}</SelectField></td>

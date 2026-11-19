@@ -8,15 +8,17 @@ function request(id, method = 'GET') {
   return new Request('https://example.test/api/vocabulary/listening?id=' + id, { method });
 }
 
-test('the curated VOA catalogue has four short clips and varied situations at each level', () => {
+test('the curated VOA catalogue has at least four clips per level, eight at A1 and B1, and varied situations', () => {
   assert.equal(new Set(VOA_LISTENING.map(clip => clip.id)).size, VOA_LISTENING.length);
   for (const level of LISTENING_LEVELS) {
     const clips = VOA_LISTENING.filter(clip => clip.level === level);
-    assert.equal(clips.length, 4);
+    assert.ok(clips.length >= 4, level);
+    if (level === 'A1' || level === 'B1') assert.equal(clips.length, 8, level);
     assert.ok(new Set(clips.map(clip => clip.topic)).size >= 3, level);
   }
   for (const clip of VOA_LISTENING) {
-    assert.ok(clip.seconds > 20 && clip.seconds < 180, clip.id);
+    // Full B1 conversations run up to about four minutes; durations come from MP3 metadata.
+    assert.ok(clip.seconds > 20 && clip.seconds < 300, clip.id);
     assert.match(clip.audioUrl, /^https:\/\/voa-audio\.voanews\.eu\/vle\/.+\.mp3$/);
     assert.ok(clip.words.length >= 2);
     for (const entry of clip.words) {
