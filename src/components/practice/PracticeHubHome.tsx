@@ -85,7 +85,7 @@ export function PracticeHubHome({ categories, labelOf, onOpen }: { categories: H
 
       {sections.map(category => {
         const sectionId = `practice-${category.id}`, open = filtering || skill !== "all" || expanded[category.id];
-        const list = open ? category.trainers : category.trainers.slice(0, PREVIEW), games = category.id === "games" || category.id === "speed";
+        const list = open ? category.trainers : category.trainers.slice(0, PREVIEW), games = category.id === "games";
         return (
           <section key={category.id} className="camp-learning-library-group" aria-labelledby={sectionId}>
             <h2 id={sectionId} tabIndex={-1}>{category.label} <span className="camp-hub-section-count">{category.trainers.length}</span></h2>

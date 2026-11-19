@@ -6,18 +6,23 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useProgress } from "@/store/useProgress";
 import { playCorrect, playWrong, playXP } from "@/lib/audio";
+import "./memory-match.css";
 
 type Pair = { word: string; match: string };
 type CardState = { id: string; text: string; type: "word" | "match"; flipped: boolean; matched: boolean };
 
+/** English word ↔ Arabic meaning. Matching a word with itself taught nothing. */
 const PAIRS: Pair[] = [
-  { word: "Apple", match: "Apple" }, { word: "Book", match: "Book" }, { word: "Cat", match: "Cat" },
-  { word: "Dog", match: "Dog" }, { word: "Fish", match: "Fish" }, { word: "House", match: "House" },
-  { word: "Tree", match: "Tree" }, { word: "Water", match: "Water" }, { word: "School", match: "School" },
-  { word: "Friend", match: "Friend" }, { word: "Love", match: "Love" }, { word: "Time", match: "Time" },
+  { word: "apple", match: "تفاحة" }, { word: "book", match: "كتاب" }, { word: "cat", match: "قطة" },
+  { word: "dog", match: "كلب" }, { word: "fish", match: "سمكة" }, { word: "house", match: "منزل" },
+  { word: "tree", match: "شجرة" }, { word: "water", match: "ماء" }, { word: "school", match: "مدرسة" },
+  { word: "friend", match: "صديق" }, { word: "love", match: "حب" }, { word: "time", match: "وقت" },
+  { word: "door", match: "باب" }, { word: "window", match: "نافذة" }, { word: "bread", match: "خبز" },
+  { word: "milk", match: "حليب" }, { word: "car", match: "سيارة" }, { word: "street", match: "شارع" },
+  { word: "teacher", match: "معلّم" }, { word: "family", match: "عائلة" }, { word: "sun", match: "شمس" },
+  { word: "moon", match: "قمر" }, { word: "rain", match: "مطر" }, { word: "city", match: "مدينة" },
 ];
 
-const MotionPracticeButton = motion.create(PracticeButton);
 
 export function MemoryMatchGame() {
   const { completeExercise } = useProgress();
@@ -36,7 +41,7 @@ export function MemoryMatchGame() {
     const cardList: CardState[] = [];
     for (const pair of selected) {
       cardList.push({ id: `word-${pair.word}`, text: pair.word, type: "word", flipped: false, matched: false });
-      cardList.push({ id: `match-${pair.match}`, text: pair.match, type: "match", flipped: false, matched: false });
+      cardList.push({ id: `match-${pair.word}`, text: pair.match, type: "match", flipped: false, matched: false });
     }
     setCards(cardList.sort(() => Math.random() - 0.5));
     setFlippedIds([]);
@@ -58,10 +63,10 @@ export function MemoryMatchGame() {
       setMoves((m) => m + 1);
       const [first, second] = newFlipped.map((fid) => updated.find((c) => c.id === fid)!);
       if (first.type !== second.type) {
-        const pair = PAIRS.find((p) => p.word === first.text || p.match === first.text || p.word === second.text || p.match === second.text);
-        if (pair && ((first.text === pair.word && second.text === pair.match) || (first.text === pair.match && second.text === pair.word))) {
+        const word = first.type === "word" ? first : second, meaning = first.type === "word" ? second : first;
+        if (PAIRS.some((p) => p.word === word.text && p.match === meaning.text)) {
           playCorrect();
-          completeExercise(`memory-${first.text}`, 5);
+          completeExercise(`memory-${word.text.toLowerCase()}`, 5);
           setTimeout(() => {
             setCards((prev) => prev.map((c) => (c.id === first.id || c.id === second.id ? { ...c, matched: true } : c)));
             setFlippedIds([]);
@@ -106,26 +111,28 @@ export function MemoryMatchGame() {
         </div>
       ) : (
         <>
-          <div className="grid grid-cols-4 gap-2">
-            {cards.map((card) => (
-              <MotionPracticeButton
-                key={card.id}
-                onClick={() => handleClick(card.id)}
-                animate={{ rotateY: card.flipped || card.matched ? 180 : 0 }}
-                className={`h-16 rounded-[var(--radius-lg)] border text-sm font-semibold transition-all ${
-                  card.matched
-                    ? "bg-[var(--color-success-bg)] text-[var(--color-text-success)] border-[var(--color-success)] cursor-default"
-                    : card.flipped
-                    ? "bg-[var(--color-primary-subtle)] border-[var(--color-primary)] text-[var(--color-text-link)]"
-                    : "bg-[var(--color-surface-alt)] border-[var(--color-border-default)] text-[var(--color-text-secondary)] hover:bg-[var(--color-surface-alt)] hover:border-[var(--color-primary)]"
-                }`}
-                style={{ transformStyle: "preserve-3d" }}
-              >
-                {card.flipped || card.matched ? card.text : "?"}
-              </MotionPracticeButton>
-            ))}
+          <div className="camp-memory-grid" data-grid-free>
+            {cards.map((card) => {
+              const shown = card.flipped || card.matched;
+              return (
+                <PracticeButton
+                  key={card.id}
+                  onClick={() => handleClick(card.id)}
+                  aria-label={shown ? card.text : "Hidden card"}
+                  aria-pressed={shown}
+                  disabled={card.matched}
+                  className="camp-memory-card"
+                  data-state={card.matched ? "matched" : card.flipped ? "open" : "closed"}
+                >
+                  <motion.span className="camp-memory-inner" animate={{ rotateY: shown ? 180 : 0 }} transition={{ duration: 0.3 }}>
+                    <span className="camp-memory-face camp-memory-back" aria-hidden="true">?</span>
+                    <span className="camp-memory-face camp-memory-front" lang={card.type === "match" ? "ar" : "en"} dir={card.type === "match" ? "rtl" : "ltr"}>{card.text}</span>
+                  </motion.span>
+                </PracticeButton>
+              );
+            })}
           </div>
-          <p className="text-xs text-[var(--color-text-secondary)] text-center mt-3">Match the word pairs</p>
+          <p className="text-xs text-[var(--color-text-secondary)] text-center mt-3">Match each English word with its Arabic meaning</p>
         </>
       )}
     </PracticeCard>

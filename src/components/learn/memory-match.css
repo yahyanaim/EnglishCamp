@@ -1,0 +1,12 @@
+/* Memory Match: real two-sided cards, so flipped text reads normally (never mirrored). */
+.camp-memory-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:8px; }
+.camp-frame .camp-memory-card { position:relative; height:76px; padding:0; border:0; background:transparent; perspective:700px; }
+.camp-memory-inner { position:absolute; inset:0; display:block; transform-style:preserve-3d; }
+.camp-memory-face { position:absolute; inset:0; display:grid; place-items:center; padding:6px; border:1px solid var(--color-border-default); border-radius:12px; backface-visibility:hidden; -webkit-backface-visibility:hidden; font-weight:700; font-size:.9rem; line-height:1.3; text-align:center; overflow-wrap:anywhere; }
+.camp-memory-back { background:var(--color-surface-alt); color:var(--color-text-secondary); font-size:1.1rem; }
+.camp-memory-front { transform:rotateY(180deg); background:var(--color-surface); color:var(--camp-control-ink); border-color:var(--camp-control-ink); }
+.camp-memory-front[lang=ar] { font-family:var(--font-arabic),serif; font-size:1.05rem; }
+.camp-memory-card[data-state=matched] .camp-memory-front { border:2px solid var(--color-success-dark); color:var(--color-text-primary); }
+.camp-memory-card:not(:disabled):hover .camp-memory-back { border-color:var(--camp-control-ink); }
+.camp-memory-card:focus-visible { outline:2px solid var(--camp-focus); outline-offset:2px; border-radius:12px; }
+@media (max-width:420px) { .camp-memory-grid { grid-template-columns:repeat(3,minmax(0,1fr)); } .camp-frame .camp-memory-card { height:68px; } }

@@ -26,7 +26,7 @@ import { getLevelInfo } from "@/lib/xp";
 import { courseCatalogue as levels } from "@/data/course-catalogue";
 import type { LucideIcon } from "lucide-react";
 
-type NavLink = { href: string; label: string; icon: LucideIcon; dot?: boolean; accent?: string };
+type NavLink = { href: string; label: string; icon: LucideIcon; dot?: boolean; accent?: string; group?: string };
 type NavSection = { id: string; label: string; icon: LucideIcon; links: NavLink[] };
 
 const NAV_MAIN: NavLink[] = [
@@ -46,37 +46,37 @@ const NAV_SECTIONS: NavSection[] = [
   {
     id: "practice", label: "Practice library", icon: Gamepad2,
     links: [
-      { href: "/practice", label: "Practice Hub", icon: Gamepad2 },
-      { href: "/writing", label: "Writing", icon: FileText },
-      { href: "/text-analyzer", label: "Text Analyzer", icon: FileText },
-      { href: "/search", label: "Search", icon: Search },
-      { href: "/knowledge-check", label: "Knowledge Check", icon: Brain },
-      { href: "/speed-match", label: "Speed Match", icon: Zap },
-      { href: "/listening-lab", label: "Listening Lab", icon: Ear },
-      { href: "/word-scramble", label: "Word Scramble", icon: Shuffle },
-      { href: "/sprint", label: "Sprint", icon: Zap },
-      { href: "/conjunction-challenge", label: "Conjunctions", icon: Link2 },
-      { href: "/tenses-quiz", label: "Tenses Quiz", icon: Clock },
-      { href: "/letter-writing", label: "Letter Writing", icon: FileText },
-      { href: "/culture-quiz", label: "Culture Quiz", icon: Globe },
-      { href: "/phrases-practice", label: "Phrases Practice", icon: MessageSquare },
-      { href: "/article-master", label: "Article Master", icon: Target },
-      { href: "/sentence-translation", label: "Sentence Translator", icon: ArrowLeftRight },
-      { href: "/topic-vocabulary-practice", label: "Topic Vocab", icon: BookText },
-      { href: "/idiom-practice", label: "Idioms Practice", icon: Quote },
-      { href: "/collocation-practice", label: "Collocations Practice", icon: Link2 },
-      { href: "/dialogue-practice", label: "Dialogues Practice", icon: MessageCircle },
-      { href: "/discourse-marker-practice", label: "Discourse Markers", icon: MessageSquare },
-      { href: "/verb-noun-collocation-practice", label: "Collocations Practice", icon: BookMarked },
-      { href: "/verb-preposition-practice", label: "Verbs+Preps Practice", icon: ArrowLeftRight },
-      { href: "/compound-adverbs-practice", label: "Compound Adverbs", icon: Link2 },
-      { href: "/sentence-pattern-practice", label: "Patterns Practice", icon: Layout },
-      { href: "/word-pairs-quiz", label: "Word Pairs Quiz", icon: Shuffle },
-      { href: "/comparison-practice", label: "Comparisons Practice", icon: Scale },
-      { href: "/false-friends-practice", label: "False Friends Practice", icon: AlertTriangle },
-      { href: "/question-practice", label: "Questions Practice", icon: HelpCircle },
-      { href: "/past-tense-practice", label: "Past Tense Practice", icon: Clock },
-      { href: "/essay-templates", label: "Essay Templates", icon: FileText },
+      { href: "/practice", label: "Practice Hub", icon: Gamepad2, group: "Start here" },
+      { href: "/writing", label: "Writing", icon: FileText, group: "Writing" },
+      { href: "/text-analyzer", label: "Text Analyzer", icon: FileText, group: "Start here" },
+      { href: "/search", label: "Search", icon: Search, group: "Start here" },
+      { href: "/knowledge-check", label: "Knowledge Check", icon: Brain, group: "Start here" },
+      { href: "/speed-match", label: "Speed Match", icon: Zap, group: "Games & speed" },
+      { href: "/listening-lab", label: "Listening Lab", icon: Ear, group: "Games & speed" },
+      { href: "/word-scramble", label: "Word Scramble", icon: Shuffle, group: "Games & speed" },
+      { href: "/sprint", label: "Sprint", icon: Zap, group: "Games & speed" },
+      { href: "/conjunction-challenge", label: "Conjunctions", icon: Link2, group: "Quizzes" },
+      { href: "/tenses-quiz", label: "Tenses Quiz", icon: Clock, group: "Quizzes" },
+      { href: "/letter-writing", label: "Letter Writing", icon: FileText, group: "Writing" },
+      { href: "/culture-quiz", label: "Culture Quiz", icon: Globe, group: "Quizzes" },
+      { href: "/phrases-practice", label: "Phrases Practice", icon: MessageSquare, group: "Translate & build" },
+      { href: "/article-master", label: "Article Master", icon: Target, group: "Quizzes" },
+      { href: "/sentence-translation", label: "Sentence Translator", icon: ArrowLeftRight, group: "Translate & build" },
+      { href: "/topic-vocabulary-practice", label: "Topic Vocab", icon: BookText, group: "Translate & build" },
+      { href: "/idiom-practice", label: "Idioms Practice", icon: Quote, group: "Translate & build" },
+      { href: "/collocation-practice", label: "Collocations Practice", icon: Link2, group: "Translate & build" },
+      { href: "/dialogue-practice", label: "Dialogues Practice", icon: MessageCircle, group: "Translate & build" },
+      { href: "/discourse-marker-practice", label: "Discourse Markers", icon: MessageSquare, group: "Translate & build" },
+      { href: "/verb-noun-collocation-practice", label: "Verb–Noun Collocations", icon: BookMarked, group: "Translate & build" },
+      { href: "/verb-preposition-practice", label: "Verbs+Preps Practice", icon: ArrowLeftRight, group: "Translate & build" },
+      { href: "/compound-adverbs-practice", label: "Compound Adverbs", icon: Link2, group: "Translate & build" },
+      { href: "/sentence-pattern-practice", label: "Patterns Practice", icon: Layout, group: "Translate & build" },
+      { href: "/word-pairs-quiz", label: "Word Pairs Quiz", icon: Shuffle, group: "Quizzes" },
+      { href: "/comparison-practice", label: "Comparisons Practice", icon: Scale, group: "Translate & build" },
+      { href: "/false-friends-practice", label: "False Friends Practice", icon: AlertTriangle, group: "Translate & build" },
+      { href: "/question-practice", label: "Questions Practice", icon: HelpCircle, group: "Translate & build" },
+      { href: "/past-tense-practice", label: "Past Tense Practice", icon: Clock, group: "Translate & build" },
+      { href: "/essay-templates", label: "Essay Templates", icon: FileText, group: "Writing" },
     ],
   },
   {
@@ -136,20 +136,20 @@ const NAV_SECTIONS: NavSection[] = [
   {
     id: "progress", label: "Progress", icon: BarChart4,
     links: [
-      { href: "/my-notes", label: "My notes", icon: NotepadText },
-      { href: "/daily-challenge", label: "Daily Challenge", icon: Zap },
-      { href: "/review", label: "Review Queue", icon: RotateCcw },
-      { href: "/badges", label: "Badges", icon: Trophy },
-      { href: "/weak-areas", label: "Weak Areas", icon: AlertTriangle },
-      { href: "/stats", label: "Statistics", icon: BarChart4 },
-      { href: "/study-plan", label: "Study Plan", icon: Target },
-      { href: "/weekly-report", label: "Weekly Report", icon: Calendar },
-      { href: "/b2-first-guide", label: "B2 First (FCE) Guide", icon: GraduationCap },
-      { href: "/ielts", label: "IELTS Guide", icon: GraduationCap },
-      { href: "/toefl", label: "TOEFL Guide", icon: GraduationCap },
-      { href: "/mock-exam", label: "Mock Exam", icon: Shield },
-      { href: "/challenge", label: "Challenges", icon: Zap },
-      { href: "/study-strategies", label: "Study Strategies", icon: Target },
+      { href: "/my-notes", label: "My notes", icon: NotepadText, group: "Plan & review" },
+      { href: "/daily-challenge", label: "Daily Challenge", icon: Zap, group: "Plan & review" },
+      { href: "/review", label: "Review Queue", icon: RotateCcw, group: "Plan & review" },
+      { href: "/stats", label: "Statistics", icon: BarChart4, group: "Track" },
+      { href: "/weekly-report", label: "Weekly Report", icon: Calendar, group: "Track" },
+      { href: "/badges", label: "Badges", icon: Trophy, group: "Track" },
+      { href: "/weak-areas", label: "Weak Areas", icon: AlertTriangle, group: "Track" },
+      { href: "/study-plan", label: "Study Plan", icon: Target, group: "Plan & review" },
+      { href: "/b2-first-guide", label: "B2 First (FCE) Guide", icon: GraduationCap, group: "Exams" },
+      { href: "/ielts", label: "IELTS Guide", icon: GraduationCap, group: "Exams" },
+      { href: "/toefl", label: "TOEFL Guide", icon: GraduationCap, group: "Exams" },
+      { href: "/mock-exam", label: "Mock Exam", icon: Shield, group: "Exams" },
+      { href: "/challenge", label: "Challenges", icon: Zap, group: "Plan & review" },
+      { href: "/study-strategies", label: "Study Strategies", icon: Target, group: "Plan & review" },
     ],
   },
 ];
@@ -169,6 +169,15 @@ function getDefaultOpen(): Record<string, boolean> {
   return {};
 }
 
+/** Keeps the authored order inside each sub-section, in the order sub-sections first appear. */
+function groupLinks(links: NavLink[]): [string, NavLink[]][] {
+  const groups = new Map<string, NavLink[]>();
+  for (const link of links) groups.set(link.group ?? "", [...(groups.get(link.group ?? "") ?? []), link]);
+  const order = ["Start here", "Games & speed", "Quizzes", "Writing", "Translate & build", "Track", "Plan & review", "Exams"];
+  const rank = (group: string) => { const index = order.indexOf(group); return index < 0 ? order.length : index; };
+  return Array.from(groups.entries()).sort(([a], [b]) => rank(a) - rank(b));
+}
+
 function NavItem({ href, icon: Icon, label, active }: { href: string; icon: LucideIcon; label: string; active: boolean }) {
   return (
     <Link prefetch={false} href={href} className={cn(
@@ -186,7 +195,7 @@ function NavItem({ href, icon: Icon, label, active }: { href: string; icon: Luci
       )}>
         <LearningArt name={Icon.displayName || "book"} className="w-4 h-4" />
       </div>
-      <span className="truncate">{label}</span>
+      <span className="camp-nav-label">{label}</span>
     </Link>
   );
 }
@@ -232,8 +241,13 @@ function CollapsibleSection({ section, pathname, isOpen, onToggle }: {
             className="overflow-hidden"
           >
             <div className="ml-2 pl-2 border-l border-[var(--color-border-default)] space-y-0.5 mt-0.5">
-              {section.links.map((item) => (
-                <NavItem key={item.href} {...item} active={pathname === item.href} />
+              {groupLinks(section.links).map(([group, links]) => (
+                <div key={group || "all"} className="camp-nav-group">
+                  {group && <p className="camp-nav-group-label">{group}</p>}
+                  {links.map((item) => (
+                    <NavItem key={item.href} {...item} active={pathname === item.href} />
+                  ))}
+                </div>
               ))}
             </div>
           </motion.div>

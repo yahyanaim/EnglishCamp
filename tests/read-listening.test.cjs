@@ -61,7 +61,7 @@ test('word lookups give single-word Arabic meanings and never fall back to a par
 test('reading passages cover A1–C2 with complete lesson data and preserve every original article',()=>{
  assert.deepEqual([...CEFR_LEVELS],['A1','A2','B1','B2','C1','C2']);
  for(const level of CEFR_LEVELS)assert.ok(READING_LESSONS.some(l=>l.level===level),level);
- const per=level=>READING_LESSONS.filter(l=>l.level===level).length;assert.ok(per('A1')>=13&&per('A2')>=8&&per('B1')>=15&&per('B2')>=8&&per('C1')>=5&&per('C2')>=3);
+ const per=level=>READING_LESSONS.filter(l=>l.level===level).length;assert.ok(per('A1')>=19&&per('A2')>=26&&per('B1')>=33&&per('B2')>=13&&per('C1')>=7&&per('C2')>=4);
  assert.equal(new Set(READING_LESSONS.map(l=>l.id)).size,READING_LESSONS.length);
  for(const article of ALL_ARTICLES){const lesson=readingLessonById(article.id);assert.ok(lesson,article.id);assert.deepEqual(lesson.paragraphs,article.paragraphs.map(p=>p.en));assert.equal(lesson.status,'published');assert.equal(lesson.category,article.category);}
  const words=l=>l.paragraphs.join(' ').split(/\s+/).length,avg=level=>{const xs=READING_LESSONS.filter(l=>l.level===level).map(words);return xs.reduce((a,b)=>a+b,0)/xs.length;};

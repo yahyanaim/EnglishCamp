@@ -19,7 +19,7 @@
     },
     "src/components/layout/Sidebar.tsx": {
       "before": "2a94206b4a6fcb8b811a4176560c6f5b5039b4fab8138a1e59a55bd6eaa0b21a",
-      "after": "cc5b993dcfe5fb744572fe751c676617113d240932426b860b4a693540154716"
+      "after": "12c4fca03a8dfc00868c4239c26c060a3850cd78a03615e720fdaadb89bfa54e"
     },
     "src/components/layout/TopBar.tsx": {
       "before": "756390d54e5b52d540494bc834198fdf14618144e7a46dfebefb087c8652c36b",
@@ -35,7 +35,7 @@
     },
     "src/app/stats/page.tsx": {
       "before": "8eef801b1a2797e8410fef22d6d6cf75492bb811e3e0f86dd6c6415f1a93b1fe",
-      "after": "c22610687f2a04021f551e84b30698a099c709b956a0394e72a0bb7ecd1dde5b"
+      "after": "88c958fad370f9777f523e87e37148abf4ac71f36d71da95315d42d8c921d8f5"
     },
     "src/components/layout/LayoutShell.tsx": {
       "before": "1a03fb08cd1508dbc056b67ddf7dcf6cbff0e9bedb34e4ef2ed68e11ed8c18bd",
@@ -68,6 +68,10 @@
     "src/app/practice/page.tsx": {
       "before": "4b8deb6076323dbe529912df9e1406142c34e56632f42cf932e04979b939216d",
       "after": "8f578fec02aeb1b5af97cfec1bed3e7d3c55b5a162c27687b6a330e23c5427e1"
+    },
+    "src/components/learn/MemoryMatchGame.tsx": {
+      "before": "086a8c963c4fb1b507dc4380de9fbd5d193c2141b9f31826ba9cae273e967418",
+      "after": "85f972ea7f5a7c717674ea1106cdc723e3e472ce835affccd9d617dfb00add3e"
     }
   },
   "selectors": {
@@ -82,6 +86,12 @@
     "src/store/useVocabulary.ts": {
       "before": "917aaa2b9e4aaf63ae1f0d67debb4a8447f3bd8a7247b6c20c39f3b1c955c32f",
       "after": "b90f38a6b7f88c17637d6e4312689cb4ba7c3e01f0aafdcb81c4183d09ffd052"
+    }
+  },
+  "practiceLogic": {
+    "src/components/learn/MemoryMatchGame.tsx": {
+      "reason": "Memory Match: English word to Arabic meaning pairs (a word matched with itself taught nothing) and two-sided cards so text is not mirrored.",
+      "after": "6415e5fb458d844578da9d7fb39b851da340af24cc9d31de6214cca3ab54ff4f"
     }
   }
 }

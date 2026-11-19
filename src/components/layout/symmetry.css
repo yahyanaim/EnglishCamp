@@ -1,5 +1,5 @@
 /* Chip and tab rows that wrap: let each row fill the width so no row ends with a gap. */
-.camp-content .flex-wrap:has(> button:nth-child(4)):not(:has(> :not(button))) > button,
+.camp-content [data-chip-row] > button,
 .camp-content .camp-practice-categories > *,
 .camp-content .camp-vocab-tabs > *,
 .camp-content .translation-groups > button,
@@ -8,10 +8,10 @@
 @media (min-width:768px) { .camp-content .camp-vocabulary-page > div:has(input) > span[role=status] { margin-inline-start:auto; } }
 /* Phones: wrapping chip and tab rows become an even grid (GridBalance evens out the last row). */
 @media (max-width:639px) {
-  .camp-content .flex-wrap:has(> button:nth-child(4)):not(:has(> :not(button))),
+  .camp-content [data-chip-row],
   .camp-content .camp-vocab-tabs:has(> :nth-child(4)),
   .camp-content .translation-groups:has(> button:nth-child(4)) { display:grid; grid-template-columns:repeat(auto-fill,minmax(min(100%,128px),1fr)); }
-  .camp-content .flex-wrap:has(> button:nth-child(4)):not(:has(> :not(button))) > button,
+  .camp-content [data-chip-row] > button,
   .camp-content .camp-vocab-tabs > *,
   .camp-content .translation-groups > button { min-width:0; white-space:normal; height:auto; text-align:center; }
 }
@@ -19,3 +19,8 @@
 .camp-frame main.camp-content [data-outcome="correct"],
 .camp-frame main.camp-content [data-outcome="incorrect"] { background:transparent!important; color:var(--color-text-primary)!important; }
 .camp-frame main.camp-content fieldset[data-outcome] { border-color:transparent!important; }
+/* Sidebar sub-sections: small headings, full labels (no "…"), quiet spacing. */
+.camp-nav-group + .camp-nav-group { margin-top:6px; }
+.camp-nav-group-label { margin:8px 0 2px; padding-inline:12px; font:700 10px/1.4 var(--font-display); letter-spacing:.08em; text-transform:uppercase; color:var(--color-text-secondary); opacity:.85; }
+.camp-nav-group:first-child .camp-nav-group-label { margin-top:4px; }
+.camp-nav-label { min-width:0; overflow-wrap:anywhere; line-height:1.3; }
