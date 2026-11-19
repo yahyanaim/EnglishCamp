@@ -1,0 +1,31 @@
+/* Read: text-only passages with single-word lookups. */
+.camp-read-passage { position:relative; }
+.camp-read-hint { margin-bottom:14px; font-size:12px; line-height:1.6; color:var(--color-text-secondary); }
+.camp-word-popover { position:absolute; z-index:30; width:min(300px,calc(100% - 16px)); padding:12px 14px; border:1px solid var(--color-border-default); border-radius:10px; background:var(--color-surface); color:var(--color-text-primary); box-shadow:var(--shadow-2,0 6px 24px rgba(0,0,0,.12)); }
+.camp-word-popover:focus-visible { outline:2px solid var(--camp-focus); outline-offset:2px; }
+.camp-word-popover header { display:flex; align-items:center; justify-content:space-between; gap:8px; font:700 15px/1.4 var(--font-display),sans-serif; }
+.camp-word-popover-close { display:inline-flex; align-items:center; justify-content:center; width:32px; height:32px; border-radius:8px; color:var(--color-text-secondary); }
+.camp-word-popover-close:hover { background:var(--camp-purple-soft); color:var(--camp-control-ink); }
+.camp-word-popover-close:focus-visible { outline:2px solid var(--camp-focus); outline-offset:2px; }
+.camp-word-popover-ar { margin-top:6px; font:400 18px/1.8 var(--font-arabic),serif; color:var(--camp-control-ink); text-align:right; }
+.camp-word-popover-def,.camp-word-popover-missing { margin-top:6px; font-size:13px; line-height:1.6; color:var(--color-text-secondary); }
+.camp-word-popover-actions { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:8px; margin-top:10px; }
+.camp-lesson-complete { display:inline-flex; align-items:center; gap:6px; margin-top:8px; font-size:13px; font-weight:700; color:var(--color-success-dark); }
+.camp-source-note { font-size:12px; line-height:1.6; color:var(--color-text-secondary); }
+
+/* Comprehension questions shared by Read and Listening. */
+.camp-comprehension-intro { margin-top:4px; font-size:13px; line-height:1.6; color:var(--color-text-secondary); }
+.camp-question-type { display:block; margin-bottom:4px; font-size:11px; font-weight:700; letter-spacing:.02em; text-transform:uppercase; color:var(--color-text-secondary); }
+.camp-comprehension-written { display:block; margin-block-start:10px; }
+.camp-comprehension-written input { width:100%; min-height:44px; padding:8px 12px; border:1px solid var(--color-border-default); border-radius:8px; background:var(--color-surface); color:var(--color-text-primary); font-size:14px; }
+.camp-comprehension-written input:focus-visible { outline:2px solid var(--camp-focus); outline-offset:2px; border-color:var(--camp-control-ink); }
+.camp-comprehension fieldset[data-outcome="correct"] .camp-comprehension-written input { border-color:var(--color-success); }
+.camp-comprehension fieldset[data-outcome="incorrect"] .camp-comprehension-written input { border-color:var(--color-text-error); }
+.camp-listening-options label[data-outcome="correct"] { border-color:var(--color-success); background:var(--color-success-bg); }
+.camp-listening-options label[data-outcome="incorrect"] { border-color:var(--color-text-error); }
+@media (max-width:640px) {
+  .camp-word-popover { left:8px !important; width:calc(100% - 16px); }
+}
+.camp-comprehension-hint { font-size:13px; color:var(--color-text-secondary); }
+/* Headings receive programmatic focus when a lesson opens; keyboard focus rings stay on controls. */
+.camp-article-reader h2[tabindex="-1"]:focus { outline:none; }

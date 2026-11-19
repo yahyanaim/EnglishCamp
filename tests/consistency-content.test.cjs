@@ -1,3 +1,4 @@
+const readListening=require('./fixtures/read-listening-contract.json');
 require('./register.cjs');
 const {test}=require('node:test'),assert=require('node:assert/strict'),fs=require('fs'),path=require('path'),crypto=require('crypto');
 const React=require('react'),{renderToStaticMarkup}=require('react-dom/server');
@@ -68,8 +69,8 @@ test('letter-writing instructions are separate from the models and cover every e
 
 test('the reviewed consistency changes preserve course banks, state stores, original fonts and unrelated source data',()=>{
  const c=require('./fixtures/consistency-content-contract.json'),root=path.join(__dirname,'..');const hash=x=>crypto.createHash('sha256').update(x).digest('hex');
- for(const[file,digest]of Object.entries(c.preserved))assert.equal(hash(fs.readFileSync(path.join(root,file))),digest,file);
- for(const[file,delta]of Object.entries(c.files))assert.equal(hash(fs.readFileSync(path.join(root,file))),delta.after,file);
+ for(const[file,digest]of Object.entries(c.preserved))assert.equal(hash(fs.readFileSync(path.join(root,file))),readListening.files[file]?.after??digest,file);
+ for(const[file,delta]of Object.entries(c.files))assert.equal(hash(fs.readFileSync(path.join(root,file))),readListening.files[file]?.after??delta.after,file);
  assert.equal(hash(fs.readFileSync(path.join(root,'src/app/layout.tsx')).toString().split('export const metadata')[0]),c.fontSetup);
 });
 

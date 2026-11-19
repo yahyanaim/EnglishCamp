@@ -1,3 +1,4 @@
+const readListening=require('./fixtures/read-listening-contract.json');
 require('./register.cjs');
 const { test } = require('node:test'), assert = require('node:assert/strict');
 const { startLearnerSession, deleteLearnerSession } = require('../src/lib/learnerProfiles.ts');
@@ -17,7 +18,7 @@ test('named storage preserves reviewed rewards, levels, achievements and authore
     if(reviewed.normalizedStores[file]) assert.equal(reviewed.normalizedStores[file].before,digest,file+' prior reviewed boundary');
     assert.equal(hash(source),reviewed.normalizedStores[file]?.after??digest,file+' reviewed storage/connected-learning boundary');
   }
-  for(const [file,digest] of Object.entries(contract.preserved)) assert.equal(hash(fs.readFileSync(path.join(root,file))),current.files[file]?.after??reviewed.files[file]?.after??digest,file);
+  for(const [file,digest] of Object.entries(contract.preserved)) assert.equal(hash(fs.readFileSync(path.join(root,file))),readListening.files[file]?.after??current.files[file]?.after??reviewed.files[file]?.after??digest,file);
 });
 
 test('same name restores its stable profile, progress and badges; another name starts separately', () => {

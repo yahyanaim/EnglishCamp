@@ -1,3 +1,4 @@
+const readListening=require('./fixtures/read-listening-contract.json');
 const consistency=require('./fixtures/consistency-content-contract.json');
 const notesBrand=require('./fixtures/notes-brand-contract.json');
 const violet=require('./fixtures/violet-session-contract.json');
@@ -15,9 +16,9 @@ const root=path.join(__dirname,'..');
 let seed=91247;const random=()=>((seed=(seed*1664525+1013904223)>>>0)/4294967296);
 
 test('the visual rebuild preserves all existing teaching banks and saved learning state',()=>{
- for(const[file,digest]of Object.entries({...contract.banks,...contract.state}))assert.equal(hash(fs.readFileSync(path.join(root,file))),consistency.files[file]?.after??digest,file);
+ for(const[file,digest]of Object.entries({...contract.banks,...contract.state}))assert.equal(hash(fs.readFileSync(path.join(root,file))),readListening.files[file]?.after??consistency.files[file]?.after??digest,file);
  for(const[file,change]of Object.entries(contract.practiceCorrections))assert.equal(change.before,prior.logic[file],file+' explicit correction boundary');
- for(const[file,change]of Object.entries(contract.files))assert.equal(hash(fs.readFileSync(path.join(root,file))),consistency.files[file]?.after??notesBrand.files[file]?.after??violet.files[file]?.after??fullsize.files[file]?.after??change.after,file+' reviewed UI/correction delta');
+ for(const[file,change]of Object.entries(contract.files))assert.equal(hash(fs.readFileSync(path.join(root,file))),readListening.files[file]?.after??consistency.files[file]?.after??notesBrand.files[file]?.after??violet.files[file]?.after??fullsize.files[file]?.after??change.after,file+' reviewed UI/correction delta');
 });
 
 test('sentence-pattern practice uses every authored bilingual example with correct language roles',()=>{

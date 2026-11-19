@@ -92,7 +92,7 @@ All synthetic pronunciation controls use Microsoft neural speech. Missing clips 
 
 ## Illustrated reading and practice voices
 
-Read & Listen at `/vocabulary` now includes 22 illustrated bilingual articles with local narration, synchronized text and word replay. Topic Vocabulary includes 18 topics and 264 contextual entries. Conversation and Listening Lab use the same natural voice family as the courses. The [reading and practice audio notes](docs/practice-reading-audio.md) explain coverage and timing.
+Vocabulary (`/vocabulary`) is now word learning only. **Read** (`/reading`) offers English-only passages from A1 to C2 with tap-to-translate single words and comprehension questions, and **Listening** (`/listening`, directly below Vocabulary in the navigation) uses VOA Learning English recordings with questions, transcripts and resume. See [Read and Listening](docs/read-and-listening.md). The original article narrations remain in `public/media` for reuse. Topic Vocabulary includes 18 topics and 264 contextual entries. Conversation and Listening Lab use the same natural voice family as the courses. The [reading and practice audio notes](docs/practice-reading-audio.md) explain coverage and timing.
 
 ## Course narration
 

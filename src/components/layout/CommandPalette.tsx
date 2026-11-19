@@ -13,7 +13,7 @@ import {
   Scale, HelpCircle, MessageSquare, GitBranch, RefreshCcw, AlertCircle,
   Puzzle, BookA, MapPin, Mic, Users, Image, BookOpenText, AlertTriangle,
   Quote, BookText, BarChart4, Zap, RotateCcw, Trophy, Target, Calendar,
-  GraduationCap, Sparkles, Lightbulb, Library, ChevronRight, Brain, Ear, Shuffle, Globe, MessageCircle,
+  GraduationCap, Sparkles, Lightbulb, Library, ChevronRight, Brain, Ear, Shuffle, Globe, MessageCircle, Headphones,
 } from "lucide-react";
 import { courseCatalogue as levels } from "@/data/course-catalogue";
 import type { LucideIcon } from "lucide-react";
@@ -29,6 +29,8 @@ type CmdItem = {
 const MAIN_ITEMS: CmdItem[] = [
   { id: "dashboard", label: "Dashboard", href: "/dashboard", icon: BarChart3, group: "Main" },
   { id: "vocabulary", label: "Vocabulary", href: "/vocabulary", icon: BookHeart, group: "Main" },
+  { id: "listening", label: "Listening", href: "/listening", icon: Headphones, group: "Main" },
+  { id: "reading", label: "Read", href: "/reading", icon: BookOpenText, group: "Main" },
   { id: "flashcards", label: "Flashcards", href: "/flashcards", icon: BookOpen, group: "Main" },
   { id: "custom-flashcards", label: "My Cards", href: "/custom-flashcards", icon: BookCopy, group: "Main" },
   { id: "phonics", label: "Phonics / IPA", href: "/phonics", icon: MessageSquareText, group: "Main" },
@@ -111,7 +113,6 @@ const VOCAB_ITEMS: CmdItem[] = [
   { id: "pronunciation", label: "Pronunciation", href: "/pronunciation", icon: Mic, group: "Vocab & Speaking" },
   { id: "conversation", label: "Conversations", href: "/conversation", icon: Users, group: "Vocab & Speaking" },
   { id: "bildbeschreibung", label: "Picture Desc.", href: "/picture-description", icon: Image, group: "Vocab & Speaking" },
-  { id: "reading", label: "Reading", href: "/vocabulary", icon: BookOpenText, group: "Vocab & Speaking" },
   { id: "false-friends", label: "False Friends", href: "/false-friends", icon: AlertTriangle, group: "Vocab & Speaking" },
   { id: "kollokationen", label: "Collocations", href: "/collocations", icon: Link2, group: "Vocab & Speaking" },
   { id: "british-vs-american", label: "British vs American", href: "/british-vs-american", icon: Globe, group: "Vocab & Speaking" },

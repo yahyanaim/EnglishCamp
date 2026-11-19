@@ -1,3 +1,4 @@
+const readListening=require('./fixtures/read-listening-contract.json');
 const consistency=require('./fixtures/consistency-content-contract.json');
 const notesBrand=require('./fixtures/notes-brand-contract.json');
 const violet=require('./fixtures/violet-session-contract.json');
@@ -46,7 +47,7 @@ test('all 100 live modules have distinct additive examples, complete tables and 
 
 test('teaching-only additions preserve all original lessons, activities, saved-attempt fingerprints and narration bytes',()=>{
  const hash=b=>crypto.createHash('sha256').update(b).digest('hex');
- for(const [name,expected]of Object.entries(contract.preserved))assert.equal(hash(fs.readFileSync(path.join(root,name))),consistency.files[name]?.after??notesBrand.files[name]?.after??violet.files[name]?.after??fullsize.files[name]?.after??reference.files[name]?.after??recovery.files[name]?.after??styling.files[name]?.after??mockRebuild.integration[name]?.after??principles.integration[name]?.after??contract.integration[name]?.after??expected,name);
+ for(const [name,expected]of Object.entries(contract.preserved))assert.equal(hash(fs.readFileSync(path.join(root,name))),readListening.files[name]?.after??consistency.files[name]?.after??notesBrand.files[name]?.after??violet.files[name]?.after??fullsize.files[name]?.after??reference.files[name]?.after??recovery.files[name]?.after??styling.files[name]?.after??mockRebuild.integration[name]?.after??principles.integration[name]?.after??contract.integration[name]?.after??expected,name);
  assert.deepEqual(Object.fromEntries(courseActivities.flatMap(a=>a.data.tasks.map(t=>[t.id,taskSignature(t)]))),contract.signatures);
 });
 

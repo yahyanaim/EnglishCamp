@@ -2,7 +2,7 @@ import { VOA_LISTENING, VOA_ORIGIN, VOA_PODCAST_URL, voaArticleUrl } from '../sr
 
 const maxDocumentBytes = 512 * 1024;
 
-async function publisherDocument(response: Response): Promise<string> {
+export async function publisherDocument(response: Response): Promise<string> {
   if (!response.ok || Number(response.headers.get('content-length')) > maxDocumentBytes) {
     await response.body?.cancel();
     return '';
@@ -35,7 +35,7 @@ function publisherAudio(document: string, articleId: number, mediaId: number | u
     !url.username && !url.password && !url.search && !url.hash ? url.href : undefined;
 }
 
-function podcastAudio(document: string, articleUrl: string) {
+export function podcastAudio(document: string, articleUrl: string) {
   const position = document.indexOf(`<link>${articleUrl}</link>`);
   if (position === -1) return;
   const first = document.lastIndexOf('<item>', position);

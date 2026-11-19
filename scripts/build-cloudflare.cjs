@@ -25,7 +25,6 @@ async function main() {
   await fs.writeFile(path.join(app, 'next.config.mjs'), `import base from '../../next.config.mjs';\nexport default {...base, output:'export', redirects:undefined, rewrites:undefined};\n`);
   // Runtime POST handlers are deployed separately in cloudflare/worker.ts.
   await fs.rm(path.join(app, 'src/app/api'), { recursive: true });
-  await fs.writeFile(path.join(app, 'src/app/reading/page.tsx'), `export default function ReadingRedirect(){return null;}\n`);
   const source = await fs.readFile(path.join(root, 'src/data/course-catalogue.ts'), 'utf8');
   const ast = ts.createSourceFile('catalogue.ts', source, ts.ScriptTarget.Latest, true);
   let catalogue;

@@ -1,6 +1,9 @@
 import type { LearningEvent } from './learningActivity';
 import type { ProgressStore } from '@/data/types';
 import type { ModuleProgress, ActivityAttempt } from './courseProgress';
+import { SKILL_LESSON_MAX_XP } from './comprehension';
+/** Read and Listening completions are worth at most one lesson reward, whatever a client claims. */
+const skillLesson=(e:{kind:string;source:string})=>e.kind==='exercise'&&/^(reading|listening):/.test(e.source);
 
 export type CloudAccount = { id: string; name: string; number: number; fruit: string };
 export type DailySummary={day:string;completed:true;score:number;total:number;xpEarned:number};
@@ -15,7 +18,7 @@ const map = <T,>(value:unknown, transform:(item:any)=>T): Record<string,T> => Ob
 
 /** Only learning totals and completion evidence cross the network. No answer text, notes or audio. */
 export function cleanEvents(value: unknown, limit=2000): LearningEvent[] {
- return (Array.isArray(value)?value:[]).slice(-limit).filter(e=>e&&typeof e.id==='string'&&e.id.length<=100&&typeof e.source==='string'&&e.source.length<=180&&['lesson','exercise','quiz','practice','flashcard'].includes(e.kind)&&date(e.at)).map(e=>({id:e.id,source:e.source,kind:e.kind,at:date(e.at)!,xp:number(e.xp,10000)}));
+ return (Array.isArray(value)?value:[]).slice(-limit).filter(e=>e&&typeof e.id==='string'&&e.id.length<=100&&typeof e.source==='string'&&e.source.length<=180&&['lesson','exercise','quiz','practice','flashcard'].includes(e.kind)&&date(e.at)).map(e=>({id:e.id,source:e.source,kind:e.kind,at:date(e.at)!,xp:number(e.xp,skillLesson(e)?SKILL_LESSON_MAX_XP:10000)}));
 }
 export function eventKey(event:LearningEvent){return event.kind==='lesson'||event.kind==='exercise'?`${event.kind}:${event.source}`:`${event.kind}:${event.id}`;}
 export function cleanBadges(value:unknown):CloudBadges { return Object.fromEntries(entries(value,200).filter(([,v])=>date(v?.unlockedAt)).map(([key,v])=>[key,{unlockedAt:date(v.unlockedAt)!}])); }

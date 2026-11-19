@@ -11,6 +11,7 @@ import {invitationAdmin} from './invitationAdmin';
 import {requestInvitation} from './invitationEmail';
 import {recordSecurity} from './adminSecurity';
 import {voaListeningResponse} from './voaListening';
+import {contentCatalogueResponse} from './learningContent';
 
 type Env = SpeechEnv & LearnerEnv & CoachEnv & PronunciationEnv & { ASSETS: { fetch(request: Request): Promise<Response> } };
 const json = (body: object, status: number) => Response.json(body, { status, headers: { 'Cache-Control': 'no-store' } });
@@ -20,7 +21,6 @@ async function handleRequest(request: Request, env: Env): Promise<Response> {
     if (locale) parts.shift();
     const legacy = parts[0] && Object.prototype.hasOwnProperty.call(englishRoutes, parts[0]) ? parts[0] as keyof typeof englishRoutes : undefined;
     if (legacy || locale) { if (legacy) parts[0] = englishRoutes[legacy]; url.pathname = '/' + parts.join('/'); return Response.redirect(url.toString(), 308); }
-    if (url.pathname === '/reading' || url.pathname === '/reading/') { url.pathname = '/vocabulary'; return Response.redirect(url.toString(), 307); }
     const denied=await accessGuard(request,env);if(denied)return denied;
     if (url.pathname.startsWith('/api/')) {
       if(url.pathname.startsWith('/api/billing/'))return billingResponse(request,env);
@@ -29,7 +29,9 @@ async function handleRequest(request: Request, env: Env): Promise<Response> {
       if(url.pathname.startsWith('/api/invitations/admin/'))return invitationAdmin(request,env);
       if(url.pathname==='/api/coach')return coachResponse(request,env);
       if(url.pathname==='/api/pronunciation')return pronunciationResponse(request,env);
-      if(url.pathname==='/api/vocabulary/listening')return voaListeningResponse(request);
+      // /api/vocabulary/listening stays for cached clients from before Listening became its own section.
+      if(url.pathname==='/api/listening/audio'||url.pathname==='/api/vocabulary/listening')return voaListeningResponse(request);
+      if(url.pathname==='/api/content/catalogue')return contentCatalogueResponse(request,env);
       if (url.pathname.startsWith('/api/learners/')) return learnerResponse(request,env);
       if (url.pathname === '/api/speech') return request.method === 'POST' ? speechResponse(request, env) : json({ error: 'Method not allowed.' }, 405);
       const endpoint = url.pathname === '/api/placement/speaking' ? { GET: speakingStatus, POST: speakingAssessment } : url.pathname === '/api/placement/writing' ? { GET: writingStatus, POST: writingAssessment } : undefined;

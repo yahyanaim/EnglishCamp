@@ -2,8 +2,7 @@
 
 import { PageWrapper } from "@/components/layout/PageWrapper";
 import { PageBanner } from "@/components/ui/PageBanner";
-import dynamic from "next/dynamic";
-import { ReadingIllustration } from "@/components/brand/ReadingIllustration";
+import { useRouter } from "next/navigation";
 import { LearningArt } from "@/components/brand/LearningArt";
 import { PracticeFrame } from "@/components/ui/PracticeFrame";
 import { SelectField } from "@/components/ui/shadcn/select-field";
@@ -12,16 +11,11 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useVocabulary, vocabId } from "@/store/useVocabulary";
 import { VocabularyPractice } from "@/components/learn/VocabularyPractice";
 import { SpeakerButton } from "@/components/ui/SpeakerButton";
-import { Search, Trash2, BookOpenCheck, ArrowUpDown, Download, Upload, Brain, PenLine, Eye, Target, BarChart3, BookHeart, Library, Plus, BookOpenText, ArrowLeft, ChevronRight, Bookmark, Headphones } from "lucide-react";
+import { Search, Trash2, BookOpenCheck, ArrowUpDown, Download, Upload, Brain, PenLine, Eye, Library, Plus } from "lucide-react";
 import { VOCABULARY_BANK, VocabBankEntry } from "@/data/vocabulary-5000";
-import { ALL_ARTICLES, LEVELS, LEVEL_LABELS, CATEGORIES } from "@/data/articles/index";
-import type { ReadingArticle } from "@/data/articles/index";
 
-const ArticleReader = dynamic(() => import("@/components/learn/ArticleReader"), { loading: () => <p role="status" className="text-sm text-[var(--color-text-secondary)]">Opening article…</p> });
-
-const VocabularyListening = dynamic(() => import("@/components/learn/VocabularyListening").then(module => module.VocabularyListening), { loading: () => <p role="status" className="text-sm text-[var(--color-text-secondary)]">Opening listening…</p> });
-
-type VocabView = "browse" | "quiz" | "write" | "bank" | "read" | "listening";
+/** Vocabulary is word learning only. Reading and listening have their own sections. */
+type VocabView = "browse" | "quiz" | "write" | "bank";
 
 const container = {
   hidden: {},
@@ -38,19 +32,19 @@ export default function VocabularyPage() {
   const [query, setQuery] = useState("");
   const [filter, setFilter] = useState<string>("all");
   const [sortBy, setSortBy] = useState<"date" | "alpha" | "mastery">("date");
-  const [view, setView] = useState<VocabView>("read");
+  const router = useRouter();
+  const [view, setView] = useState<VocabView>("browse");
   const [bankQuery, setBankQuery] = useState("");
   const [bankFilter, setBankFilter] = useState<string>("all");
   const [addedIds, setAddedIds] = useState<Set<string>>(new Set());
 
-  const [readQuery, setReadQuery] = useState("");
-  const [readLevel, setReadLevel] = useState<string>("all");
-  const [readCat, setReadCat] = useState<string>("all");
-  const [readSelected, setReadSelected] = useState<ReadingArticle | null>(null);
   useEffect(() => {
+    // Old bookmarks to the former reading and listening tabs open their new sections.
     const requested = new URLSearchParams(window.location.search).get("view");
-    if (requested === "browse" || requested === "listening") setView(requested);
-  }, []);
+    if (requested === "read") router.replace("/reading");
+    else if (requested === "listening") router.replace("/listening");
+    else if (requested === "bank" || requested === "quiz" || requested === "write") setView(requested);
+  }, [router]);
   const wordList = useMemo(() => {
     let items = query ? search(query) : getAll();
     if (filter !== "all") items = items.filter(([, v]) => v.category === filter);
@@ -102,17 +96,6 @@ export default function VocabularyPage() {
     setAddedIds((prev) => new Set(prev).add(entry.w.toLowerCase()));
   }
 
-  const readFiltered = useMemo(() => {
-    let items = ALL_ARTICLES;
-    if (readQuery) {
-      const q = readQuery.toLowerCase();
-      items = items.filter((a) => a.title.toLowerCase().includes(q) || a.paragraphs.some((p) => p.en.toLowerCase().includes(q)));
-    }
-    if (readLevel !== "all") items = items.filter((a) => a.level === readLevel);
-    if (readCat !== "all") items = items.filter((a) => a.category === readCat);
-    return items;
-  }, [readQuery, readLevel, readCat]);
-
   function handleExport() {
     const data = exportWords();
     const blob = new Blob([data], { type: "application/json" });
@@ -145,7 +128,7 @@ export default function VocabularyPage() {
 
   return (<PageWrapper><motion.div variants={container} initial="hidden" animate="show" className="camp-vocabulary-page space-y-6">
       {/* Header */}
-      <PageBanner><h1>Vocabulary & Reading</h1><p>Read, listen and practise useful words.</p></PageBanner>
+      <PageBanner><h1>Vocabulary</h1><p>Learn, save and practise useful English words.</p></PageBanner>
 
       {/* Saved-word stats belong to the personal word list. */}
       {view === "browse" && <motion.div variants={itemAnim} className="grid grid-cols-2 sm:grid-cols-4 gap-3">
@@ -171,8 +154,6 @@ export default function VocabularyPage() {
         {([
           { id: "browse" as const, label: "My Bank", icon: Eye },
           { id: "bank" as const, label: "Word library", icon: Library },
-          { id: "read" as const, label: "Read & Listen", icon: BookOpenText },
-          { id: "listening" as const, label: "Listening", icon: Headphones },
           { id: "quiz" as const, label: "Quiz", icon: Brain },
           { id: "write" as const, label: "Write", icon: PenLine },
         ]).map((v) => {
@@ -381,77 +362,6 @@ export default function VocabularyPage() {
             )}
           </motion.div>
         </>
-      ) : view === "listening" ? (
-        <VocabularyListening onOpenBank={() => setView("browse")} />
-      ) : view === "read" ? (
-        readSelected ? (
-          <ArticleReader key={readSelected.id} article={readSelected} onBack={() => setReadSelected(null)} onOpenBank={()=>{setReadSelected(null);setView("browse");}} />
-        ) : (
-          <>
-            <motion.div variants={itemAnim} className="flex flex-wrap gap-3 items-center">
-              <div className="relative flex-1 min-w-[200px]">
-                <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-[var(--color-text-secondary)]" />
-                <input
-                  type="text"
-                  value={readQuery}
-                  onChange={(e) => setReadQuery(e.target.value)}
-                  placeholder="Search articles..."
-                  className="w-full h-12 pl-10 pr-4 bg-[var(--color-surface)] rounded-[var(--radius-md)] border border-[var(--color-border-default)] font-body text-sm font-medium text-[var(--color-text-primary)] placeholder:text-[var(--color-text-secondary)] placeholder:italic outline-none transition-all duration-150"
-                  style={{ boxShadow: "0 2px 0 var(--color-border-default)" }}
-                  onFocus={(e) => { e.target.style.borderColor = "var(--color-border-focus)"; e.target.style.boxShadow = "0 2px 0 var(--color-border-focus), 0 0 0 3px rgba(126,34,206,0.15)"; }}
-                  onBlur={(e) => { e.target.style.borderColor = "var(--color-border-default)"; e.target.style.boxShadow = "0 2px 0 var(--color-border-default)"; }}
-                />
-              </div>
-              <SelectField
-                value={readLevel}
-                onValueChange={value => setReadLevel(value)}
-                className="font-body text-sm bg-[var(--color-surface)] border border-[var(--color-border-default)] rounded-[var(--radius-md)] px-3 py-2.5 outline-none text-[var(--color-text-primary)] transition-all duration-150"
-                style={{ boxShadow: "0 2px 0 var(--color-border-default)" }}
-              >
-                <option value="all">All Levels</option>
-                {LEVELS.map((l) => (<option key={l} value={l}>{LEVEL_LABELS[l]}</option>))}
-              </SelectField>
-              <SelectField
-                value={readCat}
-                onValueChange={value => setReadCat(value)}
-                className="font-body text-sm bg-[var(--color-surface)] border border-[var(--color-border-default)] rounded-[var(--radius-md)] px-3 py-2.5 outline-none text-[var(--color-text-primary)] transition-all duration-150"
-                style={{ boxShadow: "0 2px 0 var(--color-border-default)" }}
-              >
-                <option value="all">All Categories</option>
-                {CATEGORIES.map((c) => (<option key={c} value={c}>{c}</option>))}
-              </SelectField>
-              <span className="font-body text-xs text-[var(--color-text-secondary)]">{readFiltered.length} articles</span>
-            </motion.div>
-            <motion.div variants={itemAnim} className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {readFiltered.map((article) => (
-                <motion.button
-                  key={article.id}
-                  onClick={() => setReadSelected(article)}
-                  className="camp-article-card"
-                  whileHover={{ y: -2 }}
-                >
-                  <ReadingIllustration article={article} />
-                  <div className="flex items-center gap-2 mb-2">
-                    <span className="font-body text-[10px] font-semibold text-[var(--color-text-link)] bg-[var(--color-primary-subtle)] px-2 py-0.5 rounded-[var(--radius-pill)]">{LEVEL_LABELS[article.level]}</span>
-                    <span className="font-body text-[10px] font-semibold text-[var(--color-text-secondary)] bg-[var(--color-surface-alt)] px-2 py-0.5 rounded-[var(--radius-pill)]">{article.category}</span>
-                  </div>
-                  <h3 className="font-display font-bold text-sm text-[var(--color-text-primary)] leading-snug">{article.title}</h3>
-                  <p className="font-body text-xs text-[var(--color-text-secondary)] mt-2 line-clamp-2">{article.paragraphs[0]?.en.slice(0, 120)}...</p>
-                  <div className="flex items-center gap-1 mt-3 text-[var(--color-primary)] font-body text-xs font-bold">
-                    Read & listen <ChevronRight className="w-3 h-3" />
-                  </div>
-                </motion.button>
-              ))}
-            </motion.div>
-            {readFiltered.length === 0 && (
-              <div className="text-center py-16">
-                <LearningArt name="BookOpenText" size={36} className="w-12 h-12 mx-auto mb-3" />
-                <p className="font-display font-bold text-sm text-[var(--color-text-secondary)]">No articles found</p>
-                <p className="font-body text-xs mt-1 text-[var(--color-text-secondary)]">Try a different search or filter</p>
-              </div>
-            )}
-          </>
-        )
       ) : (
         <PracticeFrame layout="quiz"><VocabularyPractice key={view} mode={view === "write" ? "write" : "quiz"} showModeSwitch={false} /></PracticeFrame>
       )}
