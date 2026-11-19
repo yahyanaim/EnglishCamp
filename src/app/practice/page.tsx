@@ -4,10 +4,11 @@ import { LearningArt } from "@/components/brand/LearningArt";
 import { PracticeBanner as PageBanner } from "@/components/ui/PracticeBanner";
 import dynamic from "next/dynamic";
 import { useEffect, useRef, useState, type ComponentType } from "react";
-import { ChevronRight } from "lucide-react";
 import { PageWrapper } from "@/components/layout/PageWrapper";
 import { BackButton } from "@/components/ui/BackButton";
 import { PracticeFrame } from "@/components/ui/PracticeFrame";
+import { PracticeHubHome } from "@/components/practice/PracticeHubHome";
+import { usePracticeHistory } from "@/store/usePracticeHistory";
 const NounGenderTrainer = dynamic(() => import("@/components/learn/NounGenderTrainer").then(module => module.NounGenderTrainer), { ssr: false, loading: () => <div className="camp-loading" role="status">Loading practice…</div> });
 const ConjugationTrainer = dynamic(() => import("@/components/learn/ConjugationTrainer").then(module => module.ConjugationTrainer), { ssr: false, loading: () => <div className="camp-loading" role="status">Loading practice…</div> });
 const SentenceBuilder = dynamic(() => import("@/components/learn/SentenceBuilder").then(module => module.SentenceBuilder), { ssr: false, loading: () => <div className="camp-loading" role="status">Loading practice…</div> });
@@ -326,6 +327,7 @@ export default function PracticePage() {
   const [activeTrainer, setActiveTrainer] = useState<TrainerId | null>(null);
   const returnTo = useRef<TrainerId | null>(null);
   const activityHeading = useRef<HTMLHeadingElement>(null);
+  const recordVisit = usePracticeHistory(state => state.open);
 
   useEffect(() => {
     if (activeTrainer) {
@@ -354,9 +356,16 @@ export default function PracticePage() {
   }
 
   const totalTrainers = CATEGORIES.reduce((sum, category) => sum + category.trainers.length, 0);
+  const open = (id: string) => {
+    const trainer = CATEGORIES.flatMap(category => category.trainers).find(item => item.id === id);
+    if (!trainer) return;
+    returnTo.current = trainer.id;
+    recordVisit(trainer.id);
+    setActiveTrainer(trainer.id);
+  };
 
   return (
-    <PageWrapper className="camp-practice-hub">
+    <PageWrapper className="camp-practice-hub" back={false}>
       <PageBanner>
         <h1 className="camp-library-activity-title">
           <LearningArt name="Brain" size={24} />
@@ -364,40 +373,7 @@ export default function PracticePage() {
         </h1>
         <p>{totalTrainers} trainers and games to practice your English</p>
       </PageBanner>
-      <nav className="camp-practice-categories" aria-label="Practice categories">
-        {CATEGORIES.map(category => (
-          <a key={category.id} href={`#practice-${category.id}`}>{category.label}</a>
-        ))}
-      </nav>
-      {CATEGORIES.map(category => {
-        const sectionId = `practice-${category.id}`;
-        return (
-          <section key={category.id} className="camp-learning-library-group" aria-labelledby={sectionId}>
-            <h2 id={sectionId} tabIndex={-1}>{category.label}</h2>
-            <div className="camp-trainer-grid">
-              {category.trainers.map(trainer => (
-                <button
-                  key={trainer.id}
-                  id={`trainer-${trainer.id}`}
-                  type="button"
-                  className="camp-learning-library-card"
-                  onClick={() => {
-                    returnTo.current = trainer.id;
-                    setActiveTrainer(trainer.id);
-                  }}
-                >
-                  <span className="camp-library-card-icon"><LearningArt name={trainer.icon} size={23} /></span>
-                  <span className="camp-library-card-copy">
-                    <strong>{trainerLabel(trainer)}</strong>
-                    <span>{trainer.desc}</span>
-                  </span>
-                  <ChevronRight className="camp-library-card-arrow" size={18} aria-hidden="true" />
-                </button>
-              ))}
-            </div>
-          </section>
-        );
-      })}
+      <PracticeHubHome categories={CATEGORIES} labelOf={trainer => trainerLabel(trainer as { id: TrainerId; label: string })} onOpen={open} />
     </PageWrapper>
   );
 }
