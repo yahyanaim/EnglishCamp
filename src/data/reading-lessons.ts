@@ -419,6 +419,386 @@ const beginner: ReadingLesson[] = [
       mc("detail", "What is Lucy’s job?", ["She is a nurse.", "She is a teacher.", "She is a translator.", "She is a doctor."], "a nurse from Manchester", "Lucy is a nurse from Manchester."),
     ]),
   },
+  {
+    id: "a1-my-cat-mimi", title: "My Cat Mimi", level: "A1", category: "Animals", status: "review", source: "englishcamp",
+    paragraphs: [
+      "I have a cat. Her name is Mimi. She is three years old. She is white with a black tail.",
+      "Mimi sleeps a lot. In the morning, she sleeps on my bed. In the afternoon, she sleeps in the sun near the window.",
+      "Mimi eats fish and drinks milk. She does not like dogs. When my neighbour's dog comes, Mimi runs under the table.",
+    ],
+    glossary: [
+      { word: "tail", ar: "ذيل", def: "The long part at the back of an animal's body." },
+      { word: "sleep", ar: "ينام", def: "To rest with your eyes closed." },
+      { word: "window", ar: "نافذة", def: "An opening in a wall with glass in it." },
+      { word: "neighbour", ar: "جار", def: "A person who lives near you." },
+    ],
+    questions: build("a1-my-cat-mimi", [
+      mc("main-idea", "What is the text about?", ["A pet cat", "A big dog", "A fish shop", "A new bed"], "I have a cat. Her name is Mimi.", "The text describes Mimi, the writer's cat."),
+      sa("detail", "How old is Mimi? Write a number.", ["3", "three", "three years old", "3 years old"], "She is three years old.", "Mimi is three years old."),
+      tf("detail", "Mimi likes dogs.", false, "She does not like dogs.", "She does not like dogs. She runs under the table."),
+      mc("detail", "Where does Mimi sleep in the afternoon?", ["In the sun near the window", "On the bed", "Under the table", "In the garden"], "In the afternoon, she sleeps in the sun near the window.", "In the morning she sleeps on the bed; in the afternoon, near the window."),
+    ]),
+  },
+  {
+    id: "a1-at-the-cafe", title: "At the Café", level: "A1", category: "Food", status: "review", source: "englishcamp",
+    paragraphs: [
+      "It is Sunday. Nadia and her friend Yasmine go to a café in the city centre. The café is small but nice.",
+      "Nadia orders a mint tea and a piece of chocolate cake. Yasmine orders an orange juice and a croissant. The waiter is very friendly.",
+      "They sit outside and talk for an hour. The bill is sixty dirhams. Nadia pays today, and Yasmine pays next week.",
+    ],
+    glossary: [
+      { word: "order", ar: "يطلب", def: "To ask for food or drink in a café or restaurant." },
+      { word: "waiter", ar: "نادل", def: "A person who brings food and drinks to tables." },
+      { word: "outside", ar: "في الخارج", def: "Not in a building." },
+      { word: "bill", ar: "الفاتورة", def: "A paper that shows how much you must pay." },
+    ],
+    questions: build("a1-at-the-cafe", [
+      mc("main-idea", "What is the text about?", ["Two friends at a café", "A new job at a café", "How to make cake", "A trip to another city"], "Nadia and her friend Yasmine go to a café in the city centre.", "Nadia and Yasmine spend time at a café."),
+      mc("detail", "What does Nadia drink?", ["Mint tea", "Orange juice", "Coffee", "Water"], "Nadia orders a mint tea", "Nadia has mint tea. Yasmine has orange juice."),
+      sa("detail", "How much is the bill? Write the number.", ["60", "sixty", "sixty dirhams", "60 dirhams"], "The bill is sixty dirhams.", "The bill is sixty dirhams."),
+      tf("detail", "Yasmine pays today.", false, "Nadia pays today, and Yasmine pays next week.", "Nadia pays today. Yasmine pays next week."),
+    ]),
+  },
+  {
+    id: "a1-my-bedroom", title: "My Bedroom", level: "A1", category: "Home", status: "review", source: "englishcamp",
+    paragraphs: [
+      "My bedroom is small, but I love it. The walls are yellow. There is one big window.",
+      "There is a bed, a desk and a chair in my room. My books are on a shelf above the desk. My clothes are in a brown cupboard.",
+      "I do my homework at the desk every evening. At night, I read a book in bed before I sleep.",
+    ],
+    glossary: [
+      { word: "wall", ar: "حائط / جدار", def: "One of the sides of a room." },
+      { word: "desk", ar: "مكتب", def: "A table where you write or study." },
+      { word: "shelf", ar: "رفّ", def: "A flat board on a wall for keeping things on." },
+      { word: "cupboard", ar: "خزانة", def: "A piece of furniture with doors where you keep things." },
+    ],
+    questions: build("a1-my-bedroom", [
+      mc("main-idea", "What is the text about?", ["The writer's bedroom", "A school library", "A furniture shop", "A big house"], "My bedroom is small, but I love it.", "The writer describes their bedroom."),
+      mc("detail", "What colour are the walls?", ["Yellow", "Brown", "White", "Blue"], "The walls are yellow.", "The walls are yellow. The cupboard is brown."),
+      tf("detail", "The books are on a shelf above the desk.", true, "My books are on a shelf above the desk.", "Yes, the books are on a shelf above the desk."),
+      sa("detail", "Where are the clothes? Write one word.", ["cupboard", "in a cupboard", "in the cupboard", "in a brown cupboard", "wardrobe"], "My clothes are in a brown cupboard.", "The clothes are in a brown cupboard."),
+    ]),
+  },
+  {
+    id: "a1-a-visit-to-grandma", title: "A Visit to Grandma", level: "A1", category: "Family", status: "review", source: "englishcamp",
+    paragraphs: [
+      "Every Friday, I visit my grandmother. She lives in a village near the mountains. I go there by bus with my mother.",
+      "My grandmother has a garden with tomatoes, mint and lemon trees. She also has six chickens. I help her give food to the chickens.",
+      "We eat lunch together. Grandma makes couscous for us. After lunch, she tells us stories about her life when she was young.",
+    ],
+    glossary: [
+      { word: "village", ar: "قرية", def: "A very small town in the countryside." },
+      { word: "garden", ar: "حديقة / بستان", def: "Land near a house where people grow plants." },
+      { word: "chicken", ar: "دجاجة", def: "A bird that people keep for eggs and meat." },
+      { word: "story", ar: "قصة / حكاية", def: "A description of things that happened, told to other people." },
+    ],
+    questions: build("a1-a-visit-to-grandma", [
+      mc("main-idea", "What is the text about?", ["Visiting a grandmother in her village", "Buying chickens at a market", "A school trip to the mountains", "Cooking lessons in the city"], "Every Friday, I visit my grandmother.", "The writer visits Grandma every Friday."),
+      mc("detail", "How does the writer go to the village?", ["By bus", "By car", "On foot", "By train"], "I go there by bus with my mother.", "They go by bus."),
+      sa("detail", "How many chickens does Grandma have? Write a number.", ["6", "six", "six chickens"], "She also has six chickens.", "She has six chickens."),
+      tf("detail", "Grandma makes couscous for lunch.", true, "Grandma makes couscous for us.", "Yes, she makes couscous."),
+    ]),
+  },
+  {
+    id: "a1-my-school-day", title: "My School Day", level: "A1", category: "Education", status: "review", source: "englishcamp",
+    paragraphs: [
+      "My name is Adam. I am a student at a high school in Fes. School starts at eight o'clock.",
+      "I have six lessons every day. My favourite lesson is science. I don't like history very much. At ten o'clock we have a short break, and I play football with my friends.",
+      "School finishes at four o'clock. Then I go home, I have a snack and I do my homework.",
+    ],
+    glossary: [
+      { word: "lesson", ar: "حصة / درس", def: "A time when you learn something in class." },
+      { word: "favourite", ar: "المفضّل", def: "The one you like more than all the others." },
+      { word: "break", ar: "استراحة", def: "A short time when you stop working or studying." },
+      { word: "snack", ar: "وجبة خفيفة", def: "A small amount of food eaten between meals." },
+    ],
+    questions: build("a1-my-school-day", [
+      mc("main-idea", "What is the text about?", ["Adam's day at school", "A football match", "Adam's family in Fes", "A science test"], "I am a student at a high school in Fes.", "Adam describes a normal school day."),
+      sa("detail", "How many lessons does Adam have every day? Write a number.", ["6", "six", "six lessons"], "I have six lessons every day.", "He has six lessons."),
+      mc("detail", "What is Adam's favourite lesson?", ["Science", "History", "English", "Sport"], "My favourite lesson is science.", "He likes science. He doesn't like history very much."),
+      tf("detail", "School finishes at four o'clock.", true, "School finishes at four o'clock.", "Yes. School starts at eight and finishes at four."),
+    ]),
+  },
+  {
+    id: "a1-the-weekend", title: "The Weekend", level: "A1", category: "Free time", status: "review", source: "englishcamp",
+    paragraphs: [
+      "I work from Monday to Friday, so I love the weekend. On Saturday morning, I clean my flat and wash my clothes.",
+      "On Saturday afternoon, I go to the gym with my brother. In the evening, we watch a film or play cards with our friends.",
+      "On Sunday, I get up late, at ten o'clock. I call my parents and then I go for a walk by the river.",
+    ],
+    glossary: [
+      { word: "weekend", ar: "عطلة نهاية الأسبوع", def: "Saturday and Sunday." },
+      { word: "clean", ar: "ينظّف", def: "To make something not dirty." },
+      { word: "gym", ar: "قاعة رياضة", def: "A place where people exercise." },
+      { word: "river", ar: "نهر", def: "A long line of water that moves across land." },
+    ],
+    questions: build("a1-the-weekend", [
+      mc("main-idea", "What is the text about?", ["What the writer does at the weekend", "The writer's job", "A film at the cinema", "Life by the river"], "I work from Monday to Friday, so I love the weekend.", "The text describes Saturday and Sunday."),
+      mc("detail", "Who does the writer go to the gym with?", ["Their brother", "Their parents", "A friend from work", "Nobody"], "I go to the gym with my brother.", "They go to the gym with their brother."),
+      tf("detail", "On Sunday, the writer gets up early.", false, "On Sunday, I get up late, at ten o'clock.", "They get up late, at ten o'clock."),
+      sa("detail", "Where does the writer go for a walk on Sunday?", ["by the river", "the river", "river", "near the river"], "I go for a walk by the river.", "They walk by the river."),
+    ]),
+  },
+  {
+    id: "a2-lost-phone", title: "The Lost Phone", level: "A2", category: "Daily life", status: "review", source: "englishcamp",
+    paragraphs: [
+      "Last Tuesday, Youssef left his phone on the train. He only noticed when he arrived at his office and wanted to call a client. He felt terrible, because all his photos and contacts were on it.",
+      "His colleague Amal had an idea. She called Youssef's number from her phone. After a few rings, a woman answered. She said she had found the phone on a seat and was going to take it to the station office.",
+      "That evening, Youssef went to the station and got his phone back. To say thank you, he left a box of chocolates for the woman. Now he always checks his pockets before he gets off the train.",
+    ],
+    glossary: [
+      { word: "notice", ar: "يلاحظ", def: "To see or become aware of something." },
+      { word: "client", ar: "زبون / عميل", def: "A person who pays for a service from a company." },
+      { word: "colleague", ar: "زميل عمل", def: "A person you work with." },
+      { word: "pocket", ar: "جيب", def: "A small bag sewn into clothes." },
+    ],
+    questions: build("a2-lost-phone", [
+      mc("main-idea", "What is the story mainly about?", ["How Youssef got his lost phone back", "Youssef's new job", "A woman who stole a phone", "Buying a new phone"], "That evening, Youssef went to the station and got his phone back.", "Youssef loses his phone and gets it back the same day."),
+      mc("detail", "Where did Youssef leave his phone?", ["On the train", "At the office", "In a café", "At home"], "Youssef left his phone on the train.", "He left it on the train."),
+      tf("detail", "Amal found the phone on a seat.", false, "She said she had found the phone on a seat", "A woman on the train found it. Amal called the number."),
+      mc("inference", "What does Youssef do differently now?", ["He checks his pockets before he gets off the train.", "He drives to work.", "He never takes his phone to work.", "He keeps chocolates in his bag."], "Now he always checks his pockets before he gets off the train.", "He learned to check his pockets."),
+    ]),
+  },
+  {
+    id: "a2-cooking-class", title: "My First Cooking Class", level: "A2", category: "Food", status: "review", source: "englishcamp",
+    paragraphs: [
+      "I can't cook very well, so last month I joined a cooking class. The class is on Wednesday evenings in a small restaurant kitchen. There are eight students and one teacher, Chef Rachid.",
+      "In the first lesson, we made a vegetable tagine. Chef Rachid showed us how to cut onions quickly without crying. I cut my finger a little, but it wasn't serious.",
+      "My tagine wasn't perfect. It had too much salt. But my family ate it all and said it was delicious. Next week we are going to learn how to make bread.",
+    ],
+    glossary: [
+      { word: "join", ar: "ينضمّ إلى", def: "To become a member of a group or class." },
+      { word: "kitchen", ar: "مطبخ", def: "A room where food is cooked." },
+      { word: "serious", ar: "خطير", def: "Bad or dangerous." },
+      { word: "delicious", ar: "لذيذ", def: "Very good to eat." },
+    ],
+    questions: build("a2-cooking-class", [
+      mc("main-idea", "What is the text about?", ["The writer's first cooking class", "How to open a restaurant", "A famous chef's life", "A family dinner party"], "last month I joined a cooking class", "The writer describes the first lesson of a cooking class."),
+      sa("detail", "How many students are in the class? Write a number.", ["8", "eight", "eight students"], "There are eight students and one teacher", "There are eight students."),
+      tf("detail", "The writer's tagine had too much salt.", true, "It had too much salt.", "Yes, it had too much salt."),
+      mc("detail", "What will the class learn next week?", ["How to make bread", "How to make a tagine", "How to cut onions", "How to make cakes"], "Next week we are going to learn how to make bread.", "Next week they will make bread."),
+    ]),
+  },
+  {
+    id: "a2-new-neighbours", title: "New Neighbours", level: "A2", category: "Community", status: "review", source: "englishcamp",
+    paragraphs: [
+      "A month ago, a young family moved into the flat next to ours. At first, we only said hello on the stairs. They had two small children, and we could hear them playing in the evening.",
+      "One day, the mother, Sara, knocked on our door. She needed some sugar because the shops were closed. My mother gave her the sugar and invited her in for tea. They talked for two hours.",
+      "Now our families are good friends. The children call my mother 'auntie', and Sara sometimes brings us cakes. My mother says that a good neighbour is better than a far relative.",
+    ],
+    glossary: [
+      { word: "move into", ar: "ينتقل للسكن في", def: "To start living in a new home." },
+      { word: "stairs", ar: "درج / سلالم", def: "Steps that go from one floor to another." },
+      { word: "knock", ar: "يطرق (الباب)", def: "To hit a door to show you are there." },
+      { word: "relative", ar: "قريب (من العائلة)", def: "A person in your family." },
+    ],
+    questions: build("a2-new-neighbours", [
+      mc("main-idea", "What is the story mainly about?", ["How two neighbouring families became friends", "A family that moved to another city", "Problems with noisy children", "How to make cakes"], "Now our families are good friends.", "The families start as strangers and become friends."),
+      mc("detail", "Why did Sara knock on the door?", ["She needed some sugar.", "The children were too noisy.", "She wanted to sell cakes.", "She was lost."], "She needed some sugar because the shops were closed.", "She needed sugar because the shops were closed."),
+      sa("detail", "How long did the two mothers talk? Write the time.", ["two hours", "2 hours", "for two hours", "2"], "They talked for two hours.", "They talked for two hours."),
+      tf("detail", "The family moved in a year ago.", false, "A month ago, a young family moved into the flat next to ours.", "They moved in a month ago."),
+    ]),
+  },
+  {
+    id: "a2-train-to-marrakech", title: "The Train to Marrakech", level: "A2", category: "Travel", status: "review", source: "englishcamp",
+    paragraphs: [
+      "Last summer, my cousin and I travelled from Rabat to Marrakech by train. We bought our tickets online a week before the trip, so they were cheaper.",
+      "The journey took about four hours. The train was comfortable and had air conditioning, which was important because it was very hot outside. We read, listened to music and looked at the countryside from the window.",
+      "In Marrakech, we stayed for three days. We visited the old medina and the gardens. On the last evening, we ate dinner in Jemaa el-Fna square. It was noisy, but the food was excellent.",
+    ],
+    glossary: [
+      { word: "journey", ar: "رحلة", def: "Travelling from one place to another." },
+      { word: "comfortable", ar: "مريح", def: "Pleasant to sit in or use." },
+      { word: "countryside", ar: "الريف", def: "Land outside towns and cities, with fields and farms." },
+      { word: "noisy", ar: "صاخب", def: "Full of loud sounds." },
+    ],
+    questions: build("a2-train-to-marrakech", [
+      mc("main-idea", "What is the text about?", ["A train trip to Marrakech", "Life in Rabat", "How to buy a train", "A restaurant in Marrakech"], "my cousin and I travelled from Rabat to Marrakech by train", "The writer describes a trip by train and the stay in Marrakech."),
+      mc("detail", "Why were the tickets cheaper?", ["They bought them a week before the trip.", "They travelled at night.", "They were students.", "The train was old."], "We bought our tickets online a week before the trip, so they were cheaper.", "Buying early made them cheaper."),
+      sa("detail", "How many days did they stay in Marrakech? Write a number.", ["3", "three", "three days", "3 days"], "In Marrakech, we stayed for three days.", "They stayed three days."),
+      tf("detail", "The train had no air conditioning.", false, "The train was comfortable and had air conditioning", "It had air conditioning."),
+    ]),
+  },
+  {
+    id: "b1-working-from-home", title: "Working from Home", level: "B1", category: "Work", status: "review", source: "englishcamp",
+    paragraphs: [
+      "Two years ago, Ines's company allowed employees to work from home three days a week. At first, she thought it would be perfect. She would save an hour of travel every day and could start work in comfortable clothes.",
+      "After a few weeks, however, she noticed some problems. She found it hard to stop working in the evening because her laptop was always on the kitchen table. She also missed chatting with colleagues during lunch, and she sometimes felt lonely.",
+      "Now she follows a few simple rules. She works in a small corner of the living room, not in the kitchen, and she switches off her laptop at six o'clock. On home days, she also tries to meet a friend or go for a walk. She says that working from home is great, but only if you set clear limits.",
+    ],
+    glossary: [
+      { word: "employee", ar: "موظّف", def: "A person who is paid to work for a company." },
+      { word: "lonely", ar: "وحيد / يشعر بالوحدة", def: "Sad because you are alone." },
+      { word: "switch off", ar: "يُطفئ", def: "To stop a machine by pressing a button." },
+      { word: "limit", ar: "حدّ", def: "A point that you decide not to go past." },
+    ],
+    questions: build("b1-working-from-home", [
+      mc("main-idea", "What is Ines's main message?", ["Working from home is good if you set clear limits.", "Working from home is always lonely.", "Offices are better than homes.", "Laptops should be kept in kitchens."], "working from home is great, but only if you set clear limits", "Her conclusion is in the last sentence."),
+      sa("detail", "How many days a week can employees work from home? Write a number.", ["3", "three", "three days"], "work from home three days a week", "Three days a week."),
+      tf("detail", "Ines found it easy to stop working in the evening.", false, "She found it hard to stop working in the evening", "It was hard because her laptop was always on the kitchen table."),
+      mc("detail", "What time does Ines switch off her laptop now?", ["At six o'clock", "At five o'clock", "At lunchtime", "At midnight"], "she switches off her laptop at six o'clock", "She stops at six o'clock."),
+    ]),
+  },
+  {
+    id: "b1-the-marathon", title: "Running My First Marathon", level: "B1", category: "Sport", status: "review", source: "englishcamp",
+    paragraphs: [
+      "Hamid had never run more than five kilometres when his friend challenged him to take part in the Casablanca marathon. He had eight months to prepare. He downloaded a training plan and started running three times a week before work.",
+      "The first weeks were painful. His legs hurt and he often wanted to give up. Slowly, though, the distances became easier. He also changed his diet: he ate more vegetables and stopped drinking fizzy drinks.",
+      "On the day of the race, Hamid was nervous. After thirty kilometres he felt exhausted, but the crowd's cheers kept him going. He finished in four hours and forty minutes. He wasn't fast, but he was proud, and he has already signed up for next year's race.",
+    ],
+    glossary: [
+      { word: "challenge", ar: "يتحدّى", def: "To ask someone to try something difficult." },
+      { word: "give up", ar: "يستسلم", def: "To stop trying." },
+      { word: "exhausted", ar: "منهك جدًا", def: "Extremely tired." },
+      { word: "sign up", ar: "يسجّل اسمه", def: "To put your name on a list to take part in something." },
+    ],
+    questions: build("b1-the-marathon", [
+      mc("main-idea", "What is the story mainly about?", ["How Hamid prepared for and finished a marathon", "Why marathons are dangerous", "Hamid's friend who won a race", "A new diet for runners"], "He had eight months to prepare.", "The story follows his training and race."),
+      sa("detail", "How many months did Hamid have to prepare? Write a number.", ["8", "eight", "eight months"], "He had eight months to prepare.", "He had eight months."),
+      tf("detail", "Hamid stopped drinking fizzy drinks.", true, "stopped drinking fizzy drinks", "Yes, he changed his diet."),
+      mc("inference", "What helped Hamid continue after thirty kilometres?", ["The crowd's cheers", "A long rest", "His training plan app", "A fizzy drink"], "the crowd's cheers kept him going", "The crowd kept him going."),
+    ]),
+  },
+  {
+    id: "b1-saving-money", title: "Learning to Save", level: "B1", category: "Money", status: "review", source: "englishcamp",
+    paragraphs: [
+      "When Zineb got her first job, she spent most of her salary within two weeks. She bought clothes, ate in restaurants and ordered things online. By the end of each month, she had to borrow money from her brother.",
+      "One day, her brother suggested a simple method. As soon as she received her salary, she would move twenty percent into a separate savings account. Then she would plan her spending with the money that was left.",
+      "It wasn't easy at the beginning. Zineb had to cook at home more often and think twice before buying things. But after one year, she had enough money for a holiday in Spain, and she no longer needed to borrow from anyone.",
+    ],
+    glossary: [
+      { word: "salary", ar: "راتب", def: "Money you receive every month for your job." },
+      { word: "borrow", ar: "يقترض / يستعير", def: "To take something and promise to give it back." },
+      { word: "account", ar: "حساب (بنكي)", def: "An arrangement with a bank to keep your money." },
+      { word: "spending", ar: "إنفاق", def: "The money that you use to buy things." },
+    ],
+    questions: build("b1-saving-money", [
+      mc("main-idea", "What is the text mainly about?", ["How Zineb learned to save money", "How to open a business", "Zineb's holiday in Spain", "Why online shopping is dangerous"], "her brother suggested a simple method", "Zineb changes her habits and starts saving."),
+      sa("detail", "What percentage of her salary did Zineb save? Write a number.", ["20", "twenty", "20%", "twenty percent", "20 percent"], "she would move twenty percent into a separate savings account", "She saved twenty percent."),
+      tf("detail", "At first, Zineb had to borrow money at the end of each month.", true, "she had to borrow money from her brother", "Yes, she borrowed from her brother."),
+      mc("detail", "What could Zineb pay for after one year?", ["A holiday in Spain", "A new car", "A flat", "University fees"], "she had enough money for a holiday in Spain", "She saved enough for a holiday in Spain."),
+    ]),
+  },
+  {
+    id: "b1-volunteering-at-the-library", title: "Volunteering at the Library", level: "B1", category: "Community", status: "review", source: "englishcamp",
+    paragraphs: [
+      "Every Saturday morning, Mehdi volunteers at the public library in his town. He started last year because he wanted to do something useful in his free time and because he has always loved books.",
+      "His main job is to read stories to young children. At first, he was shy and read too quietly. The librarian advised him to change his voice for each character and to show the pictures to the children. Now the children laugh, ask questions and sometimes act out the stories.",
+      "Mehdi also helps older people use the library computers. Some of them want to send emails to their grandchildren abroad. He says volunteering has made him more confident, and he is now thinking about becoming a teacher.",
+    ],
+    glossary: [
+      { word: "volunteer", ar: "يتطوّع", def: "To work without being paid." },
+      { word: "shy", ar: "خجول", def: "Nervous about talking to other people." },
+      { word: "character", ar: "شخصية (في قصة)", def: "A person in a story." },
+      { word: "confident", ar: "واثق من نفسه", def: "Sure about your own abilities." },
+    ],
+    questions: build("b1-volunteering-at-the-library", [
+      mc("main-idea", "What is the text mainly about?", ["Mehdi's volunteer work at a library", "How to build a library", "A teacher's first job", "Children who don't like books"], "Mehdi volunteers at the public library in his town", "The text describes his volunteer work."),
+      mc("detail", "What advice did the librarian give Mehdi?", ["Change his voice for each character", "Read more quietly", "Choose shorter books", "Stop showing pictures"], "The librarian advised him to change his voice for each character", "She told him to change his voice and show the pictures."),
+      tf("detail", "Mehdi helps older people use the library computers.", true, "Mehdi also helps older people use the library computers.", "Yes, some want to email their grandchildren."),
+      mc("inference", "How has volunteering changed Mehdi?", ["He is more confident.", "He is more tired.", "He reads less.", "He wants to leave his town."], "volunteering has made him more confident", "He is more confident and thinking of teaching."),
+    ]),
+  },
+  {
+    id: "b1-a-wedding-in-the-family", title: "A Family Wedding", level: "B1", category: "Culture", status: "review", source: "englishcamp",
+    paragraphs: [
+      "My cousin Asmae got married last August, and the preparations started almost six months earlier. Her mother booked a hall, ordered the cakes and chose a band. Asmae spent weeks choosing her dresses, because in our region a bride usually wears several different outfits during the night.",
+      "The day before the wedding, the women of the family met for the henna party. An older neighbour painted beautiful patterns on Asmae's hands while everybody sang and ate sweets.",
+      "The wedding itself lasted until five in the morning. There were more than three hundred guests, and I was exhausted at the end. Still, it was a wonderful night, and the photos showed how happy Asmae was.",
+    ],
+    glossary: [
+      { word: "preparations", ar: "تحضيرات", def: "Things you do to get ready for an event." },
+      { word: "book", ar: "يحجز", def: "To arrange to use something at a future time." },
+      { word: "bride", ar: "عروس", def: "A woman on her wedding day." },
+      { word: "outfit", ar: "طقم / زيّ", def: "A set of clothes worn together." },
+    ],
+    questions: build("b1-a-wedding-in-the-family", [
+      mc("main-idea", "What is the text mainly about?", ["A cousin's wedding and its preparations", "How to become a wedding singer", "A trip abroad in August", "Cooking sweets for a party"], "My cousin Asmae got married last August", "The writer describes the preparations, henna party and wedding."),
+      mc("detail", "When did the preparations start?", ["Almost six months earlier", "One week earlier", "The day before", "A year earlier"], "the preparations started almost six months earlier", "They started almost six months before."),
+      tf("detail", "The henna party took place after the wedding.", false, "The day before the wedding, the women of the family met for the henna party.", "It was the day before the wedding."),
+      sa("detail", "Until what time did the wedding last?", ["five in the morning", "5 in the morning", "5 a.m.", "5am", "five", "5"], "The wedding itself lasted until five in the morning.", "It lasted until five in the morning."),
+    ]),
+  },
+  {
+    id: "b2-fast-fashion", title: "The Cost of Cheap Clothes", level: "B2", category: "Environment", status: "review", source: "englishcamp",
+    paragraphs: [
+      "Over the past twenty years, clothes have become remarkably cheap. Large chains now release new collections every few weeks, encouraging customers to buy more often and to throw away items they have worn only a handful of times. This business model is often called fast fashion.",
+      "The low prices, however, hide significant costs. Producing clothes requires huge amounts of water and energy, and many cheap garments are made from synthetic fibres that release tiny plastic particles when they are washed. In addition, workers in some factories are paid very little and work long hours in unsafe conditions.",
+      "Some consumers are responding by buying second-hand, repairing what they own or choosing fewer, better-quality items. Critics argue that individual choices alone cannot solve the problem and that governments should require brands to take responsibility for the full life of their products. Either way, the true price of a cheap T-shirt is clearly higher than the label suggests.",
+    ],
+    glossary: [
+      { word: "remarkably", ar: "بشكل لافت", def: "In a way that is surprising or worth noticing." },
+      { word: "garment", ar: "قطعة ملابس", def: "A piece of clothing." },
+      { word: "synthetic", ar: "صناعي (غير طبيعي)", def: "Made by chemical processes, not natural." },
+      { word: "second-hand", ar: "مستعمل", def: "Already owned and used by someone else." },
+    ],
+    questions: build("b2-fast-fashion", [
+      mc("main-idea", "What is the writer's main point?", ["Cheap clothes have hidden environmental and human costs.", "Fast fashion helps poor families.", "Synthetic fibres are better than natural ones.", "Governments should ban clothing chains."], "the true price of a cheap T-shirt is clearly higher than the label suggests", "The text explains costs that low prices hide."),
+      mc("detail", "What problem do synthetic fibres cause?", ["They release tiny plastic particles when washed.", "They are very expensive.", "They need no water.", "They last too long."], "release tiny plastic particles when they are washed", "Washing them releases plastic particles."),
+      tf("detail", "Critics believe individual choices alone can solve the problem.", false, "Critics argue that individual choices alone cannot solve the problem", "They want governments to make brands responsible."),
+      mc("vocabulary", "In the text, 'a handful of times' means…", ["only a few times", "with one hand", "many times", "every day"], "items they have worn only a handful of times", "A handful means a small number."),
+    ]),
+  },
+  {
+    id: "b2-sleep-and-screens", title: "Screens Before Sleep", level: "B2", category: "Health", status: "review", source: "englishcamp",
+    paragraphs: [
+      "Many people check their phones in bed, scrolling through messages and videos until they feel tired. Sleep researchers, however, warn that this habit may be making it harder for us to fall asleep and to rest properly.",
+      "One reason is light. Screens give off bright light that can signal to the brain that it is still daytime, delaying the release of the hormone that prepares the body for sleep. Another reason is the content itself: an exciting video or a stressful work email keeps the mind active precisely when it should be slowing down.",
+      "Experts suggest a simple routine. Put devices away at least thirty minutes before bedtime, keep the phone outside the bedroom if possible, and replace scrolling with a calmer activity such as reading a paper book. Those who try it often report that they fall asleep faster and wake up feeling more refreshed.",
+    ],
+    glossary: [
+      { word: "scroll", ar: "يتصفّح بالتمرير", def: "To move text or images up or down on a screen." },
+      { word: "delay", ar: "يؤخّر", def: "To make something happen later than usual." },
+      { word: "hormone", ar: "هرمون", def: "A chemical in the body that controls how it works." },
+      { word: "refreshed", ar: "منتعش", def: "Feeling rested and full of energy again." },
+    ],
+    questions: build("b2-sleep-and-screens", [
+      mc("main-idea", "What is the text mainly about?", ["Why using screens in bed can harm sleep and what to do", "How phones are made", "Why people dream", "The best videos to watch at night"], "this habit may be making it harder for us to fall asleep", "It explains the problem and suggests a routine."),
+      mc("detail", "How can screen light affect the brain?", ["It can signal that it is still daytime.", "It makes people hungry.", "It improves memory.", "It helps the body relax."], "signal to the brain that it is still daytime", "Bright light delays the sleep hormone."),
+      sa("detail", "How many minutes before bedtime should devices be put away? Write a number.", ["30", "thirty", "thirty minutes", "30 minutes"], "at least thirty minutes before bedtime", "At least thirty minutes."),
+      tf("inference", "According to the text, the content people watch can also keep the mind active.", true, "keeps the mind active precisely when it should be slowing down", "Exciting or stressful content keeps the mind active."),
+    ]),
+  },
+  {
+    id: "c1-four-day-week", title: "The Four-Day Week", level: "C1", category: "Work", status: "review", source: "englishcamp",
+    paragraphs: [
+      "The idea of a four-day working week, once dismissed as utopian, has moved steadily into the mainstream. In a number of trials, companies have reduced working hours without cutting salaries, on the condition that productivity remains at least as high as before.",
+      "Advocates point to encouraging outcomes: lower stress, fewer sick days and staff who are less likely to leave. They argue that much of the traditional working week is lost to unnecessary meetings and distractions, and that a shorter week forces organisations to prioritise what genuinely matters.",
+      "Sceptics, however, caution against drawing sweeping conclusions. Many trials have involved office-based firms that volunteered to take part, and which may therefore have been unusually well suited to the change. In sectors such as healthcare or retail, where someone must be present at all times, a shorter week may simply require hiring more staff. The debate, in other words, is less about whether the model can work than about where and for whom.",
+    ],
+    glossary: [
+      { word: "utopian", ar: "مثالي / طوباوي", def: "Based on an ideal that seems impossible to achieve." },
+      { word: "advocate", ar: "مؤيّد / مناصر", def: "A person who publicly supports an idea." },
+      { word: "sceptic", ar: "متشكّك", def: "A person who doubts that claims are true." },
+      { word: "sweeping", ar: "شامل ومُعمَّم", def: "Too general; applied widely without enough care." },
+    ],
+    questions: build("c1-four-day-week", [
+      mc("main-idea", "What is the writer's overall conclusion?", ["The question is where and for whom a four-day week works.", "The four-day week has failed everywhere.", "All companies should adopt a four-day week now.", "Shorter weeks always reduce productivity."], "less about whether the model can work than about where and for whom", "The last sentence reframes the debate."),
+      mc("detail", "What condition did companies in the trials set?", ["Productivity had to stay at least as high.", "Salaries had to be reduced.", "Staff had to work longer days.", "Meetings had to be doubled."], "on the condition that productivity remains at least as high as before", "Hours fell without salary cuts, as long as productivity held."),
+      tf("inference", "Sceptics suggest the trial results may not apply to every kind of company.", true, "may therefore have been unusually well suited to the change", "Volunteer office firms may not represent all sectors."),
+      mc("vocabulary", "In the text, 'dismissed' is closest in meaning to…", ["rejected as not worth considering", "fired from a job", "carefully tested", "warmly welcomed"], "once dismissed as utopian", "The idea was once rejected as unrealistic."),
+    ]),
+  },
+  {
+    id: "c2-the-attention-economy", title: "The Attention Economy", level: "C2", category: "Technology", status: "review", source: "englishcamp",
+    paragraphs: [
+      "In an age of abundant information, the scarce resource is no longer knowledge but attention. This insight, articulated decades before the smartphone, now underpins the business models of many of the world's most valuable companies, whose revenue depends less on what users pay than on how long they can be persuaded to stay.",
+      "The consequences are subtle but pervasive. Interfaces are refined through relentless experimentation to maximise engagement: notifications are timed, feeds are made endless, and recommendations are tuned to what holds the eye rather than what serves the mind. None of this requires malicious intent; it is simply what optimisation for a single metric tends to produce.",
+      "Defenders of the industry contend that users are free to look away and that these services provide genuine value at no monetary cost. Critics counter that freedom is a thin notion when one side of the exchange employs teams of engineers devoted to anticipating and exploiting human impulses. Whatever one's view, it seems prudent to treat one's attention as something to be spent deliberately, rather than surrendered by default.",
+    ],
+    glossary: [
+      { word: "scarce", ar: "نادر / شحيح", def: "Not available in large enough amounts." },
+      { word: "pervasive", ar: "متغلغل / منتشر", def: "Present everywhere, often in an unwelcome way." },
+      { word: "relentless", ar: "لا يهدأ / متواصل", def: "Continuing without stopping or becoming weaker." },
+      { word: "prudent", ar: "حكيم / حصيف", def: "Sensible and careful about the future." },
+    ],
+    questions: build("c2-the-attention-economy", [
+      mc("main-idea", "What is the central claim of the text?", ["Attention has become a scarce resource that many companies compete to capture.", "Smartphones have made people more knowledgeable.", "Technology companies act with malicious intent.", "Free services provide no value."], "the scarce resource is no longer knowledge but attention", "The text builds from this claim."),
+      tf("inference", "The writer believes engineers deliberately intend to harm users.", false, "None of this requires malicious intent", "The writer says the effects come from optimising one metric, not malice."),
+      mc("detail", "How do critics respond to the argument that users are free to look away?", ["They say that freedom is limited when the other side exploits human impulses.", "They agree completely.", "They say the services should cost money.", "They blame users for being lazy."], "freedom is a thin notion when one side of the exchange employs teams of engineers", "Critics see an imbalance of power."),
+      mc("vocabulary", "In the text, 'surrendered by default' suggests attention is…", ["given away without a conscious choice", "protected by law", "sold for a high price", "lost because of illness"], "rather than surrendered by default", "It contrasts with spending attention deliberately."),
+    ]),
+  },
 ];
 
 export const READING_LESSONS: readonly ReadingLesson[] = [...beginner, ...migrated].sort((a, b) => CEFR_LEVELS.indexOf(a.level) - CEFR_LEVELS.indexOf(b.level));

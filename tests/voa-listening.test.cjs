@@ -13,7 +13,7 @@ test('the curated VOA catalogue has at least four clips per level, eight at A1 a
   for (const level of LISTENING_LEVELS) {
     const clips = VOA_LISTENING.filter(clip => clip.level === level);
     assert.ok(clips.length >= 4, level);
-    if (level === 'A1' || level === 'B1') assert.equal(clips.length, 8, level);
+    assert.equal(clips.length, { A1: 16, A2: 17, B1: 28, B2: 13 }[level], level);
     assert.ok(new Set(clips.map(clip => clip.topic)).size >= 3, level);
   }
   for (const clip of VOA_LISTENING) {
