@@ -19,10 +19,22 @@
 .camp-comprehension-written { display:block; margin-block-start:10px; }
 .camp-comprehension-written input { width:100%; min-height:44px; padding:8px 12px; border:1px solid var(--color-border-default); border-radius:8px; background:var(--color-surface); color:var(--color-text-primary); font-size:14px; }
 .camp-comprehension-written input:focus-visible { outline:2px solid var(--camp-focus); outline-offset:2px; border-color:var(--camp-control-ink); }
-.camp-comprehension fieldset[data-outcome="correct"] .camp-comprehension-written input { border-color:var(--color-success); }
-.camp-comprehension fieldset[data-outcome="incorrect"] .camp-comprehension-written input { border-color:var(--color-text-error); }
-.camp-listening-options label[data-outcome="correct"] { border-color:var(--color-success); background:var(--color-success-bg); }
-.camp-listening-options label[data-outcome="incorrect"] { border-color:var(--color-text-error); }
+/* Checked answers: the right choice turns green, a wrong pick turns red. */
+.camp-comprehension .camp-listening-options label[data-outcome] { border-width:2px; padding:7px 11px; font-weight:600; }
+.camp-comprehension .camp-listening-options label[data-outcome="correct"] { border-color:var(--color-success-dark); background:var(--color-success-bg); color:var(--color-text-primary); }
+.camp-comprehension .camp-listening-options label[data-outcome="incorrect"] { border-color:var(--color-error-dark); background:var(--color-error-bg); color:var(--color-text-primary); }
+.camp-comprehension .camp-listening-options label[data-outcome="correct"] input { accent-color:var(--color-success-dark); }
+.camp-comprehension .camp-listening-options label[data-outcome="incorrect"] input { accent-color:var(--color-error-dark); }
+.camp-comprehension .camp-listening-options label[data-outcome]::after { margin-inline-start:auto; font-weight:800; }
+.camp-comprehension .camp-listening-options label[data-outcome="correct"]::after { content:"✓"; color:var(--color-success-dark); }
+.camp-comprehension .camp-listening-options label[data-outcome="incorrect"]::after { content:"✗"; color:var(--color-error-dark); }
+.camp-comprehension fieldset[data-outcome="correct"] .camp-comprehension-written input { border:2px solid var(--color-success-dark); background:var(--color-success-bg); }
+.camp-comprehension fieldset[data-outcome="incorrect"] .camp-comprehension-written input { border:2px solid var(--color-error-dark); background:var(--color-error-bg); }
+.camp-comprehension fieldset[data-outcome] .camp-listening-feedback { margin-top:10px; padding:8px 12px; border-radius:8px; border-inline-start:4px solid; font-size:13px; line-height:1.6; color:var(--color-text-primary); }
+.camp-comprehension fieldset[data-outcome="correct"] .camp-listening-feedback { border-color:var(--color-success-dark); background:var(--color-success-bg); }
+.camp-comprehension fieldset[data-outcome="incorrect"] .camp-listening-feedback { border-color:var(--color-error-dark); background:var(--color-error-bg); }
+.camp-comprehension fieldset[data-outcome="correct"] .camp-listening-feedback strong { color:var(--color-success-dark); }
+.camp-comprehension fieldset[data-outcome="incorrect"] .camp-listening-feedback strong { color:var(--color-error-dark); }
 @media (max-width:640px) {
   .camp-word-popover { left:8px !important; width:calc(100% - 16px); }
 }
