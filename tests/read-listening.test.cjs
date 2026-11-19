@@ -61,6 +61,7 @@ test('word lookups give single-word Arabic meanings and never fall back to a par
 test('reading passages cover A1–C2 with complete lesson data and preserve every original article',()=>{
  assert.deepEqual([...CEFR_LEVELS],['A1','A2','B1','B2','C1','C2']);
  for(const level of CEFR_LEVELS)assert.ok(READING_LESSONS.some(l=>l.level===level),level);
+ assert.ok(READING_LESSONS.filter(l=>l.level==='A1').length>=7&&READING_LESSONS.filter(l=>l.level==='B1').length>=10);
  assert.equal(new Set(READING_LESSONS.map(l=>l.id)).size,READING_LESSONS.length);
  for(const article of ALL_ARTICLES){const lesson=readingLessonById(article.id);assert.ok(lesson,article.id);assert.deepEqual(lesson.paragraphs,article.paragraphs.map(p=>p.en));assert.equal(lesson.status,'published');assert.equal(lesson.category,article.category);}
  const words=l=>l.paragraphs.join(' ').split(/\s+/).length,avg=level=>{const xs=READING_LESSONS.filter(l=>l.level===level).map(words);return xs.reduce((a,b)=>a+b,0)/xs.length;};
@@ -116,10 +117,13 @@ test('every Listening lesson offers varied, grounded questions and reuses the ve
   if(clip.gap){const gap=questions.find(q=>q.type==='gap-fill');assert.ok(clip.transcriptExcerpt.includes(gap.evidence));assert.ok(gap.prompt.includes('___'));}
  }
  assert.ok(BUNDLED_LISTENING.some(l=>l.questions.some(q=>q.type==='gap-fill')));
+ assert.equal(new Set(VOA_LISTENING.map(c=>c.articleId)).size,VOA_LISTENING.length,'no VOA lesson is listed twice');assert.equal(new Set(VOA_LISTENING.map(c=>c.audioUrl)).size,VOA_LISTENING.length);
  for(const lesson of BUNDLED_LISTENING){assert.ok(safeVoaAudio(lesson.audioUrl),lesson.id);assert.equal(voaArticleId(lesson.sourceUrl)!==null,true);assert.match(lesson.attribution,/VOA Learning English/);}
  const done=new Set(['meet-your-neighbor']);const next=recommendLessons(BUNDLED_LISTENING,id=>done.has(id),'B1',3);assert.ok(next.every(l=>l.level==='B1'));
  assert.ok(recommendLessons(BUNDLED_LISTENING,id=>done.has(id)).every(l=>l.level==='A1'&&l.id!=='meet-your-neighbor'));
  const page=src('src/components/learn/ListeningSection.tsx');
+ const pager=src('src/components/learn/LibraryPagination.tsx');assert.match(pager,/aria-current=\{n === page \? "page"/);
+ for(const file of ['src/components/learn/ReadingSection.tsx','src/components/learn/ListeningSection.tsx']){const code=src(file);assert.match(code,/LibraryPagination/);assert.match(code,/pageSlice\(/);assert.match(code,/setPage\(1\)/,'filters return to the first page');}
  for(const feature of ['<audio','playbackRate','type="range"','Replay from the start','Resume','savePosition','Show transcript','role="alert"','Search listening lessons','Listening level','Listening topic','Continue listening','Suggested for you'])assert.ok(page.includes(feature),feature);
  assert.match(page,/\/api\/listening\/audio\?id=/);
 });
@@ -196,4 +200,12 @@ test('content management is admin-only, reviewed before publication and duplicat
   assert.equal((await f.call('/api/invitations/admin/content-save','POST',{id,kind:'listening',payload:{...payload,title:'Edited'}},auth)).status,200);
   catalogue=await (await f.call('/api/content/catalogue')).json();assert.equal(catalogue.listening.length,0);
  }finally{global.fetch=realFetch;f.sql.close();}
+});
+
+test('library pagination slices pages and never shows an empty page',()=>{
+ const {pageCount,pageSlice}=require('../src/components/learn/LibraryPagination.tsx');
+ const items=Array.from({length:25},(_,i)=>i);
+ assert.equal(pageCount(25,9),3);assert.equal(pageCount(0,9),1);
+ assert.deepEqual(pageSlice(items,1,9),items.slice(0,9));assert.deepEqual(pageSlice(items,3,9),[18,19,20,21,22,23,24]);
+ assert.equal(pageCount(VOA_LISTENING.length,8)>1,true,'the Listening library now spans several pages');
 });

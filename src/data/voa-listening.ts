@@ -32,7 +32,7 @@ export const VOA_ORIGIN = "https://learningenglish.voanews.com";
 export const VOA_PODCAST_URL = VOA_ORIGIN + "/podcast/?zoneId=987";
 export const voaArticleUrl = (articleId: number) => `${VOA_ORIGIN}/a/${articleId}.html`;
 
-// Level labels are EnglishCamp's teaching estimates. Durations were checked against the MP3s;
+// Level labels are EnglishCamp's teaching estimates. Durations were read from the MP3 metadata;
 // selected excerpts end before the full recording does.
 export const VOA_LISTENING: readonly VoaListeningClip[] = [
   {
@@ -137,6 +137,114 @@ export const VOA_LISTENING: readonly VoaListeningClip[] = [
     words: [
       {word: "forecast", arabic: "توقّع لحالة الطقس، مثل درجة الحرارة أو احتمال المطر.", example: "The forecast says it will rain tomorrow."},
       {word: "windy", arabic: "عاصف أو كثير الرياح. تُستخدم لوصف حالة الطقس.", example: "It's windy by the sea today."},
+    ],
+  },
+  {
+    id: "wrong-number", title: "Calling the wrong number", level: "A1", topic: "Phone calls",
+    description: "Anna wants to cook dinner and calls Marsha to find a supermarket.",
+    articleId: 3126527, mediaId: 3196079, seconds: 120.31,
+    audioUrl: "https://voa-audio.voanews.eu/vle/2016/02/18/a82baaf4-0a91-4d43-8ab6-78f72cef8fce.mp3",
+    transcriptExcerpt: "Anna: Hello. Is this Marsha? It is Anna.\nMan: I am sorry. You have the wrong number.",
+    questions: [
+      {
+        prompt: "Which number does Anna call first by mistake?",
+        choices: ["555-8689", "555-8986", "555-1500"],
+        correct: 0,
+        feedback: "She reaches a man at 555-8689. Marsha’s work number is 555-8986.",
+      },
+      {
+        prompt: "Where is the supermarket?",
+        choices: ["1500 Irving Street", "1400 Irving Street", "1500 Pine Street"],
+        correct: 0,
+        feedback: "Marsha says the supermarket is at 1500 Irving Street, near the apartment.",
+      },
+    ],
+    trueFalse: {statement: "The supermarket is far from the apartment.", correct: false, feedback: "It is near the apartment, at 1500 Irving Street.", replaces: 1 },
+    gap: { prompt: "Man: I am sorry. You have the wrong ___.", answer: "number" },
+    words: [
+      {word: "wrong number", arabic: "رقم خاطئ. تُقال عندما تتصل بالشخص الخطأ.", example: "Sorry, you have the wrong number."},
+      {word: "supermarket", arabic: "متجر كبير لبيع المواد الغذائية وحاجات البيت.", example: "There is a supermarket near my home."},
+    ],
+  },
+  {
+    id: "rooms-in-a-house", title: "Rooms in a house", level: "A1", topic: "Home",
+    description: "Anna and Marsha visit a friend’s house and say what they do in each room.",
+    articleId: 3168971, mediaId: 3215124, seconds: 60.64,
+    audioUrl: "https://voa-audio.voanews.eu/vle/2016/03/01/ab9c2944-eddc-4806-9296-290bfa8c6ff2.mp3",
+    transcriptExcerpt: "Anna: I eat in the kitchen.\nMarsha: We relax in the living room.",
+    questions: [
+      {
+        prompt: "What does Anna do in the bathroom?",
+        choices: ["She washes.", "She sleeps.", "She cooks."],
+        correct: 0,
+        feedback: "Anna says: I wash in the bathroom.",
+      },
+      {
+        prompt: "Where do they sleep?",
+        choices: ["In the bedroom", "In the living room", "In the kitchen"],
+        correct: 0,
+        feedback: "Marsha says they sleep in the bedroom.",
+      },
+    ],
+    trueFalse: {statement: "Anna sleeps in the bathroom.", correct: false, feedback: "She washes in the bathroom. They sleep in the bedroom.", replaces: 0 },
+    gap: { prompt: "Marsha: We relax in the living ___.", answer: "room" },
+    words: [
+      {word: "living room", arabic: "غرفة المعيشة أو الجلوس في البيت.", example: "We watch TV in the living room."},
+      {word: "upstairs", arabic: "في الطابق العلوي.", example: "The bedrooms are upstairs."},
+    ],
+  },
+  {
+    id: "first-day-at-work", title: "First day at work", level: "A1", topic: "Work",
+    description: "Anna starts her new job and meets coworkers who are all busy.",
+    articleId: 3240468, mediaId: 3240442, seconds: 149.88,
+    audioUrl: "https://voa-audio.voanews.eu/vle/2016/03/16/5d724fbc-a907-4a48-9221-c1813d248168.mp3",
+    transcriptExcerpt: "Caty: I am your boss, Caty Weaver. But, please call me Caty.\nAnna: Thank you, Ms. Weaver.",
+    questions: [
+      {
+        prompt: "What does Anna’s boss ask Anna to call her?",
+        choices: ["Caty", "Ms. Weaver", "Boss"],
+        correct: 0,
+        feedback: "She says: please call me Caty. Anna still says Ms. Weaver.",
+      },
+      {
+        prompt: "What is Jonathan doing when Anna comes in?",
+        choices: ["Recording his show", "Writing a letter", "Reading the news"],
+        correct: 0,
+        feedback: "Jonathan is doing his show, and then he has to record again.",
+      },
+    ],
+    trueFalse: {statement: "Caty asks Anna to call her Ms. Weaver.", correct: false, feedback: "She asks Anna to call her Caty.", replaces: 0 },
+    gap: { prompt: "Anna: Thank you, Ms. ___.", answer: "Weaver" },
+    words: [
+      {word: "boss", arabic: "المدير أو الرئيس في العمل.", example: "My boss gives me new work every morning."},
+      {word: "busy", arabic: "مشغول، لديه عمل كثير الآن.", example: "I can’t talk now. I’m busy."},
+    ],
+  },
+  {
+    id: "errands-in-the-neighborhood", title: "Errands in the neighborhood", level: "A1", topic: "Neighborhood",
+    description: "Anna needs the library, a mailbox, a bank and stamps, and Marsha helps her find them.",
+    articleId: 3293986, mediaId: 3294378, seconds: 110.51,
+    audioUrl: "https://voa-audio.voanews.eu/vle/2016/04/20/de238e35-97b9-4c21-81e3-e3c26fbeccaa.mp3",
+    transcriptExcerpt: "Anna: Hello! DC is a city for walking. In our neighborhood, I can do all my errands.",
+    questions: [
+      {
+        prompt: "How many books does Anna need to return?",
+        choices: ["Three", "Two", "Four"],
+        correct: 0,
+        feedback: "She needs to return three books to the library.",
+      },
+      {
+        prompt: "Why does Anna go to the bank?",
+        choices: ["She needs cash for stamps.", "She needs a new card.", "She works there."],
+        correct: 0,
+        feedback: "She needs cash to buy stamps, and there is a bank behind her.",
+      },
+    ],
+    trueFalse: {statement: "Anna goes to the bank because she needs cash.", correct: true, feedback: "She needs cash for stamps, so she goes to the bank behind her.", replaces: 1 },
+    gap: { prompt: "Anna: Hello! DC is a city for ___.", answer: "walking" },
+    words: [
+      {word: "errand", arabic: "مشوار قصير لإنجاز حاجة، مثل الذهاب إلى البنك أو البريد.", example: "I have two errands: the bank and the post office."},
+      {word: "stamp", arabic: "طابع بريدي يوضع على الرسالة.", example: "I need a stamp for this letter."},
     ],
   },
   {
@@ -348,6 +456,114 @@ export const VOA_LISTENING: readonly VoaListeningClip[] = [
       {word: "borrow", arabic: "يستعير شيئًا لاستخدامه مؤقتًا ثم يعيده.", example: "May I borrow your charger for a few minutes?"},
       {word: "lend", arabic: "يُعير شخصًا شيئًا ليستخدمه ثم يعيده.", example: "Can you lend me a pen?"},
       {word: "paycheck", arabic: "الراتب الذي يتلقّاه الموظف في موعد الدفع. الكلمة شائعة في الإنجليزية الأمريكية.", example: "My next paycheck arrives on Friday."},
+    ],
+  },
+  {
+    id: "agree-to-disagree", title: "City or country?", level: "B1", topic: "Opinions",
+    description: "Anna meets Phil, a visitor from a small town, and they share different opinions about city life.",
+    articleId: 3574029, mediaId: 3601381, seconds: 217.90,
+    audioUrl: "https://voa-audio.voanews.eu/vle/2016/11/17/a0f8f1e0-4d24-425c-8db5-0322d86f3de9.mp3",
+    transcriptExcerpt: "Anna: We don't have to agree with people. They have their opinions. We have ours. And as we like to say, you can always agree to disagree!",
+    questions: [
+      {
+        prompt: "Why does Phil think city people are rude?",
+        choices: ["They don’t say hello to each other.", "They talk too loudly.", "They walk too fast."],
+        correct: 0,
+        feedback: "Phil thinks people are rude because they don’t greet each other. Anna thinks they are just busy.",
+      },
+      {
+        prompt: "What does Anna think about the city’s buildings?",
+        choices: ["They are beautiful.", "They are too tall.", "They are dirty."],
+        correct: 0,
+        feedback: "Anna disagrees with Phil: she thinks all the different buildings are beautiful.",
+      },
+    ],
+    trueFalse: {statement: "Anna agrees that city people are rude.", correct: false, feedback: "Anna thinks they’re just busy.", replaces: 0 },
+    gap: { prompt: "They have their opinions. We have ___.", answer: "ours" },
+    words: [
+      {word: "disagree", arabic: "يختلف في الرأي مع شخص آخر.", example: "I disagree. I think the city is exciting."},
+      {word: "opinion", arabic: "رأي؛ ما يفكر فيه الشخص عن موضوع ما.", example: "In my opinion, the country is more peaceful."},
+    ],
+  },
+  {
+    id: "best-friend-visit", title: "A best friend visits", level: "B1", topic: "Friendship",
+    description: "Anna’s best friend Penelope visits Washington, D.C., and Anna tells her about her friends and her job.",
+    articleId: 3591967, mediaId: 3619110, seconds: 210.51,
+    audioUrl: "https://voa-audio.voanews.eu/vle/2016/12/01/7b357de6-9247-45fd-8e49-77197599f6d5.mp3",
+    transcriptExcerpt: "Penelope: So, Anna, is it hard to make friends in D.C.?",
+    questions: [
+      {
+        prompt: "What is Anna’s job?",
+        choices: ["She makes a children’s show.", "She teaches at a school.", "She works in a café."],
+        correct: 0,
+        feedback: "Anna makes a children’s show called the Time Traveling Treehouse.",
+      },
+      {
+        prompt: "What does Anna suggest to Penelope?",
+        choices: ["Moving to D.C.", "Finding a new job at home", "Visiting every summer"],
+        correct: 0,
+        feedback: "Anna asks: why don’t you move here?",
+      },
+    ],
+    trueFalse: {statement: "Penelope says she can’t leave their hometown.", correct: true, feedback: "Penelope has a job she loves and says she can’t leave their hometown.", replaces: 1 },
+    gap: { prompt: "Penelope: So, Anna, is it hard to make ___ in D.C.?", answer: "friends" },
+    words: [
+      {word: "hometown", arabic: "البلدة أو المدينة التي نشأ فيها الشخص.", example: "My hometown is a small city by the sea."},
+      {word: "split the rent", arabic: "يتقاسم إيجار البيت مع شخص آخر.", example: "My roommate and I split the rent."},
+    ],
+  },
+  {
+    id: "the-audition", title: "An audition", level: "B1", topic: "Arts",
+    description: "For her New Year’s resolution, Anna auditions for a play called The Woods Are Alive.",
+    articleId: 3630341, mediaId: 3655904, seconds: 251.02,
+    audioUrl: "https://voa-audio.voanews.eu/vle/2016/12/29/b24ae633-80a3-46e9-afc8-5e2719ed1fa7.mp3",
+    transcriptExcerpt: "Anna: I was too early, wasn't I?\nDirector: Yes. Yes, you were.",
+    questions: [
+      {
+        prompt: "What does the director say about Anna’s voice at first?",
+        choices: ["She is speaking too softly.", "She is speaking too fast.", "She is singing."],
+        correct: 0,
+        feedback: "The director says she is speaking too softly and asks her to speak more loudly.",
+      },
+      {
+        prompt: "What part does Anna get?",
+        choices: ["A tree", "The director", "A lost traveller"],
+        correct: 0,
+        feedback: "The director gives Anna the part of a tree, and the costume fits her perfectly.",
+      },
+    ],
+    trueFalse: {statement: "The director asks Anna to speak more quietly.", correct: false, feedback: "He asks her to speak more loudly.", replaces: 0 },
+    gap: { prompt: "Anna: I was too ___, wasn't I?", answer: "early" },
+    words: [
+      {word: "audition", arabic: "تجربة أداء يقدمها الممثل أو المغني ليحصل على دور.", example: "She has an audition for a new play."},
+      {word: "resolution", arabic: "قرار أو وعد يتخذه الشخص لنفسه، خاصة في بداية السنة.", example: "My New Year’s resolution is to exercise more."},
+    ],
+  },
+  {
+    id: "time-for-plan-b", title: "Time for Plan B", level: "B1", topic: "Problem solving",
+    description: "Anna loses her wallet downtown and asks her friends for help, but each one is busy.",
+    articleId: 3666458, mediaId: 3681422, seconds: 218.71,
+    audioUrl: "https://voa-audio.voanews.eu/vle/2017/01/18/b97c84f3-f68d-4b35-bf71-9c369a107e82.mp3",
+    transcriptExcerpt: "Anna: See, I lost my wallet and I’m stuck downtown",
+    questions: [
+      {
+        prompt: "Why can’t Jonathan help Anna?",
+        choices: ["He is at the airport with his mother.", "He has a big presentation.", "He is babysitting."],
+        correct: 0,
+        feedback: "Jonathan is at the airport with his mother.",
+      },
+      {
+        prompt: "What does Anna find in her emergency money envelope?",
+        choices: ["Nothing. It is empty.", "Twenty dollars", "Her Metro card"],
+        correct: 0,
+        feedback: "The Extra Emergency Money envelope is empty too.",
+      },
+    ],
+    trueFalse: {statement: "Marsha can’t help because she has to give a big presentation.", correct: true, feedback: "Marsha has a big presentation, so she can’t come.", replaces: 0 },
+    gap: { prompt: "Anna: See, I lost my ___ and I’m stuck downtown", answer: "wallet" },
+    words: [
+      {word: "wallet", arabic: "محفظة صغيرة للنقود والبطاقات.", example: "I keep my cards and cash in my wallet."},
+      {word: "stuck", arabic: "عالق، لا يستطيع التحرك أو المغادرة.", example: "I’m stuck downtown with no money."},
     ],
   },
   {

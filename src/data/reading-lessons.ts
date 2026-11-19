@@ -256,6 +256,169 @@ const beginner: ReadingLesson[] = [
       mc("detail", "Why does the writer carry the bags?", ["They are heavy.", "They are empty.", "The mother is at work.", "It is raining."], "I carry the bags because they are heavy.", "The bags are heavy."),
     ]),
   },
+  {
+    id: "a1-leila-family", title: "Leila’s Family", level: "A1", category: "Family", status: "review", source: "englishcamp",
+    paragraphs: [
+      "This is my family. My name is Leila. I live in a house with my parents and my two brothers. We also have a small cat. Her name is Mimi.",
+      "My father is a teacher. He teaches maths at a big school. My mother is a nurse. She works at the hospital at night. My brothers are students.",
+      "On Fridays, my grandmother visits us. She cooks couscous for lunch, and we all eat together. After lunch, we drink tea and talk. I love Fridays!",
+    ],
+    glossary: [
+      { word: "parents", ar: "الوالدان", def: "Your mother and father." },
+      { word: "nurse", ar: "ممرّضة / ممرّض", def: "A person who cares for sick people in a hospital." },
+      { word: "grandmother", ar: "جدّة", def: "The mother of your mother or father." },
+      { word: "visit", ar: "يزور", def: "To go and see a person or a place." },
+    ],
+    questions: build("a1-leila-family", [
+      mc("main-idea", "What is the text about?", ["Leila’s family", "A trip to the hospital", "A school for cats", "A cooking class"], "This is my family.", "Leila describes the people in her family and their Fridays together."),
+      sa("detail", "What is the cat’s name? Write one word.", ["Mimi"], "Her name is Mimi.", "The cat is called Mimi."),
+      tf("detail", "Leila’s mother works at a school.", false, "My mother is a nurse.", "Her mother is a nurse at the hospital. Her father is the teacher."),
+      mc("detail", "Who cooks lunch on Fridays?", ["Her grandmother", "Her father", "Leila", "Her brothers"], "She cooks couscous for lunch", "Her grandmother visits and cooks couscous."),
+    ]),
+  },
+  {
+    id: "a1-rainy-day", title: "A Rainy Day", level: "A1", category: "Weather", status: "review", source: "englishcamp",
+    paragraphs: [
+      "Today is Monday. It is cold and it is raining. I look out of the window. The street is wet and the sky is grey.",
+      "I put on my coat and my boots. I take a big red umbrella. Then I walk to the bus stop. The bus is late today, so I wait for fifteen minutes.",
+      "At work, my friend Sami gives me a cup of hot tea. 'Thank you!' I say. In the evening, the rain stops. The sun comes out, and I walk home.",
+    ],
+    glossary: [
+      { word: "umbrella", ar: "مظلّة", def: "A thing you hold over your head when it rains." },
+      { word: "wet", ar: "مبلّل", def: "Covered with water." },
+      { word: "late", ar: "متأخّر", def: "After the usual or planned time." },
+      { word: "wait", ar: "ينتظر", def: "To stay in a place until something happens." },
+    ],
+    questions: build("a1-rainy-day", [
+      mc("main-idea", "What is the text mainly about?", ["A cold, rainy day", "A holiday at the beach", "A new job", "A birthday party"], "It is cold and it is raining.", "The writer describes a rainy Monday from morning to evening."),
+      tf("detail", "The writer’s umbrella is red.", true, "I take a big red umbrella.", "It is a big red umbrella."),
+      sa("detail", "How many minutes does the writer wait for the bus? Write a number.", ["15", "fifteen"], "so I wait for fifteen minutes", "The bus is late, so the writer waits fifteen minutes."),
+      mc("detail", "What does Sami give the writer?", ["A cup of hot tea", "An umbrella", "A coat", "A bus ticket"], "my friend Sami gives me a cup of hot tea", "Sami gives the writer hot tea at work."),
+    ]),
+  },
+  {
+    id: "a1-new-shoes", title: "New Shoes", level: "A1", category: "Shopping", status: "review", source: "englishcamp",
+    paragraphs: [
+      "I need new shoes for school. On Saturday, I go to a shoe shop with my father. The shop is next to the bank.",
+      "I see black shoes and white shoes. The black shoes are nice, but they are too small. The white shoes are big and comfortable. They cost two hundred dirhams.",
+      "My father pays at the till. The shop assistant puts the shoes in a box. I am very happy. I wear my new shoes on Monday.",
+    ],
+    glossary: [
+      { word: "comfortable", ar: "مريح", def: "Nice to wear or to sit in; it does not hurt." },
+      { word: "cost", ar: "يكلّف", def: "To have a price." },
+      { word: "pay", ar: "يدفع", def: "To give money for something you buy." },
+      { word: "shop assistant", ar: "بائع / بائعة في متجر", def: "A person who helps customers in a shop." },
+    ],
+    questions: build("a1-new-shoes", [
+      mc("main-idea", "What is the text about?", ["Buying new shoes", "Opening a bank account", "A football game", "Cleaning the house"], "I need new shoes for school.", "The writer goes shopping for school shoes."),
+      tf("detail", "The black shoes are too small.", true, "they are too small", "The black shoes are nice, but too small."),
+      mc("inference", "Which shoes does the writer buy?", ["The white shoes", "The black shoes", "Red boots", "Blue shoes"], "The white shoes are big and comfortable.", "The black shoes are too small, so they buy the comfortable white shoes."),
+      sa("detail", "How much do the white shoes cost? Write the number.", ["200", "two hundred", "200 dirhams", "two hundred dirhams"], "They cost two hundred dirhams.", "They cost two hundred dirhams."),
+    ]),
+  },
+  {
+    id: "a1-karim-free-time", title: "Karim’s Free Time", level: "A1", category: "Free time", status: "review", source: "englishcamp",
+    paragraphs: [
+      "My name is Karim. I am twenty-five years old. In my free time, I play football. I play with my friends in the park every Sunday morning.",
+      "I also like music. I listen to music on the bus to work. My favourite singer is from Egypt. I do not play an instrument, but I want to learn the guitar.",
+      "In the evening, I am often tired. I read a book or watch a film at home. I go to bed at eleven o'clock.",
+    ],
+    glossary: [
+      { word: "free time", ar: "وقت الفراغ", def: "Time when you are not working or studying." },
+      { word: "favourite", ar: "مفضّل", def: "The one you like best." },
+      { word: "instrument", ar: "آلة موسيقية", def: "A thing you play to make music, like a guitar." },
+      { word: "tired", ar: "متعب", def: "Needing rest or sleep." },
+    ],
+    questions: build("a1-karim-free-time", [
+      mc("main-idea", "What is the text about?", ["Karim’s free time", "Karim’s family", "A trip to Egypt", "A football club"], "In my free time, I play football.", "Karim describes what he does when he is not working."),
+      sa("detail", "How old is Karim? Write a number.", ["25", "twenty-five", "twenty five"], "I am twenty-five years old.", "Karim is twenty-five."),
+      tf("detail", "Karim plays the guitar.", false, "I do not play an instrument", "He does not play an instrument yet, but he wants to learn the guitar."),
+      mc("detail", "When does Karim play football?", ["On Sunday mornings", "On Friday evenings", "Every day after work", "On Saturday nights"], "every Sunday morning", "He plays with friends in the park every Sunday morning."),
+    ]),
+  },
+  {
+    id: "b1-night-market", title: "The Night Market", level: "B1", category: "Society", status: "review", source: "englishcamp",
+    paragraphs: [
+      "Every summer, our town opens a night market in the old square. From seven in the evening until midnight, the square fills with stalls selling grilled corn, fresh juice, handmade bags and second-hand books. Families come after dinner, and teenagers meet their friends there because it is cooler than the afternoon.",
+      "This year, my cousin Yasmine decided to rent a stall. She bakes small almond cakes at home, and her neighbours had always told her they were delicious. The first night was difficult. She had prepared too few cakes, and they were sold out in less than an hour. On the second night, she made twice as many, but it rained and very few people came.",
+      "By the end of the month, Yasmine had learned to check the weather forecast and to bring a notebook to write down what people asked for. Several customers wanted cakes without sugar, so she started making a second recipe. She did not earn a lot of money, but she now plans to sell her cakes at a weekend market all year.",
+    ],
+    glossary: [
+      { word: "stall", ar: "كشك / بسطة في السوق", def: "A table or small shop where things are sold at a market." },
+      { word: "second-hand", ar: "مستعمل", def: "Owned by someone else before." },
+      { word: "forecast", ar: "توقّعات (الطقس)", def: "A statement about what the weather will be like." },
+      { word: "customer", ar: "زبون", def: "A person who buys something." },
+      { word: "recipe", ar: "وصفة طبخ", def: "Instructions for making a dish." },
+    ],
+    questions: build("b1-night-market", [
+      mc("main-idea", "What is the story mainly about?", ["Yasmine learning to run a small market stall", "The history of the old square", "How to bake almond cakes", "Why teenagers like summer"], "This year, my cousin Yasmine decided to rent a stall.", "The story follows Yasmine’s first month selling cakes at the market."),
+      mc("detail", "What happened on the first night?", ["Her cakes sold out in less than an hour.", "It rained and few people came.", "She forgot her notebook.", "Nobody liked her cakes."], "they were sold out in less than an hour", "She had prepared too few cakes, so they sold out quickly."),
+      tf("detail", "On the second night, many people came to the market.", false, "it rained and very few people came", "It rained on the second night, and very few people came."),
+      mc("inference", "Why did Yasmine start making a second recipe?", ["Several customers asked for cakes without sugar.", "Almond cakes were too expensive.", "Her neighbours did not like them.", "The market only sold healthy food."], "Several customers wanted cakes without sugar", "She listened to what customers asked for."),
+    ]),
+  },
+  {
+    id: "b1-learning-to-drive", title: "Learning to Drive at Forty-One", level: "B1", category: "Daily life", status: "review", source: "englishcamp",
+    paragraphs: [
+      "Samira never needed a car when she lived in the city centre. Buses and trams took her everywhere, and she enjoyed reading during her journeys. However, when her company moved to an office outside the city, her trip to work suddenly took almost two hours. At forty-one, she decided it was time to learn to drive.",
+      "Her first lessons were stressful. She was nervous on busy roads, and she often forgot to check her mirrors. Her instructor, a calm man called Hassan, suggested practising early on Sunday mornings, when the streets were quiet. He also told her to describe aloud everything she saw, so that she would notice more.",
+      "Samira failed her first driving test because she stopped too late at a crossing. She was disappointed, but she booked another test for the following month. This time she passed. Now her journey takes forty minutes, and although she misses reading on the bus, she says the experience taught her that it is never too late to learn something new.",
+    ],
+    glossary: [
+      { word: "instructor", ar: "مدرّب", def: "A person who teaches a practical skill." },
+      { word: "nervous", ar: "متوتّر / قلق", def: "Worried and a little afraid." },
+      { word: "mirror", ar: "مرآة", def: "Glass in which you can see what is behind you in a car." },
+      { word: "disappointed", ar: "خائب الأمل", def: "Sad because something did not happen as you hoped." },
+    ],
+    questions: build("b1-learning-to-drive", [
+      mc("main-idea", "What is the main message of the story?", ["It is never too late to learn a new skill.", "Public transport is better than driving.", "Driving instructors are always calm.", "Samira’s company made a bad decision."], "it is never too late to learn something new", "Samira learns to drive at forty-one and passes on her second try."),
+      sa("detail", "How old was Samira when she decided to learn to drive? Write a number.", ["41", "forty-one", "forty one"], "At forty-one, she decided it was time to learn to drive.", "She was forty-one."),
+      tf("detail", "Samira passed her first driving test.", false, "Samira failed her first driving test", "She failed the first test and passed the second."),
+      mc("detail", "Why did Hassan suggest practising on Sunday mornings?", ["The streets were quiet.", "Tests were cheaper on Sundays.", "Samira worked on other days.", "It was easier to see the mirrors."], "when the streets were quiet", "Quiet streets helped Samira feel less nervous."),
+    ]),
+  },
+  {
+    id: "b1-beach-clean-up", title: "Cleaning the Beach", level: "B1", category: "Environment", status: "review", source: "englishcamp",
+    paragraphs: [
+      "Last spring, a group of students from a language school in Agadir organised a beach clean-up. They had noticed that, after busy weekends, the sand near the harbour was covered with plastic bottles, bags and food wrappers. Instead of only complaining, they posted a message online and invited anyone who wanted to help.",
+      "On the first Saturday, about thirty people arrived with gloves and large bags. In three hours they collected more than two hundred kilograms of rubbish. A local café offered free tea, and a fisherman explained how plastic can harm fish and birds. Some volunteers were surprised to learn that tiny pieces of plastic are much harder to remove than large ones.",
+      "The clean-up is now a monthly event. The organisers also asked the town council to put more bins near the harbour, and three new bins were installed in the summer. The beach is not perfect, but the students believe that small, regular actions can change people's habits more effectively than one big campaign.",
+    ],
+    glossary: [
+      { word: "harbour", ar: "ميناء", def: "A place on the coast where boats stay." },
+      { word: "volunteer", ar: "متطوّع", def: "A person who works without being paid." },
+      { word: "harm", ar: "يضرّ / يؤذي", def: "To hurt or damage." },
+      { word: "council", ar: "مجلس (بلدي)", def: "A group of people elected to run a town." },
+      { word: "habit", ar: "عادة", def: "Something you do often, usually without thinking." },
+    ],
+    questions: build("b1-beach-clean-up", [
+      mc("main-idea", "What is the text mainly about?", ["Students who organised regular beach clean-ups", "The history of Agadir harbour", "How fishermen catch fish", "A language school’s summer courses"], "a group of students from a language school in Agadir organised a beach clean-up", "The text follows the clean-up from the first day to a monthly event."),
+      mc("detail", "How much rubbish did volunteers collect on the first Saturday?", ["More than two hundred kilograms", "About thirty kilograms", "Three bags", "Exactly one hundred kilograms"], "more than two hundred kilograms of rubbish", "Thirty people collected more than two hundred kilograms in three hours."),
+      tf("detail", "Small pieces of plastic are easier to remove than large ones.", false, "tiny pieces of plastic are much harder to remove than large ones", "Tiny pieces are much harder to remove."),
+      mc("inference", "What do the students believe?", ["Small, regular actions can change habits.", "Only big campaigns work.", "The beach is now perfect.", "Bins are not useful."], "small, regular actions can change people's habits", "They prefer regular small actions to one big campaign."),
+    ]),
+  },
+  {
+    id: "b1-language-exchange", title: "A Friend from Another Country", level: "B1", category: "Communication", status: "review", source: "englishcamp",
+    paragraphs: [
+      "When Omar joined an online language exchange, he expected to practise English for a few weeks and then stop. His partner was Lucy, a nurse from Manchester who was learning Arabic. They agreed to talk twice a week: thirty minutes in English and thirty minutes in Arabic.",
+      "At first, their conversations were short and a little uncomfortable. They talked about the weather and their jobs, and both of them checked a dictionary often. Gradually, they began to share more personal stories. Lucy described long night shifts at the hospital, and Omar explained the busy month before his sister's wedding. Each of them corrected the other's mistakes, but only when the other person asked.",
+      "After a year, Omar's English had improved more than he expected, especially his listening. More importantly, he had a real friend. Last summer, Lucy visited Morocco and attended a family dinner. Omar says the exchange worked because they were patient and treated each other as equals, not as teacher and student.",
+    ],
+    glossary: [
+      { word: "exchange", ar: "تبادل", def: "Giving something and receiving something in return." },
+      { word: "partner", ar: "شريك", def: "A person you do an activity with." },
+      { word: "gradually", ar: "تدريجيًا", def: "Slowly, over a period of time." },
+      { word: "shift", ar: "نوبة عمل", def: "A fixed period of work, for example at night." },
+      { word: "patient", ar: "صبور", def: "Able to wait calmly without getting angry." },
+    ],
+    questions: build("b1-language-exchange", [
+      mc("main-idea", "Why does Omar think the language exchange worked?", ["They were patient and treated each other as equals.", "Lucy was a professional teacher.", "They talked every day for hours.", "They only spoke English."], "they were patient and treated each other as equals", "Omar gives this reason in the last sentence."),
+      sa("detail", "How many times a week did Omar and Lucy agree to talk? Write a number.", ["2", "two", "twice", "twice a week", "two times"], "They agreed to talk twice a week", "They talked twice a week."),
+      tf("detail", "Omar and Lucy corrected every mistake, even when nobody asked.", false, "but only when the other person asked", "They corrected mistakes only when asked."),
+      mc("detail", "What is Lucy’s job?", ["She is a nurse.", "She is a teacher.", "She is a translator.", "She is a doctor."], "a nurse from Manchester", "Lucy is a nurse from Manchester."),
+    ]),
+  },
 ];
 
 export const READING_LESSONS: readonly ReadingLesson[] = [...beginner, ...migrated].sort((a, b) => CEFR_LEVELS.indexOf(a.level) - CEFR_LEVELS.indexOf(b.level));

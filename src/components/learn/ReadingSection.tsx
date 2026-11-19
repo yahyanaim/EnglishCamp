@@ -1,7 +1,7 @@
 "use client";
 
 import "./read-listening.css";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { CheckCircle2, ChevronRight, Search } from "lucide-react";
 import { useRouter } from "next/navigation";
@@ -9,12 +9,14 @@ import { LearningArt } from "@/components/brand/LearningArt";
 import { ReadingIllustration } from "@/components/brand/ReadingIllustration";
 import { SelectField } from "@/components/ui/shadcn/select-field";
 import { ReadingLessonView } from "./ReadingLessonView";
+import { LibraryPagination, pageCount, pageSlice } from "./LibraryPagination";
 import { CEFR_LABELS, CEFR_LEVELS, readingMinutes, type CefrLevel, type ReadingLesson } from "@/data/reading-lessons";
 import { loadCatalogue, publishedReading } from "@/lib/learningContent";
 import { readingExerciseId } from "@/lib/comprehension";
 import { useProgress } from "@/store/useProgress";
 import { useSkillPractice } from "@/store/useSkillPractice";
 
+const PAGE_SIZE = 9;
 const fieldStyle = { boxShadow: "0 2px 0 var(--color-border-default)" };
 const fieldClass = "font-body text-sm bg-[var(--color-surface)] border border-[var(--color-border-default)] rounded-[var(--radius-md)] px-3 py-2.5 outline-none text-[var(--color-text-primary)] transition-all duration-150";
 const LEVEL_NOTES: Record<CefrLevel, string> = {
@@ -34,6 +36,8 @@ export function ReadingSection() {
   const [category, setCategory] = useState("all");
   const [state, setState] = useState("all");
   const [selectedId, setSelectedId] = useState<string | null>(null);
+  const [page, setPage] = useState(1);
+  const top = useRef<HTMLDivElement>(null);
   const done = useProgress(s => s.exercisesDone);
   const practice = useSkillPractice(s => s.lessons);
 
@@ -60,15 +64,19 @@ export function ReadingSection() {
       (state === "all" || status(lesson) === state) &&
       (!q || lesson.title.toLowerCase().includes(q) || lesson.category.toLowerCase().includes(q) || lesson.paragraphs.some(p => p.toLowerCase().includes(q))));
   }, [lessons, query, level, category, state, status]);
+  useEffect(() => setPage(1), [query, level, category, state]);
+  useEffect(() => { if (page > pageCount(filtered.length, PAGE_SIZE)) setPage(1); }, [filtered.length, page]);
+  const turn = (next: number) => { setPage(next); top.current?.scrollIntoView({ block: "start", behavior: "smooth" }); };
   const selected = selectedId ? lessons.find(lesson => lesson.id === selectedId) : null;
 
   if (selected) return <ReadingLessonView key={selected.id} lesson={selected} onBack={() => setSelectedId(null)} onOpenBank={() => router.push("/vocabulary")} />;
 
-  const groups = CEFR_LEVELS.map(cefr => ({ cefr, items: filtered.filter(lesson => lesson.level === cefr) })).filter(group => group.items.length);
+  const visible = pageSlice(filtered, page, PAGE_SIZE);
+  const groups = CEFR_LEVELS.map(cefr => ({ cefr, items: visible.filter(lesson => lesson.level === cefr) })).filter(group => group.items.length);
   const completed = lessons.filter(lesson => status(lesson) === "completed").length;
   return (
     <>
-      <div className="flex flex-wrap gap-3 items-center">
+      <div ref={top} className="flex flex-wrap gap-3 items-center scroll-mt-24">
         <div className="relative flex-1 min-w-[200px]">
           <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-[var(--color-text-secondary)]" aria-hidden="true" />
           <input type="search" aria-label="Search reading passages" value={query} onChange={e => setQuery(e.target.value)} placeholder="Search passages..."
@@ -120,6 +128,7 @@ export function ReadingSection() {
           </div>
         </section>
       ))}
+      <LibraryPagination page={page} total={filtered.length} size={PAGE_SIZE} label="Reading passages pages" onChange={turn} />
       {filtered.length === 0 && (
         <div className="text-center py-16">
           <LearningArt name="BookOpenText" size={36} className="w-12 h-12 mx-auto mb-3" />

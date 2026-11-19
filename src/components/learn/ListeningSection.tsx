@@ -10,6 +10,7 @@ import { BackButton } from "@/components/ui/BackButton";
 import { Button } from "@/components/ui/shadcn/button";
 import { SelectField } from "@/components/ui/shadcn/select-field";
 import { ComprehensionQuiz } from "./ComprehensionQuiz";
+import { LibraryPagination, pageCount, pageSlice } from "./LibraryPagination";
 import { CEFR_LABELS, CEFR_LEVELS, type CefrLevel } from "@/data/reading-lessons";
 import { recommendLessons, type ListeningLesson } from "@/lib/listeningLessons";
 import { loadCatalogue, publishedListening } from "@/lib/learningContent";
@@ -20,6 +21,7 @@ import { learnerStorage } from "@/lib/learnerStorage";
 import { useProgress } from "@/store/useProgress";
 import { useSkillPractice } from "@/store/useSkillPractice";
 
+const PAGE_SIZE = 8;
 const SPEEDS = [0.75, 1, 1.25] as const;
 const clock = (seconds: number) => { const s = Math.max(0, Math.floor(seconds)); return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, "0")}`; };
 const keyOf = (lesson: ListeningLesson) => listeningExerciseId(lesson.id) as `listening:${string}`;
@@ -214,7 +216,8 @@ export function ListeningSection() {
   const [query, setQuery] = useState(""), [level, setLevel] = useState("all"), [topic, setTopic] = useState("all"), [status, setStatus] = useState("all");
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [placementLevel, setPlacementLevel] = useState<CefrLevel | undefined>();
-  const returnTo = useRef<string | null>(null);
+  const returnTo = useRef<string | null>(null), libraryTop = useRef<HTMLElement>(null);
+  const [page, setPage] = useState(1);
   const done = useProgress(s => s.exercisesDone), practice = useSkillPractice(s => s.lessons);
 
   useEffect(() => {
@@ -244,6 +247,9 @@ export function ListeningSection() {
         (!q || [lesson.title, lesson.topic, lesson.description, lesson.transcript ?? ""].some(text => text.toLowerCase().includes(q)));
     }).sort((a, b) => CEFR_LEVELS.indexOf(a.level) - CEFR_LEVELS.indexOf(b.level));
   }, [lessons, query, level, topic, status, info]);
+  useEffect(() => setPage(1), [query, level, topic, status]);
+  useEffect(() => { if (page > pageCount(filtered.length, PAGE_SIZE)) setPage(1); }, [filtered.length, page]);
+  const turn = (next: number) => { setPage(next); libraryTop.current?.scrollIntoView({ block: "start", behavior: "smooth" }); };
   const resume = lessons.filter(lesson => !info(lesson).done && info(lesson).position > 0).sort((a, b) => (practice[keyOf(b)]?.lastAt ?? "").localeCompare(practice[keyOf(a)]?.lastAt ?? "")).slice(0, 3);
   const suggested = recommendLessons(lessons, id => !!done[listeningExerciseId(id)], placementLevel).filter(lesson => !resume.includes(lesson));
   const selected = selectedId ? lessons.find(lesson => lesson.id === selectedId) : null;
@@ -289,9 +295,10 @@ export function ListeningSection() {
           <div className="camp-trainer-grid">{suggested.map(lesson => <LessonCard key={lesson.id} lesson={lesson} state={info(lesson)} onOpen={() => open(lesson)} />)}</div>
         </section>
       )}
-      <section className="camp-learning-library-group" aria-labelledby="listening-library">
+      <section ref={libraryTop} className="camp-learning-library-group scroll-mt-24" aria-labelledby="listening-library">
         <h2 id="listening-library" className="font-display text-lg font-bold">Listening library</h2>
-        <div className="camp-trainer-grid">{filtered.map(lesson => <LessonCard key={lesson.id} lesson={lesson} state={info(lesson)} onOpen={() => open(lesson)} />)}</div>
+        <div className="camp-trainer-grid">{pageSlice(filtered, page, PAGE_SIZE).map(lesson => <LessonCard key={lesson.id} lesson={lesson} state={info(lesson)} onOpen={() => open(lesson)} />)}</div>
+        <LibraryPagination page={page} total={filtered.length} size={PAGE_SIZE} label="Listening lessons pages" onChange={turn} />
         {filtered.length === 0 && (
           <div className="text-center py-16">
             <LearningArt name="Headphones" size={36} className="w-12 h-12 mx-auto mb-3" />
