@@ -15,3 +15,7 @@
   .camp-content .camp-vocab-tabs > *,
   .camp-content .translation-groups > button { min-width:0; white-space:normal; height:auto; text-align:center; }
 }
+/* Checked answers everywhere: coloured border (+ mark where provided) only, no filled background. */
+.camp-frame main.camp-content [data-outcome="correct"],
+.camp-frame main.camp-content [data-outcome="incorrect"] { background:transparent!important; color:var(--color-text-primary)!important; }
+.camp-frame main.camp-content fieldset[data-outcome] { border-color:transparent!important; }

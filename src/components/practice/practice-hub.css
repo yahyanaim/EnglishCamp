@@ -1,0 +1,57 @@
+/* Practice Hub: Today strip, filters and richer trainer cards. Keeps the violet card style. */
+.camp-hub-today { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; }
+.camp-hub-today-tile { display:grid; grid-template-columns:40px minmax(0,1fr) 18px; align-items:center; gap:12px; min-height:76px; padding:14px; border:1px solid var(--color-border-default); border-radius:12px; background:var(--color-surface); color:var(--color-text-primary); text-align:start; transition:border-color .16s ease, background-color .16s ease; }
+.camp-hub-today-tile:first-child { border-color:var(--camp-control-ink); background:var(--camp-purple-soft); }
+.camp-hub-today-tile:is(:hover,:focus-visible) { border-color:var(--camp-control-ink); }
+.camp-hub-today-tile:focus-visible { outline:2px solid var(--camp-focus); outline-offset:2px; }
+.camp-hub-today-tile small { display:block; font-size:.72rem; font-weight:700; letter-spacing:.02em; text-transform:uppercase; color:var(--color-text-secondary); }
+.camp-hub-today-tile strong { display:block; font:750 .95rem/1.35 var(--font-display); overflow-wrap:anywhere; }
+.camp-hub-today-tile > svg { color:var(--camp-control-ink); }
+.camp-hub-today-icon { display:grid; place-items:center; width:40px; height:40px; border-radius:10px; background:var(--color-surface); color:var(--camp-control-ink); border:1px solid var(--color-border-default); }
+
+.camp-hub-filters { display:grid; grid-template-columns:minmax(0,1fr) auto; gap:10px; align-items:center; }
+.camp-hub-search { position:relative; display:block; }
+.camp-hub-search > svg { position:absolute; inset-inline-start:14px; top:50%; translate:0 -50%; color:var(--color-text-secondary); }
+.camp-hub-search input { width:100%; height:46px; padding-inline:40px 14px; border:1px solid var(--color-border-default); border-radius:10px; background:var(--color-surface); color:var(--color-text-primary); font-size:.9rem; }
+.camp-hub-search input:focus-visible { outline:2px solid var(--camp-focus); outline-offset:1px; border-color:var(--camp-control-ink); }
+.camp-hub-selects { display:grid; grid-template-columns:repeat(2,minmax(130px,1fr)); gap:10px; }
+.camp-hub-selects .camp-select-trigger { width:100%; min-width:0; height:46px; }
+.camp-hub-skills { grid-column:1/-1; display:flex; flex-wrap:wrap; gap:7px; }
+.camp-hub-skills > button { display:inline-flex; align-items:center; justify-content:center; min-height:40px; padding:6px 12px; border:1px solid var(--color-border-default); border-radius:10px; background:var(--color-surface); color:var(--color-text-secondary); font-size:.8rem; font-weight:650; }
+.camp-hub-skills > button[aria-pressed=true] { border-color:var(--camp-control-ink); background:var(--camp-purple-soft); color:var(--camp-control-ink); }
+.camp-hub-skills > button:focus-visible, .camp-hub-more:focus-visible, .camp-hub-count button:focus-visible, .camp-hub-empty button:focus-visible { outline:2px solid var(--camp-focus); outline-offset:2px; }
+.camp-hub-count { grid-column:1/-1; margin:0; font-size:.78rem; color:var(--color-text-secondary); }
+.camp-hub-count button, .camp-hub-empty button { display:inline-flex; align-items:center; gap:4px; color:var(--camp-control-ink); font-weight:700; text-decoration:underline; text-underline-offset:2px; }
+.camp-hub-empty { padding:24px; border:1px dashed var(--color-border-default); border-radius:12px; text-align:center; color:var(--color-text-secondary); }
+
+.camp-hub-section-count { margin-inline-start:6px; padding:1px 8px; border-radius:999px; background:var(--color-surface-alt); color:var(--color-text-secondary); font:600 .72rem/1.6 var(--font-body); vertical-align:middle; }
+.camp-hub-meta { display:flex; flex-wrap:wrap; align-items:center; gap:8px; margin-top:2px; font-size:.72rem; color:var(--color-text-secondary); }
+.camp-hub-meta > span { display:inline-flex; align-items:center; gap:4px; }
+.camp-hub-level { padding:1px 7px; border:1px solid var(--color-border-default); border-radius:6px; font-weight:700; color:var(--camp-control-ink); }
+.camp-hub-done { color:var(--color-success-dark); font-weight:700; }
+.camp-hub-more { justify-self:center; width:100%; min-height:44px; margin-top:12px; border:1px dashed var(--color-border-default); border-radius:10px; background:transparent; color:var(--camp-control-ink); font-size:.85rem; font-weight:700; }
+.camp-hub-more:hover { background:var(--camp-purple-soft); }
+
+/* Games: larger illustrated tiles. */
+.camp-frame .camp-practice-hub .camp-hub-game-grid { grid-template-columns:repeat(auto-fill,minmax(min(100%,170px),1fr)); }
+.camp-frame .camp-learning-library-card.camp-hub-tile { grid-template-columns:1fr; grid-template-rows:auto 1fr; justify-items:start; align-content:start; gap:10px; min-height:150px; }
+.camp-learning-library-card.camp-hub-tile .camp-library-card-icon { width:52px; height:52px; border-radius:14px; }
+.camp-learning-library-card.camp-hub-tile .camp-library-card-arrow { display:none; }
+
+@container camp-main (max-width:699px) {
+  .camp-hub-today { grid-template-columns:1fr; }
+  .camp-hub-filters { grid-template-columns:1fr; }
+}
+@container camp-main (max-width:579px) {
+  .camp-frame .camp-practice-hub .camp-hub-game-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .camp-frame .camp-learning-library-card.camp-hub-tile { min-height:132px; padding:12px; }
+}
+/* Skill chips fill their rows; on phones they form an even grid (GridBalance evens the last row). */
+.camp-hub-skills > button { flex:1 1 auto; }
+@container camp-main (max-width:579px) {
+  .camp-hub-skills { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:6px; }
+  .camp-hub-skills > button { min-width:0; white-space:normal; text-align:center; }
+  .camp-hub-today { gap:8px; }
+  .camp-hub-today-tile { min-height:62px; padding:10px 12px; }
+}
+.camp-learning-library-card.camp-hub-tile .camp-library-card-copy { align-content:start; align-self:stretch; }

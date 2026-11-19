@@ -1,5 +1,5 @@
 {
-  "scope": "Read & Listening restructure: Vocabulary is word-only, Read & Listen became Read (text, word lookups, comprehension questions), and Listening is a separate section below Vocabulary. Later reviewed deltas: word bank sync across devices, Listening/Reading counts on Stats, and balanced grid/tab rows. Each delta starts at the previously reviewed version.",
+  "scope": "Read & Listening restructure: Vocabulary is word-only, Read & Listen became Read (text, word lookups, comprehension questions), and Listening is a separate section below Vocabulary. Later reviewed deltas: word bank sync across devices, Listening/Reading counts on Stats, balanced grid/tab rows, and the Practice Hub home (Today strip, filters, card details). Each delta starts at the previously reviewed version.",
   "files": {
     "cloudflare/worker.ts": {
       "before": "004c1022a1b6679c39615ae3dfe6e66d62b56e88fcbb771c4d69a65723e160c7",
@@ -27,11 +27,11 @@
     },
     "src/lib/learnerStores.ts": {
       "before": "90e9b17e8840cb42ff90e2aadb4b1fd88d66e2fa84de78a09be7ce2000bc877f",
-      "after": "e5cd5e1fb474a3bd3d5c8c6cb05fd6bf69c20d2b54dafbc2e8f6bb794a437866"
+      "after": "a9f755f512c9484a19d7ca6af448084dc519c47aa1f0ff3c6734a08cdb872d62"
     },
     "src/data/speech-catalogue.json": {
       "before": "3597f0ff04aaa2abc53cbf4f94728147685e1ed45b55f33d156f3057b4ab5578",
-      "after": "b2d4b78ffe7ee64025786553a6fc2b4df1fff024cde5f63047d393165ba4e060"
+      "after": "2bd54c08e9564fd8fffbdc80b6ebab002ed9ab0e9c805ef3252f7925c91bd622"
     },
     "src/app/stats/page.tsx": {
       "before": "8eef801b1a2797e8410fef22d6d6cf75492bb811e3e0f86dd6c6415f1a93b1fe",
@@ -64,6 +64,10 @@
     "src/app/mobile.css": {
       "before": "6051a0a6d017eb3d3fdae26cb5abebd36d875243c1f62f50f1b509cd358c3034",
       "after": "1bb03e4ffc15be74ed2a27854720a7d980e888085f6f4a76d6c469f31bb33a61"
+    },
+    "src/app/practice/page.tsx": {
+      "before": "4b8deb6076323dbe529912df9e1406142c34e56632f42cf932e04979b939216d",
+      "after": "8f578fec02aeb1b5af97cfec1bed3e7d3c55b5a162c27687b6a330e23c5427e1"
     }
   },
   "selectors": {
