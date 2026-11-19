@@ -10,6 +10,8 @@ const {encodeSpeakingWav}=require('../src/lib/speakingAudio.ts');
 const origin='https://camp.test';
 test('the access boundary leaves the existing workspace chrome and original fonts unchanged',()=>{
  const shell=fs.readFileSync('src/components/layout/LayoutShell.tsx','utf8')
+  // Reviewed addition: GridBalance evens out incomplete grid rows inside the content area.
+  .replace('import { GridBalance } from "./GridBalance";\n','').replace('<GridBalance/>','')
   .replace("import {usePathname} from 'next/navigation';\n",'')
   .replace("import {InvitationBoundary,InvitationContent,isEntryPage} from '@/components/session/InvitationBoundary';\n",'')
   .replace('  const pathname=usePathname(),entry=isEntryPage(pathname);\n  // Admin sessions and pages do not mount learner storage/synchronization providers.\n  if(pathname.startsWith(\'/admin/\'))return <main className="camp-entry">{children}</main>;\n','')

@@ -94,7 +94,7 @@ export default function StatsPage() {
         </div>
       </div>
 
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+      <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
         {[
           { label: "Total XP", value: xp.toLocaleString() },
           { label: "Streak", value: `${streak} days` },
@@ -103,6 +103,8 @@ export default function StatsPage() {
           { label: "Quizzes Taken", value: totalQuizzes.toString() },
           { label: "Best Quiz Score", value: bestQuiz > 0 ? `${bestQuiz}%` : "-" },
           { label: "Exercises Done", value: Object.values(exercisesDone).filter(Boolean).length.toString() },
+          { label: "Listening Lessons", value: Object.keys(exercisesDone).filter(id => exercisesDone[id] && id.startsWith("listening:")).length.toString() },
+          { label: "Reading Passages", value: Object.keys(exercisesDone).filter(id => exercisesDone[id] && id.startsWith("reading:")).length.toString() },
           { label: "Errors Tracked", value: errors.length.toString() },
         ].map((s) => (
           <div key={s.label} className="bg-[var(--color-surface-alt)] rounded-[var(--radius-lg)] p-4 text-center">
