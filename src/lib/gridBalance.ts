@@ -33,7 +33,23 @@ function plan(grid: HTMLElement) {
   return { grid, items, columns, rest, span };
 }
 
+const CHIP = "data-chip-row";
+/**
+ * Marks wrapping rows of word chips (filters, topic tabs) so CSS can let them fill their rows.
+ * Letter keyboards, sentence word tiles (a tile ends with punctuation) and short action rows are left alone.
+ */
+function markChipRows(root: ParentNode) {
+  for (const row of Array.from(root.querySelectorAll<HTMLElement>(".flex-wrap"))) {
+    const buttons = Array.from(row.children) as HTMLElement[];
+    const labels = buttons.map(b => (b.textContent ?? "").trim());
+    const chips = buttons.length >= 4 && buttons.every(b => b.tagName === "BUTTON") && labels.every(t => t.length >= 2) && labels.reduce((n, t) => n + t.length, 0) / labels.length >= 3
+      && !labels.some(t => /[.?!,]$/.test(t)) && !row.closest("[data-grid-free]") && !buttons.some(b => b.draggable || b.closest("[data-practice-tiles]"));
+    if (chips) row.setAttribute(CHIP, ""); else row.removeAttribute(CHIP);
+  }
+}
+
 export function balanceGrids(root: ParentNode) {
+  markChipRows(root);
   const grids = Array.from(root.querySelectorAll<HTMLElement>("*")).filter(el => el.hasAttribute(MARK) || el.children.length > 2);
   grids.filter(el => el.hasAttribute(MARK)).forEach(reset);
   const plans = grids.map(plan).filter((p): p is NonNullable<ReturnType<typeof plan>> => !!p);

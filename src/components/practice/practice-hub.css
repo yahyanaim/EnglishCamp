@@ -34,7 +34,7 @@
 
 /* Games: larger illustrated tiles. */
 .camp-frame .camp-practice-hub .camp-hub-game-grid { grid-template-columns:repeat(auto-fill,minmax(min(100%,170px),1fr)); }
-.camp-frame .camp-learning-library-card.camp-hub-tile { grid-template-columns:1fr; grid-template-rows:auto 1fr; justify-items:start; align-content:start; gap:10px; min-height:150px; }
+.camp-frame .camp-learning-library-card.camp-hub-tile { grid-template-columns:1fr; grid-template-rows:auto 1fr; justify-items:start; align-content:start; gap:10px; min-height:0; }
 .camp-learning-library-card.camp-hub-tile .camp-library-card-icon { width:52px; height:52px; border-radius:14px; }
 .camp-learning-library-card.camp-hub-tile .camp-library-card-arrow { display:none; }
 
@@ -44,7 +44,7 @@
 }
 @container camp-main (max-width:579px) {
   .camp-frame .camp-practice-hub .camp-hub-game-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
-  .camp-frame .camp-learning-library-card.camp-hub-tile { min-height:132px; padding:12px; }
+  .camp-frame .camp-learning-library-card.camp-hub-tile { padding:12px; }
 }
 /* Skill chips fill their rows; on phones they form an even grid (GridBalance evens the last row). */
 .camp-hub-skills > button { flex:1 1 auto; }
@@ -55,3 +55,9 @@
   .camp-hub-today-tile { min-height:62px; padding:10px 12px; }
 }
 .camp-learning-library-card.camp-hub-tile .camp-library-card-copy { align-content:start; align-self:stretch; }
+
+/* Rows size to their own tallest card (not the tallest card on the page), so short cards keep no empty band. */
+.camp-frame .camp-practice-hub .camp-trainer-grid { grid-auto-rows:auto; }
+.camp-frame .camp-practice-hub .camp-learning-library-card { min-height:0; }
+.camp-learning-library-card .camp-library-card-copy { align-self:stretch; grid-template-rows:auto auto 1fr; }
+.camp-hub-meta { align-self:end; }

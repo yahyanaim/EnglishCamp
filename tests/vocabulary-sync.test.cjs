@@ -50,5 +50,5 @@ test('listening and reading lessons earn XP once and count in synced progress li
  assert.deepEqual(events.map(e=>e.xp),[SKILL_LESSON_MAX_XP,15],'a client cannot claim more than one lesson reward');
  const merged=mergeProgress({xp:10,exercisesDone:{'listening:for-the-birds':true},events},{xp:5,exercisesDone:{'reading:a1-my-cat-mimi':true}});
  assert.ok(merged.exercisesDone['listening:for-the-birds']&&merged.exercisesDone['reading:a1-my-cat-mimi']);assert.equal(merged.events.length,2);
- const stats=fs.readFileSync('src/app/stats/page.tsx','utf8');assert.match(stats,/Listening Lessons/);assert.match(stats,/Reading Passages/);
+ const stats=fs.readFileSync('src/app/stats/page.tsx','utf8');assert.match(stats,/Listening lessons/i);assert.match(stats,/Reading passages/i);
 });

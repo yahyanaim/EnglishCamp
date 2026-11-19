@@ -1,0 +1,47 @@
+/* Progress (Statistics) page: one hero, one even grid of totals, then activity and courses. */
+.camp-stats-head { display:flex; flex-wrap:wrap; align-items:flex-end; justify-content:space-between; gap:12px; }
+.camp-stats-actions { display:flex; gap:8px; }
+.camp-stats-action { display:inline-flex; align-items:center; justify-content:center; gap:6px; min-height:42px; padding:8px 14px; border:1px solid var(--color-border-default); border-radius:10px; background:var(--color-surface); color:var(--color-text-primary); font-size:.85rem; font-weight:650; }
+.camp-stats-action:hover { border-color:var(--camp-control-ink); background:var(--camp-purple-soft); color:var(--camp-control-ink); }
+.camp-stats-action:focus-visible { outline:2px solid var(--camp-focus); outline-offset:2px; }
+
+.camp-stats-hero { display:grid; grid-template-columns:minmax(0,1fr) auto; gap:20px; align-items:center; padding:20px; border:1px solid var(--color-border-default); border-radius:16px; background:linear-gradient(135deg,var(--camp-purple-soft),var(--color-surface) 70%); }
+.camp-stats-level { display:flex; align-items:center; gap:16px; min-width:0; }
+.camp-stats-level-badge { display:grid; place-items:center; flex:none; width:56px; height:56px; border-radius:16px; background:var(--camp-control-ink); color:#fff; font:800 1.4rem/1 var(--font-display); }
+.camp-stats-level-copy { display:grid; gap:6px; flex:1; min-width:0; }
+.camp-stats-level-copy strong { font:800 1.1rem/1.3 var(--font-display); color:var(--color-text-primary); }
+.camp-stats-level-copy > span { font-size:.8rem; color:var(--color-text-secondary); }
+.camp-stats-bar { width:100%; height:8px; border-radius:999px; background:var(--color-border-default); overflow:hidden; }
+.camp-stats-bar > div { height:100%; border-radius:inherit; background:var(--camp-control-ink); transition:width .5s ease; }
+.camp-stats-hero-kpis { display:grid; grid-template-columns:repeat(2,minmax(110px,1fr)); gap:10px; }
+.camp-stats-hero-kpis > div { display:grid; justify-items:start; gap:2px; padding:12px 14px; border:1px solid var(--color-border-default); border-radius:12px; background:var(--color-surface); }
+.camp-stats-hero-kpis svg { color:var(--camp-control-ink); }
+.camp-stats-hero-kpis strong { font:800 1.35rem/1.2 var(--font-display); color:var(--color-text-primary); }
+.camp-stats-hero-kpis span { font-size:.75rem; color:var(--color-text-secondary); }
+
+.camp-stats-title { margin-bottom:12px; font:750 1rem/1.4 var(--font-display); color:var(--color-text-primary); }
+.camp-stats-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; }
+.camp-stats-tile { display:grid; align-content:start; gap:2px; min-height:120px; padding:14px; border:1px solid var(--color-border-default); border-radius:12px; background:var(--color-surface); }
+.camp-stats-tile-icon { display:grid; place-items:center; width:32px; height:32px; margin-bottom:6px; border-radius:9px; background:var(--camp-purple-soft); color:var(--camp-control-ink); }
+.camp-stats-tile strong { font:800 1.5rem/1.2 var(--font-display); color:var(--color-text-primary); }
+.camp-stats-tile > span { font-size:.8rem; font-weight:600; color:var(--color-text-secondary); }
+.camp-stats-tile small { font-size:.72rem; color:var(--color-text-secondary); }
+
+.camp-stats-card { padding:20px; border:1px solid var(--color-border-default); border-radius:16px; background:var(--color-surface); }
+.camp-stats-courses { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px 24px; }
+.camp-stats-course { display:grid; gap:8px; }
+.camp-stats-course-top { display:flex; align-items:baseline; justify-content:space-between; gap:8px; }
+.camp-stats-course-top strong { font-size:.9rem; color:var(--color-text-primary); }
+.camp-stats-course-top span { font:800 .9rem/1 var(--font-display); color:var(--camp-control-ink); }
+.camp-stats-course p { font-size:.75rem; color:var(--color-text-secondary); }
+
+@container camp-main (max-width:699px) {
+  .camp-stats-hero { grid-template-columns:1fr; }
+  .camp-stats-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .camp-stats-courses { grid-template-columns:1fr; }
+}
+@container camp-main (max-width:459px) {
+  .camp-stats-actions { width:100%; }
+  .camp-stats-action { flex:1 1 0; }
+  .camp-stats-tile { min-height:108px; padding:12px; }
+}
