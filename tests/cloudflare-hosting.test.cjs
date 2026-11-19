@@ -15,7 +15,9 @@ test('Cloudflare keeps old URLs and locale bookmarks connected to English pages 
   assert.equal(response.status,308);assert.equal(response.headers.get('location'),`${origin}/${english}?mode=review`);
  }
  assert.equal((await worker.fetch(new Request(origin+'/en/grammar'),env)).headers.get('location'),origin+'/grammar');
- assert.equal((await worker.fetch(new Request(origin+'/reading?topic=1'),env)).headers.get('location'),origin+'/vocabulary?topic=1');
+ // Read is its own section again, so /reading is served as a page rather than redirected to Vocabulary.
+ assert.equal(await (await worker.fetch(new Request(origin+'/reading?topic=1'),env)).text(),'asset');
+ assert.equal(await (await worker.fetch(new Request(origin+'/listening'),env)).text(),'asset');
  assert.equal(await (await worker.fetch(new Request(origin+'/grammar'),env)).text(),'asset');
  assert.equal((await worker.fetch(new Request(origin+'/api/unknown'),env)).status,404);
  assert.equal((await worker.fetch(new Request(origin+'/api/speech'),env)).status,405);

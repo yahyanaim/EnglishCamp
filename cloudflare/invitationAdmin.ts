@@ -4,6 +4,7 @@ import { accessHash, accessJson, accessSecret, readCookie } from './access';
 import {InvitationMailError,invitationRequests,sendInvitation,declineInvitation,reopenInvitation} from './invitationEmail';
 import {emailLearner,deleteLearner} from './adminLearnerActions';
 import {securityReport} from './adminSecurity';
+import {contentAdmin} from './learningContent';
 
 const now = () => Math.floor(Date.now() / 1000);
 const cookieName = (r: Request) => new URL(r.url).protocol === 'https:' ? '__Host-camp-invite-admin' : 'camp_local_admin';
@@ -59,6 +60,7 @@ export async function invitationAdmin(request: Request, env: LearnerEnv): Promis
     const session = await adminSession(request, env);
     if (action === 'session' && request.method === 'GET') return accessJson({ configured: true, authenticated: !!session });
     if (!session) return accessJson({ error: 'Sign in to manage invitations.' }, 401);
+    if(action==='content'||action.startsWith('content-'))return contentAdmin(action,request,env);
     if(action==='security'&&request.method==='GET')return accessJson(await securityReport(url,env,session));
     if(['report','directory','detail','catalogue','infrastructure','settings','invitation-directory'].includes(action)&&request.method==='GET')return accessJson(await adminReport(action,url,env));
     if(request.method==='POST'&&['create','revoke','admissions','learner','profile','revoke-sessions','email-invitation','decline-request','reopen-request','email-learner','delete-learner'].includes(action)){const expiry=(Math.floor(now()/600)+1)*600;const used=await db.prepare('INSERT INTO cloud_auth_limits(bucket,attempts,expires_at) VALUES(?,1,?) ON CONFLICT(bucket) DO UPDATE SET attempts=attempts+1 WHERE attempts<120 RETURNING attempts').bind(await accessHash(`admin-write:${session}:${expiry}`),expiry).first();if(!used)throw new AdminError('Too many changes. Wait a few minutes.',429);}

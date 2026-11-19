@@ -19,7 +19,7 @@ import {
   Shield, Gem, Split, GitFork, MessageSquareQuote, CaseSensitive,
   CornerDownRight, Network, History, UserMinus, Clock, Clock9, ArrowBigRightDash, Scale, HelpCircle,
   FileText, ArrowLeftRight, Target, Trophy, RotateCcw, Users, Mic, Calendar, Printer, Brain, Ear, Shuffle, Globe, NotepadText, Award,
-  Dumbbell, X,
+  Dumbbell, X, Headphones,
 } from "lucide-react";
 import { useProgress } from "@/store/useProgress";
 import { getLevelInfo } from "@/lib/xp";
@@ -35,6 +35,8 @@ const NAV_MAIN: NavLink[] = [
   { href: "/practice", label: "Practice", icon: Gamepad2 },
   { href: "/mock-exam", label: "Mock Exams", icon: GraduationCap },
   { href: "/vocabulary", label: "Vocabulary", icon: BookHeart },
+  { href: "/listening", label: "Listening", icon: Headphones },
+  { href: "/reading", label: "Read", icon: BookOpenText },
   { href: "/flashcards", label: "Flashcards", icon: BookOpen },
   { href: "/shadowing-english", label: "Shadowing English", icon: Mic },
   { href: "/english-coach", label: "English coach", icon: MessageCircle },
@@ -126,7 +128,6 @@ const NAV_SECTIONS: NavSection[] = [
       { href: "/pronunciation", label: "Pronunciation", icon: Mic },
       { href: "/conversation", label: "Conversations", icon: Users },
       { href: "/picture-description", label: "Picture Desc.", icon: Image },
-      { href: "/vocabulary", label: "Reading", icon: BookOpenText },
       { href: "/false-friends", label: "False Friends", icon: AlertTriangle },
       { href: "/collocations", label: "Collocations", icon: Link2 },
       { href: "/british-vs-american", label: "British vs American", icon: Globe },

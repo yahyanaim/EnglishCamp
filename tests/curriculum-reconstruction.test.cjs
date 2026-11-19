@@ -1,3 +1,4 @@
+const readListening=require('./fixtures/read-listening-contract.json');
 const consistency=require('./fixtures/consistency-content-contract.json');
 const notesBrand=require('./fixtures/notes-brand-contract.json');
 const violet=require('./fixtures/violet-session-contract.json');
@@ -50,8 +51,8 @@ test('protected production files remain identical except the reviewed UI, narrat
  for(const [name,delta]of Object.entries(mockNarration.integration)){assert.equal(delta.before,beforeMock[name]?.after??contract.protectedFiles[name],name+' mock narration boundary');assert.notEqual(delta.after,delta.before);}
  for(const [name,delta]of Object.entries(mockRebuild.integration)){assert.equal(delta.before,mockNarration.integration[name]?.after??beforeMock[name]?.after??contract.protectedFiles[name]??enrichment.preserved[name],name+' authorised mock rebuild boundary');assert.notEqual(delta.after,delta.before);}
  const reviewedAll={...beforeMock,...mockNarration.integration,...mockRebuild.integration,...styling.files,...recovery.files,...reference.files,...fullsize.files,...violet.files,...notesBrand.files,...consistency.files};
- for(const [name,expected]of Object.entries(styling.preserved))assert.equal(hash(fs.readFileSync(path.join(__dirname,'..',name))),consistency.files[name]?.after??notesBrand.files[name]?.after??violet.files[name]?.after??fullsize.files[name]?.after??reference.files[name]?.after??recovery.files[name]?.after??expected,name+' content/media/state preserved during styling');
- for(const [name,expected]of Object.entries(contract.protectedFiles))assert.equal(hash(fs.readFileSync(path.join(__dirname,'..',name))),reviewedAll[name]?.after??expected,name);
+ for(const [name,expected]of Object.entries(styling.preserved))assert.equal(hash(fs.readFileSync(path.join(__dirname,'..',name))),readListening.files[name]?.after??consistency.files[name]?.after??notesBrand.files[name]?.after??violet.files[name]?.after??fullsize.files[name]?.after??reference.files[name]?.after??recovery.files[name]?.after??expected,name+' content/media/state preserved during styling');
+ for(const [name,expected]of Object.entries(contract.protectedFiles))assert.equal(hash(fs.readFileSync(path.join(__dirname,'..',name))),readListening.files[name]?.after??reviewedAll[name]?.after??expected,name);
 });
 test('three lessons classified strong and their complete activities remain exactly preserved',()=>{
  for(const old of contract.strong){assert.deepEqual(getModuleData(old.lesson.id).lesson,old.lesson);assert.deepEqual(activity(old.lesson.id),old.activity);}

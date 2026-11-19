@@ -7,7 +7,8 @@ const {useProgress}=require('../src/store/useProgress.ts');
 const {activityDays,localDay}=require('../src/lib/learningActivity.ts');
 const {courseSnapshot}=require('../src/lib/courseProgress.ts');
 const {ADJECTIVE_QUESTIONS,adjectiveRound}=require('../src/data/adjective-questions.ts');
-const {readingWordDetails}=require('../src/lib/vocabularyLookup.ts');
+const {lookupWord}=require('../src/lib/vocabularyLookup.ts');
+const {readingLessonById}=require('../src/data/reading-lessons.ts');
 const {ALL_ARTICLES}=require('../src/data/articles/index.ts');
 const {useVocabulary,vocabId}=require('../src/store/useVocabulary.ts');
 const {accentPalette,contrast,ACCENT_PRESETS}=require('../src/lib/accentPalette.ts');
@@ -56,13 +57,14 @@ test('adjective rounds have no empty option, one correct full form, stable IDs a
  assert.equal(JSON.stringify(ADJECTIVE_QUESTIONS),before);assert.equal(ADJECTIVE_QUESTIONS.find(q=>q.id==='story').answer,'exciting');
 });
 test('article words save Arabic meaning and an original English example to the same personal bank',()=>{
- useVocabulary.setState({words:{}});const a=ALL_ARTICLES[0],v=a.vocabulary[0],i=a.paragraphs.findIndex(p=>p.en.toLowerCase().includes(v.word.toLowerCase()));const item=readingWordDetails(v.word,a,i);
- assert.equal(item.meaning,v.ar);assert.equal(item.translationKind,'word');assert.match(item.meaning,/[\u0600-\u06ff]/);assert.ok(a.paragraphs.some(p=>p.en.includes(item.example)));
+ useVocabulary.setState({words:{}});const a=ALL_ARTICLES[0],v=a.vocabulary[0],lesson=readingLessonById(a.id),i=lesson.paragraphs.findIndex(p=>p.toLowerCase().includes(v.word.toLowerCase()));const item=lookupWord(v.word,lesson,i);
+ assert.equal(item.meaning,v.ar);assert.equal(item.translationKind,'word');assert.match(item.meaning,/[\u0600-\u06ff]/);assert.ok(lesson.paragraphs.some(p=>p.includes(item.example)));
  useVocabulary.getState().addWord(item.word,item.meaning,item.category,{example:item.example,definition:item.definition,translationKind:item.translationKind});
  const id=vocabId(item.word);assert.equal(useVocabulary.getState().words[id].example,item.example);assert.equal(useVocabulary.getState().words[id].en,v.ar);
  useVocabulary.getState().updateNotes(id,'Personal note');useVocabulary.getState().addWord(item.word,'different','other',{example:'new example'});
  assert.equal(Object.keys(useVocabulary.getState().words).length,1);assert.equal(useVocabulary.getState().words[id].notes,'Personal note');assert.equal(useVocabulary.getState().words[id].en,v.ar);
- const unknown=readingWordDetails('zzunknown',a,0);assert.equal(unknown.translationKind,'context');assert.equal(unknown.meaning,a.paragraphs[0].ar,'unknown words are honestly labelled context, not a fabricated meaning');
+ // Read never substitutes a paragraph translation: unknown words get no meaning rather than Arabic for the whole paragraph.
+ const unknown=lookupWord('zzunknown',lesson,0);assert.equal(unknown.translationKind,'none');assert.equal(unknown.meaning,'','unknown words are honestly labelled, not given a paragraph translation');
 });
 test('every palette keeps white button labels and accent text readable in both themes',()=>{
  for(const color of [...ACCENT_PRESETS.map(p=>p.color),'#FFFFFF','#FFFF00','#00FF00','#000000','#FF00FF','#00FFFF'])for(const dark of [false,true]){

@@ -1,3 +1,4 @@
+const readListening=require('./fixtures/read-listening-contract.json');
 const consistency=require('./fixtures/consistency-content-contract.json');
 const notesBrand=require('./fixtures/notes-brand-contract.json');
 const violet=require('./fixtures/violet-session-contract.json');
@@ -340,9 +341,9 @@ test("integration uses native recording and preserves the established design tok
   const recovery = require("./fixtures/ui-recovery-contract.json");
   const reference = require("./fixtures/reference-ui-contract.json");
   for (const [file, delta] of Object.entries(contract.integration))
-    assert.equal(hash(read(file)), consistency.files[file]?.after??notesBrand.files[file]?.after ?? violet.files[file]?.after ?? fullsize.files[file]?.after ?? reference.files[file]?.after ?? recovery.files[file]?.after ?? styling.files[file]?.after ?? delta.after, file);
+    assert.equal(hash(read(file)), readListening.files[file]?.after??consistency.files[file]?.after??notesBrand.files[file]?.after ?? violet.files[file]?.after ?? fullsize.files[file]?.after ?? reference.files[file]?.after ?? recovery.files[file]?.after ?? styling.files[file]?.after ?? delta.after, file);
   for (const [file, digest] of Object.entries(contract.protectedUI))
-    assert.equal(hash(fs.readFileSync(path.join(root, file))), consistency.files[file]?.after??notesBrand.files[file]?.after ?? violet.files[file]?.after ?? fullsize.files[file]?.after ?? reference.files[file]?.after ?? recovery.files[file]?.after ?? styling.files[file]?.after ?? digest, file);
+    assert.equal(hash(fs.readFileSync(path.join(root, file))), readListening.files[file]?.after??consistency.files[file]?.after??notesBrand.files[file]?.after ?? violet.files[file]?.after ?? fullsize.files[file]?.after ?? reference.files[file]?.after ?? recovery.files[file]?.after ?? styling.files[file]?.after ?? digest, file);
   for (const [file, change] of Object.entries(contract.routingOnly)) {
     let restored = (recovery.historicalNavigation[file] ?? read(file)).replaceAll(change.newUrl, change.oldUrl);
     for (const pair of change.textReplacements || [])

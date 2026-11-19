@@ -21,6 +21,10 @@ export type VoaListeningClip = {
   audioUrl: string;
   transcriptExcerpt?: string;
   questions: readonly [ListeningQuestion, ListeningQuestion];
+  /** Restates the reviewed fact of question `replaces`, which is then asked as true/false instead. */
+  trueFalse: { statement: string; correct: boolean; feedback: string; replaces: 0 | 1 };
+  /** Gap fill copied from the published transcript excerpt (only when an excerpt exists). */
+  gap?: { prompt: string; answer: string };
   words: readonly { word: string; arabic: string; example: string }[];
 };
 
@@ -51,6 +55,8 @@ export const VOA_LISTENING: readonly VoaListeningClip[] = [
         feedback: "Pete says the address is 1400 Irving Street.",
       },
     ],
+    trueFalse: {statement: "Anna spells her name with one N.", correct: false, feedback: "She spells it A-N-N-A, with two Ns.", replaces: 0 },
+    gap: { prompt: "Anna: Yes! Hi there! Are you ___?", answer: "Pete" },
     words: [
       {word: "nice to meet you", arabic: "تشرّفت بمقابلتك. عبارة تُقال عند التعارف لأول مرة.", example: "Hi, I'm Sara. Nice to meet you."},
       {word: "apartment", arabic: "شقة سكنية داخل مبنى يضم عدة مساكن.", example: "My apartment is on the second floor."},
@@ -76,6 +82,8 @@ export const VOA_LISTENING: readonly VoaListeningClip[] = [
         feedback: "Jonathan lives in B4. C2 is Anna’s apartment, and D7 is Pete’s.",
       },
     ],
+    trueFalse: {statement: "Marsha is Anna’s roommate.", correct: true, feedback: "Anna says Marsha is her roommate.", replaces: 0 },
+    gap: { prompt: "Anna: I am from a small ___.", answer: "town" },
     words: [
       {word: "small town", arabic: "بلدة صغيرة، أي مكان سكني أصغر من مدينة كبيرة.", example: "I grew up in a small town near the sea."},
       {word: "roommate", arabic: "زميل سكن يشاركك المنزل أو الشقة.", example: "My roommate and I share a kitchen."},
@@ -100,6 +108,7 @@ export const VOA_LISTENING: readonly VoaListeningClip[] = [
         feedback: "Pete identifies the first thing she takes out. It’s a big book.",
       },
     ],
+    trueFalse: {statement: "The first thing Anna pulls out of her bag is a book.", correct: true, feedback: "She finds a book before anything else.", replaces: 1 },
     words: [
       {word: "bag", arabic: "حقيبة تُستخدم لحمل الأغراض الشخصية.", example: "I put my keys in my bag."},
       {word: "pillow", arabic: "وسادة تضع عليها رأسك عند النوم أو الراحة.", example: "There is a pillow on the sofa."},
@@ -124,6 +133,7 @@ export const VOA_LISTENING: readonly VoaListeningClip[] = [
         feedback: "The phone is giving the forecast for Mexico City, while Anna is in Washington, D.C.",
       },
     ],
+    trueFalse: {statement: "The forecast on Anna’s phone is for her own city.", correct: false, feedback: "The forecast is wrong for Anna because it is for another city.", replaces: 1 },
     words: [
       {word: "forecast", arabic: "توقّع لحالة الطقس، مثل درجة الحرارة أو احتمال المطر.", example: "The forecast says it will rain tomorrow."},
       {word: "windy", arabic: "عاصف أو كثير الرياح. تُستخدم لوصف حالة الطقس.", example: "It's windy by the sea today."},
@@ -149,6 +159,8 @@ export const VOA_LISTENING: readonly VoaListeningClip[] = [
         feedback: "Her first wrong turn takes her to the mailroom.",
       },
     ],
+    trueFalse: {statement: "The lounge is directly across from the gym.", correct: true, feedback: "The lounge is directly across from the gym.", replaces: 0 },
+    gap: { prompt: "People in Washington like to work ___!", answer: "out" },
     words: [
       {word: "work out", arabic: "يتمرّن أو يمارس الرياضة. هنا لا تعني العبارة «يحلّ مشكلة».", example: "I work out three times a week."},
       {word: "gym", arabic: "صالة رياضية فيها أجهزة أو مساحة للتمرين.", example: "Is there a gym near the station?"},
@@ -174,6 +186,8 @@ export const VOA_LISTENING: readonly VoaListeningClip[] = [
         feedback: "There are three coffee shops, so Anna gives her a more specific landmark.",
       },
     ],
+    trueFalse: {statement: "Ashley should turn right at the bus station.", correct: false, feedback: "At the bus station, Ashley should turn left.", replaces: 0 },
+    gap: { prompt: "Exit the Metro and turn ___. Then at the bus station turn left.", answer: "right" },
     words: [
       {word: "straight ahead", arabic: "إلى الأمام مباشرةً من دون انعطاف.", example: "Walk straight ahead until you see the library."},
       {word: "across from", arabic: "مقابل مكان، على الجهة الأخرى من الطريق أو المساحة.", example: "The café is across from the library."},
@@ -198,6 +212,7 @@ export const VOA_LISTENING: readonly VoaListeningClip[] = [
         feedback: "Anna likes the dress, but it is too small for her.",
       },
     ],
+    trueFalse: {statement: "The first dress Anna tries is too big.", correct: false, feedback: "The first dress is too small.", replaces: 1 },
     words: [
       {word: "casual", arabic: "غير رسمي. تُستخدم لوصف ملابس مريحة تناسب الحياة اليومية.", example: "The invitation says we can wear casual clothes."},
       {word: "the right size", arabic: "المقاس المناسب للشخص أو للشيء الذي تشتريه.", example: "Do you have these shoes in the right size for me?"},
@@ -222,6 +237,7 @@ export const VOA_LISTENING: readonly VoaListeningClip[] = [
         feedback: "The tests are during the day and the party is at night.",
       },
     ],
+    trueFalse: {statement: "Anna has a driving test on the day of the party.", correct: true, feedback: "Her driving test is the same day, but the party is at night.", replaces: 0 },
     words: [
       {word: "driver’s license", arabic: "رخصة قيادة. هذه الكتابة شائعة في الإنجليزية الأمريكية.", example: "I got my driver’s license last year."},
       {word: "perform", arabic: "يُقدّم عرضًا أمام جمهور، مثل الغناء أو العزف.", example: "Our class will perform at the school party."},
@@ -247,6 +263,8 @@ export const VOA_LISTENING: readonly VoaListeningClip[] = [
         feedback: "The film starts soon, so Marsha decides to do her errands the next day.",
       },
     ],
+    trueFalse: {statement: "Marsha usually visits her parents on Friday nights.", correct: true, feedback: "Friday nights are for visiting her parents.", replaces: 0 },
+    gap: { prompt: "Marsha: Are you busy this ___ at 6pm?", answer: "Thursday" },
     words: [
       {word: "as usual", arabic: "كالعادة. تصف شيئًا يحدث بالطريقة المعتادة.", example: "The café was busy as usual."},
       {word: "errands", arabic: "مشاوير قصيرة لإنجاز حاجات يومية مثل التسوّق أو الذهاب إلى البريد.", example: "I need to run a few errands before lunch."},
@@ -273,6 +291,8 @@ export const VOA_LISTENING: readonly VoaListeningClip[] = [
         feedback: "Anna gets $10 and gives $5 back, so her dish costs $5.",
       },
     ],
+    trueFalse: {statement: "Jonathan orders beef because the shrimp has sold out.", correct: true, feedback: "The shrimp has sold out, so he orders beef.", replaces: 0 },
+    gap: { prompt: "Today I’m having lunch with my ___.", answer: "boss" },
     words: [
       {word: "have lunch", arabic: "يتناول الغداء. يمكن أن تقول have lunch with عند تناول الغداء مع شخص.", example: "Would you like to have lunch with us?"},
       {word: "at noon", arabic: "عند الظهر، أي في الساعة الثانية عشرة نهارًا.", example: "Let's meet outside at noon."},
@@ -297,6 +317,7 @@ export const VOA_LISTENING: readonly VoaListeningClip[] = [
         feedback: "Anna uses the available ingredients to make peanut butter and banana pancakes.",
       },
     ],
+    trueFalse: {statement: "Anna keeps her flour in the fridge.", correct: true, feedback: "Anna keeps the flour in the fridge.", replaces: 0 },
     words: [
       {word: "ingredient", arabic: "مكوّن يدخل في تحضير الطعام، مثل الدقيق أو البيض.", example: "The main ingredient in this soup is pumpkin."},
       {word: "hand me", arabic: "ناولني أو أعطني شيئًا قريبًا منك.", example: "Could you hand me that bowl?"},
@@ -322,6 +343,7 @@ export const VOA_LISTENING: readonly VoaListeningClip[] = [
         feedback: "Anna promises to bring the scissors back the following day.",
       },
     ],
+    trueFalse: {statement: "Anna promises to return Jonathan’s scissors next week.", correct: false, feedback: "She promises to return them tomorrow.", replaces: 1 },
     words: [
       {word: "borrow", arabic: "يستعير شيئًا لاستخدامه مؤقتًا ثم يعيده.", example: "May I borrow your charger for a few minutes?"},
       {word: "lend", arabic: "يُعير شخصًا شيئًا ليستخدمه ثم يعيده.", example: "Can you lend me a pen?"},
@@ -348,6 +370,8 @@ export const VOA_LISTENING: readonly VoaListeningClip[] = [
         feedback: "Anna assumes he’s reading the job ads, but Pete tells her he was working on the crossword.",
       },
     ],
+    trueFalse: {statement: "Pete was doing a crossword in the newspaper.", correct: true, feedback: "Pete was doing a crossword.", replaces: 1 },
+    gap: { prompt: "My boss wants me to team up with someone to host a talk ___.", answer: "show" },
     words: [
       {word: "assignment", arabic: "مهمة يكلّفك بها مدير أو معلّم لإنجازها.", example: "My first assignment is to interview a local shop owner."},
       {word: "team up", arabic: "يتعاون مع شخص آخر لإنجاز مهمة مشتركة.", example: "We teamed up to prepare the presentation."},
@@ -373,6 +397,7 @@ export const VOA_LISTENING: readonly VoaListeningClip[] = [
         feedback: "The person has taken on so many projects that each one gets too little attention.",
       },
     ],
+    trueFalse: {statement: "The expression describes agreeing to more than you can manage.", correct: true, feedback: "It describes saying yes to more commitments than you can manage.", replaces: 0 },
     words: [
       {word: "spread yourself too thin", arabic: "تقبل التزامات أكثر مما يمكنك التعامل معه، فيتوزّع وقتك وجهدك على أشياء كثيرة.", example: "I spread myself too thin by taking on three projects at once."},
       {word: "take on", arabic: "يتولّى مهمة أو يقبل تحمّل مسؤولية جديدة.", example: "I can't take on another project this month."},
@@ -397,6 +422,7 @@ export const VOA_LISTENING: readonly VoaListeningClip[] = [
         feedback: "Anna has flown before, but being so close to a plane while outside it is new to her.",
       },
     ],
+    trueFalse: {statement: "The tour vehicle can travel on land and water.", correct: true, feedback: "The vehicle can travel on land and water.", replaces: 0 },
     words: [
       {word: "coming up", arabic: "على وشك الظهور أو الوصول. هنا يشير إلى معلم ستراه قريبًا.", example: "The next stop is coming up on the left."},
       {word: "carved in stone", arabic: "منقوش في الحجر حرفيًا. وتُستخدم العبارة مجازًا لوصف قرار يصعب تغييره.", example: "The date is carved in stone above the doorway."},
@@ -422,6 +448,7 @@ export const VOA_LISTENING: readonly VoaListeningClip[] = [
         feedback: "Penelope asks whether those were the boss’s exact words. Anna confirms that the boss told her to have fun.",
       },
     ],
+    trueFalse: {statement: "Penelope expected their boss to tell them to have fun.", correct: false, feedback: "She is surprised because she did not expect the boss to say that.", replaces: 1 },
     words: [
       {word: "cover an event", arabic: "يغطّي حدثًا إعلاميًا بإعداد تقرير عنه.", example: "A local reporter will cover the festival this weekend."},
       {word: "opening shot", arabic: "اللقطة الأولى في تقرير مصوّر أو فيلم.", example: "The opening shot shows the crowd outside the venue."},

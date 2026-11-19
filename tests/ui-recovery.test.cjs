@@ -1,3 +1,4 @@
+const readListening=require('./fixtures/read-listening-contract.json');
 const consistency=require('./fixtures/consistency-content-contract.json');
 const notesBrand=require('./fixtures/notes-brand-contract.json');
 const violet=require('./fixtures/violet-session-contract.json');
@@ -15,8 +16,8 @@ const hash=s=>crypto.createHash('sha256').update(s).digest('hex');
 
 test('UI recovery preserves unaffected practice logic and applies reviewed translator corrections',()=>{
  for(const[file,digest]of Object.entries(contract.logic))assert.equal(hash(normalize(read(file),file)),consistency.practicePresentation[file]?.after??notesBrand.practicePresentation[file]?.after??violet.practicePresentation[file]?.after??fullsize.practiceLoading[file]?.after??reference.practiceCorrections[file]?.after??digest,file);
- for(const[file,digest]of Object.entries(contract.preserved))assert.equal(hash(fs.readFileSync(path.join(root,file))),consistency.files[file]?.after??notesBrand.files[file]?.after??digest,file);
- for(const[file,delta]of Object.entries(contract.files))assert.equal(hash(fs.readFileSync(path.join(root,file))),consistency.files[file]?.after??notesBrand.files[file]?.after??violet.files[file]?.after??fullsize.files[file]?.after??reference.files[file]?.after??delta.after,file+' reviewed presentation/navigation delta');
+ for(const[file,digest]of Object.entries(contract.preserved))assert.equal(hash(fs.readFileSync(path.join(root,file))),readListening.files[file]?.after??consistency.files[file]?.after??notesBrand.files[file]?.after??digest,file);
+ for(const[file,delta]of Object.entries(contract.files))assert.equal(hash(fs.readFileSync(path.join(root,file))),readListening.files[file]?.after??consistency.files[file]?.after??notesBrand.files[file]?.after??violet.files[file]?.after??fullsize.files[file]?.after??reference.files[file]?.after??delta.after,file+' reviewed presentation/navigation delta');
 });
 
 test('English URLs are unique, target existing implementations and preserve locale aliases',async()=>{
