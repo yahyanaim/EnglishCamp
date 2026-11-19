@@ -21,18 +21,18 @@
 .camp-comprehension-written input:focus-visible { outline:2px solid var(--camp-focus); outline-offset:2px; border-color:var(--camp-control-ink); }
 /* Checked answers: the right choice turns green, a wrong pick turns red. */
 .camp-comprehension .camp-listening-options label[data-outcome] { border-width:2px; padding:7px 11px; font-weight:600; }
-.camp-comprehension .camp-listening-options label[data-outcome="correct"] { border-color:var(--color-success-dark); background:var(--color-success-bg); color:var(--color-text-primary); }
-.camp-comprehension .camp-listening-options label[data-outcome="incorrect"] { border-color:var(--color-error-dark); background:var(--color-error-bg); color:var(--color-text-primary); }
+.camp-comprehension .camp-listening-options label[data-outcome="correct"] { border-color:var(--color-success-dark); background:transparent; color:var(--color-text-primary); }
+.camp-comprehension .camp-listening-options label[data-outcome="incorrect"] { border-color:var(--color-error-dark); background:transparent; color:var(--color-text-primary); }
 .camp-comprehension .camp-listening-options label[data-outcome="correct"] input { accent-color:var(--color-success-dark); }
 .camp-comprehension .camp-listening-options label[data-outcome="incorrect"] input { accent-color:var(--color-error-dark); }
 .camp-comprehension .camp-listening-options label[data-outcome]::after { margin-inline-start:auto; font-weight:800; }
 .camp-comprehension .camp-listening-options label[data-outcome="correct"]::after { content:"✓"; color:var(--color-success-dark); }
 .camp-comprehension .camp-listening-options label[data-outcome="incorrect"]::after { content:"✗"; color:var(--color-error-dark); }
-.camp-comprehension fieldset[data-outcome="correct"] .camp-comprehension-written input { border:2px solid var(--color-success-dark); background:var(--color-success-bg); }
-.camp-comprehension fieldset[data-outcome="incorrect"] .camp-comprehension-written input { border:2px solid var(--color-error-dark); background:var(--color-error-bg); }
-.camp-comprehension fieldset[data-outcome] .camp-listening-feedback { margin-top:10px; padding:8px 12px; border-radius:8px; border-inline-start:4px solid; font-size:13px; line-height:1.6; color:var(--color-text-primary); }
-.camp-comprehension fieldset[data-outcome="correct"] .camp-listening-feedback { border-color:var(--color-success-dark); background:var(--color-success-bg); }
-.camp-comprehension fieldset[data-outcome="incorrect"] .camp-listening-feedback { border-color:var(--color-error-dark); background:var(--color-error-bg); }
+.camp-comprehension fieldset[data-outcome="correct"] .camp-comprehension-written input { border:2px solid var(--color-success-dark); background:var(--color-surface); }
+.camp-comprehension fieldset[data-outcome="incorrect"] .camp-comprehension-written input { border:2px solid var(--color-error-dark); background:var(--color-surface); }
+.camp-comprehension fieldset[data-outcome] .camp-listening-feedback { margin-top:10px; padding:2px 0 2px 12px; border-inline-start:3px solid; font-size:13px; line-height:1.6; color:var(--color-text-primary); }
+.camp-comprehension fieldset[data-outcome="correct"] .camp-listening-feedback { border-color:var(--color-success-dark); }
+.camp-comprehension fieldset[data-outcome="incorrect"] .camp-listening-feedback { border-color:var(--color-error-dark); }
 .camp-comprehension fieldset[data-outcome="correct"] .camp-listening-feedback strong { color:var(--color-success-dark); }
 .camp-comprehension fieldset[data-outcome="incorrect"] .camp-listening-feedback strong { color:var(--color-error-dark); }
 @media (max-width:640px) {
@@ -47,3 +47,8 @@
 .camp-library-pagination > div { display:flex; flex-wrap:wrap; gap:6px; }
 .camp-library-pagination button { min-width:44px; min-height:44px; }
 .camp-library-pagination-range { font-size:12px; color:var(--color-text-secondary); }
+/* Narrow phones: keep Previous, the page numbers and Next on one row. */
+@media (max-width:400px) {
+  .camp-library-pagination > div { flex-wrap:nowrap; gap:4px; }
+  .camp-library-pagination button { min-width:0; flex:1 1 0; padding-inline:0; }
+}
