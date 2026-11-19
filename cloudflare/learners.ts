@@ -2,6 +2,7 @@ import { cleanProgress, cleanBadges, cleanEvents, eventKey, mergeProgress, merge
 import { FRUITS } from '../src/lib/sessionProfile';
 import {eraseLearner} from './learnerDeletion';
 import {notesResponse} from './notes';
+import {vocabularyResponse} from './vocabulary';
 import {billingEnabled,hasRenewal,type BillingEnv} from './membership';
 import { DEVICE_LINK_TTL, validDeviceToken } from '../src/lib/deviceLink';
 import { accessHash, invitationRequired, learnerApproved } from './access';
@@ -114,6 +115,7 @@ export async function learnerResponse(request:Request,env:LearnerEnv):Promise<Re
    return reply({state:link?.used_at!=null?'connected':!link||link.expires_at<=Math.floor(Date.now()/1000)?'expired':'pending'});
   }
   if(action==='notes')return await notesResponse(request,db,current.account.id,request.method==='PUT'?await body(request):undefined);
+  if(action==='vocabulary')return await vocabularyResponse(request,db,current.account.id,request.method==='PUT'?await body(request):undefined);
   if(action==='logout'&&request.method==='POST'){await db.prepare('DELETE FROM cloud_sessions WHERE token_hash=?').bind(current.tokenHash).run();return reply({ok:true},200,cookie(request,'',0));}
   if(action==='profile'&&request.method==='DELETE'){const input=await body(request);if(input.confirm!=='delete')return reply({error:'Confirm deletion first.'},400);if(await hasRenewal(db,current.account.id))return reply({error:'Cancel your PayPal subscription or pending checkout before deleting this profile.'},409);if(!await eraseLearner(db,current.account.id))return reply({error:'A checkout is still open. Cancel it before deleting your profile.'},409);return reply({ok:true},200,cookie(request,'',0));}
   if(action==='progress'&&request.method==='GET')return reply({account:current.account,snapshot:await snapshot(db,current.account.id)});

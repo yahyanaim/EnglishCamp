@@ -1,5 +1,5 @@
 {
-  "scope": "Read & Listening restructure: Vocabulary is word-only, Read & Listen became Read (text, word lookups, comprehension questions), and Listening is a separate section below Vocabulary. Each delta starts at the previously reviewed version.",
+  "scope": "Read & Listening restructure: Vocabulary is word-only, Read & Listen became Read (text, word lookups, comprehension questions), and Listening is a separate section below Vocabulary. Later reviewed deltas: word bank sync across devices, Listening/Reading counts on Stats, and balanced grid/tab rows. Each delta starts at the previously reviewed version.",
   "files": {
     "cloudflare/worker.ts": {
       "before": "004c1022a1b6679c39615ae3dfe6e66d62b56e88fcbb771c4d69a65723e160c7",
@@ -32,6 +32,38 @@
     "src/data/speech-catalogue.json": {
       "before": "3597f0ff04aaa2abc53cbf4f94728147685e1ed45b55f33d156f3057b4ab5578",
       "after": "b2d4b78ffe7ee64025786553a6fc2b4df1fff024cde5f63047d393165ba4e060"
+    },
+    "src/app/stats/page.tsx": {
+      "before": "8eef801b1a2797e8410fef22d6d6cf75492bb811e3e0f86dd6c6415f1a93b1fe",
+      "after": "c22610687f2a04021f551e84b30698a099c709b956a0394e72a0bb7ecd1dde5b"
+    },
+    "src/components/layout/LayoutShell.tsx": {
+      "before": "1a03fb08cd1508dbc056b67ddf7dcf6cbff0e9bedb34e4ef2ed68e11ed8c18bd",
+      "after": "d58f0d7928b6c0b2e7f1b945c188cbe0b15c6bb3359f267663ba36be000e8641"
+    },
+    "src/store/useVocabulary.ts": {
+      "before": "06314e7c0beaa7928e694f766246d7d6c8c824f2d51e812a505b6f1e71aa8939",
+      "after": "f80cd9fe884bf9e44383a085f43688f099d35a061d9f94b252567139d841b8ff"
+    },
+    "src/components/session/SessionProvider.tsx": {
+      "before": "5513352874bf40ab26c19a2dec1829003bac0bd56ad8ccbb385b77e56964be01",
+      "after": "70fb4f00c950e8295d2f2b4a8fc6c7a4fd20d04c0d9ecd9b7f56a52fe7d561bf"
+    },
+    "src/components/session/SessionDialog.tsx": {
+      "before": "f5afc93adc706ab3a84ab4c6cf39a025dc28e80633ce3c6f92a512abc81f0969",
+      "after": "500adcf1cb6097a31adb77984b348fe642d875d72ba0aeda4419060cc0be5f9f"
+    },
+    "src/components/session/DeviceSync.tsx": {
+      "before": "26219bc9537d6308dc02976b5312f0a1598b1ef740e65f1353e057b8473a34ae",
+      "after": "9d0a732ea5977d2e8d4528719bbe16f96aa0c59007570253679fee0a2a1a0d06"
+    },
+    "cloudflare/learners.ts": {
+      "before": "7b8daf41e94884732af0f33e9c47040cfe70a0a107c751b20f34878adec1461b",
+      "after": "ff415c487842b328b6206bd535d7bd50ced24e4ff790035f9ef7cf0d9908bc32"
+    },
+    "src/app/mobile.css": {
+      "before": "6051a0a6d017eb3d3fdae26cb5abebd36d875243c1f62f50f1b509cd358c3034",
+      "after": "1bb03e4ffc15be74ed2a27854720a7d980e888085f6f4a76d6c469f31bb33a61"
     }
   },
   "selectors": {
@@ -41,5 +73,11 @@
       "kept": 2
     }
   },
-  "movedSelectors": 2
+  "movedSelectors": 2,
+  "normalizedStores": {
+    "src/store/useVocabulary.ts": {
+      "before": "917aaa2b9e4aaf63ae1f0d67debb4a8447f3bd8a7247b6c20c39f3b1c955c32f",
+      "after": "b90f38a6b7f88c17637d6e4312689cb4ba7c3e01f0aafdcb81c4183d09ffd052"
+    }
+  }
 }

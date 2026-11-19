@@ -117,11 +117,16 @@
   .camp-essential-word button { width:100%; white-space:normal; }
 
   /* Align library tabs and filters while retaining the current content order. */
-  .camp-frame main.camp-content .camp-vocabulary-page > div:has(> button[aria-pressed]) { display:grid; grid-template-columns:repeat(6,minmax(0,1fr)); width:100%; gap:6px; }
-  .camp-frame .camp-vocabulary-page > div > button[aria-pressed] { grid-column:span 2; justify-content:center; padding:9px 6px; min-width:0; font-size:13px; line-height:1.4; }
-  .camp-frame .camp-vocabulary-page > div > button[aria-pressed]:nth-child(n+4) { grid-column:span 3; }
+  /* Library tabs sit in equal columns; GridBalance widens a last row that is not full. */
+  .camp-frame main.camp-content .camp-vocabulary-page > div:has(> button[aria-pressed]) { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); width:100%; gap:6px; }
+  .camp-frame .camp-vocabulary-page > div > button[aria-pressed] { justify-content:center; padding:9px 6px; min-width:0; font-size:13px; line-height:1.4; }
   .camp-vocabulary-page > div:has(input) > .relative { flex:1 1 100%; width:100%; }
-  .camp-vocabulary-page > div:has(input) > .camp-select-trigger { flex:1 1 130px; min-width:0; }
+  .camp-vocabulary-page > div:has(input) > .camp-select-trigger { flex:1 1 0; min-width:0; }
+  /* Word bank toolbar: category on its own row, then Date / Export / Import as three equal buttons. */
+  .camp-vocabulary-page:not(.camp-listening-page):not(.camp-read-page) > div:has(input) > .camp-select-trigger { flex-basis:100%; }
+  .camp-vocabulary-page > div:has(input) > button:not(.camp-select-trigger) { flex:1 1 0; min-width:0; justify-content:center; }
+  /* Read and Listening filters: three equal selects, then the result count on its own line. */
+  .camp-vocabulary-page > div:has(input) > span[role=status] { flex-basis:100%; }
   .camp-frame .camp-writing-filters { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; }
   .camp-writing-filters .camp-select-trigger { width:100%; min-width:0; }
   .camp-writing-count { grid-column:1/-1; }

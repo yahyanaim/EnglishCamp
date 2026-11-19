@@ -16,7 +16,7 @@ test('named storage preserves reviewed rewards, levels, achievements and authore
   for(const [file,digest] of Object.entries(contract.stores)) {
     const source=fs.readFileSync(path.join(root,file),'utf8').replace('import { learnerStorage } from "@/lib/learnerStorage";\n','').replaceAll('learnerStorage','localStorage').replace('skipHydration: true, ','');
     if(reviewed.normalizedStores[file]) assert.equal(reviewed.normalizedStores[file].before,digest,file+' prior reviewed boundary');
-    assert.equal(hash(source),reviewed.normalizedStores[file]?.after??digest,file+' reviewed storage/connected-learning boundary');
+    assert.equal(hash(source),readListening.normalizedStores?.[file]?.after??reviewed.normalizedStores[file]?.after??digest,file+' reviewed storage/connected-learning boundary');
   }
   for(const [file,digest] of Object.entries(contract.preserved)) assert.equal(hash(fs.readFileSync(path.join(root,file))),readListening.files[file]?.after??current.files[file]?.after??reviewed.files[file]?.after??digest,file);
 });
