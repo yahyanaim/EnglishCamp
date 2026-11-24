@@ -15,15 +15,11 @@ export function CalloutBlock({ tone = "note", title, text }: Props) {
   const Icon = s.icon;
 
   return (
-    <div className="rounded-[var(--radius-lg)] p-4 border" style={{ backgroundColor: s.bg, borderColor: s.border, boxShadow: "var(--shadow-1)" }}>
-      <div className="flex gap-3">
-        <div className="w-9 h-9 rounded-[var(--radius-md)] bg-[var(--color-surface)] flex items-center justify-center flex-shrink-0 border border-[var(--color-border-default)]" style={{ boxShadow: "none" }}>
-          <LearningArt name={Icon.displayName || "book"} size={20} className="w-5 h-5" />
-        </div>
-        <div className="flex-1">
-          {title && <p className="font-display font-extrabold mb-1.5 text-sm" style={{ color: s.color }}>{title}</p>}
-          <p className="font-body text-sm leading-relaxed whitespace-pre-line text-[var(--color-text-primary)]">{text}</p>
-        </div>
+    <div className="camp-callout" data-tone={tone}>
+      <span className="camp-callout-icon"><LearningArt name={Icon.displayName || "book"} size={18} /></span>
+      <div>
+        {title && <p className="camp-callout-title">{title}</p>}
+        <p className="camp-callout-text">{text}</p>
       </div>
     </div>
   );
