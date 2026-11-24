@@ -350,7 +350,7 @@ export function Sidebar({ open, onClose }: { open?: boolean; onClose?: () => voi
           />
         ))}
 
-        <details className="camp-nav-folder" open={pathname.startsWith("/levels")}><summary>Course library<ChevronDown size={14} /></summary><div className="pt-3 mt-2 border-t-2 border-[var(--color-border-default)] px-1">
+        <details className="camp-nav-folder" open={pathname.startsWith("/levels")}><summary><span className="camp-nav-folder-icon"><LearningArt name="book" className="w-3.5 h-3.5" /></span><span className="flex-1 text-left">Course library</span><ChevronDown size={14} /></summary><div className="pt-3 mt-2 border-t-2 border-[var(--color-border-default)] px-1">
           <div className="flex items-center justify-between px-2 mb-1.5">
             <div className="flex items-center gap-1.5">
               <div className="w-1 h-3 rounded-full bg-[var(--color-primary)]" />
@@ -398,7 +398,7 @@ export function Sidebar({ open, onClose }: { open?: boolean; onClose?: () => voi
           </div>
         </div></details>
 
-        <details className="camp-nav-folder" open={pathname === "/mock-exam"}><summary>Examination tracks<ChevronDown size={14}/></summary><Suspense fallback={null}><ExamTrackLinks onNavigate={onClose}/></Suspense></details>
+        <details className="camp-nav-folder" open={pathname === "/mock-exam"}><summary><span className="camp-nav-folder-icon"><LearningArt name="cap" className="w-3.5 h-3.5" /></span><span className="flex-1 text-left">Examination tracks</span><ChevronDown size={14}/></summary><Suspense fallback={null}><ExamTrackLinks onNavigate={onClose}/></Suspense></details>
       </nav>
 
       <div className="m-2.5 p-3 rounded-[var(--radius-lg)] border-2 border-[var(--color-border-default)] bg-[var(--color-surface)]" style={{ boxShadow: "0 3px 0 var(--color-border-default)" }}>
