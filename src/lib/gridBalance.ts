@@ -1,6 +1,7 @@
 /**
- * Keeps card and button grids symmetric: when the last row is not full, its items share
- * the whole row instead of leaving a gap on the right. Works with media queries, container
+ * Keeps grids of short chip buttons symmetric: when the last row is not full, its chips share
+ * the whole row instead of leaving a gap on the right. Card grids are left alone, so every card
+ * keeps the same size and every full row holds the same number of cards. Works with media queries, container
  * queries and auto-fit grids because it reads the column count the browser actually used.
  */
 const MARK = "data-grid-balanced";
@@ -27,6 +28,8 @@ function plan(grid: HTMLElement) {
     if (child.style.gridColumn || own.gridColumnStart !== "auto" || own.gridColumnEnd !== "auto") return null;
     items.push(child);
   }
+  // Cards (anything taller than a chip, or not a button/link) keep one size: never stretched.
+  if (items.some(item => !/^(BUTTON|A)$/.test(item.tagName) || item.getBoundingClientRect().height > 60)) return null;
   const rest = items.length % columns;
   if (items.length <= columns || rest === 0) return null;
   const span = columns * rest / gcd(columns, rest);
