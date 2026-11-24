@@ -19,30 +19,80 @@
 .camp-frame main.camp-content .overflow-x-auto:has(> button:nth-child(3)):not(:has(table)) { flex-wrap:wrap; overflow:visible; }
 
 /* ---------- Practice library: one exercise design ----------
-   Every trainer screen (setup, question, result) is one centred column of the same width,
-   with the same rhythm: intro text, option controls, then a single full-width primary action. */
-.camp-frame main.camp-content [data-practice-surface] { width:100%; max-width:820px; margin-inline:auto; }
-.camp-frame main.camp-content [data-practice-surface="intro"] { display:flex; flex-direction:column; gap:18px; padding:28px; border-radius:20px; }
-.camp-frame main.camp-content [data-practice-surface="intro"] > p:first-child { margin:0; font-size:15px; line-height:1.6; color:var(--color-text-secondary); }
-/* Option rows with 2–4 choices (rounds, direction, words/phrases): one segmented control, full width. */
-.camp-frame main.camp-content [data-practice-surface] div:has(> button:nth-child(2)):not(:has(> button:nth-child(5))):not(:has(> :not(button))):not([data-grid-free]) {
-  display:grid; grid-auto-flow:column; grid-auto-columns:minmax(0,1fr); gap:4px; width:100%; padding:4px; border:1px solid var(--color-border-default); border-radius:14px; background:var(--color-surface-alt); }
+   Every setup screen is one centred sheet on a single axis: short description, option controls,
+   then one primary action. Controls share one width, so every screen reads symmetric. */
+.camp-frame main.camp-content [data-practice-surface] { width:100%; max-width:760px; margin-inline:auto; }
+.camp-frame main.camp-content [data-practice-surface="intro"] {
+  --intro-w:600px;
+  display:flex; flex-direction:column; align-items:center; gap:20px;
+  padding:32px 28px; border-radius:24px; text-align:center; }
+.camp-frame main.camp-content [data-practice-surface="intro"] > * { width:100%; max-width:var(--intro-w); margin:0!important; }
+.camp-frame main.camp-content [data-practice-surface="intro"] > :is(p, h2, h3) { text-align:center; }
+.camp-frame main.camp-content [data-practice-surface="intro"] > p:first-child,
+.camp-frame main.camp-content [data-practice-surface="intro"] > h2 + p { font-size:15px; line-height:1.6; color:var(--color-text-secondary); }
+.camp-frame main.camp-content [data-practice-surface="intro"] .translation-intro-heading { justify-content:center; text-align:center; }
+/* Option rows with 2–4 choices (rounds, direction, words/phrases): one Apple-style segmented control. */
+.camp-frame main.camp-content [data-practice-surface="intro"] div:has(> button:nth-child(2)):not(:has(> button:nth-child(5))):not(:has(> :not(button))):not([data-grid-free]) {
+  display:grid!important; grid-auto-flow:column; grid-auto-columns:minmax(0,1fr); gap:4px; width:100%; padding:4px;
+  border:1px solid var(--g-rim,var(--color-border-default)); border-radius:999px; background:var(--g-track,var(--color-surface-alt));
+  box-shadow:inset 0 1px 2px rgba(28,20,52,.06); }
 .camp-frame main.camp-content [data-practice-surface="intro"] div:has(> button:nth-child(2)):not(:has(> button:nth-child(5))):not(:has(> :not(button))) > button {
-  min-height:44px; min-width:0; padding:6px 10px; border:0!important; border-radius:10px; background:transparent!important; color:var(--color-text-secondary)!important; box-shadow:none!important; font-size:.9rem; font-weight:650; justify-content:center; text-align:center; white-space:normal; }
-.camp-frame main.camp-content [data-practice-surface="intro"] div:has(> button:nth-child(2)):not(:has(> button:nth-child(5))):not(:has(> :not(button))) > button:is([aria-pressed="true"],[class*="bg-[var(--color-primary)]"],[data-state="active"]) {
-  background:var(--color-surface)!important; color:var(--camp-control-ink)!important; box-shadow:0 1px 3px rgba(17,12,34,.12), inset 0 1px 0 rgba(255,255,255,.9)!important; }
-/* Topic and category chips: an even grid of equal chips instead of a ragged row. */
-.camp-frame main.camp-content [data-practice-surface] :is([data-chip-row], .translation-groups) { display:grid!important; width:100%; align-self:stretch; grid-template-columns:repeat(auto-fill,minmax(min(100%,150px),1fr)); gap:8px; margin-bottom:0; }
-.camp-frame main.camp-content [data-practice-surface] .translation-groups > button { min-width:0; min-height:44px; height:auto; padding:8px 12px; border-radius:12px; justify-content:center; text-align:center; white-space:normal; line-height:1.25; font-size:12.5px; font-weight:600; background:var(--color-surface-alt); color:var(--color-text-secondary); border:1px solid transparent; }
-.camp-frame main.camp-content [data-practice-surface] .translation-groups > button[aria-pressed="true"] { background:var(--color-primary); color:var(--color-on-brand,#fff); }
-.camp-frame main.camp-content [data-practice-surface] :is([data-chip-row], .translation-groups) > button { word-break:normal; overflow-wrap:break-word; hyphens:none; }
-.camp-frame main.camp-content [data-practice-surface] [data-chip-row] > button { min-width:0; min-height:44px; padding:8px 12px; border-radius:12px; justify-content:center; text-align:center; white-space:normal; line-height:1.25; }
-/* The main action of every setup screen: one full-width button. */
-.camp-frame main.camp-content [data-practice-surface="intro"] > button { align-self:stretch; width:100%; min-height:52px; border-radius:14px; font-size:1rem; font-weight:700; justify-content:center; }
-.camp-frame main.camp-content [data-practice-surface="intro"] > div:last-child > button:only-child { width:100%; min-height:52px; border-radius:14px; justify-content:center; }
-/* Small toggles (auto-advance, slow audio) sit together on one quiet line. */
-.camp-frame main.camp-content [data-practice-surface="intro"] div:has(> label > input[type="checkbox"]) { display:flex; flex-wrap:wrap; gap:8px 20px; font-size:.9rem; color:var(--color-text-secondary); }
-@media (max-width:639px) { .camp-frame main.camp-content [data-practice-surface="intro"] { padding:18px; gap:14px; border-radius:16px; } }
+  min-height:42px; min-width:0; padding:6px 12px; border:1px solid transparent!important; border-radius:999px; background:transparent!important; color:var(--color-text-secondary)!important;
+  box-shadow:none!important; -webkit-backdrop-filter:none!important; backdrop-filter:none!important; font-size:.9rem; font-weight:650; justify-content:center; text-align:center; }
+.camp-frame main.camp-content [data-practice-surface="intro"] div:has(> button:nth-child(2)):not(:has(> button:nth-child(5))):not(:has(> :not(button))) > button:is([aria-pressed="true"],[class*="bg-[var(--color-primary)]"],[class*="bg-[var(--camp-purple)]"],[data-state="active"],.selected) {
+  background:linear-gradient(180deg,#fff,rgba(255,255,255,.86))!important; color:var(--camp-control-ink)!important; border-color:rgba(255,255,255,.95)!important;
+  box-shadow:0 3px 10px -3px rgba(28,20,52,.18),0 0 0 1px rgba(28,20,52,.06),inset 0 1px 0 #fff!important; }
+.dark .camp-frame main.camp-content [data-practice-surface="intro"] div:has(> button:nth-child(2)):not(:has(> button:nth-child(5))):not(:has(> :not(button))) > button:is([aria-pressed="true"],[class*="bg-[var(--color-primary)]"],[class*="bg-[var(--camp-purple)]"],[data-state="active"],.selected) {
+  background:linear-gradient(180deg,rgba(255,255,255,.18),rgba(255,255,255,.1))!important; color:#fff!important; border-color:rgba(255,255,255,.16)!important; box-shadow:0 3px 10px -3px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.2)!important; }
+/* Topic and category chips: equal chips in balanced rows; a short last row is centred, never ragged. */
+.camp-frame main.camp-content [data-practice-surface] :is([data-chip-row], .translation-groups) {
+  --chip-cols:2; --chip-gap:8px;
+  display:flex!important; flex-wrap:wrap; justify-content:center; gap:var(--chip-gap); width:100%; align-self:center; margin-bottom:0; }
+.camp-frame main.camp-content [data-practice-surface] :is([data-chip-row], .translation-groups) > button {
+  flex:0 0 calc((100% - (var(--chip-cols) - 1) * var(--chip-gap)) / var(--chip-cols)); max-width:calc((100% - (var(--chip-cols) - 1) * var(--chip-gap)) / var(--chip-cols));
+  min-width:0; min-height:44px; height:auto; margin:0!important; padding:8px 8px; border-radius:14px; justify-content:center; text-align:center;
+  white-space:normal; line-height:1.25; font-size:.8rem; font-weight:650; word-break:normal; overflow-wrap:anywhere; hyphens:none; grid-column:auto!important; }
+.camp-frame main.camp-content [data-practice-surface] :is([data-chip-row], .translation-groups) > button:not([aria-pressed="true"]):not([class*="bg-[var(--color-primary)]"]):not([class*="bg-[var(--camp-purple)]"]):not([class*="bg-slate"]) { color:var(--color-text-primary)!important; }
+@container camp-main (min-width:480px) { .camp-frame main.camp-content [data-practice-surface] :is([data-chip-row], .translation-groups) { --chip-cols:3; } }
+@container camp-main (min-width:720px) { .camp-frame main.camp-content [data-practice-surface] :is([data-chip-row], .translation-groups) { --chip-cols:4; } }
+/* Display-only tag rows (e.g. phrase categories) stay centred. */
+.camp-frame main.camp-content [data-practice-surface="intro"] > div.flex-wrap:not([data-chip-row]) { justify-content:center; }
+/* The main action of every setup screen: one full-width pill. */
+.camp-frame main.camp-content [data-practice-surface="intro"] > button,
+.camp-frame main.camp-content [data-practice-surface="intro"] > div:last-child > button:only-child {
+  align-self:center; width:100%; min-height:52px; border-radius:999px; font-size:1rem!important; font-weight:700; justify-content:center; }
+.camp-frame main.camp-content [data-practice-surface="intro"].translation-intro :is(p, .translation-intro-heading p) { font-size:15px!important; line-height:1.6; color:var(--color-text-secondary); }
+.camp-frame main.camp-content [data-practice-surface="intro"] div:has(> button:nth-child(2)):not(:has(> button:nth-child(5))):not(:has(> :not(button))) > button { font-size:.9rem!important; }
+/* Small toggles (auto-advance, slow audio) sit together on one centred line. */
+.camp-frame main.camp-content [data-practice-surface="intro"] div:has(> label > input[type="checkbox"]) { display:flex; flex-wrap:wrap; justify-content:center; gap:8px 22px; font-size:.9rem; color:var(--color-text-secondary); }
+/* Secondary content under the setup (e.g. culture topics) returns to normal reading alignment. */
+.camp-frame main.camp-content [data-practice-surface="intro"] > :is(section, details, .camp-study-tips) { text-align:start; }
+/* Question and result sheets share the same width and radius as the setup sheet. */
+.camp-frame main.camp-content [data-practice-surface="question"], .camp-frame main.camp-content [data-practice-surface="result"] { border-radius:24px; }
+@container camp-main (max-width:579px) {
+  .camp-frame main.camp-content [data-practice-surface="intro"] { padding:22px 16px; gap:16px; border-radius:20px; }
+  .camp-frame main.camp-content [data-practice-surface="question"], .camp-frame main.camp-content [data-practice-surface="result"] { border-radius:20px; }
+  .camp-frame main.camp-content [data-practice-surface="intro"] div:has(> button:nth-child(2)):not(:has(> button:nth-child(5))):not(:has(> :not(button))) > button { font-size:.82rem; padding:6px 8px; }
+}
+/* Answer options in every question: equal glass tiles, two columns on wide screens, one column on phones. */
+.camp-frame main.camp-content [data-practice-surface="question"] div:has(> button:nth-child(2)):not(:has(> button:nth-child(7))):not(:has(> :not(button))):not(:has(> button[aria-label])):not([data-chip-row], [data-grid-free], .camp-speed-pairs, .camp-match-board) {
+  display:grid!important; grid-template-columns:repeat(2,minmax(0,1fr))!important; grid-auto-flow:row!important; gap:10px!important; width:100%; padding:0!important; border:0!important; background:none!important; box-shadow:none!important; }
+.camp-frame main.camp-content [data-practice-surface="question"] div:has(> button:nth-child(2)):not(:has(> button:nth-child(7))):not(:has(> :not(button))):not(:has(> button[aria-label])):not([data-chip-row], [data-grid-free], .camp-speed-pairs, .camp-match-board) > button {
+  display:flex; align-items:center; justify-content:flex-start; gap:10px; width:100%; min-width:0; min-height:56px; height:auto!important; margin:0!important; padding:12px 16px!important;
+  border-radius:16px!important; text-align:start; white-space:normal; line-height:1.4; font-size:.95rem; grid-column:auto!important; }
+.camp-frame main.camp-content [data-practice-surface="question"] div:has(> button:nth-child(2)):not(:has(> button:nth-child(4))):not(:has(> :not(button))):not(:has(> button[aria-label])):not([data-chip-row], [data-grid-free], .camp-speed-pairs, .camp-match-board):has(> button:nth-child(3)) { grid-template-columns:repeat(3,minmax(0,1fr))!important; }
+@container camp-main (max-width:579px) {
+  .camp-frame main.camp-content [data-practice-surface="question"] div:has(> button:nth-child(2)):not(:has(> button:nth-child(7))):not(:has(> :not(button))):not(:has(> button[aria-label])):not([data-chip-row], [data-grid-free], .camp-speed-pairs, .camp-match-board) { grid-template-columns:minmax(0,1fr)!important; gap:8px!important; }
+  .camp-frame main.camp-content [data-practice-surface="question"] div:has(> button:nth-child(2)):not(:has(> button:nth-child(7))):not(:has(> :not(button))):not(:has(> button[aria-label])):not([data-chip-row], [data-grid-free], .camp-speed-pairs, .camp-match-board) > button { min-height:52px; font-size:.92rem; }
+}
+.camp-frame main.camp-content [data-practice-surface="question"] { padding:24px; }
+@container camp-main (max-width:579px) { .camp-frame main.camp-content [data-practice-surface="question"] { padding:18px 16px; } }
+
+/* Speed Match plays straight away: its pair-count row is the same segmented control. */
+.camp-frame main.camp-content .camp-speed-pairs { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:4px; width:100%; max-width:420px; margin-inline:auto; padding:4px; border:1px solid var(--g-rim,var(--color-border-default)); border-radius:999px; background:var(--g-track,var(--color-surface-alt)); }
+.camp-frame main.camp-content .camp-speed-pairs > button { min-height:40px; border:1px solid transparent!important; border-radius:999px; background:transparent!important; color:var(--color-text-secondary)!important; box-shadow:none!important; font-size:.85rem; font-weight:650; justify-content:center; }
+.camp-frame main.camp-content .camp-speed-pairs.camp-speed-pairs > button[aria-pressed="true"] { background:linear-gradient(180deg,#fff,rgba(255,255,255,.86))!important; color:var(--camp-control-ink)!important; box-shadow:0 3px 10px -3px rgba(28,20,52,.18),0 0 0 1px rgba(28,20,52,.06)!important; }
+.dark .camp-frame main.camp-content .camp-speed-pairs.camp-speed-pairs.camp-speed-pairs > button[aria-pressed="true"] { background:rgba(255,255,255,.14)!important; color:#fff!important; }
 
 /* Practice Hub on phones: game tiles in two columns instead of one wide, mostly empty column. */
 @container camp-main (max-width:579px) {
@@ -54,44 +104,34 @@
 /* Two-word comparison rows (confusing words) stack their meaning under the words on phones. */
 @media (max-width:639px) { .camp-frame .camp-false-friends-row { display:grid; grid-template-columns:minmax(0,1fr) auto; gap:6px 10px; } .camp-frame .camp-false-friends-row > :first-child { flex-wrap:wrap; } .camp-frame .camp-false-friends-row > :nth-child(2) { grid-column:1; grid-row:2; } .camp-frame .camp-false-friends-row > :last-child { grid-column:2; grid-row:1; } }
 
-/* ---------- Grammar Reference: CEFR levels (same language as the Practice Hub filters) ---------- */
-.camp-grammar-reference { --lvl-a1:#16a34a; --lvl-a2:#0ea5e9; --lvl-b1:#7c3aed; --lvl-b2:#db2777; }
-.camp-frame .camp-grammar-reference > .camp-grammar-toolbar { display:flex; flex-wrap:wrap; align-items:center; gap:10px 14px; padding:14px; border-radius:18px; position:sticky; top:8px; z-index:5; }
-.camp-grammar-search { flex:1 1 240px; min-width:0; position:relative; display:block; }
-.camp-grammar-search::before { content:""; position:absolute; left:14px; top:50%; width:18px; height:18px; transform:translateY(-50%); pointer-events:none; z-index:1; background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' fill='none' stroke='%238a8a99' stroke-width='2' stroke-linecap='round'%3E%3Ccircle cx='8' cy='8' r='6'/%3E%3Cpath d='m13 13 3.5 3.5'/%3E%3C/svg%3E") no-repeat center; }
-.camp-grammar-search input { width:100%; height:44px; padding:0 14px 0 42px; border-radius:12px; border:1px solid var(--color-border-default); background-color:var(--color-surface); color:var(--color-text-primary); font-size:14px; }
-.camp-grammar-search input:focus-visible { outline:2px solid var(--color-primary); outline-offset:1px; }
-.camp-grammar-levels { display:grid; grid-template-columns:repeat(5,auto); gap:6px; padding:4px; border-radius:14px; background:var(--color-surface-alt); }
-.camp-grammar-levels button { display:inline-flex; align-items:center; justify-content:center; gap:6px; min-height:36px; padding:0 14px; border-radius:10px; font-size:13px; font-weight:600; color:var(--color-text-secondary); transition:background .15s,color .15s,box-shadow .15s; }
-.camp-grammar-levels button span { font-size:11px; font-weight:600; min-width:20px; padding:1px 6px; border-radius:999px; background:color-mix(in srgb,currentColor 12%,transparent); }
-.camp-grammar-levels button:hover { color:var(--color-text-primary); }
-.camp-grammar-levels button[aria-pressed="true"] { background:var(--color-surface); color:var(--color-text-primary); box-shadow:0 1px 2px rgba(20,16,40,.08),0 0 0 1px var(--color-border-default); }
-.camp-grammar-levels button:focus-visible { outline:2px solid var(--color-primary); outline-offset:1px; }
-.camp-grammar-count { flex-basis:100%; margin:0; font-size:12px; color:var(--color-text-secondary); }
-.camp-grammar-empty { padding:28px; text-align:center; color:var(--color-text-secondary); border:1px dashed var(--color-border-default); border-radius:16px; }
-.camp-grammar-level-group { display:grid; gap:10px; }
-.camp-grammar-level-heading { display:flex; align-items:center; gap:10px; padding:6px 2px 2px; }
-.camp-grammar-level-heading h2 { margin:0; font-size:16px; font-weight:700; color:var(--color-text-primary); }
-.camp-grammar-level-count { margin-inline-start:auto; font-size:12px; color:var(--color-text-secondary); }
-.camp-grammar-level-badge { --lvl:var(--lvl-b1); display:inline-flex; align-items:center; justify-content:center; min-width:38px; height:26px; padding:0 8px; border-radius:8px; font-size:12px; font-weight:700; letter-spacing:.02em; color:var(--lvl); background:color-mix(in srgb,var(--lvl) 12%,transparent); border:1px solid color-mix(in srgb,var(--lvl) 28%,transparent); }
-.camp-grammar-level-badge[data-level="A1"], .camp-grammar-levels button[data-level="A1"][aria-pressed="true"] span { --lvl:var(--lvl-a1); }
-.camp-grammar-level-badge[data-level="A2"], .camp-grammar-levels button[data-level="A2"][aria-pressed="true"] span { --lvl:var(--lvl-a2); }
-.camp-grammar-level-badge[data-level="B2"], .camp-grammar-levels button[data-level="B2"][aria-pressed="true"] span { --lvl:var(--lvl-b2); }
-.camp-grammar-levels button[data-level][aria-pressed="true"] span { color:#fff; background:var(--lvl,var(--lvl-b1)); }
-.camp-grammar-reference .camp-grammar-level-badge.camp-grammar-level-badge--small { min-width:30px; line-height:1; height:20px; font-size:10.5px; border-radius:6px; margin-inline-start:4px; flex:none; }
-.camp-grammar-level-group > .camp-grammar-accordion-card { border-radius:12px; box-shadow:none!important; }
-.camp-grammar-section-header > .practice-button > div { flex-wrap:nowrap; }
-.camp-grammar-section-header > .practice-button > div > span:first-of-type { overflow:hidden; text-overflow:ellipsis; }
-.camp-grammar-practice-link { display:inline-flex; align-items:center; gap:6px; margin-top:14px; padding:9px 14px; border-radius:10px; font-size:13px; font-weight:600; color:var(--camp-control-ink,var(--color-primary)); background:var(--camp-purple-soft,rgba(124,58,237,.08)); text-decoration:none; }
-.camp-grammar-practice-link:hover { text-decoration:underline; }
-.dark .camp-grammar-reference { --lvl-a1:#4ade80; --lvl-a2:#38bdf8; --lvl-b1:#a78bfa; --lvl-b2:#f472b6; }
-@media (max-width:640px){
-  .camp-frame .camp-grammar-reference > .camp-grammar-toolbar { position:static; padding:12px; }
-  .camp-grammar-levels { width:100%; grid-template-columns:repeat(5,1fr); }
-  .camp-grammar-levels button { padding:0 6px; gap:4px; }
+/* ---------- Grammar Reference: same library layout as the Practice Hub ---------- */
+.camp-grammar-hub .camp-hub-filters { grid-template-columns:minmax(0,1fr); }
+.camp-grammar-hub .camp-hub-skills { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:8px; }
+.camp-grammar-hub .camp-hub-skills > button { justify-content:center; text-align:center; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.camp-hub-search > svg { z-index:2; pointer-events:none; }
+.camp-grammar-hub .camp-trainer-grid { grid-auto-rows:1fr; gap:12px; }
+.camp-grammar-hub .camp-library-card-copy > span:not(.camp-hub-meta) { display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:2; overflow:hidden; }
+.camp-grammar-lesson { display:grid; gap:16px; max-width:860px; width:100%; margin-inline:auto; }
+.camp-grammar-back { justify-self:start; display:inline-flex; align-items:center; gap:8px; min-height:40px; padding:0 14px; border-radius:999px; font-size:.85rem; font-weight:650; color:var(--camp-control-ink,var(--color-primary)); }
+.camp-grammar-lesson-head { display:flex; align-items:center; gap:16px; padding:22px; border-radius:20px; }
+.camp-grammar-lesson-head .camp-library-card-icon { width:52px; height:52px; flex:none; }
+.camp-frame main:has(.camp-grammar-lesson) .camp-back-button { display:none; }
+.camp-grammar-lesson .camp-grammar-lesson-head h2 { margin:4px 0 0; font:800 1.45rem/1.25 var(--font-display); color:var(--color-text-primary); }
+.camp-grammar-lesson-kicker { display:flex; align-items:center; gap:8px; margin:0; font-size:.78rem; font-weight:650; color:var(--color-text-secondary); }
+.camp-grammar-lesson-summary { margin:8px 0 0; font-size:.95rem; line-height:1.6; color:var(--color-text-secondary); }
+.camp-grammar-lesson-body { padding:22px; border-radius:20px; }
+.camp-grammar-lesson-body .camp-cheat-item { padding:16px 0; border-top:1px solid var(--color-border-default); }
+.camp-grammar-lesson-body .camp-cheat-item:first-of-type { border-top:0; padding-top:4px; }
+.camp-grammar-next { display:flex; align-items:center; justify-content:space-between; gap:12px; padding:16px 20px; border-radius:16px; text-align:start; }
+.camp-grammar-next small { display:block; font-size:.72rem; font-weight:650; color:var(--color-text-secondary); text-transform:uppercase; letter-spacing:.04em; }
+.camp-grammar-next strong { font:750 .98rem/1.35 var(--font-display); color:var(--color-text-primary); }
+.camp-grammar-practice-link { display:inline-flex; align-items:center; gap:6px; margin-top:16px; padding:10px 16px; border-radius:999px; font-size:.85rem; font-weight:650; color:var(--camp-control-ink,var(--color-primary)); text-decoration:none; }
+@container camp-main (max-width:819px) { .camp-grammar-hub .camp-hub-skills .camp-grammar-level-name { display:none; } }
+@container camp-main (max-width:579px) {
+  .camp-grammar-hub .camp-trainer-grid { grid-auto-rows:auto; }
+  .camp-grammar-level-name { display:none; }
+  .camp-grammar-hub .camp-hub-skills { gap:6px; }
+  .camp-grammar-lesson-head, .camp-grammar-lesson-body { padding:16px; border-radius:16px; }
+  .camp-grammar-lesson .camp-grammar-lesson-head h2 { font-size:1.2rem; }
+  .camp-frame main.camp-content [data-practice-surface] :is([data-chip-row], .translation-groups) > button { font-size:.74rem; }
 }
-
-/* Speed Match plays straight away: its pair-count row uses the same segmented control as the setup screens. */
-.camp-frame main.camp-content .camp-speed-pairs { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:4px; width:100%; max-width:420px; padding:4px; border:1px solid var(--color-border-default); border-radius:14px; background:var(--color-surface-alt); }
-.camp-frame main.camp-content .camp-speed-pairs > button { min-height:40px; border:0!important; border-radius:10px; background:transparent!important; color:var(--color-text-secondary)!important; box-shadow:none!important; font-size:.85rem; font-weight:650; justify-content:center; }
-.camp-frame main.camp-content .camp-speed-pairs > button[aria-pressed="true"] { background:var(--color-surface)!important; color:var(--camp-control-ink)!important; box-shadow:0 1px 3px rgba(17,12,34,.12)!important; }

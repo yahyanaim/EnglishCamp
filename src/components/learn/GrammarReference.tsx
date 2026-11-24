@@ -1,13 +1,11 @@
 "use client";
 import { LearningArt } from "@/components/brand/LearningArt";
-import { PracticeButton } from "@/components/ui/PracticeSurface";
 import { translatedGrammarParagraphs } from "./GrammarTranslation";
 import { useState, useEffect, useMemo } from "react";
 import { GRAMMAR_EXTENSIONS } from "@/data/grammar-extensions";
 import { GRAMMAR_MORE } from "@/data/grammar-reference-more";
 import { GrammarFoundationLesson } from "./GrammarFoundationLesson";
-import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown, BookOpen } from "lucide-react";
+import { ArrowLeft, ChevronRight, Layers, Search, X } from "lucide-react";
 
 function T({ de, en }: { de: string; en: string }) {
   return <span>{en}</span>;
@@ -18,12 +16,28 @@ type Section = {
   id: string;
   title: string;
   level?: GrammarLevel;
+  summary?: string;
+  art?: string;
+  parts?: number;
   content: React.ReactNode;
 };
 const LEVELS: GrammarLevel[] = ["A1", "A2", "B1", "B2"];
 const LEVEL_NAMES: Record<GrammarLevel, string> = { A1: "Beginner", A2: "Elementary", B1: "Intermediate", B2: "Upper intermediate" };
 /** CEFR level for the hand-written reference sections below. */
 const LEGACY_LEVELS: Record<string, GrammarLevel> = { articles: "A1", "present-tenses": "A1", prepositions: "A1", "past-tenses": "A2", "future-tenses": "A2", "modal-verbs": "A2", comparatives: "A2", conditionals: "B1", passive: "B1", "reported-speech": "B2" };
+/** One-line card summaries for the hand-written reference sections. */
+const LEGACY_SUMMARIES: Record<string, string> = {
+  articles: "When to use a, an, the or no article at all, with the most common exceptions.",
+  "present-tenses": "Routines and facts vs actions happening now, plus verbs that are rarely continuous.",
+  prepositions: "In, on and at for time and place, with a quick table of everyday phrases.",
+  "past-tenses": "Past simple, past continuous and past perfect side by side, with signal words.",
+  "future-tenses": "Will, going to and the present continuous for plans, predictions and decisions.",
+  "modal-verbs": "Can, could, must, should, may and might for ability, advice, obligation and possibility.",
+  comparatives: "Comparatives and superlatives: -er/-est, more/most and the irregular forms.",
+  conditionals: "Zero, first and second conditionals: real and imagined situations and their results.",
+  passive: "Form the passive in every common tense and decide when the doer matters.",
+  "reported-speech": "Backshift, time words, reported questions and reported commands.",
+};
 const asLevel = (level: string): GrammarLevel => (LEVELS as string[]).includes(level) ? level as GrammarLevel : "B2";
 
 const LEGACY_SECTIONS: Section[] = [
@@ -373,81 +387,83 @@ const LEGACY_SECTIONS: Section[] = [
 ];
 
 export const SECTIONS: Section[] = [
-  ...GRAMMAR_EXTENSIONS.map(lesson=>({id:lesson.id,title:lesson.title,level:asLevel(lesson.level),content:<GrammarFoundationLesson lesson={lesson} translateOnInteraction/>})),
-  ...GRAMMAR_MORE.map(lesson=>({id:lesson.id,title:lesson.title,level:asLevel(lesson.level),content:<GrammarFoundationLesson lesson={lesson}/>})),
-  ...LEGACY_SECTIONS.map(section=>({...section,level:LEGACY_LEVELS[section.id] ?? "B1"})),
+  ...GRAMMAR_EXTENSIONS.map(lesson=>({id:lesson.id,title:lesson.title,level:asLevel(lesson.level),summary:lesson.intro,art:lesson.art,parts:lesson.content.length,content:<GrammarFoundationLesson lesson={lesson} translateOnInteraction/>})),
+  ...GRAMMAR_MORE.map(lesson=>({id:lesson.id,title:lesson.title,level:asLevel(lesson.level),summary:lesson.intro,parts:lesson.content.length,content:<GrammarFoundationLesson lesson={lesson}/>})),
+  ...LEGACY_SECTIONS.map(section=>({...section,level:LEGACY_LEVELS[section.id] ?? "B1",summary:LEGACY_SUMMARIES[section.id]})),
 ];
 
 type LevelFilter = "all" | GrammarLevel;
 const sectionLevel = (section: Section): GrammarLevel => section.level ?? "B1";
+const PREVIEW = 6;
 
 export function GrammarReference() {
   const [openSection, setOpenSection] = useState<string | null>(null);
   const [level, setLevel] = useState<LevelFilter>("all");
   const [query, setQuery] = useState("");
-  useEffect(()=>{const reveal=()=>{const id=window.location.hash.slice(1);if(SECTIONS.some(section=>section.id===id)){setLevel("all");setQuery("");setOpenSection(id);requestAnimationFrame(()=>document.getElementById(id)?.scrollIntoView({block:"start"}));}};reveal();window.addEventListener("hashchange",reveal);return()=>window.removeEventListener("hashchange",reveal);},[]);
+  const [expanded, setExpanded] = useState<Record<string, boolean>>({});
+  useEffect(()=>{const reveal=()=>{const id=window.location.hash.slice(1);setOpenSection(SECTIONS.some(section=>section.id===id)?id:null);};reveal();window.addEventListener("hashchange",reveal);return()=>window.removeEventListener("hashchange",reveal);},[]);
   const counts = useMemo(()=>Object.fromEntries(LEVELS.map(l=>[l,SECTIONS.filter(s=>sectionLevel(s)===l).length])) as Record<GrammarLevel,number>,[]);
   const needle = query.trim().toLowerCase();
-  const visible = SECTIONS.filter(s=>(level==="all"||sectionLevel(s)===level)&&(!needle||s.title.toLowerCase().includes(needle)));
+  const filtering = needle !== "" || level !== "all";
+  const visible = SECTIONS.filter(s=>(level==="all"||sectionLevel(s)===level)&&(!needle||`${s.title} ${s.summary ?? ""}`.toLowerCase().includes(needle)));
   const groups = LEVELS.map(l=>({level:l,sections:visible.filter(s=>sectionLevel(s)===l)})).filter(g=>g.sections.length>0);
+  const clear = () => { setQuery(""); setLevel("all"); };
+  const open = (id: string) => { setOpenSection(id); if (window.location.hash !== `#${id}`) history.pushState(null, "", `#${id}`); window.scrollTo({ top: 0 }); };
+  const close = () => { const id = openSection; setOpenSection(null); history.pushState(null, "", window.location.pathname + window.location.search); requestAnimationFrame(()=>document.getElementById(`grammar-card-${id}`)?.focus()); };
+  const lesson = SECTIONS.find(s => s.id === openSection);
+
+  if (lesson) {
+    const index = SECTIONS.indexOf(lesson), next = SECTIONS[index + 1];
+    return (
+      <article className="camp-grammar-lesson" id={lesson.id} aria-labelledby={`grammar-title-${lesson.id}`}>
+        <button type="button" className="camp-grammar-back" onClick={close}><ArrowLeft size={16} aria-hidden="true" />All grammar lessons</button>
+        <header className="camp-grammar-lesson-head">
+          <span className="camp-library-card-icon"><LearningArt name={lesson.art ?? "BookOpen"} size={26} /></span>
+          <div>
+            <p className="camp-grammar-lesson-kicker"><span className="camp-hub-level">{sectionLevel(lesson)}</span>{LEVEL_NAMES[sectionLevel(lesson)]}</p>
+            <h2 id={`grammar-title-${lesson.id}`}>{lesson.title}</h2>
+            {lesson.summary && !lesson.parts && <p className="camp-grammar-lesson-summary">{lesson.summary}</p>}
+          </div>
+        </header>
+        <div id={`grammar-${lesson.id}`} className="camp-grammar-lesson-body">{translatedGrammarParagraphs(lesson.content)}</div>
+        {next && <button type="button" className="camp-grammar-next" onClick={() => open(next.id)}><span><small>Next lesson · {sectionLevel(next)}</small><strong>{next.title}</strong></span><ChevronRight size={18} aria-hidden="true" /></button>}
+      </article>
+    );
+  }
 
   return (
-    <div className="camp-grammar-reference">
-      <div className="camp-grammar-toolbar" role="search">
-        <label className="camp-grammar-search"><span className="sr-only">Search grammar lessons</span><input type="search" value={query} onChange={e=>setQuery(e.target.value)} placeholder="Search grammar lessons" /></label>
-        <div className="camp-grammar-levels" role="group" aria-label="Filter by level" data-grid-free>
-          <button type="button" aria-pressed={level==="all"} onClick={()=>setLevel("all")}>All <span>{SECTIONS.length}</span></button>
-          {LEVELS.map(l=><button key={l} type="button" aria-pressed={level===l} data-level={l} onClick={()=>setLevel(l)}>{l} <span>{counts[l]}</span></button>)}
+    <div className="camp-grammar-reference camp-grammar-hub">
+      <section className="camp-hub-filters" aria-label="Find a grammar lesson">
+        <label className="camp-hub-search">
+          <Search size={16} aria-hidden="true" />
+          <span className="sr-only">Search grammar lessons</span>
+          <input type="search" value={query} onChange={e=>setQuery(e.target.value)} placeholder="Search grammar lessons…" />
+        </label>
+        <div className="camp-hub-skills" role="group" aria-label="Level">
+          <button type="button" aria-pressed={level==="all"} onClick={()=>setLevel("all")}>All<span className="camp-grammar-level-name"> levels</span></button>
+          {LEVELS.map(l=><button key={l} type="button" aria-pressed={level===l} onClick={()=>setLevel(l)}>{l}<span className="camp-grammar-level-name"> · {LEVEL_NAMES[l]}</span></button>)}
         </div>
-        <p className="camp-grammar-count" aria-live="polite">{visible.length} {visible.length===1?"lesson":"lessons"}{level!=="all"?` · ${LEVEL_NAMES[level]}`:""}</p>
-      </div>
-      {groups.length===0&&<p className="camp-grammar-empty">No lessons match “{query}”. Try another word or choose All.</p>}
-      {groups.map(group=><section key={group.level} className="camp-grammar-level-group" aria-labelledby={`grammar-level-${group.level}`}>
-        <header className="camp-grammar-level-heading"><span className="camp-grammar-level-badge" data-level={group.level}>{group.level}</span><h2 id={`grammar-level-${group.level}`}>{LEVEL_NAMES[group.level]}</h2><span className="camp-grammar-level-count">{group.sections.length} {group.sections.length===1?"lesson":"lessons"}</span></header>
-      {group.sections.map((section) => {
-        const isOpen = openSection === section.id;
-        return (
-          <div
-            key={section.id}
-            id={section.id}
-            className="camp-grammar-accordion-card bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] overflow-hidden shadow-sm" style={{ boxShadow: "0 3px 0 var(--color-border-default)" }}
-          >
-            <h3 className="camp-grammar-section-header"><PracticeButton
-              id={`grammar-toggle-${section.id}`}
-              aria-expanded={isOpen} aria-controls={`grammar-${section.id}`}
-              onClick={() => setOpenSection(isOpen ? null : section.id)}
-              className="w-full flex items-center justify-between p-4 text-left hover:bg-[var(--color-surface-alt)] transition-colors"
-            >
-              <div className="flex items-center gap-2">
-                <LearningArt name="BookOpen" size={16} className="w-4 h-4 text-[var(--color-primary)]" />
-                <span className="text-sm font-semibold text-[var(--color-text-primary)]">{section.title}</span>
-                <span className="camp-grammar-level-badge camp-grammar-level-badge--small" data-level={sectionLevel(section)}>{sectionLevel(section)}</span>
-              </div>
-              <ChevronDown
-                className={`w-4 h-4 text-[var(--color-text-secondary)] transition-transform duration-200 ${
-                  isOpen ? "rotate-180" : ""
-                }`}
-              />
-            </PracticeButton></h3>
-            <AnimatePresence initial={false}>
-              {isOpen && (
-                <motion.div
-                  initial={{ height: 0, opacity: 0 }}
-                  animate={{ height: "auto", opacity: 1 }}
-                  exit={{ height: 0, opacity: 0 }}
-                  transition={{ duration: 0.2 }}
-                  className="overflow-hidden"
-                >
-                  <div id={`grammar-${section.id}`} role="region" aria-labelledby={`grammar-toggle-${section.id}`} className="camp-grammar-accordion-body px-4 pb-4 border-t border-[var(--color-border-default)] pt-3">
-                    {translatedGrammarParagraphs(section.content)}
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
+        <p className="camp-hub-count" role="status">{visible.length} {visible.length===1?"lesson":"lessons"}{filtering ? <> · <button type="button" onClick={clear}><X size={13} aria-hidden="true" />Clear filters</button></> : null}</p>
+      </section>
+      {groups.length===0&&<p className="camp-hub-empty">No grammar lesson matches these filters. <button type="button" onClick={clear}>Clear filters</button></p>}
+      {groups.map(group=>{
+        const headingId=`grammar-level-${group.level}`, showAll=filtering||expanded[group.level], list=showAll?group.sections:group.sections.slice(0,PREVIEW);
+        return <section key={group.level} className="camp-learning-library-group" aria-labelledby={headingId}>
+          <h2 id={headingId}>{group.level} · {LEVEL_NAMES[group.level]} <span className="camp-hub-section-count">{group.sections.length}</span></h2>
+          <div className="camp-trainer-grid">
+            {list.map(section=><button key={section.id} id={`grammar-card-${section.id}`} type="button" className="camp-learning-library-card" onClick={()=>open(section.id)}>
+              <span className="camp-library-card-icon"><LearningArt name={section.art ?? "BookOpen"} size={23} /></span>
+              <span className="camp-library-card-copy">
+                <strong>{section.title}</strong>
+                {section.summary && <span>{section.summary}</span>}
+                <span className="camp-hub-meta"><span className="camp-hub-level">{sectionLevel(section)}</span>{section.parts ? <span><Layers size={12} aria-hidden="true" />{section.parts} parts</span> : <span><Layers size={12} aria-hidden="true" />Reference table</span>}</span>
+              </span>
+              <ChevronRight className="camp-library-card-arrow" size={18} aria-hidden="true" />
+            </button>)}
           </div>
-        );
+          {!showAll&&group.sections.length>PREVIEW&&<button type="button" className="camp-hub-more" onClick={()=>setExpanded(e=>({...e,[group.level]:true}))}>Show all {group.sections.length}</button>}
+        </section>;
       })}
-      </section>)}
     </div>
   );
 }

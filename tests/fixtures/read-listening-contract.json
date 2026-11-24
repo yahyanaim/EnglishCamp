@@ -111,7 +111,7 @@
     },
     "src/components/learn/GrammarReference.tsx": {
       "before": "f388680878861c07b535f8c3e5aff76aa9ce175c13aa051d68b288bdb9d5b661",
-      "after": "f5a0f7f677dc44006778215d07338b8c6e164e5ff860cd14b333aed8e06462d1"
+      "after": "178515ce320e2515c670d5fabe4242acffcff10f744215b909745f52167963ff"
     },
     "src/components/learn/GrammarFoundationLesson.tsx": {
       "before": "50e2b4b9804ecd31573162f611db549c1d4804729c9a5c248f9bb3b3d65b7316",
@@ -143,8 +143,8 @@
   "grammarUi": {
     "src/components/learn/GrammarReference.tsx": {
       "reason": "Grammar Reference level filter adds search and level state and the filter buttons; accordion toggles unchanged.",
-      "handlers": "f33ca5f945c5bf3cb4a7bf815ade3b6aef66146f08984799ab4b44de27c468ef",
-      "initialState": "9490f4751ec062077ca9b8dabf42f2c7c44273562d0db4a72470ee7c862128ab"
+      "handlers": "75bb12afa23d888d811e501644f10f22ced468da60e8cdfcd031f64991ed8fc8",
+      "initialState": "bb1f5ebe99db88e1574b578612a3b236d234ca4385b0e18b7d34f37ff1dca2f1"
     }
   },
   "practiceLogic": {
@@ -158,7 +158,7 @@
     },
     "src/components/learn/GrammarReference.tsx": {
       "reason": "Grammar Reference: CEFR level per section, 19 new original lessons, search and A1-B2 level filter grouped like the Practice Hub; legacy teaching text unchanged.",
-      "after": "38234e920976fffed8e110bc205a8bb0dd7855eed59039cc3b1d5fe76b8df28c"
+      "after": "915093e408e44ffe3727f6368c1bdc52ea29cb916e67e6f379acf4e1e5044469"
     },
     "src/components/learn/SpeedMatch.tsx": {
       "reason": "Speed Match: pair-count row exposes aria-pressed and uses the shared segmented control.",

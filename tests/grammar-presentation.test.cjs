@@ -4,9 +4,9 @@ const React=require('react'),{renderToStaticMarkup}=require('react-dom/server');
 const {GrammarReference}=require('../src/components/learn/GrammarReference.tsx');
 const contract=require('./fixtures/grammar-presentation-contract.json'),reviewed=require('./fixtures/read-listening-contract.json').grammarUi||{};
 const {SECTIONS}=require('../src/components/learn/GrammarReference.tsx');
-// Words added by the reviewed CEFR level filter (search, level chips, empty state); the authored teaching text before them is unchanged.
-const LEVEL_UI_WORDS=['id:lesson.id','title:lesson.title','id:lesson.id','title:lesson.title','Search grammar lessons','All','No lessons match “','”. Try another word or choose All.'];
-const withoutLevelUi=words=>{const w=[...words];for(const x of LEVEL_UI_WORDS){const i=w.lastIndexOf(x);if(i>=0)w.splice(i,1);}return w;};
+// Words added by the reviewed CEFR lesson library (search, level chips, cards, lesson view); the authored teaching text before them is unchanged.
+const LEVEL_UI_WORDS=["id:lesson.id", "title:lesson.title", "id:lesson.id", "title:lesson.title", "All grammar lessons", "Next lesson ·", "Search grammar lessons", "All", "levels", "·", "·", "Clear filters", "No grammar lesson matches these filters.", "Clear filters", "·", "parts", "Reference table", "Show all"];
+const withoutLevelUi=words=>{const w=[...words];for(const x of [...LEVEL_UI_WORDS].reverse()){const i=w.lastIndexOf(x);if(i>=0)w.splice(i,1);}return w;};
 const hash=x=>crypto.createHash('sha256').update(x).digest('hex'),root=path.join(__dirname,'..');
 test('the grammar UI pass preserves teaching banks, event handlers and initial learning state',()=>{
  assert.equal(contract.pages.length,30);assert.ok(Object.keys(contract.data).length>=30);
@@ -24,13 +24,13 @@ test('the inline grammar explanations, examples and section labels remain unchan
   assert.equal(hash(JSON.stringify(file.endsWith('GrammarReference.tsx')?withoutLevelUi(words):words)),digest,file);
  }
 });
-test('grammar disclosures expose topic headings, unique toggle names and collapsed state',()=>{
+test('grammar lessons are grouped by CEFR level with unique, named lesson cards',()=>{
  const html=renderToStaticMarkup(React.createElement(GrammarReference));
- const ids=[...html.matchAll(/id="grammar-toggle-([^"]+)"/g)].map(m=>m[1]);
+ const ids=[...html.matchAll(/id="grammar-card-([^"]+)"/g)].map(m=>m[1]);
  const n=SECTIONS.length;assert.ok(n>=35);
- assert.equal(ids.length,n);assert.equal(new Set(ids).size,n);assert.equal((html.match(/<h3 class="camp-grammar-section-header"/g)||[]).length,n);
- for(const level of ['A1','A2','B1','B2'])assert.ok(html.includes(`id="grammar-level-${level}"`),level);
- assert.equal((html.match(/aria-expanded="false"/g)||[]).length,n);
- for(const id of ids)assert.ok(html.includes(`aria-controls="grammar-${id}"`),id);
+ assert.equal(new Set(ids).size,ids.length);assert.ok(ids.length>=24,'each level shows at least its first six lessons');
+ for(const id of ids)assert.ok(SECTIONS.some(s=>s.id===id),id);
+ for(const level of ['A1','A2','B1','B2']){assert.ok(html.includes(`id="grammar-level-${level}"`),level);assert.ok(SECTIONS.some(s=>s.level===level),level);}
+ assert.ok(SECTIONS.every(s=>['A1','A2','B1','B2'].includes(s.level)));
  assert.ok(!/[\u0600-\u06ff]/.test(html));
 });
