@@ -38,9 +38,10 @@ test('rewritten learning pages render the same back row on the server and browse
  assert.equal(render('/dashboard'),'');
 });
 
-test('shadowing cards omit CEFR badges and preserve authored topic badges',()=>{
+test('shadowing cards show the editorial level once and preserve authored topic badges',()=>{
+ // Requested later: learners choose videos by level, so each card carries one level badge on its thumbnail.
  for(const lesson of SHADOW_LESSONS){const html=renderToStaticMarkup(React.createElement(ShadowLessonCard,{lesson,selected:true,onSelect:()=>{}}));
-  assert.ok(!/>[AB][12]</.test(html));assert.ok(!/camp-shadow-thumb[\s\S]*?<small>/.test(html.split('camp-shadow-lesson-copy')[0]));
+  assert.ok(lesson.level,lesson.id+' level');assert.equal((html.match(/>[AB][12]</g)||[]).length,1);assert.ok(html.includes(`data-level="${lesson.level}">${lesson.level}<`));assert.ok(!/camp-shadow-thumb[\s\S]*?<small>/.test(html.split('camp-shadow-lesson-copy')[0]));
   assert.ok(html.includes('aria-pressed="true"'));assert.ok(shadowTopics(lesson).length>0);
   for(const topic of shadowTopics(lesson))assert.ok(html.includes('>'+topic+'<'),topic);
  }

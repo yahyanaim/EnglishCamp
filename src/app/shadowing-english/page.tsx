@@ -14,13 +14,21 @@ import { ShadowPracticeProgress } from '@/components/shadowing/ShadowPracticePro
 import { SessionEntry } from "@/components/session/SessionEntry";
 import { useSessionProfile } from "@/components/session/SessionProvider";
 import { playNaturalText, stopNaturalSpeech, type SpeechState } from "@/lib/naturalSpeech";
-import { SHADOW_LESSONS, normalizeDictation, shadowTimedCues, shadowChannel } from "@/data/shadowing";
+import { SHADOW_LESSONS, SHADOW_LEVELS, normalizeDictation, shadowTimedCues, shadowChannel, type ShadowLevel } from "@/data/shadowing";
+import { useProgress } from "@/store/useProgress";
+import { shadowPracticeProgress } from "@/lib/shadowProgress";
+import { logMistake } from "@/lib/mistakes";
 import { SkipBack, SkipForward, RotateCcw, Play, Square, Loader2, Eye, Languages, Pencil, Video, ShieldCheck } from "lucide-react";
 
 export default function ShadowingPage() {
   const [lessonId,setLessonId] = useState(SHADOW_LESSONS[0].id);
   const [mode, setMode] = useState<"read" | "spell">("read");
   const [panel, setPanel] = useState<"transcript" | "videos">("videos");
+  const [levelFilter, setLevelFilter] = useState<ShadowLevel | "all">("all");
+  const doneMap = useProgress(s => s.exercisesDone);
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+  const libraryLessons = SHADOW_LESSONS.filter(item => levelFilter === "all" || item.level === levelFilter);
   const [spelling, setSpelling] = useState(false);
   const videoRef=useRef<ShadowVideoHandle>(null);
   const [videoGap,setVideoGap]=useState(false);
@@ -29,6 +37,7 @@ export default function ShadowingPage() {
   const [answer, setAnswer] = useState(""), [checked, setChecked] = useState(false), [word, setWord] = useState("");
   const [speech, setSpeech] = useState<SpeechState>("stopped"), [rate, setRate] = useState(1);
   const lesson = SHADOW_LESSONS.find(item => item.id === lessonId)!;
+  const lessonProgress = shadowPracticeProgress(lesson, mounted ? doneMap : {});
   const line = lesson.lines[active] || lesson.lines[0];
   const cues=shadowTimedCues(lesson),bounds={start:lesson.clipStart??shadowClipBounds(cues,lesson.duration).start,end:lesson.clipEnd??shadowClipBounds(cues,lesson.duration).end};
   function lineTime(index:number){const time=cues.find(cue=>cue.line===index)?.start;return time===undefined?"Model":`${Math.floor(time/60)}:${String(Math.floor(time%60)).padStart(2,"0")}`;}
@@ -61,6 +70,11 @@ export default function ShadowingPage() {
 
   return <PageWrapper><div className="camp-shadow-page">
     <header className="camp-shadow-library-bar"><div><h1>Shadowing English</h1><p>Listen to a short conversation, then practise each speaker’s lines.</p></div></header>
+    <section className="camp-shadow-now" aria-label="Current conversation">
+      <span className="camp-shadow-level" data-level={lesson.level ?? "all"}>{lesson.level ?? "All levels"}</span>
+      <div className="camp-shadow-now-copy"><strong>{lesson.title}</strong><small>{lesson.track ? `${lesson.track} · ${lesson.skill}` : shadowChannel(lesson)} · {lesson.lines.length} lines</small></div>
+      <div className="camp-shadow-now-progress" aria-label={`${lessonProgress.lines} of ${lessonProgress.total} lines practised`}><span><i style={{ width: `${(lessonProgress.lines / Math.max(1, lessonProgress.total)) * 100}%` }} /></span><small>{lessonProgress.complete ? "Conversation complete ✓" : `${lessonProgress.lines}/${lessonProgress.total} lines practised`}</small></div>
+    </section>
     <div className="camp-shadow-workspace">
       <div className="camp-shadow-main">
         <ShadowVideo ref={videoRef} key={lesson.id} videoId={lesson.videoId} title={lesson.title} channel={shadowChannel(lesson)} cues={cues} start={bounds.start} end={bounds.end} active={active} onCueChange={syncLine}>{video => <div className="camp-shadow-playbar" role="group" aria-label="Playback controls">
@@ -75,7 +89,7 @@ export default function ShadowingPage() {
         </div>}</ShadowVideo>
         <section className="camp-shadow-practice" aria-label="Practice the selected lines">
           <div className="camp-shadow-sentence-meta"><span>{line.speaker?`${line.speaker} · `:""}Line {active + 1} / {lesson.lines.length}</span><span>{lesson.id==="say-thank-you"&&active===1?"Phrase focus":cues.some(cue=>cue.line===active)?"Follows the video":"Microsoft model practice"}</span></div>
-          <div className="camp-shadow-current">{videoGap ? <p className="camp-shadow-caption-gap">Listen to the video. The next selected practice line will appear here.</p> : mode === "read" ? <div className="camp-shadow-line-text">{line.text.split(/\s+/).map((token, i) => <button key={i} type="button" aria-label={`Explore ${token}`} onClick={() => { const selected = token.replace(/^[^a-z]+|[^a-z']+$/gi, ""); setWord(selected); void playNaturalText(selected, { rate }).catch(() => {}); }}><span>{token}</span>{spelling && <small aria-hidden="true">{token.replace(/[^a-z']/gi, "").toLowerCase()}</small>}</button>)}</div> : <form onSubmit={event => { event.preventDefault(); if (answer.trim()) setChecked(true); }}><label htmlFor="shadow-answer">Listen, then type the line</label><input id="shadow-answer" autoComplete="off" spellCheck={false} value={answer} onChange={event => { setAnswer(event.target.value); setChecked(false); }}/><Button disabled={!answer.trim()}>Check spelling</Button>{checked && <p role="status">{correct ? "The words match. Now say the line aloud." : `Compare your words with: ${line.text}`}</p>}</form>}
+          <div className="camp-shadow-current">{videoGap ? <p className="camp-shadow-caption-gap">Listen to the video. The next selected practice line will appear here.</p> : mode === "read" ? <div className="camp-shadow-line-text">{line.text.split(/\s+/).map((token, i) => <button key={i} type="button" aria-label={`Explore ${token}`} onClick={() => { const selected = token.replace(/^[^a-z]+|[^a-z']+$/gi, ""); setWord(selected); void playNaturalText(selected, { rate }).catch(() => {}); }}><span>{token}</span>{spelling && <small aria-hidden="true">{token.replace(/[^a-z']/gi, "").toLowerCase()}</small>}</button>)}</div> : <form onSubmit={event => { event.preventDefault(); if (!answer.trim()) return; setChecked(true); if (normalizeDictation(answer) !== normalizeDictation(line.text)) logMistake("shadowing", lesson.id, `Type the line you heard (${lesson.title})`, answer.trim(), line.text, "Listen again to the video line and compare each word."); }}><label htmlFor="shadow-answer">Listen, then type the line</label><input id="shadow-answer" autoComplete="off" spellCheck={false} value={answer} onChange={event => { setAnswer(event.target.value); setChecked(false); }}/><Button disabled={!answer.trim()}>Check spelling</Button>{checked && <p role="status">{correct ? "The words match. Now say the line aloud." : `Compare your words with: ${line.text}`}</p>}</form>}
             {word && !videoGap && mode === "read" && <div className="camp-shadow-word" aria-live="polite"><strong>{word}</strong><span aria-label={`Spelled ${word}`}>{word.toUpperCase().split("").join(" ")}</span><SpeakerButton text={word}/></div>}
             {arabic && !videoGap && <p className="camp-shadow-arabic" lang="ar" dir="rtl">{line.ar}</p>}
           </div>
@@ -89,9 +103,9 @@ export default function ShadowingPage() {
       </div>
       <aside className="camp-shadow-side" aria-label="Transcript and practice videos">
         <div className="camp-shadow-side-tabs"><Button id="shadow-transcript-tab" aria-pressed={panel === "transcript"} aria-controls="shadow-resource-panel" variant={panel === "transcript" ? "default" : "secondary"} onClick={() => setPanel("transcript")}>Transcript</Button><Button id="shadow-videos-tab" aria-pressed={panel === "videos"} aria-controls="shadow-resource-panel" variant={panel === "videos" ? "default" : "secondary"} onClick={() => setPanel("videos")}>More videos to practice</Button></div>
-        <p className="camp-shadow-library-heading">{panel==="videos"?`${SHADOW_LESSONS.length} short conversations`:`${lesson.lines.length} dialogue lines`}</p>
+        <p className="camp-shadow-library-heading">{panel==="videos"?`${libraryLessons.length} short conversations`:`${lesson.lines.length} dialogue lines`}</p>
         <div id="shadow-resource-panel" role="region" aria-labelledby={panel === "transcript" ? "shadow-transcript-tab" : "shadow-videos-tab"} className="camp-shadow-resource-content">
-          {panel === "transcript" ? <><div className="camp-shadow-transcript-intro"><strong>Selected lines</strong><p>Choose a timestamped line to seek the video. Model lines use the separate voice control.</p></div><ol className="camp-shadow-transcript-list">{lesson.lines.map((item, index) => <li key={index}><button type="button" aria-current={index === active ? "step" : undefined} onClick={() => chooseLine(index)}><span>{lineTime(index)}</span><span>{item.speaker&&<strong className="camp-shadow-speaker">{item.speaker}</strong>}{item.text}{arabic && <small lang="ar" dir="rtl">{item.ar}</small>}</span></button></li>)}</ol><p className="camp-shadow-transcript-note">{cues.length?"Dialogue lines follow the video. Choose a line to seek to it; Replay plays that line once. Repeat both roles, then make the conversation your own.":"This original clip has no timed caption track. These selected lines use the Microsoft model; they do not seek the video."}</p></> : <div className="camp-shadow-video-list">{SHADOW_LESSONS.map(item => <ShadowLessonCard key={item.id} lesson={item} selected={item.id === lesson.id} onSelect={chooseLesson}/>)}</div>}
+          {panel === "transcript" ? <><div className="camp-shadow-transcript-intro"><strong>Selected lines</strong><p>Choose a timestamped line to seek the video. Model lines use the separate voice control.</p></div><ol className="camp-shadow-transcript-list">{lesson.lines.map((item, index) => <li key={index}><button type="button" aria-current={index === active ? "step" : undefined} onClick={() => chooseLine(index)}><span>{lineTime(index)}</span><span>{item.speaker&&<strong className="camp-shadow-speaker">{item.speaker}</strong>}{item.text}{arabic && <small lang="ar" dir="rtl">{item.ar}</small>}</span></button></li>)}</ol><p className="camp-shadow-transcript-note">{cues.length?"Dialogue lines follow the video. Choose a line to seek to it; Replay plays that line once. Repeat both roles, then make the conversation your own.":"This original clip has no timed caption track. These selected lines use the Microsoft model; they do not seek the video."}</p></> : <><div className="camp-shadow-level-filter" role="group" aria-label="Filter conversations by level">{(["all", ...SHADOW_LEVELS] as const).map(level => { const count = level === "all" ? SHADOW_LESSONS.length : SHADOW_LESSONS.filter(item => item.level === level).length; return count ? <button key={level} type="button" aria-pressed={levelFilter === level} data-level={level} onClick={() => setLevelFilter(level)}>{level === "all" ? "All" : level}<span>{count}</span></button> : null; })}</div><div className="camp-shadow-video-list">{libraryLessons.map(item => <ShadowLessonCard key={item.id} lesson={item} selected={item.id === lesson.id} onSelect={chooseLesson}/>)}</div></>}
         </div>
         <p className="camp-shadow-focus"><LearningArt name="idea" size={20}/>{lesson.focus}</p>
       </aside>
