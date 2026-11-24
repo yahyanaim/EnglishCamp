@@ -16,6 +16,7 @@ import { useSessionProfile } from "@/components/session/SessionProvider";
 import { playNaturalText, stopNaturalSpeech, type SpeechState } from "@/lib/naturalSpeech";
 import { SHADOW_LESSONS, SHADOW_LEVELS, normalizeDictation, shadowTimedCues, shadowChannel, type ShadowLevel } from "@/data/shadowing";
 import { useProgress } from "@/store/useProgress";
+import { NumberSeal } from "@/components/ui/NumberSeal";
 import { shadowPracticeProgress } from "@/lib/shadowProgress";
 import { logMistake } from "@/lib/mistakes";
 import { SkipBack, SkipForward, RotateCcw, Play, Square, Loader2, Eye, Languages, Pencil, Video, ShieldCheck } from "lucide-react";
@@ -71,7 +72,7 @@ export default function ShadowingPage() {
   return <PageWrapper><div className="camp-shadow-page">
     <header className="camp-shadow-library-bar"><div><h1>Shadowing English</h1><p>Listen to a short conversation, then practise each speaker’s lines.</p></div></header>
     <section className="camp-shadow-now" aria-label="Current conversation">
-      <span className="camp-shadow-level" data-level={lesson.level ?? "all"}>{lesson.level ?? "All levels"}</span>
+      {lesson.level ? <span className="camp-shadow-seal camp-shadow-now-seal" data-level={lesson.level}><NumberSeal value={lesson.level} label={`Level ${lesson.level}`} /></span> : null}
       <div className="camp-shadow-now-copy"><strong>{lesson.title}</strong><small>{lesson.track ? `${lesson.track} · ${lesson.skill}` : shadowChannel(lesson)} · {lesson.lines.length} lines</small></div>
       <div className="camp-shadow-now-progress" aria-label={`${lessonProgress.lines} of ${lessonProgress.total} lines practised`}><span><i style={{ width: `${(lessonProgress.lines / Math.max(1, lessonProgress.total)) * 100}%` }} /></span><small>{lessonProgress.complete ? "Conversation complete ✓" : `${lessonProgress.lines}/${lessonProgress.total} lines practised`}</small></div>
     </section>
