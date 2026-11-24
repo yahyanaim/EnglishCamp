@@ -180,7 +180,7 @@ function groupLinks(links: NavLink[]): [string, NavLink[]][] {
 
 function NavItem({ href, icon: Icon, label, active }: { href: string; icon: LucideIcon; label: string; active: boolean }) {
   return (
-    <Link prefetch={false} href={href} className={cn(
+    <Link prefetch={false} href={href} aria-current={active ? "page" : undefined} className={cn(
       "group relative flex items-center gap-2.5 px-3 py-2 rounded-[var(--radius-md)] text-sm font-medium transition-all duration-200",
       active
         ? "bg-[var(--color-primary-subtle)] text-[var(--color-text-link)]"
@@ -361,7 +361,8 @@ export function Sidebar({ open, onClose }: { open?: boolean; onClose?: () => voi
           <div className="space-y-0.5">
             <Link prefetch={false}
               href="/exercises/band1-listening-format"
-              className={cn(
+              aria-current={pathname.startsWith("/exercises") ? "page" : undefined}
+              className={cn("camp-nav-hub-link",
                 "group relative flex items-center gap-2.5 px-3 py-2 rounded-[var(--radius-md)] text-xs font-bold transition-all duration-200 mb-1.5 border",
                 pathname.startsWith("/exercises")
                   ? "bg-indigo-500/15 text-indigo-600 dark:text-indigo-400 border-indigo-500/30"
@@ -379,10 +380,10 @@ export function Sidebar({ open, onClose }: { open?: boolean; onClose?: () => voi
               const Icon = LEVEL_ICONS[i % LEVEL_ICONS.length];
               const active = pathname === `/levels/${level.id}` || pathname.startsWith(`/levels/${level.id}/`);
               return (
-                <Link prefetch={false} key={level.id} href={`/levels/${level.id}`} className={cn(
+                <Link prefetch={false} key={level.id} href={`/levels/${level.id}`} aria-current={active ? "page" : undefined} className={cn(
                   "group relative flex items-center gap-2.5 px-3 py-2 rounded-[var(--radius-md)] text-sm font-medium transition-all duration-200",
                   active ? "bg-[var(--color-primary-subtle)] text-[var(--color-text-link)]" : "text-[var(--color-text-secondary)] hover:bg-[var(--color-neutral-50)] hover:text-[var(--color-text-primary)]"
-                )} style={active ? { boxShadow: "0 2px 0 var(--color-primary-dark)" } : undefined}>
+                )}>
                   {active && <motion.span layoutId="sidebar-level-active" className="absolute left-0 top-1/2 -translate-y-1/2 w-0.5 h-4 rounded-full bg-[var(--color-primary)]" />}
                   <div className={cn(
                     "flex items-center justify-center w-7 h-7 rounded-[var(--radius-md)] transition-all duration-200 flex-shrink-0",
