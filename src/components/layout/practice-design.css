@@ -1,0 +1,184 @@
+/* ==========================================================================
+   Practice library: one exercise design
+   Pattern taken from established learning apps (Duolingo, Quizlet Learn, Brilliant):
+   one centred column, a status row + a single progress bar on top, one question
+   sheet, answer options as equal tiles, and one full-width primary action.
+   Every size comes from the scale below (8px grid), so all trainers measure the same.
+   ========================================================================== */
+.camp-frame main.camp-content {
+  --px-w: 100%;           /* exercise column: same edges as the banner and back button */
+  --px-pad: 32px;         /* sheet padding */
+  --px-gap: 20px;         /* space between blocks in a sheet */
+  --px-radius: 24px;      /* sheet radius */
+  --px-ctl: 52px;         /* buttons, inputs, segmented controls */
+  --px-opt: 60px;         /* answer tiles */
+  --px-opt-radius: 16px;
+  --px-chip: 44px;
+}
+@container camp-main (max-width: 579px) {
+  .camp-frame main.camp-content * { --px-pad: 20px; --px-gap: 16px; --px-radius: 20px; --px-opt: 56px; }
+}
+
+/* ---------- One column: status row, progress bar and sheets share the same width ---------- */
+.camp-frame main.camp-content .camp-practice--quiz > .camp-practice-body,
+.camp-frame main.camp-content [data-practice-surface] { width: 100%; max-width: var(--px-w); margin-inline: auto; }
+.camp-frame main.camp-content .camp-practice--quiz > .camp-practice-body [data-practice-surface] { max-width: none; }
+.camp-frame main.camp-content .camp-practice-body > .space-y-4 { display: flex; flex-direction: column; gap: 12px; max-width: none; }
+.camp-frame main.camp-content .camp-practice-body > .space-y-4 > * { margin: 0 !important; }
+
+/* ---------- Status row: counter, score, timer as equal 32px pills ---------- */
+.camp-frame main.camp-content .camp-quiz-status { min-height: 40px; margin: 0 0 4px !important; gap: 8px; flex-wrap: wrap; }
+.camp-frame main.camp-content .camp-quiz-status :is(span, div)[class*="rounded"] {
+  display: inline-flex; align-items: center; gap: 6px; height: 32px; padding: 0 12px !important; border-radius: 999px !important;
+  font-size: 13px !important; line-height: 1; font-weight: 650; border-width: 1px !important; box-shadow: none !important;
+}
+.camp-frame main.camp-content .camp-quiz-status .camp-learning-art { width: 14px !important; height: 14px !important; }
+.camp-frame main.camp-content .camp-quiz-status > span:not([class*="rounded"]) { font-size: 14px !important; font-weight: 600; color: var(--color-text-secondary); }
+/* Single progress bar under the status row. */
+.camp-frame main.camp-content .camp-quiz-status + div:has(> div:only-child) {
+  height: 8px !important; margin: 0 0 8px !important; border-radius: 999px; overflow: hidden;
+  background: var(--g-track, var(--color-surface-alt)) !important; box-shadow: inset 0 1px 2px rgba(28, 20, 52, .08);
+}
+.camp-frame main.camp-content .camp-quiz-status + div:has(> div:only-child) > div:not([style*="background"]) {
+  border-radius: 999px; background: linear-gradient(90deg, color-mix(in srgb, var(--camp-purple) 78%, #fff), var(--camp-purple)) !important;
+}
+
+/* ---------- Setup sheet ---------- */
+.camp-frame main.camp-content [data-practice-surface="intro"] {
+  display: flex; flex-direction: column; align-items: stretch; gap: var(--px-gap);
+  padding: var(--px-pad) !important; border-radius: var(--px-radius) !important; text-align: center;
+}
+.camp-frame main.camp-content [data-practice-surface="intro"] > * { width: 100%; margin: 0 !important; }
+.camp-frame main.camp-content [data-practice-surface="intro"] > :is(p, h2, h3) { text-align: center; }
+.camp-frame main.camp-content [data-practice-surface="intro"] :is(h2, h3) { font: 750 1.25rem/1.35 var(--font-display) !important; }
+.camp-frame main.camp-content [data-practice-surface="intro"] > p,
+.camp-frame main.camp-content [data-practice-surface="intro"].translation-intro p { font-size: 15px !important; line-height: 1.6; color: var(--color-text-secondary); }
+.camp-frame main.camp-content [data-practice-surface="intro"] .translation-intro-heading { justify-content: center; text-align: center; }
+/* 2–4 choices (rounds, direction, words/phrases): segmented control. */
+.camp-frame main.camp-content [data-practice-surface="intro"] div:has(> button:nth-child(2)):not(:has(> button:nth-child(5))):not(:has(> :not(button))):not([data-grid-free]) {
+  display: grid !important; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); gap: 4px; height: var(--px-ctl); padding: 4px;
+  border: 1px solid var(--g-rim, var(--color-border-default)); border-radius: 999px; background: var(--g-track, var(--color-surface-alt));
+  box-shadow: inset 0 1px 2px rgba(28, 20, 52, .06);
+}
+.camp-frame main.camp-content [data-practice-surface="intro"] div:has(> button:nth-child(2)):not(:has(> button:nth-child(5))):not(:has(> :not(button))):not([data-grid-free]) > button {
+  height: 100% !important; min-height: 0 !important; min-width: 0; margin: 0 !important; padding: 0 12px !important; border: 1px solid transparent !important; border-radius: 999px !important;
+  background: transparent !important; color: var(--color-text-secondary) !important; box-shadow: none !important; -webkit-backdrop-filter: none !important; backdrop-filter: none !important;
+  font-size: 14px !important; font-weight: 650; line-height: 1.2; justify-content: center; text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.camp-frame main.camp-content [data-practice-surface="intro"] div:has(> button:nth-child(2)):not(:has(> button:nth-child(5))):not(:has(> :not(button))):not([data-grid-free]) > button:is([aria-pressed="true"], [class*="bg-[var(--color-primary)]"], [class*="bg-[var(--camp-purple)]"], [data-state="active"], .selected) {
+  background: linear-gradient(180deg, #fff, rgba(255, 255, 255, .88)) !important; color: var(--camp-control-ink) !important; border-color: rgba(255, 255, 255, .95) !important;
+  box-shadow: 0 2px 8px -2px rgba(28, 20, 52, .18), 0 0 0 1px rgba(28, 20, 52, .06) !important;
+}
+.dark .camp-frame main.camp-content [data-practice-surface="intro"] div:has(> button:nth-child(2)):not(:has(> button:nth-child(5))):not(:has(> :not(button))):not([data-grid-free]) > button:is([aria-pressed="true"], [class*="bg-[var(--color-primary)]"], [class*="bg-[var(--camp-purple)]"], [data-state="active"], .selected) {
+  background: rgba(255, 255, 255, .16) !important; color: #fff !important; border-color: rgba(255, 255, 255, .14) !important; box-shadow: 0 2px 8px -2px rgba(0, 0, 0, .6) !important;
+}
+/* Topics and categories: equal chips; a short last row is centred, so the block stays symmetric. */
+.camp-frame main.camp-content [data-practice-surface] :is([data-chip-row], .translation-groups) {
+  --chip-cols: 2; --chip-gap: 8px;
+  display: flex !important; flex-wrap: wrap; justify-content: center; gap: var(--chip-gap); margin: 0 !important;
+}
+@container camp-main (min-width: 480px) { .camp-frame main.camp-content [data-practice-surface] :is([data-chip-row], .translation-groups) { --chip-cols: 3; } }
+@container camp-main (min-width: 700px) { .camp-frame main.camp-content [data-practice-surface] :is([data-chip-row], .translation-groups) { --chip-cols: 4; } }
+.camp-frame main.camp-content [data-practice-surface] :is([data-chip-row], .translation-groups) > button {
+  flex: 0 0 calc((100% - (var(--chip-cols) - 1) * var(--chip-gap)) / var(--chip-cols)); max-width: calc((100% - (var(--chip-cols) - 1) * var(--chip-gap)) / var(--chip-cols));
+  min-width: 0; min-height: var(--px-chip); height: auto !important; margin: 0 !important; padding: 8px 10px !important; border-radius: 12px !important;
+  justify-content: center; text-align: center; white-space: normal; line-height: 1.25; font-size: 13px !important; font-weight: 650; overflow-wrap: anywhere; grid-column: auto !important;
+}
+.camp-frame main.camp-content [data-practice-surface] :is([data-chip-row], .translation-groups) > button .camp-learning-art { width: 16px !important; height: 16px !important; flex: none; }
+.camp-frame main.camp-content [data-practice-surface] :is([data-chip-row], .translation-groups) > button:not([aria-pressed="true"]):not([class*="bg-[var(--color-primary)]"]):not([class*="bg-[var(--camp-purple)]"]) { color: var(--color-text-primary) !important; }
+/* Display-only tag rows stay centred. */
+.camp-frame main.camp-content [data-practice-surface="intro"] > div.flex-wrap:not([data-chip-row]) { justify-content: center; }
+/* Toggles (auto-advance, slow audio) on one centred line. */
+.camp-frame main.camp-content [data-practice-surface="intro"] div:has(> label > input[type="checkbox"]) { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 24px; font-size: 14px; color: var(--color-text-secondary); }
+/* Content under the setup (e.g. culture topics) reads left-aligned. */
+.camp-frame main.camp-content [data-practice-surface="intro"] > :is(section, details, .camp-study-tips) { text-align: start; }
+
+/* ---------- Buttons: one height, one shape ---------- */
+.camp-frame main.camp-content [data-practice-surface] > button,
+.camp-frame main.camp-content [data-practice-surface] > div:last-child > button:only-child,
+.camp-frame main.camp-content [data-practice-surface] > div:is(.flex, .mt-8, .mt-6, .mt-5, .mt-4):last-child:has(> button:only-child) > button {
+  width: 100%; min-height: var(--px-ctl) !important; height: auto; margin: 0 !important; padding: 0 24px !important; border-radius: 999px !important;
+  font-size: 16px !important; font-weight: 700; justify-content: center;
+}
+.camp-frame main.camp-content [data-practice-surface] > div:is(.flex, .mt-8, .mt-6, .mt-5, .mt-4):last-child:has(> button:only-child) { display: flex; margin: 0 !important; }
+
+/* ---------- Question sheet ---------- */
+.camp-frame main.camp-content [data-practice-surface="question"] {
+  display: flex; flex-direction: column; gap: var(--px-gap); padding: var(--px-pad) !important; border-radius: var(--px-radius) !important; text-align: start;
+}
+.camp-frame main.camp-content [data-practice-surface="question"] > * { margin: 0 !important; }
+/* Kicker ("Choose the correct article", topic tag). */
+.camp-frame main.camp-content [data-practice-surface="question"] :is(span, p)[class*="uppercase"] {
+  font-size: 12px !important; line-height: 1.3; letter-spacing: .06em; font-weight: 700; color: var(--color-text-secondary);
+}
+.camp-frame main.camp-content [data-practice-surface="question"] > div:has(> span[class*="uppercase"]:only-child) { margin-bottom: -8px !important; }
+/* The prompt itself. */
+.camp-frame main.camp-content [data-practice-surface="question"] :is(p, h2, h3)[class*="font-display"]:not([class*="text-3xl"], [class*="text-4xl"], [class*="text-2xl"]),
+.camp-frame main.camp-content [data-practice-surface="question"] .camp-quiz-question-heading {
+  margin: 0 !important; font: 700 22px/1.45 var(--font-display) !important; color: var(--color-text-primary);
+}
+@container camp-main (max-width: 579px) {
+  .camp-frame main.camp-content [data-practice-surface="question"] :is(p, h2, h3)[class*="font-display"]:not([class*="text-3xl"], [class*="text-4xl"], [class*="text-2xl"]),
+  .camp-frame main.camp-content [data-practice-surface="question"] .camp-quiz-question-heading { font-size: 19px !important; }
+}
+
+/* ---------- Answer options: equal tiles. Even counts: 2 columns; odd counts: 1 column; phones: 1 column ---------- */
+.camp-frame main.camp-content [data-practice-surface="question"] div:has(> button:nth-child(2)):not(:has(> button:nth-child(7))):not(:has(> :not(button))):not(:has(> button[aria-label])):not([data-chip-row], [data-grid-free], .camp-speed-pairs, .camp-match-board):not(form *) {
+  display: grid !important; grid-template-columns: minmax(0, 1fr) !important; grid-auto-flow: row !important; grid-auto-rows: 1fr; gap: 10px !important;
+  width: 100%; margin: 0 !important; padding: 0 !important; border: 0 !important; background: none !important; box-shadow: none !important;
+}
+@container camp-main (min-width: 580px) {
+  .camp-frame main.camp-content [data-practice-surface="question"] div:has(> button:nth-child(2)):not(:has(> button:nth-child(7))):not(:has(> :not(button))):not(:has(> button[aria-label])):not([data-chip-row], [data-grid-free], .camp-speed-pairs, .camp-match-board):not(form *):has(> button:last-child:nth-child(even)) {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+.camp-frame main.camp-content [data-practice-surface="question"] div:has(> button:nth-child(2)):not(:has(> button:nth-child(7))):not(:has(> :not(button))):not(:has(> button[aria-label])):not([data-chip-row], [data-grid-free], .camp-speed-pairs, .camp-match-board):not(form *) > button {
+  display: flex !important; flex-direction: row !important; align-items: center; justify-content: flex-start !important; gap: 12px;
+  width: 100%; min-width: 0; min-height: var(--px-opt) !important; height: auto !important; margin: 0 !important; padding: 12px 16px !important;
+  border-radius: var(--px-opt-radius) !important; text-align: start !important; white-space: normal; line-height: 1.4; font-size: 16px !important; font-weight: 600;
+  grid-column: auto !important; transform: none;
+}
+.camp-frame main.camp-content [data-practice-surface="question"] div:has(> button:nth-child(2)):not(:has(> button:nth-child(7))):not(:has(> :not(button))):not(:has(> button[aria-label])):not([data-chip-row], [data-grid-free], .camp-speed-pairs, .camp-match-board):not(form *) > button > :is(span, div):first-child:not(:only-child):is([class*="w-"], [class*="rounded"]) {
+  display: inline-flex; align-items: center; justify-content: center; flex: none; width: 32px !important; height: 32px !important; margin: 0 !important;
+  border-radius: 10px !important; border-width: 1px !important; font-size: 13px !important; font-weight: 750; line-height: 1;
+}
+.camp-frame main.camp-content [data-practice-surface="question"] div:has(> button:nth-child(2)):not(:has(> button:nth-child(7))):not(:has(> :not(button))):not(:has(> button[aria-label])):not([data-chip-row], [data-grid-free], .camp-speed-pairs, .camp-match-board):not(form *) > button > :not(:first-child) { flex: 1 1 auto; min-width: 0; text-align: start; }
+@media (hover: hover) {
+  .camp-frame main.camp-content [data-practice-surface="question"] div:has(> button:nth-child(2)):not(:has(> :not(button))):not(:has(> button[aria-label])):not([data-chip-row], [data-grid-free], .camp-match-board):not(form *) > button:not(:disabled):not([data-outcome]):hover {
+    border-color: color-mix(in srgb, var(--camp-purple) 40%, transparent) !important;
+  }
+}
+
+/* ---------- Typed answers ---------- */
+.camp-frame main.camp-content [data-practice-surface] form { display: flex; flex-direction: column; gap: 12px; margin: 0 !important; }
+.camp-frame main.camp-content [data-practice-surface] form > * { margin: 0 !important; }
+.camp-frame main.camp-content [data-practice-surface] :is(input[type="text"], input:not([type]), textarea) {
+  min-height: var(--px-ctl); padding: 12px 16px !important; border-radius: 16px !important; font-size: 17px !important;
+}
+.camp-frame main.camp-content [data-practice-surface] form div:has(> button:nth-child(2)):not(:has(> :not(button))) {
+  display: grid !important; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); gap: 10px; width: 100%;
+}
+.camp-frame main.camp-content [data-practice-surface] form > button, .camp-frame main.camp-content [data-practice-surface] form div > button {
+  width: 100%; min-height: var(--px-ctl) !important; padding: 0 20px !important; border-radius: 999px !important; justify-content: center !important; font-size: 15px !important; font-weight: 700;
+}
+
+/* ---------- Result sheet ---------- */
+.camp-frame main.camp-content [data-practice-surface="result"] {
+  display: flex; flex-direction: column; align-items: center; gap: var(--px-gap); padding: var(--px-pad) !important; border-radius: var(--px-radius) !important; text-align: center;
+}
+.camp-frame main.camp-content [data-practice-surface="result"] > * { margin: 0 !important; }
+.camp-frame main.camp-content [data-practice-surface="result"] > :is(button, a) { width: 100%; max-width: 360px; }
+
+/* ---------- Speed Match: pair count uses the same segmented control ---------- */
+.camp-frame main.camp-content .camp-speed-pairs.camp-speed-pairs {
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 4px; width: 100%; max-width: 420px; height: var(--px-ctl); margin-inline: auto; padding: 4px;
+  border: 1px solid var(--g-rim, var(--color-border-default)); border-radius: 999px; background: var(--g-track, var(--color-surface-alt));
+}
+.camp-frame main.camp-content .camp-speed-pairs.camp-speed-pairs > button {
+  height: 100%; min-height: 0; border: 1px solid transparent !important; border-radius: 999px !important; background: transparent !important; color: var(--color-text-secondary) !important;
+  box-shadow: none !important; font-size: 14px !important; font-weight: 650; justify-content: center;
+}
+.camp-frame main.camp-content .camp-speed-pairs.camp-speed-pairs > button[aria-pressed="true"] {
+  background: linear-gradient(180deg, #fff, rgba(255, 255, 255, .88)) !important; color: var(--camp-control-ink) !important; box-shadow: 0 2px 8px -2px rgba(28, 20, 52, .18), 0 0 0 1px rgba(28, 20, 52, .06) !important;
+}
+.dark .camp-frame main.camp-content .camp-speed-pairs.camp-speed-pairs > button[aria-pressed="true"] { background: rgba(255, 255, 255, .16) !important; color: #fff !important; }

@@ -218,14 +218,6 @@ export function QuizEngine({ levelId }: Props) {
         </div>
       </div>
 
-      <div className="flex gap-1.5 mb-8">
-        {questions.map((_, i) => (
-          <div key={i} className={`h-1.5 flex-1 rounded-[var(--radius-pill)] transition-colors duration-300 ${
-            i < index ? "bg-[var(--color-primary)]" : i === index ? "bg-[var(--color-primary)]" : "bg-[var(--color-border-default)]"
-          }`} />
-        ))}
-      </div>
-
       <div className="h-1.5 w-full rounded-[var(--radius-pill)] mb-8 overflow-hidden" style={{ backgroundColor: "var(--color-border-default)" }}>
         <motion.div
           className="h-full rounded-[var(--radius-pill)]"

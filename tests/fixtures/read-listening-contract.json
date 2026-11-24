@@ -124,6 +124,14 @@
     "src/components/learn/SpeedMatch.tsx": {
       "before": "51fb6d58c8750de2bbfe25b2f485e5b5303e50476052d81e17b5b3e3a79acf96",
       "after": "4fd3fcfbba6ea4ca49b92ba3416e2eb6b25f72db0761d99cd2f7e8c193590401"
+    },
+    "src/components/quiz/QuizEngine.tsx": {
+      "before": "b739c9ae102a21cbcd26d1ac7d6f9110bacacecc225b3ed8450d70f276c1d0c3",
+      "after": "be57960519bbdd048b43471ec4a79ddacff17530aa464a04272179412c519900"
+    },
+    "src/app/quiz/[levelId]/page.tsx": {
+      "before": "a64a6e663f798a04c7d8bdd4171788c759350b9597215a89e3b5597d2a6e78e7",
+      "after": "a8355083f16acda78e9db207ed49b3894310c807617aeae9cfb126fce8cfb224"
     }
   },
   "selectors": {
