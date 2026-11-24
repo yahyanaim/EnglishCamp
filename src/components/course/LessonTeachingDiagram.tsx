@@ -1,4 +1,9 @@
-import { ConceptTeachingGraphic } from "./ConceptTeachingGraphic";
+import { ConceptTeachingGraphic, describe } from "./ConceptTeachingGraphic";
+import archifyManifest from "@/data/teaching-diagrams/archify-manifest.json";
+
+type ArchifyAsset = { title: string; light: string; dark: string; width: number; height: number };
+/** Desktop diagrams compiled with Archify (scripts/build-archify-diagrams.cjs); keyed by diagram title. */
+const ARCHIFY = new Map(Object.values(archifyManifest as Record<string, ArchifyAsset>).map(asset => [asset.title, asset]));
 import type { TeachingDiagram } from "@/data/teaching-diagrams/types";
 
 const ink = "var(--color-text-primary)";
@@ -117,6 +122,7 @@ function ArticleDecisionGraphic({ compact }: { compact: boolean }) {
 }
 
 export function LessonTeachingDiagram({ diagram }: { diagram: TeachingDiagram }) {
+  const asset = ARCHIFY.get(diagram.title);
   const Graphic = diagram.kind === "word-family" ? WordFamilyGraphic : diagram.kind === "tense-timeline" ? TimelineGraphic : ArticleDecisionGraphic;
   return <section id="lesson-principle" aria-labelledby="lesson-principle-title" className="scroll-mt-24 space-y-5 text-[var(--color-text-primary)]">
     <div>
@@ -125,10 +131,17 @@ export function LessonTeachingDiagram({ diagram }: { diagram: TeachingDiagram })
       <p className="mt-3 text-sm leading-relaxed text-[var(--color-text-secondary)]">{diagram.introduction}</p>
     </div>
     <figure aria-label={diagram.title} className="py-4 sm:py-6">
-      {diagram.kind === "concept" && diagram.visual ? <>
+      {diagram.kind === "concept" && diagram.visual ? (asset ? <>
+        <div className="camp-archify hidden md:block">
+          <img className="camp-archify-light" src={asset.light} width={asset.width} height={asset.height} alt={describe(diagram.visual)} loading="lazy" decoding="async" />
+          <img className="camp-archify-dark" src={asset.dark} width={asset.width} height={asset.height} alt="" aria-hidden="true" loading="lazy" decoding="async" />
+          <a className="camp-archify-open" href={asset.light} target="_blank" rel="noreferrer">Open full size</a>
+        </div>
+        <ConceptTeachingGraphic visual={diagram.visual} compact />
+      </> : <>
         <ConceptTeachingGraphic visual={diagram.visual} compact={false} />
         <ConceptTeachingGraphic visual={diagram.visual} compact />
-      </> : <><Graphic compact={false} /><Graphic compact /></>}
+      </>) : <><Graphic compact={false} /><Graphic compact /></>}
       <figcaption className="mt-5 text-sm leading-relaxed text-[var(--color-text-secondary)]">{diagram.takeaway}</figcaption>
     </figure>
   </section>;

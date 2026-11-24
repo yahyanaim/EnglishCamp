@@ -1,0 +1,93 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "Transfer shows whether knowledge is usable",
+    "locale": "en",
+    "quality_profile": "standard",
+    "visual_preset": "classic",
+    "animation": "none",
+    "feedback_links": false,
+    "legend": {
+      "mode": "hidden"
+    },
+    "output": "band1-review.html"
+  },
+  "lanes": [
+    {
+      "id": "top",
+      "label": "Transfer"
+    },
+    {
+      "id": "bottom",
+      "label": "Repeat"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "c0",
+      "lane": "top",
+      "col": 0,
+      "type": "frontend",
+      "label": "Observed work",
+      "sublabel": "Article choice is uncertain",
+      "icon": "start",
+      "width": 184
+    },
+    {
+      "id": "c1",
+      "lane": "top",
+      "col": 2,
+      "type": "backend",
+      "label": "Underlying concept",
+      "sublabel": "Identifiable reference",
+      "icon": "active",
+      "width": 174
+    },
+    {
+      "id": "c2",
+      "lane": "bottom",
+      "col": 2,
+      "type": "backend",
+      "label": "Targeted revision",
+      "sublabel": "Explain a / the in context",
+      "icon": "active",
+      "width": 178
+    },
+    {
+      "id": "c3",
+      "lane": "bottom",
+      "col": 0,
+      "type": "database",
+      "label": "Fresh evidence",
+      "sublabel": "Use it in a new email",
+      "icon": "success",
+      "width": 152
+    }
+  ],
+  "edges": [
+    {
+      "id": "a",
+      "from": "c0",
+      "to": "c1"
+    },
+    {
+      "id": "b",
+      "from": "c1",
+      "to": "c2"
+    },
+    {
+      "id": "c",
+      "from": "c2",
+      "to": "c3"
+    },
+    {
+      "id": "d",
+      "from": "c3",
+      "to": "c0",
+      "variant": "dashed",
+      "role": "return",
+      "label": "fresh evidence"
+    }
+  ]
+}

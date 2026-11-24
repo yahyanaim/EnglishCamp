@@ -1,0 +1,53 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "An error pattern identifies a particular learning need",
+    "locale": "en",
+    "quality_profile": "standard",
+    "visual_preset": "classic",
+    "animation": "none",
+    "feedback_links": false,
+    "legend": {
+      "mode": "hidden"
+    },
+    "output": "band4-mock-ielts-listening.html"
+  },
+  "lanes": [
+    {
+      "id": "compare",
+      "label": "Compare"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "left",
+      "lane": "compare",
+      "col": 0,
+      "type": "frontend",
+      "label": "Sound / form error",
+      "sublabel": "ticket instead of tickets",
+      "icon": "neutral",
+      "width": 174
+    },
+    {
+      "id": "right",
+      "lane": "compare",
+      "col": 3,
+      "type": "backend",
+      "label": "Decision-tracking error",
+      "sublabel": "Choosing a rejected departure time",
+      "icon": "neutral",
+      "width": 221
+    }
+  ],
+  "edges": [
+    {
+      "id": "rel",
+      "from": "left",
+      "to": "right",
+      "label": "≠ different errors reveal different gaps",
+      "variant": "emphasis"
+    }
+  ]
+}

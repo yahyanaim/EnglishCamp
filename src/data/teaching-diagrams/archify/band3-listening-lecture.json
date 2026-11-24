@@ -1,0 +1,100 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "A talk’s structure gives facts their roles",
+    "locale": "en",
+    "quality_profile": "standard",
+    "visual_preset": "classic",
+    "animation": "none",
+    "feedback_links": false,
+    "legend": {
+      "mode": "hidden"
+    },
+    "output": "band3-listening-lecture.html"
+  },
+  "lanes": [
+    {
+      "id": "position",
+      "label": "Position"
+    },
+    {
+      "id": "support",
+      "label": "Support"
+    },
+    {
+      "id": "limit",
+      "label": "Limit"
+    }
+  ],
+  "mainPath": [
+    "claim",
+    "reason",
+    "example"
+  ],
+  "nodes": [
+    {
+      "id": "claim",
+      "lane": "position",
+      "col": 0,
+      "type": "frontend",
+      "label": "Finding",
+      "sublabel": "Larger windows cut lighting costs.",
+      "icon": "flag",
+      "width": 221
+    },
+    {
+      "id": "reason",
+      "lane": "support",
+      "col": 1,
+      "type": "backend",
+      "label": "Mechanism",
+      "sublabel": "More daylight reaches rooms.",
+      "icon": "decision",
+      "width": 189
+    },
+    {
+      "id": "example",
+      "lane": "support",
+      "col": 2,
+      "type": "database",
+      "label": "Supporting detail",
+      "sublabel": "Less electric lighting is needed.",
+      "icon": "success",
+      "width": 215
+    },
+    {
+      "id": "limit",
+      "lane": "limit",
+      "col": 1,
+      "type": "security",
+      "label": "Qualification",
+      "sublabel": "West-facing rooms need more cooling.",
+      "icon": "waiting",
+      "width": 231
+    }
+  ],
+  "edges": [
+    {
+      "id": "because",
+      "from": "claim",
+      "to": "reason",
+      "label": "because",
+      "variant": "emphasis"
+    },
+    {
+      "id": "illustrated",
+      "from": "reason",
+      "to": "example",
+      "label": "illustrated by"
+    },
+    {
+      "id": "qualified",
+      "from": "claim",
+      "to": "limit",
+      "label": "qualified by",
+      "variant": "dashed",
+      "role": "branch"
+    }
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "A proposed solution acts on an identified mechanism",
+    "locale": "en",
+    "quality_profile": "standard",
+    "visual_preset": "classic",
+    "animation": "none",
+    "feedback_links": false,
+    "legend": {
+      "mode": "hidden"
+    },
+    "output": "band2-writing-problem-solution.html"
+  },
+  "lanes": [
+    {
+      "id": "position",
+      "label": "Position"
+    },
+    {
+      "id": "support",
+      "label": "Support"
+    },
+    {
+      "id": "limit",
+      "label": "Limit"
+    }
+  ],
+  "mainPath": [
+    "claim",
+    "reason",
+    "example"
+  ],
+  "nodes": [
+    {
+      "id": "claim",
+      "lane": "position",
+      "col": 0,
+      "type": "frontend",
+      "label": "Possible response",
+      "sublabel": "Clearer appointment reminders",
+      "icon": "flag",
+      "width": 194
+    },
+    {
+      "id": "reason",
+      "lane": "support",
+      "col": 1,
+      "type": "backend",
+      "label": "Targeted cause",
+      "sublabel": "Dates and locations are confusing.",
+      "icon": "decision",
+      "width": 221
+    },
+    {
+      "id": "example",
+      "lane": "support",
+      "col": 2,
+      "type": "database",
+      "label": "Concrete change",
+      "sublabel": "Date + place + confirmation link",
+      "icon": "success",
+      "width": 210
+    },
+    {
+      "id": "limit",
+      "lane": "limit",
+      "col": 1,
+      "type": "security",
+      "label": "Evidence needed",
+      "sublabel": "Access and the actual cause matter.",
+      "icon": "waiting",
+      "width": 226
+    }
+  ],
+  "edges": [
+    {
+      "id": "because",
+      "from": "claim",
+      "to": "reason",
+      "label": "because",
+      "variant": "emphasis"
+    },
+    {
+      "id": "illustrated",
+      "from": "reason",
+      "to": "example",
+      "label": "illustrated by"
+    },
+    {
+      "id": "qualified",
+      "from": "claim",
+      "to": "limit",
+      "label": "qualified by",
+      "variant": "dashed",
+      "role": "branch"
+    }
+  ]
+}

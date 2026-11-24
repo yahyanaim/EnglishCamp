@@ -1,0 +1,100 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "An example serves a claim within an argument",
+    "locale": "en",
+    "quality_profile": "standard",
+    "visual_preset": "classic",
+    "animation": "none",
+    "feedback_links": false,
+    "legend": {
+      "mode": "hidden"
+    },
+    "output": "band3-reading-flowchart.html"
+  },
+  "lanes": [
+    {
+      "id": "position",
+      "label": "Position"
+    },
+    {
+      "id": "support",
+      "label": "Support"
+    },
+    {
+      "id": "limit",
+      "label": "Limit"
+    }
+  ],
+  "mainPath": [
+    "claim",
+    "reason",
+    "example"
+  ],
+  "nodes": [
+    {
+      "id": "claim",
+      "lane": "position",
+      "col": 0,
+      "type": "frontend",
+      "label": "Author’s point",
+      "sublabel": "An average can hide variation.",
+      "icon": "flag",
+      "width": 199
+    },
+    {
+      "id": "reason",
+      "lane": "support",
+      "col": 1,
+      "type": "backend",
+      "label": "Limitation",
+      "sublabel": "One number omits the spread.",
+      "icon": "decision",
+      "width": 189
+    },
+    {
+      "id": "example",
+      "lane": "support",
+      "col": 2,
+      "type": "database",
+      "label": "Illustrating case",
+      "sublabel": "Same average; different ranges",
+      "icon": "success",
+      "width": 199
+    },
+    {
+      "id": "limit",
+      "lane": "limit",
+      "col": 1,
+      "type": "security",
+      "label": "Reading purpose",
+      "sublabel": "The example supports the wider claim.",
+      "icon": "waiting",
+      "width": 237
+    }
+  ],
+  "edges": [
+    {
+      "id": "because",
+      "from": "claim",
+      "to": "reason",
+      "label": "because",
+      "variant": "emphasis"
+    },
+    {
+      "id": "illustrated",
+      "from": "reason",
+      "to": "example",
+      "label": "illustrated by"
+    },
+    {
+      "id": "qualified",
+      "from": "claim",
+      "to": "limit",
+      "label": "qualified by",
+      "variant": "dashed",
+      "role": "branch"
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "Voice changes grammatical focus while preserving an event",
+    "locale": "en",
+    "quality_profile": "standard",
+    "visual_preset": "classic",
+    "animation": "none",
+    "feedback_links": false,
+    "legend": {
+      "mode": "hidden"
+    },
+    "output": "band3-grammar-passive.html"
+  },
+  "lanes": [
+    {
+      "id": "compare",
+      "label": "Compare"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "left",
+      "lane": "compare",
+      "col": 0,
+      "type": "frontend",
+      "label": "Actor as subject",
+      "sublabel": "The assistant labelled the bottles.",
+      "icon": "neutral",
+      "width": 226
+    },
+    {
+      "id": "right",
+      "lane": "compare",
+      "col": 3,
+      "type": "backend",
+      "label": "Affected entity as subject",
+      "sublabel": "The bottles were labelled by the assistant.",
+      "icon": "neutral",
+      "width": 268
+    }
+  ],
+  "edges": [
+    {
+      "id": "rel",
+      "from": "left",
+      "to": "right",
+      "label": "↔ same event; changed focus",
+      "variant": "emphasis"
+    }
+  ]
+}

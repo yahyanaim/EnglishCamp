@@ -1,0 +1,75 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "Description becomes meaningful through selected detail",
+    "locale": "en",
+    "quality_profile": "standard",
+    "visual_preset": "classic",
+    "animation": "none",
+    "feedback_links": false,
+    "legend": {
+      "mode": "hidden"
+    },
+    "output": "band2-speaking-describe.html"
+  },
+  "lanes": [
+    {
+      "id": "steps",
+      "label": "Step by step"
+    }
+  ],
+  "mainPath": [
+    "n0",
+    "n1",
+    "n2"
+  ],
+  "nodes": [
+    {
+      "id": "n0",
+      "lane": "steps",
+      "col": 0,
+      "type": "frontend",
+      "label": "Visible detail",
+      "sublabel": "The reading corner faces a garden.",
+      "icon": "start",
+      "width": 221
+    },
+    {
+      "id": "n1",
+      "lane": "steps",
+      "col": 1,
+      "type": "backend",
+      "label": "Effect",
+      "sublabel": "I can rest my eyes.",
+      "icon": "active",
+      "width": 150
+    },
+    {
+      "id": "n2",
+      "lane": "steps",
+      "col": 2,
+      "type": "database",
+      "label": "Personal value",
+      "sublabel": "Comfort between chapters",
+      "icon": "success",
+      "width": 168
+    }
+  ],
+  "edges": [
+    {
+      "id": "e0",
+      "from": "n0",
+      "to": "n1",
+      "label": "makes possible",
+      "variant": "default"
+    },
+    {
+      "id": "e1",
+      "from": "n1",
+      "to": "n2",
+      "label": "explains the preference",
+      "variant": "emphasis"
+    }
+  ]
+}

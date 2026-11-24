@@ -1,0 +1,78 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "Grammatical range expresses a range of relationships",
+    "locale": "en",
+    "quality_profile": "standard",
+    "visual_preset": "classic",
+    "animation": "none",
+    "feedback_links": false,
+    "legend": {
+      "mode": "hidden"
+    },
+    "output": "band4-writing-grammatical-range.html"
+  },
+  "lanes": [
+    {
+      "id": "text",
+      "label": "Sentence parts"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "p0",
+      "lane": "text",
+      "col": 0,
+      "type": "backend",
+      "label": "The trial",
+      "sublabel": "Main subject",
+      "icon": "none",
+      "width": 150
+    },
+    {
+      "id": "p1",
+      "lane": "text",
+      "col": 1,
+      "type": "external",
+      "label": "which involved two schools",
+      "sublabel": "Relative clause",
+      "icon": "none",
+      "width": 233
+    },
+    {
+      "id": "p2",
+      "lane": "text",
+      "col": 2,
+      "type": "backend",
+      "label": "was small",
+      "sublabel": "Main predicate",
+      "icon": "none",
+      "width": 150
+    }
+  ],
+  "edges": [
+    {
+      "id": "s0",
+      "from": "p0",
+      "to": "p1",
+      "variant": "dashed"
+    },
+    {
+      "id": "s1",
+      "from": "p1",
+      "to": "p2",
+      "variant": "dashed"
+    },
+    {
+      "id": "rel",
+      "from": "p0",
+      "to": "p2",
+      "label": "the modifier does not change agreement",
+      "variant": "emphasis",
+      "route": "bottom-channel",
+      "fromSide": "bottom",
+      "toSide": "bottom"
+    }
+  ]
+}

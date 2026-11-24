@@ -1,0 +1,93 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "A study judgement depends on the evidence collected",
+    "locale": "en",
+    "quality_profile": "standard",
+    "visual_preset": "classic",
+    "animation": "none",
+    "feedback_links": false,
+    "legend": {
+      "mode": "hidden"
+    },
+    "output": "band2-review.html"
+  },
+  "lanes": [
+    {
+      "id": "top",
+      "label": "Evidence"
+    },
+    {
+      "id": "bottom",
+      "label": "Repeat"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "c0",
+      "lane": "top",
+      "col": 0,
+      "type": "frontend",
+      "label": "Observed strength",
+      "sublabel": "A well-organised report",
+      "icon": "start",
+      "width": 166
+    },
+    {
+      "id": "c1",
+      "lane": "top",
+      "col": 2,
+      "type": "backend",
+      "label": "Fresh difficulty",
+      "sublabel": "Percentage points confused",
+      "icon": "active",
+      "width": 178
+    },
+    {
+      "id": "c2",
+      "lane": "bottom",
+      "col": 2,
+      "type": "backend",
+      "label": "Targeted repair",
+      "sublabel": "Separate difference and ratio",
+      "icon": "active",
+      "width": 194
+    },
+    {
+      "id": "c3",
+      "lane": "bottom",
+      "col": 0,
+      "type": "database",
+      "label": "New check",
+      "sublabel": "Describe an unfamiliar dataset",
+      "icon": "success",
+      "width": 199
+    }
+  ],
+  "edges": [
+    {
+      "id": "a",
+      "from": "c0",
+      "to": "c1"
+    },
+    {
+      "id": "b",
+      "from": "c1",
+      "to": "c2"
+    },
+    {
+      "id": "c",
+      "from": "c2",
+      "to": "c3"
+    },
+    {
+      "id": "d",
+      "from": "c3",
+      "to": "c0",
+      "variant": "dashed",
+      "role": "return",
+      "label": "fresh evidence"
+    }
+  ]
+}

@@ -325,7 +325,7 @@ function Causal({ v, c, id, W }: { v: Of<"causal">; c: boolean; id: string; W: n
   </> };
 }
 
-function describe(v:ConceptVisual):string{
+export function describe(v:ConceptVisual):string{
   const node=(n:DiagramNode)=>`${n.label}: ${n.detail}.`;
   switch(v.layout){
     case "contrast":return `${node(v.left)} ${v.relationship}. ${node(v.right)}`;
@@ -338,7 +338,7 @@ function describe(v:ConceptVisual):string{
     case "decision":return `${v.question} Yes: ${node(v.results[0])} No: ${v.nextQuestion} Yes: ${node(v.results[1])} No: ${node(v.results[2])}`;
     case "map":return `North stays at the top. A traveller facing ${v.facing} turns ${v.turn} towards ${v.destination}.`;
     case "sound":return `${v.tokens.join(" ")} Prominent: ${v.prominent.map(i=>v.tokens[i]).join(", ")}. ${v.meaning}`;
-    case "causal":return `${node(v.factor)} This may affect both ${node(v.first)} and ${node(v.second)} The association alone does not establish cause; the alternative path is hypothetical.`;
+    case "causal":return `${node(v.factor)} This may affect both ${node(v.first)} and ${node(v.second)} The association alone does not establish cause; the alternative path is hypothetical: a possible alternative path, not an established finding.`;
   }
 }
 export function ConceptTeachingGraphic({ visual: v, compact: c }: { visual: ConceptVisual; compact: boolean }) {

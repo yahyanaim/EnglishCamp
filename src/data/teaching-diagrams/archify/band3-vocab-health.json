@@ -1,0 +1,81 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "Association leaves alternative explanations open",
+    "locale": "en",
+    "quality_profile": "standard",
+    "visual_preset": "classic",
+    "animation": "none",
+    "feedback_links": false,
+    "legend": {
+      "mode": "hidden"
+    },
+    "output": "band3-vocab-health.html"
+  },
+  "lanes": [
+    {
+      "id": "a",
+      "label": "Possible path"
+    },
+    {
+      "id": "b",
+      "label": "Observed"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "factor",
+      "lane": "a",
+      "col": 0,
+      "type": "external",
+      "label": "Possible prior differences",
+      "sublabel": "Routines and motivation",
+      "icon": "decision",
+      "width": 233
+    },
+    {
+      "id": "first",
+      "lane": "a",
+      "col": 2,
+      "type": "backend",
+      "label": "Group membership",
+      "sublabel": "Walking-club membership",
+      "icon": "neutral",
+      "width": 162
+    },
+    {
+      "id": "second",
+      "lane": "b",
+      "col": 2,
+      "type": "database",
+      "label": "Reported outcome",
+      "sublabel": "Better sleep",
+      "icon": "neutral",
+      "width": 159
+    }
+  ],
+  "edges": [
+    {
+      "id": "m1",
+      "from": "factor",
+      "to": "first",
+      "label": "may affect",
+      "variant": "dashed"
+    },
+    {
+      "id": "m2",
+      "from": "factor",
+      "to": "second",
+      "label": "may affect",
+      "variant": "dashed"
+    },
+    {
+      "id": "assoc",
+      "from": "first",
+      "to": "second",
+      "label": "association ≠ proof of cause",
+      "variant": "security"
+    }
+  ]
+}

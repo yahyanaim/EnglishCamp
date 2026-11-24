@@ -1,0 +1,88 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "A paraphrase preserves scope as well as topic",
+    "locale": "en",
+    "quality_profile": "standard",
+    "visual_preset": "classic",
+    "animation": "none",
+    "feedback_links": false,
+    "legend": {
+      "mode": "hidden"
+    },
+    "output": "band2-vocab-awl2.html"
+  },
+  "lanes": [
+    {
+      "id": "src",
+      "label": "Source text"
+    },
+    {
+      "id": "ans",
+      "label": "What it can answer"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "source",
+      "lane": "src",
+      "col": 1,
+      "type": "frontend",
+      "label": "Mini-source",
+      "sublabel": "A few participants reported improvement.",
+      "icon": "flag",
+      "width": 252
+    },
+    {
+      "id": "out0",
+      "lane": "ans",
+      "col": 0,
+      "type": "database",
+      "label": "Faithful paraphrase",
+      "sublabel": "A small number reported improvement.",
+      "icon": "success",
+      "width": 231
+    },
+    {
+      "id": "out1",
+      "lane": "ans",
+      "col": 2,
+      "type": "database",
+      "label": "Scope changed",
+      "sublabel": "Every participant improved.",
+      "icon": "success",
+      "width": 184
+    },
+    {
+      "id": "out2",
+      "lane": "ans",
+      "col": 4,
+      "type": "database",
+      "label": "Cause added",
+      "sublabel": "The treatment caused improvement.",
+      "icon": "success",
+      "width": 215
+    }
+  ],
+  "edges": [
+    {
+      "id": "q0",
+      "from": "source",
+      "to": "out0",
+      "variant": "default"
+    },
+    {
+      "id": "q1",
+      "from": "source",
+      "to": "out1",
+      "variant": "default"
+    },
+    {
+      "id": "q2",
+      "from": "source",
+      "to": "out2",
+      "variant": "default"
+    }
+  ]
+}

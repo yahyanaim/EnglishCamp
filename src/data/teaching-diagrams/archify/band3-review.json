@@ -1,0 +1,53 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "Different task families provide different evidence of ability",
+    "locale": "en",
+    "quality_profile": "standard",
+    "visual_preset": "classic",
+    "animation": "none",
+    "feedback_links": false,
+    "legend": {
+      "mode": "hidden"
+    },
+    "output": "band3-review.html"
+  },
+  "lanes": [
+    {
+      "id": "compare",
+      "label": "Compare"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "left",
+      "lane": "compare",
+      "col": 0,
+      "type": "frontend",
+      "label": "Repetition evidence",
+      "sublabel": "Retaining heard wording",
+      "icon": "neutral",
+      "width": 181
+    },
+    {
+      "id": "right",
+      "lane": "compare",
+      "col": 3,
+      "type": "backend",
+      "label": "Interview evidence",
+      "sublabel": "Selecting relevant original ideas",
+      "icon": "neutral",
+      "width": 215
+    }
+  ],
+  "edges": [
+    {
+      "id": "rel",
+      "from": "left",
+      "to": "right",
+      "label": "≠ related but distinct performances",
+      "variant": "emphasis"
+    }
+  ]
+}

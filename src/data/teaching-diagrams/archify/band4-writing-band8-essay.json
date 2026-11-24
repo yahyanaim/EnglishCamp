@@ -1,0 +1,100 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "A full argument has a position that its paragraphs develop",
+    "locale": "en",
+    "quality_profile": "standard",
+    "visual_preset": "classic",
+    "animation": "none",
+    "feedback_links": false,
+    "legend": {
+      "mode": "hidden"
+    },
+    "output": "band4-writing-band8-essay.html"
+  },
+  "lanes": [
+    {
+      "id": "position",
+      "label": "Position"
+    },
+    {
+      "id": "support",
+      "label": "Support"
+    },
+    {
+      "id": "limit",
+      "label": "Limit"
+    }
+  ],
+  "mainPath": [
+    "claim",
+    "reason",
+    "example"
+  ],
+  "nodes": [
+    {
+      "id": "claim",
+      "lane": "position",
+      "col": 0,
+      "type": "frontend",
+      "label": "Position",
+      "sublabel": "Support subsidised training.",
+      "icon": "flag",
+      "width": 189
+    },
+    {
+      "id": "reason",
+      "lane": "support",
+      "col": 1,
+      "type": "backend",
+      "label": "Mechanism",
+      "sublabel": "Lower costs widen access.",
+      "icon": "decision",
+      "width": 173
+    },
+    {
+      "id": "example",
+      "lane": "support",
+      "col": 2,
+      "type": "database",
+      "label": "Development",
+      "sublabel": "Explain who gains access and how.",
+      "icon": "success",
+      "width": 215
+    },
+    {
+      "id": "limit",
+      "lane": "limit",
+      "col": 1,
+      "type": "security",
+      "label": "Competing cost",
+      "sublabel": "Who funds the subsidy?",
+      "icon": "waiting",
+      "width": 157
+    }
+  ],
+  "edges": [
+    {
+      "id": "because",
+      "from": "claim",
+      "to": "reason",
+      "label": "because",
+      "variant": "emphasis"
+    },
+    {
+      "id": "illustrated",
+      "from": "reason",
+      "to": "example",
+      "label": "illustrated by"
+    },
+    {
+      "id": "qualified",
+      "from": "claim",
+      "to": "limit",
+      "label": "qualified by",
+      "variant": "dashed",
+      "role": "branch"
+    }
+  ]
+}

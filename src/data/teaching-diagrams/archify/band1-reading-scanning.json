@@ -1,0 +1,106 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "A match is the intersection of all stated conditions",
+    "locale": "en",
+    "quality_profile": "standard",
+    "visual_preset": "classic",
+    "animation": "none",
+    "feedback_links": false,
+    "legend": {
+      "mode": "hidden"
+    },
+    "output": "band1-reading-scanning.html"
+  },
+  "lanes": [
+    {
+      "id": "ask",
+      "label": "Questions"
+    },
+    {
+      "id": "result",
+      "label": "Results"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "q1",
+      "lane": "ask",
+      "col": 0,
+      "type": "frontend",
+      "label": "Experience required?",
+      "icon": "decision",
+      "width": 188
+    },
+    {
+      "id": "q2",
+      "lane": "ask",
+      "col": 2,
+      "type": "frontend",
+      "label": "Free and in the evening?",
+      "icon": "decision",
+      "width": 218
+    },
+    {
+      "id": "r0",
+      "lane": "result",
+      "col": 0,
+      "type": "security",
+      "label": "Not for this beginner",
+      "sublabel": "Eligibility fails",
+      "icon": "stop",
+      "width": 196
+    },
+    {
+      "id": "r1",
+      "lane": "result",
+      "col": 2,
+      "type": "database",
+      "label": "Complete match",
+      "sublabel": "All three conditions fit",
+      "icon": "success",
+      "width": 168
+    },
+    {
+      "id": "r2",
+      "lane": "result",
+      "col": 4,
+      "type": "security",
+      "label": "Requirement missing",
+      "sublabel": "Cost or timing does not fit",
+      "icon": "failure",
+      "width": 184
+    }
+  ],
+  "edges": [
+    {
+      "id": "y1",
+      "from": "q1",
+      "to": "r0",
+      "label": "Yes",
+      "variant": "security"
+    },
+    {
+      "id": "n1",
+      "from": "q1",
+      "to": "q2",
+      "label": "No",
+      "variant": "emphasis"
+    },
+    {
+      "id": "y2",
+      "from": "q2",
+      "to": "r1",
+      "label": "Yes",
+      "variant": "emphasis"
+    },
+    {
+      "id": "n2",
+      "from": "q2",
+      "to": "r2",
+      "label": "No",
+      "variant": "security"
+    }
+  ]
+}

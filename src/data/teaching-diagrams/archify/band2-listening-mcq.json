@@ -1,0 +1,75 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "A decision has a history and a final state",
+    "locale": "en",
+    "quality_profile": "standard",
+    "visual_preset": "classic",
+    "animation": "none",
+    "feedback_links": false,
+    "legend": {
+      "mode": "hidden"
+    },
+    "output": "band2-listening-mcq.html"
+  },
+  "lanes": [
+    {
+      "id": "steps",
+      "label": "Step by step"
+    }
+  ],
+  "mainPath": [
+    "n0",
+    "n1",
+    "n2"
+  ],
+  "nodes": [
+    {
+      "id": "n0",
+      "lane": "steps",
+      "col": 0,
+      "type": "frontend",
+      "label": "Earlier option",
+      "sublabel": "The small room is cheaper.",
+      "icon": "start",
+      "width": 178
+    },
+    {
+      "id": "n1",
+      "lane": "steps",
+      "col": 1,
+      "type": "backend",
+      "label": "Constraint",
+      "sublabel": "We need the projector.",
+      "icon": "active",
+      "width": 157
+    },
+    {
+      "id": "n2",
+      "lane": "steps",
+      "col": 2,
+      "type": "database",
+      "label": "Final decision",
+      "sublabel": "Reserve the larger room.",
+      "icon": "success",
+      "width": 168
+    }
+  ],
+  "edges": [
+    {
+      "id": "e0",
+      "from": "n0",
+      "to": "n1",
+      "label": "qualified by",
+      "variant": "default"
+    },
+    {
+      "id": "e1",
+      "from": "n1",
+      "to": "n2",
+      "label": "explains the choice",
+      "variant": "emphasis"
+    }
+  ]
+}

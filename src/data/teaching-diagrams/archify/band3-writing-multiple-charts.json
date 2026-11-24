@@ -1,0 +1,100 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "A discussion contribution adds a supported idea",
+    "locale": "en",
+    "quality_profile": "standard",
+    "visual_preset": "classic",
+    "animation": "none",
+    "feedback_links": false,
+    "legend": {
+      "mode": "hidden"
+    },
+    "output": "band3-writing-multiple-charts.html"
+  },
+  "lanes": [
+    {
+      "id": "position",
+      "label": "Position"
+    },
+    {
+      "id": "support",
+      "label": "Support"
+    },
+    {
+      "id": "limit",
+      "label": "Limit"
+    }
+  ],
+  "mainPath": [
+    "claim",
+    "reason",
+    "example"
+  ],
+  "nodes": [
+    {
+      "id": "claim",
+      "lane": "position",
+      "col": 0,
+      "type": "frontend",
+      "label": "Position",
+      "sublabel": "A later deadline may help commuters.",
+      "icon": "flag",
+      "width": 231
+    },
+    {
+      "id": "reason",
+      "lane": "support",
+      "col": 1,
+      "type": "backend",
+      "label": "Development",
+      "sublabel": "Extra time can ease scheduling.",
+      "icon": "decision",
+      "width": 205
+    },
+    {
+      "id": "example",
+      "lane": "support",
+      "col": 2,
+      "type": "database",
+      "label": "Contribution",
+      "sublabel": "An early check-in reveals problems.",
+      "icon": "success",
+      "width": 226
+    },
+    {
+      "id": "limit",
+      "lane": "limit",
+      "col": 1,
+      "type": "security",
+      "label": "Condition",
+      "sublabel": "Staff need time to respond.",
+      "icon": "waiting",
+      "width": 184
+    }
+  ],
+  "edges": [
+    {
+      "id": "because",
+      "from": "claim",
+      "to": "reason",
+      "label": "because",
+      "variant": "emphasis"
+    },
+    {
+      "id": "illustrated",
+      "from": "reason",
+      "to": "example",
+      "label": "illustrated by"
+    },
+    {
+      "id": "qualified",
+      "from": "claim",
+      "to": "limit",
+      "label": "qualified by",
+      "variant": "dashed",
+      "role": "branch"
+    }
+  ]
+}

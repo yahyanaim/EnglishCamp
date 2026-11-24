@@ -1,0 +1,88 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "Reading time serves an evidence search",
+    "locale": "en",
+    "quality_profile": "standard",
+    "visual_preset": "classic",
+    "animation": "none",
+    "feedback_links": false,
+    "legend": {
+      "mode": "hidden"
+    },
+    "output": "band1-time-reading.html"
+  },
+  "lanes": [
+    {
+      "id": "src",
+      "label": "Source text"
+    },
+    {
+      "id": "ans",
+      "label": "What it can answer"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "source",
+      "lane": "src",
+      "col": 1,
+      "type": "frontend",
+      "label": "Mini-source",
+      "sublabel": "The club left River Road because rent rose.",
+      "icon": "flag",
+      "width": 268
+    },
+    {
+      "id": "out0",
+      "lane": "ans",
+      "col": 0,
+      "type": "database",
+      "label": "Why move?",
+      "sublabel": "Rising rent",
+      "icon": "success",
+      "width": 150
+    },
+    {
+      "id": "out1",
+      "lane": "ans",
+      "col": 2,
+      "type": "database",
+      "label": "Old address?",
+      "sublabel": "River Road",
+      "icon": "success",
+      "width": 150
+    },
+    {
+      "id": "out2",
+      "lane": "ans",
+      "col": 4,
+      "type": "database",
+      "label": "New address?",
+      "sublabel": "Not established",
+      "icon": "success",
+      "width": 150
+    }
+  ],
+  "edges": [
+    {
+      "id": "q0",
+      "from": "source",
+      "to": "out0",
+      "variant": "default"
+    },
+    {
+      "id": "q1",
+      "from": "source",
+      "to": "out1",
+      "variant": "default"
+    },
+    {
+      "id": "q2",
+      "from": "source",
+      "to": "out2",
+      "variant": "default"
+    }
+  ]
+}

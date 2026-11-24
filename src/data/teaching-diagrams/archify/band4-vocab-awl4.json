@@ -1,0 +1,88 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "Claim verbs carry different evidential commitments",
+    "locale": "en",
+    "quality_profile": "standard",
+    "visual_preset": "classic",
+    "animation": "none",
+    "feedback_links": false,
+    "legend": {
+      "mode": "hidden"
+    },
+    "output": "band4-vocab-awl4.html"
+  },
+  "lanes": [
+    {
+      "id": "src",
+      "label": "Source text"
+    },
+    {
+      "id": "ans",
+      "label": "What it can answer"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "source",
+      "lane": "src",
+      "col": 1,
+      "type": "frontend",
+      "label": "Mini-source",
+      "sublabel": "A questionnaire records respondents’ preferences.",
+      "icon": "flag",
+      "width": 300
+    },
+    {
+      "id": "out0",
+      "lane": "ans",
+      "col": 0,
+      "type": "database",
+      "label": "Indicates",
+      "sublabel": "A preference in this sample",
+      "icon": "success",
+      "width": 184
+    },
+    {
+      "id": "out1",
+      "lane": "ans",
+      "col": 2,
+      "type": "database",
+      "label": "Does not measure",
+      "sublabel": "Later purchases",
+      "icon": "success",
+      "width": 159
+    },
+    {
+      "id": "out2",
+      "lane": "ans",
+      "col": 4,
+      "type": "database",
+      "label": "Does not establish",
+      "sublabel": "Everyone’s future behaviour",
+      "icon": "success",
+      "width": 184
+    }
+  ],
+  "edges": [
+    {
+      "id": "q0",
+      "from": "source",
+      "to": "out0",
+      "variant": "default"
+    },
+    {
+      "id": "q1",
+      "from": "source",
+      "to": "out1",
+      "variant": "default"
+    },
+    {
+      "id": "q2",
+      "from": "source",
+      "to": "out2",
+      "variant": "default"
+    }
+  ]
+}

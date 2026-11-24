@@ -1,0 +1,69 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "A shortened clause still needs a recoverable actor",
+    "locale": "en",
+    "quality_profile": "standard",
+    "visual_preset": "classic",
+    "animation": "none",
+    "feedback_links": false,
+    "legend": {
+      "mode": "hidden"
+    },
+    "output": "band4-grammar-participles.html"
+  },
+  "lanes": [
+    {
+      "id": "text",
+      "label": "Sentence parts"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "p0",
+      "lane": "text",
+      "col": 0,
+      "type": "backend",
+      "label": "Having checked the address",
+      "sublabel": "Earlier action",
+      "icon": "none",
+      "width": 233
+    },
+    {
+      "id": "p1",
+      "lane": "text",
+      "col": 1,
+      "type": "backend",
+      "label": "Noor",
+      "sublabel": "Shared actor",
+      "icon": "none",
+      "width": 150
+    },
+    {
+      "id": "p2",
+      "lane": "text",
+      "col": 2,
+      "type": "external",
+      "label": "sent the parcel",
+      "sublabel": "Main action",
+      "icon": "none",
+      "width": 151
+    }
+  ],
+  "edges": [
+    {
+      "id": "rel",
+      "from": "p0",
+      "to": "p1",
+      "label": "Noor checks and sends; the parcel does not check",
+      "variant": "emphasis"
+    },
+    {
+      "id": "s1",
+      "from": "p1",
+      "to": "p2",
+      "variant": "dashed"
+    }
+  ]
+}

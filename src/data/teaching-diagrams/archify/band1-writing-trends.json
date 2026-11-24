@@ -1,0 +1,75 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "An article is shaped by its reader’s interest",
+    "locale": "en",
+    "quality_profile": "standard",
+    "visual_preset": "classic",
+    "animation": "none",
+    "feedback_links": false,
+    "legend": {
+      "mode": "hidden"
+    },
+    "output": "band1-writing-trends.html"
+  },
+  "lanes": [
+    {
+      "id": "steps",
+      "label": "Step by step"
+    }
+  ],
+  "mainPath": [
+    "n0",
+    "n1",
+    "n2"
+  ],
+  "nodes": [
+    {
+      "id": "n0",
+      "lane": "steps",
+      "col": 0,
+      "type": "frontend",
+      "label": "Reader’s need",
+      "sublabel": "A place to study",
+      "icon": "start",
+      "width": 150
+    },
+    {
+      "id": "n1",
+      "lane": "steps",
+      "col": 1,
+      "type": "backend",
+      "label": "Article’s angle",
+      "sublabel": "Quiet spaces between classes",
+      "icon": "active",
+      "width": 189
+    },
+    {
+      "id": "n2",
+      "lane": "steps",
+      "col": 2,
+      "type": "database",
+      "label": "Useful detail",
+      "sublabel": "Desks, access and atmosphere",
+      "icon": "success",
+      "width": 189
+    }
+  ],
+  "edges": [
+    {
+      "id": "e0",
+      "from": "n0",
+      "to": "n1",
+      "label": "shapes",
+      "variant": "default"
+    },
+    {
+      "id": "e1",
+      "from": "n1",
+      "to": "n2",
+      "label": "developed through",
+      "variant": "emphasis"
+    }
+  ]
+}

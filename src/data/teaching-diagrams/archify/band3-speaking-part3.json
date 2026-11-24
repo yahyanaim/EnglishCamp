@@ -1,0 +1,53 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "Repetition preserves wording as well as overall meaning",
+    "locale": "en",
+    "quality_profile": "standard",
+    "visual_preset": "classic",
+    "animation": "none",
+    "feedback_links": false,
+    "legend": {
+      "mode": "hidden"
+    },
+    "output": "band3-speaking-part3.html"
+  },
+  "lanes": [
+    {
+      "id": "compare",
+      "label": "Compare"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "left",
+      "lane": "compare",
+      "col": 0,
+      "type": "frontend",
+      "label": "Heard wording",
+      "sublabel": "Place the folders beside the entrance.",
+      "icon": "neutral",
+      "width": 242
+    },
+    {
+      "id": "right",
+      "lane": "compare",
+      "col": 3,
+      "type": "backend",
+      "label": "Paraphrased wording",
+      "sublabel": "Put the documents near the door.",
+      "icon": "neutral",
+      "width": 210
+    }
+  ],
+  "edges": [
+    {
+      "id": "rel",
+      "from": "left",
+      "to": "right",
+      "label": "≠ similar idea ≠ exact repetition",
+      "variant": "emphasis"
+    }
+  ]
+}

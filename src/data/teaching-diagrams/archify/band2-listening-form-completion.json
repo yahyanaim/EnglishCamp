@@ -1,0 +1,75 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "A note preserves the relationship in the spoken claim",
+    "locale": "en",
+    "quality_profile": "standard",
+    "visual_preset": "classic",
+    "animation": "none",
+    "feedback_links": false,
+    "legend": {
+      "mode": "hidden"
+    },
+    "output": "band2-listening-form-completion.html"
+  },
+  "lanes": [
+    {
+      "id": "steps",
+      "label": "Step by step"
+    }
+  ],
+  "mainPath": [
+    "n0",
+    "n1",
+    "n2"
+  ],
+  "nodes": [
+    {
+      "id": "n0",
+      "lane": "steps",
+      "col": 0,
+      "type": "frontend",
+      "label": "Finding",
+      "sublabel": "The coating reduced damage.",
+      "icon": "start",
+      "width": 184
+    },
+    {
+      "id": "n1",
+      "lane": "steps",
+      "col": 1,
+      "type": "backend",
+      "label": "Condition",
+      "sublabel": "Only on a dry surface",
+      "icon": "active",
+      "width": 152
+    },
+    {
+      "id": "n2",
+      "lane": "steps",
+      "col": 2,
+      "type": "database",
+      "label": "Accurate note",
+      "sublabel": "Worked on a DRY surface",
+      "icon": "success",
+      "width": 162
+    }
+  ],
+  "edges": [
+    {
+      "id": "e0",
+      "from": "n0",
+      "to": "n1",
+      "label": "limited by",
+      "variant": "default"
+    },
+    {
+      "id": "e1",
+      "from": "n1",
+      "to": "n2",
+      "label": "retained in",
+      "variant": "emphasis"
+    }
+  ]
+}

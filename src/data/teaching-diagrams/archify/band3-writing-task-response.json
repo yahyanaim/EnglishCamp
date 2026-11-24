@@ -1,0 +1,75 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "Task fulfilment is the successful completion of communication jobs",
+    "locale": "en",
+    "quality_profile": "standard",
+    "visual_preset": "classic",
+    "animation": "none",
+    "feedback_links": false,
+    "legend": {
+      "mode": "hidden"
+    },
+    "output": "band3-writing-task-response.html"
+  },
+  "lanes": [
+    {
+      "id": "steps",
+      "label": "Step by step"
+    }
+  ],
+  "mainPath": [
+    "n0",
+    "n1",
+    "n2"
+  ],
+  "nodes": [
+    {
+      "id": "n0",
+      "lane": "steps",
+      "col": 0,
+      "type": "frontend",
+      "label": "Explain the conflict",
+      "sublabel": "My lab overlaps with the briefing.",
+      "icon": "start",
+      "width": 221
+    },
+    {
+      "id": "n1",
+      "lane": "steps",
+      "col": 1,
+      "type": "backend",
+      "label": "Propose an alternative",
+      "sublabel": "Could I attend in the afternoon?",
+      "icon": "active",
+      "width": 210
+    },
+    {
+      "id": "n2",
+      "lane": "steps",
+      "col": 2,
+      "type": "database",
+      "label": "Seek confirmation",
+      "sublabel": "Should I register again?",
+      "icon": "success",
+      "width": 168
+    }
+  ],
+  "edges": [
+    {
+      "id": "e0",
+      "from": "n0",
+      "to": "n1",
+      "label": "motivates",
+      "variant": "default"
+    },
+    {
+      "id": "e1",
+      "from": "n1",
+      "to": "n2",
+      "label": "leaves a specific question",
+      "variant": "emphasis"
+    }
+  ]
+}

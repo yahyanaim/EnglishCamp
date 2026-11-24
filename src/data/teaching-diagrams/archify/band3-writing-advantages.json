@@ -1,0 +1,53 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "Direct and embedded questions have different word order",
+    "locale": "en",
+    "quality_profile": "standard",
+    "visual_preset": "classic",
+    "animation": "none",
+    "feedback_links": false,
+    "legend": {
+      "mode": "hidden"
+    },
+    "output": "band3-writing-advantages.html"
+  },
+  "lanes": [
+    {
+      "id": "compare",
+      "label": "Compare"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "left",
+      "lane": "compare",
+      "col": 0,
+      "type": "frontend",
+      "label": "Direct question",
+      "sublabel": "Where does the seminar take place?",
+      "icon": "neutral",
+      "width": 221
+    },
+    {
+      "id": "right",
+      "lane": "compare",
+      "col": 3,
+      "type": "backend",
+      "label": "Embedded clause",
+      "sublabel": "Tell me where the seminar takes place.",
+      "icon": "neutral",
+      "width": 242
+    }
+  ],
+  "edges": [
+    {
+      "id": "rel",
+      "from": "left",
+      "to": "right",
+      "label": "↔ auxiliary inversion / statement order",
+      "variant": "emphasis"
+    }
+  ]
+}

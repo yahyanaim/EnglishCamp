@@ -1,0 +1,94 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "A sentence is organised around a grammatical head and predicate",
+    "locale": "en",
+    "quality_profile": "standard",
+    "visual_preset": "classic",
+    "animation": "none",
+    "feedback_links": false,
+    "legend": {
+      "mode": "hidden"
+    },
+    "output": "band3-writing-discussion.html"
+  },
+  "lanes": [
+    {
+      "id": "text",
+      "label": "Sentence parts"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "p0",
+      "lane": "text",
+      "col": 0,
+      "type": "backend",
+      "label": "The workshop",
+      "sublabel": "Subject head",
+      "icon": "none",
+      "width": 150
+    },
+    {
+      "id": "p1",
+      "lane": "text",
+      "col": 1,
+      "type": "external",
+      "label": "that includes field visits",
+      "sublabel": "Relative clause",
+      "icon": "none",
+      "width": 233
+    },
+    {
+      "id": "p2",
+      "lane": "text",
+      "col": 2,
+      "type": "backend",
+      "label": "prepares",
+      "sublabel": "Main verb",
+      "icon": "none",
+      "width": 150
+    },
+    {
+      "id": "p3",
+      "lane": "text",
+      "col": 3,
+      "type": "external",
+      "label": "students",
+      "sublabel": "Object",
+      "icon": "none",
+      "width": 150
+    }
+  ],
+  "edges": [
+    {
+      "id": "s0",
+      "from": "p0",
+      "to": "p1",
+      "variant": "dashed"
+    },
+    {
+      "id": "s1",
+      "from": "p1",
+      "to": "p2",
+      "variant": "dashed"
+    },
+    {
+      "id": "s2",
+      "from": "p2",
+      "to": "p3",
+      "variant": "dashed"
+    },
+    {
+      "id": "rel",
+      "from": "p0",
+      "to": "p2",
+      "label": "workshop controls prepares",
+      "variant": "emphasis",
+      "route": "bottom-channel",
+      "fromSide": "bottom",
+      "toSide": "bottom"
+    }
+  ]
+}

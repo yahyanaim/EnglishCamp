@@ -1,0 +1,88 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "Hedging matches claim strength to evidence",
+    "locale": "en",
+    "quality_profile": "standard",
+    "visual_preset": "classic",
+    "animation": "none",
+    "feedback_links": false,
+    "legend": {
+      "mode": "hidden"
+    },
+    "output": "band3-vocab-awl3.html"
+  },
+  "lanes": [
+    {
+      "id": "src",
+      "label": "Source text"
+    },
+    {
+      "id": "ans",
+      "label": "What it can answer"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "source",
+      "lane": "src",
+      "col": 1,
+      "type": "frontend",
+      "label": "Pilot finding",
+      "sublabel": "The reminder may help these volunteers.",
+      "icon": "flag",
+      "width": 247
+    },
+    {
+      "id": "out0",
+      "lane": "ans",
+      "col": 0,
+      "type": "database",
+      "label": "Possibility",
+      "sublabel": "May improve attendance",
+      "icon": "success",
+      "width": 157
+    },
+    {
+      "id": "out1",
+      "lane": "ans",
+      "col": 2,
+      "type": "database",
+      "label": "Evidence strength",
+      "sublabel": "The pilot suggests",
+      "icon": "success",
+      "width": 166
+    },
+    {
+      "id": "out2",
+      "lane": "ans",
+      "col": 4,
+      "type": "database",
+      "label": "Population scope",
+      "sublabel": "Among these volunteers",
+      "icon": "success",
+      "width": 159
+    }
+  ],
+  "edges": [
+    {
+      "id": "q0",
+      "from": "source",
+      "to": "out0",
+      "variant": "default"
+    },
+    {
+      "id": "q1",
+      "from": "source",
+      "to": "out1",
+      "variant": "default"
+    },
+    {
+      "id": "q2",
+      "from": "source",
+      "to": "out2",
+      "variant": "default"
+    }
+  ]
+}
