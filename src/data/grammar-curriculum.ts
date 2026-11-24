@@ -1,5 +1,5 @@
 /**
- * EnglishCamp grammar curriculum: what a learner should master at each CEFR level,
+ * EnglishCamp grammar curriculum (approved by Yahia, 2026-11-24): what a learner should master at each CEFR level,
  * in teaching order, and the Grammar Reference lessons that teach each point.
  * Order and scope follow the British Council / EAQUALS Core Inventory for General English
  * (A1–B2 grammar). Every point links to at least one lesson.
@@ -29,7 +29,7 @@ export const GRAMMAR_CURRICULUM: CurriculumLevel[] = [
   ] },
   { level: 'A2', name: 'Elementary', goal: 'Talk about past events, future plans and comparisons; give simple advice.', points: [
     { title: 'Past simple: regular and irregular', canDo: 'Tell what happened yesterday, last week or last year.', lessons: ['simple-past-guide', 'past-tenses'] },
-    { title: 'Past continuous', canDo: 'Describe what was happening when something else happened.', lessons: ['past-tenses'] },
+    { title: 'Past continuous', canDo: 'Describe what was happening when something else happened.', lessons: ['past-continuous', 'past-tenses'] },
     { title: 'Future: will, going to, present continuous', canDo: 'Talk about plans, predictions and arrangements.', lessons: ['future-tenses'] },
     { title: 'Comparatives and superlatives', canDo: 'Compare two things and choose the best or worst.', lessons: ['comparatives'] },
     { title: 'Quantities: some, any, much, many', canDo: 'Say how much or how many you have.', lessons: ['quantities-and-determiners'] },
