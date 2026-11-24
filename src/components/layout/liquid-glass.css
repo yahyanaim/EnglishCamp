@@ -440,27 +440,39 @@ body .camp-workspace :is(.camp-frame, .camp-centre, main.app-canvas, main.camp-c
 }
 .camp-workspace .camp-sidebar nav a.camp-nav-hub-link > div:first-child { color: var(--camp-purple) !important; }
 
-/* ---------- Course modules: one compact row, actions on the right ---------- */
-@container camp-main (min-width: 640px) {
-  .camp-frame main.camp-content .camp-module-card { flex-direction: row; align-items: center; justify-content: space-between; gap: 20px; }
-  .camp-frame main.camp-content .camp-module-actions { flex-shrink: 0; align-self: center; }
+/* ---------- Course modules: clean list rows ----------
+   Number · meta line · title · subtitle on the left; two equal 40px actions on the right. */
+.camp-frame main.camp-content .camp-module-card {
+  display: grid !important; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 12px 24px;
+  padding: 16px 20px !important; border-radius: 18px !important;
 }
-.camp-frame main.camp-content .camp-module-card { padding: 18px 20px !important; border-radius: 20px !important; }
-.camp-frame main.camp-content .camp-module-card h3 { margin: 4px 0 2px; font-size: 17px !important; line-height: 1.35; }
-.camp-frame main.camp-content .camp-module-card h3 + p, .camp-frame main.camp-content .camp-module-card h3 ~ p { font-size: 13px !important; }
-.camp-frame main.camp-content .camp-module-card .flex-wrap > span:first-child {
-  height: 22px; display: inline-flex; align-items: center; padding: 0 9px !important; border-radius: 999px !important; font-size: 10.5px !important; letter-spacing: .05em;
-  color: var(--camp-control-ink) !important; background: color-mix(in srgb, var(--camp-purple) 9%, rgba(255, 255, 255, .7)) !important; border: 1px solid color-mix(in srgb, var(--camp-purple) 18%, transparent) !important; box-shadow: none !important;
+.camp-frame main.camp-content .camp-module-card > .flex:first-child { align-items: center !important; gap: 16px !important; }
+.camp-frame main.camp-content .camp-module-card .camp-number-seal { width: 36px !important; height: 36px !important; flex: 0 0 36px !important; }
+.camp-frame main.camp-content .camp-module-card .flex-wrap { gap: 0 !important; margin-bottom: 2px !important; }
+.camp-frame main.camp-content .camp-module-card .flex-wrap > span:first-child:not(#_),
+.camp-frame main.camp-content .camp-module-card .flex-wrap > span:nth-child(2):not(#_) {
+  height: auto; padding: 0 !important; border: 0 !important; border-radius: 0 !important; background: none !important; box-shadow: none !important;
+  font: 600 11px/1.4 var(--font-body) !important; letter-spacing: .06em; text-transform: uppercase;
 }
-.camp-frame main.camp-content .camp-module-card .flex-wrap > span:nth-child(2) {
-  height: 22px; padding: 0 9px; border-radius: 999px; font-size: 10.5px !important; color: #92400e !important;
-  background: color-mix(in srgb, #f59e0b 12%, rgba(255, 255, 255, .7)); border: 1px solid color-mix(in srgb, #f59e0b 25%, transparent);
+.camp-frame main.camp-content .camp-module-card .flex-wrap > span:first-child { color: var(--camp-control-ink) !important; }
+.camp-frame main.camp-content .camp-module-card .flex-wrap > span:nth-child(2) { color: var(--color-text-secondary) !important; text-transform: none; letter-spacing: 0; }
+.camp-frame main.camp-content .camp-module-card .flex-wrap > span:nth-child(2)::before { content: "·"; margin: 0 8px; color: var(--color-text-secondary); }
+.camp-frame main.camp-content .camp-module-card .flex-wrap > span:nth-child(2) .camp-learning-art { display: none !important; }
+.camp-frame main.camp-content .camp-module-card h3 { margin: 0 !important; font: 650 16px/1.4 var(--font-display) !important; color: var(--color-text-primary); }
+.camp-frame main.camp-content .camp-module-card h3 ~ p { margin-top: 2px !important; font-size: 13px !important; line-height: 1.45; color: var(--color-text-secondary); }
+.camp-frame main.camp-content .camp-module-actions { display: grid !important; grid-template-columns: 1fr 1fr; gap: 8px; width: 300px; }
+.camp-frame main.camp-content .camp-module-actions > a {
+  display: inline-flex !important; align-items: center; justify-content: center; gap: 6px; height: 40px; min-height: 0; padding: 0 12px !important;
+  border-radius: 12px !important; font: 600 13px/1 var(--font-body) !important; white-space: nowrap;
 }
-.dark .camp-frame main.camp-content .camp-module-card .flex-wrap > span:nth-child(2) { color: #fcd34d !important; background: rgba(245, 158, 11, .14); }
-.camp-frame main.camp-content .camp-module-actions { display: flex; gap: 8px; }
-.camp-frame main.camp-content .camp-module-actions > a { min-height: 44px; padding: 0 18px !important; border-radius: 999px !important; font-size: 13px !important; justify-content: center; }
+.camp-frame main.camp-content .camp-module-actions > a:first-child { box-shadow: 0 0 0 1px var(--g-hair), inset 0 1px 0 var(--g-shine) !important; }
+.camp-frame main.camp-content .camp-module-actions > a:last-child { box-shadow: 0 4px 12px -6px color-mix(in srgb, var(--camp-purple) 70%, transparent), inset 0 1px 0 rgba(255, 255, 255, .25) !important; }
+.camp-frame main.camp-content .camp-module-actions > a svg, .camp-frame main.camp-content .camp-module-actions > a .camp-learning-art { width: 15px !important; height: 15px !important; }
 @container camp-main (max-width: 639px) {
-  .camp-frame main.camp-content .camp-module-actions { display: grid; grid-template-columns: 1fr 1fr; width: 100%; }
+  .camp-frame main.camp-content .camp-module-card { grid-template-columns: minmax(0, 1fr); padding: 16px !important; gap: 14px; }
+  .camp-frame main.camp-content .camp-module-card > .flex:first-child { align-items: flex-start !important; gap: 12px !important; }
+  .camp-frame main.camp-content .camp-module-card .camp-number-seal { width: 32px !important; height: 32px !important; flex-basis: 32px !important; }
+  .camp-frame main.camp-content .camp-module-actions { width: 100%; }
 }
 
 /* ---------- Eyebrow badges on banners: one clean glass tag ---------- */
