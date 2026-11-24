@@ -19,7 +19,7 @@
     },
     "src/components/layout/Sidebar.tsx": {
       "before": "2a94206b4a6fcb8b811a4176560c6f5b5039b4fab8138a1e59a55bd6eaa0b21a",
-      "after": "12c4fca03a8dfc00868c4239c26c060a3850cd78a03615e720fdaadb89bfa54e"
+      "after": "9924e14919d6a32c8ea7b5c392dde26aae9dd0f8d6ff68433b0a3d8e6ac728cb"
     },
     "src/components/layout/TopBar.tsx": {
       "before": "756390d54e5b52d540494bc834198fdf14618144e7a46dfebefb087c8652c36b",
@@ -31,11 +31,11 @@
     },
     "src/data/speech-catalogue.json": {
       "before": "3597f0ff04aaa2abc53cbf4f94728147685e1ed45b55f33d156f3057b4ab5578",
-      "after": "77a8316f4892f6f6c238b4e31e3f1898d1e36db2062896151e1bdde762f3501c"
+      "after": "be8278618cd5e5c5c990251a0cb74530f70c5a04dba3ab23dc463738769b1208"
     },
     "src/app/stats/page.tsx": {
       "before": "8eef801b1a2797e8410fef22d6d6cf75492bb811e3e0f86dd6c6415f1a93b1fe",
-      "after": "62584f88230979c706119dceb02af09c990c8a52fc2ba2592081a2fb6d99741b"
+      "after": "9ba6d502c1c8c0f42f469e3085dfb0323b042c9fa9b98bdd46389d4e3d898371"
     },
     "src/components/layout/LayoutShell.tsx": {
       "before": "1a03fb08cd1508dbc056b67ddf7dcf6cbff0e9bedb34e4ef2ed68e11ed8c18bd",
@@ -111,7 +111,7 @@
     },
     "src/components/learn/GrammarReference.tsx": {
       "before": "f388680878861c07b535f8c3e5aff76aa9ce175c13aa051d68b288bdb9d5b661",
-      "after": "bccfadf00b62683ad9ce51c59d17faf9b721bd4db8e70f374caa648d64650402"
+      "after": "eb0c3cab1f602e4c1cf3251f67b45382fec57d1901a674f50b26281325cd32fa"
     },
     "src/components/learn/GrammarFoundationLesson.tsx": {
       "before": "50e2b4b9804ecd31573162f611db549c1d4804729c9a5c248f9bb3b3d65b7316",
@@ -132,6 +132,18 @@
     "src/app/quiz/[levelId]/page.tsx": {
       "before": "a64a6e663f798a04c7d8bdd4171788c759350b9597215a89e3b5597d2a6e78e7",
       "after": "a8355083f16acda78e9db207ed49b3894310c807617aeae9cfb126fce8cfb224"
+    },
+    "src/store/useAchievements.ts": {
+      "before": "8629b1f5c77b00b3035e471b40395b466f6cc45648be80a28de29c4c4a9af7c4",
+      "after": "7a190d5a0fa5d0a5ab0a6acbb3057c2ccd20cb85d6c0f42acb6c602baaddf0d3"
+    },
+    "src/components/ui/EncouragementPanel.tsx": {
+      "before": "d5c9c1c926ce09e682c5cf77b36b9420bbdca68043834db277f5280e8bfa499f",
+      "after": "eadd1af8758847aa4968ce0bcfb88b8292853cebaaa3a18e9c870e9b38b58d67"
+    },
+    "src/lib/learningNavigation.ts": {
+      "before": "14cfaa1f3599d68e3cd3611deaedb55390cf7c0f69b8749fabcc8561fa4d35ae",
+      "after": "3c13326ff5f38087e223fa6ae3c2700302474001feeac4bde8c96548de3985cc"
     }
   },
   "selectors": {
@@ -146,13 +158,17 @@
     "src/store/useVocabulary.ts": {
       "before": "917aaa2b9e4aaf63ae1f0d67debb4a8447f3bd8a7247b6c20c39f3b1c955c32f",
       "after": "b90f38a6b7f88c17637d6e4312689cb4ba7c3e01f0aafdcb81c4183d09ffd052"
+    },
+    "src/store/useAchievements.ts": {
+      "before": "54e3a7f356fc89db37d65f7a615fe261bd59565646f5238086a025eba6bcce90",
+      "after": "9005b69414f2b1f7bafdaa73cf99cc03548f141c1b121d0e7c5cd9a299d54c31"
     }
   },
   "grammarUi": {
     "src/components/learn/GrammarReference.tsx": {
       "reason": "Grammar Reference level filter adds search and level state and the filter buttons; accordion toggles unchanged.",
-      "handlers": "75bb12afa23d888d811e501644f10f22ced468da60e8cdfcd031f64991ed8fc8",
-      "initialState": "bb1f5ebe99db88e1574b578612a3b236d234ca4385b0e18b7d34f37ff1dca2f1"
+      "handlers": "fba27d3c2b454129d6d75d9ff60b10646b8bf9d97e98847301403233a8f33b2b",
+      "initialState": "4c2ee167192406943c51be3bbfe65045405bccb703aeb7f5e81e65c80c2a9cbe"
     }
   },
   "practiceLogic": {
@@ -166,7 +182,7 @@
     },
     "src/components/learn/GrammarReference.tsx": {
       "reason": "Grammar Reference: CEFR level per section, 19 new original lessons, search and A1-B2 level filter grouped like the Practice Hub; legacy teaching text unchanged.",
-      "after": "a1e898d73ba242bfe6f0ab4d3407d8226268674c18951ed6948f80c9b6452625"
+      "after": "f015f91e09cbeb5e913dff57b231ebdc9ea990f1d46baba293ef3b71e49349e3"
     },
     "src/components/learn/SpeedMatch.tsx": {
       "reason": "Speed Match: pair-count row exposes aria-pressed and uses the shared segmented control.",

@@ -90,4 +90,19 @@ export const GRAMMAR_MORE: GrammarLesson[] = [
     part('Not only … but also', 'Not only + auxiliary + subject …, but … also …', ['Not only did he win, but he also broke the record.', 'Not only is it cheap, but it is also fast.']),
     part('Time expressions', 'Hardly / No sooner … than / Only then + inversion.', ['No sooner had we arrived than it started to rain.', 'Only then did I understand the problem.'], ['Use inversion sparingly; it sounds formal or dramatic.']),
   ] },
+  { id: 'future-continuous-perfect', title: 'Future continuous and future perfect', level: 'B2', intro: 'Look at the future from a point in time: what will be in progress then, and what will already be finished by then.', practice: { label: 'Future tenses page', href: '/future-tenses' }, content: [
+    part('Future continuous', 'Will be + verb-ing: an action in progress at a future time.', ['This time tomorrow I will be flying to Cairo.', 'At eight o’clock we’ll be having dinner, so call later.'], ['Also polite for plans: Will you be using the car tonight?']),
+    part('Future perfect', 'Will have + past participle: finished before a future time.', ['By June I will have finished the course.', 'They won’t have arrived by the time the film starts.'], ['By, by the time and before are common signal words.']),
+    part('Future perfect continuous', 'Will have been + verb-ing: duration up to a future point.', ['In May she will have been working here for ten years.', 'By noon we’ll have been driving for six hours.']),
+  ] },
+  { id: 'causative-have', title: 'Have something done (causative)', level: 'B2', intro: 'Use the causative when someone else does a job for you: you arrange it, and a professional or another person does it.', content: [
+    part('Have + object + past participle', 'Subject + have (any tense) + thing + past participle.', ['I had my hair cut yesterday.', 'We are having the kitchen painted next week.']),
+    part('Get + object + past participle', 'More informal, often for things that are hard to arrange.', ['You should get your eyes tested.', 'She finally got the printer repaired.']),
+    part('Unwanted events', 'The same form can describe something bad that happened to you.', ['He had his phone stolen on the bus.', 'They had their flight cancelled at the last minute.'], ['Compare: I cut my hair (myself) vs I had my hair cut (someone else did it).']),
+  ] },
+  { id: 'participle-clauses', title: 'Participle clauses', level: 'B2', intro: 'Participle clauses shorten sentences in writing: an -ing, past participle or having + past participle clause replaces a full clause with a conjunction.', content: [
+    part('Present participle (-ing)', 'Replaces an active clause happening at the same time or giving a reason.', ['Feeling tired, she went to bed early.', 'Walking home, I met an old friend.']),
+    part('Past participle', 'Replaces a passive clause.', ['Built in 1920, the station is the oldest in the city.', 'Asked about the plan, the minister said nothing.']),
+    part('Perfect participle', 'Having + past participle shows the first action finished before the second.', ['Having finished the report, he sent it to his manager.', 'Having lived abroad, she understands the difficulties.'], ['The subject of both clauses must be the same: Walking home, the rain started is wrong.']),
+  ] },
 ];

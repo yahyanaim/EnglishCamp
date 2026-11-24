@@ -95,7 +95,7 @@ body .camp-workspace :is(.camp-frame, .camp-centre, main.app-canvas, main.camp-c
 .camp-frame main.camp-content :is(
   .camp-learning-library-card, .camp-hub-today-tile, .camp-stats-tile, .camp-stats-card, .camp-stats-hero-kpis > div,
   .bg-card, .practice-card, [data-practice-surface], .camp-cheat-section, .camp-grammar-accordion-card,
-  .camp-grammar-lesson-head, .camp-grammar-lesson-body, .camp-grammar-next, .camp-hub-empty,
+  .camp-grammar-lesson-head, .camp-grammar-lesson-body, .camp-grammar-next, .camp-hub-empty, .camp-grammar-path-tile,
   :is(div, section, article, li, a, details)[class*="bg-[var(--color-surface)]"][class*="rounded"]
 ):not([class*="banner"], [class*="hero"], .text-white, .camp-dashboard-stats .camp-xp-card, [data-outcome]) {
   position: relative;
@@ -116,7 +116,7 @@ body .camp-workspace :is(.camp-frame, .camp-centre, main.app-canvas, main.camp-c
   }
 }
 /* Interactive cards lift with a violet rim. */
-.camp-frame main.camp-content :is(button.camp-learning-library-card, a.camp-learning-library-card, .camp-hub-today-tile, .camp-grammar-next, a[class*="bg-[var(--color-surface)]"][class*="rounded"]):is(:hover, :focus-visible) {
+.camp-frame main.camp-content :is(button.camp-learning-library-card, a.camp-learning-library-card, .camp-hub-today-tile, .camp-grammar-next, .camp-grammar-path-tile, a[class*="bg-[var(--color-surface)]"][class*="rounded"]):is(:hover, :focus-visible) {
   transform: translateY(-2px);
   background: var(--g-sheen), var(--g-card-hover) !important;
   border-color: color-mix(in srgb, var(--g-tint) 38%, transparent) !important;
@@ -163,7 +163,7 @@ body .camp-workspace :is(.camp-frame, .camp-centre, main.app-canvas, main.camp-c
 }
 /* Primary actions and selected chips: tinted violet glass. */
 .camp-frame main.camp-content :is(
-  [data-variant="default"], [class*="bg-[var(--color-primary)]"], [class*="bg-[var(--camp-purple)]"],
+  [data-variant="default"], [class*="bg-[var(--color-primary)]"], [class*="bg-[var(--camp-purple)]"], .camp-grammar-learned-button,
   .camp-hub-skills > button[aria-pressed="true"], .translation-groups > button[aria-pressed="true"], [data-chip-row] > button[aria-pressed="true"]
 ):is(button, a):not([data-outcome]) {
   background: var(--g-primary) !important;

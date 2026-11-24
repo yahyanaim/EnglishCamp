@@ -35,27 +35,149 @@
 .camp-hub-search > svg { z-index:2; pointer-events:none; }
 .camp-grammar-hub .camp-trainer-grid { grid-auto-rows:1fr; gap:12px; }
 .camp-grammar-hub .camp-library-card-copy > span:not(.camp-hub-meta) { display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:2; overflow:hidden; }
-.camp-grammar-lesson { display:grid; gap:16px; max-width:860px; width:100%; margin-inline:auto; }
-.camp-grammar-back { justify-self:start; display:inline-flex; align-items:center; gap:8px; min-height:40px; padding:0 14px; border-radius:999px; font-size:.85rem; font-weight:650; color:var(--camp-control-ink,var(--color-primary)); }
-.camp-grammar-lesson-head { display:flex; align-items:center; gap:16px; padding:22px; border-radius:20px; }
-.camp-grammar-lesson-head .camp-library-card-icon { width:52px; height:52px; flex:none; }
+/* The lesson has its own back control, so the page-level back link is hidden while a lesson is open. */
 .camp-frame main:has(.camp-grammar-lesson) .camp-page-back { display:none; }
-.camp-grammar-lesson .camp-grammar-lesson-head h2 { margin:4px 0 0; font:800 1.45rem/1.25 var(--font-display); color:var(--color-text-primary); }
-.camp-grammar-lesson-kicker { display:flex; align-items:center; gap:8px; margin:0; font-size:.78rem; font-weight:650; color:var(--color-text-secondary); }
-.camp-grammar-lesson-summary { margin:8px 0 0; font-size:.95rem; line-height:1.6; color:var(--color-text-secondary); }
-.camp-grammar-lesson-body { padding:22px; border-radius:20px; }
-.camp-grammar-lesson-body .camp-cheat-item { padding:16px 0; border-top:1px solid var(--color-border-default); }
-.camp-grammar-lesson-body .camp-cheat-item:first-of-type { border-top:0; padding-top:4px; }
-.camp-grammar-next { display:flex; align-items:center; justify-content:space-between; gap:12px; padding:16px 20px; border-radius:16px; text-align:start; }
-.camp-grammar-next small { display:block; font-size:.72rem; font-weight:650; color:var(--color-text-secondary); text-transform:uppercase; letter-spacing:.04em; }
-.camp-grammar-next strong { font:750 .98rem/1.35 var(--font-display); color:var(--color-text-primary); }
-.camp-grammar-practice-link { display:inline-flex; align-items:center; gap:6px; margin-top:16px; padding:10px 16px; border-radius:999px; font-size:.85rem; font-weight:650; color:var(--camp-control-ink,var(--color-primary)); text-decoration:none; }
-@container camp-main (max-width:819px) { .camp-grammar-hub .camp-hub-skills .camp-grammar-level-name { display:none; } }
+/* Lesson view: one 8px-based rhythm (24px sheet padding, 16px between blocks, 8px inside a block). */
+.camp-grammar-lesson { display:grid; gap:16px; width:100%; }
+.camp-grammar-back { justify-self:start; display:inline-flex; align-items:center; gap:8px; height:44px; padding:0 16px; border-radius:999px; font-size:14px; font-weight:650; color:var(--camp-control-ink,var(--color-primary)); }
+.camp-grammar-lesson-head { display:flex; align-items:center; gap:16px; padding:24px; border-radius:20px; }
+.camp-grammar-lesson-head .camp-library-card-icon { width:56px; height:56px; flex:none; border-radius:16px; }
+.camp-grammar-lesson-kicker { display:flex; flex-wrap:wrap; align-items:center; gap:8px; margin:0; font-size:13px; font-weight:650; line-height:1; color:var(--color-text-secondary); }
+.camp-grammar-lesson .camp-grammar-lesson-head h2 { margin:8px 0 0; font:800 26px/1.25 var(--font-display); color:var(--color-text-primary); }
+.camp-grammar-lesson-summary { margin:8px 0 0; font-size:15px; line-height:1.6; color:var(--color-text-secondary); }
+.camp-grammar-lesson-body { padding:24px; border-radius:20px; }
+.camp-grammar-lesson-body > .camp-foundation-lesson { padding:0; gap:0; }
+.camp-grammar-lesson-body .camp-foundation-lesson > p:first-child { margin:0 0 8px; font-size:16px; line-height:1.65; color:var(--color-text-secondary); }
+.camp-grammar-lesson-body .camp-cheat-item { display:grid; gap:12px; padding:20px 0; border-top:1px solid var(--color-border-default); }
+.camp-grammar-lesson-body .camp-cheat-item:first-of-type { border-top:0; }
+.camp-grammar-lesson-body .camp-cheat-item:last-of-type { padding-bottom:4px; }
+.camp-grammar-lesson-body .camp-cheat-item h3 { margin:0; font:700 17px/1.35 var(--font-display); color:var(--camp-control-ink); }
+.camp-grammar-lesson-body .camp-cheat-item > p { margin:0; font-size:15px; line-height:1.65; color:var(--color-text-primary); }
+.camp-grammar-lesson-body .camp-cheat-examples { display:grid; gap:0; margin:0; padding:4px 16px; border-radius:14px; border-inline-start:3px solid var(--camp-purple); }
+.camp-grammar-lesson-body .camp-cheat-examples li { padding:10px 0; font-size:15px; line-height:1.55; border-top:1px solid color-mix(in srgb,var(--camp-purple) 12%,transparent); }
+.camp-grammar-lesson-body .camp-cheat-examples li:first-child { border-top:0; }
+.camp-grammar-lesson-body .camp-cheat-notes { display:grid; gap:6px; margin:0; padding:0 0 0 20px; list-style:disc; color:var(--color-text-secondary); }
+.camp-grammar-lesson-body .camp-cheat-notes li { font-size:14px; line-height:1.55; padding-inline-start:2px; }
+.camp-grammar-lesson-body .camp-cheat-notes li::marker { color:var(--camp-purple); }
+.camp-grammar-lesson-body .camp-placement-fine { margin:16px 0 0; font-size:13px; line-height:1.5; color:var(--color-text-secondary); }
+.camp-grammar-lesson-body .camp-grammar-practice-link { justify-self:start; margin-top:16px; }
+.camp-grammar-lesson-body > .space-y-3 > * + * { margin-top:16px !important; }
+.camp-grammar-lesson-body :is(p, td, th, li) { font-size:15px; }
+.camp-grammar-next { display:flex; align-items:center; justify-content:space-between; gap:12px; min-height:72px; padding:16px 20px; border-radius:16px; text-align:start; }
+.camp-grammar-next small { display:block; margin-bottom:4px; font-size:12px; font-weight:650; color:var(--color-text-secondary); text-transform:uppercase; letter-spacing:.05em; }
+.camp-grammar-next strong { font:750 16px/1.35 var(--font-display); color:var(--color-text-primary); }
+.camp-grammar-practice-link { display:inline-flex; align-items:center; gap:6px; height:44px; padding:0 16px; border-radius:999px; font-size:14px; font-weight:650; color:var(--camp-control-ink,var(--color-primary)); text-decoration:none; }
+/* Mark as learned */
+.camp-grammar-learned { display:flex; justify-content:center; }
+.camp-grammar-learned-button { display:inline-flex; align-items:center; justify-content:center; gap:8px; width:100%; height:52px; border-radius:999px; font-size:16px; font-weight:700; color:#fff; background:var(--camp-purple); }
+.camp-grammar-learned-done { display:flex; align-items:center; justify-content:center; gap:10px; width:100%; min-height:52px; margin:0; padding:0 20px; border-radius:999px; font-size:15px; color:var(--color-text-success,#15803d); background:var(--color-success-bg,#dcfce7); }
+.camp-grammar-learned-done strong { font-weight:750; }
+/* Grammar path: four level tiles above the library */
+.camp-grammar-path { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; }
+.camp-grammar-path-tile { display:grid; gap:8px; padding:16px; border-radius:16px; text-align:start; }
+.camp-grammar-path-tile[aria-pressed="true"] { outline:2px solid color-mix(in srgb,var(--camp-purple) 55%,transparent); outline-offset:0; }
+.camp-grammar-path-head { display:flex; align-items:center; gap:8px; font-size:13px; font-weight:650; color:var(--color-text-secondary); }
+.camp-grammar-path-head svg { margin-inline-start:auto; color:var(--color-success-dark,#15803d); }
+.camp-grammar-path-name { white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.camp-grammar-path-count { font-size:13px; color:var(--color-text-secondary); }
+.camp-grammar-path-count strong { font:800 20px/1 var(--font-display); color:var(--color-text-primary); }
+.camp-grammar-path-bar { display:block; height:6px; border-radius:999px; overflow:hidden; background:var(--g-track,var(--color-surface-alt)); }
+.camp-grammar-path-bar > span { display:block; height:100%; border-radius:inherit; background:linear-gradient(90deg,color-mix(in srgb,var(--camp-purple) 75%,#fff),var(--camp-purple)); }
+.camp-grammar-path-link { grid-column:1/-1; justify-self:start; display:inline-flex; align-items:center; gap:8px; height:40px; padding:0 4px; font-size:14px; font-weight:650; color:var(--camp-control-ink,var(--color-primary)); text-decoration:none; }
+.camp-grammar-path-link:hover { text-decoration:underline; }
+/* Roadmap page */
+.camp-grammar-roadmap { display:grid; gap:24px; }
+.camp-roadmap-level { display:grid; gap:0; padding:0; border-radius:20px; overflow:hidden; background:var(--g-sheen,none), var(--g-card,var(--color-surface)); border:1px solid var(--g-rim,var(--color-border-default)); box-shadow:var(--g-card-shadow,none); }
+.camp-roadmap-head { display:grid; grid-template-columns:auto minmax(0,1fr) 180px; align-items:center; gap:16px; padding:24px; border-bottom:1px solid var(--color-border-default); }
+.camp-roadmap-badge { display:inline-flex; align-items:center; justify-content:center; width:56px; height:56px; border-radius:16px; font:800 18px/1 var(--font-display); color:#fff; background:var(--camp-purple); box-shadow:inset 0 1px 0 rgba(255,255,255,.35); }
+.camp-grammar-roadmap .camp-roadmap-copy h2 { margin:0 !important; font:800 20px/1.3 var(--font-display) !important; color:var(--color-text-primary); }
+.camp-roadmap-copy p { margin:4px 0 0; font-size:14px; line-height:1.55; color:var(--color-text-secondary); }
+.camp-roadmap-meter { display:grid; grid-template-columns:auto 1fr; align-items:baseline; gap:4px 8px; }
+.camp-roadmap-meter strong { font:800 22px/1 var(--font-display); color:var(--color-text-primary); }
+.camp-roadmap-meter > span:not(.camp-grammar-path-bar) { font-size:13px; color:var(--color-text-secondary); text-align:end; }
+.camp-roadmap-meter .camp-grammar-path-bar { grid-column:1/-1; }
+.camp-roadmap-points { display:grid; margin:0; padding:8px 24px; list-style:none; }
+.camp-roadmap-point { display:grid; grid-template-columns:32px minmax(0,1fr); gap:16px; padding:16px 0; border-top:1px solid var(--color-border-default); }
+.camp-roadmap-point:first-child { border-top:0; }
+.camp-roadmap-step { display:inline-flex; align-items:center; justify-content:center; width:32px; height:32px; border-radius:10px; font-size:13px; font-weight:750; color:var(--camp-control-ink); background:var(--camp-purple-soft); }
+.camp-roadmap-point[data-complete] .camp-roadmap-step { color:var(--color-success-dark,#15803d); background:var(--color-success-bg,#dcfce7); }
+.camp-grammar-roadmap .camp-roadmap-point-copy h3 { margin:4px 0 0 !important; font:700 16px/1.35 var(--font-display) !important; color:var(--color-text-primary); }
+.camp-roadmap-point-copy p { margin:4px 0 0; font-size:14px; line-height:1.55; color:var(--color-text-secondary); }
+.camp-roadmap-links { display:flex; flex-wrap:wrap; gap:8px; margin-top:12px; }
+.camp-roadmap-link { display:inline-flex; align-items:center; gap:6px; height:36px; padding:0 12px; border-radius:999px; font-size:13px; font-weight:650; color:var(--color-text-primary); text-decoration:none; background:var(--g-control,var(--color-surface-alt)); border:1px solid var(--g-rim,var(--color-border-default)); box-shadow:var(--g-control-shadow,none); }
+.camp-roadmap-link svg:first-child { color:var(--camp-purple); }
+.camp-roadmap-link:hover { border-color:color-mix(in srgb,var(--camp-purple) 40%,transparent); }
 @container camp-main (max-width:579px) {
   .camp-grammar-hub .camp-trainer-grid { grid-auto-rows:auto; }
   .camp-grammar-level-name { display:none; }
   .camp-grammar-hub .camp-hub-skills { gap:6px; }
-  .camp-grammar-lesson-head, .camp-grammar-lesson-body { padding:16px; border-radius:16px; }
-  .camp-grammar-lesson .camp-grammar-lesson-head h2 { font-size:1.2rem; }
+  .camp-grammar-lesson-head, .camp-grammar-lesson-body { padding:20px; border-radius:20px; }
+  .camp-grammar-lesson-head .camp-library-card-icon { width:48px; height:48px; }
+  .camp-grammar-lesson .camp-grammar-lesson-head h2 { font-size:21px; }
+  .camp-grammar-path { grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; }
+  .camp-grammar-path-tile { padding:12px; }
+  .camp-roadmap-head { grid-template-columns:auto minmax(0,1fr); padding:20px; }
+  .camp-roadmap-meter { grid-column:1/-1; }
+  .camp-roadmap-badge { width:48px; height:48px; }
+  .camp-roadmap-points { padding:4px 20px; }
+  .camp-roadmap-point { gap:12px; }
   .camp-frame main.camp-content [data-practice-surface] :is([data-chip-row], .translation-groups) > button { font-size:.74rem; }
+}
+
+/* ---------- Vocabulary & Speaking: one control system ----------
+   Search fields, tab sets, filter chips and action buttons share the sizes used in the practice library. */
+/* Search fields: 48px, visible icon, upright placeholder. */
+.camp-frame main.camp-content :is(div, label):has(> input:is([type="search"], [type="text"])):not([data-practice-surface] *) > svg { z-index: 2; pointer-events: none; }
+.camp-frame main.camp-content :is(div, label):has(> svg) > input:is([type="search"], [type="text"]):not([data-practice-surface] *),
+.camp-frame main.camp-content .camp-comparison-search input {
+  height: 48px !important; border-radius: 14px !important; font-size: 15px !important; font-style: normal !important;
+}
+.camp-frame main.camp-content input::placeholder { font-style: normal; }
+/* Two-to-four views (My bank / Word library / Quiz / Write; Browse / Quiz / Write): full-width segmented control. */
+.camp-frame main.camp-content div.w-fit[class*="bg-[var(--color-neutral-100)]"]:has(> button:nth-child(2)):not(:has(> button:nth-child(5))) {
+  display: grid !important; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); gap: 4px; width: 100% !important; height: 48px; padding: 4px !important;
+  border-radius: 999px !important; background: var(--g-track, var(--color-surface-alt)) !important; border: 1px solid var(--g-rim, var(--color-border-default));
+}
+.camp-frame main.camp-content div.w-fit.w-fit.w-fit[class*="bg-[var(--color-neutral-100)]"][class*="rounded"][class*="p-1"] > button:not(#_) {
+  height: 100%; justify-content: center; padding: 0 12px !important; border-radius: 999px !important; font-size: 14px !important; white-space: nowrap;
+  background: transparent !important; border: 1px solid transparent !important; box-shadow: none !important; color: var(--color-text-secondary) !important;
+  -webkit-backdrop-filter: none !important; backdrop-filter: none !important; min-width: 0; overflow: hidden; text-overflow: ellipsis;
+}
+@container camp-main (max-width: 579px) {
+  .camp-frame main.camp-content div.w-fit.w-fit.w-fit[class*="bg-[var(--color-neutral-100)]"][class*="rounded"][class*="p-1"] > button:not(#_) { font-size: 13px !important; padding: 0 6px !important; }
+  .camp-frame main.camp-content div.w-fit.w-fit.w-fit[class*="bg-[var(--color-neutral-100)]"][class*="rounded"][class*="p-1"] > button:not(#_) :is(svg, .camp-learning-art, img) { display: none !important; }
+}
+.camp-frame main.camp-content div.w-fit.w-fit.w-fit[class*="bg-[var(--color-neutral-100)]"][class*="rounded"][class*="p-1"] > button:not(#_)[aria-pressed="true"],
+.camp-frame main.camp-content div.w-fit.w-fit.w-fit[class*="bg-[var(--color-neutral-100)]"][class*="rounded"][class*="p-1"] > button:not(#_)[class*="bg-[var(--color-surface)]"] {
+  background: linear-gradient(180deg, #fff, rgba(255, 255, 255, .88)) !important; color: var(--camp-control-ink) !important;
+  box-shadow: 0 2px 8px -2px rgba(28, 20, 52, .18), 0 0 0 1px rgba(28, 20, 52, .06) !important;
+}
+.dark .camp-frame main.camp-content div.w-fit.w-fit.w-fit[class*="bg-[var(--color-neutral-100)]"][class*="rounded"][class*="p-1"] > button:not(#_):is([aria-pressed="true"], [class*="bg-[var(--color-surface)]"]) { background: rgba(255, 255, 255, .16) !important; color: #fff !important; }
+/* Topic tabs and filters (pronunciation topics, British/American areas, collocation types): equal chips, centred last row. */
+.camp-frame main.camp-content :is(.camp-vocab-tabs, .camp-comparison-filters, [data-chip-row]):not([data-practice-surface] *):not(.w-fit) {
+  --tab-cols: 2; --tab-gap: 8px;
+  display: flex !important; flex-wrap: wrap; justify-content: center; gap: var(--tab-gap) !important; width: 100%;
+}
+@container camp-main (min-width: 480px) { .camp-frame main.camp-content :is(.camp-vocab-tabs, .camp-comparison-filters, [data-chip-row]):not([data-practice-surface] *):not(.w-fit) { --tab-cols: 3; } }
+@container camp-main (min-width: 700px) {
+  .camp-frame main.camp-content :is(.camp-vocab-tabs, .camp-comparison-filters, [data-chip-row]):not([data-practice-surface] *):not(.w-fit) { --tab-cols: 4; }
+  .camp-frame main.camp-content :is(.camp-vocab-tabs, .camp-comparison-filters, [data-chip-row]):not([data-practice-surface] *):not(.w-fit):has(> :nth-child(5):last-child) { --tab-cols: 5; }
+  .camp-frame main.camp-content :is(.camp-vocab-tabs, .camp-comparison-filters, [data-chip-row]):not([data-practice-surface] *):not(.w-fit):has(> :nth-child(3):last-child) { --tab-cols: 3; }
+}
+.camp-frame main.camp-content :is(.camp-vocab-tabs, .camp-comparison-filters, [data-chip-row]):not([data-practice-surface] *):not(.w-fit) > :is(button, a) {
+  flex: 0 0 calc((100% - (var(--tab-cols) - 1) * var(--tab-gap)) / var(--tab-cols)) !important; max-width: calc((100% - (var(--tab-cols) - 1) * var(--tab-gap)) / var(--tab-cols));
+  min-width: 0; min-height: 44px; height: auto !important; margin: 0 !important; padding: 8px 12px !important; border-radius: 12px !important;
+  justify-content: center; text-align: center; white-space: normal; line-height: 1.25; font-size: 13px !important; font-weight: 650; grid-column: auto !important;
+}
+.camp-frame main.camp-content :is(.camp-vocab-tabs, .camp-comparison-filters):not([data-practice-surface] *) > button[aria-pressed="true"] {
+  background: var(--g-primary, var(--camp-purple)) !important; color: #fff !important; border: 1px solid color-mix(in srgb, var(--camp-purple) 70%, #fff 30%) !important; box-shadow: var(--g-primary-shadow, none) !important;
+}
+/* Page actions (From vocab / New, Date / Export / Import): 44px pills. */
+.camp-frame main.camp-content .camp-vocabulary-page > div:has(input) > :is(button, div > button),
+.camp-frame main.camp-content div.flex.gap-2:has(> button:nth-child(2)):not(:has(> :nth-child(4))):not([data-practice-surface] *):not(.w-fit) > button {
+  min-height: 44px; padding: 0 16px !important; border-radius: 999px !important; font-size: 14px !important; gap: 6px;
+}
+/* Empty states sit in a card with the same padding as other sheets. */
+.camp-frame main.camp-content :is(div, section):has(> :is(h3, p):first-of-type):is([class*="text-center"][class*="py-1"], [class*="text-center"][class*="py-2"]):not([data-practice-surface] *):not([class*="bg-"]) {
+  padding: 40px 24px !important; border-radius: 20px; background: var(--g-sheen, none), var(--g-card, var(--color-surface)); border: 1px solid var(--g-rim, var(--color-border-default)); box-shadow: var(--g-card-shadow, none);
 }

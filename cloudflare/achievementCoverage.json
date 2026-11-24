@@ -154,5 +154,71 @@
     "title": "Card Reviewer",
     "description": "Review 50 flashcards",
     "category": "vocab"
+  },
+  {
+    "id": "grammar-1",
+    "title": "Rule Reader",
+    "description": "Learn your first grammar lesson",
+    "category": "grammar"
+  },
+  {
+    "id": "grammar-10",
+    "title": "Grammar Explorer",
+    "description": "Learn 10 grammar lessons",
+    "category": "grammar"
+  },
+  {
+    "id": "grammar-25",
+    "title": "Grammar Builder",
+    "description": "Learn 25 grammar lessons",
+    "category": "grammar"
+  },
+  {
+    "id": "grammar-A1",
+    "title": "A1 Grammar Complete",
+    "description": "Learn every A1 grammar lesson",
+    "category": "grammar"
+  },
+  {
+    "id": "grammar-A2",
+    "title": "A2 Grammar Complete",
+    "description": "Learn every A2 grammar lesson",
+    "category": "grammar"
+  },
+  {
+    "id": "grammar-B1",
+    "title": "B1 Grammar Complete",
+    "description": "Learn every B1 grammar lesson",
+    "category": "grammar"
+  },
+  {
+    "id": "grammar-B2",
+    "title": "B2 Grammar Complete",
+    "description": "Learn every B2 grammar lesson",
+    "category": "grammar"
+  },
+  {
+    "id": "listening-5",
+    "title": "Good Listener",
+    "description": "Finish 5 listening lessons",
+    "category": "skills"
+  },
+  {
+    "id": "listening-25",
+    "title": "Sharp Ears",
+    "description": "Finish 25 listening lessons",
+    "category": "skills"
+  },
+  {
+    "id": "reading-5",
+    "title": "Page Turner",
+    "description": "Finish 5 reading passages",
+    "category": "skills"
+  },
+  {
+    "id": "reading-25",
+    "title": "Bookworm",
+    "description": "Finish 25 reading passages",
+    "category": "skills"
   }
 ]
