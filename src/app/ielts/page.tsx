@@ -30,7 +30,7 @@ export default function IELTSPage() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="bg-gradient-to-br from-blue-600 to-indigo-800 rounded-[var(--radius-lg)] p-5 sm:p-6 text-white"
+          className="camp-exam-hero rounded-[var(--radius-lg)] p-5 sm:p-6 text-white"
         >
           <div className="flex items-center gap-3 mb-4">
             <LearningArt name="GraduationCap" className="w-8 h-8" />

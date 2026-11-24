@@ -1,4 +1,5 @@
 "use client";
+import { PageBanner } from "@/components/ui/PageBanner";
 import { LearningArt } from "@/components/brand/LearningArt";
 import { useMemo } from "react";
 import { motion } from "framer-motion";
@@ -57,10 +58,7 @@ export default function WeeklyReportPage() {
   return (
     <PageWrapper>
       <div className="space-y-6">
-        <div>
-          <h1 className="font-display text-2xl font-extrabold text-[var(--color-text-primary)]">Weekly Learning Report</h1>
-          <p className="text-sm text-[var(--color-text-secondary)] mt-1">Your learning summary and insights</p>
-        </div>
+        <PageBanner><h1>Weekly report</h1><p>Your learning this week and what to focus on next.</p></PageBanner>
 
         <div className="camp-week-summary">
           <div className="flex items-center gap-4 mb-4">
@@ -169,7 +167,7 @@ export default function WeeklyReportPage() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-[var(--radius-lg)] p-6 text-white">
+          <div className="camp-soft-callout rounded-[var(--radius-lg)] p-6">
             <LearningArt name="Target" size={24} className="w-6 h-6 mb-2 text-[var(--color-primary)]" />
             <p className="text-sm font-bold mb-1">Next Week Focus</p>
             <ul className="space-y-1.5 text-sm text-[var(--color-text-secondary)]">

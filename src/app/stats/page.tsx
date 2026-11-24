@@ -1,4 +1,5 @@
 "use client";
+import { PageBanner } from "@/components/ui/PageBanner";
 import Link from "next/link";
 import { courseSnapshot } from "@/lib/courseProgress";
 import { getLevelInfo, XP_LEVELS } from "@/lib/xp";
@@ -75,11 +76,8 @@ export default function StatsPage() {
 
   return (
     <div className="camp-stats space-y-6">
+      <PageBanner><h1>Your progress</h1><p>Everything you have practised, in one place.</p></PageBanner>
       <motion.header initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} className="camp-stats-head">
-        <div>
-          <h1 className="font-display text-2xl font-extrabold text-[var(--color-text-primary)]">Your progress</h1>
-          <p className="text-sm text-[var(--color-text-secondary)] mt-1">Everything you have practised, in one place.</p>
-        </div>
         <div className="camp-stats-actions">
           <Link prefetch={false} href="/my-notes" className="camp-stats-action"><NotebookPen className="w-4 h-4" aria-hidden="true" /> My notes</Link>
           <button type="button" onClick={handleExport} className="camp-stats-action"><Download className="w-4 h-4" aria-hidden="true" /> Export</button>

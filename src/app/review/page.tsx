@@ -159,7 +159,7 @@ export default function ReviewPage() {
     ? Math.round((currentIndex / sessionItems.length) * 100)
     : 0;
 
-  if (sessionComplete) {
+  if (sessionComplete && sessionItems.length > 0) {
     return (
       <PageWrapper className="camp-review-page">
         <PageBanner><h1>Review Queue</h1><p>Revisit saved vocabulary and mistakes when they are ready for review.</p></PageBanner>

@@ -1,0 +1,41 @@
+/* Site-wide consistency fixes for library, grammar, vocabulary and progress pages. */
+
+/* Brand callouts in place of yellow, orange, black and red blocks. */
+.camp-frame .camp-soft-callout { border:1px solid color-mix(in srgb,var(--camp-control-ink) 22%,transparent); background:var(--camp-purple-soft); color:var(--color-text-primary); }
+.camp-frame .camp-soft-callout :is(p,li,span) { color:var(--color-text-primary); }
+.camp-frame .camp-soft-callout svg { color:var(--camp-control-ink); }
+.camp-frame .camp-exam-hero { background:var(--camp-purple); color:#fff; }
+
+/* One heading font: no monospace word headings. */
+.camp-frame main.camp-content .font-mono { font-family:var(--font-display),system-ui,sans-serif; letter-spacing:0; }
+
+/* Wide tables scroll inside their card instead of being cut off, with edge shadows as a hint. */
+.camp-frame main.camp-content :is(div,section):has(> table) { overflow-x:auto; -webkit-overflow-scrolling:touch; overscroll-behavior-x:contain;
+  background:linear-gradient(90deg,var(--color-surface) 30%,transparent) left/24px 100% no-repeat local,linear-gradient(270deg,var(--color-surface) 30%,transparent) right/24px 100% no-repeat local,
+    radial-gradient(farthest-side at 0 50%,rgba(0,0,0,.12),transparent) left/10px 100% no-repeat scroll,radial-gradient(farthest-side at 100% 50%,rgba(0,0,0,.12),transparent) right/10px 100% no-repeat scroll; }
+@media (max-width:639px) { .camp-frame main.camp-content table { min-width:520px; } .camp-frame main.camp-content :is(th,td) { white-space:normal; } }
+
+/* Horizontal filter strips wrap instead of clipping the last chip. */
+.camp-frame main.camp-content .overflow-x-auto:has(> button:nth-child(3)):not(:has(table)) { flex-wrap:wrap; overflow:visible; }
+
+/* Practice setup cards: segmented option rows and one full-width start button. */
+.camp-frame [data-practice-surface="intro"] { display:flex; flex-direction:column; gap:14px; }
+.camp-frame [data-practice-surface="intro"] div:has(> button:nth-child(2)):not(:has(> button:nth-child(5))):not(:has(> :not(button))) {
+  display:grid; grid-auto-flow:column; grid-auto-columns:minmax(0,1fr); gap:4px; width:100%; max-width:520px; padding:4px; border:1px solid var(--color-border-default); border-radius:12px; background:var(--color-surface-alt); }
+.camp-frame [data-practice-surface="intro"] div:has(> button:nth-child(2)):not(:has(> button:nth-child(5))):not(:has(> :not(button))) > button {
+  min-height:40px; min-width:0; padding:6px 10px; border:0!important; border-radius:9px; background:transparent!important; color:var(--color-text-secondary)!important; box-shadow:none!important; font-size:.85rem; font-weight:650; justify-content:center; text-align:center; white-space:normal; }
+.camp-frame [data-practice-surface="intro"] div:has(> button:nth-child(2)):not(:has(> button:nth-child(5))):not(:has(> :not(button))) > button:is([aria-pressed="true"],[class*="bg-[var(--color-primary)]"],[data-state="active"]) {
+  background:var(--color-surface)!important; color:var(--camp-control-ink)!important; box-shadow:0 1px 3px rgba(17,12,34,.12)!important; }
+.camp-frame [data-practice-surface="intro"] > button:last-child,
+.camp-frame [data-practice-surface="intro"] > div:last-child > button:only-child { align-self:stretch; width:100%; max-width:520px; min-height:48px; justify-content:center; }
+@media (min-width:640px) { .camp-frame [data-practice-surface="intro"] > button:last-child, .camp-frame [data-practice-surface="intro"] > div:last-child > button:only-child { align-self:flex-start; } }
+
+/* Practice Hub on phones: game tiles in two columns instead of one wide, mostly empty column. */
+@container camp-main (max-width:579px) {
+  .camp-frame .camp-practice-hub .camp-trainer-grid.camp-hub-game-grid { grid-template-columns:repeat(2,minmax(0,1fr))!important; gap:10px; }
+  .camp-frame .camp-practice-hub .camp-hub-game-grid .camp-learning-library-card.camp-hub-tile { padding:12px; gap:8px; }
+  .camp-frame .camp-practice-hub .camp-hub-game-grid .camp-library-card-copy > span:not(.camp-hub-meta) { display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; }
+}
+
+/* Two-word comparison rows (confusing words) stack their meaning under the words on phones. */
+@media (max-width:639px) { .camp-frame .camp-false-friends-row { display:grid; grid-template-columns:minmax(0,1fr) auto; gap:6px 10px; } .camp-frame .camp-false-friends-row > :first-child { flex-wrap:wrap; } .camp-frame .camp-false-friends-row > :nth-child(2) { grid-column:1; grid-row:2; } .camp-frame .camp-false-friends-row > :last-child { grid-column:2; grid-row:1; } }

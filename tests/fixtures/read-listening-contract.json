@@ -35,7 +35,7 @@
     },
     "src/app/stats/page.tsx": {
       "before": "8eef801b1a2797e8410fef22d6d6cf75492bb811e3e0f86dd6c6415f1a93b1fe",
-      "after": "88c958fad370f9777f523e87e37148abf4ac71f36d71da95315d42d8c921d8f5"
+      "after": "62584f88230979c706119dceb02af09c990c8a52fc2ba2592081a2fb6d99741b"
     },
     "src/components/layout/LayoutShell.tsx": {
       "before": "1a03fb08cd1508dbc056b67ddf7dcf6cbff0e9bedb34e4ef2ed68e11ed8c18bd",
@@ -72,6 +72,42 @@
     "src/components/learn/MemoryMatchGame.tsx": {
       "before": "086a8c963c4fb1b507dc4380de9fbd5d193c2141b9f31826ba9cae273e967418",
       "after": "85f972ea7f5a7c717674ea1106cdc723e3e472ce835affccd9d617dfb00add3e"
+    },
+    "src/app/b2-pruefung/page.tsx": {
+      "before": "38fe8c963b8dd10151cb731b50c5ac479ea8ad1f1093d300177c601bf97aaf4f",
+      "after": "26e33ca689142fd2ad2c6bfabae5144a9aeec487c4b7755f65f902d466b56dbd"
+    },
+    "src/app/badges/page.tsx": {
+      "before": "eb957c787dda6d09f76a2a4a0dcb8a17db954abea88497ff1d05c27d819076bb",
+      "after": "18663edfc44ca2a968583a7089c9051e4cfe26c3001e9386223b087f12d70346"
+    },
+    "src/app/false-friends/page.tsx": {
+      "before": "5e21746cd50b952e945da9e4f011409c1bcb194172def040de3abff60c6d5f1d",
+      "after": "3d0ebf765ec62cd4f83c146cb942b0a415f78014b06c8df8e8ca3cf150e48fa7"
+    },
+    "src/app/ielts/page.tsx": {
+      "before": "e1439f2673d2cef72cbe83cfd20f6ab5faf0fb24fc34462fb5bf3ecb1c550773",
+      "after": "b92457d65d188ba1eab6a51e5e6c829627686104f7ec3cc21f1f65bfdb766caa"
+    },
+    "src/app/modalpartikel/page.tsx": {
+      "before": "45f67160d0246407c4aacd714247c349023be107783a7a82aff6dd49df3fcc69",
+      "after": "0b3a8f4ce172917b407cfa6dccc0368ea1272ade849800e2a04d348460d790fa"
+    },
+    "src/app/review/page.tsx": {
+      "before": "9b5c48e0c891587e20d4ab0b79233839e9bce46497e1d78c3e90e0c47217d685",
+      "after": "09fe7355b11d59232479d66350aa767f9c8b01055bd6081d67e5689269b79f86"
+    },
+    "src/app/toefl/page.tsx": {
+      "before": "e99ccab7e54908161b6edeb1fc7cc2b1a5fde4ddc6b72fb2d2aa7d9d20044b8c",
+      "after": "451461ced9cb6bd66c8d9dd6b8e79774016a9de0b0ec807a0c59fc143188e9c0"
+    },
+    "src/app/weak-areas/page.tsx": {
+      "before": "5bce48f2577fa4c4c408ae6132cbbb91c6097af59e0cd5dd8fc6c374b10b1734",
+      "after": "da635a010b5ce26db101037e6fb0f96ca888e705673bf065c73a4eb9eb8c5868"
+    },
+    "src/app/weekly-report/page.tsx": {
+      "before": "53ede95dca2d91e6d02c543da16c8142f41d7402585f46d9811ea3ca834cfcf3",
+      "after": "bd7be48d0aca83a736d4fb30f334827c50c801a92bbaaf0bf01f217411767fff"
     }
   },
   "selectors": {
@@ -92,6 +128,10 @@
     "src/components/learn/MemoryMatchGame.tsx": {
       "reason": "Memory Match: English word to Arabic meaning pairs (a word matched with itself taught nothing) and two-sided cards so text is not mirrored.",
       "after": "6415e5fb458d844578da9d7fb39b851da340af24cc9d31de6214cca3ab54ff4f"
+    },
+    "src/app/b2-pruefung/page.tsx": {
+      "reason": "B2 guide: brand page banner and callout replace the plain heading and yellow block; guide content unchanged.",
+      "after": "2ec52fcbb84746e3ee2461ccef300c024f8b96624ac8ebc0b8f5102ca0c054b4"
     }
   }
 }
