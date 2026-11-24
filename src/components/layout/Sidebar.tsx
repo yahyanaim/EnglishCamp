@@ -11,7 +11,7 @@ import { cn } from "@/lib/utils";
 import {
   GraduationCap, BarChart3, BookOpen, Library, Lightbulb,
   ChevronRight, Sparkles, BookMarked, MessageSquareText,
-  BookHeart, Search, Zap, AlertTriangle, Languages, Route,
+  BookHeart, Search, Zap, AlertTriangle, Languages,
   BookOpenText, BookCopy, BarChart4, Gamepad2, ChevronDown,
   Table2, Link2, MapPin, BookA, MessageCircle,
   Puzzle, Layout, Quote, BookText,
@@ -83,7 +83,6 @@ const NAV_SECTIONS: NavSection[] = [
     id: "grammar", label: "Grammar", icon: Languages,
     links: [
       { href: "/grammar", label: "Grammar Ref", icon: Languages },
-      { href: "/grammar/roadmap", label: "Grammar Roadmap", icon: Route },
       { href: "/verb-conjugation", label: "Verb Conjugation", icon: BookMarked },
       { href: "/prepositions", label: "Prepositions Guide", icon: Table2 },
       { href: "/grammar-compare", label: "Compare", icon: ArrowLeftRight },

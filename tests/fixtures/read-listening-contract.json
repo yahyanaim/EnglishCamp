@@ -19,7 +19,7 @@
     },
     "src/components/layout/Sidebar.tsx": {
       "before": "2a94206b4a6fcb8b811a4176560c6f5b5039b4fab8138a1e59a55bd6eaa0b21a",
-      "after": "9924e14919d6a32c8ea7b5c392dde26aae9dd0f8d6ff68433b0a3d8e6ac728cb"
+      "after": "12c4fca03a8dfc00868c4239c26c060a3850cd78a03615e720fdaadb89bfa54e"
     },
     "src/components/layout/TopBar.tsx": {
       "before": "756390d54e5b52d540494bc834198fdf14618144e7a46dfebefb087c8652c36b",
@@ -163,7 +163,7 @@
     },
     "src/components/learn/GrammarReference.tsx": {
       "before": "f388680878861c07b535f8c3e5aff76aa9ce175c13aa051d68b288bdb9d5b661",
-      "after": "eb0c3cab1f602e4c1cf3251f67b45382fec57d1901a674f50b26281325cd32fa"
+      "after": "999238230916be5de797f014ecba3cef3ee4b81efa72afa6ed6aa2d92b9f8a87"
     },
     "src/components/learn/GrammarFoundationLesson.tsx": {
       "before": "50e2b4b9804ecd31573162f611db549c1d4804729c9a5c248f9bb3b3d65b7316",
@@ -195,7 +195,7 @@
     },
     "src/lib/learningNavigation.ts": {
       "before": "14cfaa1f3599d68e3cd3611deaedb55390cf7c0f69b8749fabcc8561fa4d35ae",
-      "after": "3c13326ff5f38087e223fa6ae3c2700302474001feeac4bde8c96548de3985cc"
+      "after": "14cfaa1f3599d68e3cd3611deaedb55390cf7c0f69b8749fabcc8561fa4d35ae"
     },
     "src/app/daily-challenge/page.tsx": {
       "before": "376322e3b48c4d74d93dfa1b41f1eeb1bac0548e2a3b8a63bc5db0424c8fd8e0",
@@ -246,7 +246,7 @@
     },
     "src/components/learn/GrammarReference.tsx": {
       "reason": "Grammar Reference: CEFR level per section, 19 new original lessons, search and A1-B2 level filter grouped like the Practice Hub; legacy teaching text unchanged.",
-      "after": "f015f91e09cbeb5e913dff57b231ebdc9ea990f1d46baba293ef3b71e49349e3"
+      "after": "e0f59842759525ae030c3953d33f67b748058fcffaaed80a2c155a887002972c"
     },
     "src/components/learn/SpeedMatch.tsx": {
       "reason": "Speed Match: pair-count row exposes aria-pressed and uses the shared segmented control.",

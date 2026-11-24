@@ -28,7 +28,6 @@ export const LEARNING_SECTIONS: Record<string, "grammar" | "practice" | "vocabul
   "/grammar": "grammar",
   "/grammar-compare": "grammar",
   "/grammar/cheat-sheet": "grammar",
-  "/grammar/roadmap": "grammar",
   "/idiom-match": "practice",
   "/idiom-practice": "practice",
   "/idioms": "vocabulary",
