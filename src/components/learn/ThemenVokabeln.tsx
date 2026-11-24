@@ -108,11 +108,11 @@ export function TopicVocabulary() {
 
         <div className="flex flex-wrap gap-1.5 justify-center mt-4">
           <PracticeButton onClick={() => setTopicFilter("all")}
-            className={`rounded-[8px] px-2.5 py-1 text-[10px] font-bold transition-all ${topicFilter === "all" ? "bg-slate-800 text-white" : "bg-[var(--color-surface-alt)] text-[var(--color-text-secondary)] hover:bg-[var(--color-border-default)]"}`}
+            className={`rounded-[8px] px-2.5 py-1 text-[10px] font-bold transition-all ${topicFilter === "all" ? "bg-[var(--color-primary)] text-[var(--color-on-brand)]" : "bg-[var(--color-surface-alt)] text-[var(--color-text-secondary)] hover:bg-[var(--color-border-default)]"}`}
           >All Topics</PracticeButton>
           {topicOptions.map((t) => (
             <PracticeButton key={t.id} onClick={() => setTopicFilter(t.id)}
-              className={`rounded-[8px] px-2.5 py-1 text-[10px] font-bold transition-all ${topicFilter === t.id ? "bg-slate-800 text-white" : "bg-[var(--color-surface-alt)] text-[var(--color-text-secondary)] hover:bg-[var(--color-border-default)]"}`}
+              className={`rounded-[8px] px-2.5 py-1 text-[10px] font-bold transition-all ${topicFilter === t.id ? "bg-[var(--color-primary)] text-[var(--color-on-brand)]" : "bg-[var(--color-surface-alt)] text-[var(--color-text-secondary)] hover:bg-[var(--color-border-default)]"}`}
             ><LearningArt name={t.icon} size={16} /> {t.label.split("(")[0].trim()}</PracticeButton>
           ))}
         </div>

@@ -13,20 +13,26 @@
   --glass-hair: rgba(28, 16, 48, 0.07);
   --glass-shine: rgba(255, 255, 255, 0.95);
   --glass-shadow: rgba(28, 16, 48, 0.14);
-  --glass-card: linear-gradient(145deg, rgba(255, 255, 255, 0.74) 0%, rgba(255, 255, 255, 0.5) 55%, color-mix(in srgb, var(--glass-tint) 4%, rgba(255, 255, 255, 0.66)) 100%);
+  --glass-card: linear-gradient(145deg, rgba(255, 255, 255, 0.66) 0%, rgba(255, 255, 255, 0.4) 55%, color-mix(in srgb, var(--glass-tint) 6%, rgba(255, 255, 255, 0.56)) 100%);
   --glass-card-hover: linear-gradient(145deg, rgba(255, 255, 255, 0.86) 0%, rgba(255, 255, 255, 0.62) 55%, color-mix(in srgb, var(--glass-tint) 7%, rgba(255, 255, 255, 0.78)) 100%);
-  --glass-chrome: linear-gradient(135deg, rgba(255, 255, 255, 0.76) 0%, rgba(255, 255, 255, 0.58) 52%, color-mix(in srgb, var(--glass-tint) 4%, rgba(255, 255, 255, 0.7)) 100%);
-  --glass-control: rgba(255, 255, 255, 0.62);
+  --glass-chrome: linear-gradient(135deg, rgba(255, 255, 255, 0.66) 0%, rgba(255, 255, 255, 0.46) 52%, color-mix(in srgb, var(--glass-tint) 6%, rgba(255, 255, 255, 0.6)) 100%);
+  --glass-control: rgba(255, 255, 255, 0.55);
   --glass-control-hover: rgba(255, 255, 255, 0.86);
-  /* Soft brand-coloured light behind the glass, so the frosting has something to refract. */
-  background-color: color-mix(in srgb, var(--glass-tint) 3%, var(--color-surface));
+}
+/* Soft brand-coloured light behind the glass, so the frosting has something to refract.
+   (Doubled class: reference.css paints the workspace solid white with the same specificity.) */
+body .camp-workspace.camp-workspace {
+  background-color: color-mix(in srgb, var(--glass-tint) 4%, #f4f2f8);
   background-image:
-    radial-gradient(58rem 34rem at 8% -6%, color-mix(in srgb, var(--glass-tint) 13%, transparent), transparent 60%),
-    radial-gradient(52rem 32rem at 94% 4%, color-mix(in srgb, var(--glass-tint) 8%, rgba(99, 102, 241, 0.08)), transparent 58%),
-    radial-gradient(50rem 34rem at 50% 58%, color-mix(in srgb, var(--glass-tint) 6%, transparent), transparent 62%),
-    radial-gradient(46rem 30rem at 16% 96%, color-mix(in srgb, var(--glass-tint) 8%, transparent), transparent 58%);
+    radial-gradient(60rem 36rem at 6% -8%, color-mix(in srgb, var(--glass-tint) 24%, transparent), transparent 60%),
+    radial-gradient(54rem 34rem at 96% 2%, rgba(99, 102, 241, 0.16), transparent 58%),
+    radial-gradient(52rem 36rem at 52% 56%, color-mix(in srgb, var(--glass-tint) 12%, transparent), transparent 62%),
+    radial-gradient(46rem 30rem at 12% 98%, color-mix(in srgb, var(--glass-tint) 16%, transparent), transparent 58%),
+    radial-gradient(40rem 28rem at 92% 92%, rgba(56, 189, 248, 0.10), transparent 58%);
   background-attachment: fixed;
 }
+/* Let that light reach the cards: the frame, centre column and page canvas stay clear. */
+body .camp-workspace :is(.camp-frame, .camp-centre, main.app-canvas, main.camp-content) { background: transparent !important; }
 .dark .camp-workspace {
   --glass-rim: rgba(255, 255, 255, 0.09);
   --glass-hair: rgba(255, 255, 255, 0.05);
@@ -37,13 +43,15 @@
   --glass-chrome: linear-gradient(135deg, color-mix(in srgb, var(--color-surface) 74%, transparent) 0%, color-mix(in srgb, var(--color-surface) 60%, transparent) 55%, color-mix(in srgb, var(--color-surface-alt) 70%, transparent) 100%);
   --glass-control: rgba(255, 255, 255, 0.06);
   --glass-control-hover: rgba(255, 255, 255, 0.12);
+}
+body.dark .camp-workspace.camp-workspace, .dark body .camp-workspace.camp-workspace {
   background-color: var(--color-surface);
   background-image:
-    radial-gradient(60rem 36rem at 10% -8%, color-mix(in srgb, var(--glass-tint) 20%, transparent), transparent 58%),
-    radial-gradient(54rem 34rem at 92% 6%, rgba(99, 102, 241, 0.1), transparent 58%),
-    radial-gradient(50rem 34rem at 50% 62%, color-mix(in srgb, var(--glass-tint) 10%, transparent), transparent 62%);
+    radial-gradient(60rem 36rem at 8% -8%, color-mix(in srgb, var(--glass-tint) 30%, transparent), transparent 58%),
+    radial-gradient(54rem 34rem at 94% 4%, rgba(99, 102, 241, 0.16), transparent 58%),
+    radial-gradient(50rem 34rem at 50% 62%, color-mix(in srgb, var(--glass-tint) 14%, transparent), transparent 62%),
+    radial-gradient(44rem 30rem at 14% 98%, color-mix(in srgb, var(--glass-tint) 18%, transparent), transparent 58%);
 }
-.camp-workspace .camp-frame { background: transparent; }
 
 /* ---------- Chrome: top bar, sidebars, learning rail, phone tab bar ---------- */
 .camp-workspace :is(.camp-toolbar, .camp-mobile-nav) {
@@ -69,15 +77,15 @@
   .camp-learning-library-card, .camp-hub-today-tile, .camp-stats-tile, .camp-stats-card, .camp-stats-hero-kpis > div,
   .bg-card, [data-practice-surface],
   :is(div, section, article, li, a)[class*="bg-[var(--color-surface)]"][class*="rounded"]
-):not([class*="banner"], [class*="hero"], .text-white) {
+):not([class*="banner"], [class*="hero"], .text-white, .camp-dashboard-stats .camp-xp-card) {
   position: relative;
   background: var(--glass-card) !important;
   border-color: var(--glass-rim) !important;
   box-shadow: 0 12px 30px -16px var(--glass-shadow), 0 0 0 1px var(--glass-hair), inset 0 2px 0 var(--glass-shine), inset 1px 0 0 color-mix(in srgb, var(--glass-shine) 70%, transparent), inset 0 -1.5px 0 var(--glass-hair) !important;
   transition: transform .28s cubic-bezier(.22, 1, .36, 1), box-shadow .28s cubic-bezier(.22, 1, .36, 1), border-color .24s ease, background .24s ease;
 }
-/* Frosting only on larger screens with a pointer, where it is cheap enough to run on many cards. */
-@media (min-width: 1024px) and (hover: hover) {
+/* Frosting on tablets and desktops; phones keep the translucent glass without the blur cost. */
+@media (min-width: 640px) {
   .camp-frame main.camp-content :is(.camp-learning-library-card, .camp-hub-today-tile, .camp-stats-tile, .camp-stats-card, .bg-card, [data-practice-surface]):not([class*="banner"], [class*="hero"]) {
     -webkit-backdrop-filter: blur(22px) saturate(200%);
     backdrop-filter: blur(22px) saturate(200%);

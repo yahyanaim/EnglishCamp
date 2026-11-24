@@ -31,7 +31,7 @@
     },
     "src/data/speech-catalogue.json": {
       "before": "3597f0ff04aaa2abc53cbf4f94728147685e1ed45b55f33d156f3057b4ab5578",
-      "after": "2bd54c08e9564fd8fffbdc80b6ebab002ed9ab0e9c805ef3252f7925c91bd622"
+      "after": "bdf8f9f75180916948727cfd650ad724e30c5f0795217f01898e148d3f72404a"
     },
     "src/app/stats/page.tsx": {
       "before": "8eef801b1a2797e8410fef22d6d6cf75492bb811e3e0f86dd6c6415f1a93b1fe",
@@ -108,6 +108,22 @@
     "src/app/weekly-report/page.tsx": {
       "before": "53ede95dca2d91e6d02c543da16c8142f41d7402585f46d9811ea3ca834cfcf3",
       "after": "bd7be48d0aca83a736d4fb30f334827c50c801a92bbaaf0bf01f217411767fff"
+    },
+    "src/components/learn/GrammarReference.tsx": {
+      "before": "f388680878861c07b535f8c3e5aff76aa9ce175c13aa051d68b288bdb9d5b661",
+      "after": "f5a0f7f677dc44006778215d07338b8c6e164e5ff860cd14b333aed8e06462d1"
+    },
+    "src/components/learn/GrammarFoundationLesson.tsx": {
+      "before": "50e2b4b9804ecd31573162f611db549c1d4804729c9a5c248f9bb3b3d65b7316",
+      "after": "2de86d3692262f69a7949f02c72f59734b613b060363608cd5705f23a87777f7"
+    },
+    "src/components/learn/ThemenVokabeln.tsx": {
+      "before": "f68732dcf668c471857f53fbc091337f7ed95b072d2014a983854b013b929c49",
+      "after": "55b512627a532780ae77330f4d428a406a9d8186c5d4fe66508feb366c46a7de"
+    },
+    "src/components/learn/SpeedMatch.tsx": {
+      "before": "51fb6d58c8750de2bbfe25b2f485e5b5303e50476052d81e17b5b3e3a79acf96",
+      "after": "4fd3fcfbba6ea4ca49b92ba3416e2eb6b25f72db0761d99cd2f7e8c193590401"
     }
   },
   "selectors": {
@@ -124,6 +140,13 @@
       "after": "b90f38a6b7f88c17637d6e4312689cb4ba7c3e01f0aafdcb81c4183d09ffd052"
     }
   },
+  "grammarUi": {
+    "src/components/learn/GrammarReference.tsx": {
+      "reason": "Grammar Reference level filter adds search and level state and the filter buttons; accordion toggles unchanged.",
+      "handlers": "f33ca5f945c5bf3cb4a7bf815ade3b6aef66146f08984799ab4b44de27c468ef",
+      "initialState": "9490f4751ec062077ca9b8dabf42f2c7c44273562d0db4a72470ee7c862128ab"
+    }
+  },
   "practiceLogic": {
     "src/components/learn/MemoryMatchGame.tsx": {
       "reason": "Memory Match: English word to Arabic meaning pairs (a word matched with itself taught nothing) and two-sided cards so text is not mirrored.",
@@ -132,6 +155,18 @@
     "src/app/b2-pruefung/page.tsx": {
       "reason": "B2 guide: brand page banner and callout replace the plain heading and yellow block; guide content unchanged.",
       "after": "2ec52fcbb84746e3ee2461ccef300c024f8b96624ac8ebc0b8f5102ca0c054b4"
+    },
+    "src/components/learn/GrammarReference.tsx": {
+      "reason": "Grammar Reference: CEFR level per section, 19 new original lessons, search and A1-B2 level filter grouped like the Practice Hub; legacy teaching text unchanged.",
+      "after": "38234e920976fffed8e110bc205a8bb0dd7855eed59039cc3b1d5fe76b8df28c"
+    },
+    "src/components/learn/SpeedMatch.tsx": {
+      "reason": "Speed Match: pair-count row exposes aria-pressed and uses the shared segmented control.",
+      "after": "e5a0cfbb2d8a3be6e534a5bdae9c006e8914b4b9094c8d1aee09235d97aec8f4"
+    },
+    "src/components/learn/ThemenVokabeln.tsx": {
+      "reason": "Topic Vocabulary: selected topic chip uses the brand primary colour instead of slate black.",
+      "after": "d06de26d07c1c9d589011b7023028057a9d9ab90060d83957191b04d4aae7360"
     }
   }
 }

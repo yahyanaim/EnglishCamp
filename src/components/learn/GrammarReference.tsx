@@ -2,8 +2,9 @@
 import { LearningArt } from "@/components/brand/LearningArt";
 import { PracticeButton } from "@/components/ui/PracticeSurface";
 import { translatedGrammarParagraphs } from "./GrammarTranslation";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { GRAMMAR_EXTENSIONS } from "@/data/grammar-extensions";
+import { GRAMMAR_MORE } from "@/data/grammar-reference-more";
 import { GrammarFoundationLesson } from "./GrammarFoundationLesson";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, BookOpen } from "lucide-react";
@@ -12,14 +13,20 @@ function T({ de, en }: { de: string; en: string }) {
   return <span>{en}</span>;
 }
 
+type GrammarLevel = "A1" | "A2" | "B1" | "B2";
 type Section = {
   id: string;
   title: string;
+  level?: GrammarLevel;
   content: React.ReactNode;
 };
+const LEVELS: GrammarLevel[] = ["A1", "A2", "B1", "B2"];
+const LEVEL_NAMES: Record<GrammarLevel, string> = { A1: "Beginner", A2: "Elementary", B1: "Intermediate", B2: "Upper intermediate" };
+/** CEFR level for the hand-written reference sections below. */
+const LEGACY_LEVELS: Record<string, GrammarLevel> = { articles: "A1", "present-tenses": "A1", prepositions: "A1", "past-tenses": "A2", "future-tenses": "A2", "modal-verbs": "A2", comparatives: "A2", conditionals: "B1", passive: "B1", "reported-speech": "B2" };
+const asLevel = (level: string): GrammarLevel => (LEVELS as string[]).includes(level) ? level as GrammarLevel : "B2";
 
-export const SECTIONS: Section[] = [
-  ...GRAMMAR_EXTENSIONS.map(lesson=>({id:lesson.id,title:lesson.title,content:<GrammarFoundationLesson lesson={lesson} translateOnInteraction/>})),
+const LEGACY_SECTIONS: Section[] = [
   {
     id: "articles",
     title: "Articles (a/an/the)",
@@ -365,13 +372,39 @@ export const SECTIONS: Section[] = [
   },
 ];
 
+export const SECTIONS: Section[] = [
+  ...GRAMMAR_EXTENSIONS.map(lesson=>({id:lesson.id,title:lesson.title,level:asLevel(lesson.level),content:<GrammarFoundationLesson lesson={lesson} translateOnInteraction/>})),
+  ...GRAMMAR_MORE.map(lesson=>({id:lesson.id,title:lesson.title,level:asLevel(lesson.level),content:<GrammarFoundationLesson lesson={lesson}/>})),
+  ...LEGACY_SECTIONS.map(section=>({...section,level:LEGACY_LEVELS[section.id] ?? "B1"})),
+];
+
+type LevelFilter = "all" | GrammarLevel;
+const sectionLevel = (section: Section): GrammarLevel => section.level ?? "B1";
+
 export function GrammarReference() {
   const [openSection, setOpenSection] = useState<string | null>(null);
-  useEffect(()=>{const reveal=()=>{const id=window.location.hash.slice(1);if(SECTIONS.some(section=>section.id===id))setOpenSection(id);};reveal();window.addEventListener("hashchange",reveal);return()=>window.removeEventListener("hashchange",reveal);},[]);
+  const [level, setLevel] = useState<LevelFilter>("all");
+  const [query, setQuery] = useState("");
+  useEffect(()=>{const reveal=()=>{const id=window.location.hash.slice(1);if(SECTIONS.some(section=>section.id===id)){setLevel("all");setQuery("");setOpenSection(id);requestAnimationFrame(()=>document.getElementById(id)?.scrollIntoView({block:"start"}));}};reveal();window.addEventListener("hashchange",reveal);return()=>window.removeEventListener("hashchange",reveal);},[]);
+  const counts = useMemo(()=>Object.fromEntries(LEVELS.map(l=>[l,SECTIONS.filter(s=>sectionLevel(s)===l).length])) as Record<GrammarLevel,number>,[]);
+  const needle = query.trim().toLowerCase();
+  const visible = SECTIONS.filter(s=>(level==="all"||sectionLevel(s)===level)&&(!needle||s.title.toLowerCase().includes(needle)));
+  const groups = LEVELS.map(l=>({level:l,sections:visible.filter(s=>sectionLevel(s)===l)})).filter(g=>g.sections.length>0);
 
   return (
     <div className="camp-grammar-reference">
-      {SECTIONS.map((section) => {
+      <div className="camp-grammar-toolbar" role="search">
+        <label className="camp-grammar-search"><span className="sr-only">Search grammar lessons</span><input type="search" value={query} onChange={e=>setQuery(e.target.value)} placeholder="Search grammar lessons" /></label>
+        <div className="camp-grammar-levels" role="group" aria-label="Filter by level" data-grid-free>
+          <button type="button" aria-pressed={level==="all"} onClick={()=>setLevel("all")}>All <span>{SECTIONS.length}</span></button>
+          {LEVELS.map(l=><button key={l} type="button" aria-pressed={level===l} data-level={l} onClick={()=>setLevel(l)}>{l} <span>{counts[l]}</span></button>)}
+        </div>
+        <p className="camp-grammar-count" aria-live="polite">{visible.length} {visible.length===1?"lesson":"lessons"}{level!=="all"?` · ${LEVEL_NAMES[level]}`:""}</p>
+      </div>
+      {groups.length===0&&<p className="camp-grammar-empty">No lessons match “{query}”. Try another word or choose All.</p>}
+      {groups.map(group=><section key={group.level} className="camp-grammar-level-group" aria-labelledby={`grammar-level-${group.level}`}>
+        <header className="camp-grammar-level-heading"><span className="camp-grammar-level-badge" data-level={group.level}>{group.level}</span><h2 id={`grammar-level-${group.level}`}>{LEVEL_NAMES[group.level]}</h2><span className="camp-grammar-level-count">{group.sections.length} {group.sections.length===1?"lesson":"lessons"}</span></header>
+      {group.sections.map((section) => {
         const isOpen = openSection === section.id;
         return (
           <div
@@ -379,7 +412,7 @@ export function GrammarReference() {
             id={section.id}
             className="camp-grammar-accordion-card bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] overflow-hidden shadow-sm" style={{ boxShadow: "0 3px 0 var(--color-border-default)" }}
           >
-            <h2 className="camp-grammar-section-header"><PracticeButton
+            <h3 className="camp-grammar-section-header"><PracticeButton
               id={`grammar-toggle-${section.id}`}
               aria-expanded={isOpen} aria-controls={`grammar-${section.id}`}
               onClick={() => setOpenSection(isOpen ? null : section.id)}
@@ -388,13 +421,14 @@ export function GrammarReference() {
               <div className="flex items-center gap-2">
                 <LearningArt name="BookOpen" size={16} className="w-4 h-4 text-[var(--color-primary)]" />
                 <span className="text-sm font-semibold text-[var(--color-text-primary)]">{section.title}</span>
+                <span className="camp-grammar-level-badge camp-grammar-level-badge--small" data-level={sectionLevel(section)}>{sectionLevel(section)}</span>
               </div>
               <ChevronDown
                 className={`w-4 h-4 text-[var(--color-text-secondary)] transition-transform duration-200 ${
                   isOpen ? "rotate-180" : ""
                 }`}
               />
-            </PracticeButton></h2>
+            </PracticeButton></h3>
             <AnimatePresence initial={false}>
               {isOpen && (
                 <motion.div
@@ -413,6 +447,7 @@ export function GrammarReference() {
           </div>
         );
       })}
+      </section>)}
     </div>
   );
 }
