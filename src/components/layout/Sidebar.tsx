@@ -24,6 +24,14 @@ import {
 import { useProgress } from "@/store/useProgress";
 import { getLevelInfo } from "@/lib/xp";
 import { courseCatalogue as levels } from "@/data/course-catalogue";
+
+/** Compact sidebar labels; the full course title stays in the tooltip and on the course page. */
+const NAV_COURSE_SHORT: Record<string, [string, string]> = {
+  "band4-5": ["B2 First", "B2"],
+  "band5-6": ["IELTS Academic", "6.5+"],
+  "band6-7": ["TOEFL iBT", "1–6"],
+  "band7-8": ["IELTS General", "7.5+"],
+};
 import type { LucideIcon } from "lucide-react";
 
 type NavLink = { href: string; label: string; icon: LucideIcon; dot?: boolean; accent?: string; group?: string };
@@ -372,8 +380,7 @@ export function Sidebar({ open, onClose }: { open?: boolean; onClose?: () => voi
               <div className="flex items-center justify-center w-7 h-7 rounded-[var(--radius-md)] bg-indigo-500/10 text-indigo-500 shrink-0">
                 <Dumbbell className="w-3.5 h-3.5" />
               </div>
-              <span className={cn("flex-1 min-w-0", onClose ? "break-words" : "truncate")}>Practice Drills & Revision</span>
-              <span className="text-[9px] font-extrabold uppercase px-1.5 py-0.5 rounded-full bg-indigo-500/20 text-indigo-600 dark:text-indigo-400 shrink-0">Hub</span>
+              <span className="flex-1 min-w-0 truncate" title="Practice Drills & Revision">Drills & Revision</span>
             </Link>
 
             {levels.map((level, i) => {
@@ -391,8 +398,7 @@ export function Sidebar({ open, onClose }: { open?: boolean; onClose?: () => voi
                   )}>
                     <LearningArt name={Icon.displayName || "book"} className="w-3.5 h-3.5" />
                   </div>
-                  <span className={cn("flex-1 min-w-0", onClose ? "break-words" : "truncate")}>{level.title}</span>
-                  <span className="text-[9px] font-bold uppercase px-1.5 py-0.5 rounded-[var(--radius-pill)] shrink-0" style={{ color: "var(--camp-control-ink)", backgroundColor: "var(--camp-purple-soft)" }}>{level.examBadge || level.id}</span>
+                  <span className="flex-1 min-w-0 truncate" title={`${level.title}${level.examBadge ? ` · ${level.examBadge}` : ""}`}>{NAV_COURSE_SHORT[level.id]?.[0] ?? level.title}</span>
                 </Link>
               );
             })}

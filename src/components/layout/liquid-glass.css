@@ -527,3 +527,8 @@ body .camp-workspace :is(.camp-frame, .camp-centre, main.app-canvas, main.camp-c
   background: linear-gradient(180deg, #e11d48, #be123c) !important; border: 1px solid #be123c !important; box-shadow: 0 6px 14px -8px rgba(190, 18, 60, .7), inset 0 1px 0 rgba(255, 255, 255, .25) !important;
 }
 @media (max-width: 639px) { .camp-frame main.camp-content .camp-exam-runbar.camp-exam-runbar:not(#_) { top: 80px !important; } }
+
+/* Course library rows: one compact line — short name left, small tag right. */
+.camp-workspace .camp-sidebar nav a:not(#_):not(#__):has(> span:last-child:not(:first-child)[class*="rounded"]) { display: flex !important; align-items: center; gap: 10px; padding-block: 0 !important; min-height: 40px; }
+.camp-workspace .camp-sidebar nav a:not(#_):not(#__) > span:last-child:not(:first-child)[class*="rounded"] { margin-inline-start: auto !important; }
+.camp-workspace .camp-sidebar nav a:not(#_):not(#__):has(> span:last-child:not(:first-child)[class*="rounded"]) > span:nth-last-child(2) { white-space: nowrap !important; overflow: hidden !important; text-overflow: ellipsis !important; flex: 1 1 auto; min-width: 0; }

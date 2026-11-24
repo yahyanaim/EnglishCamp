@@ -50,7 +50,7 @@ export function ExamAudio({
     if (!el || !src || (!review && completed)) return;
     setError("");
     if (!el.paused) {
-      if (review) el.pause();
+      el.pause();
       return;
     }
     if (el.error) el.load();
@@ -145,9 +145,9 @@ export function ExamAudio({
         <ControlButton variant="unstyled" size="unstyled"
           className={primaryButton}
           onClick={play}
-          disabled={!src || (!review && (completed || playing))}
+          disabled={!src || (!review && completed)}
         >
-          {playing && review ? (
+          {playing ? (
             <Pause className="w-4 h-4" />
           ) : (
             <Play className="w-4 h-4" />
@@ -155,12 +155,12 @@ export function ExamAudio({
           {error
             ? "Retry audio"
             : playing
-              ? review
-                ? "Pause Audio Stream"
-                : "Audio playing…"
+              ? "Pause audio"
               : completed && !review
                 ? "Playback complete"
-                : "Play Audio Stream"}
+                : !review && progress.offset > 0
+                  ? "Resume audio"
+                  : "Play audio"}
         </ControlButton>
         <span className={smallClass}>
           {review

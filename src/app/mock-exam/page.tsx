@@ -88,7 +88,7 @@ function MockExamContent() {
   const [now, setNow] = useState(Date.now()),
     [storageError, setStorageError] = useState(""),
     [busy, setBusy] = useState(false),
-    [audioBusy, setAudioBusy] = useState(false),
+    [, setAudioBusy] = useState(false),
     [transitioning, setTransitioning] = useState(false);
   const recorder = useRef<ExamRecorderHandle>(null),
     current = useRef(attempt),
@@ -534,12 +534,6 @@ function MockExamContent() {
       ? availableSections(paper, attempt, skill)
       : [];
   const section = sections[attempt.sectionIndex];
-  const firstUnheard =
-    skill === "listening"
-      ? sections.findIndex(
-          (s) => (attempt.playback[s.id]?.completed || 0) < (s.plays || 1),
-        )
-      : -1;
   const toefl = paper.id === "toefl-ibt";
   const spoken = paper.speaking[attempt.speakingIndex];
   const progress = section
@@ -558,6 +552,7 @@ function MockExamContent() {
   function navigateSection(index: number) {
     setAudioBusy(false);
     update((s) => ({ ...s, sectionIndex: index, questionIndex: 0 }));
+    if (typeof window !== "undefined") window.scrollTo({ top: 0, behavior: "smooth" });
   }
   function nextListening() {
     if (!section) return;
@@ -618,6 +613,7 @@ function MockExamContent() {
                 key={key}
                 disabled={key !== skill}
                 aria-current={key === skill ? "step" : undefined}
+                title={key === skill ? undefined : index < attempt.skillIndex ? "Completed" : "Opens when you submit the current part"}
                 className={`flex items-center gap-2 px-4 py-2 rounded-t-[var(--radius-md)] font-display text-xs font-bold transition-all ${key === skill ? "bg-[var(--color-primary)] text-[var(--color-on-brand)] shadow-sm" : "text-[var(--color-text-secondary)]"}`}
               >
                 <LearningArt name={Icon.displayName || "book"} className="w-4 h-4" />
@@ -656,13 +652,8 @@ function MockExamContent() {
                 {sections.map((s, index) => (
                   <ControlButton variant="unstyled" size="unstyled"
                     key={s.id}
-                    disabled={
-                      audioBusy ||
-                      transitioning ||
-                      (skill === "listening" &&
-                        firstUnheard >= 0 &&
-                        index > firstUnheard)
-                    }
+                    disabled={transitioning}
+                    aria-current={attempt.sectionIndex === index ? "step" : undefined}
                     onClick={() => navigateSection(index)}
                     className={`px-3.5 py-1.5 rounded-[var(--radius-md)] text-xs font-display font-bold whitespace-nowrap transition-all ${attempt.sectionIndex === index ? "bg-[var(--color-primary)] text-[var(--color-on-brand)] shadow-sm" : "bg-[var(--color-surface)] border border-[var(--color-border-default)] text-[var(--color-text-secondary)] hover:bg-[var(--color-surface-alt)]"}`}
                   >
@@ -750,7 +741,7 @@ function MockExamContent() {
               {!(toefl && skill === "listening") && (
                 <ControlButton variant="unstyled" size="unstyled"
                   className={secondaryButton}
-                  disabled={attempt.sectionIndex === 0 || audioBusy}
+                  disabled={attempt.sectionIndex === 0 || transitioning}
                   onClick={() => navigateSection(attempt.sectionIndex - 1)}
                 >
                   <ChevronLeft className="w-4 h-4" />
@@ -758,14 +749,14 @@ function MockExamContent() {
                 </ControlButton>
               )}
               <span className={smallClass}>
+                {skill === "listening" && !heard && !toefl ? "Recording not finished · it keeps its place · " : ""}
                 {attempt.sectionIndex + 1} / {sections.length} sections in this{" "}
                 {toefl ? "module" : "skill"}
               </span>
               <ControlButton variant="unstyled" size="unstyled"
                 disabled={
                   transitioning ||
-                  audioBusy ||
-                  (skill === "listening" && !heard)
+                  (toefl && skill === "listening" && !heard)
                 }
                 className={primaryButton}
                 onClick={() =>
@@ -791,7 +782,7 @@ function MockExamContent() {
             {skill === "listening" && (
               <ControlButton variant="unstyled" size="unstyled"
                 className={secondaryButton}
-                disabled={transitioning || audioBusy}
+                disabled={transitioning}
                 onClick={commit}
               >
                 Submit listening {toefl ? "module" : "section"} early

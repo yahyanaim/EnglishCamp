@@ -5,6 +5,18 @@
       "before": "004c1022a1b6679c39615ae3dfe6e66d62b56e88fcbb771c4d69a65723e160c7",
       "after": "c65bae08efa1a2bef5049809a8bc451760a2012b06ce17b11a77ec4789ff5f55"
     },
+    "src/components/lesson/CalloutBlock.tsx": {
+      "before": "9549d39d2731666c5672f797512be2ff550a3f4770416d4bdeeea75d039e5bfa",
+      "after": "3638acba2947ebed77de6b158acadc2a9d230c0eacd69259e4440b699485563e"
+    },
+    "src/components/lesson/LessonContent.tsx": {
+      "before": "ce33370fb66a6574dd2274dbf1e940ea7a3ad72a899c07886c3eed3f404ac577",
+      "after": "3175dfe2a0ebe81f38b606b7974494e8b1c254c0087655629e61d4b5b8c9ddf5"
+    },
+    "src/components/mock-exam/ExamAudio.tsx": {
+      "before": "3715ddd3746964c38c7a17e95a8f1c3e30f0c393ea0e5bf0d0e233a01c769d50",
+      "after": "81f9fa424f079529d680feaca1d7c4ed5b309adba10ba0f3fad4201c62d38aac"
+    },
     "src/app/false-friends/page.tsx": {
       "before": "5e21746cd50b952e945da9e4f011409c1bcb194172def040de3abff60c6d5f1d",
       "after": "7d643ff3a09c48634c73ee0e61014a505ae85d8f8407da4fa3fdfa1b11da0c09"
@@ -43,7 +55,7 @@
     },
     "src/components/layout/Sidebar.tsx": {
       "before": "2a94206b4a6fcb8b811a4176560c6f5b5039b4fab8138a1e59a55bd6eaa0b21a",
-      "after": "102ea62c19d742ee6d4e865af74bdbd4b04c9672d71569999eb6b3250989aa43"
+      "after": "1e6bfe020728a1d43107b60a697f773aecb3e950769449e89f4ed518fb6a4747"
     },
     "src/components/layout/TopBar.tsx": {
       "before": "756390d54e5b52d540494bc834198fdf14618144e7a46dfebefb087c8652c36b",
@@ -123,7 +135,7 @@
     },
     "src/app/mock-exam/page.tsx": {
       "before": "9afd93cd48c09852fc1542ffefbb29f12c094ba56ca2c3687a032b81cff0c592",
-      "after": "1ef7a48c18cf068e15a574286724eed00a3beb86b2b8e794f1ded354f699871d"
+      "after": "c8c22afd9de5fd438ba6423cf72d3f3f6293ccb1942f502294eb937917c064f2"
     },
     "src/components/learn/FalseFriendsUebersetzer.tsx": {
       "before": "a434ac297a2135f5b00999de2afdb8b0f042575e378f5aed93cad3bf7118ea3c",

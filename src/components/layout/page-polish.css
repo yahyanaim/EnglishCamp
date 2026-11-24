@@ -453,3 +453,23 @@
   .camp-frame main.camp-content .camp-notes-stats small { font-size: 11px; line-height: 1.3; }
   .camp-frame main.camp-content .camp-notes-sync:not(#_) { justify-content: flex-start; flex-direction: row; }
 }
+
+/* Lesson reading flow: one type scale for all course content (DM Sans 16 body, Nunito headings). */
+.camp-frame main.camp-content .camp-lesson-flow { display: grid; gap: 18px; }
+.camp-frame main.camp-content .camp-lesson-section { display: grid; gap: 12px; padding-top: 6px; }
+.camp-frame main.camp-content .camp-lesson-section > h3 { display: flex; align-items: center; gap: 10px; margin: 0; font: 700 19px/1.35 var(--font-display), Nunito, sans-serif !important; color: var(--color-text-primary); }
+.camp-frame main.camp-content .camp-lesson-section > h3::before { content: ""; width: 4px; height: 20px; border-radius: 4px; background: var(--g-primary, var(--camp-purple)); flex: none; }
+.camp-frame main.camp-content :is(.camp-lesson-section > p, .camp-lesson-p) { margin: 0; max-width: 72ch; font: 400 16px/1.75 var(--font-body), "DM Sans", sans-serif !important; color: var(--color-text-primary); }
+.camp-frame main.camp-content .camp-lesson-check { display: grid; gap: 10px; padding: 18px 20px; border-radius: 18px; background: var(--g-card); border: 1px solid var(--g-rim, var(--color-border-default)); box-shadow: var(--g-sheen, none), 0 10px 28px -20px rgba(76, 29, 149, .35); }
+.camp-frame main.camp-content .camp-lesson-check-label { justify-self: start; padding: 3px 10px; border-radius: 999px; background: var(--g-primary); color: #fff; font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+.camp-frame main.camp-content .camp-lesson-check p { margin: 0; font-size: 15px !important; line-height: 1.65 !important; color: var(--color-text-primary); }
+.camp-frame main.camp-content .camp-lesson-check details { border-top: 1px solid var(--g-hair, var(--color-border-default)); padding-top: 10px; }
+.camp-frame main.camp-content .camp-lesson-check summary { display: inline-flex; align-items: center; gap: 6px; min-height: 36px; padding: 0 14px; border-radius: 999px; background: var(--g-control); box-shadow: var(--g-control-shadow); font-size: 13px; font-weight: 650; color: var(--camp-control-ink); cursor: pointer; list-style: none; }
+.camp-frame main.camp-content .camp-lesson-check summary::-webkit-details-marker { display: none; }
+.camp-frame main.camp-content .camp-lesson-check details[open] summary { margin-bottom: 10px; }
+.camp-frame main.camp-content .camp-lesson-check details > p { color: var(--color-text-secondary); }
+.camp-frame main.camp-content .camp-callout:not(#_) { display: flex; gap: 14px; align-items: flex-start; padding: 16px 18px; border-radius: 16px; background: var(--g-control); border: 0; box-shadow: var(--g-control-shadow); }
+.camp-frame main.camp-content .camp-callout-icon { flex: none; display: grid; place-items: center; width: 36px; height: 36px; border-radius: 12px; background: var(--g-card); box-shadow: var(--g-control-shadow); }
+.camp-frame main.camp-content .camp-callout-title { margin: 0 0 4px; font: 700 13px/1.4 var(--font-display), Nunito, sans-serif !important; letter-spacing: .02em; color: var(--camp-control-ink); }
+.camp-frame main.camp-content .camp-callout-text { margin: 0; font-size: 15px !important; line-height: 1.65 !important; white-space: pre-line; color: var(--color-text-primary); }
+.camp-frame main.camp-content .camp-callout[data-tone="warning"] .camp-callout-title { color: #be123c; }
