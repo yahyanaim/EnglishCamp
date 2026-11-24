@@ -1,0 +1,632 @@
+{
+  "band1-ielts-intro": {
+    "title": "Concession: one meaning, different structures",
+    "light": "/media/diagrams/band1-ielts-intro-light.svg",
+    "dark": "/media/diagrams/band1-ielts-intro-dark.svg",
+    "width": 608,
+    "height": 132
+  },
+  "band1-listening-format": {
+    "title": "Corrections change the status of a detail",
+    "light": "/media/diagrams/band1-listening-format-light.svg",
+    "dark": "/media/diagrams/band1-listening-format-dark.svg",
+    "width": 678,
+    "height": 132
+  },
+  "band1-listening-gist": {
+    "title": "Gist links a topic to a communicative purpose",
+    "light": "/media/diagrams/band1-listening-gist-light.svg",
+    "dark": "/media/diagrams/band1-listening-gist-dark.svg",
+    "width": 638,
+    "height": 132
+  },
+  "band1-listening-attitude": {
+    "title": "Attitude is an evaluation with a degree of commitment",
+    "light": "/media/diagrams/band1-listening-attitude-light.svg",
+    "dark": "/media/diagrams/band1-listening-attitude-dark.svg",
+    "width": 611,
+    "height": 132
+  },
+  "band1-reading-skimming": {
+    "title": "A main idea explains why the details belong together",
+    "light": "/media/diagrams/band1-reading-skimming-light.svg",
+    "dark": "/media/diagrams/band1-reading-skimming-dark.svg",
+    "width": 750,
+    "height": 132
+  },
+  "band1-reading-scanning": {
+    "title": "A match is the intersection of all stated conditions",
+    "light": "/media/diagrams/band1-reading-scanning-light.svg",
+    "dark": "/media/diagrams/band1-reading-scanning-dark.svg",
+    "width": 725,
+    "height": 256
+  },
+  "band1-reading-completion": {
+    "title": "Cohesion gives reference words an identifiable meaning",
+    "light": "/media/diagrams/band1-reading-completion-light.svg",
+    "dark": "/media/diagrams/band1-reading-completion-dark.svg",
+    "width": 704,
+    "height": 148
+  },
+  "band1-writing-task1-overview": {
+    "title": "An argument connects a position to a reason",
+    "light": "/media/diagrams/band1-writing-task1-overview-light.svg",
+    "dark": "/media/diagrams/band1-writing-task1-overview-dark.svg",
+    "width": 621,
+    "height": 396
+  },
+  "band1-writing-trends": {
+    "title": "An article is shaped by its reader\u2019s interest",
+    "light": "/media/diagrams/band1-writing-trends-light.svg",
+    "dark": "/media/diagrams/band1-writing-trends-dark.svg",
+    "width": 728,
+    "height": 132
+  },
+  "band1-writing-integrated": {
+    "title": "An email is a purposeful exchange between people",
+    "light": "/media/diagrams/band1-writing-integrated-light.svg",
+    "dark": "/media/diagrams/band1-writing-integrated-dark.svg",
+    "width": 667,
+    "height": 132
+  },
+  "band1-writing-essay-structure": {
+    "title": "Genre changes what counts as useful evidence",
+    "light": "/media/diagrams/band1-writing-essay-structure-light.svg",
+    "dark": "/media/diagrams/band1-writing-essay-structure-dark.svg",
+    "width": 640,
+    "height": 132
+  },
+  "band1-writing-brainstorming": {
+    "title": "Development is a chain of related ideas",
+    "light": "/media/diagrams/band1-writing-brainstorming-light.svg",
+    "dark": "/media/diagrams/band1-writing-brainstorming-dark.svg",
+    "width": 628,
+    "height": 380
+  },
+  "band1-speaking-part1-intro": {
+    "title": "A developed answer grows from its central response",
+    "light": "/media/diagrams/band1-speaking-part1-intro-light.svg",
+    "dark": "/media/diagrams/band1-speaking-part1-intro-dark.svg",
+    "width": 725,
+    "height": 132
+  },
+  "band1-speaking-independent": {
+    "title": "Comparison uses a shared dimension",
+    "light": "/media/diagrams/band1-speaking-independent-light.svg",
+    "dark": "/media/diagrams/band1-speaking-independent-dark.svg",
+    "width": 608,
+    "height": 132
+  },
+  "band1-speaking-hometown": {
+    "title": "Interaction develops a shared line of reasoning",
+    "light": "/media/diagrams/band1-speaking-hometown-light.svg",
+    "dark": "/media/diagrams/band1-speaking-hometown-dark.svg",
+    "width": 592,
+    "height": 380
+  },
+  "band1-grammar-agreement": {
+    "title": "Agreement connects the subject head to its verb",
+    "light": "/media/diagrams/band1-grammar-agreement-light.svg",
+    "dark": "/media/diagrams/band1-grammar-agreement-dark.svg",
+    "width": 766,
+    "height": 153
+  },
+  "band1-vocab-awl1": {
+    "title": "Vocabulary knowledge includes a word\u2019s usual partners",
+    "light": "/media/diagrams/band1-vocab-awl1-light.svg",
+    "dark": "/media/diagrams/band1-vocab-awl1-dark.svg",
+    "width": 582,
+    "height": 132
+  },
+  "band1-vocab-synonyms": {
+    "title": "Paraphrases preserve a situation, not merely a topic",
+    "light": "/media/diagrams/band1-vocab-synonyms-light.svg",
+    "dark": "/media/diagrams/band1-vocab-synonyms-dark.svg",
+    "width": 564,
+    "height": 132
+  },
+  "band1-time-reading": {
+    "title": "Reading time serves an evidence search",
+    "light": "/media/diagrams/band1-time-reading-light.svg",
+    "dark": "/media/diagrams/band1-time-reading-dark.svg",
+    "width": 684,
+    "height": 256
+  },
+  "band1-time-writing": {
+    "title": "A plan is a model of the response\u2019s coverage",
+    "light": "/media/diagrams/band1-time-writing-light.svg",
+    "dark": "/media/diagrams/band1-time-writing-dark.svg",
+    "width": 718,
+    "height": 132
+  },
+  "band1-practice-listening": {
+    "title": "A longer account develops through time and perspective",
+    "light": "/media/diagrams/band1-practice-listening-light.svg",
+    "dark": "/media/diagrams/band1-practice-listening-dark.svg",
+    "width": 751,
+    "height": 132
+  },
+  "band1-review": {
+    "title": "Transfer shows whether knowledge is usable",
+    "light": "/media/diagrams/band1-review-light.svg",
+    "dark": "/media/diagrams/band1-review-dark.svg",
+    "width": 475,
+    "height": 256
+  },
+  "band2-listening-mcq": {
+    "title": "A decision has a history and a final state",
+    "light": "/media/diagrams/band2-listening-mcq-light.svg",
+    "dark": "/media/diagrams/band2-listening-mcq-dark.svg",
+    "width": 742,
+    "height": 132
+  },
+  "band2-listening-form-completion": {
+    "title": "A note preserves the relationship in the spoken claim",
+    "light": "/media/diagrams/band2-listening-form-completion-light.svg",
+    "dark": "/media/diagrams/band2-listening-form-completion-dark.svg",
+    "width": 689,
+    "height": 132
+  },
+  "band2-reading-tfng": {
+    "title": "Contradiction and missing evidence are different states",
+    "light": "/media/diagrams/band2-reading-tfng-light.svg",
+    "dark": "/media/diagrams/band2-reading-tfng-dark.svg",
+    "width": 707,
+    "height": 256
+  },
+  "band2-reading-headings": {
+    "title": "Paragraph purpose and located detail operate at different scales",
+    "light": "/media/diagrams/band2-reading-headings-light.svg",
+    "dark": "/media/diagrams/band2-reading-headings-dark.svg",
+    "width": 618,
+    "height": 132
+  },
+  "band2-reading-mcq": {
+    "title": "An inference extends only as far as its evidence",
+    "light": "/media/diagrams/band2-reading-mcq-light.svg",
+    "dark": "/media/diagrams/band2-reading-mcq-dark.svg",
+    "width": 704,
+    "height": 272
+  },
+  "band2-writing-letter": {
+    "title": "Maps describe spatial change; processes describe transformations",
+    "light": "/media/diagrams/band2-writing-letter-light.svg",
+    "dark": "/media/diagrams/band2-writing-letter-dark.svg",
+    "width": 665,
+    "height": 132
+  },
+  "band2-writing-opinion": {
+    "title": "A position answers the question through supported judgement",
+    "light": "/media/diagrams/band2-writing-opinion-light.svg",
+    "dark": "/media/diagrams/band2-writing-opinion-dark.svg",
+    "width": 619,
+    "height": 396
+  },
+  "band2-writing-problem-solution": {
+    "title": "A proposed solution acts on an identified mechanism",
+    "light": "/media/diagrams/band2-writing-problem-solution-light.svg",
+    "dark": "/media/diagrams/band2-writing-problem-solution-dark.svg",
+    "width": 685,
+    "height": 396
+  },
+  "band2-writing-cohesion": {
+    "title": "Coherence is a relationship between ideas",
+    "light": "/media/diagrams/band2-writing-cohesion-light.svg",
+    "dark": "/media/diagrams/band2-writing-cohesion-dark.svg",
+    "width": 637,
+    "height": 153
+  },
+  "band2-speaking-cue-card": {
+    "title": "A long turn develops a small number of connected ideas",
+    "light": "/media/diagrams/band2-speaking-cue-card-light.svg",
+    "dark": "/media/diagrams/band2-speaking-cue-card-dark.svg",
+    "width": 1006,
+    "height": 132
+  },
+  "band2-speaking-describe": {
+    "title": "Description becomes meaningful through selected detail",
+    "light": "/media/diagrams/band2-speaking-describe-light.svg",
+    "dark": "/media/diagrams/band2-speaking-describe-dark.svg",
+    "width": 807,
+    "height": 132
+  },
+  "band2-speaking-integrated": {
+    "title": "A general answer can be developed through a specific case",
+    "light": "/media/diagrams/band2-speaking-integrated-light.svg",
+    "dark": "/media/diagrams/band2-speaking-integrated-dark.svg",
+    "width": 674,
+    "height": 396
+  },
+  "band2-grammar-tenses": {
+    "title": "Time reference belongs to the claim being made",
+    "light": "/media/diagrams/band2-grammar-tenses-light.svg",
+    "dark": "/media/diagrams/band2-grammar-tenses-dark.svg",
+    "width": 598,
+    "height": 148
+  },
+  "band2-grammar-complex": {
+    "title": "Clause structure represents a logical relationship",
+    "light": "/media/diagrams/band2-grammar-complex-light.svg",
+    "dark": "/media/diagrams/band2-grammar-complex-dark.svg",
+    "width": 640,
+    "height": 132
+  },
+  "band2-vocab-awl2": {
+    "title": "A paraphrase preserves scope as well as topic",
+    "light": "/media/diagrams/band2-vocab-awl2-light.svg",
+    "dark": "/media/diagrams/band2-vocab-awl2-dark.svg",
+    "width": 757,
+    "height": 272
+  },
+  "band2-vocab-environment": {
+    "title": "A possible cause is different from an observed association",
+    "light": "/media/diagrams/band2-vocab-environment-light.svg",
+    "dark": "/media/diagrams/band2-vocab-environment-dark.svg",
+    "width": 475,
+    "height": 256
+  },
+  "band2-vocab-technology": {
+    "title": "A two-part prompt asks for two kinds of explanation",
+    "light": "/media/diagrams/band2-vocab-technology-light.svg",
+    "dark": "/media/diagrams/band2-vocab-technology-dark.svg",
+    "width": 632,
+    "height": 132
+  },
+  "band2-mistakes-countable": {
+    "title": "Countability determines how a quantity can be expressed",
+    "light": "/media/diagrams/band2-mistakes-countable-light.svg",
+    "dark": "/media/diagrams/band2-mistakes-countable-dark.svg",
+    "width": 568,
+    "height": 148
+  },
+  "band2-practice-reading": {
+    "title": "Question types ask for different operations on the same evidence",
+    "light": "/media/diagrams/band2-practice-reading-light.svg",
+    "dark": "/media/diagrams/band2-practice-reading-dark.svg",
+    "width": 696,
+    "height": 256
+  },
+  "band2-review": {
+    "title": "A study judgement depends on the evidence collected",
+    "light": "/media/diagrams/band2-review-light.svg",
+    "dark": "/media/diagrams/band2-review-dark.svg",
+    "width": 490,
+    "height": 256
+  },
+  "band3-listening-section3": {
+    "title": "A response answers a speaker\u2019s communicative action",
+    "light": "/media/diagrams/band3-listening-section3-light.svg",
+    "dark": "/media/diagrams/band3-listening-section3-dark.svg",
+    "width": 766,
+    "height": 132
+  },
+  "band3-listening-lecture": {
+    "title": "A talk\u2019s structure gives facts their roles",
+    "light": "/media/diagrams/band3-listening-lecture-light.svg",
+    "dark": "/media/diagrams/band3-listening-lecture-dark.svg",
+    "width": 687,
+    "height": 396
+  },
+  "band3-listening-multiple-speakers": {
+    "title": "A conversational decision emerges across turns",
+    "light": "/media/diagrams/band3-listening-multiple-speakers-light.svg",
+    "dark": "/media/diagrams/band3-listening-multiple-speakers-dark.svg",
+    "width": 758,
+    "height": 132
+  },
+  "band3-reading-summary-completion": {
+    "title": "An incomplete word belongs to a complete sentence",
+    "light": "/media/diagrams/band3-reading-summary-completion-light.svg",
+    "dark": "/media/diagrams/band3-reading-summary-completion-dark.svg",
+    "width": 592,
+    "height": 132
+  },
+  "band3-reading-matching-features": {
+    "title": "A practical notice defines an action and its conditions",
+    "light": "/media/diagrams/band3-reading-matching-features-light.svg",
+    "dark": "/media/diagrams/band3-reading-matching-features-dark.svg",
+    "width": 734,
+    "height": 132
+  },
+  "band3-reading-flowchart": {
+    "title": "An example serves a claim within an argument",
+    "light": "/media/diagrams/band3-reading-flowchart-light.svg",
+    "dark": "/media/diagrams/band3-reading-flowchart-dark.svg",
+    "width": 660,
+    "height": 396
+  },
+  "band3-writing-multiple-charts": {
+    "title": "A discussion contribution adds a supported idea",
+    "light": "/media/diagrams/band3-writing-multiple-charts-light.svg",
+    "dark": "/media/diagrams/band3-writing-multiple-charts-dark.svg",
+    "width": 711,
+    "height": 396
+  },
+  "band3-writing-maps-processes": {
+    "title": "An email connects a situation with a recipient\u2019s response",
+    "light": "/media/diagrams/band3-writing-maps-processes-light.svg",
+    "dark": "/media/diagrams/band3-writing-maps-processes-dark.svg",
+    "width": 774,
+    "height": 132
+  },
+  "band3-writing-discussion": {
+    "title": "A sentence is organised around a grammatical head and predicate",
+    "light": "/media/diagrams/band3-writing-discussion-light.svg",
+    "dark": "/media/diagrams/band3-writing-discussion-dark.svg",
+    "width": 833,
+    "height": 153
+  },
+  "band3-writing-advantages": {
+    "title": "Direct and embedded questions have different word order",
+    "light": "/media/diagrams/band3-writing-advantages-light.svg",
+    "dark": "/media/diagrams/band3-writing-advantages-dark.svg",
+    "width": 646,
+    "height": 132
+  },
+  "band3-writing-task-response": {
+    "title": "Task fulfilment is the successful completion of communication jobs",
+    "light": "/media/diagrams/band3-writing-task-response-light.svg",
+    "dark": "/media/diagrams/band3-writing-task-response-dark.svg",
+    "width": 746,
+    "height": 132
+  },
+  "band3-writing-formality": {
+    "title": "Academic register supports precise reasoning",
+    "light": "/media/diagrams/band3-writing-formality-light.svg",
+    "dark": "/media/diagrams/band3-writing-formality-dark.svg",
+    "width": 687,
+    "height": 396
+  },
+  "band3-speaking-part3": {
+    "title": "Repetition preserves wording as well as overall meaning",
+    "light": "/media/diagrams/band3-speaking-part3-light.svg",
+    "dark": "/media/diagrams/band3-speaking-part3-dark.svg",
+    "width": 640,
+    "height": 132
+  },
+  "band3-speaking-opinions": {
+    "title": "An interview answer links a personal position to an explanation",
+    "light": "/media/diagrams/band3-speaking-opinions-light.svg",
+    "dark": "/media/diagrams/band3-speaking-opinions-dark.svg",
+    "width": 776,
+    "height": 132
+  },
+  "band3-speaking-toefl4": {
+    "title": "Small words preserve the relationships inside a longer sentence",
+    "light": "/media/diagrams/band3-speaking-toefl4-light.svg",
+    "dark": "/media/diagrams/band3-speaking-toefl4-dark.svg",
+    "width": 719,
+    "height": 153
+  },
+  "band3-grammar-conditionals": {
+    "title": "A conditional links a circumstance to a possible result",
+    "light": "/media/diagrams/band3-grammar-conditionals-light.svg",
+    "dark": "/media/diagrams/band3-grammar-conditionals-dark.svg",
+    "width": 514,
+    "height": 132
+  },
+  "band3-grammar-passive": {
+    "title": "Voice changes grammatical focus while preserving an event",
+    "light": "/media/diagrams/band3-grammar-passive-light.svg",
+    "dark": "/media/diagrams/band3-grammar-passive-dark.svg",
+    "width": 661,
+    "height": 132
+  },
+  "band3-vocab-awl3": {
+    "title": "Hedging matches claim strength to evidence",
+    "light": "/media/diagrams/band3-vocab-awl3-light.svg",
+    "dark": "/media/diagrams/band3-vocab-awl3-dark.svg",
+    "width": 692,
+    "height": 256
+  },
+  "band3-vocab-health": {
+    "title": "Association leaves alternative explanations open",
+    "light": "/media/diagrams/band3-vocab-health-light.svg",
+    "dark": "/media/diagrams/band3-vocab-health-dark.svg",
+    "width": 515,
+    "height": 256
+  },
+  "band3-vocab-education": {
+    "title": "An announcement updates selected parts of a shared arrangement",
+    "light": "/media/diagrams/band3-vocab-education-light.svg",
+    "dark": "/media/diagrams/band3-vocab-education-dark.svg",
+    "width": 621,
+    "height": 132
+  },
+  "band3-vocab-work": {
+    "title": "Permission and obligation can coexist",
+    "light": "/media/diagrams/band3-vocab-work-light.svg",
+    "dark": "/media/diagrams/band3-vocab-work-dark.svg",
+    "width": 624,
+    "height": 132
+  },
+  "band3-paraphrasing": {
+    "title": "A spoken paraphrase retains the speaker\u2019s comparison",
+    "light": "/media/diagrams/band3-paraphrasing-light.svg",
+    "dark": "/media/diagrams/band3-paraphrasing-dark.svg",
+    "width": 608,
+    "height": 148
+  },
+  "band3-error-analysis": {
+    "title": "Revision repairs the diagnosed problem while preserving the message",
+    "light": "/media/diagrams/band3-error-analysis-light.svg",
+    "dark": "/media/diagrams/band3-error-analysis-dark.svg",
+    "width": 630,
+    "height": 148
+  },
+  "band3-practice-essay": {
+    "title": "Audience and purpose select the useful content",
+    "light": "/media/diagrams/band3-practice-essay-light.svg",
+    "dark": "/media/diagrams/band3-practice-essay-dark.svg",
+    "width": 632,
+    "height": 132
+  },
+  "band3-review": {
+    "title": "Different task families provide different evidence of ability",
+    "light": "/media/diagrams/band3-review-light.svg",
+    "dark": "/media/diagrams/band3-review-dark.svg",
+    "width": 612,
+    "height": 132
+  },
+  "band4-listening-inference": {
+    "title": "A qualified attitude contains both evaluation and a limit",
+    "light": "/media/diagrams/band4-listening-inference-light.svg",
+    "dark": "/media/diagrams/band4-listening-inference-dark.svg",
+    "width": 610,
+    "height": 132
+  },
+  "band4-listening-distractors": {
+    "title": "Mentioned alternatives retain different decision statuses",
+    "light": "/media/diagrams/band4-listening-distractors-light.svg",
+    "dark": "/media/diagrams/band4-listening-distractors-dark.svg",
+    "width": 772,
+    "height": 132
+  },
+  "band4-reading-writers-views": {
+    "title": "A reported view is not automatically the writer\u2019s view",
+    "light": "/media/diagrams/band4-reading-writers-views-light.svg",
+    "dark": "/media/diagrams/band4-reading-writers-views-dark.svg",
+    "width": 602,
+    "height": 132
+  },
+  "band4-reading-difficult-texts": {
+    "title": "A difficult sentence often combines an observation with its limit",
+    "light": "/media/diagrams/band4-reading-difficult-texts-light.svg",
+    "dark": "/media/diagrams/band4-reading-difficult-texts-dark.svg",
+    "width": 584,
+    "height": 148
+  },
+  "band4-reading-time-pressure": {
+    "title": "A question determines the scale of reading required",
+    "light": "/media/diagrams/band4-reading-time-pressure-light.svg",
+    "dark": "/media/diagrams/band4-reading-time-pressure-dark.svg",
+    "width": 684,
+    "height": 256
+  },
+  "band4-writing-sophisticated": {
+    "title": "Register reflects a relationship as well as a purpose",
+    "light": "/media/diagrams/band4-writing-sophisticated-light.svg",
+    "dark": "/media/diagrams/band4-writing-sophisticated-dark.svg",
+    "width": 637,
+    "height": 132
+  },
+  "band4-writing-complex-comparisons": {
+    "title": "A rule\u2019s exception has its own scope",
+    "light": "/media/diagrams/band4-writing-complex-comparisons-light.svg",
+    "dark": "/media/diagrams/band4-writing-complex-comparisons-dark.svg",
+    "width": 803,
+    "height": 256
+  },
+  "band4-writing-complex-ideas": {
+    "title": "Nuance defines the boundaries of a position",
+    "light": "/media/diagrams/band4-writing-complex-ideas-light.svg",
+    "dark": "/media/diagrams/band4-writing-complex-ideas-dark.svg",
+    "width": 673,
+    "height": 380
+  },
+  "band4-writing-lexical-resource": {
+    "title": "Lexical precision is a fit between word, meaning and context",
+    "light": "/media/diagrams/band4-writing-lexical-resource-light.svg",
+    "dark": "/media/diagrams/band4-writing-lexical-resource-dark.svg",
+    "width": 573,
+    "height": 132
+  },
+  "band4-writing-grammatical-range": {
+    "title": "Grammatical range expresses a range of relationships",
+    "light": "/media/diagrams/band4-writing-grammatical-range-light.svg",
+    "dark": "/media/diagrams/band4-writing-grammatical-range-dark.svg",
+    "width": 651,
+    "height": 153
+  },
+  "band4-writing-band8-essay": {
+    "title": "A full argument has a position that its paragraphs develop",
+    "light": "/media/diagrams/band4-writing-band8-essay-light.svg",
+    "dark": "/media/diagrams/band4-writing-band8-essay-dark.svg",
+    "width": 663,
+    "height": 396
+  },
+  "band4-speaking-storytelling": {
+    "title": "A coherent story links events through cause and significance",
+    "light": "/media/diagrams/band4-speaking-storytelling-light.svg",
+    "dark": "/media/diagrams/band4-speaking-storytelling-dark.svg",
+    "width": 1037,
+    "height": 132
+  },
+  "band4-speaking-abstract-topics": {
+    "title": "An abstract explanation becomes clear through a mechanism",
+    "light": "/media/diagrams/band4-speaking-abstract-topics-light.svg",
+    "dark": "/media/diagrams/band4-speaking-abstract-topics-dark.svg",
+    "width": 688,
+    "height": 396
+  },
+  "band4-grammar-inversion": {
+    "title": "Emphasis can change the grammatical arrangement",
+    "light": "/media/diagrams/band4-grammar-inversion-light.svg",
+    "dark": "/media/diagrams/band4-grammar-inversion-dark.svg",
+    "width": 664,
+    "height": 132
+  },
+  "band4-grammar-participles": {
+    "title": "A shortened clause still needs a recoverable actor",
+    "light": "/media/diagrams/band4-grammar-participles-light.svg",
+    "dark": "/media/diagrams/band4-grammar-participles-dark.svg",
+    "width": 652,
+    "height": 148
+  },
+  "band4-vocab-awl4": {
+    "title": "Claim verbs carry different evidential commitments",
+    "light": "/media/diagrams/band4-vocab-awl4-light.svg",
+    "dark": "/media/diagrams/band4-vocab-awl4-dark.svg",
+    "width": 718,
+    "height": 256
+  },
+  "band4-vocab-science": {
+    "title": "A hypothesis, observation and conclusion have different jobs",
+    "light": "/media/diagrams/band4-vocab-science-light.svg",
+    "dark": "/media/diagrams/band4-vocab-science-dark.svg",
+    "width": 886,
+    "height": 132
+  },
+  "band4-vocab-globalization": {
+    "title": "Interdependence distributes benefits and risks unevenly",
+    "light": "/media/diagrams/band4-vocab-globalization-light.svg",
+    "dark": "/media/diagrams/band4-vocab-globalization-dark.svg",
+    "width": 783,
+    "height": 132
+  },
+  "band4-vocab-idioms": {
+    "title": "An idiom is a conventional meaning in a suitable context",
+    "light": "/media/diagrams/band4-vocab-idioms-light.svg",
+    "dark": "/media/diagrams/band4-vocab-idioms-dark.svg",
+    "width": 583,
+    "height": 132
+  },
+  "band4-mock-ielts-listening": {
+    "title": "An error pattern identifies a particular learning need",
+    "light": "/media/diagrams/band4-mock-ielts-listening-light.svg",
+    "dark": "/media/diagrams/band4-mock-ielts-listening-dark.svg",
+    "width": 612,
+    "height": 132
+  },
+  "band4-mock-toefl-reading": {
+    "title": "Practical reading combines access with conditions",
+    "light": "/media/diagrams/band4-mock-toefl-reading-light.svg",
+    "dark": "/media/diagrams/band4-mock-toefl-reading-dark.svg",
+    "width": 740,
+    "height": 256
+  },
+  "band4-exam-day-strategies": {
+    "title": "A useful plan resolves known constraints and uncertainties",
+    "light": "/media/diagrams/band4-exam-day-strategies-light.svg",
+    "dark": "/media/diagrams/band4-exam-day-strategies-dark.svg",
+    "width": 816,
+    "height": 132
+  },
+  "band4-review": {
+    "title": "Reflection becomes useful when it links evidence to a next concept",
+    "light": "/media/diagrams/band4-review-light.svg",
+    "dark": "/media/diagrams/band4-review-dark.svg",
+    "width": 506,
+    "height": 256
+  }
+}

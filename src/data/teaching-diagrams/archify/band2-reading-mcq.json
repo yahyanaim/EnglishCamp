@@ -1,0 +1,88 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "An inference extends only as far as its evidence",
+    "locale": "en",
+    "quality_profile": "standard",
+    "visual_preset": "classic",
+    "animation": "none",
+    "feedback_links": false,
+    "legend": {
+      "mode": "hidden"
+    },
+    "output": "band2-reading-mcq.html"
+  },
+  "lanes": [
+    {
+      "id": "src",
+      "label": "Source text"
+    },
+    {
+      "id": "ans",
+      "label": "What it can answer"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "source",
+      "lane": "src",
+      "col": 1,
+      "type": "frontend",
+      "label": "Mini-source",
+      "sublabel": "Several trial users needed help.",
+      "icon": "flag",
+      "width": 210
+    },
+    {
+      "id": "out0",
+      "lane": "ans",
+      "col": 0,
+      "type": "database",
+      "label": "Supported",
+      "sublabel": "At least some needed help.",
+      "icon": "success",
+      "width": 178
+    },
+    {
+      "id": "out1",
+      "lane": "ans",
+      "col": 2,
+      "type": "database",
+      "label": "Contradicted",
+      "sublabel": "Nobody needed help.",
+      "icon": "success",
+      "width": 150
+    },
+    {
+      "id": "out2",
+      "lane": "ans",
+      "col": 4,
+      "type": "security",
+      "label": "Not established",
+      "sublabel": "Every user needed help.",
+      "icon": "failure",
+      "width": 162
+    }
+  ],
+  "edges": [
+    {
+      "id": "q0",
+      "from": "source",
+      "to": "out0",
+      "variant": "default"
+    },
+    {
+      "id": "q1",
+      "from": "source",
+      "to": "out1",
+      "variant": "default"
+    },
+    {
+      "id": "q2",
+      "from": "source",
+      "to": "out2",
+      "variant": "dashed"
+    }
+  ]
+}

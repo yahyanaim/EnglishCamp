@@ -1,0 +1,106 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "Practical reading combines access with conditions",
+    "locale": "en",
+    "quality_profile": "standard",
+    "visual_preset": "classic",
+    "animation": "none",
+    "feedback_links": false,
+    "legend": {
+      "mode": "hidden"
+    },
+    "output": "band4-mock-toefl-reading.html"
+  },
+  "lanes": [
+    {
+      "id": "ask",
+      "label": "Questions"
+    },
+    {
+      "id": "result",
+      "label": "Results"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "q1",
+      "lane": "ask",
+      "col": 0,
+      "type": "frontend",
+      "label": "Has an appointment?",
+      "icon": "decision",
+      "width": 181
+    },
+    {
+      "id": "q2",
+      "lane": "ask",
+      "col": 2,
+      "type": "frontend",
+      "label": "Visiting after two?",
+      "icon": "decision",
+      "width": 181
+    },
+    {
+      "id": "r0",
+      "lane": "result",
+      "col": 0,
+      "type": "security",
+      "label": "Booking condition met",
+      "sublabel": "Other conditions may still apply",
+      "icon": "stop",
+      "width": 210
+    },
+    {
+      "id": "r1",
+      "lane": "result",
+      "col": 2,
+      "type": "database",
+      "label": "Appointment required",
+      "sublabel": "A walk-in does not meet the rule",
+      "icon": "success",
+      "width": 210
+    },
+    {
+      "id": "r2",
+      "lane": "result",
+      "col": 4,
+      "type": "security",
+      "label": "Earlier visit",
+      "sublabel": "Check the remaining conditions",
+      "icon": "failure",
+      "width": 199
+    }
+  ],
+  "edges": [
+    {
+      "id": "y1",
+      "from": "q1",
+      "to": "r0",
+      "label": "Yes",
+      "variant": "security"
+    },
+    {
+      "id": "n1",
+      "from": "q1",
+      "to": "q2",
+      "label": "No",
+      "variant": "emphasis"
+    },
+    {
+      "id": "y2",
+      "from": "q2",
+      "to": "r1",
+      "label": "Yes",
+      "variant": "emphasis"
+    },
+    {
+      "id": "n2",
+      "from": "q2",
+      "to": "r2",
+      "label": "No",
+      "variant": "security"
+    }
+  ]
+}

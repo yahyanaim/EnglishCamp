@@ -48,10 +48,15 @@ test('all 100 lessons select a subject-specific illustration on both routes with
 test('all illustrations have responsive versions and complete alternatives, with no external image dependencies',()=>{
  for(const diagram of Object.values(teachingDiagrams)){
   const html=renderToStaticMarkup(React.createElement(LessonTeachingDiagram,{diagram}));
-  assert.equal((html.match(/<svg /g)||[]).length,2);
-  assert.equal((html.match(/role="img"/g)||[]).length,2);
-  assert.equal((html.match(/<desc /g)||[]).length,2);
-  assert.equal((html.match(/<title /g)||[]).length,2);
+  // Desktop concept diagrams may be Archify-compiled static SVG images (light + dark) with a text alternative;
+  // the narrow version stays an inline accessible SVG.
+  const archify=html.includes('class="camp-archify');
+  const svgs=archify?1:2;
+  assert.equal((html.match(/<svg /g)||[]).length,svgs);
+  assert.equal((html.match(/role="img"/g)||[]).length,svgs);
+  assert.equal((html.match(/<desc /g)||[]).length,svgs);
+  assert.equal((html.match(/<title /g)||[]).length,svgs);
+  if(archify){assert.equal((html.match(/<img /g)||[]).length,2);assert.match(html,/alt="[^"]{20,}"/);assert.match(html,/src="\/media\/diagrams\/[a-z0-9-]+-light\.svg"/);}
   assert.match(html,/md:hidden/);assert.match(html,/hidden md:block/);
   assert.ok(!html.includes('<image'));assert.ok(!html.includes('<iframe'));
   assert.ok(html.includes(diagram.takeaway.replace(/'/g,'&#x27;')));

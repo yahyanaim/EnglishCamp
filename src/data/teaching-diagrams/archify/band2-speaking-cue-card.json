@@ -1,0 +1,93 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "A long turn develops a small number of connected ideas",
+    "locale": "en",
+    "quality_profile": "standard",
+    "visual_preset": "classic",
+    "animation": "none",
+    "feedback_links": false,
+    "legend": {
+      "mode": "hidden"
+    },
+    "output": "band2-speaking-cue-card.html"
+  },
+  "lanes": [
+    {
+      "id": "steps",
+      "label": "Step by step"
+    }
+  ],
+  "mainPath": [
+    "n0",
+    "n1",
+    "n2",
+    "n3"
+  ],
+  "nodes": [
+    {
+      "id": "n0",
+      "lane": "steps",
+      "col": 0,
+      "type": "frontend",
+      "label": "Setting",
+      "sublabel": "First attempt at baking",
+      "icon": "start",
+      "width": 162
+    },
+    {
+      "id": "n1",
+      "lane": "steps",
+      "col": 1,
+      "type": "backend",
+      "label": "Development",
+      "sublabel": "Advice about measuring",
+      "icon": "active",
+      "width": 157
+    },
+    {
+      "id": "n2",
+      "lane": "steps",
+      "col": 2,
+      "type": "backend",
+      "label": "Outcome",
+      "sublabel": "A better second loaf",
+      "icon": "active",
+      "width": 150
+    },
+    {
+      "id": "n3",
+      "lane": "steps",
+      "col": 3,
+      "type": "database",
+      "label": "Significance",
+      "sublabel": "Confidence cooking for friends",
+      "icon": "success",
+      "width": 199
+    }
+  ],
+  "edges": [
+    {
+      "id": "e0",
+      "from": "n0",
+      "to": "n1",
+      "label": "leads to help",
+      "variant": "default"
+    },
+    {
+      "id": "e1",
+      "from": "n1",
+      "to": "n2",
+      "label": "supports improvement",
+      "variant": "default"
+    },
+    {
+      "id": "e2",
+      "from": "n2",
+      "to": "n3",
+      "label": "matters because",
+      "variant": "emphasis"
+    }
+  ]
+}

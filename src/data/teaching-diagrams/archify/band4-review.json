@@ -1,0 +1,93 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "Reflection becomes useful when it links evidence to a next concept",
+    "locale": "en",
+    "quality_profile": "standard",
+    "visual_preset": "classic",
+    "animation": "none",
+    "feedback_links": false,
+    "legend": {
+      "mode": "hidden"
+    },
+    "output": "band4-review.html"
+  },
+  "lanes": [
+    {
+      "id": "top",
+      "label": "Fresh evidence"
+    },
+    {
+      "id": "bottom",
+      "label": "Repeat"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "c0",
+      "lane": "top",
+      "col": 0,
+      "type": "frontend",
+      "label": "Strength",
+      "sublabel": "Delivery problem clearly explained",
+      "icon": "start",
+      "width": 221
+    },
+    {
+      "id": "c1",
+      "lane": "top",
+      "col": 2,
+      "type": "backend",
+      "label": "Gap",
+      "sublabel": "Collection date omitted",
+      "icon": "active",
+      "width": 162
+    },
+    {
+      "id": "c2",
+      "lane": "bottom",
+      "col": 2,
+      "type": "backend",
+      "label": "Target",
+      "sublabel": "Cover every requested detail",
+      "icon": "active",
+      "width": 189
+    },
+    {
+      "id": "c3",
+      "lane": "bottom",
+      "col": 0,
+      "type": "database",
+      "label": "Transfer",
+      "sublabel": "A complete letter in a new situation",
+      "icon": "success",
+      "width": 231
+    }
+  ],
+  "edges": [
+    {
+      "id": "a",
+      "from": "c0",
+      "to": "c1"
+    },
+    {
+      "id": "b",
+      "from": "c1",
+      "to": "c2"
+    },
+    {
+      "id": "c",
+      "from": "c2",
+      "to": "c3"
+    },
+    {
+      "id": "d",
+      "from": "c3",
+      "to": "c0",
+      "variant": "dashed",
+      "role": "return",
+      "label": "fresh evidence"
+    }
+  ]
+}

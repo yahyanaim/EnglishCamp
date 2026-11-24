@@ -206,3 +206,14 @@ html.dark .camp-frame main.camp-content .camp-course-v2-status[data-status="done
   .camp-frame main.camp-content #lesson-principle { padding: 16px; }
   .camp-frame main.camp-content #lesson-principle figcaption { flex-direction: column; }
 }
+
+/* Archify-compiled desktop diagrams (same compiler as the Nexora docs). */
+.camp-frame main.camp-content .camp-archify { position: relative; border-radius: 18px; overflow: hidden; border: 1px solid var(--g-rim, var(--color-border-default)); background: #f6f7f9; }
+.camp-frame main.camp-content .camp-archify img { display: block; width: 100%; height: auto; }
+.camp-frame main.camp-content .camp-archify-dark { display: none !important; }
+html.dark .camp-frame main.camp-content .camp-archify { background: #050814; }
+html.dark .camp-frame main.camp-content .camp-archify-light { display: none !important; }
+html.dark .camp-frame main.camp-content .camp-archify-dark { display: block !important; }
+.camp-frame main.camp-content .camp-archify-open { position: absolute; top: 10px; right: 10px; padding: 5px 11px; border-radius: 999px; background: color-mix(in srgb, var(--color-surface) 88%, transparent); backdrop-filter: blur(8px); font-size: 12px; font-weight: 650; color: var(--camp-control-ink); text-decoration: none; box-shadow: var(--g-control-shadow); opacity: 0; transition: opacity .2s ease; }
+.camp-frame main.camp-content .camp-archify:hover .camp-archify-open, .camp-frame main.camp-content .camp-archify-open:focus-visible { opacity: 1; }
+html.dark .camp-frame main.camp-content .camp-archify-open { color: #e9d5ff; }

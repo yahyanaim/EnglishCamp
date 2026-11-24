@@ -1,0 +1,69 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "Cohesion gives reference words an identifiable meaning",
+    "locale": "en",
+    "quality_profile": "standard",
+    "visual_preset": "classic",
+    "animation": "none",
+    "feedback_links": false,
+    "legend": {
+      "mode": "hidden"
+    },
+    "output": "band1-reading-completion.html"
+  },
+  "lanes": [
+    {
+      "id": "text",
+      "label": "Sentence parts"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "p0",
+      "lane": "text",
+      "col": 0,
+      "type": "backend",
+      "label": "Tickets replaced by an app",
+      "sublabel": "Initial event",
+      "icon": "none",
+      "width": 233
+    },
+    {
+      "id": "p1",
+      "lane": "text",
+      "col": 1,
+      "type": "backend",
+      "label": "This change",
+      "sublabel": "Reference",
+      "icon": "none",
+      "width": 150
+    },
+    {
+      "id": "p2",
+      "lane": "text",
+      "col": 2,
+      "type": "external",
+      "label": "reduced printing costs",
+      "sublabel": "Consequence",
+      "icon": "none",
+      "width": 203
+    }
+  ],
+  "edges": [
+    {
+      "id": "rel",
+      "from": "p0",
+      "to": "p1",
+      "label": "refers to the whole change",
+      "variant": "emphasis"
+    },
+    {
+      "id": "s1",
+      "from": "p1",
+      "to": "p2",
+      "variant": "dashed"
+    }
+  ]
+}
