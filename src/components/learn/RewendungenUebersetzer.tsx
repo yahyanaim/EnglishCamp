@@ -1,6 +1,7 @@
 "use client";
 
 import { LearningArt } from "@/components/brand/LearningArt";
+import { logMistake } from "@/lib/mistakes";
 import { PracticeCard, PracticeButton } from "@/components/ui/PracticeSurface";
 import { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -70,6 +71,7 @@ export function RedewendungenUebersetzer() {
       playCorrect();
     } else {
       playWrong();
+      logMistake("idiom", current.idiom, mode === "idiom-to-meaning" ? current.idiom : current.meaning, opt, correctAnswer);
     }
   }
 

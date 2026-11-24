@@ -7,8 +7,7 @@ import { GRAMMAR_MORE } from "@/data/grammar-reference-more";
 import { GRAMMAR_LIBRARY } from "@/data/grammar-reference-library";
 import { GRAMMAR_FOUNDATIONS } from "@/data/grammar-foundations";
 import { GrammarFoundationLesson } from "./GrammarFoundationLesson";
-import { ArrowLeft, Check, CheckCircle2, ChevronRight, Layers, Map as MapIcon, Search, X } from "lucide-react";
-import Link from "next/link";
+import { ArrowLeft, Check, CheckCircle2, ChevronRight, Layers, Search, X } from "lucide-react";
 import { useProgress } from "@/store/useProgress";
 import { GRAMMAR_CURRICULUM, GRAMMAR_LESSON_LEVELS, GRAMMAR_XP, grammarLessonKey, grammarLevelProgress } from "@/data/grammar-curriculum";
 
@@ -461,7 +460,6 @@ export function GrammarReference() {
           <span className="camp-grammar-path-count"><strong>{p.learned}</strong> / {p.total} learned</span>
           <span className="camp-grammar-path-bar" aria-hidden="true"><span style={{ width: `${p.total ? Math.round(p.learned / p.total * 100) : 0}%` }} /></span>
         </button>)}
-        <Link href="/grammar/roadmap" className="camp-grammar-path-link"><MapIcon size={16} aria-hidden="true" />What to learn at each level<ChevronRight size={16} aria-hidden="true" /></Link>
       </section>
       <section className="camp-hub-filters" aria-label="Find a grammar lesson">
         <label className="camp-hub-search">

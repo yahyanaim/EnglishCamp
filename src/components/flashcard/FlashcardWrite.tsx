@@ -1,5 +1,6 @@
 "use client";
 import { LearningArt } from "@/components/brand/LearningArt";
+import { logMistake } from "@/lib/mistakes";
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { playCorrect } from "@/lib/audio";
@@ -36,7 +37,9 @@ export function FlashcardWrite({ card, onComplete, index, total }: Props) {
   function handleSubmit() {
     if (!input.trim() || submitted) return;
     setSubmitted(true);
-    if (isCorrect) playCorrect();
+    const ok = acceptable.some((a) => normalize(a) === normalize(input));
+    if (ok) playCorrect();
+    else logMistake("flashcard", card.id, card.en, input.trim(), card.de, "Flashcard writing");
   }
 
   function handleNext() {

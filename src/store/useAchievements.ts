@@ -82,7 +82,7 @@ function achievementInputs(): AchievementInputs {
     exercisesDone: Object.values(done).filter(Boolean).length,
     vocabCount: vocab.getAll().length,
     quizzesTaken: Object.values(progress.quizResults).flat().length,
-    errorsFixed: errors.errors.length,
+    errorsFixed: prefixed(done, "review-"),
     cardsReviewed: vocab.getAll().reduce((sum, [, v]) => sum + v.timesReviewed, 0),
     grammarLearned: grammarLearnedCount(done),
     grammarLevels: grammarLevelProgress(done).filter(level => level.complete).map(level => level.level),
@@ -152,9 +152,7 @@ export const useAchievements = create<AchievementState & AchievementActions>()(
         const quizResults = progress.quizResults;
         const allQuizResults = Object.values(quizResults).flat();
         const hasPerfectScore = allQuizResults.some((r) => r.score === 100);
-        const errorsCount = errors.errors.length;
-        const errorsFixed = errorsCount;
-        const state = { ...achievementInputs(), quizzesTaken: allQuizResults.length, errorsFixed };
+        const state = { ...achievementInputs(), quizzesTaken: allQuizResults.length };
 
         const now = new Date().toISOString();
         const newUnlocks: string[] = [];

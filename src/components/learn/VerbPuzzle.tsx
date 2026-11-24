@@ -1,6 +1,7 @@
 "use client";
 
 import { LearningArt } from "@/components/brand/LearningArt";
+import { logMistake } from "@/lib/mistakes";
 import { PracticeCard, PracticeButton } from "@/components/ui/PracticeSurface";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -83,6 +84,7 @@ export function VerbPuzzle() {
       completeExercise(`verbpuzzle-${current.verb.infinitive}-${current.tense}`, 15);
     } else {
       playWrong();
+      current.cells.forEach(cell => { if (!res[cell.pronounIdx]) logMistake("verb-puzzle", `verbpuzzle-${current.verb.infinitive}`, `${current.verb.infinitive} (${current.tense})`, (inputs[cell.pronounIdx] ?? "").trim(), cell.correct); });
     }
   }
 

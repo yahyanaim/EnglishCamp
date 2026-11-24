@@ -26,3 +26,19 @@ test('learned grammar lessons drive level progress and the grammar badges', () =
   for (const id of ['grammar-1', 'grammar-10', 'grammar-A1']) assert.ok(unlocked.includes(id), id);
   assert.ok(!unlocked.includes('grammar-A2'));
 });
+
+test('wrong answers reach Weak areas and point to an existing grammar lesson', () => {
+  const { logMistake, mistakeInfo } = require('../src/lib/mistakes.ts');
+  const { useErrors } = require('../src/store/useErrors.ts');
+  const ids = new Set(SECTIONS.map(s => s.id));
+  const before = useErrors.getState().errors.length;
+  logMistake('relative', 'rel-1', 'The man ___ lives here', 'which', 'who', 'Use who for people.');
+  logMistake('relative', 'rel-1', 'Same answer', 'who', 'who');
+  assert.equal(useErrors.getState().errors.length, before + 1);
+  for (const source of ['conjugation', 'passive', 'relative', 'preposition', 'conditional', 'narrative-past', 'question-formation', 'subordinate-clauses', 'sentence-builder', 'verb-puzzle', 'discourse']) {
+    const lesson = mistakeInfo(source).lesson;
+    assert.ok(lesson && ids.has(lesson), `${source} -> ${lesson}`);
+  }
+  assert.equal(mistakeInfo('listening').category, 'skills');
+  assert.equal(mistakeInfo('reading').category, 'skills');
+});

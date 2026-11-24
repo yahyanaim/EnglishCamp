@@ -1,5 +1,6 @@
 "use client";
 import { LearningArt } from "@/components/brand/LearningArt";
+import { logMistake } from "@/lib/mistakes";
 import { PracticeCard, PracticeButton } from "@/components/ui/PracticeSurface";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -103,6 +104,7 @@ export function SentenceBuilder() {
       playCorrect();
     } else {
       playWrong();
+      logMistake("sentence-builder", `sentence-${current}`, pool[current].hint || "Build the sentence", answer, pool[current].sentence);
     }
   }
 

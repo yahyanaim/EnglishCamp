@@ -1,6 +1,7 @@
 "use client";
 
 import { LearningArt } from "@/components/brand/LearningArt";
+import { logMistake } from "@/lib/mistakes";
 import { PracticeCard, PracticeButton } from "@/components/ui/PracticeSurface";
 import { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -56,7 +57,7 @@ export function FalseFriendsUebersetzer() {
     setSelected(opt);
     const correct = direction === "a" ? current.meaning1 : current.word1;
     if (opt === correct) { setScore((s) => s + 10); playCorrect(); }
-    else { playWrong(); }
+    else { playWrong(); logMistake("falsefriend", current.word1, direction === "a" ? current.word1 : current.meaning1, opt, correct, current.tip); }
   }
 
   function handleNext() {

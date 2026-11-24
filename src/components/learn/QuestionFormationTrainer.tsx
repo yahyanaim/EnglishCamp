@@ -1,5 +1,6 @@
 "use client";
 import { LearningArt } from "@/components/brand/LearningArt";
+import { logMistake } from "@/lib/mistakes";
 import { PracticeCard, PracticeButton } from "@/components/ui/PracticeSurface";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -45,7 +46,7 @@ export function QuestionFormationTrainer() {
     setAnswered(true);
     const isCorrect = index === QUESTIONS[current].correct;
     if (isCorrect) { setScore((s) => s + 1); playCorrect(); }
-    else playWrong();
+    else { playWrong(); const q = QUESTIONS[current]; logMistake("question-formation", `question-formation-${current}`, q.prompt, q.options[index], q.options[q.correct], q.explanation); }
   }
 
   function next() {

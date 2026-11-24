@@ -2,17 +2,20 @@
 
 import { useRef, useState } from "react";
 import { RotateCcw } from "lucide-react";
+import { logMistake } from "@/lib/mistakes";
 import { Button } from "@/components/ui/shadcn/button";
 import { correctAnswerText, isAnswered, isCorrect, scoreAnswers, SKILL_LABELS, TYPE_LABELS, type ComprehensionAnswer, type ComprehensionQuestion } from "@/lib/comprehension";
 
 export type QuizResult = { correct: number; total: number; xp: number; firstCompletion: boolean };
 
 /** Shared by Read and Listening so both sections look and grade the same way. */
-export function ComprehensionQuiz({ questions, heading, intro, onSubmit, previousBest }: {
+export function ComprehensionQuiz({ questions, heading, intro, onSubmit, previousBest, mistakeSource }: {
   questions: readonly ComprehensionQuestion[];
   heading: string;
   intro?: string;
   onSubmit: (correct: number, total: number) => QuizResult;
+  /** Wrong answers go to Weak areas under this source. */
+  mistakeSource?: { source: "listening" | "reading"; id: string };
   previousBest?: { best: number; total: number };
 }) {
   const [answers, setAnswers] = useState<Record<string, ComprehensionAnswer>>({});
@@ -31,6 +34,13 @@ export function ComprehensionQuiz({ questions, heading, intro, onSubmit, previou
         event.preventDefault();
         if (!ready || checked) return;
         const score = scoreAnswers(questions, answers);
+        if (mistakeSource) for (const question of questions) {
+          const answer = answers[question.id];
+          if (isCorrect(question, answer)) continue;
+          const shown = (value: ComprehensionAnswer | undefined) => question.type === "multiple-choice" ? (typeof value === "number" ? question.choices[value] ?? "" : "") : question.type === "true-false" ? (value === true ? "True" : value === false ? "False" : "") : String(value ?? "");
+          const correct = correctAnswerText(question);
+          logMistake(mistakeSource.source, mistakeSource.id, question.prompt, shown(answer), correct, question.feedback);
+        }
         setResult(onSubmit(score.correct, score.total));
       }}>
         <div className="camp-listening-question-grid">

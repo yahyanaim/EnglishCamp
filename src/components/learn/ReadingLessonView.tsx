@@ -112,7 +112,7 @@ export function ReadingLessonView({ lesson, onBack, onOpenBank }: { lesson: Read
         )}
       </div>
       {lesson.questions.length > 0 ? (
-        <ComprehensionQuiz
+        <ComprehensionQuiz mistakeSource={{ source: "reading", id: lesson.id }}
           key={lesson.id}
           questions={lesson.questions}
           heading="Comprehension Questions"
