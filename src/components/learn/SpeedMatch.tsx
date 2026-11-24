@@ -190,11 +190,12 @@ export function SpeedMatch() {
         </div>
       </div>
 
-      <div className="flex gap-1.5">
+      <div className="camp-speed-pairs flex gap-1.5" role="group" aria-label="Number of pairs">
         {PAIR_COUNTS.map((n) => (
           <PracticeButton
             key={n}
             onClick={() => initGame(n)}
+            aria-pressed={pairCount === n}
             className={`rounded-[10px] px-3 py-1.5 text-[11px] font-semibold transition-all ${
               pairCount === n
                 ? "bg-[var(--color-primary)] text-[var(--color-on-brand)] shadow-[0_2px_0_rgba(126,34,206,0.3)]"

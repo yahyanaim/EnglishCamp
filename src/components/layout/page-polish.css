@@ -18,18 +18,6 @@
 /* Horizontal filter strips wrap instead of clipping the last chip. */
 .camp-frame main.camp-content .overflow-x-auto:has(> button:nth-child(3)):not(:has(table)) { flex-wrap:wrap; overflow:visible; }
 
-/* Practice setup cards: segmented option rows and one full-width start button. */
-.camp-frame [data-practice-surface="intro"] { display:flex; flex-direction:column; gap:14px; }
-.camp-frame [data-practice-surface="intro"] div:has(> button:nth-child(2)):not(:has(> button:nth-child(5))):not(:has(> :not(button))) {
-  display:grid; grid-auto-flow:column; grid-auto-columns:minmax(0,1fr); gap:4px; width:100%; max-width:520px; padding:4px; border:1px solid var(--color-border-default); border-radius:12px; background:var(--color-surface-alt); }
-.camp-frame [data-practice-surface="intro"] div:has(> button:nth-child(2)):not(:has(> button:nth-child(5))):not(:has(> :not(button))) > button {
-  min-height:40px; min-width:0; padding:6px 10px; border:0!important; border-radius:9px; background:transparent!important; color:var(--color-text-secondary)!important; box-shadow:none!important; font-size:.85rem; font-weight:650; justify-content:center; text-align:center; white-space:normal; }
-.camp-frame [data-practice-surface="intro"] div:has(> button:nth-child(2)):not(:has(> button:nth-child(5))):not(:has(> :not(button))) > button:is([aria-pressed="true"],[class*="bg-[var(--color-primary)]"],[data-state="active"]) {
-  background:var(--color-surface)!important; color:var(--camp-control-ink)!important; box-shadow:0 1px 3px rgba(17,12,34,.12)!important; }
-.camp-frame [data-practice-surface="intro"] > button:last-child,
-.camp-frame [data-practice-surface="intro"] > div:last-child > button:only-child { align-self:stretch; width:100%; max-width:520px; min-height:48px; justify-content:center; }
-@media (min-width:640px) { .camp-frame [data-practice-surface="intro"] > button:last-child, .camp-frame [data-practice-surface="intro"] > div:last-child > button:only-child { align-self:flex-start; } }
-
 /* Practice Hub on phones: game tiles in two columns instead of one wide, mostly empty column. */
 @container camp-main (max-width:579px) {
   .camp-frame .camp-practice-hub .camp-trainer-grid.camp-hub-game-grid { grid-template-columns:repeat(2,minmax(0,1fr))!important; gap:10px; }
@@ -39,3 +27,35 @@
 
 /* Two-word comparison rows (confusing words) stack their meaning under the words on phones. */
 @media (max-width:639px) { .camp-frame .camp-false-friends-row { display:grid; grid-template-columns:minmax(0,1fr) auto; gap:6px 10px; } .camp-frame .camp-false-friends-row > :first-child { flex-wrap:wrap; } .camp-frame .camp-false-friends-row > :nth-child(2) { grid-column:1; grid-row:2; } .camp-frame .camp-false-friends-row > :last-child { grid-column:2; grid-row:1; } }
+
+/* ---------- Grammar Reference: same library layout as the Practice Hub ---------- */
+.camp-grammar-hub .camp-hub-filters { grid-template-columns:minmax(0,1fr); }
+.camp-grammar-hub .camp-hub-skills { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:8px; }
+.camp-grammar-hub .camp-hub-skills > button { justify-content:center; text-align:center; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.camp-hub-search > svg { z-index:2; pointer-events:none; }
+.camp-grammar-hub .camp-trainer-grid { grid-auto-rows:1fr; gap:12px; }
+.camp-grammar-hub .camp-library-card-copy > span:not(.camp-hub-meta) { display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:2; overflow:hidden; }
+.camp-grammar-lesson { display:grid; gap:16px; max-width:860px; width:100%; margin-inline:auto; }
+.camp-grammar-back { justify-self:start; display:inline-flex; align-items:center; gap:8px; min-height:40px; padding:0 14px; border-radius:999px; font-size:.85rem; font-weight:650; color:var(--camp-control-ink,var(--color-primary)); }
+.camp-grammar-lesson-head { display:flex; align-items:center; gap:16px; padding:22px; border-radius:20px; }
+.camp-grammar-lesson-head .camp-library-card-icon { width:52px; height:52px; flex:none; }
+.camp-frame main:has(.camp-grammar-lesson) .camp-back-button { display:none; }
+.camp-grammar-lesson .camp-grammar-lesson-head h2 { margin:4px 0 0; font:800 1.45rem/1.25 var(--font-display); color:var(--color-text-primary); }
+.camp-grammar-lesson-kicker { display:flex; align-items:center; gap:8px; margin:0; font-size:.78rem; font-weight:650; color:var(--color-text-secondary); }
+.camp-grammar-lesson-summary { margin:8px 0 0; font-size:.95rem; line-height:1.6; color:var(--color-text-secondary); }
+.camp-grammar-lesson-body { padding:22px; border-radius:20px; }
+.camp-grammar-lesson-body .camp-cheat-item { padding:16px 0; border-top:1px solid var(--color-border-default); }
+.camp-grammar-lesson-body .camp-cheat-item:first-of-type { border-top:0; padding-top:4px; }
+.camp-grammar-next { display:flex; align-items:center; justify-content:space-between; gap:12px; padding:16px 20px; border-radius:16px; text-align:start; }
+.camp-grammar-next small { display:block; font-size:.72rem; font-weight:650; color:var(--color-text-secondary); text-transform:uppercase; letter-spacing:.04em; }
+.camp-grammar-next strong { font:750 .98rem/1.35 var(--font-display); color:var(--color-text-primary); }
+.camp-grammar-practice-link { display:inline-flex; align-items:center; gap:6px; margin-top:16px; padding:10px 16px; border-radius:999px; font-size:.85rem; font-weight:650; color:var(--camp-control-ink,var(--color-primary)); text-decoration:none; }
+@container camp-main (max-width:819px) { .camp-grammar-hub .camp-hub-skills .camp-grammar-level-name { display:none; } }
+@container camp-main (max-width:579px) {
+  .camp-grammar-hub .camp-trainer-grid { grid-auto-rows:auto; }
+  .camp-grammar-level-name { display:none; }
+  .camp-grammar-hub .camp-hub-skills { gap:6px; }
+  .camp-grammar-lesson-head, .camp-grammar-lesson-body { padding:16px; border-radius:16px; }
+  .camp-grammar-lesson .camp-grammar-lesson-head h2 { font-size:1.2rem; }
+  .camp-frame main.camp-content [data-practice-surface] :is([data-chip-row], .translation-groups) > button { font-size:.74rem; }
+}

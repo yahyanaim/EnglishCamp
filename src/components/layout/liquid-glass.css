@@ -1,157 +1,231 @@
 /* ==========================================================================
    EnglishCamp Liquid Glass
-   Adapted from the AI-hub "Apple Liquid Glass" surface system: frosted
-   refraction (blur + saturation), specular top-edge highlights, hairline rims
-   and a soft spring lift. Colours come from the existing EnglishCamp tokens
-   (--camp-purple, --color-surface…), so themes and palettes still apply and
-   no layout, spacing or size changes.
+   Adapted from the AI-hub / Apple "Liquid Glass" surface system:
+   - a quiet, mostly neutral backdrop with soft light (colour is used sparingly),
+   - every card, control and panel is a frosted sheet with a white specular rim,
+     a top-edge highlight and a diagonal sheen,
+   - primary actions are tinted glass in the EnglishCamp violet.
+   The top bar keeps its original solid look. Layout and spacing are untouched.
    ========================================================================== */
 
 .camp-workspace {
-  --glass-tint: var(--camp-purple, #7e22ce);
-  --glass-rim: rgba(255, 255, 255, 0.82);
-  --glass-hair: rgba(28, 16, 48, 0.07);
-  --glass-shine: rgba(255, 255, 255, 0.95);
-  --glass-shadow: rgba(28, 16, 48, 0.14);
-  --glass-card: linear-gradient(145deg, rgba(255, 255, 255, 0.74) 0%, rgba(255, 255, 255, 0.5) 55%, color-mix(in srgb, var(--glass-tint) 4%, rgba(255, 255, 255, 0.66)) 100%);
-  --glass-card-hover: linear-gradient(145deg, rgba(255, 255, 255, 0.86) 0%, rgba(255, 255, 255, 0.62) 55%, color-mix(in srgb, var(--glass-tint) 7%, rgba(255, 255, 255, 0.78)) 100%);
-  --glass-chrome: linear-gradient(135deg, rgba(255, 255, 255, 0.76) 0%, rgba(255, 255, 255, 0.58) 52%, color-mix(in srgb, var(--glass-tint) 4%, rgba(255, 255, 255, 0.7)) 100%);
-  --glass-control: rgba(255, 255, 255, 0.62);
-  --glass-control-hover: rgba(255, 255, 255, 0.86);
-  /* Soft brand-coloured light behind the glass, so the frosting has something to refract. */
-  background-color: color-mix(in srgb, var(--glass-tint) 3%, var(--color-surface));
-  background-image:
-    radial-gradient(58rem 34rem at 8% -6%, color-mix(in srgb, var(--glass-tint) 13%, transparent), transparent 60%),
-    radial-gradient(52rem 32rem at 94% 4%, color-mix(in srgb, var(--glass-tint) 8%, rgba(99, 102, 241, 0.08)), transparent 58%),
-    radial-gradient(50rem 34rem at 50% 58%, color-mix(in srgb, var(--glass-tint) 6%, transparent), transparent 62%),
-    radial-gradient(46rem 30rem at 16% 96%, color-mix(in srgb, var(--glass-tint) 8%, transparent), transparent 58%);
-  background-attachment: fixed;
+  --g-tint: var(--camp-purple, #7e22ce);
+  --g-ink: 28, 20, 52;                                   /* rgb of the shadow ink */
+  --g-rim: rgba(255, 255, 255, 0.92);
+  --g-hair: rgba(var(--g-ink), 0.07);
+  --g-shine: rgba(255, 255, 255, 1);
+  --g-shadow: rgba(var(--g-ink), 0.16);
+  --g-sheen: linear-gradient(130deg, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0.07) 36%, transparent 62%, rgba(255, 255, 255, 0.2) 100%);
+  --g-card: linear-gradient(145deg, rgba(255, 255, 255, 0.74) 0%, rgba(255, 255, 255, 0.5) 55%, rgba(255, 255, 255, 0.66) 100%);
+  --g-card-hover: linear-gradient(145deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.68) 55%, rgba(255, 255, 255, 0.82) 100%);
+  --g-panel: linear-gradient(160deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.6) 55%, rgba(255, 255, 255, 0.74) 100%);
+  --g-control: linear-gradient(180deg, rgba(255, 255, 255, 0.78) 0%, rgba(255, 255, 255, 0.52) 100%);
+  --g-control-hover: linear-gradient(180deg, rgba(255, 255, 255, 0.96) 0%, rgba(255, 255, 255, 0.74) 100%);
+  --g-field: rgba(255, 255, 255, 0.66);
+  --g-track: rgba(var(--g-ink), 0.05);
+  --g-card-shadow: 0 10px 30px -16px var(--g-shadow), 0 0 0 1px var(--g-hair), inset 0 1.5px 0 var(--g-shine), inset 0 -1px 0 rgba(var(--g-ink), 0.04);
+  --g-control-shadow: 0 3px 10px -5px var(--g-shadow), 0 0 0 1px var(--g-hair), inset 0 1px 0 var(--g-shine);
+  --g-primary: linear-gradient(180deg, rgba(255, 255, 255, 0.24) 0%, rgba(255, 255, 255, 0.04) 52%, rgba(0, 0, 0, 0.04) 100%), var(--g-tint);
+  --g-primary-shadow: 0 8px 20px -10px color-mix(in srgb, var(--g-tint) 75%, transparent), 0 0 0 1px color-mix(in srgb, var(--g-tint) 55%, #000 0%), inset 0 1px 0 rgba(255, 255, 255, 0.42), inset 0 -1px 0 rgba(0, 0, 0, 0.16);
+  --g-blur: blur(22px) saturate(185%);
 }
 .dark .camp-workspace {
-  --glass-rim: rgba(255, 255, 255, 0.09);
-  --glass-hair: rgba(255, 255, 255, 0.05);
-  --glass-shine: rgba(255, 255, 255, 0.2);
-  --glass-shadow: rgba(0, 0, 0, 0.6);
-  --glass-card: linear-gradient(145deg, color-mix(in srgb, var(--color-surface) 70%, transparent) 0%, color-mix(in srgb, var(--color-surface) 52%, transparent) 58%, color-mix(in srgb, var(--color-surface-alt) 62%, transparent) 100%);
-  --glass-card-hover: linear-gradient(145deg, color-mix(in srgb, var(--color-surface-alt) 82%, transparent) 0%, color-mix(in srgb, var(--color-surface) 66%, transparent) 58%, color-mix(in srgb, var(--color-surface-alt) 76%, transparent) 100%);
-  --glass-chrome: linear-gradient(135deg, color-mix(in srgb, var(--color-surface) 74%, transparent) 0%, color-mix(in srgb, var(--color-surface) 60%, transparent) 55%, color-mix(in srgb, var(--color-surface-alt) 70%, transparent) 100%);
-  --glass-control: rgba(255, 255, 255, 0.06);
-  --glass-control-hover: rgba(255, 255, 255, 0.12);
-  background-color: var(--color-surface);
+  --g-ink: 0, 0, 0;
+  --g-rim: rgba(255, 255, 255, 0.13);
+  --g-hair: rgba(255, 255, 255, 0.06);
+  --g-shine: rgba(255, 255, 255, 0.16);
+  --g-shadow: rgba(0, 0, 0, 0.62);
+  --g-sheen: linear-gradient(130deg, rgba(255, 255, 255, 0.09) 0%, rgba(255, 255, 255, 0.015) 38%, transparent 64%, rgba(255, 255, 255, 0.04) 100%);
+  --g-card: linear-gradient(145deg, rgba(38, 32, 56, 0.62) 0%, rgba(24, 20, 38, 0.46) 58%, rgba(36, 30, 54, 0.56) 100%);
+  --g-card-hover: linear-gradient(145deg, rgba(48, 40, 70, 0.74) 0%, rgba(30, 25, 46, 0.6) 58%, rgba(44, 37, 66, 0.68) 100%);
+  --g-panel: linear-gradient(160deg, rgba(30, 25, 46, 0.78) 0%, rgba(18, 15, 30, 0.66) 60%, rgba(28, 23, 44, 0.74) 100%);
+  --g-control: linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.045) 100%);
+  --g-control-hover: linear-gradient(180deg, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0.08) 100%);
+  --g-field: rgba(255, 255, 255, 0.05);
+  --g-track: rgba(255, 255, 255, 0.05);
+  --g-card-shadow: 0 14px 34px -16px var(--g-shadow), 0 0 0 1px var(--g-hair), inset 0 1px 0 var(--g-shine), inset 0 -1px 0 rgba(0, 0, 0, 0.35);
+  --g-control-shadow: 0 4px 12px -6px var(--g-shadow), inset 0 1px 0 var(--g-shine);
+}
+
+/* ---------- Backdrop: neutral, with soft light for the glass to refract ---------- */
+/* (Doubled class: reference.css paints the workspace with the same specificity.) */
+body .camp-workspace.camp-workspace {
+  background-color: #f4f4f8;
   background-image:
-    radial-gradient(60rem 36rem at 10% -8%, color-mix(in srgb, var(--glass-tint) 20%, transparent), transparent 58%),
-    radial-gradient(54rem 34rem at 92% 6%, rgba(99, 102, 241, 0.1), transparent 58%),
-    radial-gradient(50rem 34rem at 50% 62%, color-mix(in srgb, var(--glass-tint) 10%, transparent), transparent 62%);
+    radial-gradient(56rem 34rem at 8% -6%, color-mix(in srgb, var(--g-tint) 10%, transparent), transparent 62%),
+    radial-gradient(52rem 32rem at 96% 4%, rgba(56, 189, 248, 0.09), transparent 60%),
+    radial-gradient(50rem 34rem at 50% 58%, color-mix(in srgb, var(--g-tint) 5%, transparent), transparent 64%),
+    radial-gradient(44rem 28rem at 14% 100%, rgba(236, 72, 153, 0.05), transparent 60%);
+  background-attachment: fixed;
 }
-.camp-workspace .camp-frame { background: transparent; }
+body.dark .camp-workspace.camp-workspace, .dark body .camp-workspace.camp-workspace {
+  background-color: #100e17;
+  background-image:
+    radial-gradient(58rem 34rem at 8% -8%, color-mix(in srgb, var(--g-tint) 18%, transparent), transparent 60%),
+    radial-gradient(52rem 32rem at 94% 6%, rgba(99, 102, 241, 0.1), transparent 60%),
+    radial-gradient(48rem 32rem at 50% 64%, color-mix(in srgb, var(--g-tint) 7%, transparent), transparent 64%);
+}
+body .camp-workspace :is(.camp-frame, .camp-centre, main.app-canvas, main.camp-content) { background: transparent !important; }
 
-/* ---------- Chrome: top bar, sidebars, learning rail, phone tab bar ---------- */
-.camp-workspace :is(.camp-toolbar, .camp-mobile-nav) {
-  background: var(--glass-chrome);
-  -webkit-backdrop-filter: blur(26px) saturate(200%);
-  backdrop-filter: blur(26px) saturate(200%);
-  box-shadow: 0 10px 30px -18px var(--glass-shadow), 0 1px 0 var(--glass-hair), inset 0 1.5px 0 var(--glass-shine), inset 0 -1px 0 var(--glass-hair);
-}
-.camp-workspace .camp-mobile-nav { box-shadow: 0 -10px 30px -18px var(--glass-shadow), 0 -1px 0 var(--glass-hair), inset 0 1.5px 0 var(--glass-shine); }
+/* ---------- Panels: sidebar, learning rail, phone tab bar (top bar keeps its original look) ---------- */
 .camp-workspace :is(.camp-sidebar, .camp-learning-rail) {
-  background: var(--glass-chrome);
-  -webkit-backdrop-filter: blur(30px) saturate(210%);
-  backdrop-filter: blur(30px) saturate(210%);
-  box-shadow: inset 0 1.5px 0 var(--glass-shine), inset -1px 0 0 var(--glass-hair);
+  background: var(--g-panel);
+  -webkit-backdrop-filter: blur(28px) saturate(190%);
+  backdrop-filter: blur(28px) saturate(190%);
+  box-shadow: inset 0 1.5px 0 var(--g-shine), inset -1px 0 0 var(--g-hair);
 }
-.camp-workspace .camp-navigation, .camp-workspace .camp-learning-rail { border-color: var(--glass-hair); }
+.camp-workspace .camp-mobile-nav {
+  background: var(--g-panel);
+  -webkit-backdrop-filter: blur(26px) saturate(190%);
+  backdrop-filter: blur(26px) saturate(190%);
+  box-shadow: 0 -10px 30px -18px var(--g-shadow), 0 -1px 0 var(--g-hair), inset 0 1.5px 0 var(--g-shine);
+}
 .camp-workspace .camp-sidebar nav a[aria-current="page"], .camp-workspace .camp-mobile-nav a[aria-current="page"] {
-  box-shadow: 0 2px 10px -3px color-mix(in srgb, var(--glass-tint) 30%, transparent), inset 0 1px 0 var(--glass-shine), 0 0 0 1px color-mix(in srgb, var(--glass-tint) 14%, transparent);
+  background: var(--g-control-hover);
+  box-shadow: var(--g-control-shadow);
+}
+/* Cards inside the side panels (level card, course list, streak pills). */
+.camp-workspace :is(.camp-sidebar, .camp-learning-rail) :is([class*="bg-[var(--color-surface)]"][class*="rounded"], [class*="bg-[var(--color-surface-alt)]"][class*="rounded"], .bg-card) {
+  background: var(--g-sheen), var(--g-card) !important;
+  border-color: var(--g-rim) !important;
+  box-shadow: var(--g-control-shadow) !important;
 }
 
-/* ---------- Cards ---------- */
+/* ---------- Every card and section ---------- */
 .camp-frame main.camp-content :is(
   .camp-learning-library-card, .camp-hub-today-tile, .camp-stats-tile, .camp-stats-card, .camp-stats-hero-kpis > div,
-  .bg-card, [data-practice-surface],
-  :is(div, section, article, li, a)[class*="bg-[var(--color-surface)]"][class*="rounded"]
-):not([class*="banner"], [class*="hero"], .text-white) {
+  .bg-card, .practice-card, [data-practice-surface], .camp-cheat-section, .camp-grammar-accordion-card,
+  .camp-grammar-lesson-head, .camp-grammar-lesson-body, .camp-grammar-next, .camp-hub-empty,
+  :is(div, section, article, li, a, details)[class*="bg-[var(--color-surface)]"][class*="rounded"]
+):not([class*="banner"], [class*="hero"], .text-white, .camp-dashboard-stats .camp-xp-card, [data-outcome]) {
   position: relative;
-  background: var(--glass-card) !important;
-  border-color: var(--glass-rim) !important;
-  box-shadow: 0 12px 30px -16px var(--glass-shadow), 0 0 0 1px var(--glass-hair), inset 0 2px 0 var(--glass-shine), inset 1px 0 0 color-mix(in srgb, var(--glass-shine) 70%, transparent), inset 0 -1.5px 0 var(--glass-hair) !important;
+  background: var(--g-sheen), var(--g-card) !important;
+  border: 1px solid var(--g-rim) !important;
+  box-shadow: var(--g-card-shadow) !important;
   transition: transform .28s cubic-bezier(.22, 1, .36, 1), box-shadow .28s cubic-bezier(.22, 1, .36, 1), border-color .24s ease, background .24s ease;
 }
-/* Frosting only on larger screens with a pointer, where it is cheap enough to run on many cards. */
-@media (min-width: 1024px) and (hover: hover) {
-  .camp-frame main.camp-content :is(.camp-learning-library-card, .camp-hub-today-tile, .camp-stats-tile, .camp-stats-card, .bg-card, [data-practice-surface]):not([class*="banner"], [class*="hero"]) {
-    -webkit-backdrop-filter: blur(22px) saturate(200%);
-    backdrop-filter: blur(22px) saturate(200%);
+/* A card inside a card is a lighter inset sheet, not a second floating layer. */
+.camp-frame main.camp-content :is(.bg-card, .practice-card, [data-practice-surface], .camp-grammar-lesson-body) :is(.bg-card, .practice-card, :is(div, section, article, li)[class*="bg-[var(--color-surface)]"][class*="rounded"]):not([data-outcome]) {
+  background: var(--g-control) !important;
+  box-shadow: 0 0 0 1px var(--g-hair), inset 0 1px 0 var(--g-shine) !important;
+}
+@media (min-width: 640px) {
+  .camp-frame main.camp-content :is(.camp-learning-library-card, .camp-hub-today-tile, .camp-stats-tile, .camp-stats-card, .bg-card, .practice-card, [data-practice-surface], .camp-grammar-lesson-head, .camp-grammar-lesson-body):not([class*="banner"], [class*="hero"]) {
+    -webkit-backdrop-filter: var(--g-blur);
+    backdrop-filter: var(--g-blur);
   }
 }
-/* Interactive cards lift with a brand-tinted rim. */
-.camp-frame main.camp-content :is(button.camp-learning-library-card, a.camp-learning-library-card, .camp-hub-today-tile, a[class*="bg-[var(--color-surface)]"][class*="rounded"]):is(:hover, :focus-visible) {
+/* Interactive cards lift with a violet rim. */
+.camp-frame main.camp-content :is(button.camp-learning-library-card, a.camp-learning-library-card, .camp-hub-today-tile, .camp-grammar-next, a[class*="bg-[var(--color-surface)]"][class*="rounded"]):is(:hover, :focus-visible) {
   transform: translateY(-2px);
-  background: var(--glass-card-hover) !important;
-  border-color: color-mix(in srgb, var(--glass-tint) 42%, transparent) !important;
-  box-shadow: 0 20px 40px -18px var(--glass-shadow), 0 0 0 1px color-mix(in srgb, var(--glass-tint) 20%, transparent), inset 0 2px 0 var(--glass-shine), inset 0 -1.5px 0 color-mix(in srgb, var(--glass-tint) 12%, transparent) !important;
+  background: var(--g-sheen), var(--g-card-hover) !important;
+  border-color: color-mix(in srgb, var(--g-tint) 38%, transparent) !important;
+  box-shadow: 0 20px 40px -18px var(--g-shadow), 0 0 0 1px color-mix(in srgb, var(--g-tint) 18%, transparent), inset 0 1.5px 0 var(--g-shine) !important;
 }
-.camp-frame main.camp-content .camp-hub-today .camp-hub-today-tile.camp-hub-today-tile:first-child { background: linear-gradient(145deg, color-mix(in srgb, var(--glass-tint) 12%, rgba(255, 255, 255, 0.78)), color-mix(in srgb, var(--glass-tint) 6%, rgba(255, 255, 255, 0.56))) !important; }
-.dark .camp-frame main.camp-content .camp-hub-today .camp-hub-today-tile.camp-hub-today-tile:first-child { background: linear-gradient(145deg, color-mix(in srgb, var(--glass-tint) 26%, transparent), color-mix(in srgb, var(--glass-tint) 12%, transparent)) !important; }
+.camp-frame main.camp-content .camp-hub-today .camp-hub-today-tile.camp-hub-today-tile:first-child {
+  background: var(--g-sheen), linear-gradient(145deg, color-mix(in srgb, var(--g-tint) 9%, rgba(255, 255, 255, 0.84)), color-mix(in srgb, var(--g-tint) 4%, rgba(255, 255, 255, 0.6))) !important;
+}
+.dark .camp-frame main.camp-content .camp-hub-today .camp-hub-today-tile.camp-hub-today-tile:first-child {
+  background: var(--g-sheen), linear-gradient(145deg, color-mix(in srgb, var(--g-tint) 26%, rgba(30, 25, 46, 0.7)), rgba(24, 20, 38, 0.5)) !important;
+}
+/* Icon tiles inside cards are small glass chips too. */
+.camp-frame main.camp-content :is(.camp-library-card-icon, .camp-hub-today-icon) {
+  background: var(--g-control) !important;
+  box-shadow: var(--g-control-shadow);
+}
 /* Answer feedback keeps its own green/red border. */
 .camp-frame main.camp-content [data-outcome="correct"] { border-color: var(--color-success-dark) !important; }
 .camp-frame main.camp-content [data-outcome="incorrect"] { border-color: var(--color-error-dark) !important; }
 
-/* ---------- Controls: chips, inputs, selects, secondary buttons ---------- */
+/* ---------- Buttons ---------- */
+/* Secondary buttons, chips, back buttons, answer options: clear glass. */
 .camp-frame main.camp-content :is(
-  .camp-select-trigger, .camp-hub-search input, .camp-stats-action, .camp-hub-skills > button, .camp-hub-more,
-  input[type="search"], input[type="text"], textarea,
-  button[class*="bg-[var(--color-surface)]"], button[class*="bg-[var(--color-surface-alt)]"]
-):not([data-outcome]):not([aria-pressed="true"]) {
-  background: var(--glass-control) !important;
-  border-color: var(--glass-rim) !important;
-  box-shadow: 0 2px 8px -4px var(--glass-shadow), 0 0 0 1px var(--glass-hair), inset 0 1px 0 var(--glass-shine);
+  [data-variant="outline"], [data-variant="secondary"], .camp-back-button, .camp-grammar-back, .camp-grammar-practice-link,
+  .camp-hub-skills > button, .camp-hub-more, .camp-stats-action, .camp-select-trigger, .translation-groups > button,
+  [data-chip-row] > button,
+  button[class*="bg-[var(--color-surface)]"], button[class*="bg-[var(--color-surface-alt)]"], button[class*="bg-[var(--camp-purple-soft)]"],
+  a[class*="bg-[var(--color-surface-alt)]"][class*="rounded"]
+):not([data-outcome]):not([aria-pressed="true"]):not([class*="bg-[var(--color-primary)]"]):not([class*="bg-[var(--camp-purple)]"]):not([class*="bg-[var(--color-success"]):not([class*="bg-[var(--color-error"]):not(:disabled) {
+  background: var(--g-control) !important;
+  border: 1px solid var(--g-rim) !important;
+  box-shadow: var(--g-control-shadow) !important;
+  -webkit-backdrop-filter: blur(14px) saturate(180%);
+  backdrop-filter: blur(14px) saturate(180%);
 }
 @media (hover: hover) {
-  .camp-frame main.camp-content :is(.camp-select-trigger, .camp-stats-action, .camp-hub-skills > button, .camp-hub-more, button[class*="bg-[var(--color-surface)]"], button[class*="bg-[var(--color-surface-alt)]"]):not([data-outcome]):not([aria-pressed="true"]):hover { background: var(--glass-control-hover) !important; }
+  .camp-frame main.camp-content :is(
+    [data-variant="outline"], [data-variant="secondary"], .camp-back-button, .camp-grammar-back, .camp-grammar-practice-link,
+    .camp-hub-skills > button, .camp-hub-more, .camp-stats-action, .camp-select-trigger, .translation-groups > button, [data-chip-row] > button,
+    button[class*="bg-[var(--color-surface)]"], button[class*="bg-[var(--color-surface-alt)]"], button[class*="bg-[var(--camp-purple-soft)]"]
+  ):not([data-outcome]):not([aria-pressed="true"]):not([class*="bg-[var(--color-primary)]"]):not([class*="bg-[var(--camp-purple)]"]):not(:disabled):hover {
+    background: var(--g-control-hover) !important;
+  }
 }
-/* Selected chips and primary buttons keep their brand colour, with a glass highlight on top. */
-.camp-frame main.camp-content :is([aria-pressed="true"], [class*="bg-[var(--color-primary)]"], [class*="bg-[var(--camp-purple)]"]) {
-  box-shadow: 0 6px 16px -8px color-mix(in srgb, var(--glass-tint) 60%, transparent), inset 0 1px 0 rgba(255, 255, 255, 0.32), inset 0 -1px 0 rgba(0, 0, 0, 0.12);
+/* Primary actions and selected chips: tinted violet glass. */
+.camp-frame main.camp-content :is(
+  [data-variant="default"], [class*="bg-[var(--color-primary)]"], [class*="bg-[var(--camp-purple)]"],
+  .camp-hub-skills > button[aria-pressed="true"], .translation-groups > button[aria-pressed="true"], [data-chip-row] > button[aria-pressed="true"]
+):is(button, a):not([data-outcome]) {
+  background: var(--g-primary) !important;
+  color: #fff !important;
+  border: 1px solid color-mix(in srgb, var(--g-tint) 70%, #fff 30%) !important;
+  box-shadow: var(--g-primary-shadow) !important;
+}
+@media (hover: hover) {
+  .camp-frame main.camp-content :is([data-variant="default"], [class*="bg-[var(--color-primary)]"], [class*="bg-[var(--camp-purple)]"]):is(button, a):not([data-outcome]):not(:disabled):hover {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.32) 0%, rgba(255, 255, 255, 0.08) 52%, rgba(0, 0, 0, 0.02) 100%), var(--g-tint) !important;
+  }
 }
 
-/* ---------- Page banners: same purple, with a glass sheen ---------- */
+/* ---------- Inputs, selects and text areas ---------- */
+.camp-frame main.camp-content :is(input:is([type="search"], [type="text"], [type="email"], [type="number"], :not([type])), textarea, select, .camp-select-trigger) {
+  background: var(--g-field) !important;
+  border: 1px solid var(--g-rim) !important;
+  box-shadow: 0 0 0 1px var(--g-hair), inset 0 1px 2px rgba(var(--g-ink), 0.06), 0 1px 0 var(--g-shine) !important;
+  -webkit-backdrop-filter: blur(14px) saturate(180%);
+  backdrop-filter: blur(14px) saturate(180%);
+}
+.camp-frame main.camp-content :is(input, textarea, select):focus-visible {
+  outline: none;
+  border-color: color-mix(in srgb, var(--g-tint) 55%, transparent) !important;
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--g-tint) 16%, transparent), inset 0 1px 2px rgba(var(--g-ink), 0.06) !important;
+}
+
+/* ---------- Page banners: same violet, with a glass sheen ---------- */
 .camp-frame .camp-page-banner, .camp-frame .camp-exam-hero {
-  box-shadow: 0 16px 36px -18px color-mix(in srgb, var(--glass-tint) 70%, transparent), inset 0 1.5px 0 rgba(255, 255, 255, 0.35), inset 0 -1px 0 rgba(0, 0, 0, 0.12) !important;
+  box-shadow: 0 16px 36px -20px color-mix(in srgb, var(--g-tint) 70%, transparent), inset 0 1.5px 0 rgba(255, 255, 255, 0.35), inset 0 -1px 0 rgba(0, 0, 0, 0.12) !important;
 }
 .camp-frame .camp-page-banner::after {
   content: ""; position: absolute; inset: 0; pointer-events: none; border-radius: inherit;
-  background: linear-gradient(130deg, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0.04) 36%, transparent 60%, rgba(255, 255, 255, 0.1) 100%);
+  background: linear-gradient(130deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.04) 36%, transparent 60%, rgba(255, 255, 255, 0.1) 100%);
 }
 
 /* ---------- Modals, popovers and menus ---------- */
-:is([role="dialog"], [role="alertdialog"]):not([aria-hidden="true"]) {
-  --glass-rim: rgba(255, 255, 255, 0.9);
-}
 .camp-workspace ~ * :is([role="dialog"], [role="listbox"], [role="menu"]), body > div[data-radix-popper-content-wrapper] > *, [data-radix-portal] [role="dialog"], [role="dialog"].fixed {
-  background: linear-gradient(145deg, rgba(255, 255, 255, 0.88) 0%, rgba(255, 255, 255, 0.74) 55%, color-mix(in srgb, var(--camp-purple) 4%, rgba(255, 255, 255, 0.84)) 100%) !important;
-  -webkit-backdrop-filter: blur(34px) saturate(215%);
-  backdrop-filter: blur(34px) saturate(215%);
-  border: 1.5px solid rgba(255, 255, 255, 0.92) !important;
-  box-shadow: 0 28px 64px -20px rgba(28, 16, 48, 0.3), 0 0 0 1px rgba(28, 16, 48, 0.08), inset 0 2px 0 rgba(255, 255, 255, 1) !important;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.76) 55%, rgba(255, 255, 255, 0.86) 100%) !important;
+  -webkit-backdrop-filter: blur(34px) saturate(200%);
+  backdrop-filter: blur(34px) saturate(200%);
+  border: 1px solid rgba(255, 255, 255, 0.92) !important;
+  box-shadow: 0 28px 64px -20px rgba(28, 20, 52, 0.3), 0 0 0 1px rgba(28, 20, 52, 0.08), inset 0 1.5px 0 #fff !important;
 }
 .dark :is(.camp-workspace ~ * :is([role="dialog"], [role="listbox"], [role="menu"]), body > div[data-radix-popper-content-wrapper] > *, [data-radix-portal] [role="dialog"], [role="dialog"].fixed) {
-  background: linear-gradient(145deg, color-mix(in srgb, var(--color-surface) 86%, transparent) 0%, color-mix(in srgb, var(--color-surface) 74%, transparent) 60%, color-mix(in srgb, var(--color-surface-alt) 82%, transparent) 100%) !important;
-  border-color: rgba(255, 255, 255, 0.16) !important;
-  box-shadow: 0 32px 72px -18px rgba(0, 0, 0, 0.78), inset 0 1.5px 0 rgba(255, 255, 255, 0.2) !important;
+  background: linear-gradient(145deg, rgba(34, 28, 50, 0.9) 0%, rgba(20, 17, 32, 0.82) 60%, rgba(30, 25, 46, 0.88) 100%) !important;
+  border-color: rgba(255, 255, 255, 0.14) !important;
+  box-shadow: 0 32px 72px -18px rgba(0, 0, 0, 0.78), inset 0 1px 0 rgba(255, 255, 255, 0.16) !important;
 }
 
 /* ---------- Accessibility and fallbacks ---------- */
 @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
-  .camp-workspace :is(.camp-toolbar, .camp-mobile-nav, .camp-sidebar, .camp-learning-rail) { background: var(--color-surface); }
+  .camp-workspace :is(.camp-mobile-nav, .camp-sidebar, .camp-learning-rail) { background: var(--color-surface); }
 }
 @media (prefers-reduced-transparency: reduce) {
-  .camp-workspace, .dark .camp-workspace { background-image: none; background-color: var(--color-surface); }
-  .camp-workspace :is(.camp-toolbar, .camp-mobile-nav, .camp-sidebar, .camp-learning-rail) { background: var(--color-surface); -webkit-backdrop-filter: none; backdrop-filter: none; }
-  .camp-frame main.camp-content :is(.camp-learning-library-card, .camp-hub-today-tile, .camp-stats-tile, .camp-stats-card, .bg-card, [data-practice-surface], :is(div, section, article, li, a)[class*="bg-[var(--color-surface)]"][class*="rounded"]):not([class*="banner"], [class*="hero"], .text-white) { background: var(--color-surface) !important; -webkit-backdrop-filter: none; backdrop-filter: none; }
+  body .camp-workspace.camp-workspace { background-image: none; }
+  .camp-workspace :is(.camp-mobile-nav, .camp-sidebar, .camp-learning-rail) { background: var(--color-surface); -webkit-backdrop-filter: none; backdrop-filter: none; }
+  .camp-frame main.camp-content * { -webkit-backdrop-filter: none !important; backdrop-filter: none !important; }
 }
 @media (prefers-reduced-motion: reduce) {
   .camp-frame main.camp-content * { transition: none !important; }
-  .camp-frame main.camp-content :is(.camp-learning-library-card, .camp-hub-today-tile, a[class*="bg-[var(--color-surface)]"]):hover { transform: none; }
+  .camp-frame main.camp-content :is(.camp-learning-library-card, .camp-hub-today-tile, .camp-grammar-next, a[class*="bg-[var(--color-surface)]"]):hover { transform: none; }
 }
 @media print {
   .camp-workspace { background: #fff !important; }
