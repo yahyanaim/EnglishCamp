@@ -5,6 +5,14 @@
       "before": "004c1022a1b6679c39615ae3dfe6e66d62b56e88fcbb771c4d69a65723e160c7",
       "after": "c65bae08efa1a2bef5049809a8bc451760a2012b06ce17b11a77ec4789ff5f55"
     },
+    "src/components/course/CourseOverview.tsx": {
+      "before": "e446bfcbc4e79ddcb7751480feafe29474ce84762036ad28ebbb0d6a7178db62",
+      "after": "211c1621e5404aa93ad008b06b0b909f76eb4aee463340a0a57cce2b3953d99b"
+    },
+    "src/components/course/ModuleExperience.tsx": {
+      "before": "62dbbe68945792b4deede96c803081d490281fe6f7489c3fc47b13e650b28c51",
+      "after": "1d77504e29e6145477f210d5e9afc68761a7c6eb41e929d199f1784d42347db0"
+    },
     "src/components/lesson/CalloutBlock.tsx": {
       "before": "9549d39d2731666c5672f797512be2ff550a3f4770416d4bdeeea75d039e5bfa",
       "after": "3638acba2947ebed77de6b158acadc2a9d230c0eacd69259e4440b699485563e"

@@ -1,11 +1,11 @@
 "use client";
 import { LearningArt } from "@/components/brand/LearningArt";
 import { SelectField } from "@/components/ui/shadcn/select-field";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
-import { ArrowLeft, ArrowRight, Dumbbell, Zap } from "lucide-react";
+import { ArrowLeft, ArrowRight, Check } from "lucide-react";
 import type { Lesson, Exercise } from "@/data/types";
 import type { CourseSummary } from "@/data/course-catalogue";
 import { ExerciseRenderer } from "@/components/exercises/ExerciseRenderer";
@@ -13,8 +13,7 @@ import { IllustratedLessonContent } from "./IllustratedLessonContent";
 import { CourseEnrichment } from "./CourseEnrichment";
 import { CourseVideoLesson } from "./CourseVideoLesson";
 import { LessonPrinciple } from "./LessonPrinciple";
-import { LessonDoneButton } from "./LessonDoneButton";
-import { BackButton } from "@/components/ui/BackButton";
+import { LessonDoneButton, lessonReadKey } from "./LessonDoneButton";
 import type { CourseEnrichment as Enrichment } from "@/data/course-enrichment/types";
 import { BookmarkButton } from "@/components/ui/BookmarkButton";
 import { NotesEditor } from "@/components/ui/NotesEditor";
@@ -22,6 +21,8 @@ import { useProgress } from "@/store/useProgress";
 import { courseLabel } from "@/lib/courseLabels";
 import { cycleComplete } from "@/lib/courseProgress";
 import { confirmActivityNavigation, hasUnsavedActivity } from "@/lib/activityState";
+
+type Tab = "watch" | "learn" | "practise";
 
 export function ModuleExperience({ course, lesson, exercises, enrichment, focused = false }: { course: CourseSummary; lesson: Lesson; exercises: Exercise[]; enrichment?: Enrichment; focused?: boolean }) {
   const router = useRouter();
@@ -43,77 +44,109 @@ export function ModuleExperience({ course, lesson, exercises, enrichment, focuse
     return () => { window.removeEventListener("beforeunload", warn); document.removeEventListener("click", guard, true); };
   }, []);
   const previous = course.lessons[index - 1], next = course.lessons[index + 1];
-  const navigation = <nav aria-label="Module navigation" className="flex flex-wrap items-center justify-between gap-3 p-4 bg-[var(--color-surface)] border border-[var(--color-border-default)] rounded-2xl">
-    {previous && <Link className="inline-flex items-center gap-2 text-sm font-bold text-[var(--color-text-link)]" href={href(previous.id)} title={previous.title}><ArrowLeft className="w-4 h-4" />Previous module</Link>}
-    <BackButton href={`/levels/${course.id}`}>Back to course</BackButton>
-    {next && <Link className="inline-flex items-center gap-2 text-sm font-bold text-[var(--color-text-link)]" href={href(next.id)} title={next.title}>Next module<ArrowRight className="w-4 h-4" /></Link>}
+  const readSaved = useProgress(s => !!s.exercisesDone[lessonReadKey(lesson.id)]);
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+  const hasVideo = !!enrichment?.video;
+  const [tab, setTab] = useState<Tab>(focused ? "practise" : hasVideo ? "watch" : "learn");
+  useEffect(() => {
+    const open = () => {
+      const id = decodeURIComponent(location.hash.slice(1));
+      if (!id) return;
+      if (id === "practice") setTab("practise");
+      else if (id === "video-lesson" && hasVideo) setTab("watch");
+      else if (document.querySelector(`[data-panel="learn"] #${CSS.escape(id)}`)) setTab("learn");
+      else return;
+      window.setTimeout(() => document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" }), 60);
+    };
+    open(); window.addEventListener("hashchange", open); return () => window.removeEventListener("hashchange", open);
+  }, [hasVideo]);
+  const go = (next: Tab) => { setTab(next); requestAnimationFrame(() => document.getElementById("module-tabs")?.scrollIntoView({ behavior: "smooth", block: "start" })); };
+  const stagesDone = mounted ? [0, 1, 2].filter(i => state?.stages[i]).length : 0;
+  const read = mounted && readSaved;
+  const tabs: { id: Tab; label: string; meta: string; done: boolean; show: boolean }[] = [
+    { id: "watch", label: "Watch", meta: "Video & recap", done: false, show: hasVideo },
+    { id: "learn", label: "Learn", meta: read ? "Read" : "Lesson & examples", done: read, show: true },
+    { id: "practise", label: "Practise", meta: `${stagesDone}/3 stages`, done: mounted && done, show: true },
+  ];
+  const visibleTabs = tabs.filter(t => t.show);
+  const pager = <nav aria-label="Module navigation" className="camp-module-pager">
+    {previous ? <Link className="camp-module-pager-link" data-dir="prev" href={href(previous.id)} title={previous.title}><ArrowLeft size={18} aria-hidden="true" /><span><small>Previous · Module {index}</small><strong>{previous.title}</strong></span></Link> : <span />}
+    {next ? <Link className="camp-module-pager-link" data-dir="next" href={href(next.id)} title={next.title}><span><small>Next · Module {index + 2}</small><strong>{next.title}</strong></span><ArrowRight size={18} aria-hidden="true" /></Link> : <Link className="camp-module-pager-link" data-dir="next" href={`/levels/${course.id}`}><span><small>Last module</small><strong>Back to the course</strong></span><ArrowRight size={18} aria-hidden="true" /></Link>}
   </nav>;
-  return <div className="camp-module-experience camp-section-stack space-y-5 text-[var(--color-text-primary)]">
-    <div className="flex flex-wrap items-center justify-between gap-3 text-sm text-[var(--color-text-secondary)]">
-      <Link className="font-bold hover:text-[var(--color-text-link)]" href={`/levels/${course.id}`}>{course.title}</Link>
-      <span className="text-xs font-semibold rounded-full px-3 py-1 border border-[var(--color-border-default)] bg-[var(--color-surface)]">Module {index + 1} of {course.lessons.length} · {focused ? "Focused practice" : "Learn and practise"}</span>
-    </div>
-    <motion.div initial={false} animate={{ opacity: 1, y: 0 }}>
-      <div className="flex flex-col md:flex-row items-start justify-between gap-4 md:gap-6">
-        <div className="flex-1 min-w-0 w-full">
-          <h1 className="font-display text-3xl md:text-4xl font-extrabold text-[var(--color-text-primary)] mb-2 leading-tight tracking-tight">{lesson.title}</h1>
-          {lesson.subtitle && <p className="text-[var(--color-text-secondary)] text-base">{lesson.subtitle}</p>}
-        </div>
-        <div className="flex items-center gap-2 shrink-0">
-          <BookmarkButton lessonId={lesson.id} />
-          <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-amber-500/10 text-[var(--color-text-warning)] border border-amber-500/25 text-sm font-bold"><LearningArt name="Zap" size={16} className="w-4 h-4" />{lesson.xpReward} module XP</span>
-        </div>
-      </div>
-      <div className="h-px bg-[var(--color-border-default)] mt-6" />
-    </motion.div>
-    <div className="flex flex-col sm:flex-row sm:items-end gap-3">
-      <label className="w-full min-w-0 flex-1 text-xs font-bold">Select module
-        <SelectField aria-label="Select module" className="mt-2 w-full bg-[var(--color-surface-alt)] text-[var(--color-text-primary)] border border-[var(--color-border-default)] rounded-xl p-3 focus:ring-2 focus:ring-blue-500" value={lesson.id} onValueChange={value => { if (confirmActivityNavigation()) router.push(href(value)); }}>
+  return <div className="camp-module-experience camp-lesson-v2 text-[var(--color-text-primary)]">
+    <header className="camp-lesson-head">
+      <div className="camp-lesson-crumbs">
+        <Link href={`/levels/${course.id}`}><ArrowLeft size={15} aria-hidden="true" />{course.title}</Link>
+        <SelectField aria-label="Select module" className="camp-lesson-jump" value={lesson.id} onValueChange={value => { if (confirmActivityNavigation()) router.push(href(value)); }}>
           {course.lessons.map(item => <option key={item.id} value={item.id}>{item.moduleNumber}. {item.title}</option>)}
         </SelectField>
-      </label>
-      <Link href={focused ? `/levels/${course.id}/lessons/${lesson.id}` : `/exercises/${lesson.id}`} className="inline-flex items-center justify-center gap-2 shrink-0 rounded-xl px-4 py-3 text-xs font-bold text-white bg-indigo-600 hover:bg-indigo-700"><Dumbbell className="w-4 h-4" />{focused ? "Study lesson" : "Open focused practice"}</Link>
+      </div>
+      <div className="camp-lesson-title-row">
+        <div className="min-w-0">
+          <span className="camp-lesson-eyebrow">Module {index + 1} of {course.lessons.length}{focused ? " · Focused practice" : ""}</span>
+          <h1>{lesson.title}</h1>
+          {lesson.subtitle && <p>{lesson.subtitle}</p>}
+        </div>
+        <div className="camp-lesson-head-actions">
+          <BookmarkButton lessonId={lesson.id} />
+          <span className="camp-lesson-xp"><LearningArt name="Zap" size={16} />{lesson.xpReward} XP</span>
+        </div>
+      </div>
+      <div className="camp-lesson-course-progress" aria-hidden="true"><span style={{ width: `${((index + 1) / course.lessons.length) * 100}%` }} /></div>
+    </header>
+    <div id="module-tabs" role="tablist" aria-label="Lesson steps" className="camp-lesson-tabs" data-count={visibleTabs.length}>
+      {visibleTabs.map((t, i) => <button key={t.id} type="button" role="tab" id={`tab-${t.id}`} aria-controls={`panel-${t.id}`} aria-selected={tab === t.id} onClick={() => go(t.id)}>
+        <span className="camp-lesson-tab-num" data-done={t.done}>{t.done ? <Check size={14} aria-hidden="true" /> : i + 1}</span>
+        <span><strong>{t.label}</strong><small>{t.meta}</small></span>
+      </button>)}
     </div>
-    {navigation}
-    {enrichment?.video && <CourseVideoLesson video={enrichment.video} principle={enrichment.principle} example={enrichment} lessonId={lesson.id} lessonTitle={lesson.title} />}
-    <details open={!focused} className="camp-lesson-theory text-[var(--color-text-primary)] space-y-5">
-      <summary className="cursor-pointer font-display font-bold text-lg text-[var(--color-text-link)]">{focused ? "Review lesson theory / hint" : "Learn and worked examples"}</summary>
-      {enrichment && <nav aria-label="Lesson sections" className="flex flex-wrap gap-x-6 gap-y-3 text-sm font-bold underline text-[var(--color-text-link)]">
-        <a href="#additional-worked-example">Jump to the additional worked example and reference</a>
-        {enrichment.principle && <a href="#lesson-principle">{enrichment.teachingDiagram ? "Jump to the visual explanation" : "Jump to the rule mind map recap"}</a>}
-        {enrichment.inlineImages && <a href="#lesson-images">Jump to the lesson images</a>}
+    {enrichment?.video && <div role="tabpanel" id="panel-watch" aria-labelledby="tab-watch" data-panel="watch" hidden={tab !== "watch"} className="camp-lesson-panel">
+      <CourseVideoLesson video={enrichment.video} principle={enrichment.principle} example={enrichment} lessonId={lesson.id} lessonTitle={lesson.title} />
+      <button type="button" className="camp-lesson-continue" onClick={() => go("learn")}>Continue to the lesson<ArrowRight size={16} aria-hidden="true" /></button>
+    </div>}
+    <div role="tabpanel" id="panel-learn" aria-labelledby="tab-learn" data-panel="learn" hidden={tab !== "learn"} className="camp-lesson-panel camp-lesson-theory">
+      {enrichment && <nav aria-label="Lesson sections" className="camp-lesson-onpage">
+        <span>On this page</span>
+        <a href="#additional-worked-example">Worked example</a>
+        {enrichment.principle && <a href="#lesson-principle" aria-label={enrichment.teachingDiagram ? "Jump to the visual explanation" : "Jump to the rule mind map recap"}>{enrichment.teachingDiagram ? "Visual explanation" : "Rule map"}</a>}
+        {enrichment.inlineImages && <a href="#lesson-images">Lesson images</a>}
       </nav>}
-      <div className="pt-4"><IllustratedLessonContent blocks={lesson.blocks} diagram={enrichment?.teachingDiagram} images={enrichment?.inlineImages} /></div>
+      <IllustratedLessonContent blocks={lesson.blocks} diagram={enrichment?.teachingDiagram} images={enrichment?.inlineImages} />
       {enrichment && <CourseEnrichment key={lesson.id} content={enrichment} />}
-      {enrichment?.principle && !enrichment.teachingDiagram && <div className="pt-5 border-t border-[var(--color-border-default)]"><LessonPrinciple principle={enrichment.principle} /></div>}
-    </details>
-    <LessonDoneButton lessonId={lesson.id}/>
-    <section id="practice" aria-label="Module practice" className="space-y-5 pt-5 border-t border-[var(--color-border-default)]">
-      <div><h2 className="font-display text-xl font-bold">Interactive Practice Lab</h2><p className="text-sm text-[var(--color-text-secondary)] mt-2">Complete guided practice, independent practice and the fresh assessment to finish the module. Short drills are optional reinforcement. Writing and Speaking use self-review, not automatic scoring.</p></div>
-      {exercises.filter(exercise => exercise.type === "course-activity").map(exercise => <div key={exercise.id} className="bg-[var(--color-surface)] border border-[var(--color-border-default)] rounded-2xl p-4 sm:p-5 shadow-sm">
-        <div className="flex flex-wrap items-center justify-between gap-2 mb-3 text-xs font-semibold text-[var(--color-text-secondary)]"><span className="text-[var(--color-text-info)]">Three-stage module activity</span><span className="text-[var(--color-text-warning)]">{exercise.xpReward} activity XP · once</span></div>
-        <p className="text-sm font-semibold mb-4">{courseLabel(exercise.prompt)}</p>
+      {enrichment?.principle && !enrichment.teachingDiagram && <div className="camp-lesson-principle-wrap"><LessonPrinciple principle={enrichment.principle} /></div>}
+      {!enrichment?.video && <NotesEditor key={lesson.id} lessonId={lesson.id} lessonTitle={lesson.title} />}
+      <LessonDoneButton lessonId={lesson.id}/>
+      <button type="button" className="camp-lesson-continue" onClick={() => go("practise")}>Continue to practice<ArrowRight size={16} aria-hidden="true" /></button>
+    </div>
+    <div role="tabpanel" id="panel-practise" aria-labelledby="tab-practise" data-panel="practise" hidden={tab !== "practise"} className="camp-lesson-panel">
+    <section id="practice" aria-label="Module practice" className="camp-lesson-practice">
+      <div className="camp-lesson-practice-head">
+        <div><h2>Interactive Practice Lab</h2><p>Guided practice, independent practice and a fresh assessment finish the module. Writing and Speaking use self-review.</p></div>
+        <ol className="camp-lesson-stages" aria-label="Module stages">{["Guided", "Independent", "Assessment"].map((name, i) => { const st = mounted ? state?.stages[i] : undefined; return <li key={name} data-done={!!st}><span>{st ? <Check size={13} aria-hidden="true" /> : i + 1}</span>{name}<small>{st ? st.outcome === "checked" ? "Checked" : st.outcome === "self-reviewed" ? "Self-reviewed" : "Study alternative" : i === 2 && mounted && state?.assessmentAttemptedAt ? "Attempted" : "To do"}</small></li>; })}</ol>
+      </div>
+      {exercises.filter(exercise => exercise.type === "course-activity").map(exercise => <div key={exercise.id} className="camp-lesson-activity">
+        <div className="camp-lesson-activity-meta"><span>Three-stage module activity</span><span>{exercise.xpReward} XP · once</span></div>
+        <p className="camp-lesson-activity-prompt">{courseLabel(exercise.prompt)}</p>
         <ExerciseRenderer exercise={exercise} lessonXP={lesson.xpReward} />
       </div>)}
-      {exercises.some(exercise => exercise.type !== "course-activity") && <details className="space-y-4"><summary className="font-bold text-[var(--color-text-link)] cursor-pointer">Optional short drills ({exercises.filter(exercise => exercise.type !== "course-activity").length})</summary>
-        {exercises.filter(exercise => exercise.type !== "course-activity").map((exercise, idx) => <div key={exercise.id} className="bg-[var(--color-surface)] border border-[var(--color-border-default)] rounded-2xl p-4 sm:p-5 shadow-sm">
-          <div className="flex flex-wrap items-center justify-between gap-2 mb-3 text-xs font-semibold text-[var(--color-text-secondary)]"><span className="text-[var(--color-text-info)]">Optional short drill {idx + 1}</span><span className="text-[var(--color-text-warning)]">{exercise.xpReward} activity XP · once</span></div>
-          <p className="text-sm font-semibold mb-4">{exercise.prompt.replace("The full interactive activity below", "The three-stage module activity above")}</p>
+      {exercises.some(exercise => exercise.type !== "course-activity") && <details className="camp-lesson-drills"><summary>Optional short drills <span>{exercises.filter(exercise => exercise.type !== "course-activity").length}</span></summary>
+        {exercises.filter(exercise => exercise.type !== "course-activity").map((exercise, idx) => <div key={exercise.id} className="camp-lesson-activity">
+          <div className="camp-lesson-activity-meta"><span>Short drill {idx + 1}</span><span>{exercise.xpReward} XP · once</span></div>
+          <p className="camp-lesson-activity-prompt">{exercise.prompt.replace("The full interactive activity below", "The three-stage module activity above")}</p>
           <ExerciseRenderer exercise={exercise} />
         </div>)}
       </details>}
     </section>
-    <div role="status" className="rounded-2xl bg-[var(--color-surface)] border border-[var(--color-border-default)] p-5 text-sm space-y-2">
-      <p className="font-bold">{done ? "Module practice completed" : "Module practice in progress"}</p>
-      <p>{["Guided", "Independent", "Assessment"].map((name, i) => `${name}: ${state?.stages[i] ? state.stages[i].outcome === "checked" ? "checked task completed" : state.stages[i].outcome === "self-reviewed" ? "self-reviewed" : "study alternative completed" : i === 2 && state?.assessmentAttemptedAt ? "attempted" : "not completed"}`).join(" · ")}</p>
+    <div role="status" className="camp-lesson-status">
+      <p><strong>{done ? "Module practice completed" : "Module practice in progress"}</strong> · percentages count finished stages, not exam scores.</p>
       {legacy && <p>Earlier completion credit and XP are retained as historical engagement. They do not establish demonstrated skill.</p>}
-      <p>Course percentages count accepted learning stages and retained historical credit. All three stages finish a module. These percentages are not exam scores.</p>
     </div>
-    <details className="text-sm"><summary className="cursor-pointer font-bold text-[var(--color-text-link)]">Recent practice history and revision</summary>
-      <ul className="space-y-2 mt-3">{attempts.filter(item => item.moduleId === lesson.id).slice(-6).reverse().map((item, i) => <li key={`${item.at}-${i}`}>{["Guided", "Independent", "Assessment"][item.stage]} · {item.status}{item.total !== undefined ? ` · ${item.correct}/${item.total} checked answers` : ` · ${item.outcome ?? "self-review"}`}</li>)}</ul>
-      <Link className="inline-block mt-3 underline text-[var(--color-text-link)]" href="/weak-areas">Review saved errors</Link>
+    <details className="camp-lesson-history"><summary>Recent practice history</summary>
+      <ul>{attempts.filter(item => item.moduleId === lesson.id).slice(-6).reverse().map((item, i) => <li key={`${item.at}-${i}`}>{["Guided", "Independent", "Assessment"][item.stage]} · {item.status}{item.total !== undefined ? ` · ${item.correct}/${item.total} checked answers` : ` · ${item.outcome ?? "self-review"}`}</li>)}</ul>
+      <Link href="/weak-areas">Review saved errors</Link>
     </details>
-    {!enrichment?.video && <NotesEditor key={lesson.id} lessonId={lesson.id} lessonTitle={lesson.title} />}
-    {navigation}
+    </div>
+    {pager}
   </div>;
 }

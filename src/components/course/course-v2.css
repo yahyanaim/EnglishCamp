@@ -1,0 +1,208 @@
+/* Course library v2: course overview + lesson player.
+   Glass surfaces, one type scale (Nunito headings / DM Sans body), 8px rhythm. */
+.camp-frame main.camp-content .camp-course-v2 { display: grid; gap: 20px; }
+
+/* Switcher */
+.camp-frame main.camp-content .camp-course-switch { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; padding: 6px; border-radius: 18px; background: var(--g-track, var(--color-surface-alt)); box-shadow: inset 0 1px 2px rgba(15, 23, 42, .06); }
+.camp-frame main.camp-content .camp-course-switch > a { display: grid; gap: 1px; padding: 9px 12px; border-radius: 13px; text-align: center; color: var(--color-text-secondary); text-decoration: none; transition: background .2s ease, color .2s ease; }
+.camp-frame main.camp-content .camp-course-switch > a strong { font: 700 13.5px/1.3 var(--font-display), Nunito, sans-serif; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.camp-frame main.camp-content .camp-course-switch > a small { font-size: 11px; opacity: .8; white-space: nowrap; }
+.camp-frame main.camp-content .camp-course-switch > a:hover { color: var(--color-text-primary); }
+.camp-frame main.camp-content .camp-course-switch > a[aria-current="page"] { background: var(--g-card); color: var(--camp-control-ink); box-shadow: var(--g-control-shadow); }
+
+/* Hero */
+.camp-frame main.camp-content .camp-course-v2-hero { display: grid; grid-template-columns: minmax(0, 1fr) 132px; gap: 24px; align-items: center; padding: 28px; border-radius: 24px; background: radial-gradient(120% 140% at 100% 0%, color-mix(in srgb, var(--camp-purple) 14%, transparent), transparent 55%), var(--g-card); border: 1px solid var(--g-rim, var(--color-border-default)); box-shadow: var(--g-sheen, none), 0 18px 40px -28px rgba(76, 29, 149, .45); }
+.camp-frame main.camp-content .camp-course-v2-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+.camp-frame main.camp-content .camp-course-v2-tags span { padding: 4px 10px; border-radius: 999px; background: var(--g-control); box-shadow: var(--g-control-shadow); font-size: 11.5px; font-weight: 700; color: var(--camp-control-ink); }
+.camp-frame main.camp-content .camp-course-v2-hero h1 { margin: 0; font: 800 clamp(24px, 3vw, 32px)/1.2 var(--font-display), Nunito, sans-serif !important; color: var(--color-text-primary); letter-spacing: -.01em; }
+.camp-frame main.camp-content .camp-course-v2-sub { margin: 6px 0 0; font-size: 16px; color: var(--camp-control-ink); font-weight: 600; }
+.camp-frame main.camp-content .camp-course-v2-about { margin-top: 14px; }
+.camp-frame main.camp-content .camp-course-v2-about > summary { display: inline-flex; align-items: center; gap: 6px; min-height: 34px; padding: 0 14px; border-radius: 999px; background: var(--g-control); box-shadow: var(--g-control-shadow); font-size: 13px; font-weight: 650; color: var(--camp-control-ink); cursor: pointer; list-style: none; }
+.camp-frame main.camp-content .camp-course-v2-about > summary::-webkit-details-marker { display: none; }
+.camp-frame main.camp-content .camp-course-v2-about > summary::after { content: "⌄"; font-size: 14px; line-height: 1; transform: translateY(-2px); }
+.camp-frame main.camp-content .camp-course-v2-about[open] > summary::after { transform: rotate(180deg) translateY(-2px); }
+.camp-frame main.camp-content .camp-course-v2-about > p { margin: 14px 0 0; font-size: 15px; line-height: 1.7; color: var(--color-text-secondary); max-width: 68ch; }
+.camp-frame main.camp-content .camp-course-v2-about ul { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 16px; margin: 14px 0 0; padding: 0; list-style: none; }
+.camp-frame main.camp-content .camp-course-v2-about li { display: flex; gap: 8px; align-items: flex-start; font-size: 14px; line-height: 1.5; color: var(--color-text-primary); }
+.camp-frame main.camp-content .camp-course-v2-about li svg { flex: none; margin-top: 3px; color: var(--camp-purple); }
+.camp-frame main.camp-content .camp-course-v2-fine { font-size: 12px !important; }
+.camp-frame main.camp-content .camp-course-v2-ring { position: relative; display: grid; place-items: center; width: 132px; height: 132px; }
+.camp-frame main.camp-content .camp-course-v2-ring svg { position: absolute; inset: 0; width: 100%; height: 100%; transform: rotate(-90deg); }
+.camp-frame main.camp-content .camp-course-v2-ring circle { fill: none; stroke-width: 7; }
+.camp-frame main.camp-content .camp-course-v2-ring .track { stroke: color-mix(in srgb, var(--camp-purple) 12%, transparent); }
+.camp-frame main.camp-content .camp-course-v2-ring .value { stroke: var(--camp-purple); stroke-linecap: round; transition: stroke-dashoffset .6s ease; }
+.camp-frame main.camp-content .camp-course-v2-ring strong { font: 800 26px/1 var(--font-display), Nunito, sans-serif; color: var(--color-text-primary); margin-top: -10px; }
+.camp-frame main.camp-content .camp-course-v2-ring small { position: absolute; bottom: 36px; font-size: 11px; color: var(--color-text-secondary); }
+
+/* Continue card */
+.camp-frame main.camp-content .camp-course-v2-next { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 16px; align-items: center; padding: 16px 20px; border-radius: 20px; background: var(--g-card); border: 1px solid var(--g-rim, var(--color-border-default)); box-shadow: var(--g-sheen, none), 0 10px 28px -20px rgba(76, 29, 149, .35); }
+.camp-frame main.camp-content .camp-course-v2-next > div:nth-child(2) { display: grid; gap: 2px; }
+.camp-frame main.camp-content .camp-course-v2-next > div:nth-child(2) > small { font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--camp-control-ink); }
+.camp-frame main.camp-content .camp-course-v2-next > div:nth-child(2) > strong { font: 700 17px/1.35 var(--font-display), Nunito, sans-serif; color: var(--color-text-primary); }
+.camp-frame main.camp-content .camp-course-v2-next > div:nth-child(2) > span { font-size: 13px; color: var(--color-text-secondary); }
+.camp-frame main.camp-content .camp-course-v2-next-actions { display: flex; gap: 8px; align-items: center; }
+.camp-frame main.camp-content :is(.camp-course-v2-primary, .camp-course-v2-ghost):not(#_) { display: inline-flex; align-items: center; gap: 7px; height: 44px; padding: 0 18px; border-radius: 999px; font-size: 14px; font-weight: 650; text-decoration: none; white-space: nowrap; }
+.camp-frame main.camp-content .camp-course-v2-primary:not(#_) { background: var(--g-primary); color: #fff; box-shadow: var(--g-primary-shadow); }
+.camp-frame main.camp-content .camp-course-v2-ghost:not(#_) { background: var(--g-control); color: var(--camp-control-ink); box-shadow: var(--g-control-shadow); padding: 0 14px; }
+
+/* Tips */
+.camp-frame main.camp-content .camp-course-v2-tip { padding: 14px 18px; border-radius: 18px; background: var(--g-control); box-shadow: var(--g-control-shadow); }
+.camp-frame main.camp-content .camp-course-v2-tip > summary { display: flex; align-items: center; gap: 10px; font: 700 14px/1.4 var(--font-display), Nunito, sans-serif; color: var(--color-text-primary); cursor: pointer; list-style: none; }
+.camp-frame main.camp-content .camp-course-v2-tip > summary svg { color: var(--camp-purple); flex: none; }
+.camp-frame main.camp-content .camp-course-v2-tip > p { margin: 10px 0 0; font-size: 14px; line-height: 1.65; color: var(--color-text-secondary); }
+.camp-frame main.camp-content .camp-course-v2-tip > div { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.camp-frame main.camp-content .camp-course-v2-tip > div a { padding: 7px 12px; border-radius: 999px; background: var(--g-card); font-size: 13px; font-weight: 600; color: var(--camp-control-ink); text-decoration: none; box-shadow: var(--g-control-shadow); }
+.camp-frame main.camp-content .camp-course-v2-quiz { margin: 0; padding: 12px 16px; border-radius: 14px; background: color-mix(in srgb, #f59e0b 10%, transparent); font-size: 14px; }
+
+/* Modules */
+.camp-frame main.camp-content .camp-course-v2-modules { display: grid; gap: 16px; }
+.camp-frame main.camp-content .camp-course-v2-modules-head { display: grid; gap: 12px; }
+.camp-frame main.camp-content .camp-course-v2-modules-head h2 { display: flex; align-items: center; gap: 10px; margin: 0; font: 700 22px/1.3 var(--font-display), Nunito, sans-serif !important; }
+.camp-frame main.camp-content .camp-course-v2-filters { display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; padding: 2px; }
+.camp-frame main.camp-content .camp-course-v2-filters button { flex: none; display: inline-flex; align-items: center; gap: 8px; height: 38px; padding: 0 14px; border-radius: 999px; border: 1px solid var(--g-rim, var(--color-border-default)); background: var(--g-pill, var(--g-control)); box-shadow: var(--g-pill-shadow, var(--g-control-shadow)); font-size: 13px; font-weight: 650; color: var(--color-text-primary); cursor: pointer; }
+.camp-frame main.camp-content .camp-course-v2-filters button span { min-width: 22px; padding: 1px 7px; border-radius: 999px; background: color-mix(in srgb, var(--camp-purple) 10%, transparent); font-size: 11px; color: var(--camp-control-ink); }
+.camp-frame main.camp-content .camp-course-v2-filters button[aria-pressed="true"] { background: var(--g-primary); color: #fff; border-color: transparent; box-shadow: var(--g-primary-shadow); }
+.camp-frame main.camp-content .camp-course-v2-filters button[aria-pressed="true"] span { background: rgba(255, 255, 255, .22); color: #fff; }
+.camp-frame main.camp-content .camp-course-v2-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin: 0; padding: 0; list-style: none; }
+.camp-frame main.camp-content .camp-course-v2-card { position: relative; display: flex; flex-direction: column; gap: 10px; padding: 18px; border-radius: 20px; background: var(--g-card); border: 1px solid var(--g-rim, var(--color-border-default)); box-shadow: var(--g-sheen, none), 0 10px 28px -20px rgba(76, 29, 149, .35); transition: transform .18s ease, box-shadow .18s ease; }
+.camp-frame main.camp-content .camp-course-v2-card:hover { transform: translateY(-2px); box-shadow: var(--g-sheen, none), 0 16px 34px -18px rgba(76, 29, 149, .45); }
+.camp-frame main.camp-content .camp-course-v2-card:focus-within { outline: 2px solid var(--camp-purple); outline-offset: 2px; }
+.camp-frame main.camp-content .camp-course-v2-card-top { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.camp-frame main.camp-content .camp-course-v2-status { display: inline-flex; align-items: center; gap: 5px; padding: 4px 10px; border-radius: 999px; font-size: 11.5px; font-weight: 700; background: var(--g-control); color: var(--color-text-secondary); }
+.camp-frame main.camp-content .camp-course-v2-status[data-status="active"] { background: color-mix(in srgb, var(--camp-purple) 12%, transparent); color: var(--camp-control-ink); }
+.camp-frame main.camp-content .camp-course-v2-status[data-status="done"] { background: color-mix(in srgb, #10b981 14%, transparent); color: #047857; }
+.camp-frame main.camp-content .camp-course-v2-card h3 { margin: 0; font: 700 16.5px/1.35 var(--font-display), Nunito, sans-serif !important; }
+.camp-frame main.camp-content .camp-course-v2-card h3 a { color: var(--color-text-primary); text-decoration: none; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.camp-frame main.camp-content .camp-course-v2-card h3 a::after { content: ""; position: absolute; inset: 0; border-radius: inherit; }
+.camp-frame main.camp-content .camp-course-v2-card h3 a:focus-visible { outline: none; }
+.camp-frame main.camp-content .camp-course-v2-card > p { flex: 1; margin: 0; font-size: 14px; line-height: 1.5; color: var(--color-text-secondary); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.camp-frame main.camp-content .camp-course-v2-stagebar { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; }
+.camp-frame main.camp-content .camp-course-v2-stagebar span { height: 4px; border-radius: 4px; background: color-mix(in srgb, var(--camp-purple) 12%, transparent); }
+.camp-frame main.camp-content .camp-course-v2-stagebar span[data-on="true"] { background: var(--camp-purple); }
+.camp-frame main.camp-content .camp-course-v2-card[data-status="done"] .camp-course-v2-stagebar span { background: #10b981; }
+.camp-frame main.camp-content .camp-course-v2-card-foot { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.camp-frame main.camp-content .camp-course-v2-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; font-size: 12px; color: var(--color-text-secondary); }
+.camp-frame main.camp-content .camp-course-v2-meta em { font-style: normal; padding: 2px 8px; border-radius: 999px; background: var(--g-control); text-transform: capitalize; font-weight: 600; color: var(--color-text-primary); }
+.camp-frame main.camp-content .camp-course-v2-drill:not(#_) { position: relative; z-index: 1; display: grid; place-items: center; width: 38px; height: 38px; border-radius: 50%; background: var(--g-control); box-shadow: var(--g-control-shadow); color: var(--camp-control-ink); }
+.camp-frame main.camp-content .camp-course-v2-drill:not(#_):hover { background: var(--g-primary); color: #fff; }
+
+/* ---------- Lesson player ---------- */
+.camp-frame main.camp-content .camp-lesson-v2 { display: grid; gap: 18px; }
+.camp-frame main.camp-content .camp-lesson-head { display: grid; gap: 14px; padding: 22px 24px 20px; border-radius: 24px; background: var(--g-card); border: 1px solid var(--g-rim, var(--color-border-default)); box-shadow: var(--g-sheen, none), 0 18px 40px -30px rgba(76, 29, 149, .45); overflow: hidden; }
+.camp-frame main.camp-content .camp-lesson-crumbs { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.camp-frame main.camp-content .camp-lesson-crumbs > a { display: inline-flex; align-items: center; gap: 6px; min-width: 0; font-size: 13px; font-weight: 650; color: var(--camp-control-ink); text-decoration: none; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.camp-frame main.camp-content .camp-lesson-jump { max-width: 300px; }
+.camp-frame main.camp-content .camp-lesson-crumbs .camp-select-trigger, .camp-frame main.camp-content .camp-lesson-crumbs select { height: 38px; max-width: 300px; border-radius: 999px !important; font-size: 13px; }
+.camp-frame main.camp-content .camp-lesson-title-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
+.camp-frame main.camp-content .camp-lesson-eyebrow { font-size: 11.5px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; color: var(--camp-control-ink); }
+.camp-frame main.camp-content .camp-lesson-title-row h1 { margin: 4px 0 0; font: 800 clamp(22px, 2.6vw, 28px)/1.25 var(--font-display), Nunito, sans-serif !important; letter-spacing: -.01em; }
+.camp-frame main.camp-content .camp-lesson-title-row p { margin: 6px 0 0; font-size: 16px; color: var(--color-text-secondary); }
+.camp-frame main.camp-content .camp-lesson-head-actions { display: flex; align-items: center; gap: 8px; flex: none; }
+.camp-frame main.camp-content .camp-lesson-xp { display: inline-flex; align-items: center; gap: 6px; height: 38px; padding: 0 14px; border-radius: 999px; background: color-mix(in srgb, #f59e0b 12%, transparent); color: #b45309; font-size: 13px; font-weight: 700; }
+.camp-frame main.camp-content .camp-lesson-course-progress { height: 6px; border-radius: 6px; overflow: hidden; background: color-mix(in srgb, var(--camp-purple) 10%, transparent); }
+.camp-frame main.camp-content .camp-lesson-course-progress span { display: block; height: 100%; min-width: 6px; background: var(--g-primary, var(--camp-purple)); border-radius: 6px; }
+
+.camp-frame main.camp-content .camp-lesson-tabs { position: sticky; top: 88px; z-index: 15; display: grid; grid-template-columns: repeat(var(--tabs, 3), minmax(0, 1fr)); gap: 6px; padding: 6px; border-radius: 20px; background: color-mix(in srgb, var(--color-surface) 82%, transparent); backdrop-filter: blur(20px) saturate(170%); -webkit-backdrop-filter: blur(20px) saturate(170%); border: 1px solid var(--g-rim, var(--color-border-default)); box-shadow: 0 12px 30px -20px rgba(76, 29, 149, .45); scroll-margin-top: 96px; }
+.camp-frame main.camp-content .camp-lesson-tabs[data-count="2"] { --tabs: 2; }
+.camp-frame main.camp-content .camp-lesson-tabs > button { display: flex; align-items: center; gap: 10px; padding: 9px 12px; border: 0; border-radius: 15px; background: transparent; text-align: start; cursor: pointer; color: var(--color-text-secondary); transition: background .2s ease; }
+.camp-frame main.camp-content .camp-lesson-tabs > button:hover { background: var(--g-control); }
+.camp-frame main.camp-content .camp-lesson-tabs > button[aria-selected="true"] { background: var(--g-card); color: var(--color-text-primary); box-shadow: var(--g-control-shadow); }
+.camp-frame main.camp-content .camp-lesson-tab-num { flex: none; display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; background: var(--g-control); box-shadow: var(--g-control-shadow); font-size: 13px; font-weight: 700; color: var(--camp-control-ink); }
+.camp-frame main.camp-content .camp-lesson-tabs > button[aria-selected="true"] .camp-lesson-tab-num { background: var(--g-primary); color: #fff; box-shadow: var(--g-primary-shadow); }
+.camp-frame main.camp-content .camp-lesson-tab-num[data-done="true"] { background: #10b981 !important; color: #fff !important; box-shadow: none !important; }
+.camp-frame main.camp-content .camp-lesson-tabs strong { display: block; font: 700 14.5px/1.25 var(--font-display), Nunito, sans-serif; }
+.camp-frame main.camp-content .camp-lesson-tabs small { display: block; font-size: 12px; color: var(--color-text-secondary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+.camp-frame main.camp-content .camp-lesson-panel { display: grid; gap: 20px; animation: camp-panel-in .25s ease; }
+.camp-frame main.camp-content .camp-lesson-panel[hidden] { display: none; }
+@keyframes camp-panel-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+.camp-frame main.camp-content .camp-lesson-onpage { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.camp-frame main.camp-content .camp-lesson-onpage > span { font-size: 11.5px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; color: var(--color-text-secondary); margin-inline-end: 4px; }
+.camp-frame main.camp-content .camp-lesson-onpage > a { padding: 6px 12px; border-radius: 999px; background: var(--g-control); box-shadow: var(--g-control-shadow); font-size: 13px; font-weight: 600; color: var(--camp-control-ink); text-decoration: none; }
+.camp-frame main.camp-content .camp-lesson-continue:not(#_) { justify-self: end; display: inline-flex; align-items: center; gap: 8px; height: 46px; padding: 0 22px; border: 0; border-radius: 999px; background: var(--g-primary); color: #fff; box-shadow: var(--g-primary-shadow); font-size: 14.5px; font-weight: 650; cursor: pointer; }
+.camp-frame main.camp-content .camp-lesson-principle-wrap { padding-top: 20px; border-top: 1px solid var(--g-hair, var(--color-border-default)); }
+
+.camp-frame main.camp-content .camp-lesson-practice { display: grid; gap: 16px; }
+.camp-frame main.camp-content .camp-lesson-practice-head { display: grid; gap: 14px; padding: 20px 22px; border-radius: 20px; background: var(--g-card); border: 1px solid var(--g-rim, var(--color-border-default)); box-shadow: var(--g-sheen, none); }
+.camp-frame main.camp-content .camp-lesson-practice-head h2 { margin: 0; font: 700 20px/1.3 var(--font-display), Nunito, sans-serif !important; }
+.camp-frame main.camp-content .camp-lesson-practice-head p { margin: 6px 0 0; font-size: 14.5px; line-height: 1.6; color: var(--color-text-secondary); }
+.camp-frame main.camp-content .camp-lesson-stages { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin: 0; padding: 0; list-style: none; }
+.camp-frame main.camp-content .camp-lesson-stages li { display: grid; grid-template-columns: 28px 1fr; grid-template-rows: auto auto; column-gap: 10px; align-items: center; padding: 10px 12px; border-radius: 14px; background: var(--g-control); box-shadow: var(--g-control-shadow); font: 700 13.5px/1.3 var(--font-display), Nunito, sans-serif; }
+.camp-frame main.camp-content .camp-lesson-stages li > span { grid-row: span 2; display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; background: var(--g-card); font-size: 12px; color: var(--camp-control-ink); }
+.camp-frame main.camp-content .camp-lesson-stages li[data-done="true"] > span { background: #10b981; color: #fff; }
+.camp-frame main.camp-content .camp-lesson-stages small { font: 500 12px/1.3 var(--font-body), sans-serif; color: var(--color-text-secondary); }
+.camp-frame main.camp-content .camp-lesson-activity:not(#_) { padding: 22px; border-radius: 20px; background: var(--g-card); border: 1px solid var(--g-rim, var(--color-border-default)); box-shadow: var(--g-sheen, none), 0 12px 30px -22px rgba(76, 29, 149, .4); }
+.camp-frame main.camp-content .camp-lesson-activity-meta { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; margin-bottom: 10px; font-size: 12px; font-weight: 700; }
+.camp-frame main.camp-content .camp-lesson-activity-meta span:first-child { color: var(--camp-control-ink); text-transform: uppercase; letter-spacing: .06em; font-size: 11px; }
+.camp-frame main.camp-content .camp-lesson-activity-meta span:last-child { color: #b45309; }
+.camp-frame main.camp-content .camp-lesson-activity-prompt { margin: 0 0 14px; font: 700 16px/1.45 var(--font-display), Nunito, sans-serif; }
+.camp-frame main.camp-content :is(.camp-lesson-drills, .camp-lesson-history) > summary { display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 0 16px; border-radius: 999px; background: var(--g-control); box-shadow: var(--g-control-shadow); font-size: 14px; font-weight: 650; color: var(--camp-control-ink); cursor: pointer; list-style: none; }
+.camp-frame main.camp-content :is(.camp-lesson-drills, .camp-lesson-history) > summary::-webkit-details-marker { display: none; }
+.camp-frame main.camp-content .camp-lesson-drills > summary span { padding: 1px 8px; border-radius: 999px; background: color-mix(in srgb, var(--camp-purple) 12%, transparent); font-size: 12px; }
+.camp-frame main.camp-content .camp-lesson-drills[open] { display: grid; gap: 14px; }
+.camp-frame main.camp-content .camp-lesson-drills[open] > summary { justify-self: start; }
+.camp-frame main.camp-content .camp-lesson-status { padding: 14px 18px; border-radius: 16px; background: var(--g-control); font-size: 13.5px; line-height: 1.6; color: var(--color-text-secondary); }
+.camp-frame main.camp-content .camp-lesson-status p { margin: 0; }
+.camp-frame main.camp-content .camp-lesson-status strong { color: var(--color-text-primary); }
+.camp-frame main.camp-content .camp-lesson-history ul { margin: 12px 0 0; padding-left: 18px; font-size: 14px; display: grid; gap: 4px; }
+.camp-frame main.camp-content .camp-lesson-history > a { display: inline-block; margin-top: 10px; font-size: 14px; font-weight: 600; color: var(--camp-control-ink); }
+
+.camp-frame main.camp-content .camp-module-pager { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding-top: 8px; }
+.camp-frame main.camp-content .camp-module-pager-link { display: flex; align-items: center; gap: 12px; padding: 16px 18px; border-radius: 18px; background: var(--g-card); border: 1px solid var(--g-rim, var(--color-border-default)); box-shadow: var(--g-sheen, none), 0 10px 24px -20px rgba(76, 29, 149, .4); text-decoration: none; color: var(--color-text-primary); transition: transform .18s ease; min-width: 0; }
+.camp-frame main.camp-content .camp-module-pager-link:hover { transform: translateY(-2px); }
+.camp-frame main.camp-content .camp-module-pager-link[data-dir="next"] { justify-content: flex-end; text-align: end; grid-column: 2; }
+.camp-frame main.camp-content .camp-module-pager-link > svg { flex: none; color: var(--camp-control-ink); }
+.camp-frame main.camp-content .camp-module-pager-link > span { display: grid; gap: 2px; min-width: 0; }
+.camp-frame main.camp-content .camp-module-pager-link small { font-size: 11.5px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: var(--camp-control-ink); }
+.camp-frame main.camp-content .camp-module-pager-link strong { font: 700 15px/1.35 var(--font-display), Nunito, sans-serif; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+@container camp-main (max-width: 679px) {
+  .camp-frame main.camp-content .camp-course-switch { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .camp-frame main.camp-content .camp-course-v2-hero { grid-template-columns: minmax(0, 1fr); padding: 20px; }
+  .camp-frame main.camp-content .camp-course-v2-ring { justify-self: start; width: 104px; height: 104px; order: -1; }
+  .camp-frame main.camp-content .camp-course-v2-ring strong { font-size: 22px; }
+  .camp-frame main.camp-content .camp-course-v2-ring small { bottom: 26px; font-size: 10px; }
+  .camp-frame main.camp-content .camp-course-v2-about ul { grid-template-columns: minmax(0, 1fr); }
+  .camp-frame main.camp-content .camp-course-v2-next { grid-template-columns: auto minmax(0, 1fr); }
+  .camp-frame main.camp-content .camp-course-v2-next-actions { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; }
+  .camp-frame main.camp-content .camp-course-v2-next-actions > :first-child { grid-column: 1 / -1; justify-content: center; }
+  .camp-frame main.camp-content .camp-course-v2-next-actions > a { justify-content: center; }
+  .camp-frame main.camp-content .camp-course-v2-grid { grid-template-columns: minmax(0, 1fr); }
+  .camp-frame main.camp-content .camp-lesson-head { padding: 18px; }
+  .camp-frame main.camp-content .camp-lesson-crumbs { flex-direction: column; align-items: stretch; }
+  .camp-frame main.camp-content :is(.camp-lesson-jump, .camp-lesson-crumbs .camp-select-trigger, .camp-lesson-crumbs select) { max-width: none !important; width: 100%; }
+  .camp-frame main.camp-content .camp-lesson-title-row { flex-direction: column; }
+  .camp-frame main.camp-content .camp-lesson-tabs { top: 76px; }
+  .camp-frame main.camp-content .camp-lesson-tabs > button { flex-direction: column; text-align: center; gap: 4px; padding: 8px 4px; }
+  .camp-frame main.camp-content .camp-lesson-tabs small { display: none; }
+  .camp-frame main.camp-content .camp-lesson-stages { grid-template-columns: minmax(0, 1fr); }
+  .camp-frame main.camp-content .camp-lesson-continue:not(#_) { justify-self: stretch; justify-content: center; }
+  .camp-frame main.camp-content .camp-module-pager { grid-template-columns: minmax(0, 1fr); }
+  .camp-frame main.camp-content .camp-module-pager-link[data-dir="next"] { grid-column: auto; }
+}
+html.dark .camp-frame main.camp-content .camp-course-v2-status[data-status="done"], .dark .camp-frame main.camp-content .camp-course-v2-status[data-status="done"] { color: #6ee7b7; }
+.dark .camp-frame main.camp-content .camp-lesson-xp { color: #fbbf24; }
+
+/* Video tab */
+.camp-frame main.camp-content .camp-lesson-panel .camp-video-lesson > h2 { margin: 0; font: 700 20px/1.3 var(--font-display), Nunito, sans-serif !important; }
+.camp-frame main.camp-content .camp-lesson-panel .camp-video-lesson > p:nth-of-type(1) { margin: 0; font: 700 16px/1.4 var(--font-display), Nunito, sans-serif; color: var(--camp-control-ink); }
+.camp-frame main.camp-content .camp-lesson-panel .camp-video-lesson > p { font-size: 15px; line-height: 1.65; max-width: 72ch; }
+.camp-frame main.camp-content .camp-lesson-panel .camp-video-frame { border-radius: 20px; overflow: hidden; }
+.camp-frame main.camp-content .camp-course-v2-next .camp-number-seal, .camp-frame main.camp-content .camp-course-v2-next > :first-child { filter: none; }
+.camp-frame main.camp-content :is(.camp-lesson-v2, .camp-lesson-head, .camp-lesson-head > *, .camp-lesson-title-row > div, .camp-lesson-crumbs > *) { min-width: 0; max-width: 100%; }
+.camp-frame main.camp-content .camp-lesson-title-row h1 { overflow-wrap: anywhere; }
+.camp-frame main.camp-content .camp-lesson-crumbs :is(button, select) { box-sizing: border-box; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+/* Visual explanation panel */
+.camp-frame main.camp-content #lesson-principle { padding: 24px; border-radius: 24px; background: var(--g-card); border: 1px solid var(--g-rim, var(--color-border-default)); box-shadow: var(--g-sheen, none), 0 18px 40px -30px rgba(76, 29, 149, .45); }
+.camp-frame main.camp-content #lesson-principle > div > p:first-child { display: inline-flex; align-items: center; gap: 6px; padding: 4px 11px; border-radius: 999px; background: var(--g-primary); color: #fff !important; font-size: 11px !important; letter-spacing: .07em; text-transform: uppercase; }
+.camp-frame main.camp-content #lesson-principle h2 { font: 800 22px/1.3 var(--font-display), Nunito, sans-serif !important; }
+.camp-frame main.camp-content #lesson-principle > div > p:last-child { font-size: 15px !important; line-height: 1.65 !important; max-width: 70ch; }
+.camp-frame main.camp-content #lesson-principle figure { margin: 0; padding: 8px 0 0 !important; }
+.camp-frame main.camp-content #lesson-principle figure > svg { border-radius: 20px; background: color-mix(in srgb, var(--color-surface) 70%, transparent); }
+.camp-frame main.camp-content #lesson-principle figcaption { display: flex; gap: 12px; align-items: flex-start; margin-top: 18px !important; padding: 14px 18px; border-radius: 16px; background: color-mix(in srgb, var(--camp-purple) 8%, transparent); color: var(--color-text-primary) !important; font-size: 15px !important; line-height: 1.65 !important; }
+.camp-frame main.camp-content #lesson-principle figcaption::before { content: "Key takeaway"; flex: none; padding: 3px 9px; margin-top: 1px; border-radius: 999px; background: var(--g-primary); color: #fff; font-size: 11px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; }
+@container camp-main (max-width: 679px) {
+  .camp-frame main.camp-content #lesson-principle { padding: 16px; }
+  .camp-frame main.camp-content #lesson-principle figcaption { flex-direction: column; }
+}
