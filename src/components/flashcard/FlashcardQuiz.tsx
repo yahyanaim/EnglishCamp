@@ -1,5 +1,6 @@
 "use client";
 import { speak } from "@/lib/audio";
+import { logMistake } from "@/lib/mistakes";
 import { LearningArt } from "@/components/brand/LearningArt";
 import { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -38,6 +39,7 @@ export function FlashcardQuiz({ card, pool, onComplete, index, total }: Props) {
     setSelected(opt);
     setAnswered(true);
     if (opt === card.en) playCorrect();
+    else logMistake("flashcard", card.id, card.de, opt, card.en, "Flashcard quiz");
     setTimeout(() => onComplete(opt === card.en), 800);
   }
 

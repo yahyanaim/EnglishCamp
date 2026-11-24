@@ -1,6 +1,7 @@
 "use client";
 
 import { LearningArt } from "@/components/brand/LearningArt";
+import { logMistake } from "@/lib/mistakes";
 import { PracticeCard, PracticeButton } from "@/components/ui/PracticeSurface";
 import { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -75,6 +76,7 @@ export function TopicVocabulary() {
       playCorrect();
     } else {
       playWrong();
+      logMistake("topic-vocabulary", current.word, mode === "word-to-def" ? current.word : current.definition, opt, correctAnswer);
     }
   }
 

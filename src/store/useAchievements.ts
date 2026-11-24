@@ -4,6 +4,7 @@ import { persist, createJSONStorage } from "zustand/middleware";
 import { useProgress } from "./useProgress";
 import { useErrors } from "./useErrors";
 import { useVocabulary } from "./useVocabulary";
+import { grammarLearnedCount, grammarLevelProgress } from "@/data/grammar-curriculum";
 
 export type AchievementId = string;
 
@@ -12,7 +13,7 @@ export type Achievement = {
   title: string;
   description: string;
   icon: string;
-  category: "streak" | "xp" | "exercises" | "vocab" | "quiz" | "errors" | "special";
+  category: "streak" | "xp" | "exercises" | "vocab" | "quiz" | "errors" | "special" | "grammar" | "skills";
   condition: (state: {
     xp: number;
     streak: number;
@@ -22,6 +23,10 @@ export type Achievement = {
     quizzesTaken: number;
     errorsFixed: number;
     cardsReviewed: number;
+    grammarLearned: number;
+    grammarLevels: string[];
+    listeningDone: number;
+    readingDone: number;
   }) => boolean;
 };
 
@@ -52,7 +57,39 @@ export const ACHIEVEMENTS: Achievement[] = [
   { id: "errors-10", title: "Error Fixer", description: "Review 10 errors", icon: "🔧", category: "errors", condition: (s) => s.errorsFixed >= 10 },
   { id: "errors-50", title: "Bug Squasher", description: "Review 50 errors", icon: "🐛", category: "errors", condition: (s) => s.errorsFixed >= 50 },
   { id: "review-50", title: "Card Reviewer", description: "Review 50 flashcards", icon: "🃏", category: "vocab", condition: (s) => s.cardsReviewed >= 50 },
+  { id: "grammar-1", title: "Rule Reader", description: "Learn your first grammar lesson", icon: "📘", category: "grammar", condition: (s) => s.grammarLearned >= 1 },
+  { id: "grammar-10", title: "Grammar Explorer", description: "Learn 10 grammar lessons", icon: "🧭", category: "grammar", condition: (s) => s.grammarLearned >= 10 },
+  { id: "grammar-25", title: "Grammar Builder", description: "Learn 25 grammar lessons", icon: "🧱", category: "grammar", condition: (s) => s.grammarLearned >= 25 },
+  { id: "grammar-A1", title: "A1 Grammar Complete", description: "Learn every A1 grammar lesson", icon: "🥉", category: "grammar", condition: (s) => s.grammarLevels.includes("A1") },
+  { id: "grammar-A2", title: "A2 Grammar Complete", description: "Learn every A2 grammar lesson", icon: "🥈", category: "grammar", condition: (s) => s.grammarLevels.includes("A2") },
+  { id: "grammar-B1", title: "B1 Grammar Complete", description: "Learn every B1 grammar lesson", icon: "🥇", category: "grammar", condition: (s) => s.grammarLevels.includes("B1") },
+  { id: "grammar-B2", title: "B2 Grammar Complete", description: "Learn every B2 grammar lesson", icon: "🏅", category: "grammar", condition: (s) => s.grammarLevels.includes("B2") },
+  { id: "listening-5", title: "Good Listener", description: "Finish 5 listening lessons", icon: "🎧", category: "skills", condition: (s) => s.listeningDone >= 5 },
+  { id: "listening-25", title: "Sharp Ears", description: "Finish 25 listening lessons", icon: "👂", category: "skills", condition: (s) => s.listeningDone >= 25 },
+  { id: "reading-5", title: "Page Turner", description: "Finish 5 reading passages", icon: "📄", category: "skills", condition: (s) => s.readingDone >= 5 },
+  { id: "reading-25", title: "Bookworm", description: "Finish 25 reading passages", icon: "🐛", category: "skills", condition: (s) => s.readingDone >= 25 },
 ];
+
+type AchievementInputs = Parameters<Achievement["condition"]>[0];
+const prefixed = (done: Record<string, boolean>, prefix: string) => Object.keys(done).filter(id => done[id] && id.startsWith(prefix)).length;
+/** Inputs shared by unlocking and the progress bars on the Badges page. */
+function achievementInputs(): AchievementInputs {
+  const progress = useProgress.getState(), errors = useErrors.getState(), vocab = useVocabulary.getState(), done = progress.exercisesDone;
+  return {
+    xp: progress.xp,
+    streak: progress.streak,
+    lessonsDone: Object.values(progress.lessons).filter((l) => l.completed).length,
+    exercisesDone: Object.values(done).filter(Boolean).length,
+    vocabCount: vocab.getAll().length,
+    quizzesTaken: Object.values(progress.quizResults).flat().length,
+    errorsFixed: prefixed(done, "review-"),
+    cardsReviewed: vocab.getAll().reduce((sum, [, v]) => sum + v.timesReviewed, 0),
+    grammarLearned: grammarLearnedCount(done),
+    grammarLevels: grammarLevelProgress(done).filter(level => level.complete).map(level => level.level),
+    listeningDone: prefixed(done, "listening:"),
+    readingDone: prefixed(done, "reading:"),
+  };
+}
 
 interface AchievementState {
   unlocked: Record<string, { unlockedAt: string }>;
@@ -70,7 +107,7 @@ interface AchievementActions {
   getProgress: (id: string) => { current: number; target: number; pct: number };
 }
 
-function getAchievementProgress(id: string, state: { xp: number; streak: number; lessonsDone: number; exercisesDone: number; vocabCount: number; quizzesTaken: number; errorsFixed: number; cardsReviewed: number }): { current: number; target: number } {
+function getAchievementProgress(id: string, state: AchievementInputs): { current: number; target: number } {
   const targets: Record<string, number> = {
     "first-login": 10, "xp-100": 100, "xp-500": 500, "xp-1000": 1000,
     "xp-2000": 2000, "xp-4000": 4000, "xp-7500": 7500,
@@ -80,7 +117,11 @@ function getAchievementProgress(id: string, state: { xp: number; streak: number;
     "vocab-10": 10, "vocab-50": 50, "vocab-200": 200,
     "quiz-1": 1, "quiz-10": 10, "quiz-perfect": 1,
     "errors-10": 10, "errors-50": 50, "review-50": 50,
+    "grammar-1": 1, "grammar-10": 10, "grammar-25": 25,
+    "listening-5": 5, "listening-25": 25, "reading-5": 5, "reading-25": 25,
   };
+  const levels = grammarLevelProgress(useProgress.getState().exercisesDone);
+  for (const level of levels) targets[`grammar-${level.level}`] = Math.max(1, level.total);
   const currents: Record<string, number> = {
     "first-login": state.xp, "xp-100": state.xp, "xp-500": state.xp, "xp-1000": state.xp,
     "xp-2000": state.xp, "xp-4000": state.xp, "xp-7500": state.xp,
@@ -90,6 +131,9 @@ function getAchievementProgress(id: string, state: { xp: number; streak: number;
     "vocab-10": state.vocabCount, "vocab-50": state.vocabCount, "vocab-200": state.vocabCount,
     "quiz-1": state.quizzesTaken, "quiz-10": state.quizzesTaken, "quiz-perfect": state.quizzesTaken,
     "errors-10": state.errorsFixed, "errors-50": state.errorsFixed, "review-50": state.cardsReviewed,
+    "grammar-1": state.grammarLearned, "grammar-10": state.grammarLearned, "grammar-25": state.grammarLearned,
+    "listening-5": state.listeningDone, "listening-25": state.listeningDone, "reading-5": state.readingDone, "reading-25": state.readingDone,
+    ...Object.fromEntries(levels.map(level => [`grammar-${level.level}`, level.learned])),
   };
   return { current: currents[id] ?? 0, target: targets[id] ?? 1 };
 }
@@ -108,18 +152,7 @@ export const useAchievements = create<AchievementState & AchievementActions>()(
         const quizResults = progress.quizResults;
         const allQuizResults = Object.values(quizResults).flat();
         const hasPerfectScore = allQuizResults.some((r) => r.score === 100);
-        const errorsCount = errors.errors.length;
-        const errorsFixed = errorsCount;
-        const state = {
-          xp: progress.xp,
-          streak: progress.streak,
-          lessonsDone: Object.values(progress.lessons).filter((l) => l.completed).length,
-          exercisesDone: Object.values(progress.exercisesDone).filter(Boolean).length,
-          vocabCount: vocab.getAll().length,
-          quizzesTaken: allQuizResults.length,
-          errorsFixed,
-          cardsReviewed: vocab.getAll().reduce((sum, [, v]) => sum + v.timesReviewed, 0),
-        };
+        const state = { ...achievementInputs(), quizzesTaken: allQuizResults.length };
 
         const now = new Date().toISOString();
         const newUnlocks: string[] = [];
@@ -160,19 +193,7 @@ export const useAchievements = create<AchievementState & AchievementActions>()(
       },
 
       getProgress: (id) => {
-        const progress = useProgress.getState();
-        const errors = useErrors.getState();
-        const vocab = useVocabulary.getState();
-        const { current, target } = getAchievementProgress(id, {
-          xp: progress.xp,
-          streak: progress.streak,
-          lessonsDone: Object.values(progress.lessons).filter((l) => l.completed).length,
-          exercisesDone: Object.values(progress.exercisesDone).filter(Boolean).length,
-          vocabCount: vocab.getAll().length,
-          quizzesTaken: Object.values(progress.quizResults).flat().length,
-          errorsFixed: errors.errors.length,
-          cardsReviewed: vocab.getAll().reduce((sum, [, v]) => sum + v.timesReviewed, 0),
-        });
+        const { current, target } = getAchievementProgress(id, achievementInputs());
         return { current, target, pct: Math.min(100, Math.round((current / target) * 100)) };
       },
     }),

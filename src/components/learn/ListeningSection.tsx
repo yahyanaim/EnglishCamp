@@ -150,7 +150,7 @@ function ListeningLessonView({ lesson, onBack, onOpenBank }: { lesson: Listening
       </header>
       <ListeningPlayer key={lesson.id} lesson={lesson} onHeard={() => setHeard(true)} />
       {lesson.questions.length > 0 && (
-        <ComprehensionQuiz key={lesson.id} questions={lesson.questions} heading="Listening questions"
+        <ComprehensionQuiz key={lesson.id} questions={lesson.questions} heading="Listening questions" mistakeSource={{ source: "listening", id: lesson.id }}
           intro="Listen first, then answer. You can replay the recording as often as you like."
           previousBest={practice ? { best: practice.best, total: practice.total } : undefined}
           onSubmit={(correct, total) => {

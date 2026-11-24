@@ -1,6 +1,7 @@
 "use client";
 
 import { speak } from "@/lib/audio";
+import { logMistake } from "@/lib/mistakes";
 import { LearningArt } from "@/components/brand/LearningArt";
 import { PracticeCard, PracticeButton } from "@/components/ui/PracticeSurface";
 import { useState, useMemo, useRef, useEffect } from "react";
@@ -81,6 +82,7 @@ export function VocabularyPractice({ mode: controlledMode, showModeSwitch = true
     setSelected(opt);
     setAnswered(true);
     if (opt === current[1].en) {playCorrect();complete(`vocabulary-practice-quiz-${current[0]}`,5);}
+    else logMistake("vocabulary", current[0], current[1].de, opt, current[1].en, "Vocabulary quiz");
     advanceTimer.current=setTimeout(() => {
       setSession((s) => ({ ...s, correct: s.correct + (opt === current[1].en ? 1 : 0), incorrect: s.incorrect + (opt === current[1].en ? 0 : 1), total: s.total + 1 }));
       advance();
@@ -95,6 +97,7 @@ export function VocabularyPractice({ mode: controlledMode, showModeSwitch = true
     handled.current=true;recordReview(current[0]);
     setWriteSubmitted(true);
     if (acceptable.some((answer) => normalize(answer) === normalize(input))) {playCorrect();complete(`vocabulary-practice-write-${current[0]}`,5);}
+    else logMistake("vocabulary", current[0], current[1].en, input.trim(), current[1].de, "Vocabulary writing");
   }
 
   function handleWriteNext() {

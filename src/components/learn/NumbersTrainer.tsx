@@ -1,5 +1,6 @@
 "use client";
 import { LearningArt } from "@/components/brand/LearningArt";
+import { logMistake } from "@/lib/mistakes";
 import { PracticeCard, PracticeButton } from "@/components/ui/PracticeSurface";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -82,7 +83,7 @@ export function NumbersTrainer() {
     setAnswered(true);
     setTotal((t) => t + 1);
     if (correct) { setScore((s) => s + 1); playCorrect(); }
-    else { playWrong(); }
+    else { playWrong(); logMistake("numbers", `numbers-${item.prompt}`, `Write ${item.prompt} in words`, input.trim(), item.answer); }
   }
 
   function next() {

@@ -1,5 +1,6 @@
 "use client";
 import { useEffect,useRef,useState } from 'react';
+import { logMistake } from "@/lib/mistakes";
 import { PracticeCard,PracticeButton } from '@/components/ui/PracticeSurface';
 import { useProgress } from '@/store/useProgress';
 import { idiomRounds,idiomMatches } from '@/lib/idiomMatch';
@@ -9,7 +10,7 @@ export function IdiomMatch(){
  const finished=useRef(false),complete=useProgress(s=>s.completeExercise),addXP=useProgress(s=>s.addXP);const round=rounds[index];
  function restart(){setRounds(idiomRounds());setIndex(0);setLeft(null);setRight(null);setMatched([]);setScore(0);setAttempts(0);setFeedback('');setDone(false);finished.current=false;}
  useEffect(()=>{setRounds(idiomRounds());},[]);
- function check(){if(!left||!right||!round)return;setAttempts(n=>n+1);if(idiomMatches(round.pairs,left,right)){setMatched(m=>[...m,left]);setScore(n=>n+1);complete(`idiom-${left}`,10);setFeedback('Matched. Choose the next pair.');playCorrect();}else{setFeedback('These do not match. Try another pair.');playWrong();}setLeft(null);setRight(null);}
+ function check(){if(!left||!right||!round)return;setAttempts(n=>n+1);if(idiomMatches(round.pairs,left,right)){setMatched(m=>[...m,left]);setScore(n=>n+1);complete(`idiom-${left}`,10);setFeedback('Matched. Choose the next pair.');playCorrect();}else{setFeedback('These do not match. Try another pair.');playWrong();const pair=round.pairs.find(p=>p.idiom===left);if(pair)logMistake('idiom',`idiom-${left}`,left,round.pairs.find(p=>p.idiom===right)?.meaning??right,pair.meaning,'Idiom match');}setLeft(null);setRight(null);}
  function next(){if(index===rounds.length-1){if(finished.current)return;finished.current=true;addXP(Math.round(score/Math.max(attempts,1)*30));setDone(true);}else{setIndex(n=>n+1);setMatched([]);setLeft(null);setRight(null);setFeedback('');}}
  if(!round)return <p role="status">Preparing idiom practice…</p>;
  if(done)return <PracticeCard data-practice-surface="result"><h2>Idiom Match complete</h2><p>{score}/{rounds.reduce((sum,r)=>sum+r.pairs.length,0)} pairs matched · {attempts} attempts · {Math.round(score/Math.max(attempts,1)*100)}% accuracy</p><PracticeButton className="camp-primary-action" onClick={restart}>Play again</PracticeButton></PracticeCard>;

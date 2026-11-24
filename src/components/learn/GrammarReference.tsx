@@ -4,8 +4,12 @@ import { translatedGrammarParagraphs } from "./GrammarTranslation";
 import { useState, useEffect, useMemo } from "react";
 import { GRAMMAR_EXTENSIONS } from "@/data/grammar-extensions";
 import { GRAMMAR_MORE } from "@/data/grammar-reference-more";
+import { GRAMMAR_LIBRARY } from "@/data/grammar-reference-library";
+import { GRAMMAR_FOUNDATIONS } from "@/data/grammar-foundations";
 import { GrammarFoundationLesson } from "./GrammarFoundationLesson";
-import { ArrowLeft, ChevronRight, Layers, Search, X } from "lucide-react";
+import { ArrowLeft, Check, CheckCircle2, ChevronRight, Layers, Search, X } from "lucide-react";
+import { useProgress } from "@/store/useProgress";
+import { GRAMMAR_CURRICULUM, GRAMMAR_LESSON_LEVELS, GRAMMAR_XP, grammarLessonKey, grammarLevelProgress } from "@/data/grammar-curriculum";
 
 function T({ de, en }: { de: string; en: string }) {
   return <span>{en}</span>;
@@ -38,6 +42,7 @@ const LEGACY_SUMMARIES: Record<string, string> = {
   passive: "Form the passive in every common tense and decide when the doer matters.",
   "reported-speech": "Backshift, time words, reported questions and reported commands.",
 };
+const FOUNDATION_LEVELS: Record<string, GrammarLevel> = { "singular-and-plural": "A1", "countable-and-uncountable": "A1", "subject-verb-agreement": "A1", "quantities-and-determiners": "A2" };
 const asLevel = (level: string): GrammarLevel => (LEVELS as string[]).includes(level) ? level as GrammarLevel : "B2";
 
 const LEGACY_SECTIONS: Section[] = [
@@ -386,11 +391,17 @@ const LEGACY_SECTIONS: Section[] = [
   },
 ];
 
+/** Lessons follow the curriculum's teaching order inside each level. */
+const TEACHING_ORDER: Record<string, number> = Object.fromEntries(Array.from(new Set(GRAMMAR_CURRICULUM.flatMap(level=>level.points.flatMap(point=>point.lessons)))).map((id,index)=>[id,index]));
+
 export const SECTIONS: Section[] = [
   ...GRAMMAR_EXTENSIONS.map(lesson=>({id:lesson.id,title:lesson.title,level:asLevel(lesson.level),summary:lesson.intro,art:lesson.art,parts:lesson.content.length,content:<GrammarFoundationLesson lesson={lesson} translateOnInteraction/>})),
   ...GRAMMAR_MORE.map(lesson=>({id:lesson.id,title:lesson.title,level:asLevel(lesson.level),summary:lesson.intro,parts:lesson.content.length,content:<GrammarFoundationLesson lesson={lesson}/>})),
+  ...GRAMMAR_FOUNDATIONS.map(lesson=>({id:lesson.id,title:lesson.title,level:FOUNDATION_LEVELS[lesson.id] ?? "A1",summary:lesson.intro,art:lesson.art,parts:lesson.content.length,content:<GrammarFoundationLesson lesson={lesson}/>})),
+  ...GRAMMAR_LIBRARY.map(lesson=>({id:lesson.id,title:lesson.title,level:asLevel(lesson.level),summary:lesson.intro,art:lesson.art,parts:lesson.content.length,content:<GrammarFoundationLesson lesson={{...lesson,practice:{label:"Open the full topic page",href:lesson.from}}}/>})),
   ...LEGACY_SECTIONS.map(section=>({...section,level:LEGACY_LEVELS[section.id] ?? "B1",summary:LEGACY_SUMMARIES[section.id]})),
-];
+].map(section=>({...section,level:GRAMMAR_LESSON_LEVELS[section.id] ?? section.level}))
+ .sort((a,b)=>(TEACHING_ORDER[a.id] ?? 999)-(TEACHING_ORDER[b.id] ?? 999));
 
 type LevelFilter = "all" | GrammarLevel;
 const sectionLevel = (section: Section): GrammarLevel => section.level ?? "B1";
@@ -401,6 +412,11 @@ export function GrammarReference() {
   const [level, setLevel] = useState<LevelFilter>("all");
   const [query, setQuery] = useState("");
   const [expanded, setExpanded] = useState<Record<string, boolean>>({});
+  const done = useProgress(s => s.exercisesDone);
+  const completeExercise = useProgress(s => s.completeExercise);
+  const [earned, setEarned] = useState<number | null>(null);
+  const learned = (id: string) => !!done[grammarLessonKey(id)];
+  const path = grammarLevelProgress(done);
   useEffect(()=>{const reveal=()=>{const id=window.location.hash.slice(1);setOpenSection(SECTIONS.some(section=>section.id===id)?id:null);};reveal();window.addEventListener("hashchange",reveal);return()=>window.removeEventListener("hashchange",reveal);},[]);
   const counts = useMemo(()=>Object.fromEntries(LEVELS.map(l=>[l,SECTIONS.filter(s=>sectionLevel(s)===l).length])) as Record<GrammarLevel,number>,[]);
   const needle = query.trim().toLowerCase();
@@ -408,7 +424,7 @@ export function GrammarReference() {
   const visible = SECTIONS.filter(s=>(level==="all"||sectionLevel(s)===level)&&(!needle||`${s.title} ${s.summary ?? ""}`.toLowerCase().includes(needle)));
   const groups = LEVELS.map(l=>({level:l,sections:visible.filter(s=>sectionLevel(s)===l)})).filter(g=>g.sections.length>0);
   const clear = () => { setQuery(""); setLevel("all"); };
-  const open = (id: string) => { setOpenSection(id); if (window.location.hash !== `#${id}`) history.pushState(null, "", `#${id}`); window.scrollTo({ top: 0 }); };
+  const open = (id: string) => { setEarned(null); setOpenSection(id); if (window.location.hash !== `#${id}`) history.pushState(null, "", `#${id}`); window.scrollTo({ top: 0 }); };
   const close = () => { const id = openSection; setOpenSection(null); history.pushState(null, "", window.location.pathname + window.location.search); requestAnimationFrame(()=>document.getElementById(`grammar-card-${id}`)?.focus()); };
   const lesson = SECTIONS.find(s => s.id === openSection);
 
@@ -420,12 +436,17 @@ export function GrammarReference() {
         <header className="camp-grammar-lesson-head">
           <span className="camp-library-card-icon"><LearningArt name={lesson.art ?? "BookOpen"} size={26} /></span>
           <div>
-            <p className="camp-grammar-lesson-kicker"><span className="camp-hub-level">{sectionLevel(lesson)}</span>{LEVEL_NAMES[sectionLevel(lesson)]}</p>
+            <p className="camp-grammar-lesson-kicker"><span className="camp-hub-level">{sectionLevel(lesson)}</span>{LEVEL_NAMES[sectionLevel(lesson)]}{learned(lesson.id) && <span className="camp-hub-done"><CheckCircle2 size={12} aria-hidden="true" />Learned</span>}</p>
             <h2 id={`grammar-title-${lesson.id}`}>{lesson.title}</h2>
             {lesson.summary && !lesson.parts && <p className="camp-grammar-lesson-summary">{lesson.summary}</p>}
           </div>
         </header>
         <div id={`grammar-${lesson.id}`} className="camp-grammar-lesson-body">{translatedGrammarParagraphs(lesson.content)}</div>
+        <div className="camp-grammar-learned" role="status">
+          {learned(lesson.id)
+            ? <p className="camp-grammar-learned-done"><CheckCircle2 size={20} aria-hidden="true" /><span><strong>Learned</strong>{earned ? ` · +${earned} XP` : " · counted in your progress"}</span></p>
+            : <button type="button" className="camp-grammar-learned-button" onClick={() => setEarned(completeExercise(grammarLessonKey(lesson.id), GRAMMAR_XP))}><Check size={18} aria-hidden="true" />Mark as learned · +{GRAMMAR_XP} XP</button>}
+        </div>
         {next && <button type="button" className="camp-grammar-next" onClick={() => open(next.id)}><span><small>Next lesson · {sectionLevel(next)}</small><strong>{next.title}</strong></span><ChevronRight size={18} aria-hidden="true" /></button>}
       </article>
     );
@@ -433,30 +454,33 @@ export function GrammarReference() {
 
   return (
     <div className="camp-grammar-reference camp-grammar-hub">
+      <section className="camp-grammar-path" aria-label="Your grammar path">
+        {path.map(p=><button key={p.level} type="button" className="camp-grammar-path-tile" aria-pressed={level===p.level} onClick={()=>setLevel(level===p.level?"all":p.level)}>
+          <span className="camp-grammar-path-head"><span className="camp-hub-level">{p.level}</span><span className="camp-grammar-path-name">{p.name}</span>{p.complete && <CheckCircle2 size={16} aria-label="Level complete" />}</span>
+          <span className="camp-grammar-path-count"><strong>{p.learned}</strong> / {p.total} learned</span>
+          <span className="camp-grammar-path-bar" aria-hidden="true"><span style={{ width: `${p.total ? Math.round(p.learned / p.total * 100) : 0}%` }} /></span>
+        </button>)}
+      </section>
       <section className="camp-hub-filters" aria-label="Find a grammar lesson">
         <label className="camp-hub-search">
           <Search size={16} aria-hidden="true" />
           <span className="sr-only">Search grammar lessons</span>
           <input type="search" value={query} onChange={e=>setQuery(e.target.value)} placeholder="Search grammar lessons…" />
         </label>
-        <div className="camp-hub-skills" role="group" aria-label="Level">
-          <button type="button" aria-pressed={level==="all"} onClick={()=>setLevel("all")}>All<span className="camp-grammar-level-name"> levels</span></button>
-          {LEVELS.map(l=><button key={l} type="button" aria-pressed={level===l} onClick={()=>setLevel(l)}>{l}<span className="camp-grammar-level-name"> · {LEVEL_NAMES[l]}</span></button>)}
-        </div>
-        <p className="camp-hub-count" role="status">{visible.length} {visible.length===1?"lesson":"lessons"}{filtering ? <> · <button type="button" onClick={clear}><X size={13} aria-hidden="true" />Clear filters</button></> : null}</p>
+        <p className="camp-hub-count" role="status">{visible.length} {visible.length===1?"lesson":"lessons"}{level!=="all"?` · ${level} ${LEVEL_NAMES[level]}`:""}{filtering ? <> · <button type="button" onClick={clear}><X size={13} aria-hidden="true" />Clear filters</button></> : null}</p>
       </section>
       {groups.length===0&&<p className="camp-hub-empty">No grammar lesson matches these filters. <button type="button" onClick={clear}>Clear filters</button></p>}
       {groups.map(group=>{
         const headingId=`grammar-level-${group.level}`, showAll=filtering||expanded[group.level], list=showAll?group.sections:group.sections.slice(0,PREVIEW);
         return <section key={group.level} className="camp-learning-library-group" aria-labelledby={headingId}>
-          <h2 id={headingId}>{group.level} · {LEVEL_NAMES[group.level]} <span className="camp-hub-section-count">{group.sections.length}</span></h2>
+          <h2 id={headingId}>{group.level} · {LEVEL_NAMES[group.level]} <span className="camp-hub-section-count">{group.sections.filter(s=>learned(s.id)).length}/{group.sections.length}</span></h2>
           <div className="camp-trainer-grid">
             {list.map(section=><button key={section.id} id={`grammar-card-${section.id}`} type="button" className="camp-learning-library-card" onClick={()=>open(section.id)}>
               <span className="camp-library-card-icon"><LearningArt name={section.art ?? "BookOpen"} size={23} /></span>
               <span className="camp-library-card-copy">
                 <strong>{section.title}</strong>
                 {section.summary && <span>{section.summary}</span>}
-                <span className="camp-hub-meta"><span className="camp-hub-level">{sectionLevel(section)}</span>{section.parts ? <span><Layers size={12} aria-hidden="true" />{section.parts} parts</span> : <span><Layers size={12} aria-hidden="true" />Reference table</span>}</span>
+                <span className="camp-hub-meta"><span className="camp-hub-level">{sectionLevel(section)}</span>{section.parts ? <span><Layers size={12} aria-hidden="true" />{section.parts} parts</span> : <span><Layers size={12} aria-hidden="true" />Reference table</span>}{learned(section.id) && <span className="camp-hub-done"><CheckCircle2 size={12} aria-hidden="true" />Learned</span>}</span>
               </span>
               <ChevronRight className="camp-library-card-arrow" size={18} aria-hidden="true" />
             </button>)}

@@ -1,6 +1,7 @@
 "use client";
 
 import { LearningArt } from "@/components/brand/LearningArt";
+import { logMistake } from "@/lib/mistakes";
 import { PracticeCard, PracticeButton } from "@/components/ui/PracticeSurface";
 import { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -50,7 +51,7 @@ export function WordPairQuiz() {
     if (selected !== null || !current) return;
     setSelected(opt);
     if (opt === current.correct) { setScore((s) => s + 10); playCorrect(); }
-    else { playWrong(); }
+    else { playWrong(); logMistake("word-pairs", current.pairKey, current.example, opt === "A" ? current.wordA : current.wordB, current.correct === "A" ? current.wordA : current.wordB, current.focus ?? ""); }
   }
 
   function handleNext() {

@@ -6,11 +6,12 @@ import { getLevelInfo, XP_LEVELS } from "@/lib/xp";
 import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
 import { useProgress } from "@/store/useProgress";
+import { useAchievements, ACHIEVEMENTS } from "@/store/useAchievements";
 import { courseCatalogue as levels } from "@/data/course-catalogue";
 import { useVocabulary } from "@/store/useVocabulary";
 import { useErrors } from "@/store/useErrors";
 import { ActivityChart } from "@/components/ui/ActivityChart";
-import { Download, Flame, NotebookPen, Sparkles, BookOpenCheck, Dumbbell, Headphones, BookOpenText, ClipboardCheck, Trophy, BookHeart, AlertCircle } from "lucide-react";
+import { Download, Flame, NotebookPen, Sparkles, BookOpenCheck, Dumbbell, Headphones, BookOpenText, ClipboardCheck, Trophy, BookHeart, AlertCircle, Languages, Award } from "lucide-react";
 import "./stats.css";
 
 export default function StatsPage() {
@@ -63,15 +64,18 @@ export default function StatsPage() {
     URL.revokeObjectURL(url);
   }
 
+  const badgesEarned = useAchievements(s => Object.keys(s.unlocked).length);
   const totals = [
     { label: "Lessons done", value: doneLessons, icon: BookOpenCheck },
     { label: "Exercises done", value: Object.values(exercisesDone).filter(Boolean).length, icon: Dumbbell },
     { label: "Listening lessons", value: done("listening:"), icon: Headphones },
     { label: "Reading passages", value: done("reading:"), icon: BookOpenText },
+    { label: "Grammar lessons", value: done("reference-grammar-"), note: "learned in Grammar Reference", icon: Languages },
     { label: "Quizzes taken", value: totalQuizzes, icon: ClipboardCheck },
     { label: "Best quiz score", value: bestQuiz > 0 ? `${bestQuiz}%` : "–", icon: Trophy },
     { label: "Words saved", value: vocab.length, note: `${masteredWords} mastered`, icon: BookHeart },
     { label: "Mistakes to review", value: openMistakes, note: `${errors.length} tracked`, icon: AlertCircle },
+    { label: "Badges earned", value: badgesEarned, note: `of ${ACHIEVEMENTS.length} badges`, icon: Award },
   ];
 
   return (

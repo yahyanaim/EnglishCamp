@@ -33,16 +33,6 @@ export const GRAMMAR_MORE: GrammarLesson[] = [
     part('Requests and permission', 'Can I …? / Can you …? are polite in everyday situations.', ['Can I open the window?', 'Can you help me with this form?'], ['Could is a little more polite: Could you repeat that, please?']),
   ] },
   // ---------- A2 ----------
-  { id: 'some-any-much-many', title: 'Some, any, much and many', level: 'A2', intro: 'These words talk about quantity. Your choice depends on whether the noun is countable and whether the sentence is positive, negative or a question.', content: [
-    part('Some and any', 'Some in positive sentences and offers; any in negatives and most questions.', ['I bought some apples.', 'We don’t have any bread. Do you need any help?'], ['Use some in offers and requests: Would you like some tea?']),
-    part('Many and much', 'Many + plural countable nouns; much + uncountable nouns, mostly in negatives and questions.', ['How many people came?', 'I don’t have much time today.']),
-    part('A lot of', 'A lot of works with both kinds of noun and is natural in positive sentences.', ['She has a lot of friends.', 'We drink a lot of water in summer.']),
-  ] },
-  { id: 'past-simple-forms', title: 'Past simple: regular and irregular verbs', level: 'A2', intro: 'The past simple describes finished actions at a finished time. Regular verbs add -ed; irregular verbs have their own past form that you learn by heart.', practice: { label: 'Past tense practice', href: '/past-tense-practice' }, content: [
-    part('Regular verbs', 'Base verb + -ed (watch → watched, live → lived, study → studied).', ['We watched a film last night.', 'She studied in Rabat for two years.']),
-    part('Irregular verbs', 'Learn the past form: go → went, buy → bought, see → saw, have → had.', ['I went to the market yesterday.', 'They bought a new car last month.']),
-    part('Negatives and questions', 'Did not (didn’t) + base verb; Did + subject + base verb?', ['He didn’t call me.', 'Did you see the match? — Yes, I did.'], ['After did, always use the base form: Did you go? (not Did you went?)']),
-  ] },
   { id: 'object-pronouns', title: 'Subject and object pronouns', level: 'A2', intro: 'A subject pronoun does the action; an object pronoun receives it or follows a preposition.', content: [
     part('Two sets', 'I / me, you / you, he / him, she / her, it / it, we / us, they / them.', ['She called me yesterday.', 'We visited them in the summer.']),
     part('After prepositions', 'Use the object form after with, for, to, about, between …', ['This message is for you.', 'Can you come with us?']),
@@ -59,11 +49,6 @@ export const GRAMMAR_MORE: GrammarLesson[] = [
     part('Position', 'The adverb usually goes after the verb or after the object.', ['She answered the question correctly.', 'He closed the door slowly.']),
   ] },
   // ---------- B1 ----------
-  { id: 'relative-clauses-basic', title: 'Relative clauses: who, which, that, where', level: 'B1', intro: 'A relative clause adds information about a noun, so you can join two sentences into one.', practice: { label: 'Relative clauses practice', href: '/relative-clauses' }, content: [
-    part('People and things', 'Who for people, which for things, that for both in defining clauses.', ['The woman who lives next door is a doctor.', 'The book that I borrowed is excellent.']),
-    part('Places and possession', 'Where for places; whose for possession.', ['This is the café where we first met.', 'I have a friend whose brother is a pilot.']),
-    part('Leaving out the pronoun', 'You can omit who / which / that when it is the object of the clause.', ['The film (that) we watched was long.', 'The man (who) I spoke to was helpful.'], ['You cannot omit it when it is the subject: The man who called me (not The man called me).']),
-  ] },
   { id: 'for-since', title: 'Present perfect with for and since', level: 'B1', intro: 'With the present perfect, for and since show how long a situation has continued up to now.', content: [
     part('For + a period', 'For + a length of time: for three years, for a week, for ages.', ['I have lived here for five years.', 'She has worked at the bank for a long time.']),
     part('Since + a starting point', 'Since + a point in time: since 2019, since Monday, since I was a child.', ['We have known each other since school.', 'He has been ill since Friday.']),
@@ -104,5 +89,20 @@ export const GRAMMAR_MORE: GrammarLesson[] = [
     part('Never, rarely, seldom', 'Negative adverb + auxiliary + subject + verb.', ['Never have I seen such a beautiful view.', 'Rarely does she arrive late.']),
     part('Not only … but also', 'Not only + auxiliary + subject …, but … also …', ['Not only did he win, but he also broke the record.', 'Not only is it cheap, but it is also fast.']),
     part('Time expressions', 'Hardly / No sooner … than / Only then + inversion.', ['No sooner had we arrived than it started to rain.', 'Only then did I understand the problem.'], ['Use inversion sparingly; it sounds formal or dramatic.']),
+  ] },
+  { id: 'future-continuous-perfect', title: 'Future continuous and future perfect', level: 'B2', intro: 'Look at the future from a point in time: what will be in progress then, and what will already be finished by then.', practice: { label: 'Future tenses page', href: '/future-tenses' }, content: [
+    part('Future continuous', 'Will be + verb-ing: an action in progress at a future time.', ['This time tomorrow I will be flying to Cairo.', 'At eight o’clock we’ll be having dinner, so call later.'], ['Also polite for plans: Will you be using the car tonight?']),
+    part('Future perfect', 'Will have + past participle: finished before a future time.', ['By June I will have finished the course.', 'They won’t have arrived by the time the film starts.'], ['By, by the time and before are common signal words.']),
+    part('Future perfect continuous', 'Will have been + verb-ing: duration up to a future point.', ['In May she will have been working here for ten years.', 'By noon we’ll have been driving for six hours.']),
+  ] },
+  { id: 'causative-have', title: 'Have something done (causative)', level: 'B2', intro: 'Use the causative when someone else does a job for you: you arrange it, and a professional or another person does it.', content: [
+    part('Have + object + past participle', 'Subject + have (any tense) + thing + past participle.', ['I had my hair cut yesterday.', 'We are having the kitchen painted next week.']),
+    part('Get + object + past participle', 'More informal, often for things that are hard to arrange.', ['You should get your eyes tested.', 'She finally got the printer repaired.']),
+    part('Unwanted events', 'The same form can describe something bad that happened to you.', ['He had his phone stolen on the bus.', 'They had their flight cancelled at the last minute.'], ['Compare: I cut my hair (myself) vs I had my hair cut (someone else did it).']),
+  ] },
+  { id: 'participle-clauses', title: 'Participle clauses', level: 'B2', intro: 'Participle clauses shorten sentences in writing: an -ing, past participle or having + past participle clause replaces a full clause with a conjunction.', content: [
+    part('Present participle (-ing)', 'Replaces an active clause happening at the same time or giving a reason.', ['Feeling tired, she went to bed early.', 'Walking home, I met an old friend.']),
+    part('Past participle', 'Replaces a passive clause.', ['Built in 1920, the station is the oldest in the city.', 'Asked about the plan, the minister said nothing.']),
+    part('Perfect participle', 'Having + past participle shows the first action finished before the second.', ['Having finished the report, he sent it to his manager.', 'Having lived abroad, she understands the difficulties.'], ['The subject of both clauses must be the same: Walking home, the rain started is wrong.']),
   ] },
 ];

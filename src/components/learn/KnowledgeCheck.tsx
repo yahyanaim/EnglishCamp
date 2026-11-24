@@ -1,6 +1,7 @@
 "use client";
 
 import { LearningArt } from "@/components/brand/LearningArt";
+import { logMistake } from "@/lib/mistakes";
 import { PracticeCard, PracticeButton } from "@/components/ui/PracticeSurface";
 import { useState, useMemo, useCallback, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -153,7 +154,7 @@ export function KnowledgeCheck() {
     if (selected !== null) return;
     setSelected(opt);
     if (opt === current.correct) playCorrect();
-    else playWrong();
+    else { playWrong(); logMistake("knowledge-check", current.id, current.prompt, opt, current.correct); }
     setResults((r) => [...r, { q: current.id, correct: opt === current.correct }]);
   }
 

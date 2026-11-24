@@ -12,7 +12,7 @@ export function EncouragementPanel({ level, quote, onAnother, onContinue, achiev
   achievement?: Achievement; levelUp?: boolean; next?: boolean;
 }) {
   const reduced = useReducedMotion();
-  const awardArt = achievement && { streak: 'spark', xp: 'trophy', exercises: 'book', vocab: 'book', quiz: 'cap', errors: 'review', special: 'flag' }[achievement.category];
+  const awardArt = achievement && { streak: 'spark', xp: 'trophy', exercises: 'book', vocab: 'book', quiz: 'cap', errors: 'review', special: 'flag', grammar: 'grammar', skills: 'headphones' }[achievement.category];
   return <div className="camp-encouragement-panel">
     <div className="camp-celebration-scene" aria-hidden="true">
       {Array.from({ length: 12 }, (_, i) => <i key={i} style={{ '--piece': i } as React.CSSProperties}/>)}

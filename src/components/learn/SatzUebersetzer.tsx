@@ -1,6 +1,7 @@
 "use client";
 
 import { LearningArt } from "@/components/brand/LearningArt";
+import { logMistake } from "@/lib/mistakes";
 import { PracticeCard, PracticeButton } from "@/components/ui/PracticeSurface";
 import { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -88,6 +89,7 @@ export function SatzUebersetzer() {
       playCorrect();
     } else {
       playWrong();
+      logMistake("translation", current.id, mode === "english" ? current.arabic : current.english, opt, correctAnswer ?? "");
     }
   }
 
