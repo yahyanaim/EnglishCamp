@@ -115,7 +115,7 @@
     },
     "src/app/mock-exam/page.tsx": {
       "before": "9afd93cd48c09852fc1542ffefbb29f12c094ba56ca2c3687a032b81cff0c592",
-      "after": "9afd93cd48c09852fc1542ffefbb29f12c094ba56ca2c3687a032b81cff0c592"
+      "after": "1ef7a48c18cf068e15a574286724eed00a3beb86b2b8e794f1ded354f699871d"
     },
     "src/components/learn/FalseFriendsUebersetzer.tsx": {
       "before": "a434ac297a2135f5b00999de2afdb8b0f042575e378f5aed93cad3bf7118ea3c",

@@ -493,3 +493,37 @@ body .camp-workspace :is(.camp-frame, .camp-centre, main.app-canvas, main.camp-c
 }
 .camp-workspace .camp-sidebar nav a:not(#_):has(> span:last-child:not(:first-child)[class*="rounded"]) > div:first-child { grid-row: span 2; align-self: center; }
 .camp-workspace .camp-sidebar nav a:not(#_) > span:last-child:not(:first-child)[class*="rounded"] { grid-column: 2; justify-self: start; margin-inline-start: 0 !important; }
+
+/* ---------- Mock exams ---------- */
+/* Track cards: duration on the left, the two actions together on the right, same height and shape. */
+.camp-frame main.camp-content .camp-exam-card-actions { display: flex; align-items: center; gap: 8px; }
+.camp-frame main.camp-content .camp-exam-card-actions { flex-wrap: wrap; }
+.camp-frame main.camp-content .camp-exam-card-actions > div:first-child { flex-basis: 100%; }
+.camp-frame main.camp-content .camp-exam-card-actions > button { flex: 1 1 0; min-width: 0 !important; }
+.camp-frame main.camp-content .camp-exam-card-actions > button:only-of-type { flex: 1 1 100%; }
+.camp-frame main.camp-content .camp-exam-card-actions > button {
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px; height: 44px; min-width: 132px; padding: 0 18px !important;
+  border-radius: 999px !important; font: 650 14px/1 var(--font-body) !important; white-space: nowrap;
+}
+@container camp-main (max-width: 579px) {
+  .camp-frame main.camp-content .camp-exam-card-actions > div:first-child { flex-basis: 100%; }
+  .camp-frame main.camp-content .camp-exam-card-actions > button { flex: 1 1 0; min-width: 0; }
+}
+/* Exam run bar: a solid frosted bar pinned under the top bar, so the section tabs never show through it. */
+.camp-frame main.camp-content .camp-exam-runbar.camp-exam-runbar:not(#_) {
+  position: sticky !important;
+  top: 88px !important; z-index: 30; padding: 12px 16px !important; border-radius: 20px !important;
+  background: linear-gradient(135deg, rgba(255, 255, 255, .94), rgba(255, 255, 255, .86)) !important;
+  -webkit-backdrop-filter: blur(28px) saturate(200%); backdrop-filter: blur(28px) saturate(200%);
+  border: 1px solid var(--g-rim) !important; box-shadow: 0 12px 30px -16px var(--g-shadow), inset 0 1.5px 0 #fff !important;
+}
+.dark .camp-frame main.camp-content .camp-exam-runbar.camp-exam-runbar { background: linear-gradient(135deg, rgba(30, 25, 46, .96), rgba(20, 17, 32, .92)) !important; box-shadow: 0 12px 30px -16px rgba(0, 0, 0, .7), inset 0 1px 0 rgba(255, 255, 255, .1) !important; }
+.camp-frame main.camp-content .camp-exam-runbar h1 { margin: 0 !important; font: 750 17px/1.3 var(--font-display) !important; }
+.camp-frame main.camp-content .camp-exam-runbar h1 + p { margin: 2px 0 0 !important; font-size: 12.5px !important; }
+.camp-frame main.camp-content .camp-exam-runbar > div:first-child > div:first-child { width: 44px !important; height: 44px !important; flex: none; font-size: 11px !important; border-radius: 12px !important; }
+.camp-frame main.camp-content .camp-exam-runbar [role="timer"] { height: 40px; padding: 0 14px !important; border-radius: 999px !important; font-size: 15px !important; }
+.camp-frame main.camp-content .camp-exam-runbar .camp-exam-finish:not(#_) {
+  height: 40px; padding: 0 18px !important; border-radius: 999px !important; font: 650 14px/1 var(--font-body) !important; color: #fff !important;
+  background: linear-gradient(180deg, #e11d48, #be123c) !important; border: 1px solid #be123c !important; box-shadow: 0 6px 14px -8px rgba(190, 18, 60, .7), inset 0 1px 0 rgba(255, 255, 255, .25) !important;
+}
+@media (max-width: 639px) { .camp-frame main.camp-content .camp-exam-runbar.camp-exam-runbar:not(#_) { top: 80px !important; } }
