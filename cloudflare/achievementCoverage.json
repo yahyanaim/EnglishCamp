@@ -198,6 +198,24 @@
     "category": "grammar"
   },
   {
+    "id": "shadow-1",
+    "title": "First Echo",
+    "description": "Finish your first shadowing conversation",
+    "category": "skills"
+  },
+  {
+    "id": "shadow-5",
+    "title": "Shadow Speaker",
+    "description": "Finish 5 shadowing conversations",
+    "category": "skills"
+  },
+  {
+    "id": "shadow-12",
+    "title": "Natural Rhythm",
+    "description": "Finish 12 shadowing conversations",
+    "category": "skills"
+  },
+  {
     "id": "listening-5",
     "title": "Good Listener",
     "description": "Finish 5 listening lessons",

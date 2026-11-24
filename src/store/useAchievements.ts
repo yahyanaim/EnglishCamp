@@ -27,6 +27,7 @@ export type Achievement = {
     grammarLevels: string[];
     listeningDone: number;
     readingDone: number;
+    shadowingDone: number;
   }) => boolean;
 };
 
@@ -64,6 +65,9 @@ export const ACHIEVEMENTS: Achievement[] = [
   { id: "grammar-A2", title: "A2 Grammar Complete", description: "Learn every A2 grammar lesson", icon: "🥈", category: "grammar", condition: (s) => s.grammarLevels.includes("A2") },
   { id: "grammar-B1", title: "B1 Grammar Complete", description: "Learn every B1 grammar lesson", icon: "🥇", category: "grammar", condition: (s) => s.grammarLevels.includes("B1") },
   { id: "grammar-B2", title: "B2 Grammar Complete", description: "Learn every B2 grammar lesson", icon: "🏅", category: "grammar", condition: (s) => s.grammarLevels.includes("B2") },
+  { id: "shadow-1", title: "First Echo", description: "Finish your first shadowing conversation", icon: "🗣️", category: "skills", condition: (s) => s.shadowingDone >= 1 },
+  { id: "shadow-5", title: "Shadow Speaker", description: "Finish 5 shadowing conversations", icon: "🎙️", category: "skills", condition: (s) => s.shadowingDone >= 5 },
+  { id: "shadow-12", title: "Natural Rhythm", description: "Finish 12 shadowing conversations", icon: "🎶", category: "skills", condition: (s) => s.shadowingDone >= 12 },
   { id: "listening-5", title: "Good Listener", description: "Finish 5 listening lessons", icon: "🎧", category: "skills", condition: (s) => s.listeningDone >= 5 },
   { id: "listening-25", title: "Sharp Ears", description: "Finish 25 listening lessons", icon: "👂", category: "skills", condition: (s) => s.listeningDone >= 25 },
   { id: "reading-5", title: "Page Turner", description: "Finish 5 reading passages", icon: "📄", category: "skills", condition: (s) => s.readingDone >= 5 },
@@ -88,6 +92,7 @@ function achievementInputs(): AchievementInputs {
     grammarLevels: grammarLevelProgress(done).filter(level => level.complete).map(level => level.level),
     listeningDone: prefixed(done, "listening:"),
     readingDone: prefixed(done, "reading:"),
+    shadowingDone: Object.keys(done).filter(id => done[id] && id.startsWith("shadowing-") && !id.includes("-line-")).length,
   };
 }
 
@@ -119,6 +124,7 @@ function getAchievementProgress(id: string, state: AchievementInputs): { current
     "errors-10": 10, "errors-50": 50, "review-50": 50,
     "grammar-1": 1, "grammar-10": 10, "grammar-25": 25,
     "listening-5": 5, "listening-25": 25, "reading-5": 5, "reading-25": 25,
+    "shadow-1": 1, "shadow-5": 5, "shadow-12": 12,
   };
   const levels = grammarLevelProgress(useProgress.getState().exercisesDone);
   for (const level of levels) targets[`grammar-${level.level}`] = Math.max(1, level.total);
@@ -133,6 +139,7 @@ function getAchievementProgress(id: string, state: AchievementInputs): { current
     "errors-10": state.errorsFixed, "errors-50": state.errorsFixed, "review-50": state.cardsReviewed,
     "grammar-1": state.grammarLearned, "grammar-10": state.grammarLearned, "grammar-25": state.grammarLearned,
     "listening-5": state.listeningDone, "listening-25": state.listeningDone, "reading-5": state.readingDone, "reading-25": state.readingDone,
+    "shadow-1": state.shadowingDone, "shadow-5": state.shadowingDone, "shadow-12": state.shadowingDone,
     ...Object.fromEntries(levels.map(level => [`grammar-${level.level}`, level.learned])),
   };
   return { current: currents[id] ?? 0, target: targets[id] ?? 1 };

@@ -11,7 +11,7 @@ import { courseCatalogue as levels } from "@/data/course-catalogue";
 import { useVocabulary } from "@/store/useVocabulary";
 import { useErrors } from "@/store/useErrors";
 import { ActivityChart } from "@/components/ui/ActivityChart";
-import { Download, Flame, NotebookPen, Sparkles, BookOpenCheck, Dumbbell, Headphones, BookOpenText, ClipboardCheck, Trophy, BookHeart, AlertCircle, Languages, Award } from "lucide-react";
+import { Download, Flame, NotebookPen, Sparkles, BookOpenCheck, Dumbbell, Headphones, BookOpenText, ClipboardCheck, BookHeart, AlertCircle, Languages, Award, Mic } from "lucide-react";
 import "./stats.css";
 
 export default function StatsPage() {
@@ -71,8 +71,8 @@ export default function StatsPage() {
     { label: "Listening lessons", value: done("listening:"), icon: Headphones },
     { label: "Reading passages", value: done("reading:"), icon: BookOpenText },
     { label: "Grammar lessons", value: done("reference-grammar-"), note: "learned in Grammar Reference", icon: Languages },
-    { label: "Quizzes taken", value: totalQuizzes, icon: ClipboardCheck },
-    { label: "Best quiz score", value: bestQuiz > 0 ? `${bestQuiz}%` : "–", icon: Trophy },
+    { label: "Shadowing", value: Object.keys(exercisesDone).filter(id => exercisesDone[id] && id.startsWith("shadowing-") && !id.includes("-line-")).length, note: `${Object.keys(exercisesDone).filter(id => exercisesDone[id] && id.includes("-line-") && id.startsWith("shadowing-")).length} lines practised`, icon: Mic },
+    { label: "Quizzes taken", value: totalQuizzes, note: bestQuiz > 0 ? `best score ${bestQuiz}%` : "no quiz yet", icon: ClipboardCheck },
     { label: "Words saved", value: vocab.length, note: `${masteredWords} mastered`, icon: BookHeart },
     { label: "Mistakes to review", value: openMistakes, note: `${errors.length} tracked`, icon: AlertCircle },
     { label: "Badges earned", value: badgesEarned, note: `of ${ACHIEVEMENTS.length} badges`, icon: Award },

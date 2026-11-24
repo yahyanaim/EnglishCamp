@@ -60,6 +60,7 @@ const SOURCES: Record<string, MistakeInfo> = {
   translation: { label: "Translation", category: "vocabulary" },
   dialogue: { label: "Dialogues", category: "skills" },
   dictation: { label: "Dictation", category: "skills" },
+  shadowing: { label: "Shadowing dictation", category: "skills" },
   cloze: { label: "Cloze text", category: "skills" },
   reading: { label: "Reading", category: "skills" },
   listening: { label: "Listening", category: "skills" },

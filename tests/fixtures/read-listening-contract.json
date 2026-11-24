@@ -5,6 +5,46 @@
       "before": "004c1022a1b6679c39615ae3dfe6e66d62b56e88fcbb771c4d69a65723e160c7",
       "after": "c65bae08efa1a2bef5049809a8bc451760a2012b06ce17b11a77ec4789ff5f55"
     },
+    "src/app/shadowing-english/page.tsx": {
+      "before": "17d9582102a274a8e5968a085a709e435cbaf580e548980f6c575b78939743ed",
+      "after": "978621607c1b2362f31ad1bce07cef5c7fb3c4813a50cc02a7e8c887852159a0"
+    },
+    "src/components/shadowing/ShadowLessonCard.tsx": {
+      "before": "1b4ebcf55f274de3677d39f95cf471e4e1a34d38f2c6f02141fa4b6ef39193f3",
+      "after": "046f9eb2b6077e8de2f4acedd35c431babee7dbf866809ca5b47b535d3794da2"
+    },
+    "src/store/useAchievements.ts": {
+      "before": "8629b1f5c77b00b3035e471b40395b466f6cc45648be80a28de29c4c4a9af7c4",
+      "after": "20a5b4fcd7759212ec03f0deb072354a581dc3f4d6a52c377df99732ace37eb9"
+    },
+    "src/app/stats/page.tsx": {
+      "before": "8eef801b1a2797e8410fef22d6d6cf75492bb811e3e0f86dd6c6415f1a93b1fe",
+      "after": "09c006b23faf6eee36fc8fc7c06855fe87958cae6b31279dbd7d200e97d4e426"
+    },
+    "src/data/shadowing-everyday.ts": {
+      "before": "592e380ad971b8f6b48b8bad76cb2c11ef6258a8507666c3fb837424b1cdcbc5",
+      "after": "d6b4b4e9ded50d740a4bd5f6babefb696f80c899b3c80c52bbc3a9929fef359a"
+    },
+    "cloudflare/coach.ts": {
+      "before": "8909e6abf292f42f0ab1ecf1b40303f9b7757055aae4aad55aee03fe99e324e3",
+      "after": "7359e3db56c5b5c7003233a051055931a322d9d723751800f06b672c53d18232"
+    },
+    "cloudflare/pronunciation.ts": {
+      "before": "44c1f7dea2243780ba9e10e9eea10c3ee2ba180d7390158ce4607650e6a90e8a",
+      "after": "9aa86f4301c7d67aa12eddc96d6df32babec0e4062af9472e01b2f2a1c2369e7"
+    },
+    "cloudflare/aiShared.ts": {
+      "before": "915aa9828f3934983dced7a45ef2e8ce9dddec675e2a921eee844d8f03b03484",
+      "after": "9d5af56b57c06cdc893272f5dfdb9bc7b945c53137264a1306d3181a75686817"
+    },
+    "src/app/english-coach/page.tsx": {
+      "before": "3bbe48ccd10d50133aec8cc59e3c2da5a0c4c0b90590480b98eeeaa7d45f255d",
+      "after": "9a68ab10de21994c0f869ee36995acba620ec52506c447e69d02874f9f0e315f"
+    },
+    "src/components/speaking/PronunciationFeedback.tsx": {
+      "before": "8119b4857b3fd5e8f4858b4b81ff81678dcafc9723cbbc77ea3008e054264831",
+      "after": "97325c7b665d607bde542f7465db3a038d58e549501cb67ff6c3aa87894c9d40"
+    },
     "src/components/course/CourseOverview.tsx": {
       "before": "e446bfcbc4e79ddcb7751480feafe29474ce84762036ad28ebbb0d6a7178db62",
       "after": "211c1621e5404aa93ad008b06b0b909f76eb4aee463340a0a57cce2b3953d99b"
@@ -41,10 +81,6 @@
       "before": "476bd10c26460f0c535ed03fbcaf8d2d1b8b2795b861aba8fb13744353efdffc",
       "after": "341435fb78767bd4e84f78cead13a314672d516e902e1ab74fdcfdfb8d541df6"
     },
-    "src/app/shadowing-english/page.tsx": {
-      "before": "17d9582102a274a8e5968a085a709e435cbaf580e548980f6c575b78939743ed",
-      "after": "94d0860c6091b8677ae859dd6299de929f3dff22a530d7fb6bdf4cf4ec92c305"
-    },
     "src/app/grammar/cheat-sheet/page.tsx": {
       "before": "2be0d5ad8f4de4a84c57fe829cf48339c0699bea0b975b618e66cfc8714ed5ec",
       "after": "d8e15e54ddd9d0369da30738116064766f7b1b39b3bea4582ebcef7c5f7b3676"
@@ -76,10 +112,6 @@
     "src/data/speech-catalogue.json": {
       "before": "3597f0ff04aaa2abc53cbf4f94728147685e1ed45b55f33d156f3057b4ab5578",
       "after": "43aee126a1bb0e2a86a9b9775673e93312b27cb71c877d85665d7cf483f47b3e"
-    },
-    "src/app/stats/page.tsx": {
-      "before": "8eef801b1a2797e8410fef22d6d6cf75492bb811e3e0f86dd6c6415f1a93b1fe",
-      "after": "4de261bb8a59c495d54edc13d7b4162c7b5504742410dcc1aa820dd16fe40f59"
     },
     "src/components/layout/LayoutShell.tsx": {
       "before": "1a03fb08cd1508dbc056b67ddf7dcf6cbff0e9bedb34e4ef2ed68e11ed8c18bd",
@@ -225,10 +257,6 @@
       "before": "a64a6e663f798a04c7d8bdd4171788c759350b9597215a89e3b5597d2a6e78e7",
       "after": "a8355083f16acda78e9db207ed49b3894310c807617aeae9cfb126fce8cfb224"
     },
-    "src/store/useAchievements.ts": {
-      "before": "8629b1f5c77b00b3035e471b40395b466f6cc45648be80a28de29c4c4a9af7c4",
-      "after": "a16196fb07cc31eb6bc0328d0ff1e89e63041a938028146e8e1a424b6115c6ef"
-    },
     "src/components/ui/EncouragementPanel.tsx": {
       "before": "d5c9c1c926ce09e682c5cf77b36b9420bbdca68043834db277f5280e8bfa499f",
       "after": "eadd1af8758847aa4968ce0bcfb88b8292853cebaaa3a18e9c870e9b38b58d67"
@@ -265,7 +293,7 @@
     },
     "src/store/useAchievements.ts": {
       "before": "54e3a7f356fc89db37d65f7a615fe261bd59565646f5238086a025eba6bcce90",
-      "after": "380be3aa3f089605d83d3bf2615b74633d33aac3063ec99d8e5c02f9365151aa"
+      "after": "e5fe005b04b0c54e347699ebb8b833eb71886917b52a48a637f0380142a767f6"
     }
   },
   "grammarUi": {
