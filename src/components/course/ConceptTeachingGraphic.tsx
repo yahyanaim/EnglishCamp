@@ -1,207 +1,330 @@
+import type { ReactNode } from "react";
 import type { ConceptVisual, DiagramNode } from "@/data/teaching-diagrams/types";
 
-const ink="var(--color-text-primary)", muted="var(--color-text-secondary)", accent="var(--color-text-link)", tint="var(--color-primary-subtle)", border="var(--color-border-strong)";
-type Of<K extends ConceptVisual["layout"]> = Extract<ConceptVisual,{layout:K}>;
+/* Card-based concept diagrams: every idea sits in a card, relationships are labelled
+   connectors, steps are numbered, and the canvas carries a light dot grid.
+   Wide (800) and narrow (320) versions are laid out from measured text, so nothing overlaps. */
+
+const ink = "var(--color-text-primary)", muted = "var(--color-text-secondary)", accent = "var(--camp-purple, #7e22ce)", surface = "var(--color-surface)", border = "var(--color-border-strong)";
+type Of<K extends ConceptVisual["layout"]> = Extract<ConceptVisual, { layout: K }>;
+type Built = { body: ReactNode; height: number };
+type Tone = "accent" | "neutral" | "muted";
 
 export function wrapDiagramText(text: string, max: number): string[] {
-  const lines: string[]=[];
-  for(const paragraph of text.split("\n")) {
-    let line="";
-    for(const word of paragraph.split(/\s+/)) {
-      if(line && line.length+word.length+1>max){lines.push(line);line=word;}
-      else line=line?`${line} ${word}`:word;
+  const lines: string[] = [];
+  for (const paragraph of text.split("\n")) {
+    let line = "";
+    for (const word of paragraph.split(/\s+/)) {
+      if (line && line.length + word.length + 1 > max) { lines.push(line); line = word; }
+      else line = line ? `${line} ${word}` : word;
     }
-    if(line)lines.push(line);
+    if (line) lines.push(line);
   }
   return lines;
 }
+const CHAR = 0.52;
+const fit = (text: string, width: number, size: number) => wrapDiagramText(text, Math.max(8, Math.floor(width / (size * CHAR))));
+const display = { fontFamily: "var(--font-display), Nunito, sans-serif" };
 
-function Words({text,x,y,max=26,size=18,fill=ink,bold=false,anchor="middle"}:{text:string;x:number;y:number;max?:number;size?:number;fill?:string;bold?:boolean;anchor?:"middle"|"start"|"end"}){
-  return <text x={x} y={y} textAnchor={anchor} fill={fill} fontSize={size} fontWeight={bold?800:400} style={bold?{fontFamily:"var(--font-display), sans-serif"}:undefined}>
-    {wrapDiagramText(text,max).map((part,i)=><tspan key={i} x={x} dy={i?size+9:0}>{part}</tspan>)}
+function Lines({ lines, x, y, size, fill = ink, bold = false, anchor = "start", gap = 7 }: { lines: string[]; x: number; y: number; size: number; fill?: string; bold?: boolean; anchor?: "start" | "middle" | "end"; gap?: number }) {
+  return <text x={x} y={y} textAnchor={anchor} fill={fill} fontSize={size} fontWeight={bold ? 800 : 400} style={bold ? display : undefined}>
+    {lines.map((part, i) => <tspan key={i} x={x} dy={i ? size + gap : 0}>{part}</tspan>)}
   </text>;
 }
-function Node({node,x,y,compact,max=24}:{node:DiagramNode;x:number;y:number;compact:boolean;max?:number}){
-  const size=compact?18:20;
+
+/** Card metrics: label (accent, bold) over detail (ink). */
+function cardLayout(node: DiagramNode, w: number, c: boolean, badge?: string | number, flip = false) {
+  const ls = flip ? (c ? 19 : 21) : (c ? 16 : 17), ds = flip ? (c ? 14 : 15) : (c ? 15 : 16);
+  const inset = badge !== undefined ? 50 : 18;
+  const top = flip ? node.detail : node.label, bottom = flip ? node.label : node.detail;
+  const L = fit(top, w - inset - 18, ls), D = fit(bottom, w - inset - 18, ds);
+  const h = 18 + ls + (L.length - 1) * (ls + 6) + 10 + D.length * (ds + 7) + 12;
+  return { ls, ds, inset, L, D, h: Math.max(h, badge !== undefined ? 60 : 0) };
+}
+const cardH = (node: DiagramNode, w: number, c: boolean, badge?: string | number, flip = false) => cardLayout(node, w, c, badge, flip).h;
+
+function Card({ node, x, y, w, c, id, tone = "neutral", badge, flip = false, h: forced }: { node: DiagramNode; x: number; y: number; w: number; c: boolean; id: string; tone?: Tone; badge?: string | number; flip?: boolean; h?: number }) {
+  const m = cardLayout(node, w, c, badge, flip), h = forced ?? m.h;
+  const tint = tone === "accent";
   return <g>
-    <Words text={node.label} x={x} y={y} max={max} size={size} fill={accent} bold />
-    <Words text={node.detail} x={x} y={y+wrapDiagramText(node.label,max).length*(size+9)+14} max={max} size={compact?17:18} />
+    <rect x={x} y={y} width={w} height={h} rx={16} fill={surface} stroke={tint ? accent : border} strokeOpacity={tint ? .55 : .7} strokeDasharray={tone === "muted" ? "6 5" : undefined} filter={`url(#${id}-shadow)`} />
+    {tint && <rect x={x} y={y} width={w} height={h} rx={16} fill={`url(#${id}-tint)`} />}
+    {tone !== "muted" && <rect x={x} y={y + 14} width={4} height={Math.max(12, h - 28)} rx={2} fill={accent} opacity={tint ? 1 : .45} />}
+    {badge !== undefined && <g>
+      <circle cx={x + 28} cy={y + 30} r={14} fill={accent} />
+      <text x={x + 28} y={y + 35} textAnchor="middle" fill="#fff" fontSize={13} fontWeight={800} style={display}>{badge}</text>
+    </g>}
+    <Lines lines={m.L} x={x + m.inset} y={y + 18 + m.ls - 2} size={m.ls} fill={flip ? ink : accent} bold />
+    <Lines lines={m.D} x={x + m.inset} y={y + 18 + m.ls + (m.L.length - 1) * (m.ls + 6) + 10 + m.ds} size={m.ds} fill={flip ? accent : tone === "muted" ? muted : ink} bold={flip} />
   </g>;
 }
-function Edge({d,id,dashed=false}:{d:string;id:string;dashed?:boolean}){
-  return <path d={d} fill="none" stroke={accent} strokeWidth="2" strokeDasharray={dashed?"5 5":undefined} markerEnd={dashed?undefined:`url(#${id})`} />;
+
+function pillLayout(text: string, maxW: number, size = 13) {
+  const L = fit(text, maxW - 24, size);
+  const w = Math.min(maxW, Math.max(...L.map(l => l.length)) * size * CHAR + 26);
+  return { L, w, h: L.length * (size + 6) + 12, size };
+}
+function Pill({ text, cx, y, maxW, strong = false }: { text: string; cx: number; y: number; maxW: number; strong?: boolean }) {
+  const p = pillLayout(text, maxW);
+  return <g>
+    <rect x={cx - p.w / 2} y={y} width={p.w} height={p.h} rx={p.h > 28 ? 12 : p.h / 2} fill={strong ? accent : surface} stroke={accent} strokeOpacity={strong ? 0 : .35} />
+    <Lines lines={p.L} x={cx} y={y + 6 + p.size} size={p.size} fill={strong ? "#fff" : muted} anchor="middle" gap={6} bold={strong} />
+  </g>;
+}
+function Edge({ d, id, dashed = false }: { d: string; id: string; dashed?: boolean }) {
+  return <path d={d} fill="none" stroke={accent} strokeOpacity={dashed ? .55 : .75} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" strokeDasharray={dashed ? "6 6" : undefined} markerEnd={dashed ? undefined : `url(#${id}-arrow)`} />;
 }
 
-function Comparison({v,c}:{v:Of<"contrast">;c:boolean}){
-  return <>
-    <path d={c?"M30 20H10V190H30M270 285H290V455H270":"M45 50H25V250H45M755 50H775V250H755"} fill="none" stroke={border} strokeWidth="2" />
-    <Node node={v.left} x={c?150:200} y={c?60:100} compact={c} max={c?26:27} />
-    <Node node={v.right} x={c?150:600} y={c?325:100} compact={c} max={c?26:27} />
-    <text x={c?150:400} y={c?255:160} textAnchor="middle" fill={accent} fontSize="38" fontWeight="700">{v.symbol??"↔"}</text>
-    <Words text={v.relationship} x={c?150:400} y={c?510:310} max={c?28:55} size={c?17:18} fill={muted} />
-  </>;
-}
-function Flow({v,c,id}:{v:Of<"flow">;c:boolean;id:string}){
-  const count=v.nodes.length;
-  return <>
-    {v.nodes.map((node,i)=>{
-      const x=c?170:(i+.5)*800/count,y=c?50+i*210:140;
-      return <g key={i}>
-        <circle cx={c?20:x} cy={c?y:95} r="7" fill={accent} />
-        {c&&<line x1="27" y1={y} x2="45" y2={y} stroke={border} strokeWidth="2" />}
-        <Node node={node} x={x} y={y} compact={c} max={c?24:count===4?18:24} />
-        {i<count-1&&<>
-          <Edge d={c?`M20 ${y+18}V${y+180}`:`M${x+15} 95H${(i+1.5)*800/count-15}`} id={id} />
-          <Words text={v.links[i]} x={c?170:(i+1)*800/count} y={c?y+157:25} max={c?27:count===4?16:22} size={16} fill={muted} />
-        </>}
-      </g>;
-    })}
-  </>;
-}
-function Argument({v,c,id}:{v:Of<"argument">;c:boolean;id:string}){
-  if(c)return <>
-    <Edge d="M25 115V210H50" id={id}/><Edge d="M25 310V405H50" id={id}/>
-    <Edge d="M260 80H282V625H265" id={id}/>
-    <Node node={v.claim} x={155} y={45} compact max={24}/>
-    <Node node={v.reason} x={155} y={240} compact max={24}/>
-    <Node node={v.example} x={155} y={435} compact max={24}/>
-    <Node node={v.limit} x={155} y={630} compact max={24}/>
-    <Words text="because" x={155} y={190} size={16} fill={muted}/>
-    <Words text="illustrated by" x={155} y={385} size={16} fill={muted}/>
-    <Words text="qualified by" x={170} y={580} size={16} fill={muted}/>
-  </>;
-  return <>
-    <Edge d="M325 145Q230 160 200 210" id={id}/>
-    <Edge d="M300 360H500" id={id}/>
-    <Edge d="M650 75H770V465H660" id={id}/>
-    <Node node={v.claim} x={400} y={40} compact={false} max={35}/>
-    <Node node={v.reason} x={190} y={250} compact={false} max={26}/>
-    <Node node={v.example} x={610} y={250} compact={false} max={26}/>
-    <Node node={v.limit} x={400} y={500} compact={false} max={40}/>
-    <Words text="because" x={150} y={185} size={16} fill={muted}/>
-    <Words text="illustrated by" x={400} y={395} size={16} fill={muted}/>
-    <Words text="qualified by" x={680} y={430} size={16} fill={muted}/>
-  </>;
-}
-function Sentence({v,c,id}:{v:Of<"sentence">;c:boolean;id:string}){
-  const count=v.parts.length;
-  return <>
-    {v.parts.map((part,i)=>{
-      const x=c?140:(i+.5)*800/count,y=c?50+i*170:135;
-      return <g key={i}>
-        <Words text={part.detail} x={x} y={y} max={c?22:count===4?18:24} size={c?20:22} fill={i===v.from||i===v.to?accent:ink} bold={i===v.from||i===v.to}/>
-        <Words text={part.label} x={x} y={y+wrapDiagramText(part.detail,c?22:count===4?18:24).length*(c?29:31)+25} max={c?23:count===4?20:26} size={c?17:18} fill={muted}/>
-      </g>;
-    })}
-    <Edge d={c?`M255 ${50+v.from*170}H280V${50+v.to*170}H255`:`M${(v.from+.5)*800/count} 85Q${(v.from+v.to+1)*400/count} -20 ${(v.to+.5)*800/count} 85`} id={id}/>
-    <Words text={v.relationship} x={c?150:400} y={c?count*170+30:320} max={c?28:60} size={c?17:18} fill={muted}/>
-  </>;
-}
-function Evidence({v,c,id}:{v:Of<"evidence">;c:boolean;id:string}){
-  return <>
-    <Node node={v.source} x={c?150:400} y={35} compact={c} max={c?28:56}/>
-    <path d={c?"M150 165H20V620":"M400 145V180H133M400 180H667"} fill="none" stroke={border} strokeWidth="2" />
-    {v.outcomes.map((node,i)=><g key={i}>
-      <Edge d={c?`M20 ${235+i*180}H45`:`M${(i+.5)*800/3} 180V220`} id={id}/>
-      <Node node={node} x={c?170:(i+.5)*800/3} y={c?240+i*180:265} compact={c} max={c?24:24}/>
-    </g>)}
-  </>;
-}
-function Chart({v,c}:{v:Of<"chart">;c:boolean}){
-  const limit=v.unit.includes("%")?100:Math.max(...v.bars.map(b=>b.value));
-  const left=c?95:230,width=c?150:490,step=c?85:90;
-  return <>
-    <Words text={v.unit} x={c?150:400} y={30} max={c?30:60} size={c?17:18} fill={muted}/>
-    {v.bars.map((bar,i)=>{const y=100+i*step,w=bar.value/limit*width;return <g key={bar.label}>
-      <Words text={bar.label} x={left-15} y={y+4} max={c?10:22} size={c?16:18} anchor="end"/>
-      <rect x={left} y={y-18} width={w} height="27" rx="4" fill={tint} stroke={accent} strokeWidth="1.5"/>
-      <text x={left+w+10} y={y+3} fill={accent} fontSize={c?17:20} fontWeight="800">{bar.value}{v.unit.includes("%")?"%":""}</text>
-    </g>;})}
-    <path d={`M${left} 65V${105+(v.bars.length-1)*step+25}H${left+width}`} fill="none" stroke={border} strokeWidth="1.5"/>
-    <text x={left} y={165+(v.bars.length-1)*step} fill={muted} fontSize="16" textAnchor="middle">0</text>
-    <text x={left+width} y={165+(v.bars.length-1)*step} fill={muted} fontSize="16" textAnchor="middle">{limit}</text>
-    <Words text={v.annotation} x={c?150:400} y={220+(v.bars.length-1)*step} max={c?29:65} size={c?17:20} bold/>
-  </>;
-}
-function Cycle({v,c,id}:{v:Of<"cycle">;c:boolean;id:string}){
-  const positions=c?[[75,40],[225,40],[225,450],[75,450]]:[[190,80],[610,80],[610,450],[190,450]];
-  const paths=c?["M112 210H188","M285 220V410","M188 690H112","M15 410V220"]:["M330 220H470","M750 210Q780 320 660 410","M470 650H330","M80 410Q20 320 80 210"];
-  return <>
-    {paths.map(d=><Edge key={d} d={d} id={id}/>)}
-    <circle cx={c?150:400} cy={c?320:320} r={c?53:68} fill={tint} stroke={accent} strokeWidth="2"/>
-    <Words text={v.centre} x={c?150:400} y={c?312:315} max={c?13:16} size={c?18:22} bold/>
-    {v.nodes.map((node,i)=><Node key={i} node={node} x={positions[i][0]} y={positions[i][1]} compact={c} max={c?13:27}/>)}
-  </>;
-}
-function Decision({v,c,id}:{v:Of<"decision">;c:boolean;id:string}){
-  return <>
-    <rect x={c?10:220} y="15" width={c?280:360} height="115" rx="16" fill={tint} stroke={accent} strokeWidth="2"/>
-    <Words text={v.question} x={c?150:400} y={55} max={c?24:32} size={c?19:22} bold/>
-    <rect x={c?10:380} y={c?385:235} width={c?280:390} height="115" rx="16" fill={tint} stroke={accent} strokeWidth="2"/>
-    <Words text={v.nextQuestion} x={c?150:575} y={c?425:278} max={c?24:34} size={c?19:22} bold/>
-    <Edge d={c?"M70 130V170":"M280 130H130V200"} id={id}/>
-    <Edge d={c?"M230 130V365H150V385":"M520 130H575V235"} id={id}/>
-    <Edge d={c?"M80 500V550":"M480 350H420V430"} id={id}/>
-    <Edge d={c?"M220 500V550":"M680 350V430"} id={id}/>
-    <Words text="Yes" x={c?42:100} y={c?160:180} size={16} fill={accent}/>
-    <Words text="No" x={c?255:607} y={c?260:190} size={16} fill={accent}/>
-    <Words text="Yes" x={c?52:385} y={c?535:402} size={16} fill={accent}/>
-    <Words text="No" x={c?250:715} y={c?535:402} size={16} fill={accent}/>
-    <Node node={v.results[0]} x={c?92:130} y={c?215:245} compact={c} max={c?18:24}/>
-    <Node node={v.results[1]} x={c?80:420} y={c?595:475} compact={c} max={c?14:24}/>
-    <Node node={v.results[2]} x={c?220:680} y={c?595:475} compact={c} max={c?14:22}/>
-  </>;
-}
-function Orientation({v,c,id}:{v:Of<"map">;c:boolean;id:string}){
-  const cx=c?150:400;
-  return <>
-    <rect x={c?30:200} y="70" width={c?240:400} height="290" rx="10" fill={tint} stroke={border}/>
-    <path d={c?"M30 170H270M30 270H270M110 70V360M190 70V360":"M200 165H600M200 260H600M335 70V360M465 70V360"} stroke={border} strokeDasharray="3 6" fill="none"/>
-    <text x={cx} y="40" textAnchor="middle" fill={ink} fontSize="22" fontWeight="800">N</text>
-    <text x={cx} y="395" textAnchor="middle" fill={ink} fontSize="22" fontWeight="800">S</text>
-    <text x={c?287:640} y="225" textAnchor="middle" fill={ink} fontSize="22" fontWeight="800">E</text>
-    <text x={c?13:160} y="225" textAnchor="middle" fill={ink} fontSize="22" fontWeight="800">W</text>
-    <circle cx={cx} cy="140" r="9" fill={accent}/>
-    <Words text={`Facing ${v.facing}`} x={cx} y={105} max={24} size={c?17:20} bold/>
-    <Edge d={c?"M150 155V240Q150 285 195 285H245":"M400 155V245Q400 300 455 300H565"} id={id}/>
-    <Words text={`${v.turn} → ${v.destination}`} x={c?185:520} y={340} max={20} size={c?18:22} fill={accent} bold/>
-    <Words text="Fixed compass; changing viewpoint" x={c?150:400} y={445} max={c?28:50} size={c?17:18} fill={muted}/>
-  </>;
-}
-function Sound({v,c}:{v:Of<"sound">;c:boolean}){
-  let x=25,row=0;
-  const width=c?250:740;
-  const positions=v.tokens.map((token,i)=>{const focus=v.prominent.includes(i),w=token.length*(focus?(c?19:23):(c?13:16))+24;if(x+w>width+25){row++;x=25;}const item={x,y:100+row*100,w,token,focus};x+=w;return item;});
-  return <>
-    <Words text="Prominence marks the contrast" x={c?150:400} y={30} max={c?28:50} size={17} fill={muted}/>
-    {positions.map((p,i)=><g key={i}>
-      {p.focus&&<rect x={p.x-6} y={p.y-34} width={p.w-7} height="49" rx="8" fill={tint}/>}
-      <text x={p.x} y={p.y} fill={p.focus?accent:ink} fontSize={p.focus?(c?24:30):(c?20:24)} fontWeight={p.focus?800:400}>{p.token}</text>
-      {p.focus&&<line x1={p.x} y1={p.y+19} x2={p.x+p.w-18} y2={p.y+19} stroke={accent} strokeWidth="3"/>}
-    </g>)}
-    <Words text={v.meaning} x={c?150:400} y={200+row*100} max={c?28:65} size={c?17:20}/>
-    <Words text="Focus marks are illustrative, not a measured audio trace." x={c?150:400} y={330+row*100} max={c?28:65} size={c?16:17} fill={muted}/>
-  </>;
-}
-function Causal({v,c,id}:{v:Of<"causal">;c:boolean;id:string}){
-  return <>
-    <Node node={v.factor} x={c?150:400} y={35} compact={c} max={c?27:35}/>
-    <Edge d={c?"M120 165Q75 185 75 225":"M330 160Q220 180 200 245"} id={id}/>
-    <Edge d={c?"M180 165Q225 185 225 225":"M470 160Q580 180 600 245"} id={id}/>
-    <Words text="may affect" x={c?70:150} y={205} max={12} size={16} fill={muted}/>
-    <Words text="may affect" x={c?230:650} y={205} max={12} size={16} fill={muted}/>
-    <Node node={v.first} x={c?75:200} y={c?270:300} compact={c} max={c?14:27}/>
-    <Node node={v.second} x={c?225:600} y={c?270:300} compact={c} max={c?14:27}/>
-    <path d={c?"M75 430H225":"M325 345H475"} stroke={accent} strokeWidth="2" strokeDasharray="5 5"/>
-    <Words text="association ≠ proof of cause" x={c?150:400} y={c?485:505} max={c?28:60} size={c?17:20} bold/>
-    <Words text="A possible alternative path, not an established finding." x={c?150:400} y={c?565:560} max={c?28:65} size={c?16:17} fill={muted}/>
-  </>;
+/** Vertical chain used by every narrow layout: cards with labelled connectors between. */
+function chain(items: { node: DiagramNode; tone?: Tone; badge?: string | number; flip?: boolean; link?: string }[], W: number, id: string, top = 16): Built {
+  const out: ReactNode[] = [];
+  let y = top;
+  items.forEach((it, i) => {
+    const w = W - 24, h = cardH(it.node, w, true, it.badge, it.flip);
+    out.push(<Card key={`c${i}`} node={it.node} x={12} y={y} w={w} c id={id} tone={it.tone} badge={it.badge} flip={it.flip} />);
+    y += h;
+    if (i < items.length - 1) {
+      const label = items[i + 1].link;
+      const p = label ? pillLayout(label, W - 90) : { h: 0 };
+      const gap = Math.max(40, p.h + 24);
+      out.push(<Edge key={`e${i}`} d={`M36 ${y + 4}V${y + gap - 6}`} id={id} />);
+      if (label) out.push(<Pill key={`p${i}`} text={label} cx={56 + Math.min(W - 90, pillLayout(label, W - 90).w) / 2} y={y + (gap - p.h) / 2} maxW={W - 90} />);
+      y += gap;
+    }
+  });
+  return { body: <>{out}</>, height: y + 16 };
 }
 
-function dimensions(v:ConceptVisual,c:boolean):[number,number]{
-  const heights:Record<ConceptVisual["layout"],number>={contrast:c?600:400,flow:c?((v.layout==="flow"?v.nodes.length:3)*210+15):340,argument:c?835:660,sentence:c?((v.layout==="sentence"?v.parts.length:3)*170+150):420,evidence:c?810:460,chart:c?((v.layout==="chart"?v.bars.length:2)-1)*85+370:((v.layout==="chart"?v.bars.length:2)-1)*90+330,cycle:c?730:680,decision:c?850:680,map:490,sound:c?850:600,causal:c?660:650};
-  return [c?300:800,heights[v.layout]];
+function Contrast({ v, c, id, W }: { v: Of<"contrast">; c: boolean; id: string; W: number }): Built {
+  const sym = v.symbol ?? "↔";
+  if (c) {
+    const w = W - 24, h1 = cardH(v.left, w, c), h2 = cardH(v.right, w, c), y2 = 16 + h1 + 64, pr = pillLayout(v.relationship, W - 24);
+    return { height: y2 + h2 + 24 + pr.h + 16, body: <>
+      <Card node={v.left} x={12} y={16} w={w} c id={id} tone="accent" />
+      <circle cx={W / 2} cy={16 + h1 + 32} r={22} fill={accent} /><text x={W / 2} y={16 + h1 + 41} textAnchor="middle" fill="#fff" fontSize={24} fontWeight={800}>{sym}</text>
+      <Card node={v.right} x={12} y={y2} w={w} c id={id} />
+      <Pill text={v.relationship} cx={W / 2} y={y2 + h2 + 24} maxW={W - 24} />
+    </> };
+  }
+  const w = 330, h = Math.max(cardH(v.left, w, c), cardH(v.right, w, c)), pr = pillLayout(v.relationship, 620);
+  return { height: 24 + h + 28 + pr.h + 20, body: <>
+    <Card node={v.left} x={40} y={24} w={w} c={c} id={id} tone="accent" h={h} />
+    <Card node={v.right} x={430} y={24} w={w} c={c} id={id} h={h} />
+    <circle cx={400} cy={24 + h / 2} r={26} fill={accent} filter={`url(#${id}-shadow)`} /><text x={400} y={24 + h / 2 + 10} textAnchor="middle" fill="#fff" fontSize={28} fontWeight={800}>{sym}</text>
+    <Edge d={`M400 ${24 + h + 2}V${24 + h + 24}`} id={id} dashed />
+    <Pill text={v.relationship} cx={400} y={24 + h + 28} maxW={620} />
+  </> };
 }
+
+function Flow({ v, c, id, W }: { v: Of<"flow">; c: boolean; id: string; W: number }): Built {
+  if (c) return chain(v.nodes.map((node, i) => ({ node, badge: i + 1, tone: i === v.nodes.length - 1 ? "accent" as Tone : "neutral" as Tone, link: i ? v.links[i - 1] : undefined })), W, id);
+  const n = v.nodes.length, gap = 64, w = (W - 48 - gap * (n - 1)) / n;
+  const pills = v.links.map(l => pillLayout(l, Math.min(200, w + gap - 12)));
+  const band = pills.length ? Math.max(...pills.map(p => p.h)) : 0, cy = 16 + band + 26;
+  const h = Math.max(...v.nodes.map(node => cardH(node, w, c, "")));
+  return { height: cy + h + 20, body: <>
+    {v.nodes.map((node, i) => { const x = 24 + i * (w + gap); return <g key={i}>
+      <Card node={node} x={x} y={cy} w={w} c={c} id={id} badge={i + 1} h={h} tone={i === n - 1 ? "accent" : "neutral"} />
+      {i < n - 1 && <>
+        <Edge d={`M${x + w + 6} ${cy + 30}H${x + w + gap - 8}`} id={id} />
+        <path d={`M${x + w + gap / 2} ${16 + pills[i].h}V${cy + 22}`} stroke={accent} strokeOpacity={.3} strokeDasharray="3 4" />
+        <Pill text={v.links[i]} cx={x + w + gap / 2} y={16} maxW={Math.min(200, w + gap - 12)} />
+      </>}
+    </g>; })}
+  </> };
+}
+
+function Argument({ v, c, id, W }: { v: Of<"argument">; c: boolean; id: string; W: number }): Built {
+  if (c) return chain([{ node: v.claim, tone: "accent" }, { node: v.reason, link: "because" }, { node: v.example, link: "illustrated by" }, { node: v.limit, tone: "muted", link: "qualified by" }], W, id);
+  const ch = cardH(v.claim, 440, c), rw = 330, rh = Math.max(cardH(v.reason, rw - 10, c), cardH(v.example, rw - 10, c)), ry = 24 + ch + 72, lh = cardH(v.limit, 520, c), ly = ry + rh + 72;
+  return { height: ly + lh + 20, body: <>
+    <Card node={v.claim} x={180} y={24} w={440} c={c} id={id} tone="accent" />
+    <Edge d={`M260 ${24 + ch + 2}C260 ${ry - 30} 195 ${ry - 40} 195 ${ry - 6}`} id={id} />
+    <Pill text="because" cx={205} y={24 + ch + 22} maxW={160} />
+    <Card node={v.reason} x={24} y={ry} w={rw - 10} c={c} id={id} h={rh} />
+    <Card node={v.example} x={456} y={ry} w={rw - 10} c={c} id={id} h={rh} />
+    <Edge d={`M${24 + rw - 4} ${ry + rh / 2}H${450}`} id={id} />
+    <Pill text="illustrated by" cx={400} y={ry + rh / 2 - pillLayout("illustrated by", 96).h / 2} maxW={96} />
+    <Edge d={`M400 ${ry + rh + 4}V${ly - 6}`} id={id} dashed />
+    <Pill text="qualified by" cx={400} y={ry + rh + 22} maxW={160} />
+    <Card node={v.limit} x={140} y={ly} w={520} c={c} id={id} tone="muted" />
+  </> };
+}
+
+function Sentence({ v, c, id, W }: { v: Of<"sentence">; c: boolean; id: string; W: number }): Built {
+  const hot = (i: number) => i === v.from || i === v.to;
+  if (c) {
+    const w = W - 60, out: ReactNode[] = [], tops: number[] = [];
+    let y = 16;
+    v.parts.forEach((part, i) => { const h = cardH(part, w, c, undefined, true); tops.push(y + h / 2); out.push(<Card key={i} node={part} x={12} y={y} w={w} c id={id} flip tone={hot(i) ? "accent" : "neutral"} />); y += h + 14; });
+    const pr = pillLayout(v.relationship, W - 24);
+    return { height: y + 10 + pr.h + 16, body: <>
+      {out}
+      <Edge d={`M${12 + w + 6} ${tops[v.from]}H${W - 14}V${tops[v.to]}H${12 + w + 8}`} id={id} />
+      <Pill text={v.relationship} cx={W / 2} y={y + 10} maxW={W - 24} />
+    </> };
+  }
+  const n = v.parts.length, gap = 16, w = (W - 48 - gap * (n - 1)) / n, top = 96;
+  const h = Math.max(...v.parts.map(p => cardH(p, w, c, undefined, true)));
+  const cx = (i: number) => 24 + i * (w + gap) + w / 2, pr = pillLayout(v.relationship, 640);
+  return { height: top + h + 26 + pr.h + 18, body: <>
+    <Edge d={`M${cx(v.from)} ${top - 6}C${cx(v.from)} ${top - 80} ${cx(v.to)} ${top - 80} ${cx(v.to)} ${top - 8}`} id={id} />
+    {v.parts.map((part, i) => <Card key={i} node={part} x={24 + i * (w + gap)} y={top} w={w} c={c} id={id} flip h={h} tone={hot(i) ? "accent" : "neutral"} />)}
+    <Pill text={v.relationship} cx={400} y={top + h + 26} maxW={640} />
+  </> };
+}
+
+function Evidence({ v, c, id, W }: { v: Of<"evidence">; c: boolean; id: string; W: number }): Built {
+  const toneOf = (n: DiagramNode): Tone => /^not\b/i.test(n.label) ? "muted" : "neutral";
+  if (c) {
+    const sh = cardH(v.source, W - 24, c), out: ReactNode[] = [<Card key="s" node={v.source} x={12} y={16} w={W - 24} c id={id} tone="accent" />];
+    let y = 16 + sh + 28; const ys: number[] = [];
+    v.outcomes.forEach((o, i) => { const h = cardH(o, W - 60, c); ys.push(y + 28); out.push(<Card key={i} node={o} x={48} y={y} w={W - 60} c id={id} tone={toneOf(o)} />); y += h + 16; });
+    return { height: y + 6, body: <>
+      <path d={`M24 ${16 + sh}V${ys[2]}`} fill="none" stroke={accent} strokeOpacity={.4} strokeWidth={2} />
+      {ys.map((yy, i) => <Edge key={i} d={`M24 ${yy}H42`} id={id} />)}
+      {out}
+    </> };
+  }
+  const sh = cardH(v.source, 520, c), w = 232, gap = 20, oy = 24 + sh + 70, h = Math.max(...v.outcomes.map(o => cardH(o, w, c)));
+  const xs = [0, 1, 2].map(i => 24 + 10 + i * (w + gap)), mid = 24 + sh + 34;
+  return { height: oy + h + 20, body: <>
+    <Card node={v.source} x={140} y={24} w={520} c={c} id={id} tone="accent" />
+    <path d={`M400 ${24 + sh}V${mid}M${xs[0] + w / 2} ${mid}H${xs[2] + w / 2}`} fill="none" stroke={accent} strokeOpacity={.45} strokeWidth={2} />
+    {xs.map((x, i) => <Edge key={i} d={`M${x + w / 2} ${mid}V${oy - 6}`} id={id} />)}
+    {v.outcomes.map((o, i) => <Card key={i} node={o} x={xs[i]} y={oy} w={w} c={c} id={id} h={h} tone={toneOf(o)} />)}
+  </> };
+}
+
+function Chart({ v, c, id, W }: { v: Of<"chart">; c: boolean; id: string; W: number }): Built {
+  const limit = v.unit.includes("%") ? 100 : Math.max(...v.bars.map(b => b.value)) || 1;
+  const pct = v.unit.includes("%") ? "%" : "";
+  const unit = fit(v.unit, W - 48, 14);
+  const left = c ? 16 : 200, width = c ? W - 80 : 480, top = 26 + unit.length * 20, step = c ? 62 : 54;
+  const rows = v.bars.map((bar, i) => {
+    const y = top + i * step + (c ? 22 : 0), w = Math.max(6, bar.value / limit * width);
+    return <g key={bar.label}>
+      {c ? <text x={left} y={y - 8} fill={ink} fontSize={14} fontWeight={600}>{bar.label}</text>
+        : <Lines lines={fit(bar.label, 170, 15)} x={left - 16} y={y + 19} size={15} anchor="end" gap={4} />}
+      <rect x={left} y={y} width={width} height={28} rx={14} fill={accent} opacity={.08} />
+      <rect x={left} y={y} width={w} height={28} rx={14} fill={`url(#${id}-bar)`} />
+      <text x={left + w + 10} y={y + 20} fill={accent} fontSize={c ? 15 : 17} fontWeight={800} style={display}>{bar.value}{pct}</text>
+    </g>;
+  });
+  const end = top + (v.bars.length - 1) * step + (c ? 22 : 0) + 28;
+  const note: DiagramNode = { label: "What the numbers show", detail: v.annotation };
+  const nh = cardH(note, W - 48, c);
+  return { height: end + 36 + nh + 20, body: <>
+    <Lines lines={unit} x={W / 2} y={22} size={14} fill={muted} anchor="middle" gap={6} />
+    {rows}
+    <text x={left} y={end + 20} fill={muted} fontSize={12} textAnchor="middle">0</text>
+    <text x={left + width} y={end + 20} fill={muted} fontSize={12} textAnchor="middle">{limit}{pct}</text>
+    <Card node={note} x={24} y={end + 36} w={W - 48} c={c} id={id} tone="accent" />
+  </> };
+}
+
+function Cycle({ v, c, id, W }: { v: Of<"cycle">; c: boolean; id: string; W: number }): Built {
+  if (c) {
+    const r = chain(v.nodes.map((node, i) => ({ node, badge: i + 1 })), W, id, 70);
+    return { height: r.height + 10, body: <>
+      <Pill text={`↻ ${v.centre}`} cx={W / 2} y={16} maxW={W - 40} strong />
+      {r.body}
+    </> };
+  }
+  const w = 300, h = Math.max(...v.nodes.map(n => cardH(n, w, c, 1))), y1 = 24, y2 = y1 + h + 150, cy = (y1 + h + y2) / 2;
+  const pos = [[40, y1], [460, y1], [460, y2], [40, y2]];
+  return { height: y2 + h + 24, body: <>
+    <Edge d={`M${40 + w + 8} ${y1 + h / 2}H${452}`} id={id} />
+    <Edge d={`M${460 + w / 2} ${y1 + h + 6}V${y2 - 8}`} id={id} />
+    <Edge d={`M${452} ${y2 + h / 2}H${40 + w + 8}`} id={id} />
+    <Edge d={`M${40 + w / 2} ${y2 - 6}V${y1 + h + 8}`} id={id} />
+    <circle cx={400} cy={cy} r={62} fill={`url(#${id}-orb)`} filter={`url(#${id}-shadow)`} />
+    <Lines lines={fit(v.centre, 100, 16)} x={400} y={cy - (fit(v.centre, 100, 16).length - 1) * 11 + 5} size={16} fill="#fff" anchor="middle" bold gap={6} />
+    {v.nodes.map((n, i) => <Card key={i} node={n} x={pos[i][0]} y={pos[i][1]} w={w} c={c} id={id} badge={i + 1} h={h} />)}
+  </> };
+}
+
+function Decision({ v, c, id, W }: { v: Of<"decision">; c: boolean; id: string; W: number }): Built {
+  const q1: DiagramNode = { label: "Ask", detail: v.question }, q2: DiagramNode = { label: "If not, ask", detail: v.nextQuestion };
+  if (c) return chain([{ node: q1, tone: "accent" }, { node: v.results[0], link: "Yes" }, { node: q2, tone: "accent", link: "No — go back and ask" }, { node: v.results[1], link: "Yes" }, { node: v.results[2], tone: "muted", link: "No" }], W, id);
+  const qh = cardH(q1, 440, c), r2y = 24 + qh + 74, rw = 330, h2 = Math.max(cardH(v.results[0], rw, c), cardH(q2, rw, c)), r3y = r2y + h2 + 74, w3 = 200, h3 = Math.max(cardH(v.results[1], w3, c), cardH(v.results[2], w3, c));
+  return { height: r3y + h3 + 20, body: <>
+    <Card node={q1} x={180} y={24} w={440} c={c} id={id} tone="accent" />
+    <Edge d={`M280 ${24 + qh + 2}C280 ${r2y - 30} 205 ${r2y - 40} 205 ${r2y - 6}`} id={id} />
+    <Pill text="Yes" cx={220} y={24 + qh + 20} maxW={60} strong />
+    <Edge d={`M520 ${24 + qh + 2}C520 ${r2y - 30} 595 ${r2y - 40} 595 ${r2y - 6}`} id={id} />
+    <Pill text="No" cx={580} y={24 + qh + 20} maxW={60} />
+    <Card node={v.results[0]} x={40} y={r2y} w={rw} c={c} id={id} h={h2} />
+    <Card node={q2} x={430} y={r2y} w={rw} c={c} id={id} tone="accent" h={h2} />
+    <Edge d={`M540 ${r2y + h2 + 2}C540 ${r3y - 30} 490 ${r3y - 40} 490 ${r3y - 6}`} id={id} />
+    <Pill text="Yes" cx={505} y={r2y + h2 + 20} maxW={60} strong />
+    <Edge d={`M650 ${r2y + h2 + 2}C650 ${r3y - 30} 700 ${r3y - 40} 700 ${r3y - 6}`} id={id} />
+    <Pill text="No" cx={690} y={r2y + h2 + 20} maxW={60} />
+    <Card node={v.results[1]} x={390} y={r3y} w={w3} c={c} id={id} h={h3} />
+    <Card node={v.results[2]} x={600} y={r3y} w={w3 - 20} c={c} id={id} h={h3} tone="muted" />
+  </> };
+}
+
+function Orientation({ v, c, id, W }: { v: Of<"map">; c: boolean; id: string; W: number }): Built {
+  const gx = c ? 40 : 220, gw = c ? 240 : 360, gy = 50, gh = 260, cx = gx + gw / 2;
+  const compass = (t: string, x: number, y: number) => <g key={t}><circle cx={x} cy={y} r={15} fill={surface} stroke={accent} strokeOpacity={.4} /><text x={x} y={y + 5} textAnchor="middle" fill={accent} fontSize={14} fontWeight={800}>{t}</text></g>;
+  const route = `${v.turn} → ${v.destination}`, p = pillLayout(route, W - 40), cap = pillLayout("Fixed compass; changing viewpoint", W - 40);
+  return { height: gy + gh + 40 + p.h + 12 + cap.h + 20, body: <>
+    <rect x={gx} y={gy} width={gw} height={gh} rx={18} fill={accent} opacity={.06} />
+    <path d={`M${gx} ${gy + gh / 3}H${gx + gw}M${gx} ${gy + 2 * gh / 3}H${gx + gw}M${gx + gw / 3} ${gy}V${gy + gh}M${gx + 2 * gw / 3} ${gy}V${gy + gh}`} stroke={accent} strokeOpacity={.18} strokeDasharray="4 6" />
+    {compass("N", cx, gy - 22)}{compass("S", cx, gy + gh + 22)}{compass("E", gx + gw + 24, gy + gh / 2)}{compass("W", gx - 24, gy + gh / 2)}
+    <path d={`M${cx} ${gy + 70}V${gy + 160}Q${cx} ${gy + 200} ${cx + 40} ${gy + 200}H${gx + gw - 26}`} fill="none" stroke={accent} strokeWidth={5} strokeLinecap="round" markerEnd={`url(#${id}-arrow)`} />
+    <circle cx={cx} cy={gy + 60} r={12} fill={accent} stroke="#fff" strokeWidth={3} />
+    <Pill text={`Facing ${v.facing}`} cx={cx} y={gy + 14} maxW={gw - 20} />
+    <Pill text={route} cx={W / 2} y={gy + gh + 40} maxW={W - 40} strong />
+    <Pill text="Fixed compass; changing viewpoint" cx={W / 2} y={gy + gh + 40 + p.h + 12} maxW={W - 40} />
+  </> };
+}
+
+function Sound({ v, c, id, W }: { v: Of<"sound">; c: boolean; id: string; W: number }): Built {
+  let x = 20, row = 0;
+  const size = c ? 18 : 22, chips = v.tokens.map((token, i) => {
+    const focus = v.prominent.includes(i), w = token.length * size * .6 + 26;
+    if (x + w > W - 20) { row++; x = 20; }
+    const item = { x, y: 70 + row * 64, w, token, focus }; x += w + 8; return item;
+  });
+  const end = 70 + row * 64 + 44, note: DiagramNode = { label: "Meaning", detail: v.meaning }, nh = cardH(note, W - 40, c);
+  const foot = pillLayout("Focus marks are illustrative, not a measured audio trace.", W - 40);
+  return { height: end + 24 + nh + 16 + foot.h + 16, body: <>
+    <Pill text="Prominence marks the contrast" cx={W / 2} y={14} maxW={W - 40} />
+    {chips.map((p, i) => <g key={i}>
+      <rect x={p.x} y={p.y} width={p.w} height={44} rx={14} fill={p.focus ? `url(#${id}-bar)` : surface} stroke={p.focus ? "none" : border} strokeOpacity={.6} />
+      {p.focus && <circle cx={p.x + p.w / 2} cy={p.y - 10} r={5} fill={accent} />}
+      <text x={p.x + p.w / 2} y={p.y + 29} textAnchor="middle" fill={p.focus ? "#fff" : ink} fontSize={size} fontWeight={p.focus ? 800 : 500} style={p.focus ? display : undefined}>{p.token}</text>
+    </g>)}
+    <Card node={note} x={20} y={end + 24} w={W - 40} c={c} id={id} tone="accent" />
+    <Pill text="Focus marks are illustrative, not a measured audio trace." cx={W / 2} y={end + 24 + nh + 16} maxW={W - 40} />
+  </> };
+}
+
+function Causal({ v, c, id, W }: { v: Of<"causal">; c: boolean; id: string; W: number }): Built {
+  const note = "A possible alternative path, not an established finding.";
+  if (c) {
+    const r = chain([{ node: v.factor, tone: "accent" }, { node: v.first, link: "may affect" }, { node: v.second, link: "may affect" }], W, id);
+    const p = pillLayout("association ≠ proof of cause", W - 24), n = pillLayout(note, W - 24);
+    return { height: r.height + p.h + 12 + n.h + 16, body: <>{r.body}<Pill text="association ≠ proof of cause" cx={W / 2} y={r.height} maxW={W - 24} strong /><Pill text={note} cx={W / 2} y={r.height + p.h + 12} maxW={W - 24} /></> };
+  }
+  const fh = cardH(v.factor, 440, c), w = 300, oy = 24 + fh + 84, h = Math.max(cardH(v.first, w, c), cardH(v.second, w, c));
+  const p = pillLayout("association ≠ proof of cause", 220);
+  return { height: oy + h + 30 + 40, body: <>
+    <Card node={v.factor} x={180} y={24} w={440} c={c} id={id} tone="accent" />
+    <Edge d={`M300 ${24 + fh + 2}C300 ${oy - 34} 190 ${oy - 44} 190 ${oy - 6}`} id={id} />
+    <Edge d={`M500 ${24 + fh + 2}C500 ${oy - 34} 610 ${oy - 44} 610 ${oy - 6}`} id={id} />
+    <Pill text="may affect" cx={215} y={24 + fh + 24} maxW={120} />
+    <Pill text="may affect" cx={585} y={24 + fh + 24} maxW={120} />
+    <Card node={v.first} x={40} y={oy} w={w} c={c} id={id} h={h} />
+    <Card node={v.second} x={460} y={oy} w={w} c={c} id={id} h={h} />
+    <path d={`M${348} ${oy + h / 2}H${452}`} stroke={accent} strokeWidth={2} strokeDasharray="5 5" />
+    <Pill text="association ≠ proof of cause" cx={400} y={oy + h / 2 - p.h - 8} maxW={110} strong />
+    <Pill text={note} cx={400} y={oy + h + 26} maxW={520} />
+  </> };
+}
+
 function describe(v:ConceptVisual):string{
   const node=(n:DiagramNode)=>`${n.label}: ${n.detail}.`;
   switch(v.layout){
@@ -218,12 +341,23 @@ function describe(v:ConceptVisual):string{
     case "causal":return `${node(v.factor)} This may affect both ${node(v.first)} and ${node(v.second)} The association alone does not establish cause; the alternative path is hypothetical.`;
   }
 }
-export function ConceptTeachingGraphic({visual:v,compact:c}:{visual:ConceptVisual;compact:boolean}){
-  const [w,h]=dimensions(v,c),id=`concept-${v.layout}-${c?"narrow":"wide"}`,arrow=`${id}-arrow`;
-  return <svg className={c?"md:hidden w-full max-w-sm mx-auto":"hidden md:block w-full max-w-4xl mx-auto"} viewBox={`0 0 ${w} ${h}`} role="img" aria-labelledby={`${id}-title ${id}-desc`} style={{fontFamily:"var(--font-body), sans-serif"}}>
-    <title id={`${id}-title`}>{v.layout === "chart"?"Numerical comparison":v.layout === "sentence"?"Sentence relationships":`${v.layout[0].toUpperCase()}${v.layout.slice(1)} illustration`}</title>
+export function ConceptTeachingGraphic({ visual: v, compact: c }: { visual: ConceptVisual; compact: boolean }) {
+  const W = c ? 320 : 800, id = `concept-${v.layout}-${c ? "narrow" : "wide"}`;
+  const props = { c, id, W } as const;
+  const built: Built = v.layout === "contrast" ? Contrast({ v, ...props }) : v.layout === "flow" ? Flow({ v, ...props }) : v.layout === "argument" ? Argument({ v, ...props }) : v.layout === "sentence" ? Sentence({ v, ...props }) : v.layout === "evidence" ? Evidence({ v, ...props }) : v.layout === "chart" ? Chart({ v, ...props }) : v.layout === "cycle" ? Cycle({ v, ...props }) : v.layout === "decision" ? Decision({ v, ...props }) : v.layout === "map" ? Orientation({ v, ...props }) : v.layout === "sound" ? Sound({ v, ...props }) : Causal({ v, ...props });
+  const H = Math.ceil(built.height);
+  return <svg className={c ? "md:hidden w-full max-w-sm mx-auto camp-concept-svg" : "hidden md:block w-full max-w-4xl mx-auto camp-concept-svg"} viewBox={`0 0 ${W} ${H}`} role="img" aria-labelledby={`${id}-title ${id}-desc`} style={{ fontFamily: "var(--font-body), sans-serif", overflow: "visible" }}>
+    <title id={`${id}-title`}>{v.layout === "chart" ? "Numerical comparison" : v.layout === "sentence" ? "Sentence relationships" : `${v.layout[0].toUpperCase()}${v.layout.slice(1)} illustration`}</title>
     <desc id={`${id}-desc`}>{describe(v)}</desc>
-    <defs><marker id={arrow} viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0L10 5L0 10Z" fill={accent}/></marker></defs>
-    {v.layout==="contrast"?<Comparison v={v} c={c}/>:v.layout==="flow"?<Flow v={v} c={c} id={arrow}/>:v.layout==="argument"?<Argument v={v} c={c} id={arrow}/>:v.layout==="sentence"?<Sentence v={v} c={c} id={arrow}/>:v.layout==="evidence"?<Evidence v={v} c={c} id={arrow}/>:v.layout==="chart"?<Chart v={v} c={c}/>:v.layout==="cycle"?<Cycle v={v} c={c} id={arrow}/>:v.layout==="decision"?<Decision v={v} c={c} id={arrow}/>:v.layout==="map"?<Orientation v={v} c={c} id={arrow}/>:v.layout==="sound"?<Sound v={v} c={c}/>:<Causal v={v} c={c} id={arrow}/>}
+    <defs>
+      <marker id={`${id}-arrow`} viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill={accent} /></marker>
+      <filter id={`${id}-shadow`} x="-10%" y="-10%" width="120%" height="140%"><feDropShadow dx="0" dy="6" stdDeviation="8" floodColor="#4c1d95" floodOpacity=".10" /></filter>
+      <linearGradient id={`${id}-tint`} x1="0" y1="0" x2="1" y2="1"><stop offset="0" stopColor={accent} stopOpacity=".10" /><stop offset="1" stopColor={accent} stopOpacity=".03" /></linearGradient>
+      <linearGradient id={`${id}-bar`} x1="0" y1="0" x2="1" y2="0"><stop offset="0" stopColor="#a855f7" /><stop offset="1" stopColor={accent} /></linearGradient>
+      <radialGradient id={`${id}-orb`} cx=".35" cy=".3" r=".8"><stop offset="0" stopColor="#c084fc" /><stop offset="1" stopColor={accent} /></radialGradient>
+      <pattern id={`${id}-dots`} width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.2" fill={accent} opacity=".13" /></pattern>
+    </defs>
+    <rect x="0" y="0" width={W} height={H} rx="20" fill={`url(#${id}-dots)`} />
+    {built.body}
   </svg>;
 }
