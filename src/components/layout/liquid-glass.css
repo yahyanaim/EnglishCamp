@@ -1,0 +1,159 @@
+/* ==========================================================================
+   EnglishCamp Liquid Glass
+   Adapted from the AI-hub "Apple Liquid Glass" surface system: frosted
+   refraction (blur + saturation), specular top-edge highlights, hairline rims
+   and a soft spring lift. Colours come from the existing EnglishCamp tokens
+   (--camp-purple, --color-surface…), so themes and palettes still apply and
+   no layout, spacing or size changes.
+   ========================================================================== */
+
+.camp-workspace {
+  --glass-tint: var(--camp-purple, #7e22ce);
+  --glass-rim: rgba(255, 255, 255, 0.82);
+  --glass-hair: rgba(28, 16, 48, 0.07);
+  --glass-shine: rgba(255, 255, 255, 0.95);
+  --glass-shadow: rgba(28, 16, 48, 0.14);
+  --glass-card: linear-gradient(145deg, rgba(255, 255, 255, 0.74) 0%, rgba(255, 255, 255, 0.5) 55%, color-mix(in srgb, var(--glass-tint) 4%, rgba(255, 255, 255, 0.66)) 100%);
+  --glass-card-hover: linear-gradient(145deg, rgba(255, 255, 255, 0.86) 0%, rgba(255, 255, 255, 0.62) 55%, color-mix(in srgb, var(--glass-tint) 7%, rgba(255, 255, 255, 0.78)) 100%);
+  --glass-chrome: linear-gradient(135deg, rgba(255, 255, 255, 0.76) 0%, rgba(255, 255, 255, 0.58) 52%, color-mix(in srgb, var(--glass-tint) 4%, rgba(255, 255, 255, 0.7)) 100%);
+  --glass-control: rgba(255, 255, 255, 0.62);
+  --glass-control-hover: rgba(255, 255, 255, 0.86);
+  /* Soft brand-coloured light behind the glass, so the frosting has something to refract. */
+  background-color: color-mix(in srgb, var(--glass-tint) 3%, var(--color-surface));
+  background-image:
+    radial-gradient(58rem 34rem at 8% -6%, color-mix(in srgb, var(--glass-tint) 13%, transparent), transparent 60%),
+    radial-gradient(52rem 32rem at 94% 4%, color-mix(in srgb, var(--glass-tint) 8%, rgba(99, 102, 241, 0.08)), transparent 58%),
+    radial-gradient(50rem 34rem at 50% 58%, color-mix(in srgb, var(--glass-tint) 6%, transparent), transparent 62%),
+    radial-gradient(46rem 30rem at 16% 96%, color-mix(in srgb, var(--glass-tint) 8%, transparent), transparent 58%);
+  background-attachment: fixed;
+}
+.dark .camp-workspace {
+  --glass-rim: rgba(255, 255, 255, 0.09);
+  --glass-hair: rgba(255, 255, 255, 0.05);
+  --glass-shine: rgba(255, 255, 255, 0.2);
+  --glass-shadow: rgba(0, 0, 0, 0.6);
+  --glass-card: linear-gradient(145deg, color-mix(in srgb, var(--color-surface) 70%, transparent) 0%, color-mix(in srgb, var(--color-surface) 52%, transparent) 58%, color-mix(in srgb, var(--color-surface-alt) 62%, transparent) 100%);
+  --glass-card-hover: linear-gradient(145deg, color-mix(in srgb, var(--color-surface-alt) 82%, transparent) 0%, color-mix(in srgb, var(--color-surface) 66%, transparent) 58%, color-mix(in srgb, var(--color-surface-alt) 76%, transparent) 100%);
+  --glass-chrome: linear-gradient(135deg, color-mix(in srgb, var(--color-surface) 74%, transparent) 0%, color-mix(in srgb, var(--color-surface) 60%, transparent) 55%, color-mix(in srgb, var(--color-surface-alt) 70%, transparent) 100%);
+  --glass-control: rgba(255, 255, 255, 0.06);
+  --glass-control-hover: rgba(255, 255, 255, 0.12);
+  background-color: var(--color-surface);
+  background-image:
+    radial-gradient(60rem 36rem at 10% -8%, color-mix(in srgb, var(--glass-tint) 20%, transparent), transparent 58%),
+    radial-gradient(54rem 34rem at 92% 6%, rgba(99, 102, 241, 0.1), transparent 58%),
+    radial-gradient(50rem 34rem at 50% 62%, color-mix(in srgb, var(--glass-tint) 10%, transparent), transparent 62%);
+}
+.camp-workspace .camp-frame { background: transparent; }
+
+/* ---------- Chrome: top bar, sidebars, learning rail, phone tab bar ---------- */
+.camp-workspace :is(.camp-toolbar, .camp-mobile-nav) {
+  background: var(--glass-chrome);
+  -webkit-backdrop-filter: blur(26px) saturate(200%);
+  backdrop-filter: blur(26px) saturate(200%);
+  box-shadow: 0 10px 30px -18px var(--glass-shadow), 0 1px 0 var(--glass-hair), inset 0 1.5px 0 var(--glass-shine), inset 0 -1px 0 var(--glass-hair);
+}
+.camp-workspace .camp-mobile-nav { box-shadow: 0 -10px 30px -18px var(--glass-shadow), 0 -1px 0 var(--glass-hair), inset 0 1.5px 0 var(--glass-shine); }
+.camp-workspace :is(.camp-sidebar, .camp-learning-rail) {
+  background: var(--glass-chrome);
+  -webkit-backdrop-filter: blur(30px) saturate(210%);
+  backdrop-filter: blur(30px) saturate(210%);
+  box-shadow: inset 0 1.5px 0 var(--glass-shine), inset -1px 0 0 var(--glass-hair);
+}
+.camp-workspace .camp-navigation, .camp-workspace .camp-learning-rail { border-color: var(--glass-hair); }
+.camp-workspace .camp-sidebar nav a[aria-current="page"], .camp-workspace .camp-mobile-nav a[aria-current="page"] {
+  box-shadow: 0 2px 10px -3px color-mix(in srgb, var(--glass-tint) 30%, transparent), inset 0 1px 0 var(--glass-shine), 0 0 0 1px color-mix(in srgb, var(--glass-tint) 14%, transparent);
+}
+
+/* ---------- Cards ---------- */
+.camp-frame main.camp-content :is(
+  .camp-learning-library-card, .camp-hub-today-tile, .camp-stats-tile, .camp-stats-card, .camp-stats-hero-kpis > div,
+  .bg-card, [data-practice-surface],
+  :is(div, section, article, li, a)[class*="bg-[var(--color-surface)]"][class*="rounded"]
+):not([class*="banner"], [class*="hero"], .text-white) {
+  position: relative;
+  background: var(--glass-card) !important;
+  border-color: var(--glass-rim) !important;
+  box-shadow: 0 12px 30px -16px var(--glass-shadow), 0 0 0 1px var(--glass-hair), inset 0 2px 0 var(--glass-shine), inset 1px 0 0 color-mix(in srgb, var(--glass-shine) 70%, transparent), inset 0 -1.5px 0 var(--glass-hair) !important;
+  transition: transform .28s cubic-bezier(.22, 1, .36, 1), box-shadow .28s cubic-bezier(.22, 1, .36, 1), border-color .24s ease, background .24s ease;
+}
+/* Frosting only on larger screens with a pointer, where it is cheap enough to run on many cards. */
+@media (min-width: 1024px) and (hover: hover) {
+  .camp-frame main.camp-content :is(.camp-learning-library-card, .camp-hub-today-tile, .camp-stats-tile, .camp-stats-card, .bg-card, [data-practice-surface]):not([class*="banner"], [class*="hero"]) {
+    -webkit-backdrop-filter: blur(22px) saturate(200%);
+    backdrop-filter: blur(22px) saturate(200%);
+  }
+}
+/* Interactive cards lift with a brand-tinted rim. */
+.camp-frame main.camp-content :is(button.camp-learning-library-card, a.camp-learning-library-card, .camp-hub-today-tile, a[class*="bg-[var(--color-surface)]"][class*="rounded"]):is(:hover, :focus-visible) {
+  transform: translateY(-2px);
+  background: var(--glass-card-hover) !important;
+  border-color: color-mix(in srgb, var(--glass-tint) 42%, transparent) !important;
+  box-shadow: 0 20px 40px -18px var(--glass-shadow), 0 0 0 1px color-mix(in srgb, var(--glass-tint) 20%, transparent), inset 0 2px 0 var(--glass-shine), inset 0 -1.5px 0 color-mix(in srgb, var(--glass-tint) 12%, transparent) !important;
+}
+.camp-frame main.camp-content .camp-hub-today .camp-hub-today-tile.camp-hub-today-tile:first-child { background: linear-gradient(145deg, color-mix(in srgb, var(--glass-tint) 12%, rgba(255, 255, 255, 0.78)), color-mix(in srgb, var(--glass-tint) 6%, rgba(255, 255, 255, 0.56))) !important; }
+.dark .camp-frame main.camp-content .camp-hub-today .camp-hub-today-tile.camp-hub-today-tile:first-child { background: linear-gradient(145deg, color-mix(in srgb, var(--glass-tint) 26%, transparent), color-mix(in srgb, var(--glass-tint) 12%, transparent)) !important; }
+/* Answer feedback keeps its own green/red border. */
+.camp-frame main.camp-content [data-outcome="correct"] { border-color: var(--color-success-dark) !important; }
+.camp-frame main.camp-content [data-outcome="incorrect"] { border-color: var(--color-error-dark) !important; }
+
+/* ---------- Controls: chips, inputs, selects, secondary buttons ---------- */
+.camp-frame main.camp-content :is(
+  .camp-select-trigger, .camp-hub-search input, .camp-stats-action, .camp-hub-skills > button, .camp-hub-more,
+  input[type="search"], input[type="text"], textarea,
+  button[class*="bg-[var(--color-surface)]"], button[class*="bg-[var(--color-surface-alt)]"]
+):not([data-outcome]):not([aria-pressed="true"]) {
+  background: var(--glass-control) !important;
+  border-color: var(--glass-rim) !important;
+  box-shadow: 0 2px 8px -4px var(--glass-shadow), 0 0 0 1px var(--glass-hair), inset 0 1px 0 var(--glass-shine);
+}
+@media (hover: hover) {
+  .camp-frame main.camp-content :is(.camp-select-trigger, .camp-stats-action, .camp-hub-skills > button, .camp-hub-more, button[class*="bg-[var(--color-surface)]"], button[class*="bg-[var(--color-surface-alt)]"]):not([data-outcome]):not([aria-pressed="true"]):hover { background: var(--glass-control-hover) !important; }
+}
+/* Selected chips and primary buttons keep their brand colour, with a glass highlight on top. */
+.camp-frame main.camp-content :is([aria-pressed="true"], [class*="bg-[var(--color-primary)]"], [class*="bg-[var(--camp-purple)]"]) {
+  box-shadow: 0 6px 16px -8px color-mix(in srgb, var(--glass-tint) 60%, transparent), inset 0 1px 0 rgba(255, 255, 255, 0.32), inset 0 -1px 0 rgba(0, 0, 0, 0.12);
+}
+
+/* ---------- Page banners: same purple, with a glass sheen ---------- */
+.camp-frame .camp-page-banner, .camp-frame .camp-exam-hero {
+  box-shadow: 0 16px 36px -18px color-mix(in srgb, var(--glass-tint) 70%, transparent), inset 0 1.5px 0 rgba(255, 255, 255, 0.35), inset 0 -1px 0 rgba(0, 0, 0, 0.12) !important;
+}
+.camp-frame .camp-page-banner::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none; border-radius: inherit;
+  background: linear-gradient(130deg, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0.04) 36%, transparent 60%, rgba(255, 255, 255, 0.1) 100%);
+}
+
+/* ---------- Modals, popovers and menus ---------- */
+:is([role="dialog"], [role="alertdialog"]):not([aria-hidden="true"]) {
+  --glass-rim: rgba(255, 255, 255, 0.9);
+}
+.camp-workspace ~ * :is([role="dialog"], [role="listbox"], [role="menu"]), body > div[data-radix-popper-content-wrapper] > *, [data-radix-portal] [role="dialog"], [role="dialog"].fixed {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.88) 0%, rgba(255, 255, 255, 0.74) 55%, color-mix(in srgb, var(--camp-purple) 4%, rgba(255, 255, 255, 0.84)) 100%) !important;
+  -webkit-backdrop-filter: blur(34px) saturate(215%);
+  backdrop-filter: blur(34px) saturate(215%);
+  border: 1.5px solid rgba(255, 255, 255, 0.92) !important;
+  box-shadow: 0 28px 64px -20px rgba(28, 16, 48, 0.3), 0 0 0 1px rgba(28, 16, 48, 0.08), inset 0 2px 0 rgba(255, 255, 255, 1) !important;
+}
+.dark :is(.camp-workspace ~ * :is([role="dialog"], [role="listbox"], [role="menu"]), body > div[data-radix-popper-content-wrapper] > *, [data-radix-portal] [role="dialog"], [role="dialog"].fixed) {
+  background: linear-gradient(145deg, color-mix(in srgb, var(--color-surface) 86%, transparent) 0%, color-mix(in srgb, var(--color-surface) 74%, transparent) 60%, color-mix(in srgb, var(--color-surface-alt) 82%, transparent) 100%) !important;
+  border-color: rgba(255, 255, 255, 0.16) !important;
+  box-shadow: 0 32px 72px -18px rgba(0, 0, 0, 0.78), inset 0 1.5px 0 rgba(255, 255, 255, 0.2) !important;
+}
+
+/* ---------- Accessibility and fallbacks ---------- */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .camp-workspace :is(.camp-toolbar, .camp-mobile-nav, .camp-sidebar, .camp-learning-rail) { background: var(--color-surface); }
+}
+@media (prefers-reduced-transparency: reduce) {
+  .camp-workspace, .dark .camp-workspace { background-image: none; background-color: var(--color-surface); }
+  .camp-workspace :is(.camp-toolbar, .camp-mobile-nav, .camp-sidebar, .camp-learning-rail) { background: var(--color-surface); -webkit-backdrop-filter: none; backdrop-filter: none; }
+  .camp-frame main.camp-content :is(.camp-learning-library-card, .camp-hub-today-tile, .camp-stats-tile, .camp-stats-card, .bg-card, [data-practice-surface], :is(div, section, article, li, a)[class*="bg-[var(--color-surface)]"][class*="rounded"]):not([class*="banner"], [class*="hero"], .text-white) { background: var(--color-surface) !important; -webkit-backdrop-filter: none; backdrop-filter: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .camp-frame main.camp-content * { transition: none !important; }
+  .camp-frame main.camp-content :is(.camp-learning-library-card, .camp-hub-today-tile, a[class*="bg-[var(--color-surface)]"]):hover { transform: none; }
+}
+@media print {
+  .camp-workspace { background: #fff !important; }
+  .camp-frame main.camp-content * { box-shadow: none !important; -webkit-backdrop-filter: none !important; backdrop-filter: none !important; }
+}

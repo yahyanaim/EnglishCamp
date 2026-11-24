@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { watchGridBalance } from "@/lib/gridBalance";
 import "./symmetry.css";
 import "./page-polish.css";
+import "./liquid-glass.css";
 
 /** Balances incomplete last rows in grids inside the learner content area. */
 export function GridBalance() {
