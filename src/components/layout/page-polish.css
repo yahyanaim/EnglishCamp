@@ -233,3 +233,65 @@
 /* Card grids: every card in a row has the same height. */
 .camp-frame main.camp-content :is(.camp-letter-topic-grid, .camp-tips-grid, .camp-trainer-grid) { align-items: stretch; }
 .camp-frame main.camp-content :is(.camp-letter-topic-grid, .camp-tips-grid) > * { height: 100%; }
+
+/* Sidebar: Course library and Examination tracks match the other section headers (same font, size, weight, icon, padding). */
+.camp-sidebar .camp-nav-folder { margin: 2px 0 0; padding: 0 4px; font-size: 12px; }
+.camp-sidebar .camp-nav-folder > summary { display: flex; align-items: center; gap: 8px; padding: 10px 8px; border-radius: var(--radius-md); font-family: var(--font-body); font-size: 12px; font-weight: 500; line-height: 1.33; color: var(--color-text-secondary); }
+.camp-sidebar .camp-nav-folder > summary > svg { flex: none; }
+.camp-sidebar .camp-nav-folder-icon { display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; flex: none; border-radius: var(--radius-sm); }
+.camp-sidebar .camp-nav-folder[open] > summary { color: var(--color-primary); }
+.camp-sidebar .camp-nav-folder > summary:hover { color: var(--color-text-primary); }
+
+/* ---------- English coach: liquid-glass conversation studio ---------- */
+.camp-frame main.camp-content .camp-coach-panel.camp-coach-panel { border-radius: 24px !important; overflow: hidden; }
+.camp-frame main.camp-content .camp-coach-heading { padding: 20px 24px; border-bottom: 1px solid var(--g-hair, var(--color-border-default)); background: linear-gradient(135deg, color-mix(in srgb, var(--camp-purple) 8%, transparent), transparent 60%); }
+.camp-frame main.camp-content .camp-coach-heading h2 { font: 800 20px/1.3 var(--font-display) !important; }
+.camp-frame main.camp-content .camp-coach-label { height: 28px; display: inline-flex; align-items: center; padding: 0 12px; border-radius: 999px; }
+.camp-frame main.camp-content .camp-coach-start { padding: 24px; gap: 24px; }
+.camp-coach-step { display: grid; gap: 12px; }
+.camp-coach-step > h3 { display: flex; align-items: center; gap: 10px; margin: 0; font: 700 16px/1.3 var(--font-display); color: var(--color-text-primary); }
+.camp-coach-step > h3 > span { display: inline-grid; place-items: center; width: 26px; height: 26px; border-radius: 999px; font-size: 13px; font-weight: 800; color: #fff; background: var(--g-primary, var(--camp-purple)); box-shadow: var(--g-primary-shadow, none); }
+.camp-coach-situations { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); grid-auto-rows: 1fr; gap: 12px; }
+.camp-frame main.camp-content .camp-coach-situation {
+  display: grid; align-content: start; justify-items: start; gap: 8px; min-width: 0; padding: 16px; border-radius: 16px; text-align: start;
+  background: var(--g-sheen), var(--g-card) !important; border: 1px solid var(--g-rim) !important; box-shadow: var(--g-control-shadow) !important;
+  transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+}
+.camp-frame main.camp-content .camp-coach-situation .camp-learning-art { width: 40px !important; height: 40px !important; padding: 9px; border-radius: 12px; background: var(--g-control); box-shadow: var(--g-control-shadow); }
+.camp-frame main.camp-content .camp-coach-situation strong { font: 700 15px/1.3 var(--font-display); color: var(--color-text-primary); }
+.camp-frame main.camp-content .camp-coach-situation small { font-size: 13px; line-height: 1.45; color: var(--color-text-secondary); display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; }
+.camp-frame main.camp-content .camp-coach-situation:hover { transform: translateY(-2px); border-color: color-mix(in srgb, var(--camp-purple) 35%, transparent) !important; }
+.camp-frame main.camp-content .camp-coach-situation[aria-checked="true"] {
+  border-color: color-mix(in srgb, var(--camp-purple) 60%, transparent) !important;
+  background: var(--g-sheen), linear-gradient(145deg, color-mix(in srgb, var(--camp-purple) 12%, rgba(255, 255, 255, .8)), color-mix(in srgb, var(--camp-purple) 6%, rgba(255, 255, 255, .55))) !important;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--camp-purple) 18%, transparent), var(--g-control-shadow) !important;
+}
+.dark .camp-frame main.camp-content .camp-coach-situation[aria-checked="true"] { background: var(--g-sheen), linear-gradient(145deg, color-mix(in srgb, var(--camp-purple) 30%, rgba(30, 25, 46, .7)), rgba(24, 20, 38, .55)) !important; }
+.camp-coach-levels { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 4px; height: 52px; padding: 4px; border-radius: 999px; background: var(--g-track, var(--color-surface-alt)); border: 1px solid var(--g-rim, var(--color-border-default)); box-shadow: inset 0 1px 2px rgba(28, 20, 52, .06); }
+.camp-frame main.camp-content .camp-coach-levels > button { border-radius: 999px !important; font: 700 15px/1 var(--font-display); color: var(--color-text-secondary) !important; background: transparent !important; border: 1px solid transparent !important; box-shadow: none !important; -webkit-backdrop-filter: none !important; backdrop-filter: none !important; }
+.camp-frame main.camp-content .camp-coach-levels > button[aria-checked="true"] { color: #fff !important; background: var(--g-primary, var(--camp-purple)) !important; box-shadow: var(--g-primary-shadow, none) !important; }
+.camp-frame main.camp-content .camp-coach-privacy { padding: 16px; border-radius: 16px; font-size: 14px; line-height: 1.6; }
+.camp-frame main.camp-content .camp-ai-consent { display: flex; align-items: flex-start; gap: 12px; padding: 14px 16px; border-radius: 14px; font-size: 14px; line-height: 1.5; background: var(--g-control); border: 1px solid var(--g-rim); box-shadow: var(--g-control-shadow); cursor: pointer; }
+.camp-frame main.camp-content .camp-ai-consent input { width: 20px; height: 20px; margin-top: 1px; flex: none; accent-color: var(--camp-purple); }
+.camp-frame main.camp-content .camp-coach-start .camp-ai-error { margin: 0; padding: 12px 16px; border-radius: 14px; font-size: 14px; }
+.camp-frame main.camp-content .camp-coach-start-button { justify-self: stretch; width: 100%; min-height: 52px; border-radius: 999px !important; font-size: 16px !important; font-weight: 700; justify-content: center; }
+/* Chat */
+.camp-frame main.camp-content .camp-coach-messages { padding: 24px; gap: 16px; background: linear-gradient(180deg, color-mix(in srgb, var(--camp-purple) 3%, transparent), transparent); }
+.camp-frame main.camp-content .camp-coach-message > div { padding: 14px 16px; border-radius: 18px 18px 18px 6px; background: var(--g-sheen), var(--g-card) !important; border: 1px solid var(--g-rim); box-shadow: var(--g-control-shadow); }
+.camp-frame main.camp-content .camp-coach-message-user > div { border-radius: 18px 18px 6px 18px; color: #fff; background: var(--g-primary, var(--camp-purple)) !important; border-color: color-mix(in srgb, var(--camp-purple) 70%, #fff 30%); box-shadow: var(--g-primary-shadow, none); }
+.camp-frame main.camp-content .camp-coach-message-user :is(p, small) { color: #fff !important; }
+.camp-frame main.camp-content .camp-coach-composer { padding: 16px 24px 20px; gap: 12px; background: var(--g-control); border-top: 1px solid var(--g-hair, var(--color-border-default)); }
+.camp-frame main.camp-content .camp-coach-composer textarea { min-height: 88px; border-radius: 16px !important; font-size: 15px !important; }
+.camp-frame main.camp-content .camp-coach-composer > div > button { min-height: 44px; border-radius: 999px !important; padding: 0 18px; }
+.camp-frame main.camp-content .camp-coach-composer > div > span { margin-inline-start: auto; font-size: 12px; color: var(--color-text-secondary); }
+.camp-frame main.camp-content .camp-coach-footer { padding: 14px 24px; font-size: 12px; line-height: 1.5; color: var(--color-text-secondary); background: transparent; border-top: 1px solid var(--g-hair, var(--color-border-default)); }
+@container camp-main (max-width: 679px) { .camp-coach-situations { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@container camp-main (max-width: 579px) {
+  .camp-frame main.camp-content .camp-coach-start { padding: 16px; gap: 20px; }
+  .camp-frame main.camp-content .camp-coach-heading { padding: 16px; }
+  .camp-coach-situations { gap: 8px; }
+  .camp-frame main.camp-content .camp-coach-situation { padding: 12px; }
+  .camp-frame main.camp-content .camp-coach-situation small { display: none; }
+  .camp-frame main.camp-content .camp-coach-messages { padding: 16px; }
+  .camp-frame main.camp-content .camp-coach-composer { padding: 14px 16px 16px; }
+}

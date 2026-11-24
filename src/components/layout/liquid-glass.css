@@ -171,7 +171,7 @@ body .camp-workspace :is(.camp-frame, .camp-centre, main.app-canvas, main.camp-c
   [data-chip-row] > button,
   button[class*="bg-[var(--color-surface)]"], button[class*="bg-[var(--color-surface-alt)]"], button[class*="bg-[var(--camp-purple-soft)]"],
   a[class*="bg-[var(--color-surface-alt)]"][class*="rounded"]
-):not([data-outcome]):not([aria-pressed="true"]):not([class*="bg-[var(--color-primary)]"]):not([class*="bg-[var(--camp-purple)]"]):not([class*="bg-[var(--color-success"]):not([class*="bg-[var(--color-error"]):not(:disabled) {
+):not([data-outcome]):not([aria-pressed="true"]):not([class*="bg-[var(--color-primary)]"]):not([class*="bg-[var(--camp-purple)]"]):not([class*="bg-[var(--color-success"]):not([class*="bg-[var(--color-error"]) {
   background: var(--g-control) !important;
   border: 1px solid var(--g-rim) !important;
   box-shadow: var(--g-control-shadow) !important;
@@ -253,3 +253,149 @@ body .camp-workspace :is(.camp-frame, .camp-centre, main.app-canvas, main.camp-c
   .camp-workspace { background: #fff !important; }
   .camp-frame main.camp-content * { box-shadow: none !important; -webkit-backdrop-filter: none !important; backdrop-filter: none !important; }
 }
+
+/* ==========================================================================
+   Glass coverage: every remaining card, panel, note, chip, button, input and banner.
+   Found by an audit of solid (opaque, gradient-free) rounded surfaces on 98 routes.
+   ========================================================================== */
+.camp-frame main.camp-content { --g-tinted: violet; }
+/* Neutral cards and panels. */
+.camp-frame main.camp-content :is(
+  .camp-tip, .camp-activity-chart, .camp-course-card, .camp-comparison-card, .camp-noun-diagram, .camp-position-card,
+  .camp-pronunciation-lab, .camp-shadow-recorder, .camp-match-board, .camp-placement-card, .camp-study-journey,
+  .camp-study-route-detail, .camp-week-summary, .camp-writing-card, .camp-verb-card, .camp-grammar-topic-card,
+  .camp-weak-tile, .camp-weak-item, .camp-weak-lesson, .camp-weak-empty, .camp-roadmap-level,
+  :is(div, section, article, li, figure, details, aside)[class*="bg-white"][class*="rounded"],
+  :is(div, section, article, li, figure, details, aside)[class*="bg-[var(--color-surface-alt)]"][class*="rounded"]
+):not([data-outcome], [class*="banner"]) {
+  background: var(--g-sheen), var(--g-card) !important;
+  border-color: var(--g-rim) !important;
+  box-shadow: var(--g-card-shadow) !important;
+}
+@media (min-width: 640px) {
+  .camp-frame main.camp-content :is(.camp-tip, .camp-activity-chart, .camp-course-card, .camp-comparison-card, .camp-pronunciation-lab, .camp-shadow-recorder, .camp-match-board, .camp-placement-card, .camp-study-journey, .camp-week-summary, .camp-writing-card, .camp-verb-card, .camp-grammar-topic-card) {
+    -webkit-backdrop-filter: var(--g-blur); backdrop-filter: var(--g-blur);
+  }
+}
+/* An inset sheet inside a card is lighter glass, not a second floating layer. */
+.camp-frame main.camp-content :is(.bg-card, .practice-card, [data-practice-surface], .camp-tip, .camp-course-card, .camp-comparison-card, .camp-pronunciation-lab, .camp-placement-card, .camp-study-journey, .camp-week-summary) :is(div, section, article, li, figure, details)[class*="bg-[var(--color-surface-alt)]"][class*="rounded"]:not([data-outcome]) {
+  background: var(--g-control) !important;
+  box-shadow: 0 0 0 1px var(--g-hair), inset 0 1px 0 var(--g-shine) !important;
+}
+/* Tinted glass: notes and callouts keep their colour as a light tint behind the frost. */
+.camp-frame main.camp-content :is(
+  .camp-soft-callout, .camp-grammar-note, .camp-grammar-formation, .camp-cheat-examples, .camp-study-route-detail, blockquote,
+  :is(div, section, article, li, aside)[class*="bg-[var(--color-primary-subtle)]"][class*="rounded"],
+  :is(div, section, article, li, aside)[class*="bg-[var(--camp-purple-soft)]"][class*="rounded"],
+  :is(div, section, article, li, aside)[class*="bg-[var(--color-info-bg)]"],
+  :is(div, section, article, li, aside)[class*="bg-[var(--color-success-bg)]"],
+  :is(div, section, article, li, aside)[class*="bg-[var(--color-warning-bg)]"],
+  :is(div, section, article, li, aside)[class*="bg-[var(--color-error-bg)]"]
+):not([data-outcome]) {
+  --g-tint-c: var(--camp-purple);
+  background: var(--g-sheen), linear-gradient(145deg, color-mix(in srgb, var(--g-tint-c) 11%, rgba(255, 255, 255, .72)), color-mix(in srgb, var(--g-tint-c) 6%, rgba(255, 255, 255, .5))) !important;
+  border: 1px solid color-mix(in srgb, var(--g-tint-c) 16%, rgba(255, 255, 255, .85)) !important;
+  box-shadow: 0 8px 24px -16px var(--g-shadow), inset 0 1px 0 var(--g-shine) !important;
+}
+.camp-frame main.camp-content :is([class*="bg-[var(--color-info-bg)]"]) { --g-tint-c: #0ea5e9; }
+.camp-frame main.camp-content :is([class*="bg-[var(--color-success-bg)]"]) { --g-tint-c: #16a34a; }
+.camp-frame main.camp-content :is([class*="bg-[var(--color-warning-bg)]"]) { --g-tint-c: #d97706; }
+.camp-frame main.camp-content :is([class*="bg-[var(--color-error-bg)]"]) { --g-tint-c: #dc2626; }
+.dark .camp-frame main.camp-content :is(.camp-soft-callout, .camp-grammar-note, .camp-grammar-formation, .camp-cheat-examples, blockquote, [class*="bg-[var(--color-primary-subtle)]"], [class*="bg-[var(--camp-purple-soft)]"], [class*="bg-[var(--color-info-bg)]"], [class*="bg-[var(--color-success-bg)]"], [class*="bg-[var(--color-warning-bg)]"], [class*="bg-[var(--color-error-bg)]"]):not([data-outcome]) {
+  background: var(--g-sheen), linear-gradient(145deg, color-mix(in srgb, var(--g-tint-c) 22%, rgba(30, 25, 46, .7)), color-mix(in srgb, var(--g-tint-c) 12%, rgba(20, 17, 32, .55))) !important;
+  border-color: color-mix(in srgb, var(--g-tint-c) 30%, rgba(255, 255, 255, .1)) !important;
+}
+/* Small tiles, symbols and pills: glass chips. */
+.camp-frame main.camp-content :is(
+  .camp-course-symbol, .camp-course-type, .camp-verb-symbol, .camp-home-symbol, .camp-study-stop, .camp-library-card-icon,
+  :is(div, span)[class*="w-9"][class*="h-9"][class*="rounded"], :is(div, span)[class*="w-10"][class*="h-10"][class*="rounded"], :is(div, span)[class*="w-14"][class*="h-14"][class*="rounded"],
+  span[class*="rounded"][class*="bg-[var(--color-surface-alt)]"], span[class*="rounded"][class*="bg-[var(--color-primary-subtle)]"], span[class*="rounded"][class*="bg-[var(--camp-purple-soft)]"]
+):not([data-outcome]) {
+  background: var(--g-control) !important;
+  border-color: var(--g-rim) !important;
+  box-shadow: var(--g-control-shadow) !important;
+}
+/* The progress status strip above a question is part of the page, not a solid bar. */
+.camp-frame main.camp-content .camp-quiz-status { background: transparent !important; border: 0 !important; box-shadow: none !important; padding-inline: 0 !important; }
+/* Remaining buttons: speaker, grammar controls, primary actions, solid violet badges. */
+.camp-frame main.camp-content :is(.camp-speaker-button, .camp-grammar-control, .camp-comparison-search, .camp-shadow-recorder button:not([class*="bg-[var(--camp-purple)]"])):not([aria-pressed="true"], [class*="bg-[var(--color-primary)]"], [data-outcome]) {
+  background: var(--g-control) !important;
+  border: 1px solid var(--g-rim) !important;
+  box-shadow: var(--g-control-shadow) !important;
+  -webkit-backdrop-filter: blur(14px) saturate(180%); backdrop-filter: blur(14px) saturate(180%);
+}
+.camp-frame main.camp-content :is(.camp-primary-action, .camp-stats-level-badge, .camp-grammar-control[aria-pressed="true"], .camp-grammar-control[class*="bg-[var(--color-primary)]"], .camp-exam-hero span[class*="bg-[var(--camp-purple)]"], button[class*="bg-primary"]):not([data-outcome]) {
+  background: var(--g-primary) !important;
+  color: #fff !important;
+  border: 1px solid color-mix(in srgb, var(--g-tint) 70%, #fff 30%) !important;
+  box-shadow: var(--g-primary-shadow) !important;
+}
+.camp-frame main.camp-content button:disabled { opacity: .55; }
+
+/* ---------- Banners: violet liquid glass ---------- */
+.camp-frame .camp-page-banner.camp-page-banner, .camp-frame .camp-exam-hero.camp-exam-hero {
+  background:
+    radial-gradient(120% 140% at 0% 0%, rgba(255, 255, 255, .22), transparent 46%),
+    linear-gradient(135deg, var(--camp-purple) 0%, color-mix(in srgb, var(--camp-purple) 74%, #6366f1) 100%) !important;
+  border: 1px solid rgba(255, 255, 255, .34) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(180%); backdrop-filter: blur(20px) saturate(180%);
+  box-shadow: 0 18px 40px -22px color-mix(in srgb, var(--camp-purple) 80%, transparent), inset 0 1.5px 0 rgba(255, 255, 255, .45), inset 0 -1px 0 rgba(0, 0, 0, .14), inset 0 0 0 1px rgba(255, 255, 255, .08) !important;
+}
+.camp-frame .camp-exam-hero.camp-exam-hero { color: #fff; }
+.camp-frame .camp-exam-hero.camp-exam-hero :is(h1, h2, p) { color: #fff; }
+.camp-frame .camp-exam-hero.camp-exam-hero span[class*="bg-white"], .camp-frame .camp-exam-hero.camp-exam-hero a[class*="bg-white"] {
+  background: rgba(255, 255, 255, .2) !important; color: #fff !important; border: 1px solid rgba(255, 255, 255, .4) !important;
+  -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+}
+
+/* Surfaces painted with inline styles or neutral classes (dashboard tiles, badge tiles, quick stats). */
+.camp-frame main.camp-content :is(
+  .camp-flashcard-surface,
+  :is(div, section, article, li)[style*="background-color: var(--color-surface)"],
+  :is(div, section, article, li)[style*="background: var(--color-surface)"]
+):not([data-outcome]) {
+  background: var(--g-sheen), var(--g-card) !important;
+  border-color: var(--g-rim) !important;
+  box-shadow: var(--g-card-shadow) !important;
+}
+.camp-frame main.camp-content :is(
+  [style*="--color-neutral-50"], [class*="bg-[var(--color-neutral-50)]"]
+):is(div, span, button, a, li):not([data-outcome]) {
+  background: var(--g-control) !important;
+  border-color: var(--g-rim) !important;
+  box-shadow: var(--g-control-shadow) !important;
+}
+.camp-frame main.camp-content :is(
+  .camp-comparison-pair > div,
+  [style*="--color-primary-subtle"], [style*="--color-warning-bg"], [style*="--color-info-bg"], [style*="--color-success-bg"], [style*="--color-error-bg"]
+):is(div, span, button, a, li):not([data-outcome]) {
+  --g-tint-c: var(--camp-purple);
+  background: var(--g-sheen), linear-gradient(145deg, color-mix(in srgb, var(--g-tint-c) 11%, rgba(255, 255, 255, .72)), color-mix(in srgb, var(--g-tint-c) 6%, rgba(255, 255, 255, .5))) !important;
+  border: 1px solid color-mix(in srgb, var(--g-tint-c) 18%, rgba(255, 255, 255, .85)) !important;
+  box-shadow: 0 6px 18px -12px var(--g-shadow), inset 0 1px 0 var(--g-shine) !important;
+}
+.camp-frame main.camp-content [style*="--color-warning-bg"] { --g-tint-c: #d97706; }
+.camp-frame main.camp-content [style*="--color-info-bg"] { --g-tint-c: #0ea5e9; }
+.camp-frame main.camp-content [style*="--color-success-bg"] { --g-tint-c: #16a34a; }
+.camp-frame main.camp-content [style*="--color-error-bg"] { --g-tint-c: #dc2626; }
+.dark .camp-frame main.camp-content :is(.camp-comparison-pair > div, [style*="--color-primary-subtle"], [style*="--color-warning-bg"], [style*="--color-info-bg"], [style*="--color-success-bg"], [style*="--color-error-bg"]):not([data-outcome]) {
+  background: var(--g-sheen), linear-gradient(145deg, color-mix(in srgb, var(--g-tint-c) 22%, rgba(30, 25, 46, .7)), color-mix(in srgb, var(--g-tint-c) 12%, rgba(20, 17, 32, .55))) !important;
+  border-color: color-mix(in srgb, var(--g-tint-c) 30%, rgba(255, 255, 255, .1)) !important;
+}
+/* Solid violet tiles and link-buttons (dashboard challenge tile, exam call-to-action). */
+.camp-frame main.camp-content :is([style*="background: var(--camp-purple)"], span[class*="bg-[var(--color-primary)]"], a[class*="bg-[var(--color-primary)]"]):not([data-outcome]) {
+  background: var(--g-primary) !important;
+  border: 1px solid color-mix(in srgb, var(--g-tint) 70%, #fff 30%) !important;
+  box-shadow: var(--g-primary-shadow) !important;
+}
+.camp-frame main.camp-content :is(span, a)[class*="bg-[var(--color-surface)]"][class*="rounded"]:not([data-outcome]) {
+  background: var(--g-control) !important;
+  border: 1px solid var(--g-rim) !important;
+  box-shadow: var(--g-control-shadow) !important;
+}
+.camp-frame main.camp-content span[class*="bg-[var(--color-warning-bg)]"], .camp-frame main.camp-content span[class*="bg-[var(--color-success-bg)]"], .camp-frame main.camp-content span[class*="bg-[var(--color-info-bg)]"] {
+  background: var(--g-sheen), linear-gradient(145deg, color-mix(in srgb, var(--g-tint-c, #d97706) 14%, rgba(255, 255, 255, .72)), color-mix(in srgb, var(--g-tint-c, #d97706) 8%, rgba(255, 255, 255, .5))) !important;
+  border-color: color-mix(in srgb, var(--g-tint-c, #d97706) 24%, rgba(255, 255, 255, .85)) !important;
+  box-shadow: var(--g-control-shadow) !important;
+}
+.camp-frame main.camp-content .practice-card > div.flex.items-center.justify-between:first-child { background: var(--g-control) !important; box-shadow: 0 0 0 1px var(--g-hair), inset 0 1px 0 var(--g-shine) !important; }
