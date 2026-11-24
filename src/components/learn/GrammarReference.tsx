@@ -4,6 +4,8 @@ import { translatedGrammarParagraphs } from "./GrammarTranslation";
 import { useState, useEffect, useMemo } from "react";
 import { GRAMMAR_EXTENSIONS } from "@/data/grammar-extensions";
 import { GRAMMAR_MORE } from "@/data/grammar-reference-more";
+import { GRAMMAR_LIBRARY } from "@/data/grammar-reference-library";
+import { GRAMMAR_FOUNDATIONS } from "@/data/grammar-foundations";
 import { GrammarFoundationLesson } from "./GrammarFoundationLesson";
 import { ArrowLeft, ChevronRight, Layers, Search, X } from "lucide-react";
 
@@ -38,6 +40,7 @@ const LEGACY_SUMMARIES: Record<string, string> = {
   passive: "Form the passive in every common tense and decide when the doer matters.",
   "reported-speech": "Backshift, time words, reported questions and reported commands.",
 };
+const FOUNDATION_LEVELS: Record<string, GrammarLevel> = { "singular-and-plural": "A1", "countable-and-uncountable": "A1", "subject-verb-agreement": "A1", "quantities-and-determiners": "A2" };
 const asLevel = (level: string): GrammarLevel => (LEVELS as string[]).includes(level) ? level as GrammarLevel : "B2";
 
 const LEGACY_SECTIONS: Section[] = [
@@ -389,6 +392,8 @@ const LEGACY_SECTIONS: Section[] = [
 export const SECTIONS: Section[] = [
   ...GRAMMAR_EXTENSIONS.map(lesson=>({id:lesson.id,title:lesson.title,level:asLevel(lesson.level),summary:lesson.intro,art:lesson.art,parts:lesson.content.length,content:<GrammarFoundationLesson lesson={lesson} translateOnInteraction/>})),
   ...GRAMMAR_MORE.map(lesson=>({id:lesson.id,title:lesson.title,level:asLevel(lesson.level),summary:lesson.intro,parts:lesson.content.length,content:<GrammarFoundationLesson lesson={lesson}/>})),
+  ...GRAMMAR_FOUNDATIONS.map(lesson=>({id:lesson.id,title:lesson.title,level:FOUNDATION_LEVELS[lesson.id] ?? "A1",summary:lesson.intro,art:lesson.art,parts:lesson.content.length,content:<GrammarFoundationLesson lesson={lesson}/>})),
+  ...GRAMMAR_LIBRARY.map(lesson=>({id:lesson.id,title:lesson.title,level:asLevel(lesson.level),summary:lesson.intro,art:lesson.art,parts:lesson.content.length,content:<GrammarFoundationLesson lesson={{...lesson,practice:{label:"Open the full topic page",href:lesson.from}}}/>})),
   ...LEGACY_SECTIONS.map(section=>({...section,level:LEGACY_LEVELS[section.id] ?? "B1",summary:LEGACY_SUMMARIES[section.id]})),
 ];
 

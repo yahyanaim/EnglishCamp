@@ -39,7 +39,7 @@
 .camp-grammar-back { justify-self:start; display:inline-flex; align-items:center; gap:8px; min-height:40px; padding:0 14px; border-radius:999px; font-size:.85rem; font-weight:650; color:var(--camp-control-ink,var(--color-primary)); }
 .camp-grammar-lesson-head { display:flex; align-items:center; gap:16px; padding:22px; border-radius:20px; }
 .camp-grammar-lesson-head .camp-library-card-icon { width:52px; height:52px; flex:none; }
-.camp-frame main:has(.camp-grammar-lesson) .camp-back-button { display:none; }
+.camp-frame main:has(.camp-grammar-lesson) .camp-page-back { display:none; }
 .camp-grammar-lesson .camp-grammar-lesson-head h2 { margin:4px 0 0; font:800 1.45rem/1.25 var(--font-display); color:var(--color-text-primary); }
 .camp-grammar-lesson-kicker { display:flex; align-items:center; gap:8px; margin:0; font-size:.78rem; font-weight:650; color:var(--color-text-secondary); }
 .camp-grammar-lesson-summary { margin:8px 0 0; font-size:.95rem; line-height:1.6; color:var(--color-text-secondary); }
