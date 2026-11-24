@@ -5,6 +5,14 @@
       "before": "004c1022a1b6679c39615ae3dfe6e66d62b56e88fcbb771c4d69a65723e160c7",
       "after": "c65bae08efa1a2bef5049809a8bc451760a2012b06ce17b11a77ec4789ff5f55"
     },
+    "src/app/shadowing-english/page.tsx": {
+      "before": "17d9582102a274a8e5968a085a709e435cbaf580e548980f6c575b78939743ed",
+      "after": "94d0860c6091b8677ae859dd6299de929f3dff22a530d7fb6bdf4cf4ec92c305"
+    },
+    "src/app/grammar/cheat-sheet/page.tsx": {
+      "before": "2be0d5ad8f4de4a84c57fe829cf48339c0699bea0b975b618e66cfc8714ed5ec",
+      "after": "d8e15e54ddd9d0369da30738116064766f7b1b39b3bea4582ebcef7c5f7b3676"
+    },
     "src/app/reading/page.tsx": {
       "before": "bbd8821e26af3eea3b2809f38611d1c4cf2dd885d957fb407a696dd5c898db42",
       "after": "305b84c3d8fa2ff795731b409567934fcd11eed030c52c872a6c88f16de5db9e"
@@ -237,6 +245,11 @@
       "reason": "Grammar Reference level filter adds search and level state and the filter buttons; accordion toggles unchanged.",
       "handlers": "fba27d3c2b454129d6d75d9ff60b10646b8bf9d97e98847301403233a8f33b2b",
       "initialState": "4c2ee167192406943c51be3bbfe65045405bccb703aeb7f5e81e65c80c2a9cbe"
+    },
+    "src/app/grammar/cheat-sheet/page.tsx": {
+      "reason": "Grammar Reference level filter adds search and level state and the filter buttons; accordion toggles unchanged.",
+      "handlers": "30e37a6f7b49e675f2cde3496b700b9f228d8e7666401d2f8ce421c3386d2cb0",
+      "initialState": "5138cd046a012a6652033936861e5733eec2e088bd8e632166c54586fad4eaff"
     }
   },
   "practiceLogic": {
