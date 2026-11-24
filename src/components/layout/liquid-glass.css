@@ -25,7 +25,7 @@
   --g-track: rgba(var(--g-ink), 0.05);
   --g-card-shadow: 0 10px 30px -16px var(--g-shadow), 0 0 0 1px var(--g-hair), inset 0 1.5px 0 var(--g-shine), inset 0 -1px 0 rgba(var(--g-ink), 0.04);
   --g-control-shadow: 0 3px 10px -5px var(--g-shadow), 0 0 0 1px var(--g-hair), inset 0 1px 0 var(--g-shine);
-  --g-primary: linear-gradient(180deg, rgba(255, 255, 255, 0.24) 0%, rgba(255, 255, 255, 0.04) 52%, rgba(0, 0, 0, 0.04) 100%), var(--g-tint);
+  --g-primary: linear-gradient(180deg, color-mix(in srgb, var(--g-tint) 90%, #fff) 0%, var(--g-tint) 100%);
   --g-primary-shadow: 0 8px 20px -10px color-mix(in srgb, var(--g-tint) 75%, transparent), 0 0 0 1px color-mix(in srgb, var(--g-tint) 55%, #000 0%), inset 0 1px 0 rgba(255, 255, 255, 0.42), inset 0 -1px 0 rgba(0, 0, 0, 0.16);
   --g-blur: blur(22px) saturate(185%);
 }
@@ -199,7 +199,7 @@ body .camp-workspace :is(.camp-frame, .camp-centre, main.app-canvas, main.camp-c
 }
 @media (hover: hover) {
   .camp-frame main.camp-content :is([data-variant="default"], [class*="bg-[var(--color-primary)]"], [class*="bg-[var(--camp-purple)]"]):is(button, a):not([data-outcome]):not(:disabled):hover {
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.32) 0%, rgba(255, 255, 255, 0.08) 52%, rgba(0, 0, 0, 0.02) 100%), var(--g-tint) !important;
+    background: linear-gradient(180deg, color-mix(in srgb, var(--g-tint) 84%, #fff) 0%, color-mix(in srgb, var(--g-tint) 94%, #fff) 100%) !important;
   }
 }
 
@@ -223,7 +223,7 @@ body .camp-workspace :is(.camp-frame, .camp-centre, main.app-canvas, main.camp-c
 }
 .camp-frame .camp-page-banner::after {
   content: ""; position: absolute; inset: 0; pointer-events: none; border-radius: inherit;
-  background: linear-gradient(130deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.04) 36%, transparent 60%, rgba(255, 255, 255, 0.1) 100%);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, transparent 40%);
 }
 
 /* ---------- Modals, popovers and menus ---------- */
@@ -331,15 +331,22 @@ body .camp-workspace :is(.camp-frame, .camp-centre, main.app-canvas, main.camp-c
   box-shadow: var(--g-primary-shadow) !important;
 }
 .camp-frame main.camp-content button:disabled { opacity: .55; }
+/* Disabled primary actions: flat muted violet, no washed-out gradient or glow. */
+.camp-frame main.camp-content :is([data-variant="default"], [class*="bg-[var(--color-primary)]"], [class*="bg-[var(--camp-purple)]"], .camp-primary-action, .camp-coach-start-button, .camp-grammar-learned-button):disabled:not(#_) {
+  opacity: 1 !important; background: color-mix(in srgb, var(--camp-purple) 32%, #e9e4f2) !important; color: rgba(255, 255, 255, .92) !important;
+  border-color: transparent !important; box-shadow: none !important; cursor: not-allowed;
+}
+.dark .camp-frame main.camp-content :is([data-variant="default"], [class*="bg-[var(--color-primary)]"], [class*="bg-[var(--camp-purple)]"], .camp-primary-action, .camp-coach-start-button, .camp-grammar-learned-button):disabled:not(#_) {
+  background: color-mix(in srgb, var(--camp-purple) 35%, #1c1828) !important; color: rgba(255, 255, 255, .6) !important;
+}
 
 /* ---------- Banners: violet liquid glass ---------- */
 .camp-frame .camp-page-banner.camp-page-banner, .camp-frame .camp-exam-hero.camp-exam-hero {
   background:
-    radial-gradient(120% 140% at 0% 0%, rgba(255, 255, 255, .22), transparent 46%),
-    linear-gradient(135deg, var(--camp-purple) 0%, color-mix(in srgb, var(--camp-purple) 74%, #6366f1) 100%) !important;
-  border: 1px solid rgba(255, 255, 255, .34) !important;
+    linear-gradient(135deg, color-mix(in srgb, var(--camp-purple) 92%, #fff) 0%, var(--camp-purple) 55%, color-mix(in srgb, var(--camp-purple) 88%, #312e81) 100%) !important;
+  border: 1px solid color-mix(in srgb, var(--camp-purple) 70%, #fff) !important;
   -webkit-backdrop-filter: blur(20px) saturate(180%); backdrop-filter: blur(20px) saturate(180%);
-  box-shadow: 0 18px 40px -22px color-mix(in srgb, var(--camp-purple) 80%, transparent), inset 0 1.5px 0 rgba(255, 255, 255, .45), inset 0 -1px 0 rgba(0, 0, 0, .14), inset 0 0 0 1px rgba(255, 255, 255, .08) !important;
+  box-shadow: 0 18px 40px -22px color-mix(in srgb, var(--camp-purple) 80%, transparent), inset 0 1px 0 rgba(255, 255, 255, .3), inset 0 -1px 0 rgba(0, 0, 0, .12) !important;
 }
 .camp-frame .camp-exam-hero.camp-exam-hero { color: #fff; }
 .camp-frame .camp-exam-hero.camp-exam-hero :is(h1, h2, p) { color: #fff; }
