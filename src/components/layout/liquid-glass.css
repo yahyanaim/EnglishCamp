@@ -67,8 +67,55 @@ body.dark .camp-workspace.camp-workspace, .dark body .camp-workspace.camp-worksp
 }
 body .camp-workspace :is(.camp-frame, .camp-centre, main.app-canvas, main.camp-content) { background: transparent !important; }
 
-/* Navigation (top bar, sidebar, learning rail, phone tab bar) keeps its original solid style. */
-.camp-workspace :is(.camp-toolbar, .camp-sidebar, .camp-learning-rail, .camp-mobile-nav) { background: var(--color-surface); }
+/* ---------- Navigation: AI-hub "liquid-glass-nav" — floating frosted panels with a white rim ---------- */
+.camp-workspace {
+  --g-nav: linear-gradient(135deg, rgba(255, 255, 255, 0.74) 0%, rgba(255, 255, 255, 0.56) 52%, rgba(255, 255, 255, 0.7) 100%);
+  --g-nav-shadow: 0 12px 34px -14px rgba(var(--g-ink), 0.14), 0 0 0 1px rgba(var(--g-ink), 0.055), inset 0 1.5px 0 rgba(255, 255, 255, 0.95), inset 0 -1px 0 rgba(var(--g-ink), 0.04);
+  --g-pill: rgba(255, 255, 255, 0.84);
+  --g-pill-shadow: 0 2px 10px -2px rgba(var(--g-ink), 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.95), 0 0 0 1px rgba(var(--g-ink), 0.06);
+}
+.dark .camp-workspace {
+  --g-nav: linear-gradient(135deg, rgba(34, 28, 50, 0.7) 0%, rgba(20, 17, 32, 0.58) 55%, rgba(32, 27, 48, 0.66) 100%);
+  --g-nav-shadow: 0 16px 38px -14px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.16), inset 0 -1px 0 rgba(0, 0, 0, 0.35);
+  --g-pill: rgba(255, 255, 255, 0.12);
+  --g-pill-shadow: 0 2px 10px -2px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.18);
+}
+.camp-workspace :is(.camp-toolbar, .camp-sidebar, .camp-learning-rail, .camp-mobile-nav) {
+  background: var(--g-nav) !important;
+  -webkit-backdrop-filter: blur(26px) saturate(200%);
+  backdrop-filter: blur(26px) saturate(200%);
+  border: 1px solid var(--g-rim) !important;
+  box-shadow: var(--g-nav-shadow) !important;
+}
+/* Top bar: a floating capsule, as in AI-hub. */
+.camp-workspace .camp-toolbar { top: 12px; margin: 12px var(--camp-page-pad) 0; height: 64px; border-radius: 22px !important; }
+@media (max-width: 639px) { .camp-workspace .camp-toolbar { top: 10px; margin: 10px 10px 0; height: 60px; padding: 0 8px !important; gap: 6px; border-radius: 20px !important; } }
+/* Sidebar and learning rail: floating glass sheets with the same inset. */
+@media (min-width: 1200px) { .camp-workspace .camp-frame { grid-template-columns: 224px minmax(0, 1fr) 252px; } }
+@media (min-width: 1024px) and (max-width: 1199px) { .camp-workspace .camp-frame { grid-template-columns: 224px minmax(0, 1fr); } }
+@media (min-width: 1024px) { .camp-workspace .camp-frame:has(.camp-shadow-page) { grid-template-columns: 224px minmax(0, 1fr); } }
+@media (min-width: 1024px) {
+  .camp-workspace .camp-sidebar:not(.camp-mobile-sidebar) nav a { white-space: nowrap; }
+  .camp-workspace .camp-sidebar:not(.camp-mobile-sidebar) { top: 12px; height: calc(100dvh - 24px); margin: 12px 0 12px 12px; border-radius: 24px !important; overflow: hidden; }
+  .camp-workspace .camp-learning-rail { top: 12px; height: calc(100dvh - 24px); margin: 12px 12px 12px 0; border-radius: 24px !important; }
+}
+/* Phone tab bar: a floating capsule above the home indicator. */
+.camp-workspace .camp-mobile-nav { left: 10px !important; right: 10px !important; bottom: calc(10px + env(safe-area-inset-bottom, 0px)) !important; padding-bottom: 0 !important; border-radius: 22px !important; }
+/* Active items: the white "pill-active" glass. */
+.camp-workspace .camp-sidebar nav a:is([aria-current="page"], [class*="bg-[var(--color-primary-subtle)]"]),
+.camp-workspace .camp-mobile-nav a[aria-current="page"] {
+  background: var(--g-pill) !important; box-shadow: var(--g-pill-shadow); color: var(--camp-control-ink) !important;
+}
+.camp-workspace .camp-sidebar nav a:not([aria-current="page"]):not([class*="bg-[var(--color-primary-subtle)]"]):hover { background: rgba(255, 255, 255, 0.5) !important; }
+.dark .camp-workspace .camp-sidebar nav a:not([aria-current="page"]):not([class*="bg-[var(--color-primary-subtle)]"]):hover { background: rgba(255, 255, 255, 0.08) !important; }
+/* Controls inside the navigation (search, sign in, icon buttons, level card) are glass chips. */
+.camp-workspace .camp-toolbar :is(.camp-search, button, a):not(.camp-toolbar-xp),
+.camp-workspace :is(.camp-sidebar, .camp-learning-rail) :is([class*="bg-[var(--color-surface)]"][class*="rounded"], [class*="bg-[var(--color-surface-alt)]"][class*="rounded"], .bg-card),
+.camp-workspace .camp-sidebar > div:last-child {
+  background: var(--g-control) !important; border-color: var(--g-rim) !important; box-shadow: var(--g-control-shadow) !important;
+}
+.camp-workspace .camp-toolbar :is(button, a):not(.camp-search):not(.camp-toolbar-xp) { border-radius: 14px; }
+.camp-workspace .camp-toolbar .camp-search { border-radius: 14px !important; }
 
 /* ---------- Every card and section ---------- */
 .camp-frame main.camp-content :is(
