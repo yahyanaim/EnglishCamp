@@ -504,3 +504,18 @@
 .camp-frame main.camp-content .camp-ai-allowance[data-empty="true"] { background: color-mix(in srgb, #f59e0b 14%, transparent); color: #b45309; }
 html.dark .camp-frame main.camp-content .camp-ai-allowance { color: #6ee7b7; }
 html.dark .camp-frame main.camp-content .camp-ai-allowance[data-empty="true"] { color: #fbbf24; }
+/* Level seals: same scalloped badge as course module numbers, coloured per CEFR level. */
+.camp-frame main.camp-content .camp-shadow-seal { --lv: var(--camp-purple); display: inline-grid; flex: none; }
+.camp-frame main.camp-content .camp-shadow-seal[data-level="A1"] { --lv: #059669; }
+.camp-frame main.camp-content .camp-shadow-seal[data-level="A2"] { --lv: #0891b2; }
+.camp-frame main.camp-content .camp-shadow-seal[data-level="B1"] { --lv: #7c3aed; }
+.camp-frame main.camp-content .camp-shadow-seal[data-level="B2"] { --lv: #db2777; }
+.camp-frame main.camp-content .camp-shadow-seal .camp-number-seal { color: var(--lv); filter: drop-shadow(0 4px 8px color-mix(in srgb, var(--lv) 35%, transparent)); }
+.camp-frame main.camp-content .camp-shadow-seal .camp-number-seal > strong { font-size: .78rem; letter-spacing: .01em; }
+.camp-frame main.camp-content .camp-shadow-now-seal .camp-number-seal { width: 44px; height: 44px; flex-basis: 44px; }
+.camp-frame main.camp-content .camp-shadow-now-seal .camp-number-seal > strong { font-size: .9rem; }
+.camp-frame main.camp-content .camp-shadow-thumb-seal { position: absolute; top: -8px; left: -8px; z-index: 2; }
+.camp-frame main.camp-content .camp-shadow-thumb-seal .camp-number-seal { width: 34px; height: 34px; flex-basis: 34px; }
+.camp-frame main.camp-content .camp-shadow-thumb { overflow: visible !important; }
+.camp-frame main.camp-content .camp-shadow-seal .camp-number-seal > strong { color: #fff !important; font-family: var(--font-display), Nunito, sans-serif !important; font-weight: 800 !important; }
+.camp-frame main.camp-content .camp-shadow-thumb-seal .camp-number-seal > strong { font-size: .68rem !important; }

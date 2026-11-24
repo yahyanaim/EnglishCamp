@@ -5,13 +5,17 @@
       "before": "004c1022a1b6679c39615ae3dfe6e66d62b56e88fcbb771c4d69a65723e160c7",
       "after": "c65bae08efa1a2bef5049809a8bc451760a2012b06ce17b11a77ec4789ff5f55"
     },
+    "src/app/membership/page.tsx": {
+      "before": "793f15e348cc49cdc6704fe46da3168c1d500f25e2e873dc06c432dde6b9b056",
+      "after": "f6aa7ed95a65a9d7806f12588461c9788eaa33aaa291a1bbadb2fc63de91a50c"
+    },
     "src/app/shadowing-english/page.tsx": {
       "before": "17d9582102a274a8e5968a085a709e435cbaf580e548980f6c575b78939743ed",
-      "after": "978621607c1b2362f31ad1bce07cef5c7fb3c4813a50cc02a7e8c887852159a0"
+      "after": "3234958ec0ab7514c4b195e4037455fa74a73d8abd0378adc0457b5248fb5c47"
     },
     "src/components/shadowing/ShadowLessonCard.tsx": {
       "before": "1b4ebcf55f274de3677d39f95cf471e4e1a34d38f2c6f02141fa4b6ef39193f3",
-      "after": "046f9eb2b6077e8de2f4acedd35c431babee7dbf866809ca5b47b535d3794da2"
+      "after": "ce70062d756d16a11b4eb67a44016c9e68bb7030c98d9853bc8be0ab301c5db1"
     },
     "src/store/useAchievements.ts": {
       "before": "8629b1f5c77b00b3035e471b40395b466f6cc45648be80a28de29c4c4a9af7c4",
