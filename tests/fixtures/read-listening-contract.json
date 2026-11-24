@@ -31,7 +31,7 @@
     },
     "src/data/speech-catalogue.json": {
       "before": "3597f0ff04aaa2abc53cbf4f94728147685e1ed45b55f33d156f3057b4ab5578",
-      "after": "8362dba649e96c1721efdef809c551da285370f6fce1123d29aa5b6f10e731e7"
+      "after": "43aee126a1bb0e2a86a9b9775673e93312b27cb71c877d85665d7cf483f47b3e"
     },
     "src/app/stats/page.tsx": {
       "before": "8eef801b1a2797e8410fef22d6d6cf75492bb811e3e0f86dd6c6415f1a93b1fe",

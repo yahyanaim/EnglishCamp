@@ -33,6 +33,12 @@ export const GRAMMAR_MORE: GrammarLesson[] = [
     part('Requests and permission', 'Can I …? / Can you …? are polite in everyday situations.', ['Can I open the window?', 'Can you help me with this form?'], ['Could is a little more polite: Could you repeat that, please?']),
   ] },
   // ---------- A2 ----------
+  { id: 'past-continuous', title: 'Past continuous', level: 'A2', intro: 'The past continuous describes an action in progress at a moment in the past, often interrupted by a shorter action in the past simple.', practice: { label: 'Past tense practice', href: '/past-tense-practice' }, content: [
+    part('Form', 'was / were + verb-ing. Negative: wasn’t / weren’t + verb-ing. Question: Was / Were + subject + verb-ing?', ['At eight o’clock I was having dinner.', 'They weren’t listening to the teacher.', 'Were you sleeping when I called?']),
+    part('Interrupted actions', 'Past continuous for the longer background action + past simple for the short action. Use when or while.', ['I was walking home when it started to rain.', 'While she was cooking, the phone rang.'], ['when + past simple (the short action); while + past continuous (the long action).']),
+    part('Two actions at the same time', 'While + past continuous + past continuous.', ['While I was studying, my brother was playing games.', 'We were talking while the others were eating.']),
+    part('Setting the scene in a story', 'Use it to describe the background before the main events.', ['The sun was shining and people were sitting outside.', 'It was a cold night. The wind was blowing hard.'], ['State verbs (know, like, want) are not usually continuous: I knew the answer (not I was knowing).']),
+  ] },
   { id: 'object-pronouns', title: 'Subject and object pronouns', level: 'A2', intro: 'A subject pronoun does the action; an object pronoun receives it or follows a preposition.', content: [
     part('Two sets', 'I / me, you / you, he / him, she / her, it / it, we / us, they / them.', ['She called me yesterday.', 'We visited them in the summer.']),
     part('After prepositions', 'Use the object form after with, for, to, about, between …', ['This message is for you.', 'Can you come with us?']),
