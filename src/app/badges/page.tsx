@@ -1,4 +1,5 @@
 "use client";
+import { PageBanner } from "@/components/ui/PageBanner";
 import { LearningArt } from "@/components/brand/LearningArt";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
@@ -37,10 +38,7 @@ export default function BadgesPage() {
   return (
     <PageWrapper>
       <div className="space-y-6">
-        <div>
-          <h1 className="font-display text-2xl font-extrabold text-[var(--color-text-primary)]">Achievements</h1>
-          <p className="text-sm text-[var(--color-text-secondary)] mt-1">{unlocked.length} / {ACHIEVEMENTS.length} unlocked</p>
-        </div>
+        <PageBanner><h1>Badges</h1><p>{unlocked.length} of {ACHIEVEMENTS.length} unlocked. Keep practising to earn the rest.</p></PageBanner>
 
         <div className="flex items-center gap-3 flex-wrap">
           <button onClick={() => setFilter("all")} className={`px-3 py-1.5 rounded-[var(--radius-pill)] text-xs font-semibold transition-colors ${filter === "all" ? "bg-[var(--color-primary)] text-[var(--color-on-brand)]" : "bg-[var(--color-surface-alt)] text-[var(--color-text-secondary)] hover:bg-[var(--color-border-default)]"}`}>
@@ -48,7 +46,7 @@ export default function BadgesPage() {
           </button>
           {categories.map((cat) => (
             <button key={cat} onClick={() => setFilter(cat)} className={`px-3 py-1.5 rounded-[var(--radius-pill)] text-xs font-semibold transition-colors capitalize ${filter === cat ? "bg-[var(--color-primary)] text-[var(--color-on-brand)]" : "bg-[var(--color-surface-alt)] text-[var(--color-text-secondary)] hover:bg-[var(--color-border-default)]"}`}>
-              {cat}
+              {cat === "xp" ? "XP" : cat}
             </button>
           ))}
         </div>

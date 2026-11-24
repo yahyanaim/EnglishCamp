@@ -32,7 +32,7 @@ export default function ModalpartikelPage() {
 
         <BackButton onClick={() => setSelected(null)}>Back to all markers</BackButton>
 
-        <div className="bg-gradient-to-br from-[var(--color-warning)] to-[#FFD700] rounded-[var(--radius-lg)] ring-1 ring-[var(--color-warning)] p-6 shadow-sm mb-6">
+        <div className="camp-soft-callout rounded-[var(--radius-lg)] p-6 mb-6">
           <div className="flex items-center gap-4 mb-3">
             <span className="text-4xl font-mono font-display font-extrabold text-[var(--color-text-primary)]">{particle.marker}</span>
             <div>
@@ -61,9 +61,9 @@ export default function ModalpartikelPage() {
           <p className="text-sm text-[var(--color-text-secondary)] mt-1">actually, basically, honestly, anyway, though, well, you know — essential discourse markers</p>
         </PageBanner>
 
-        <div className="bg-gradient-to-br from-[var(--color-warning)] to-amber-50 rounded-[var(--radius-lg)] ring-1 ring-[var(--color-warning)] p-4 shadow-sm">
-          <p className="text-xs text-[var(--color-text-warning)] leading-relaxed">
-            💡 Discourse markers add nuance, emotion, and naturalness to your speech. They&rsquo;re rarely translated literally but are essential for fluent English. Each marker has multiple meanings depending on context.
+        <div className="camp-soft-callout rounded-[var(--radius-lg)] p-4">
+          <p className="text-sm leading-relaxed">
+            Discourse markers add nuance, emotion, and naturalness to your speech. They&rsquo;re rarely translated literally but are essential for fluent English. Each marker has multiple meanings depending on context.
           </p>
         </div>
 

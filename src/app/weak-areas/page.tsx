@@ -1,4 +1,5 @@
 "use client";
+import { PageBanner } from "@/components/ui/PageBanner";
 import { LearningArt } from "@/components/brand/LearningArt";
 import Link from "next/link";
 import { useState, useMemo } from "react";
@@ -45,10 +46,7 @@ export default function WeakAreasPage() {
     <div className="space-y-6">
       <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}>
         <div className="flex items-center justify-between">
-          <div>
-            <h1 className="font-display text-2xl font-extrabold text-[var(--color-text-primary)]">Weak Areas</h1>
-            <p className="text-sm text-[var(--color-text-secondary)] mt-1">Review and practice your mistakes</p>
-          </div>
+          <PageBanner className="flex-1"><h1>Weak areas</h1><p>Review and practise the mistakes you made.</p></PageBanner>
           {counts.unreviewed > 0 && (
             <button
               onClick={clearReviewed}

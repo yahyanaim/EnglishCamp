@@ -1,6 +1,7 @@
 "use client";
 
 
+import { PageBanner } from "@/components/ui/PageBanner";
 import { BackButton } from "@/components/ui/BackButton";
 import { LearningArt } from "@/components/brand/LearningArt";
 import { useState } from "react";
@@ -114,10 +115,7 @@ export default function B2PruefungPage() {
   return (
     <PageWrapper>
       <div className="space-y-6">
-        <div>
-          <h1 className="font-display text-2xl font-extrabold text-[var(--color-text-primary)]">Cambridge B2 First (FCE) Guide</h1>
-          <p className="text-sm text-[var(--color-text-secondary)] mt-1">Exam structure, strategies, and writing templates for Cambridge B2 First</p>
-        </div>
+        <PageBanner><h1>Cambridge B2 First (FCE) guide</h1><p>Exam structure, strategies and writing templates for Cambridge B2 First.</p></PageBanner>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           {EXAM_INFO.map((s, i) => (
@@ -137,7 +135,7 @@ export default function B2PruefungPage() {
           ))}
         </div>
 
-        <div className="bg-gradient-to-br from-[var(--color-warning)] to-[#FFD700] rounded-[var(--radius-lg)] ring-1 ring-[var(--color-warning)] p-5 shadow-sm">
+        <div className="camp-soft-callout rounded-[var(--radius-lg)] p-5">
           <div className="flex items-start gap-3">
             <LearningArt name="🎯" size={24} className="" />
             <div>

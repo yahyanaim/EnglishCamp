@@ -50,7 +50,7 @@ export default function FalseFriendsPage() {
             return (
               <motion.div key={entry.id} layout className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] overflow-hidden" style={{ boxShadow: "0 3px 0 var(--color-border-default)" }}>
                 <Button variant="unstyled" size="unstyled" aria-expanded={open} onClick={() => toggle(entry.id)} className="w-full text-left p-5 hover:bg-[var(--color-surface-alt)] transition-colors">
-                  <div className="flex items-start gap-4">
+                  <div className="camp-false-friends-row flex items-start gap-4">
                     <div className="flex items-center gap-3 flex-shrink-0 mt-0.5">
                       <span className="text-xl font-extrabold text-[var(--color-primary)] font-display">{entry.word1}</span>
                       <AlertTriangle className="w-4 h-4 text-[var(--camp-control-ink)]" />
