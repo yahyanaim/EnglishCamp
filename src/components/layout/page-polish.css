@@ -328,3 +328,128 @@
 @container camp-main (max-width: 579px) {
   .camp-frame main.camp-content .camp-cheat-topics[data-mobile-expanded="false"] { display: none !important; }
 }
+
+/* Typography parity with the course library lessons: Nunito headings, DM Sans body at 16px. */
+.camp-frame main.camp-content :is(h1, h2, h3, h4):not(.sr-only) { font-family: var(--font-display), Nunito, system-ui, sans-serif; }
+
+/* Empty states (review queue, notes): centred glass hero, no dead space. */
+.camp-frame main.camp-content :is(.camp-review-empty, .camp-notes-empty):not(#_) { display: grid !important; justify-items: center; text-align: center !important; gap: 14px; padding: 40px 32px !important; border-radius: 22px !important; }
+.camp-frame main.camp-content .camp-review-empty > *, .camp-frame main.camp-content .camp-notes-empty > * { margin: 0 !important; }
+.camp-frame main.camp-content :is(.camp-review-empty-art, .camp-notes-empty-art) { display: grid; place-items: center; width: 72px; height: 72px; border-radius: 22px; background: var(--g-control); box-shadow: var(--g-control-shadow); }
+.camp-frame main.camp-content :is(.camp-review-empty, .camp-notes-empty) > h2 { font: 700 24px/1.35 var(--font-display), Nunito, sans-serif !important; color: var(--color-text-primary); }
+.camp-frame main.camp-content :is(.camp-review-empty, .camp-notes-empty) > p { font-size: 16px !important; line-height: 1.6 !important; max-width: 52ch; color: var(--color-text-secondary); }
+.camp-frame main.camp-content .camp-review-empty-cta:not(#_), .camp-frame main.camp-content .camp-notes-cta:not(#_) { height: 46px; padding: 0 22px !important; border-radius: 999px !important; display: inline-flex; align-items: center; gap: 8px; font-size: 15px !important; font-weight: 650; margin-top: 6px !important; }
+.camp-frame main.camp-content .camp-notes-cta:not(#_) { background: var(--g-primary); color: #fff !important; box-shadow: var(--g-primary-shadow); text-decoration: none; }
+
+/* My notes */
+.camp-frame main.camp-content .camp-notes-filters { grid-template-columns: minmax(0, 1fr) auto; align-items: center; }
+.camp-frame main.camp-content .camp-notes-filters .camp-hub-search input { height: 46px; padding-inline: 40px 14px !important; }
+.camp-frame main.camp-content .camp-notes-sync:not(#_) { display: flex; align-items: center; gap: 10px; margin: 0; padding: 0; background: none; border: 0; box-shadow: none; }
+.camp-frame main.camp-content .camp-notes-sync p { margin: 0; font-size: 13px; color: var(--color-text-secondary); white-space: nowrap; }
+.camp-frame main.camp-content .camp-notes-sync-dot { width: 8px; height: 8px; border-radius: 50%; background: #f59e0b; box-shadow: 0 0 0 4px color-mix(in srgb, #f59e0b 18%, transparent); }
+.camp-frame main.camp-content .camp-notes-sync-dot:not([data-status="local"]) { background: #10b981; box-shadow: 0 0 0 4px color-mix(in srgb, #10b981 18%, transparent); }
+.camp-frame main.camp-content .camp-notes-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.camp-frame main.camp-content .camp-notes-stats > div { display: grid; grid-template-columns: 44px 1fr; grid-template-rows: auto auto; column-gap: 12px; align-items: center; padding: 16px 18px; border-radius: 18px; background: var(--g-card); box-shadow: var(--g-sheen, none), 0 8px 24px -16px rgba(76, 29, 149, .25); border: 1px solid var(--g-rim, var(--color-border-default)); }
+.camp-frame main.camp-content .camp-notes-stats > div > span { grid-row: 1 / 3; display: grid; place-items: center; width: 44px; height: 44px; border-radius: 14px; background: var(--g-control); box-shadow: var(--g-control-shadow); }
+.camp-frame main.camp-content .camp-notes-stats strong { font: 700 22px/1.2 var(--font-display), Nunito, sans-serif; color: var(--color-text-primary); }
+.camp-frame main.camp-content .camp-notes-stats small { font-size: 12px; color: var(--color-text-secondary); }
+.camp-frame main.camp-content .camp-notes-howto { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; width: 100%; max-width: 640px; margin: 8px 0 !important; padding: 0; list-style: none; }
+.camp-frame main.camp-content .camp-notes-howto li { display: grid; justify-items: center; align-content: start; gap: 8px; padding: 14px 12px; border-radius: 16px; background: var(--g-control); box-shadow: var(--g-control-shadow); font-size: 13px; line-height: 1.45; color: var(--color-text-primary); }
+.camp-frame main.camp-content .camp-notes-howto li > span { display: grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; background: var(--g-primary); color: #fff; font-size: 12px; font-weight: 700; }
+.camp-frame main.camp-content .camp-notes-list { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: stretch; }
+.camp-frame main.camp-content .camp-saved-note:not(#_) { display: flex; flex-direction: column; gap: 12px; padding: 20px; border-radius: 18px !important; }
+.camp-frame main.camp-content .camp-saved-note[data-editing="true"] { grid-column: 1 / -1; }
+.camp-frame main.camp-content .camp-saved-note .camp-note-text { flex: 1; font-size: 15px; line-height: 1.65; color: var(--color-text-secondary); display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical; overflow: hidden; white-space: pre-line; }
+.camp-frame main.camp-content .camp-saved-note-heading small { display: inline-block; padding: 3px 9px; border-radius: 999px; background: var(--g-control); font-size: 11px !important; font-weight: 650; letter-spacing: .04em; text-transform: uppercase; }
+.camp-frame main.camp-content .camp-saved-note-actions { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding-top: 12px; border-top: 1px solid var(--g-hair, var(--color-border-default)); }
+.camp-frame main.camp-content .camp-saved-note-actions > a { display: inline-flex; align-items: center; gap: 6px; color: var(--camp-control-ink); font-size: 13px; font-weight: 600; }
+
+/* Confusing words: Practice Hub card grid. */
+.camp-frame main.camp-content .camp-ff-filters { grid-template-columns: minmax(0, 1fr); }
+.camp-frame main.camp-content .camp-ff-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; align-items: stretch; }
+.camp-frame main.camp-content .camp-ff-card { display: flex; flex-direction: column; gap: 14px; min-height: 100%; padding: 18px 20px; border-radius: 18px; background: var(--g-card); border: 1px solid var(--g-rim, var(--color-border-default)); box-shadow: var(--g-sheen, none), 0 10px 28px -18px rgba(76, 29, 149, .3); backdrop-filter: blur(18px) saturate(160%); transition: transform .18s ease, box-shadow .18s ease; }
+.camp-frame main.camp-content .camp-ff-card:hover { transform: translateY(-2px); }
+.camp-frame main.camp-content .camp-ff-card[data-open="true"] { grid-column: 1 / -1; }
+.camp-frame main.camp-content .camp-ff-head { all: unset; display: flex; align-items: center; justify-content: space-between; gap: 12px; cursor: pointer; }
+.camp-frame main.camp-content .camp-ff-head:focus-visible { outline: 2px solid var(--camp-purple); outline-offset: 4px; border-radius: 10px; }
+.camp-frame main.camp-content .camp-ff-pair { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; }
+.camp-frame main.camp-content .camp-ff-pair strong { font: 700 19px/1.3 var(--font-display), Nunito, sans-serif; color: var(--camp-control-ink); }
+.camp-frame main.camp-content .camp-ff-vs { padding: 3px 9px; border-radius: 999px; background: var(--g-primary); color: #fff; font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+.camp-frame main.camp-content .camp-ff-chevron { flex: none; width: 34px; height: 34px; padding: 8px; border-radius: 50%; background: var(--g-control); box-shadow: var(--g-control-shadow); color: var(--camp-control-ink); transition: transform .2s ease; }
+.camp-frame main.camp-content .camp-ff-card[data-open="true"] .camp-ff-chevron { transform: rotate(180deg); }
+.camp-frame main.camp-content .camp-ff-meanings { display: grid; gap: 8px; margin: 0; }
+.camp-frame main.camp-content .camp-ff-card[data-open="true"] .camp-ff-meanings { grid-template-columns: 1fr 1fr; }
+.camp-frame main.camp-content .camp-ff-meanings > div { display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 10px; align-items: baseline; }
+.camp-frame main.camp-content .camp-ff-meanings dt { font-size: 12px; font-weight: 700; color: var(--color-text-primary); overflow-wrap: anywhere; }
+.camp-frame main.camp-content .camp-ff-meanings dd { margin: 0; font-size: 14px; line-height: 1.55; color: var(--color-text-secondary); }
+.camp-frame main.camp-content .camp-ff-detail { display: grid; gap: 12px; padding-top: 14px; border-top: 1px solid var(--g-hair, var(--color-border-default)); }
+.camp-frame main.camp-content .camp-ff-examples { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.camp-frame main.camp-content .camp-ff-examples blockquote { margin: 0; padding: 14px 16px; border-radius: 14px; background: var(--g-control); box-shadow: var(--g-control-shadow); font-size: 15px; line-height: 1.6; font-style: italic; color: var(--color-text-primary); }
+.camp-frame main.camp-content .camp-ff-examples small { display: block; margin-bottom: 4px; font-style: normal; font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--camp-control-ink); }
+.camp-frame main.camp-content .camp-ff-tip { display: flex; gap: 10px; align-items: flex-start; margin: 0; padding: 12px 14px; border-radius: 14px; background: color-mix(in srgb, var(--camp-purple) 8%, transparent); font-size: 14px; line-height: 1.6; color: var(--color-text-primary); }
+.camp-frame main.camp-content .camp-ff-empty { display: grid; justify-items: center; gap: 10px; padding: 48px 16px; color: var(--color-text-secondary); }
+
+/* Pronunciation studio */
+.camp-frame main.camp-content .camp-pronunciation-lab:not(#_) { padding: 28px; gap: 20px; border-radius: 24px !important; }
+.camp-frame main.camp-content .camp-pronunciation-lab-heading { align-items: flex-start; }
+.camp-frame main.camp-content .camp-pron-eyebrow { display: inline-block; margin-bottom: 6px; padding: 3px 10px; border-radius: 999px; background: var(--g-control); box-shadow: var(--g-control-shadow); font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--camp-control-ink); }
+.camp-frame main.camp-content .camp-pronunciation-lab h2 { font: 700 22px/1.3 var(--font-display), Nunito, sans-serif !important; }
+.camp-frame main.camp-content .camp-pronunciation-lab-heading p { font-size: 15px !important; line-height: 1.6 !important; margin-top: 4px; }
+.camp-frame main.camp-content .camp-pron-counter { flex: none; padding: 6px 12px; border-radius: 999px; background: var(--g-control); box-shadow: var(--g-control-shadow); font-size: 12px; font-weight: 700; color: var(--camp-control-ink); }
+.camp-frame main.camp-content .camp-pron-situations { display: flex; flex-wrap: wrap; gap: 8px; }
+.camp-frame main.camp-content .camp-pron-situations > button { height: 38px; padding: 0 16px; border-radius: 999px; border: 1px solid var(--g-rim, var(--color-border-default)); background: var(--g-pill, var(--g-control)); box-shadow: var(--g-pill-shadow, var(--g-control-shadow)); font-size: 13px; font-weight: 600; color: var(--color-text-primary); cursor: pointer; transition: transform .15s ease; }
+.camp-frame main.camp-content .camp-pron-situations > button:hover { transform: translateY(-1px); }
+.camp-frame main.camp-content .camp-pron-situations > button[aria-checked="true"] { background: var(--g-primary); color: #fff; border-color: transparent; box-shadow: var(--g-primary-shadow); }
+.camp-frame main.camp-content .camp-pron-stage { position: relative; display: grid; justify-items: center; gap: 14px; padding: 36px 28px 28px; border-radius: 22px; text-align: center; overflow: hidden; background: radial-gradient(120% 140% at 50% 0%, color-mix(in srgb, var(--camp-purple) 16%, transparent) 0%, transparent 60%), var(--g-control); box-shadow: var(--g-control-shadow), inset 0 1px 0 rgba(255,255,255,.6); }
+.camp-frame main.camp-content .camp-pron-stage > small { font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--camp-control-ink); }
+.camp-frame main.camp-content .camp-pron-stage blockquote { margin: 0; max-width: 32ch; font: 700 clamp(22px, 2.4vw, 30px)/1.35 var(--font-display), Nunito, sans-serif; color: var(--color-text-primary); background: none !important; padding: 0 !important; }
+.camp-frame main.camp-content .camp-pron-listen { display: inline-flex; align-items: center; gap: 10px; padding: 4px 16px 4px 4px; border-radius: 999px; background: var(--g-card); box-shadow: var(--g-control-shadow); font-size: 13px; font-weight: 600; color: var(--camp-control-ink); }
+.camp-frame main.camp-content .camp-pron-listen > button { width: 38px !important; height: 38px !important; border-radius: 50% !important; background: var(--g-primary) !important; color: #fff !important; box-shadow: var(--g-primary-shadow) !important; }
+.camp-frame main.camp-content .camp-pron-steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin: 0; padding: 0; list-style: none; }
+.camp-frame main.camp-content .camp-pron-steps li { display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 16px; background: var(--g-control); box-shadow: var(--g-control-shadow); }
+.camp-frame main.camp-content .camp-pron-steps li > span { flex: none; display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; background: var(--g-primary); color: #fff; font-size: 13px; font-weight: 700; }
+.camp-frame main.camp-content .camp-pron-steps strong { display: block; font: 700 14px/1.3 var(--font-display), Nunito, sans-serif; }
+.camp-frame main.camp-content .camp-pron-steps small { font-size: 12px; color: var(--color-text-secondary); }
+.camp-frame main.camp-content .camp-pronunciation-lab .camp-shadow-recorder:not(#_) { border-radius: 22px !important; overflow: hidden; }
+.camp-frame main.camp-content .camp-pronunciation-lab .camp-shadow-record-bar { flex-direction: column; gap: 12px; padding: 28px 20px 22px; min-height: 0; }
+.camp-frame main.camp-content .camp-pronunciation-lab .camp-shadow-record-symbol { position: relative; display: grid !important; place-items: center; width: 76px !important; height: 76px !important; border-radius: 50% !important; border: 0 !important; background: var(--g-primary) !important; color: #fff !important; box-shadow: var(--g-primary-shadow), 0 0 0 10px color-mix(in srgb, var(--camp-purple) 12%, transparent), 0 0 0 20px color-mix(in srgb, var(--camp-purple) 6%, transparent) !important; transition: transform .2s ease; }
+.camp-frame main.camp-content .camp-pronunciation-lab .camp-shadow-record-bar:hover .camp-shadow-record-symbol { transform: scale(1.05); }
+.camp-frame main.camp-content .camp-pronunciation-lab .camp-shadow-record-bar:has(svg rect) .camp-shadow-record-symbol, .camp-frame main.camp-content .camp-pronunciation-lab .camp-shadow-record-bar[aria-pressed="true"] .camp-shadow-record-symbol { animation: camp-pron-pulse 1.4s ease-in-out infinite; background: linear-gradient(180deg, #fb7185, #e11d48) !important; }
+@keyframes camp-pron-pulse { 0%,100% { box-shadow: 0 0 0 0 rgba(225,29,72,.35), 0 0 0 10px rgba(225,29,72,.12); } 50% { box-shadow: 0 0 0 14px rgba(225,29,72,0), 0 0 0 24px rgba(225,29,72,.06); } }
+.camp-frame main.camp-content .camp-pronunciation-lab .camp-shadow-record-bar > span:nth-child(2) { text-align: center !important; margin-top: 8px; }
+.camp-frame main.camp-content .camp-pronunciation-lab .camp-shadow-record-bar strong { font: 700 18px/1.3 var(--font-display), Nunito, sans-serif !important; }
+.camp-frame main.camp-content .camp-pronunciation-lab .camp-shadow-record-bar small { font-size: 14px !important; }
+.camp-frame main.camp-content .camp-pronunciation-lab .camp-shadow-local-label { padding: 4px 10px; border-radius: 999px; background: var(--g-control); font-size: 11px; font-weight: 650; color: var(--camp-control-ink); margin: 0 !important; }
+.camp-frame main.camp-content .camp-pronunciation-lab .camp-shadow-recording-note { margin: 0; padding: 10px 20px 14px; text-align: center; font-size: 12px !important; color: var(--color-text-secondary); border: 0 !important; }
+.camp-frame main.camp-content .camp-pronunciation-lab .camp-shadow-take { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 12px; padding: 0 20px 14px; }
+.camp-frame main.camp-content .camp-pronunciation-lab .camp-pronunciation-feedback { margin: 0 16px 16px; padding: 20px; border-radius: 18px; border: 0 !important; background: var(--g-control); box-shadow: var(--g-control-shadow); gap: 12px; }
+.camp-frame main.camp-content .camp-pronunciation-lab .camp-pronunciation-feedback h3 { font: 700 17px/1.35 var(--font-display), Nunito, sans-serif !important; }
+.camp-frame main.camp-content .camp-pronunciation-lab .camp-pronunciation-feedback > p { font-size: 14px !important; line-height: 1.6 !important; }
+.camp-frame main.camp-content .camp-pronunciation-lab .camp-ai-consent { display: flex; gap: 12px; align-items: flex-start; padding: 14px 16px; border-radius: 14px; background: var(--g-card); border: 1px solid var(--g-rim, var(--color-border-default)); font-size: 13px; line-height: 1.55; cursor: pointer; }
+.camp-frame main.camp-content .camp-pronunciation-lab .camp-ai-consent input { flex: none; width: 18px; height: 18px; margin-top: 1px; accent-color: var(--camp-purple); }
+.camp-frame main.camp-content .camp-pronunciation-lab .camp-ai-actions button { height: 46px; padding: 0 22px; border-radius: 999px !important; font-size: 14px; }
+
+@container camp-main (max-width: 679px) {
+  .camp-frame main.camp-content :is(.camp-ff-grid, .camp-notes-list, .camp-ff-examples) { grid-template-columns: minmax(0, 1fr); }
+  .camp-frame main.camp-content .camp-ff-card[data-open="true"] .camp-ff-meanings { grid-template-columns: minmax(0, 1fr); }
+  .camp-frame main.camp-content :is(.camp-notes-stats, .camp-notes-howto, .camp-pron-steps) { grid-template-columns: minmax(0, 1fr); }
+  .camp-frame main.camp-content .camp-notes-filters { grid-template-columns: minmax(0, 1fr); }
+  .camp-frame main.camp-content .camp-pronunciation-lab:not(#_) { padding: 18px; }
+  .camp-frame main.camp-content .camp-pron-stage { padding: 28px 18px 22px; }
+  .camp-frame main.camp-content .camp-pron-situations { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; padding-bottom: 4px; }
+  .camp-frame main.camp-content .camp-pron-situations > button { flex: none; }
+}
+.camp-frame main.camp-content .camp-pron-situations:not(#_) { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.camp-frame main.camp-content .camp-pron-stage blockquote:not(#_) { border: 0 !important; background: none !important; box-shadow: none !important; padding: 0 !important; }
+.camp-frame main.camp-content .camp-pron-listen button:not(#_) { width: 38px !important; height: 38px !important; min-width: 38px; border: 0 !important; border-radius: 50% !important; background: var(--g-primary) !important; color: #fff !important; box-shadow: var(--g-primary-shadow) !important; }
+.camp-frame main.camp-content .camp-pron-listen button:not(#_) svg { color: #fff !important; }
+@container camp-main (max-width: 679px) { .camp-frame main.camp-content .camp-pron-situations:not(#_) { display: flex; } }
+.camp-frame main.camp-content .camp-notes-howto li > p { margin: 0; font-size: 13px; line-height: 1.45; }
+@container camp-main (max-width: 679px) {
+  .camp-frame main.camp-content .camp-notes-stats:not(#_) { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+  .camp-frame main.camp-content .camp-notes-stats > div { grid-template-columns: 1fr; justify-items: center; text-align: center; padding: 12px 8px; row-gap: 4px; }
+  .camp-frame main.camp-content .camp-notes-stats > div > span { grid-row: auto; width: 36px; height: 36px; border-radius: 12px; }
+  .camp-frame main.camp-content .camp-notes-stats strong { font-size: 18px; }
+  .camp-frame main.camp-content .camp-notes-stats small { font-size: 11px; line-height: 1.3; }
+  .camp-frame main.camp-content .camp-notes-sync:not(#_) { justify-content: flex-start; flex-direction: row; }
+}

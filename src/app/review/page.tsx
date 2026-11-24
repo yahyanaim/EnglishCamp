@@ -199,15 +199,11 @@ export default function ReviewPage() {
     return (
       <PageWrapper className="camp-review-page">
         <PageBanner><h1>Review Queue</h1><p>Revisit saved vocabulary and mistakes when they are ready for review.</p></PageBanner>
-        <div className="camp-review-empty text-center py-16 space-y-6">
-          <div className="w-20 h-20 rounded-3xl bg-[var(--color-surface-alt)] flex items-center justify-center mx-auto">
-            <LearningArt name="review" size={36} />
-          </div>
-          <h2 className="text-xl font-bold text-[var(--color-text-primary)]">Nothing to Review</h2>
-          <p className="text-sm text-[var(--color-text-secondary)]">Complete lessons, exercises, and add vocabulary to build your review queue.</p>
-          <Button variant="unstyled" onClick={startSession} className="inline-flex items-center gap-2 px-6 py-3 bg-[var(--color-primary)] text-[var(--color-on-brand)] rounded-[var(--radius-lg)] font-semibold hover:bg-[var(--color-primary-hover)] transition-colors">
-            <RotateCcw className="w-4 h-4" /> Check Again
-          </Button>
+        <div className="camp-review-empty">
+          <span className="camp-review-empty-art"><LearningArt name="review" size={34} /></span>
+          <h2>Nothing to review yet</h2>
+          <p>Complete lessons, exercises and save vocabulary to build your review queue. Items come back here when they are due.</p>
+          <Button onClick={startSession} className="camp-review-empty-cta"><RotateCcw className="w-4 h-4" /> Check again</Button>
         </div>
       </PageWrapper>
     );
