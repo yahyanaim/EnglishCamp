@@ -410,7 +410,7 @@ function MockExamContent() {
                         })}
                       </ul>
                     </div>
-                    <div className="pt-3 mt-3 border-t border-[var(--color-border-default)] flex flex-wrap items-center justify-between gap-3">
+                    <div className="camp-exam-card-actions pt-3 mt-3 border-t border-[var(--color-border-default)] flex flex-wrap items-center justify-between gap-3">
                       <div className="flex items-center gap-1.5 text-xs text-[var(--color-text-secondary)]">
                         <LearningArt name="Clock" size={14} className="w-3.5 h-3.5" />
                         {id === "toefl-ibt"
@@ -570,7 +570,7 @@ function MockExamContent() {
   return (
     <PageWrapper className="camp-mock-page">
       <div className="w-full min-w-0 space-y-5 pb-12">
-        <div className="bg-[var(--color-surface)] border border-[var(--color-border-default)] rounded-[var(--radius-lg)] p-4 flex flex-wrap items-center justify-between gap-4 sticky top-16 sm:top-[72px] z-20 shadow-sm">
+        <div className="camp-exam-runbar bg-[var(--color-surface)] border border-[var(--color-border-default)] rounded-[var(--radius-lg)] p-4 flex flex-wrap items-center justify-between gap-4 sticky top-16 sm:top-[72px] z-20 shadow-sm">
           <div className="flex items-center gap-3">
             <div className="w-9 h-9 rounded-[var(--radius-md)] bg-[var(--camp-purple-soft)] text-[var(--camp-control-ink)] flex items-center justify-center font-display font-black text-sm">
               {toefl ? "iBT" : paper.id === "b2-first" ? "B2" : "IELTS"}
@@ -603,7 +603,7 @@ function MockExamContent() {
             <ControlButton variant="unstyled" size="unstyled"
               disabled={transitioning}
               onClick={submitEarly}
-              className="px-4 py-1.5 rounded-[var(--radius-md)] bg-rose-600 hover:bg-rose-700 text-white font-display font-extrabold text-xs transition-colors shadow-sm"
+              className="camp-exam-finish px-4 py-1.5 rounded-[var(--radius-md)] bg-rose-600 hover:bg-rose-700 text-white font-display font-extrabold text-xs transition-colors shadow-sm"
             >
               Finish Exam
             </ControlButton>
