@@ -105,6 +105,10 @@
       "before": "5bce48f2577fa4c4c408ae6132cbbb91c6097af59e0cd5dd8fc6c374b10b1734",
       "after": "4fbd089a4fc38d2a918485082c24493720051542cc1cf645cd50573eefc695f3"
     },
+    "src/app/mock-exam/page.tsx": {
+      "before": "9afd93cd48c09852fc1542ffefbb29f12c094ba56ca2c3687a032b81cff0c592",
+      "after": "1ef7a48c18cf068e15a574286724eed00a3beb86b2b8e794f1ded354f699871d"
+    },
     "src/components/learn/FalseFriendsUebersetzer.tsx": {
       "before": "a434ac297a2135f5b00999de2afdb8b0f042575e378f5aed93cad3bf7118ea3c",
       "after": "5ac4a80266a6b045c65b457ea6656af4cddc5cd40f4afd434f7a210ac65dfce2"
