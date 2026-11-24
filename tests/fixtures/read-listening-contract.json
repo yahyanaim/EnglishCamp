@@ -19,7 +19,7 @@
     },
     "src/components/layout/Sidebar.tsx": {
       "before": "2a94206b4a6fcb8b811a4176560c6f5b5039b4fab8138a1e59a55bd6eaa0b21a",
-      "after": "fb5b88c4711111dfa1f9e42258850982ef21f82fc82980098b51abf8305684b3"
+      "after": "102ea62c19d742ee6d4e865af74bdbd4b04c9672d71569999eb6b3250989aa43"
     },
     "src/components/layout/TopBar.tsx": {
       "before": "756390d54e5b52d540494bc834198fdf14618144e7a46dfebefb087c8652c36b",
