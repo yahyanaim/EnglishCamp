@@ -3,7 +3,7 @@
   "files": {
     "cloudflare/worker.ts": {
       "before": "004c1022a1b6679c39615ae3dfe6e66d62b56e88fcbb771c4d69a65723e160c7",
-      "after": "607f06bf40ed52972acdc6b2b614868c9289cdc6fbd2cecc1c994f02b7ad2ec3"
+      "after": "1898c1a298eb490a1265db327f99782cbb0abe893343ef46f641c2f87d304378"
     },
     "src/app/membership/page.tsx": {
       "before": "793f15e348cc49cdc6704fe46da3168c1d500f25e2e873dc06c432dde6b9b056",
@@ -71,7 +71,7 @@
     },
     "src/components/mock-exam/ExamAudio.tsx": {
       "before": "3715ddd3746964c38c7a17e95a8f1c3e30f0c393ea0e5bf0d0e233a01c769d50",
-      "after": "81f9fa424f079529d680feaca1d7c4ed5b309adba10ba0f3fad4201c62d38aac"
+      "after": "3e7aee90b508f2e0dbc88eef49f1ad9f85362a8835e71b010a821b93d67234d9"
     },
     "src/app/false-friends/page.tsx": {
       "before": "5e21746cd50b952e945da9e4f011409c1bcb194172def040de3abff60c6d5f1d",
@@ -119,7 +119,7 @@
     },
     "src/data/speech-catalogue.json": {
       "before": "3597f0ff04aaa2abc53cbf4f94728147685e1ed45b55f33d156f3057b4ab5578",
-      "after": "36fbbc69db1950ab98d682b25cb97feaeb868e79a4d22e1b06bd5efb5ff875ad"
+      "after": "cf3db7eecdf46f0150d42c9a6ba85c2ccd3f7b593adf9cc425d9a9fbc5ef715b"
     },
     "src/components/layout/LayoutShell.tsx": {
       "before": "1a03fb08cd1508dbc056b67ddf7dcf6cbff0e9bedb34e4ef2ed68e11ed8c18bd",
@@ -287,7 +287,7 @@
     },
     "src/app/search/page.tsx": {
       "before": "c612fad439885ab28ecee13f8d082e152350564e00e454ed9eec556a2a6fd018",
-      "after": "0b52223b7949fa3a81d5c2ae81d3b506cadc0f3421bc861bf54dc649ba196214"
+      "after": "62b20dbbb582796017bc756f99497110d15c6c25efce9a8c796f1d63ad324b0c"
     },
     "src/components/session/CloudNotesProvider.tsx": {
       "before": "2aff24b65ca26d1777061b422de6abfa5f4623207730da50af9d0255ad5f7658",
@@ -304,6 +304,34 @@
     "package-lock.json": {
       "before": "c79b296bc875533b2b2dda111deebd5563c1e7a6dd94ee3154ec87da294cce17",
       "after": "b7e5618151ab23c20681ad9a3fa68ca43fc1f5db71568ed85586ca7a4100655e"
+    },
+    "cloudflare/access.ts": {
+      "before": "d8f9db5c0ecd7c89c59d0d2b67653fb1e3a25fd60d355ed0523760e1f5308f73",
+      "after": "15d06ba813df8102ac479481cc2abf955f7ea02c10fd2a3477a60de1bf604991"
+    },
+    "cloudflare/assetCoverage.json": {
+      "before": "f94c7b2769ae7a9f0309a201a2f8a3662c754f1bd8fa0e992084d012addf7d42",
+      "after": "de6f3082f58dfac769cfa6bd3fdf77fc7cfcf49fc66b156973da624d18c2a852"
+    },
+    "cloudflare/membership.ts": {
+      "before": "a0ebb7eb62f4dc71200c300da3b0550fe03af15f84cc1a1fc5561adc54fb2920",
+      "after": "420244c94ee8032ae4dfcd542eae5fe8b453a7a0853092a00c67bb510e55ba22"
+    },
+    "scripts/build-cloudflare.cjs": {
+      "before": "be92326b20a73f831bb8a08bf94b970ae7a90beebd3cefb70f70d7786dc3bcf8",
+      "after": "d7d3f691395537f2eee45b39738bae76895fd680cd012171dd4daeaa92aa2e04"
+    },
+    "src/components/exercises/CourseActivity.tsx": {
+      "before": "3cd55ed44a14b418c914f9c5fe9a34f7fcd28488e27285c204a9d1516377c611",
+      "after": "fc7b2d30471dd233a62f4a3fb16aad760f33fa1e0544d28727643a3c62a52a92"
+    },
+    "src/lib/naturalSpeech.ts": {
+      "before": "8abf12caebea150c43f04a720d077465b7e2d1a0e00adce045ebdce57e8784dd",
+      "after": "3259732bb2b39a36570a2ef7d5a67728307f4dbe08b08551a10e8ef55d950527"
+    },
+    "src/lib/vocabularyLookup.ts": {
+      "before": "f390000f4a5c5d135370a08c35e29b6f23bcf3614851332f64e2870c40c3e095",
+      "after": "3b321eac31b4862f5d42d7ff7eef726af8c221cd00d2d9b038ca30e0a924623b"
     }
   },
   "selectors": {

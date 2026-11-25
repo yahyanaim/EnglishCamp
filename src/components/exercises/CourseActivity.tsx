@@ -10,6 +10,7 @@ import { useProgress } from "@/store/useProgress";
 import { useErrors } from "@/store/useErrors";
 import { useActivityAttempt } from "@/hooks/useActivityAttempt";
 import { taskSignature, loadTake, saveTake, setRecordingRisk, STUDY_REVIEW_CRITERIA } from "@/lib/activityState";
+import { playableAudioSrc } from "@/lib/audioSource";
 import { courseLabel, planningPrompt } from "@/lib/courseLabels";
 import type { TaskOutcome } from "@/lib/courseProgress";
 import { checkActivityAnswer, countWords, selectedAnswers, createRecordingSession, type RecordingSession } from "@/lib/courseActivity";
@@ -99,7 +100,7 @@ function SpokenSequence({ items, storageKey, index, heard, onIndex, onHeard, onR
     <p className="text-xs text-[var(--color-text-secondary)]">Original synthetic English prompts. Lesson replay is allowed. Record every prompt before submitting a spoken set, or choose the clearly labelled study alternative.</p>
     {items.map((item, i) => <div key={item.audioSrc} hidden={i !== index} className="space-y-3">
       <p className="text-sm font-semibold">Prompt {i + 1} of {items.length}</p>
-      <audio controls preload="none" src={item.audioSrc} className="w-full" aria-label={`Speaking stimulus ${i + 1}`} onEnded={() => onHeard(i)} onCanPlay={() => setErrors(e => ({ ...e, [i]: false }))} onError={() => setErrors(e => ({ ...e, [i]: true }))} />
+      <audio controls preload="none" src={playableAudioSrc(item.audioSrc)} className="w-full" aria-label={`Speaking stimulus ${i + 1}`} onEnded={() => onHeard(i)} onCanPlay={() => setErrors(e => ({ ...e, [i]: false }))} onError={() => setErrors(e => ({ ...e, [i]: true }))} />
       {errors[i] && <p role="alert" className="text-sm text-[var(--color-text-error)]">This prompt could not load. Retry playback or use the study alternative below.</p>}
       {heard.includes(i) && <Recorder storageKey={`${storageKey}:prompt-${i}`} disabled={disabled || alternative} onReady={value => ready(i, value)} onBusy={value => { setBusy(value); onBusy(value); }} />}
       {!heard.includes(i) && !alternative && <p className="text-sm">Listen to the end before recording this response.</p>}
@@ -171,7 +172,7 @@ function Task({ task, exerciseId, moduleId, stage, active, onComplete, onBusy, p
     {task.source && <div className="whitespace-pre-line text-sm leading-relaxed bg-[var(--color-surface-alt)] rounded-[var(--radius-md)] p-4" aria-label="Source passage">{task.source}</div>}
     {task.visual && <figure className="space-y-2"><div className="overflow-x-auto"><Image src={task.visual.src} alt={task.visual.alt} width={800} height={task.visual.src.endsWith("paper-process.svg") ? 520 : 450} unoptimized className="w-full h-auto min-w-[600px] rounded-[var(--radius-md)]" /></div><figcaption className="text-xs">{task.visual.description} Scroll horizontally on a small screen. <a className="text-[var(--color-text-link)] underline" href={task.visual.src} target="_blank" rel="noreferrer">Open full-size visual</a></figcaption></figure>}
     {task.audio && <div className="space-y-2">
-      <audio controls preload={active ? "metadata" : "none"} src={task.audio.src} className="w-full" aria-label="Task audio" onEnded={() => patch({ heard: true })} onCanPlay={() => setAudioError(false)} onError={() => setAudioError(true)} />
+      <audio controls preload={active ? "metadata" : "none"} src={playableAudioSrc(task.audio.src)} className="w-full" aria-label="Task audio" onEnded={() => patch({ heard: true })} onCanPlay={() => setAudioError(false)} onError={() => setAudioError(true)} />
       <p className="text-xs text-[var(--color-text-secondary)]">{narrationLabel(task.audio.label)} Replay is allowed. Listen to the end before submitting, or choose the study alternative.</p>
       {audioError && <p role="alert" className="text-[var(--color-text-error)]">Audio could not load. Retry playback or use transcript study below.</p>}
     </div>}

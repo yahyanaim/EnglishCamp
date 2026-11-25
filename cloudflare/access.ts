@@ -1,4 +1,4 @@
-import {membership,billingEnabled} from './membership';
+import {membershipAllowed,billingEnabled} from './membership';
 import {adminSession} from './invitationAdmin';
 import type { LearnerDatabase, LearnerEnv } from './learners';
 
@@ -54,7 +54,7 @@ export async function accessGuard(request: Request, env: LearnerEnv): Promise<Re
     if (!env.LEARNERS_DB) throw new Error('Unavailable');
     const learner=await approvedLearner(request, env.LEARNERS_DB);
     if(learner){
-      if(new URL(request.url).pathname.startsWith('/api/learners/')||(await membership(env.LEARNERS_DB,learner,env)).allowed)return null;
+      if(new URL(request.url).pathname.startsWith('/api/learners/')||await membershipAllowed(env.LEARNERS_DB,learner,env))return null;
       if(new URL(request.url).pathname.startsWith('/api/'))return accessJson({error:'Your free period has ended. Open membership to continue; your progress is saved.',code:'membership_required'},402);
       return new Response(null,{status:303,headers:{Location:new URL('/membership',request.url).toString(),'Cache-Control':'no-store, private'}});
     }
@@ -72,7 +72,7 @@ export async function accessStatus(request: Request, env: LearnerEnv) {
   if (!invitationRequired(env)) return accessJson({ required: false, granted: true });
   try {
     if (!env.LEARNERS_DB) throw new Error('Unavailable');
-    const id=await approvedLearner(request,env.LEARNERS_DB),allowed=id?(await membership(env.LEARNERS_DB,id,env)).allowed:false;
+    const id=await approvedLearner(request,env.LEARNERS_DB),allowed=id?await membershipAllowed(env.LEARNERS_DB,id,env):false;
     return accessJson({required:true,granted:allowed,destination:id&&!allowed?'/membership':'/invite',trialDays:billingEnabled(env)?7:null});
   } catch { return accessJson({ error: 'Access is temporarily unavailable. Please try again.' }, 503); }
 }

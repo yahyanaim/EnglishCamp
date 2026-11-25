@@ -1,9 +1,9 @@
 "use client";
 import { LearningArt } from "@/components/brand/LearningArt";
-import { useState, useMemo } from "react";
+import { useEffect, useState, useMemo } from "react";
 import { motion } from "framer-motion";
-import { levels } from "@/data/content";
-import { GRAMMAR_SEARCH_INDEX } from "@/data/searchIndex";
+import type { levels as Levels } from "@/data/content";
+import type { GRAMMAR_SEARCH_INDEX as GrammarIndex } from "@/data/searchIndex";
 import { Search, BookOpen, ChevronRight, FileText, BookMarked } from "lucide-react";
 import Link from "next/link";
 
@@ -30,9 +30,17 @@ type Result = LessonResult | GrammarResult;
 export default function SearchPage() {
   const [query, setQuery] = useState("");
   const [tab, setTab] = useState<"all" | "lessons" | "grammar">("all");
+  // Course text and the grammar index (~300 KB) load after the page appears, not inside its first bundle.
+  const [index, setIndex] = useState<{ levels: typeof Levels; grammar: typeof GrammarIndex } | null>(null);
+  useEffect(() => {
+    let live = true;
+    void Promise.all([import("@/data/content"), import("@/data/searchIndex")]).then(([content, search]) => { if (live) setIndex({ levels: content.levels, grammar: search.GRAMMAR_SEARCH_INDEX }); }, () => {});
+    return () => { live = false; };
+  }, []);
 
   const results = useMemo(() => {
-    if (!query.trim()) return [];
+    if (!query.trim() || !index) return [];
+    const { levels, grammar } = index;
     const lower = query.toLowerCase();
     const hits: Result[] = [];
 
@@ -57,7 +65,7 @@ export default function SearchPage() {
       }
     }
 
-    for (const entry of GRAMMAR_SEARCH_INDEX) {
+    for (const entry of grammar) {
       if (entry.text.toLowerCase().includes(lower) || entry.title.toLowerCase().includes(lower)) {
         const snippet = extractSnippet(entry.text, lower);
         hits.push({ type: "grammar", sourceId: entry.sourceId, sourceLabel: entry.sourceLabel, sourceHref: entry.sourceHref, title: entry.title, text: snippet });
@@ -65,7 +73,7 @@ export default function SearchPage() {
     }
 
     return hits.slice(0, 60);
-  }, [query]);
+  }, [query, index]);
 
   const filtered = useMemo(() => {
     if (tab === "all") return results;
@@ -97,8 +105,8 @@ export default function SearchPage() {
       {query && (
         <div className="flex items-center justify-between">
           <p className="text-sm text-[var(--color-text-secondary)]">
-            Found {filtered.length} match{filtered.length !== 1 ? "es" : ""}
-            {tab === "all" && <span className="text-[var(--color-text-secondary)]"> ({lessonCount} in lessons, {grammarCount} in grammar)</span>}
+            {index ? <>Found {filtered.length} match{filtered.length !== 1 ? "es" : ""}</> : <span role="status">Loading search…</span>}
+            {index && tab === "all" && <span className="text-[var(--color-text-secondary)]"> ({lessonCount} in lessons, {grammarCount} in grammar)</span>}
           </p>
           <div className="flex gap-1 bg-[var(--color-surface-alt)] rounded-[var(--radius-pill)] p-0.5">
             {(["all", "lessons", "grammar"] as const).map((t) => (
@@ -114,7 +122,7 @@ className={`text-xs font-semibold px-4 py-1.5 rounded-[var(--radius-pill)] trans
       )}
 
       <div className="space-y-2">
-        {query && filtered.length === 0 && (
+        {query && index && filtered.length === 0 && (
           <div className="text-center py-12 text-[var(--color-text-secondary)]">
             <Search className="w-12 h-12 mx-auto mb-3 opacity-30" />
             <p className="text-sm">No results for &ldquo;{query}&rdquo;</p>

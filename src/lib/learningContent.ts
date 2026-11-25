@@ -1,5 +1,5 @@
 import { CEFR_LEVELS, type CefrLevel } from "@/data/placement/cefr";
-import { READING_LESSONS, type ReadingLesson } from "@/data/reading-lessons";
+import type { ReadingLesson } from "@/data/reading-lessons";
 import { validateQuestions } from "./comprehension";
 import { BUNDLED_LISTENING, safeVoaAudio, voaArticleId, VOA_ATTRIBUTION, type ListeningLesson } from "./listeningLessons";
 
@@ -87,5 +87,4 @@ export function loadCatalogue(): Promise<ContentCatalogue | null> {
     .catch(() => null);
   return pending;
 }
-export const publishedReading = (catalogue: ContentCatalogue | null) => applyCatalogue(READING_LESSONS, catalogue?.states ?? {}, catalogue?.reading ?? []);
 export const publishedListening = (catalogue: ContentCatalogue | null) => applyCatalogue(BUNDLED_LISTENING, catalogue?.states ?? {}, catalogue?.listening ?? []);
