@@ -27,7 +27,7 @@
     "id": "grab-a-bite",
     "videoId": "rvpQ-aQskoo",
     "title": "English in a Minute: Grab a Bite",
-    "author": "VOA T\u00fcrk\u00e7e",
+    "author": "VOA Türkçe",
     "duration": 61,
     "embeddable": true
   },
@@ -37,6 +37,406 @@
     "title": "English in a Minute: Junk Food",
     "author": "VOA Learning English",
     "duration": 61,
+    "embeddable": true
+  },
+  {
+    "id": "couch-potato",
+    "videoId": "thIDS8-XfrM",
+    "title": "English in a Minute: Couch Potato",
+    "author": "VOA Learning English",
+    "duration": 60,
+    "embeddable": true
+  },
+  {
+    "id": "up-for-grabs",
+    "videoId": "RVY1S0QdOVw",
+    "title": "English in a Minute: Up for Grabs",
+    "author": "VOA Learning English",
+    "duration": 60,
+    "embeddable": true
+  },
+  {
+    "id": "the-bottom-line",
+    "videoId": "K9sRWHidjDk",
+    "title": "English in a Minute: The Bottom Line",
+    "author": "VOA Learning English",
+    "duration": 60,
+    "embeddable": true
+  },
+  {
+    "id": "split-the-difference",
+    "videoId": "F7UYmA6A0Ns",
+    "title": "English in a Minute: Split the Difference",
+    "author": "VOA Learning English",
+    "duration": 60,
+    "embeddable": true
+  },
+  {
+    "id": "in-full-swing",
+    "videoId": "Lyzl720gahg",
+    "title": "English in a Minute: In Full Swing",
+    "author": "VOA Learning English",
+    "duration": 60,
+    "embeddable": true
+  },
+  {
+    "id": "jump-ship",
+    "videoId": "NRpPCtLnIdw",
+    "title": "English in a Minute: Jump Ship",
+    "author": "VOA Learning English",
+    "duration": 60,
+    "embeddable": true
+  },
+  {
+    "id": "dead-giveaway",
+    "videoId": "TnE5Ke9OwP0",
+    "title": "English in a Minute: Dead Giveaway",
+    "author": "VOA Learning English",
+    "duration": 60,
+    "embeddable": true
+  },
+  {
+    "id": "stick-out-like-a-sore-thumb",
+    "videoId": "mloKYA4U3G8",
+    "title": "English in a Minute: Stick Out Like a Sore Thumb",
+    "author": "VOA Learning English",
+    "duration": 60,
+    "embeddable": true
+  },
+  {
+    "id": "read-into-something",
+    "videoId": "KHEzudV202s",
+    "title": "English in a Minute: Read Into Something",
+    "author": "VOA Learning English",
+    "duration": 60,
+    "embeddable": true
+  },
+  {
+    "id": "up-to-snuff",
+    "videoId": "r0dOmo6_MOs",
+    "title": "English in a Minute: Up to Snuff",
+    "author": "VOA Learning English",
+    "duration": 60,
+    "embeddable": true
+  },
+  {
+    "id": "stand-the-test-of-time",
+    "videoId": "6_Bb2MoFd5I",
+    "title": "English in a Minute: Stand the Test of Time",
+    "author": "VOA Learning English",
+    "duration": 60,
+    "embeddable": true
+  },
+  {
+    "id": "i-can-feel-it-in-my-bones",
+    "videoId": "8iQaVm5sdqQ",
+    "title": "English in a Minute: I Can Feel It in My Bones",
+    "author": "VOA Learning English",
+    "duration": 60,
+    "embeddable": true
+  },
+  {
+    "id": "point-fingers",
+    "videoId": "AAKvOKp747k",
+    "title": "English in a Minute: Point Fingers",
+    "author": "VOA Learning English",
+    "duration": 60,
+    "embeddable": true
+  },
+  {
+    "id": "drinking-from-a-fire-hose",
+    "videoId": "Gd7lT0ID3vg",
+    "title": "English in a Minute: Drinking from a Fire Hose",
+    "author": "VOA Learning English",
+    "duration": 60,
+    "embeddable": true
+  },
+  {
+    "id": "double-down",
+    "videoId": "bxYCcv5hnBY",
+    "title": "English in a Minute: Double Down",
+    "author": "VOA Learning English",
+    "duration": 60,
+    "embeddable": true
+  },
+  {
+    "id": "bells-and-whistles",
+    "videoId": "VQe_Y93FDz4",
+    "title": "English in a Minute: Bells and Whistles",
+    "author": "VOA Learning English",
+    "duration": 60,
+    "embeddable": true
+  },
+  {
+    "id": "let-off-steam",
+    "videoId": "l58BI6YXxBE",
+    "title": "English in a Minute: Let Off Steam",
+    "author": "VOA Learning English",
+    "duration": 60,
+    "embeddable": true
+  },
+  {
+    "id": "swan-song",
+    "videoId": "yfIKhcrsRHo",
+    "title": "English in a Minute: Swan Song",
+    "author": "VOA Learning English",
+    "duration": 60,
+    "embeddable": true
+  },
+  {
+    "id": "sink-or-swim",
+    "videoId": "qFFko9Jaxcc",
+    "title": "English in a Minute: Sink or Swim",
+    "author": "VOA Learning English",
+    "duration": 60,
+    "embeddable": true
+  },
+  {
+    "id": "staycation",
+    "videoId": "rD_XlYCFWfw",
+    "title": "English in a Minute: Staycation",
+    "author": "VOA Learning English",
+    "duration": 60,
+    "embeddable": true
+  },
+  {
+    "id": "proud-as-a-peacock",
+    "videoId": "6KVDLyanYUI",
+    "title": "English in a Minute: Proud as a Peacock",
+    "author": "VOA Learning English",
+    "duration": 60,
+    "embeddable": true
+  },
+  {
+    "id": "bury-your-head-in-the-sand",
+    "videoId": "7w412ERH7DQ",
+    "title": "English in a Minute: Bury Your Head in the Sand",
+    "author": "VOA Learning English",
+    "duration": 60,
+    "embeddable": true
+  },
+  {
+    "id": "a-mixed-bag",
+    "videoId": "7_TLWyX5Ugs",
+    "title": "English in a Minute: A Mixed Bag",
+    "author": "VOA Learning English",
+    "duration": 60,
+    "embeddable": true
+  },
+  {
+    "id": "ahead-of-the-curve",
+    "videoId": "Dz5jWA1RHgw",
+    "title": "English in a Minute: Ahead of the Curve",
+    "author": "VOA Learning English",
+    "duration": 60,
+    "embeddable": true
+  },
+  {
+    "id": "big-fish-in-a-small-pond",
+    "videoId": "XUfbEN3lzLg",
+    "title": "English in a Minute: Big Fish in a Small Pond",
+    "author": "VOA Learning English",
+    "duration": 60,
+    "embeddable": true
+  },
+  {
+    "id": "dollars-to-donuts",
+    "videoId": "8bBdZAVWjNs",
+    "title": "English in a Minute: Dollars to Donuts",
+    "author": "VOA Learning English",
+    "duration": 60,
+    "embeddable": true
+  },
+  {
+    "id": "cant-see-the-forest-for-the-trees",
+    "videoId": "_oEC-YMJ9j4",
+    "title": "English in a Minute: Can't See the Forest for the Trees",
+    "author": "VOA Learning English",
+    "duration": 60,
+    "embeddable": true
+  },
+  {
+    "id": "icing-on-the-cake",
+    "videoId": "8Qy9IimeBx8",
+    "title": "English in a Minute: Icing on the Cake",
+    "author": "VOA Learning English",
+    "duration": 60,
+    "embeddable": true
+  },
+  {
+    "id": "backhanded-compliment",
+    "videoId": "9E-JMpfCCRA",
+    "title": "English in a Minute: Backhanded Compliment",
+    "author": "VOA Learning English",
+    "duration": 60,
+    "embeddable": true
+  },
+  {
+    "id": "swamped",
+    "videoId": "Oxbk3lB-_nQ",
+    "title": "English in a Minute: Swamped",
+    "author": "VOA Learning English",
+    "duration": 60,
+    "embeddable": true
+  },
+  {
+    "id": "kill-two-birds-with-one-stone",
+    "videoId": "RC8ci88g57w",
+    "title": "English in a Minute: Kill Two Birds with One Stone",
+    "author": "VOA Learning English",
+    "duration": 60,
+    "embeddable": true
+  },
+  {
+    "id": "loose-cannon",
+    "videoId": "6TzfwkZdy4s",
+    "title": "English in a Minute: Loose Cannon",
+    "author": "VOA Learning English",
+    "duration": 60,
+    "embeddable": true
+  },
+  {
+    "id": "take-a-stab-at-something",
+    "videoId": "_JYyWqI8LNM",
+    "title": "English in a Minute: Take a Stab at Something",
+    "author": "VOA Learning English",
+    "duration": 60,
+    "embeddable": true
+  },
+  {
+    "id": "right-on-cue",
+    "videoId": "RiKtRSJiA-4",
+    "title": "English in a Minute: Right on Cue",
+    "author": "VOA Learning English",
+    "duration": 60,
+    "embeddable": true
+  },
+  {
+    "id": "head-and-shoulders-above",
+    "videoId": "B21JO6v2E_M",
+    "title": "English in a Minute: Head and Shoulders Above",
+    "author": "VOA Learning English",
+    "duration": 60,
+    "embeddable": true
+  },
+  {
+    "id": "tickled-pink",
+    "videoId": "Yj9g5G9QyFs",
+    "title": "English in a Minute: Tickled Pink",
+    "author": "VOA Learning English",
+    "duration": 60,
+    "embeddable": true
+  },
+  {
+    "id": "in-the-long-run",
+    "videoId": "iSTlFeW-Z9M",
+    "title": "English in a Minute: In the Long Run",
+    "author": "VOA Learning English",
+    "duration": 60,
+    "embeddable": true
+  },
+  {
+    "id": "chalk-it-up-to-something",
+    "videoId": "wejsrFMA0Vo",
+    "title": "English in a Minute: Chalk It Up to Something",
+    "author": "VOA Learning English",
+    "duration": 60,
+    "embeddable": true
+  },
+  {
+    "id": "make-waves",
+    "videoId": "VLkZ1vuMfNw",
+    "title": "English in a Minute: Make Waves",
+    "author": "VOA Learning English",
+    "duration": 60,
+    "embeddable": true
+  },
+  {
+    "id": "divide-and-conquer",
+    "videoId": "kVF8KdLsY48",
+    "title": "English in a Minute: Divide and Conquer",
+    "author": "VOA Learning English",
+    "duration": 60,
+    "embeddable": true
+  },
+  {
+    "id": "five-oclock-shadow",
+    "videoId": "3lLdwmTipjY",
+    "title": "English in a Minute: Five O'Clock Shadow",
+    "author": "VOA Learning English",
+    "duration": 60,
+    "embeddable": true
+  },
+  {
+    "id": "get-your-act-together",
+    "videoId": "gjnz5SWlofg",
+    "title": "English in a Minute: Get Your Act Together",
+    "author": "VOA Learning English",
+    "duration": 60,
+    "embeddable": true
+  },
+  {
+    "id": "lip-service",
+    "videoId": "Rp14tB8IZaM",
+    "title": "English in a Minute: Lip Service",
+    "author": "VOA Learning English",
+    "duration": 60,
+    "embeddable": true
+  },
+  {
+    "id": "par-for-the-course",
+    "videoId": "YxeChajSVJk",
+    "title": "English in a Minute: Par for the Course",
+    "author": "VOA Learning English",
+    "duration": 60,
+    "embeddable": true
+  },
+  {
+    "id": "the-third-degree",
+    "videoId": "NBX5v1yrGy8",
+    "title": "English in a Minute: The Third Degree",
+    "author": "VOA Learning English",
+    "duration": 60,
+    "embeddable": true
+  },
+  {
+    "id": "sketchy",
+    "videoId": "H4d1LaYvEpI",
+    "title": "English in a Minute: Sketchy",
+    "author": "VOA Learning English",
+    "duration": 60,
+    "embeddable": true
+  },
+  {
+    "id": "to-be-all-thumbs",
+    "videoId": "LCEISyVqJBE",
+    "title": "English in a Minute: To Be All Thumbs",
+    "author": "VOA Learning English",
+    "duration": 60,
+    "embeddable": true
+  },
+  {
+    "id": "see-the-light",
+    "videoId": "FLjnK6r-BCg",
+    "title": "English in a Minute: See the Light",
+    "author": "VOA Learning English",
+    "duration": 60,
+    "embeddable": true
+  },
+  {
+    "id": "make-ones-head-swim",
+    "videoId": "yUt4MpeqTQA",
+    "title": "English in a Minute: Make (One's) Head Swim",
+    "author": "VOA Learning English",
+    "duration": 60,
+    "embeddable": true
+  },
+  {
+    "id": "shiner",
+    "videoId": "t53s1Q-5Esc",
+    "title": "English in a Minute: Shiner",
+    "author": "VOA Learning English",
+    "duration": 60,
     "embeddable": true
   }
 ]

@@ -27,7 +27,7 @@
     },
     "src/data/shadowing-everyday.ts": {
       "before": "592e380ad971b8f6b48b8bad76cb2c11ef6258a8507666c3fb837424b1cdcbc5",
-      "after": "d6b4b4e9ded50d740a4bd5f6babefb696f80c899b3c80c52bbc3a9929fef359a"
+      "after": "ecf0be890ac4a086a17bce6958045c22955649fbbad95b6f26510fa459bfc62c"
     },
     "cloudflare/coach.ts": {
       "before": "8909e6abf292f42f0ab1ecf1b40303f9b7757055aae4aad55aee03fe99e324e3",
@@ -115,7 +115,7 @@
     },
     "src/data/speech-catalogue.json": {
       "before": "3597f0ff04aaa2abc53cbf4f94728147685e1ed45b55f33d156f3057b4ab5578",
-      "after": "43aee126a1bb0e2a86a9b9775673e93312b27cb71c877d85665d7cf483f47b3e"
+      "after": "2f51a8047e9fcc6d7251dd8b196042277f8266e0d3b98aa701ab5c82a82186f5"
     },
     "src/components/layout/LayoutShell.tsx": {
       "before": "1a03fb08cd1508dbc056b67ddf7dcf6cbff0e9bedb34e4ef2ed68e11ed8c18bd",
