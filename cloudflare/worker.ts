@@ -14,6 +14,7 @@ import {recordSecurity} from './adminSecurity';
 import {voaListeningResponse} from './voaListening';
 import {contentCatalogueResponse} from './learningContent';
 import {withSecurityHeaders} from './securityHeaders';
+import { gatedCacheControl } from './cachePolicy';
 
 type Env = SpeechEnv & LearnerEnv & CoachEnv & PronunciationEnv & { ASSETS: { fetch(request: Request): Promise<Response> } };
 const json = (body: object, status: number) => Response.json(body, { status, headers: { 'Cache-Control': 'no-store' } });
@@ -46,7 +47,7 @@ async function handleRequest(request: Request, env: Env): Promise<Response> {
     const asset = await env.ASSETS.fetch(request);
     if (asset.status !== 404) {
       if(decodeURIComponent(url.pathname).startsWith('/admin/')||(invitationRequired(env)&&!publicAccessPath(url.pathname))){
-        const response=new Response(asset.body,asset);response.headers.set('Cache-Control','no-store, private');response.headers.set('Vary','Cookie');return response;
+        const response=new Response(asset.body,asset);response.headers.set('Cache-Control',gatedCacheControl(url.pathname));response.headers.set('Vary','Cookie');return response;
       }
       return asset;
     }

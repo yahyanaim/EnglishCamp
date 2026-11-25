@@ -8,7 +8,7 @@ import { ReadingIllustration } from "@/components/brand/ReadingIllustration";
 import { ComprehensionQuiz } from "./ComprehensionQuiz";
 import { CEFR_LABELS, readingMinutes, type ReadingLesson } from "@/data/reading-lessons";
 import { articleTokens } from "@/lib/readingAudio";
-import { lookupWord } from "@/lib/vocabularyLookup";
+import { loadVocabularyBank, lookupWord } from "@/lib/vocabularyLookup";
 import { readingExerciseId, skillLessonXp } from "@/lib/comprehension";
 import { useProgress } from "@/store/useProgress";
 import { useSkillPractice } from "@/store/useSkillPractice";
@@ -23,6 +23,8 @@ export function ReadingLessonView({ lesson, onBack, onOpenBank }: { lesson: Read
   const bodyRef = useRef<HTMLDivElement>(null), popoverRef = useRef<HTMLDivElement>(null), heading = useRef<HTMLHeadingElement>(null);
   const [selection, setSelection] = useState<Selection | null>(null);
   const [focused, setFocused] = useState(0);
+  const [, setBankReady] = useState(false);
+  useEffect(() => { let live = true; loadVocabularyBank().then(() => { if (live) setBankReady(true); }, () => {}); return () => { live = false; }; }, []);
   const paragraphs = useMemo(() => articleTokens(lesson.paragraphs.map(en => ({ en }))), [lesson]);
   const wordCount = useMemo(() => paragraphs.flat().filter(t => t.index >= 0).length, [paragraphs]);
   const details = selection ? lookupWord(selection.text, lesson, selection.paragraph) : null;

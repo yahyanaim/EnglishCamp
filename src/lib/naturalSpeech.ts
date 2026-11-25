@@ -1,5 +1,6 @@
 "use client";
 import recordings from "@/data/practice-audio.json";
+import { playableAudioSrc } from "@/lib/audioSource";
 export type SpeechState="loading"|"playing"|"stopped"|"error";
 export const speechKey=(text:string)=>text.normalize("NFKC").trim().replace(/\s+/g," ").toLowerCase();
 const manifest=recordings as {speech:Record<string,string>;conversation:Record<string,string[]>;articles:Record<string,{src:string;cues:string}>};
@@ -12,7 +13,7 @@ function release(owner:Owner){owner.audio?.pause();owner.controller?.abort();if(
 export function stopNaturalSpeech(onlySrc?:string){if(onlySrc&&current?.src!==onlySrc)return;const old=current;current=null;if(old){release(old);old.state?.("stopped");}if(typeof window!=="undefined")window.dispatchEvent(new Event("camp:speech-cancel"));}
 function begin(owner:Owner){stopNaturalSpeech();window.speechSynthesis?.cancel();window.dispatchEvent(new Event("camp:natural-audio"));current=owner;owner.state?.("loading");}
 async function playOwner(owner:Owner,src:string,rate=1){
-  if(current!==owner)return;const audio=new Audio(src);owner.audio=audio;audio.playbackRate=rate;audio.preservesPitch=true;
+  if(current!==owner)return;const audio=new Audio(playableAudioSrc(src));owner.audio=audio;audio.playbackRate=rate;audio.preservesPitch=true;
   const finish=(state:SpeechState)=>{if(current===owner){current=null;release(owner);owner.state?.(state);if(state==="error"&&!owner.state)window.dispatchEvent(new Event("camp:speech-error"));}};
   audio.onended=()=>finish("stopped");audio.onerror=()=>finish("error");
   try{await audio.play();if(current===owner)owner.state?.("playing");}catch(error){if(current===owner){finish("error");throw error;}}

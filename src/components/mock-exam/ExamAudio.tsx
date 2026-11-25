@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { Play, Pause } from "lucide-react";
 import manifest from "../../../public/media/mock-exams/v2/manifest.json";
 import { primaryButton, smallClass } from "./ExamElements";
+import { playableAudioSrc } from "@/lib/audioSource";
 
 export type AudioAsset = { id: string; src: string; duration: number };
 export const examAudioAssets = manifest as AudioAsset[];
@@ -88,7 +89,7 @@ export function ExamAudio({
     <div className="space-y-4">
       <audio
         ref={player}
-        src={src}
+        src={playableAudioSrc(src)}
         preload="none"
         hidden
         onLoadedMetadata={() => {

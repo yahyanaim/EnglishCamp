@@ -51,7 +51,10 @@ async function main() {
     await fs.rename(from, to);
   }
   run(process.execPath, [path.join(root, 'node_modules/next/dist/bin/next'), 'build'], app);
-  const out = path.join(app, 'out'), assets = await files(out);
+  const out = path.join(app, 'out');
+  // Learners stream the MP3 copies (src/lib/audioSource.ts); uncompressed WAV masters stay in the repository only.
+  for (const file of await files(path.join(out, 'media'))) if (file.endsWith('.wav') && await fs.stat(file.slice(0, -4) + '.mp3').then(() => true, () => false)) await fs.rm(file);
+  const assets = await files(out);
   if (assets.length + 1 > 20_000) throw new Error('Static assets exceed the Cloudflare Free file limit.');
   let largest = 0;
   for (const file of assets) { const size = (await fs.stat(file)).size; largest = Math.max(largest, size); if (size > 25 * 1024 * 1024) throw new Error(`Asset exceeds 25 MiB: ${path.relative(out, file)}`); }
