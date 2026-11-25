@@ -1,5 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
+import { PenLine } from "lucide-react";
 import type { Block } from "@/data/types";
 import { TableBlock } from "./TableBlock";
 import { CalloutBlock } from "./CalloutBlock";
@@ -13,7 +14,13 @@ interface Props { blocks: Block[] }
 type Group =
   | { type: "block"; block: Block }
   | { type: "section"; title: string; paragraphs: string[] }
-  | { type: "check"; prompt: string; answer: string };
+  | { type: "check"; prompt: string; answer: string }
+  | { type: "pair"; variant: "brief" | "wrap"; items: Extract<Block, { kind: "callout" }>[] };
+
+const PAIRS: { variant: "brief" | "wrap"; first: string; second: string }[] = [
+  { variant: "brief", first: "What you will learn", second: "Before you begin" },
+  { variant: "wrap", first: "Recap", second: "Apply this in the practice lab" },
+];
 
 /** Presentation-only grouping: a titled rule followed by paragraphs reads as one section,
  *  and a "Pause and apply" prompt with its answer becomes one self-check card. Content is unchanged. */
@@ -26,6 +33,12 @@ function groupBlocks(blocks: Block[]): Group[] {
       const paragraphs = [b.text];
       while (blocks[i + 1]?.kind === "p") paragraphs.push((blocks[++i] as Extract<Block, { kind: "p" }>).text);
       out.push({ type: "section", title: b.title, paragraphs });
+      continue;
+    }
+    const pair = b.kind === "callout" && next?.kind === "callout" ? PAIRS.find(x => x.first === b.title && x.second === next.title) : undefined;
+    if (pair) {
+      out.push({ type: "pair", variant: pair.variant, items: [b as Extract<Block, { kind: "callout" }>, next as Extract<Block, { kind: "callout" }>] });
+      i++;
       continue;
     }
     if (b.kind === "callout" && b.title === "Pause and apply" && next?.kind === "callout" && next.title === "Compare your reasoning") {
@@ -44,14 +57,18 @@ export function LessonContent({ blocks }: Props) {
     <div className="camp-lesson-flow">
       {groups.map((group, i) => (
         <motion.div key={i} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.3, delay: Math.min(i, 8) * 0.05 }}>
-          {group.type === "section" ? (
+          {group.type === "pair" ? (
+            <div className="camp-lesson-pair" data-variant={group.variant}>
+              {group.items.map((item, k) => <CalloutBlock key={k} tone={item.tone} title={item.title} text={item.text} />)}
+            </div>
+          ) : group.type === "section" ? (
             <section className="camp-lesson-section">
-              <h3>{group.title}</h3>
+              <h3><span className="camp-lesson-section-num" aria-hidden="true" />{group.title}</h3>
               {group.paragraphs.map((text, k) => <p key={k}>{text}</p>)}
             </section>
           ) : group.type === "check" ? (
             <div className="camp-lesson-check">
-              <span className="camp-lesson-check-label">Pause and apply</span>
+              <span className="camp-lesson-check-label"><PenLine size={13} aria-hidden="true" />Pause and apply</span>
               <p>{group.prompt}</p>
               <details>
                 <summary>Compare your reasoning</summary>

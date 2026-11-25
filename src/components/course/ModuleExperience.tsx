@@ -13,6 +13,7 @@ import { IllustratedLessonContent } from "./IllustratedLessonContent";
 import { CourseEnrichment } from "./CourseEnrichment";
 import { CourseVideoLesson } from "./CourseVideoLesson";
 import { LessonPrinciple } from "./LessonPrinciple";
+import { LessonOutline } from "./LessonOutline";
 import { LessonDoneButton, lessonReadKey } from "./LessonDoneButton";
 import type { CourseEnrichment as Enrichment } from "@/data/course-enrichment/types";
 import { BookmarkButton } from "@/components/ui/BookmarkButton";
@@ -106,6 +107,9 @@ export function ModuleExperience({ course, lesson, exercises, enrichment, focuse
       <button type="button" className="camp-lesson-continue" onClick={() => go("learn")}>Continue to the lesson<ArrowRight size={16} aria-hidden="true" /></button>
     </div>}
     <div role="tabpanel" id="panel-learn" aria-labelledby="tab-learn" data-panel="learn" hidden={tab !== "learn"} className="camp-lesson-panel camp-lesson-theory">
+      <div className="camp-reader">
+      <LessonOutline bodyId="lesson-reader-body" lessonId={lesson.id} />
+      <div id="lesson-reader-body" className="camp-reader-body">
       {enrichment && <nav aria-label="Lesson sections" className="camp-lesson-onpage">
         <span>On this page</span>
         <a href="#additional-worked-example">Worked example</a>
@@ -114,10 +118,14 @@ export function ModuleExperience({ course, lesson, exercises, enrichment, focuse
       </nav>}
       <IllustratedLessonContent blocks={lesson.blocks} diagram={enrichment?.teachingDiagram} images={enrichment?.inlineImages} />
       {enrichment && <CourseEnrichment key={lesson.id} content={enrichment} />}
-      {enrichment?.principle && !enrichment.teachingDiagram && <div className="camp-lesson-principle-wrap"><LessonPrinciple principle={enrichment.principle} /></div>}
+      {enrichment?.principle && !enrichment.teachingDiagram && <div className="camp-lesson-principle-wrap" data-outline="visual" data-outline-label="Rule map" data-outline-kind="visual"><LessonPrinciple principle={enrichment.principle} /></div>}
       {!enrichment?.video && <NotesEditor key={lesson.id} lessonId={lesson.id} lessonTitle={lesson.title} />}
-      <LessonDoneButton lessonId={lesson.id}/>
-      <button type="button" className="camp-lesson-continue" onClick={() => go("practise")}>Continue to practice<ArrowRight size={16} aria-hidden="true" /></button>
+      <div className="camp-lesson-finish" id="lesson-finish" data-outline="finish" data-outline-label="Finish & practise" data-outline-kind="finish">
+        <LessonDoneButton lessonId={lesson.id}/>
+        <button type="button" className="camp-lesson-continue" onClick={() => go("practise")}>Continue to practice<ArrowRight size={16} aria-hidden="true" /></button>
+      </div>
+      </div>
+      </div>
     </div>
     <div role="tabpanel" id="panel-practise" aria-labelledby="tab-practise" data-panel="practise" hidden={tab !== "practise"} className="camp-lesson-panel">
     <section id="practice" aria-label="Module practice" className="camp-lesson-practice">

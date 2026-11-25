@@ -55,15 +55,15 @@
     },
     "src/components/course/ModuleExperience.tsx": {
       "before": "62dbbe68945792b4deede96c803081d490281fe6f7489c3fc47b13e650b28c51",
-      "after": "1d77504e29e6145477f210d5e9afc68761a7c6eb41e929d199f1784d42347db0"
+      "after": "f4a00586e608ed0310b482e3cac4183b4a43ee4f54ff15f6299976fb6de938aa"
     },
     "src/components/lesson/CalloutBlock.tsx": {
       "before": "9549d39d2731666c5672f797512be2ff550a3f4770416d4bdeeea75d039e5bfa",
-      "after": "3638acba2947ebed77de6b158acadc2a9d230c0eacd69259e4440b699485563e"
+      "after": "9b89f2c664ebf0b342235adcfdaf4410750f6943a7f31008e9bb598c84206be8"
     },
     "src/components/lesson/LessonContent.tsx": {
       "before": "ce33370fb66a6574dd2274dbf1e940ea7a3ad72a899c07886c3eed3f404ac577",
-      "after": "3175dfe2a0ebe81f38b606b7974494e8b1c254c0087655629e61d4b5b8c9ddf5"
+      "after": "56e9d1a1ef604e855e3722e563e9c2e57a97ca8c964dcac481a0d141499550f1"
     },
     "src/components/mock-exam/ExamAudio.tsx": {
       "before": "3715ddd3746964c38c7a17e95a8f1c3e30f0c393ea0e5bf0d0e233a01c769d50",
