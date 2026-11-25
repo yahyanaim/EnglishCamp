@@ -3,7 +3,7 @@
   "files": {
     "cloudflare/worker.ts": {
       "before": "004c1022a1b6679c39615ae3dfe6e66d62b56e88fcbb771c4d69a65723e160c7",
-      "after": "c65bae08efa1a2bef5049809a8bc451760a2012b06ce17b11a77ec4789ff5f55"
+      "after": "607f06bf40ed52972acdc6b2b614868c9289cdc6fbd2cecc1c994f02b7ad2ec3"
     },
     "src/app/membership/page.tsx": {
       "before": "793f15e348cc49cdc6704fe46da3168c1d500f25e2e873dc06c432dde6b9b056",
@@ -43,7 +43,7 @@
     },
     "cloudflare/aiShared.ts": {
       "before": "915aa9828f3934983dced7a45ef2e8ce9dddec675e2a921eee844d8f03b03484",
-      "after": "9d5af56b57c06cdc893272f5dfdb9bc7b945c53137264a1306d3181a75686817"
+      "after": "6f9fce9b7e8cffb7891efe9941a3c0060cf9c5e9ee52ba0dc109f2802f61bb71"
     },
     "src/app/english-coach/page.tsx": {
       "before": "3bbe48ccd10d50133aec8cc59e3c2da5a0c4c0b90590480b98eeeaa7d45f255d",
@@ -284,6 +284,26 @@
     "src/components/flashcard/FlashcardWrite.tsx": {
       "before": "10492c93fa33d7ee5b1036b1fdced8b5c516ed1f178e8d4873367b957a4d37dd",
       "after": "6203ecbe4453a9e864a5be24e51829d63cd81d1614847960d81041f3f1923986"
+    },
+    "src/app/search/page.tsx": {
+      "before": "c612fad439885ab28ecee13f8d082e152350564e00e454ed9eec556a2a6fd018",
+      "after": "0b52223b7949fa3a81d5c2ae81d3b506cadc0f3421bc861bf54dc649ba196214"
+    },
+    "src/components/session/CloudNotesProvider.tsx": {
+      "before": "2aff24b65ca26d1777061b422de6abfa5f4623207730da50af9d0255ad5f7658",
+      "after": "6217ec18a0ca37a557811fe7a3332b7e4edd7cc80230bae9b9b6dbc2694a9cc9"
+    },
+    "cloudflare/invitationAdmin.ts": {
+      "before": "0e60427e35d5017839f3fb47408342035d3acfda46da3792f54626f0529e3209",
+      "after": "c7d4986a85cdc30d77fd255ee10f7c6fb709b290c82c669ff105949a6c18c4f4"
+    },
+    "src/app/admin/login/page.tsx": {
+      "before": "c55a960abc4e50c33204b80d075b74bb69e0d9a34bb9be006758223b0b4f2e19",
+      "after": "fa3ab7e0116386370fa3f7deb61c83599a86f0b144fcbf0e83a2c4ab703a99ea"
+    },
+    "package-lock.json": {
+      "before": "c79b296bc875533b2b2dda111deebd5563c1e7a6dd94ee3154ec87da294cce17",
+      "after": "b7e5618151ab23c20681ad9a3fa68ca43fc1f5db71568ed85586ca7a4100655e"
     }
   },
   "selectors": {

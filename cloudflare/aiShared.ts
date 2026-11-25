@@ -11,7 +11,9 @@ export function wavBase64(audio:unknown,maxSeconds=30):audio is string{
 }
 async function digest(value:string){return Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(value)))).map(x=>x.toString(16).padStart(2,'0')).join('');}
 /** Shared SQL limits survive Worker restarts. No messages, recordings or raw IP addresses are stored. */
-export type AiLimitEnv={AI_COACH_DAILY_PER_LEARNER?:string;AI_PRONUNCIATION_DAILY_PER_LEARNER?:string};
+export type AiLimitEnv={AI_COACH_DAILY_PER_LEARNER?:string;AI_PRONUNCIATION_DAILY_PER_LEARNER?:string;AI_COACH_DAILY_GLOBAL?:string;AI_PRONUNCIATION_DAILY_GLOBAL?:string};
+/** Site-wide daily cap shared by all learners; tunable with Worker vars (bounded 10–100000), defaults unchanged. */
+export function globalDailyLimit(kind:'coach'|'pronunciation',env?:AiLimitEnv){const raw=Number(kind==='coach'?env?.AI_COACH_DAILY_GLOBAL:env?.AI_PRONUNCIATION_DAILY_GLOBAL),fallback=kind==='coach'?200:100;return Number.isInteger(raw)&&raw>=10&&raw<=100000?raw:fallback;}
 /** Per-learner daily allowance; operators can tune it with Worker vars (bounded 1–200). */
 export function learnerDailyLimit(kind:'coach'|'pronunciation',env?:AiLimitEnv){const raw=Number(kind==='coach'?env?.AI_COACH_DAILY_PER_LEARNER:env?.AI_PRONUNCIATION_DAILY_PER_LEARNER),fallback=kind==='pronunciation'?1:20;return Number.isInteger(raw)&&raw>=1&&raw<=200?raw:fallback;}
 const learnerBucket=(kind:string,learnerId:string,expiry:number)=>digest(`${kind}:learner:${learnerId}:${expiry}`);
@@ -24,7 +26,7 @@ export async function aiAllowance(db:LearnerDatabase,kind:'coach'|'pronunciation
 export async function aiRefund(db:LearnerDatabase,bucket:string|null){if(bucket)await db.prepare('UPDATE cloud_ai_limits SET used=MAX(0,used-1) WHERE bucket=?').bind(bucket).run().catch(()=>{});}
 export async function aiQuota(request:Request,db:LearnerDatabase,kind:'coach'|'pronunciation',learnerId?:string,env?:AiLimitEnv):Promise<string|null>{
  const now=Math.floor(Date.now()/1000),ip=request.headers.get('CF-Connecting-IP')||'local';
- const limits=kind==='coach'?[[60,5,false],[86400,30,false],[86400,200,true]]:[[60,2,false],[86400,15,false],[86400,100,true]];
+ const limits=kind==='coach'?[[60,5,false],[86400,30,false],[86400,globalDailyLimit('coach',env),true]]:[[60,2,false],[86400,15,false],[86400,globalDailyLimit('pronunciation',env),true]];
  await db.prepare('DELETE FROM cloud_ai_limits WHERE expires_at<?').bind(now).run();
  for(const [period,limit,global] of limits){const expiry=(Math.floor(now/Number(period))+1)*Number(period),bucket=await digest(`${kind}:${global?'global':ip}:${period}:${expiry}`);const result=await db.prepare('INSERT INTO cloud_ai_limits(bucket,used,expires_at) VALUES(?,1,?) ON CONFLICT(bucket) DO UPDATE SET used=used+1 WHERE used<? RETURNING used').bind(bucket,expiry,limit).first<{used:number}>();if(!result)throw new AiError('The practice allowance has been reached. Please try again later; your draft is kept.',429);}
  if(!learnerId)return null;

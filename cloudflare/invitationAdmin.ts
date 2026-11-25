@@ -1,4 +1,5 @@
 import type { LearnerEnv, LearnerDatabase } from './learners';
+import { adminCredentialConfigured, adminTotpEnabled, verifyAdminKey, verifyAdminTotp, type AdminCredentialEnv } from './adminCredential';
 import {adminReport} from './adminReports';
 import { accessHash, accessJson, accessSecret, readCookie } from './access';
 import {InvitationMailError,invitationRequests,sendInvitation,declineInvitation,reopenInvitation} from './invitationEmail';
@@ -9,7 +10,7 @@ import {contentAdmin} from './learningContent';
 const now = () => Math.floor(Date.now() / 1000);
 const cookieName = (r: Request) => new URL(r.url).protocol === 'https:' ? '__Host-camp-invite-admin' : 'camp_local_admin';
 const cookie = (r: Request, token: string, age = 28800) => `${cookieName(r)}=${token}; Path=/; HttpOnly; SameSite=Strict; Max-Age=${age}${new URL(r.url).protocol === 'https:' ? '; Secure' : ''}`;
-const configured = (env: LearnerEnv) => /^[a-f0-9]{64}$/.test(env.INVITATION_ADMIN_HASH || '');
+const configured = (env: LearnerEnv) => adminCredentialConfigured(env as LearnerEnv & AdminCredentialEnv);
 class AdminError extends Error { constructor(message: string, readonly status = 400) { super(message); } }
 async function input(request: Request,maximum=4096) {
   if (!request.headers.get('content-type')?.startsWith('application/json')) throw new AdminError('Use a valid form.');
@@ -31,7 +32,8 @@ export async function adminSession(request: Request, env: LearnerEnv) {
 async function loginRate(request: Request, db: LearnerDatabase) {
   const expiry = (Math.floor(now() / 600) + 1) * 600;
   await db.prepare('DELETE FROM cloud_auth_limits WHERE expires_at<?').bind(now()).run();
-  for (const [subject, limit] of [[request.headers.get('CF-Connecting-IP') || 'local', 6], ['global', 60]] as const) {
+  // Per-address limit stops guessing; the higher global cap slows distributed guessing without letting one client lock the owner out.
+  for (const [subject, limit] of [[request.headers.get('CF-Connecting-IP') || 'local', 6], ['global', 300]] as const) {
     const row = await db.prepare('INSERT INTO cloud_auth_limits(bucket,attempts,expires_at) VALUES(?,1,?) ON CONFLICT(bucket) DO UPDATE SET attempts=attempts+1 WHERE attempts<? RETURNING attempts')
       .bind(await accessHash(`invitation-admin:${subject}:${expiry}`), expiry, limit).first();
     if (!row) throw new AdminError('Too many attempts. Please wait ten minutes.', 429);
@@ -49,16 +51,17 @@ export async function invitationAdmin(request: Request, env: LearnerEnv): Promis
     if (action === 'login' && request.method === 'POST') {
       await loginRate(request, db); const body = await input(request);
       const password = typeof body.password === 'string' && body.password.length <= 256 ? body.password : '';
-      const actual = await accessHash(password), expected = env.INVITATION_ADMIN_HASH!;
-      let different = 0; for (let i = 0; i < 64; i++) different |= actual.charCodeAt(i) ^ expected.charCodeAt(i);
-      if (!password || different) return accessJson({ error: 'The management key is incorrect.' }, 401);
+      const credentials = env as LearnerEnv & AdminCredentialEnv, expected = env.INVITATION_ADMIN_HASH!;
+      // Check both factors before answering, so the reply never reveals which one failed.
+      const keyOk = await verifyAdminKey(password, credentials), codeOk = await verifyAdminTotp(body.code, credentials);
+      if (!keyOk || !codeOk) return accessJson({ error: adminTotpEnabled(credentials) ? 'The management key or authenticator code is incorrect.' : 'The management key is incorrect.' }, 401);
       const token = accessSecret();
       await db.batch([db.prepare('DELETE FROM cloud_admin_sessions WHERE expires_at<=?').bind(now()),
         db.prepare('INSERT INTO cloud_admin_sessions(token_hash,credential_version,expires_at) VALUES(?,?,?)').bind(await accessHash(token), await accessHash(expected), now() + 28800)]);
       return accessJson({ authenticated: true }, 200, cookie(request, token));
     }
     const session = await adminSession(request, env);
-    if (action === 'session' && request.method === 'GET') return accessJson({ configured: true, authenticated: !!session });
+    if (action === 'session' && request.method === 'GET') return accessJson({ configured: true, authenticated: !!session, twoFactor: adminTotpEnabled(env as LearnerEnv & AdminCredentialEnv) });
     if (!session) return accessJson({ error: 'Sign in to manage invitations.' }, 401);
     if(action==='content'||action.startsWith('content-'))return contentAdmin(action,request,env);
     if(action==='security'&&request.method==='GET')return accessJson(await securityReport(url,env,session));

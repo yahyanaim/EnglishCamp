@@ -103,7 +103,7 @@ test('Cloudflare build source cannot copy local secrets or deploy the Python/Nex
  assert.match(script,/output:'export'/);assert.match(script,/QuizPage params=\{params\}/);assert.ok(!script.includes('QuizPage {...props}'));
  assert.equal(config.assets.run_worker_first,true,'invitation checks must run before exported HTML and RSC assets');
  assert.equal(config.vars.INVITATION_REQUIRED,'true');
- assert.equal(config.vars.ENGLISHCAMP_SPEAKING_ENABLED,'false');assert.equal(config.observability.enabled,false);
+ assert.equal(config.vars.ENGLISHCAMP_SPEAKING_ENABLED,'false');assert.equal(config.observability.enabled,true,'request metadata only; see docs/deployment-rules.md');
  assert.ok(config.compatibility_flags.includes('enable_request_signal'),'incoming client cancellation must be enabled for pronunciation uploads');
  assert.equal(config.assets.not_found_handling,'none','legacy URLs must reach the redirect Worker before a static 404 fallback');
  for(const binding of ['containers','r2_buckets','kv_namespaces','durable_objects'])assert.equal(config[binding],undefined);

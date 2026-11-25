@@ -11,7 +11,7 @@ type NotesContext={status:'local'|'syncing'|'saved'|'offline'|'conflict';message
 const Context=createContext<NotesContext|null>(null);
 const key=(id:string)=>cloudLearnerPrefix(id)+'notes-sync-v1';
 function load(id:string):Metadata{try{const value=JSON.parse(localStorage.getItem(key(id))||'null');return{initialized:value?.initialized===true,revisions:value?.revisions??{},pending:Object.fromEntries(Object.entries(value?.pending??{}).filter(([,v])=>validNoteOperation(v))) as Record<string,NoteOperation>,conflicts:value?.conflicts??{},localOnly:value?.localOnly??{}};}catch{return{initialized:false,revisions:{},pending:{},conflicts:{},localOnly:{}};}}
-function save(id:string,data:Metadata){localStorage.setItem(key(id),JSON.stringify(data));}
+function save(id:string,data:Metadata){try{localStorage.setItem(key(id),JSON.stringify(data));}catch{/* Storage full or blocked: the next sync rebuilds this metadata. */}}
 export function CloudNotesProvider({children}:{children:ReactNode}){
  const {profile,ready}=useSessionProfile(),id=profile?.cloudId;
  const [status,setStatus]=useState<NotesContext['status']>('local'),[message,setMessage]=useState(''),[conflicts,setConflicts]=useState<Record<string,NoteConflict>>({});
