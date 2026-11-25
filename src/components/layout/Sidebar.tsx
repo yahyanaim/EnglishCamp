@@ -39,7 +39,7 @@ type NavSection = { id: string; label: string; icon: LucideIcon; links: NavLink[
 
 const NAV_MAIN: NavLink[] = [
   { href: "/dashboard", label: "Dashboard", icon: BarChart3 },
-  { href: "/dashboard#courses", label: "Courses", icon: Library },
+  { href: "/courses", label: "Courses", icon: Library },
   { href: "/practice", label: "Practice", icon: Gamepad2 },
   { href: "/mock-exam", label: "Mock Exams", icon: GraduationCap },
   { href: "/vocabulary", label: "Vocabulary", icon: BookHeart },
@@ -329,7 +329,7 @@ export function Sidebar({ open, onClose }: { open?: boolean; onClose?: () => voi
               <span className="text-[var(--color-text-primary)]">English</span>
               <span className="text-[var(--color-primary)]">Camp</span>
             </span>
-            <span className="text-[9px] font-medium text-[var(--color-text-secondary)] tracking-wide uppercase">A1 to B2 English</span>
+            <span className="text-[9px] font-medium text-[var(--color-text-secondary)] tracking-wide uppercase">A1 to C2 English</span>
           </div>
         </Link>
         {onClose && <button ref={closeRef} onClick={onClose} aria-label="Close navigation menu" className="h-11 w-11 shrink-0 flex items-center justify-center rounded-[var(--radius-md)] text-[var(--color-text-secondary)] hover:bg-[var(--color-surface-alt)]"><X className="w-5 h-5" /></button>}

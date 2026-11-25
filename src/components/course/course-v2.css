@@ -347,3 +347,13 @@ html.dark .camp-frame main.camp-content .camp-archify-open { color: #e9d5ff; }
 
 /* Lesson-body tables scroll inside their own frame instead of widening the page on phones. */
 .camp-frame main.camp-content :is(.camp-reader-body, .camp-lesson-flow) > * { min-width: 0; }
+
+/* Stage changes scroll to this marker (ModuleExperience): it sits just above the lesson tabs, below the header. */
+.camp-frame main.camp-content .camp-module-start { display: block; height: 0; scroll-margin-top: 88px; }
+/* Phones: only the header and the compact outline stay pinned, so the lesson keeps most of the screen. */
+@container camp-main (max-width: 679px) {
+  .camp-frame main.camp-content .camp-module-start { scroll-margin-top: 80px; }
+  .camp-frame main.camp-content .camp-lesson-tabs { position: relative; top: auto; }
+  .camp-frame main.camp-content .camp-outline { top: 84px; }
+  .camp-frame main.camp-content .camp-reader-body [id] { scroll-margin-top: 140px; }
+}

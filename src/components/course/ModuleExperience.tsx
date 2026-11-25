@@ -62,7 +62,9 @@ export function ModuleExperience({ course, lesson, exercises, enrichment, focuse
     };
     open(); window.addEventListener("hashchange", open); return () => window.removeEventListener("hashchange", open);
   }, [hasVideo]);
-  const go = (next: Tab) => { setTab(next); requestAnimationFrame(() => document.getElementById("module-tabs")?.scrollIntoView({ behavior: "smooth", block: "start" })); };
+  // Each stage opens at its start. #module-start sits in normal flow just above the (sometimes sticky) tabs, so it
+  // can be scrolled to even while the tabs are stuck; its scroll-margin keeps it clear of the header.
+  const go = (next: Tab) => { setTab(next); requestAnimationFrame(() => document.getElementById("module-start")?.scrollIntoView({ block: "start", behavior: "instant" })); };
   const stagesDone = mounted ? [0, 1, 2].filter(i => state?.stages[i]).length : 0;
   const read = mounted && readSaved;
   const tabs: { id: Tab; label: string; meta: string; done: boolean; show: boolean }[] = [
@@ -96,6 +98,7 @@ export function ModuleExperience({ course, lesson, exercises, enrichment, focuse
       </div>
       <div className="camp-lesson-course-progress" aria-hidden="true"><span style={{ width: `${((index + 1) / course.lessons.length) * 100}%` }} /></div>
     </header>
+    <span id="module-start" className="camp-module-start" aria-hidden="true" />
     <div id="module-tabs" role="tablist" aria-label="Lesson steps" className="camp-lesson-tabs" data-count={visibleTabs.length}>
       {visibleTabs.map((t, i) => <button key={t.id} type="button" role="tab" id={`tab-${t.id}`} aria-controls={`panel-${t.id}`} aria-selected={tab === t.id} onClick={() => go(t.id)}>
         <span className="camp-lesson-tab-num" data-done={t.done}>{t.done ? <Check size={14} aria-hidden="true" /> : i + 1}</span>

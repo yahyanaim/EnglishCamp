@@ -40,7 +40,7 @@ export default function MyNotes() {
       <h2>{query ? "No matching notes" : "A space for your own learning"}</h2>
       <p>{query ? "Try another lesson name or a word from your note." : "Write rules, examples and questions while you watch. Every note is filed under its lesson automatically."}</p>
       {!query && <ol className="camp-notes-howto"><li><span>1</span><p>Open a course lesson</p></li><li><span>2</span><p>Choose <strong>Add a note</strong> under the video</p></li><li><span>3</span><p>Find it here, organised by course</p></li></ol>}
-      <Link prefetch={false} href="/dashboard#courses" className="camp-notes-cta">Browse your courses <ArrowUpRight size={15} /></Link>
+      <Link prefetch={false} href="/courses" className="camp-notes-cta">Browse your courses <ArrowUpRight size={15} /></Link>
     </div> : groups.map(group => {
       const items = entries.filter(note => note.courseId === group);
       return <section className="camp-notes-group camp-learning-library-group" key={group}><h2>{items[0].courseTitle}<span className="camp-hub-section-count">{items.length}</span></h2><div className="camp-notes-list">{items.map(note => <article className="camp-saved-note" key={note.lessonId} data-editing={editing === note.lessonId}>
