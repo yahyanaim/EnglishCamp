@@ -190,7 +190,12 @@ function extractSnippet(text: string, query: string): string {
   return snippet;
 }
 
+const escapeHtml = (value: string) => value.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]!);
+
+/** Escapes the content first, so only the <mark> wrapper is ever interpreted as HTML. */
 function highlightMatch(text: string, query: string): string {
-  const regex = new RegExp(`(${query.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")})`, "gi");
-  return text.replace(regex, "<mark class='bg-[var(--color-warning-bg)] text-[var(--color-text-warning)] px-0.5 rounded'>$1</mark>");
+  const safeText = escapeHtml(text), safeQuery = escapeHtml(query);
+  if (!safeQuery) return safeText;
+  const regex = new RegExp(`(${safeQuery.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")})`, "gi");
+  return safeText.replace(regex, "<mark class='bg-[var(--color-warning-bg)] text-[var(--color-text-warning)] px-0.5 rounded'>$1</mark>");
 }
