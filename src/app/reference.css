@@ -1385,3 +1385,13 @@ html ::selection, html::selection { background:#7E22CE; color:white; }
 @keyframes camp-award-confetti{0%{opacity:0;transform:translateY(22px) rotate(0)}25%{opacity:.85}100%{opacity:0;transform:translateY(-70px) rotate(135deg)}}
 @media(max-width:480px){.camp-celebration-modal{padding:1rem;max-height:calc(100dvh - 2rem)}.camp-encouragement-panel{gap:.8rem}.camp-celebration-heading h3{font-size:1.45rem}.camp-celebration-message{padding:.85rem}.camp-celebration-message blockquote{font-size:1.05rem}}
 @media(prefers-reduced-motion:reduce){.camp-celebration-scene>i{animation:none;display:none}.camp-celebration-mascot{transform:none!important}.camp-learning-level-trigger{transition:none!important}}
+/* Audit U07: in the dark theme, text set in the brand colour uses the readable accent ink (>= 4.5:1). */
+.dark .text-\[var\(--color-primary\)\] { color: var(--camp-control-ink); }
+/* Audit U10: the statistics icon link gets a 24px target. */
+.rail-stats-link { display:inline-grid; place-items:center; min-width:24px; min-height:24px; border-radius:6px; }
+/* Audit U05: keyboard users can jump past the navigation to the page content. */
+.camp-skip-link { position:fixed; left:12px; top:-60px; z-index:100; padding:10px 16px; border-radius:var(--radius-md,10px); background:var(--color-surface); color:var(--color-text-primary); font-weight:700; box-shadow:var(--shadow-2,0 4px 14px rgba(0,0,0,.15)); transition:top .15s; }
+.camp-skip-link:focus { top:12px; outline:2px solid var(--camp-focus); outline-offset:2px; }
+#main-content:focus { outline:none; }
+/* Audit U09: the shortcut hint is drawn by CSS so the button's visible text matches its accessible name. */
+.camp-search kbd[data-shortcut]::after { content: attr(data-shortcut); }

@@ -10,6 +10,7 @@ import { SessionProvider } from "@/components/session/SessionProvider";
 import { LearningRail } from "./LearningRail";
 import { WeeklyProgressSync } from "@/components/session/WeeklyProgressSync";
 import { GridBalance } from "./GridBalance";
+import { DocumentTitle } from "./DocumentTitle";
 import {usePathname} from 'next/navigation';
 import {InvitationBoundary,InvitationContent,isEntryPage} from '@/components/session/InvitationBoundary';
 
@@ -21,7 +22,8 @@ export function LayoutShell({ children }: { children: React.ReactNode }) {
   if(pathname.startsWith('/admin/'))return <main className="camp-entry">{children}</main>;
 
   return (
-    <SessionProvider><InvitationBoundary>{entry?<main className="camp-entry">{children}</main>:<><WeeklyProgressSync/><GridBalance/><div className="camp-workspace">
+    <SessionProvider><InvitationBoundary>{entry?<main className="camp-entry">{children}</main>:<><WeeklyProgressSync/><GridBalance/><DocumentTitle/><div className="camp-workspace">
+      <a href="#main-content" className="camp-skip-link">Skip to content</a>
       <div className="camp-frame">
       <div className="camp-navigation hidden lg:block">
         <Sidebar />
@@ -34,7 +36,7 @@ export function LayoutShell({ children }: { children: React.ReactNode }) {
 
       <div className="camp-centre flex min-w-0 flex-col">
         <TopBar onMenuClick={() => setMobileSidebarOpen(true)} menuOpen={mobileSidebarOpen} />
-        <main className="app-canvas camp-content flex-1">
+        <main id="main-content" tabIndex={-1} className="app-canvas camp-content flex-1">
           <InvitationContent><PlacementOffer/>{children}</InvitationContent>
         </main>
       </div>

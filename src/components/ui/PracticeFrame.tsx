@@ -11,7 +11,7 @@ export function PracticeFrame({ children, layout = "quiz", topic }: { children: 
   const pathname = usePathname();
   const scene = practiceScene(topic || pathname || "", layout);
   if (layout === "reference") return <>{children}</>;
-  return <PracticeArtContext.Provider value={scene}><section className={`camp-practice camp-practice--${layout}`} aria-label="Practice activity">
+  return <PracticeArtContext.Provider value={scene}><section className={`camp-practice camp-practice--${layout}`}>
     <div className="camp-practice-body">{children}</div>
   </section></PracticeArtContext.Provider>;
 }

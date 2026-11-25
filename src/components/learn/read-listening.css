@@ -49,6 +49,6 @@
 .camp-library-pagination-range { font-size:12px; color:var(--color-text-secondary); }
 /* Narrow phones: keep Previous, the page numbers and Next on one row. */
 @media (max-width:400px) {
-  .camp-library-pagination > div { flex-wrap:nowrap; gap:4px; }
-  .camp-library-pagination button { min-width:0; flex:1 1 0; padding-inline:0; }
+  .camp-library-pagination > div { flex:1 1 100%; flex-wrap:nowrap; gap:4px; }
+  .camp-library-pagination button { min-width:36px; flex:1 1 0; padding-inline:0; }
 }

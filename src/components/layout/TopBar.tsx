@@ -65,8 +65,8 @@ export function TopBar({ onMenuClick, menuOpen = false }: { onMenuClick?: () => 
       </Button>
       <SessionEntry offerRecovery />
       <span className="sr-only">{pageTitle}</span>
-      <Button variant="outline" aria-label="Search courses, lessons and practice" disabled={!mounted} onClick={() => setPaletteOpen(true)} className="camp-search" onPointerEnter={() => { void import("./CommandPalette"); }} onFocus={() => { void import("./CommandPalette"); }}>
-        <Search size={17} /><span>Search courses, lessons and practice...</span><kbd>⌘ K</kbd>
+      <Button variant="outline" aria-label="Search courses, lessons and practice" aria-keyshortcuts="Meta+K" disabled={!mounted} onClick={() => setPaletteOpen(true)} className="camp-search" onPointerEnter={() => { void import("./CommandPalette"); }} onFocus={() => { void import("./CommandPalette"); }}>
+        <Search size={17} aria-hidden="true" /><span>Search courses, lessons and practice</span><kbd aria-hidden="true" data-shortcut="⌘ K" />
       </Button>
       {paletteOpen && <CommandPalette open={paletteOpen} onOpenChange={setPaletteOpen} />}
       <span className="camp-toolbar-xp" suppressHydrationWarning><LearningArt name="Zap" size={14}  />{currentXP.toLocaleString()}<span className="sr-only"> XP</span></span>

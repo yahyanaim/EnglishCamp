@@ -423,7 +423,7 @@
 .camp-frame main.camp-content .camp-pronunciation-lab .camp-shadow-recording-note { margin: 0; padding: 10px 20px 14px; text-align: center; font-size: 12px !important; color: var(--color-text-secondary); border: 0 !important; }
 .camp-frame main.camp-content .camp-pronunciation-lab .camp-shadow-take { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 12px; padding: 0 20px 14px; }
 .camp-frame main.camp-content .camp-pronunciation-lab .camp-pronunciation-feedback { margin: 0 16px 16px; padding: 20px; border-radius: 18px; border: 0 !important; background: var(--g-control); box-shadow: var(--g-control-shadow); gap: 12px; }
-.camp-frame main.camp-content .camp-pronunciation-lab .camp-pronunciation-feedback h3 { font: 700 17px/1.35 var(--font-display), Nunito, sans-serif !important; }
+.camp-frame main.camp-content .camp-pronunciation-lab .camp-pronunciation-feedback :is(h2,h3) { font: 700 17px/1.35 var(--font-display), Nunito, sans-serif !important; }
 .camp-frame main.camp-content .camp-pronunciation-lab .camp-pronunciation-feedback > p { font-size: 14px !important; line-height: 1.6 !important; }
 .camp-frame main.camp-content .camp-pronunciation-lab .camp-ai-consent { display: flex; gap: 12px; align-items: flex-start; padding: 14px 16px; border-radius: 14px; background: var(--g-card); border: 1px solid var(--g-rim, var(--color-border-default)); font-size: 13px; line-height: 1.55; cursor: pointer; }
 .camp-frame main.camp-content .camp-pronunciation-lab .camp-ai-consent input { flex: none; width: 18px; height: 18px; margin-top: 1px; accent-color: var(--camp-purple); }
@@ -519,3 +519,6 @@ html.dark .camp-frame main.camp-content .camp-ai-allowance[data-empty="true"] { 
 .camp-frame main.camp-content .camp-shadow-thumb { overflow: visible !important; }
 .camp-frame main.camp-content .camp-shadow-seal .camp-number-seal > strong { color: #fff !important; font-family: var(--font-display), Nunito, sans-serif !important; font-weight: 800 !important; }
 .camp-frame main.camp-content .camp-shadow-thumb-seal .camp-number-seal > strong { font-size: .68rem !important; }
+/* Audit U12: long level names shrink instead of widening the tile on 360px phones. */
+.camp-grammar-path-tile { grid-template-columns:minmax(0,1fr); }
+.camp-grammar-path-head, .camp-grammar-path-name { min-width:0; }

@@ -27,7 +27,8 @@ export function accentPalette(value: string,dark=false): Record<string,string> {
     "--color-primary":primary,"--color-primary-hover":hover,"--color-primary-dark":hover,"--color-primary-light":soft,"--color-primary-subtle":soft,
     "--color-on-brand":"#FFFFFF","--color-text-link":ink,"--color-border-focus":ink,"--color-info":primary,"--color-info-dark":ink,"--color-info-bg":soft,"--color-text-info":ink,
     "--primary":primary,"--primary-foreground":"#FFFFFF","--accent":soft,"--accent-foreground":ink,"--ring":ink,
-    "--color-course-band4-5":primary,"--color-course-band5-6":hover,"--color-course-band6-7":primary,"--color-course-band7-8":hover,
+    // Course colours are also used for text (e.g. sidebar course numbers): in the dark theme they use the readable ink.
+    "--color-course-band4-5":dark?ink:primary,"--color-course-band5-6":dark?ink:hover,"--color-course-band6-7":dark?ink:primary,"--color-course-band7-8":dark?ink:hover,
     "--camp-art-dark":hex(mix(base,[0,0,0],.45)),"--camp-art-deep":hover,"--camp-art-main":primary,"--camp-art-mid":hex(mix(base,[255,255,255],.18)),"--camp-art-light":hex(mix(base,[255,255,255],.65)),"--camp-art-pale":hex(mix(base,[255,255,255],.9)),
   };
 }

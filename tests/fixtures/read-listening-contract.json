@@ -7,7 +7,7 @@
     },
     "src/app/membership/page.tsx": {
       "before": "793f15e348cc49cdc6704fe46da3168c1d500f25e2e873dc06c432dde6b9b056",
-      "after": "f6aa7ed95a65a9d7806f12588461c9788eaa33aaa291a1bbadb2fc63de91a50c"
+      "after": "4553e5821b179e4d1288548143c726ac742bfc577c86a9c48f6fec1ea805019d"
     },
     "src/app/shadowing-english/page.tsx": {
       "before": "17d9582102a274a8e5968a085a709e435cbaf580e548980f6c575b78939743ed",
@@ -51,7 +51,7 @@
     },
     "src/components/speaking/PronunciationFeedback.tsx": {
       "before": "8119b4857b3fd5e8f4858b4b81ff81678dcafc9723cbbc77ea3008e054264831",
-      "after": "97325c7b665d607bde542f7465db3a038d58e549501cb67ff6c3aa87894c9d40"
+      "after": "033e1941b08bee367049f38007a362ac35bab4cd1d4c89c11f11db6229d6289c"
     },
     "src/components/course/CourseOverview.tsx": {
       "before": "e446bfcbc4e79ddcb7751480feafe29474ce84762036ad28ebbb0d6a7178db62",
@@ -107,11 +107,11 @@
     },
     "src/components/layout/Sidebar.tsx": {
       "before": "2a94206b4a6fcb8b811a4176560c6f5b5039b4fab8138a1e59a55bd6eaa0b21a",
-      "after": "51ff30ba7978c341950faa52101fd8d2f15954bb98b94fe3e87c3a4060f21f43"
+      "after": "80c46238ef7958e162a78e5054be9c82376548a531e773d1be7dbee9041604c3"
     },
     "src/components/layout/TopBar.tsx": {
       "before": "756390d54e5b52d540494bc834198fdf14618144e7a46dfebefb087c8652c36b",
-      "after": "35818a75642cdcbec998af47ba02594ddd28664558ab5a09199ecf82d9d55786"
+      "after": "42387e5279c29583061b09adb9d7f54be1f43c42c9fb99ff53059a09a27a3fea"
     },
     "src/lib/learnerStores.ts": {
       "before": "90e9b17e8840cb42ff90e2aadb4b1fd88d66e2fa84de78a09be7ce2000bc877f",
@@ -123,7 +123,7 @@
     },
     "src/components/layout/LayoutShell.tsx": {
       "before": "1a03fb08cd1508dbc056b67ddf7dcf6cbff0e9bedb34e4ef2ed68e11ed8c18bd",
-      "after": "d58f0d7928b6c0b2e7f1b945c188cbe0b15c6bb3359f267663ba36be000e8641"
+      "after": "d5aa73050c9a8a45dd002923b3aca3ee5c4e65805c3357562fb482d71a171f23"
     },
     "src/store/useVocabulary.ts": {
       "before": "06314e7c0beaa7928e694f766246d7d6c8c824f2d51e812a505b6f1e71aa8939",
@@ -332,6 +332,58 @@
     "src/lib/vocabularyLookup.ts": {
       "before": "f390000f4a5c5d135370a08c35e29b6f23bcf3614851332f64e2870c40c3e095",
       "after": "3b321eac31b4862f5d42d7ff7eef726af8c221cd00d2d9b038ca30e0a924623b"
+    },
+    "src/app/ai-practice.css": {
+      "before": "fe7e0130831b48374c296bb05b3e964a03f2e56d30058cd8d078e02e6d4daf32",
+      "after": "c018526dcfa596ad1b6102f9c5cca6de4e36d631ca9a182f6f8ad354f956d76f"
+    },
+    "src/app/reference.css": {
+      "before": "dff037b9fb1dcae23f8aaa3bfbc8ec4a09e6bef6eed4f94344daac9b9d8b8bec",
+      "after": "c342b0d7ffaf1283cfe6452c5d521b5a513343f6d5dbb3cadfa744bb9500750e"
+    },
+    "src/components/admin/admin.css": {
+      "before": "b081768e0378b8a6eb2f504d2010580938d709701a69394881e64f7c54f797a3",
+      "after": "8d3cfc030bfa595285597462da03b5f216237eaf0b82fc794a2a06b0b9921627"
+    },
+    "src/components/course/CoursePreviewCard.tsx": {
+      "before": "99ee5815aa24cea7988c3aa27f6ef5bcd30dd1349cba5206279f50c8358abb30",
+      "after": "f7350bedf7022ab0dc07714f4dc3a6a04a846e6a7f3351731d01fa6902a5c6f2"
+    },
+    "src/components/layout/LearningRail.tsx": {
+      "before": "77b983d5a5d8827dfb479ad37561ec7133aa192fcbfdf09e68292476af96be97",
+      "after": "a9abf84f94a166e88c10afca48bda00e47feaea5a3d4c4de5a115d085019fea8"
+    },
+    "src/components/session/SessionEntry.tsx": {
+      "before": "b425e03330aca11f250cd7e397cd081d5fd376069b8411d21d412e2278b6cda0",
+      "after": "e3f129fd276d829f20891fe3524145f4ce0877e5e38c515bd7884f49167ac63a"
+    },
+    "src/components/ui/ActivityChart.tsx": {
+      "before": "ce81ccaa3431139812be6aaf794a73d02e25391d77beeeeb87542806aba714f8",
+      "after": "f2717334122f5081ca998ca492dfeff0f5216d313a64b0b6cdaedc6dd25d61cc"
+    },
+    "src/components/ui/PracticeFrame.tsx": {
+      "before": "f9694989955e32063004b1a7b828057632a6eb69700a1a745e6df10c595e4573",
+      "after": "397ba9c3f838ebad2f4b7139c3a5099e44425268bafe3795bf1e990a992d2c53"
+    },
+    "src/components/ui/StudyTimer.tsx": {
+      "before": "6e7fb4ffd584fc21cd98c32c6c9dd763c4109ca50a9cb93d19bdb299b29163f0",
+      "after": "c221ebafa5d2a666e5c1fc23b44275c9ec494aa40236fcc4fa274e4a125e0d6b"
+    },
+    "src/lib/accentPalette.ts": {
+      "before": "ff92987b1bcbb85be4724c0c0476e0fcf53d3fcd6c092858a72fe3368af0a645",
+      "after": "53acb6fca06e9ce929a566d7ed6c29dca8b69282775e48220fb58d98e982a818"
+    },
+    "src/components/admin/AdminLearners.tsx": {
+      "before": "887d203394d2d79f53a948a00a5a89df5e86eb6659b241cffa9e300cebfa60e1",
+      "after": "887d203394d2d79f53a948a00a5a89df5e86eb6659b241cffa9e300cebfa60e1"
+    },
+    "src/components/course/CourseVideoLesson.tsx": {
+      "before": "e8a27354584e638b29545078aaa4757179b4f7f8713bbbfe56d28fbeaeaa9b17",
+      "after": "e8a27354584e638b29545078aaa4757179b4f7f8713bbbfe56d28fbeaeaa9b17"
+    },
+    "src/components/shadowing/ShadowVideo.tsx": {
+      "before": "ae5f8301a8a0172e51abe30801ab5e8c78cb800b0e1549f4d0c4937d3de3a917",
+      "after": "ae5f8301a8a0172e51abe30801ab5e8c78cb800b0e1549f4d0c4937d3de3a917"
     },
     "src/app/dashboard/page.tsx": {
       "before": "9068f1b76fe0e7877d4a8657a637c84c8d3218df9e6d61b33f4a914078b4ecd7",
