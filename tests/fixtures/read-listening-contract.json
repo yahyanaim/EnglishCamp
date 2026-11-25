@@ -29,6 +29,10 @@
       "before": "592e380ad971b8f6b48b8bad76cb2c11ef6258a8507666c3fb837424b1cdcbc5",
       "after": "ecf0be890ac4a086a17bce6958045c22955649fbbad95b6f26510fa459bfc62c"
     },
+    "src/data/course-instruction/index.ts": {
+      "before": "507a5f125800a2fe75639e60d10d47a4adea3deff754665b16e49345d3c5106e",
+      "after": "d194350ebbff6c3a92bef57cfe5923132cbf409985996484bc505fc5a9a62c57"
+    },
     "cloudflare/coach.ts": {
       "before": "8909e6abf292f42f0ab1ecf1b40303f9b7757055aae4aad55aee03fe99e324e3",
       "after": "7359e3db56c5b5c7003233a051055931a322d9d723751800f06b672c53d18232"
