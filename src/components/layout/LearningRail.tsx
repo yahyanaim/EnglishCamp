@@ -41,7 +41,7 @@ export function LearningRail() {
         </div>
       </div>
       <section className="rail-course-progress" aria-label="Completed course modules">
-        <div className="rail-section-heading">Course progress <Link prefetch={false} href="/stats" aria-label="View learning statistics"><ArrowUpRight size={15} /></Link></div>
+        <div className="rail-section-heading">Course progress <Link prefetch={false} href="/stats" aria-label="View learning statistics" className="rail-stats-link"><ArrowUpRight size={15} aria-hidden="true" /></Link></div>
         <div className="rail-chart camp-course-bars">{courses.map((course,i)=><Link prefetch={false} key={course.id} href={`/levels/${course.id}`} className="rail-chart-column" title={`${course.title}: ${course.percent}% stages, ${course.completed}/${course.total} modules completed`}><div className="rail-chart-track" role="progressbar" aria-label={`${course.title} course progress`} aria-valuemin={0} aria-valuemax={100} aria-valuenow={course.percent}><div style={{height:`${course.percent}%`}}/></div><strong>{course.percent}%</strong><small>{['B2','Academic','TOEFL','General'][i]}</small></Link>)}</div><p className="rail-caption">Accepted course stages. Complete all three stages to finish a module.</p>
       </section>
       <section>

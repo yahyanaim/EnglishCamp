@@ -132,3 +132,7 @@
 .admin-report-scroll:focus-visible { outline: 2px solid var(--camp-focus); outline-offset: 2px; }
 .admin-payment-cell { display: grid; justify-items: start; gap: 5px; min-width: 105px; }
 .admin-payment-cell small { color: var(--color-text-secondary); font-size: 10px; white-space: nowrap; }
+/* Audit U12: filter counts keep full contrast. */
+.admin-filter-pills>button>span{opacity:1}
+/* Audit U10: icon links get a 24px target. */
+.admin-overview-heading>a{display:inline-grid;place-items:center;min-width:24px;min-height:24px}

@@ -12,6 +12,10 @@ test('the access boundary leaves the existing workspace chrome and original font
  const shell=fs.readFileSync('src/components/layout/LayoutShell.tsx','utf8')
   // Reviewed addition: GridBalance evens out incomplete grid rows inside the content area.
   .replace('import { GridBalance } from "./GridBalance";\n','').replace('<GridBalance/>','')
+  // Reviewed additions (audit U04/U05): per-page document titles, a skip link and a focus target for it.
+  .replace('import { DocumentTitle } from "./DocumentTitle";\n','').replace('<DocumentTitle/>','')
+  .replace('\n      <a href="#main-content" className="camp-skip-link">Skip to content</a>','')
+  .replace('<main id="main-content" tabIndex={-1} className=','<main className=')
   .replace("import {usePathname} from 'next/navigation';\n",'')
   .replace("import {InvitationBoundary,InvitationContent,isEntryPage} from '@/components/session/InvitationBoundary';\n",'')
   .replace('  const pathname=usePathname(),entry=isEntryPage(pathname);\n  // Admin sessions and pages do not mount learner storage/synchronization providers.\n  if(pathname.startsWith(\'/admin/\'))return <main className="camp-entry">{children}</main>;\n','')

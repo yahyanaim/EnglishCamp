@@ -99,24 +99,28 @@ export function StudyTimer() {
 
         <div className="flex justify-center gap-2">
           <button
+            type="button"
             onClick={toggle}
+            aria-label={running ? "Pause study timer" : "Start study timer"}
             className="w-9 h-9 rounded-[var(--radius-md)] flex items-center justify-center transition-all duration-150"
             style={{
               backgroundColor: accentBg,
               color: accentDark,
             }}
           >
-            {running ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4" />}
+            {running ? <Pause className="w-4 h-4" aria-hidden="true" /> : <Play className="w-4 h-4" aria-hidden="true" />}
           </button>
           <button
+            type="button"
             onClick={reset}
+            aria-label="Reset study timer"
             className="w-9 h-9 rounded-[var(--radius-md)] flex items-center justify-center transition-all duration-150"
             style={{
               backgroundColor: "var(--color-neutral-50)",
               color: "var(--color-text-secondary)",
             }}
           >
-            <RotateCcw className="w-3.5 h-3.5" />
+            <RotateCcw className="w-3.5 h-3.5" aria-hidden="true" />
           </button>
         </div>
       </div>

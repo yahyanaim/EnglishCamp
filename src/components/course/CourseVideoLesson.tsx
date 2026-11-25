@@ -22,8 +22,8 @@ export function CourseVideoLesson({ video, principle, example, lessonId, lessonT
     <div className="camp-video-frame">
       <div className="camp-video-toolbar"><span><Video size={15} /> Lesson player</span><a href={watchUrl} target="_blank" rel="noreferrer" aria-label="Open this lesson on YouTube"><ExternalLink size={15} /></a></div>
       <div className="camp-video-stage">
-        {loaded ? <iframe key={`${video.id}-${video.start}`} src={embedUrl} title={video.title} className="camp-video-iframe" loading="lazy" referrerPolicy="strict-origin-when-cross-origin" allow="encrypted-media; picture-in-picture; fullscreen" allowFullScreen /> : <button type="button" className="camp-video-placeholder" onClick={() => setLoadedVideo(videoKey)} aria-label={`Load video lesson: ${video.title}`}>
-          <span className="camp-video-play"><Play size={26} fill="currentColor" /></span><strong>Load lesson video</strong><span>{video.publisher}</span><small>Connects to YouTube only when you choose to load it</small>
+        {loaded ? <iframe key={`${video.id}-${video.start}`} src={embedUrl} title={video.title} className="camp-video-iframe" loading="lazy" referrerPolicy="strict-origin-when-cross-origin" allow="encrypted-media; picture-in-picture; fullscreen" allowFullScreen /> : <button type="button" className="camp-video-placeholder" onClick={() => setLoadedVideo(videoKey)}>
+          <span className="camp-video-play" aria-hidden="true"><Play size={26} fill="currentColor" /></span><strong>Load lesson video</strong><span>{video.publisher}</span><small>Connects to YouTube only when you choose to load it</small><span className="sr-only">. Video: {video.title}</span>
         </button>}
       </div>
       <div className="camp-video-caption"><span>{video.segment}</span><span>YouTube · Optional resource</span></div>

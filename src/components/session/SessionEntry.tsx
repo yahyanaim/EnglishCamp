@@ -18,7 +18,7 @@ export function SessionEntry({offerRecovery=false}:{offerRecovery?:boolean}) {
   useEffect(()=>{if(offerRecovery&&recoveryCode)setOpen(true);},[offerRecovery,recoveryCode]);
   if(ready&&!profile)return <Button asChild variant="ghost" className="camp-session-entry"><Link href="/invite?view=signin"><LearningArt name="chat" size={20}/><span>Sign in</span></Link></Button>;
   return <>
-    <Button ref={trigger} variant="ghost" disabled={!ready} onClick={() => setOpen(true)} aria-haspopup="dialog" aria-expanded={open} className="camp-session-entry" aria-label={profile ? `Your session: ${profile.name}` : "Sign in with your name"}>
+    <Button ref={trigger} variant="ghost" disabled={!ready} onClick={() => setOpen(true)} aria-haspopup="dialog" aria-expanded={open} className="camp-session-entry" aria-label={profile ? `${profile.name} ${profileTag(profile)}, your session` : "Sign in with your name"}>
       {profile ? <><span className="camp-session-avatar"><FruitAvatar fruit={profile.fruit} size={32} /></span><span className="camp-session-label"><strong>{profile.name}</strong><small>{profileTag(profile)}</small></span></> : <><LearningArt name="chat" size={20} /><span>Sign in</span></>}
     </Button>
     {open && <SessionDialog open={open} onOpenChange={setOpen} trigger={trigger} />}

@@ -61,7 +61,7 @@ export default function MembershipPage(){
  const paypalManage=data?.sandbox?'https://www.sandbox.paypal.com/myaccount/autopay/':'https://www.paypal.com/myaccount/autopay/';
  const title=!data?'Opening your membership…':data.mode==='legacy'?'Your existing access is kept':paid?'Your membership is active':trial?'Your free trial':data.enabled?'Continue learning with a membership':'Membership is being prepared';
 
- return <div className="camp-entry-auth"><EntryHeader/><main className="camp-membership">
+ return <div className="camp-entry-auth"><EntryHeader/><div className="camp-membership">
   <header><span className="camp-membership-art"><AdminIcon name="shield" size={25}/></span><h1>Your learning, continued.</h1><p>Your courses, notes and badges stay with your profile.</p></header>
   <section className="camp-membership-card" aria-busy={busy||confirming}>
    <div className="camp-membership-title"><h2>{title}</h2>{data&&data.mode!=='legacy'&&<span className="camp-membership-pill" data-tone={paid?'success':trial?'info':data.enabled?'warning':'info'}>{paid?'Active':trial?`${daysLeft(data.trialUntil)} ${daysLeft(data.trialUntil)===1?'day':'days'} left`:data.enabled?'Not active':'Free for now'}</span>}</div>
@@ -97,5 +97,5 @@ export default function MembershipPage(){
    {!data&&error&&<Button variant="outline" onClick={()=>{setError('');void load();}}>Try again</Button>}
   </section>
   <p className="camp-membership-help">Using another account? <Link href="/invite">Restore your profile</Link> · Questions about a payment? Your PayPal receipt shows every charge.</p>
- </main></div>;
+ </div></div>;
 }

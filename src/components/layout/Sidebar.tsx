@@ -322,7 +322,7 @@ export function Sidebar({ open, onClose }: { open?: boolean; onClose?: () => voi
   const sidebarContent = (
     <>
       <div className="px-4 py-4 border-b border-[var(--color-border-default)] flex items-center justify-between gap-2">
-        <Link prefetch={false} href="/" aria-label="EnglishCamp home" className="flex items-center gap-3" onClick={onClose}>
+        <Link prefetch={false} href="/" className="flex items-center gap-3" onClick={onClose}>
           <BrandMark size={36} />
           <div>
             <span className="font-display text-lg font-extrabold tracking-tight block leading-tight">
@@ -331,6 +331,7 @@ export function Sidebar({ open, onClose }: { open?: boolean; onClose?: () => voi
             </span>
             <span className="text-[9px] font-medium text-[var(--color-text-secondary)] tracking-wide uppercase">A1 to C2 English</span>
           </div>
+          <span className="sr-only">, home</span>
         </Link>
         {onClose && <button ref={closeRef} onClick={onClose} aria-label="Close navigation menu" className="h-11 w-11 shrink-0 flex items-center justify-center rounded-[var(--radius-md)] text-[var(--color-text-secondary)] hover:bg-[var(--color-surface-alt)]"><X className="w-5 h-5" /></button>}
       </div>
