@@ -59,7 +59,7 @@
     },
     "src/components/course/ModuleExperience.tsx": {
       "before": "62dbbe68945792b4deede96c803081d490281fe6f7489c3fc47b13e650b28c51",
-      "after": "f4a00586e608ed0310b482e3cac4183b4a43ee4f54ff15f6299976fb6de938aa"
+      "after": "216418d42bf2b0999c7c15ee194015070dd7fa084d81d77717451ae2c5024ae9"
     },
     "src/components/lesson/CalloutBlock.tsx": {
       "before": "9549d39d2731666c5672f797512be2ff550a3f4770416d4bdeeea75d039e5bfa",
@@ -79,7 +79,7 @@
     },
     "src/app/my-notes/page.tsx": {
       "before": "0c9cf8fce7f9d6f9a0b41a6f3853176173d5098ef21f9892d01c60cabee44963",
-      "after": "45c20bbdef7fc82d5c1720870cef8977e3f456755a44509d8b47e92940ac2b0d"
+      "after": "3315f6edd9ebf29833ef193292d0de0d79027e61ff096bb6d6a28e0dd83881ec"
     },
     "src/app/review/page.tsx": {
       "before": "9b5c48e0c891587e20d4ab0b79233839e9bce46497e1d78c3e90e0c47217d685",
@@ -107,7 +107,7 @@
     },
     "src/components/layout/Sidebar.tsx": {
       "before": "2a94206b4a6fcb8b811a4176560c6f5b5039b4fab8138a1e59a55bd6eaa0b21a",
-      "after": "1e6bfe020728a1d43107b60a697f773aecb3e950769449e89f4ed518fb6a4747"
+      "after": "51ff30ba7978c341950faa52101fd8d2f15954bb98b94fe3e87c3a4060f21f43"
     },
     "src/components/layout/TopBar.tsx": {
       "before": "756390d54e5b52d540494bc834198fdf14618144e7a46dfebefb087c8652c36b",
@@ -151,7 +151,7 @@
     },
     "src/app/practice/page.tsx": {
       "before": "4b8deb6076323dbe529912df9e1406142c34e56632f42cf932e04979b939216d",
-      "after": "8f578fec02aeb1b5af97cfec1bed3e7d3c55b5a162c27687b6a330e23c5427e1"
+      "after": "c045d41891a46a7f98db9453b8e1d754f27978228da26d0af7350771dfd6c8d5"
     },
     "src/components/learn/MemoryMatchGame.tsx": {
       "before": "086a8c963c4fb1b507dc4380de9fbd5d193c2141b9f31826ba9cae273e967418",
@@ -271,7 +271,7 @@
     },
     "src/lib/learningNavigation.ts": {
       "before": "14cfaa1f3599d68e3cd3611deaedb55390cf7c0f69b8749fabcc8561fa4d35ae",
-      "after": "14cfaa1f3599d68e3cd3611deaedb55390cf7c0f69b8749fabcc8561fa4d35ae"
+      "after": "acc0b71b9e6a33cc7bcf07c1e1de99c6da4fd6c8eccb21c4d97ddd365285e25b"
     },
     "src/app/daily-challenge/page.tsx": {
       "before": "376322e3b48c4d74d93dfa1b41f1eeb1bac0548e2a3b8a63bc5db0424c8fd8e0",
@@ -332,6 +332,22 @@
     "src/lib/vocabularyLookup.ts": {
       "before": "f390000f4a5c5d135370a08c35e29b6f23bcf3614851332f64e2870c40c3e095",
       "after": "3b321eac31b4862f5d42d7ff7eef726af8c221cd00d2d9b038ca30e0a924623b"
+    },
+    "src/app/dashboard/page.tsx": {
+      "before": "9068f1b76fe0e7877d4a8657a637c84c8d3218df9e6d61b33f4a914078b4ecd7",
+      "after": "38e3843757d62a2b764cf8b1f96ba4d8cad990abe12b51bf7925887ad007bb0c"
+    },
+    "src/app/layout.tsx": {
+      "before": "a9c15a1a3691462324854c163256fd647c6472245806ebddd1980929f91b4a27",
+      "after": "48adc529ca96ac5b0bbd402f920adf0e4ae3c5295497f392cc0dd6c5b29ec307"
+    },
+    "src/components/layout/MobileBottomNav.tsx": {
+      "before": "cbddef5e6a9facc1c80ca2109f550a59963abb7d652a18ef6cd1fd491e3b243d",
+      "after": "c971601ba487e721b7e1f9e2b4ba2807aa02c4ed87e0e30a531b6045429b8bda"
+    },
+    "src/components/placement/PlacementOffer.tsx": {
+      "before": "4d8025664837562a547abb18cb34a8efa9499622004a0b10e83a9f79c4bc487a",
+      "after": "c2f80e2a30578555ef342256d1444dda0a6fe425017c9880ba20382f33e12d68"
     }
   },
   "selectors": {

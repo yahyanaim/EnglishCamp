@@ -328,6 +328,25 @@ export default function PracticePage() {
   const returnTo = useRef<TrainerId | null>(null);
   const activityHeading = useRef<HTMLHeadingElement>(null);
   const recordVisit = usePracticeHistory(state => state.open);
+  const pushed = useRef(false);
+  const ids = useRef(new Set<string>(CATEGORIES.flatMap(category => category.trainers.map(item => item.id))));
+
+  // The open trainer lives in ?trainer=… so reload, sharing and the browser/Android Back gesture all behave.
+  useEffect(() => {
+    const sync = () => {
+      const id = new URLSearchParams(window.location.search).get("trainer");
+      if (!id) pushed.current = false;
+      setActiveTrainer(id && ids.current.has(id) ? id as TrainerId : null);
+    };
+    sync();
+    window.addEventListener("popstate", sync);
+    return () => window.removeEventListener("popstate", sync);
+  }, []);
+  const close = () => {
+    if (pushed.current) { pushed.current = false; window.history.back(); return; }
+    window.history.replaceState(null, "", "/practice");
+    setActiveTrainer(null);
+  };
 
   useEffect(() => {
     if (activeTrainer) {
@@ -342,7 +361,7 @@ export default function PracticePage() {
     const Component = TRAINER_COMPONENTS[activeTrainer];
     const trainer = CATEGORIES.flatMap((category) => category.trainers).find((item) => item.id === activeTrainer);
     return (
-      <PageWrapper back={<nav className="camp-page-back" aria-label="Return navigation"><BackButton onClick={() => setActiveTrainer(null)}>Back to practice</BackButton></nav>}>
+      <PageWrapper back={<nav className="camp-page-back" aria-label="Return navigation"><BackButton onClick={close}>Back to practice</BackButton></nav>}>
         <PageBanner>
           <h1 ref={activityHeading} tabIndex={-1} className="camp-library-activity-title">
             {trainer && <LearningArt name={trainer.icon} size={24} />}
@@ -361,6 +380,8 @@ export default function PracticePage() {
     if (!trainer) return;
     returnTo.current = trainer.id;
     recordVisit(trainer.id);
+    window.history.pushState(null, "", `/practice?trainer=${encodeURIComponent(trainer.id)}`);
+    pushed.current = true;
     setActiveTrainer(trainer.id);
   };
 

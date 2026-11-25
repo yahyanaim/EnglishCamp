@@ -151,7 +151,7 @@ export default function Dashboard() {
             {profile ? `Welcome, ${profile.name}!` : "Welcome to EnglishCamp!"}
           </h1>
           <p className="font-body text-sm mt-1 text-[var(--color-text-secondary)]">
-            Keep up the great work — you&apos;re making progress every day
+            {xp > 0 ? <>Keep up the great work — you&apos;re making progress every day</> : "Start with one short lesson today. Every step counts."}
           </p>
         </div>
       </PageBanner>

@@ -60,7 +60,6 @@ export const LEARNING_SECTIONS: Record<string, "grammar" | "practice" | "vocabul
   "/sentence-patterns": "grammar",
   "/sentence-structure": "grammar",
   "/sentence-translation": "practice",
-  "/shadowing-english": "vocabulary",
   "/simple-past": "grammar",
   "/speed-match": "practice",
   "/sprint": "practice",

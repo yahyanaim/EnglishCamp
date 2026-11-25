@@ -4,10 +4,11 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { learningBackDestination } from "@/lib/learningNavigation";
-import { BarChart3, Gamepad2, BookHeart, Languages, BarChart4 } from "lucide-react";
+import { BarChart3, GraduationCap, Gamepad2, BookHeart, Languages, BarChart4 } from "lucide-react";
 
 const NAV_ITEMS = [
-  { href: "/dashboard", label: "Dashboard", icon: BarChart3 },
+  { href: "/dashboard", label: "Home", icon: BarChart3 },
+  { href: "/courses", label: "Courses", icon: GraduationCap },
   { href: "/practice", label: "Practice", icon: Gamepad2 },
   { href: "/vocabulary", label: "Vocab", icon: BookHeart },
   { href: "/grammar", label: "Grammar", icon: Languages },
@@ -23,7 +24,7 @@ export function MobileBottomNav() {
       <div className="flex items-center justify-around h-14 max-w-lg mx-auto">
         {NAV_ITEMS.map((item) => {
           const currentPage = pathname === item.href;
-          const active = currentPage || pathname.startsWith(item.href + "/") || (item.href === "/grammar" && grammarGuide);
+          const active = currentPage || pathname.startsWith(item.href + "/") || (item.href === "/grammar" && grammarGuide) || (item.href === "/courses" && /^\/(levels|exercises)\//.test(pathname));
           const Icon = item.icon;
           return (
             <Link prefetch={false}
