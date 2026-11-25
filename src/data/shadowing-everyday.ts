@@ -38,5 +38,42 @@ export const EVERYDAY_SHADOW_LESSONS:ShadowLesson[]=[
   {speaker:'Speaker 1',text:'a couple of candy bars',ar:'وقطعتين من الحلوى',start:20.5,end:22},
   {speaker:'Speaker 1',text:'and two sodas.',ar:'وشربت مشروبي صودا.',start:22,end:23.75},
   {speaker:'Speaker 2',text:"Are you kidding? That's a lot of junk food.",ar:'هل تمزح؟ هذه كمية كبيرة من الأطعمة غير الصحية.',start:23.75,end:26.75}
- ]}
+ ]},
+ // Added from VOA Learning English "English in a Minute". Lines follow the publisher's script in the
+ // YouTube description; times were checked against the burned-in captions at 1-second intervals.
+ {id:'couch-potato',level:'A2',title:'Talking about a roommate’s habits',videoId:'thIDS8-XfrM',sourceUrl:'https://learningenglish.voanews.com/a/7177605.html',kind:'conversation',sourceDuration:60,clipStart:15.5,clipEnd:39,duration:23.5,topics:['Home life','Describing people'],focus:'Hear how a complaint is softened with “it could be worse”. A couch potato is someone who sits and watches TV a lot.',task:'Describe a habit of someone you live with. Your partner answers with Well, it could be worse.',lines:[
+  {speaker:'Speaker 1',text:'Dan, how is your new roommate?',ar:'دان، كيف حال زميلك الجديد في السكن؟',start:15.5,end:17.5},
+  {speaker:'Dan',text:"He's such a couch potato.",ar:'إنه كسول جداً لا يفارق الأريكة والتلفاز.',start:17.5,end:19.5},
+  {speaker:'Dan',text:'He comes home from work and watches weird shows all night.',ar:'يعود من العمل ويشاهد برامج غريبة طوال الليل.',start:19.5,end:23.5},
+  {speaker:'Speaker 1',text:'Well, it could be worse.',ar:'حسناً، كان يمكن أن يكون الأمر أسوأ.',start:23.5,end:26.5},
+  {speaker:'Dan',text:'Could it?',ar:'حقاً؟',start:26.5,end:27.5},
+  {speaker:'Dan',text:'He watches Norwegian zombie films on very loud speakers.',ar:'يشاهد أفلام زومبي نرويجية بمكبرات صوت عالية جداً.',start:27.5,end:32.5},
+  {speaker:'Speaker 1',text:'Sounds like this man needs some headphones and maybe a new interest.',ar:'يبدو أن هذا الرجل يحتاج إلى سماعات، وربما إلى هواية جديدة.',start:32.5,end:39}
+ ]},
+ {id:'up-for-grabs',level:'A2',title:'Inviting a friend to game night',videoId:'RVY1S0QdOVw',sourceUrl:'https://learningenglish.voanews.com/a/7900908.html',kind:'conversation',sourceDuration:60,clipStart:12.25,clipEnd:38.75,duration:26.5,topics:['Free time','Making invitations'],focus:'Follow short questions and excited reactions. Up for grabs means available for anyone who wants it.',task:'Invite someone to an event and mention a prize or reward. Your partner reacts with a short question.',lines:[
+  {speaker:'Andrew',text:'Hey, are you coming to game night at the library?',ar:'مرحباً، هل ستأتين إلى أمسية الألعاب في المكتبة؟',start:12.25,end:16.5},
+  {speaker:'Anna',text:"I don't know.",ar:'لا أعرف.',start:16.5,end:18.5},
+  {speaker:'Andrew',text:'It says they have prizes up for grabs.',ar:'مكتوب أن لديهم جوائز متاحة لمن يريدها.',start:18.5,end:20.5},
+  {speaker:'Anna',text:'Prizes? What prizes? I love prizes.',ar:'جوائز؟ أي جوائز؟ أحب الجوائز.',start:20.5,end:23.5},
+  {speaker:'Andrew',text:'It just says here, “Five prizes up for grabs, so come ready to play!”',ar:'مكتوب هنا فقط: «خمس جوائز متاحة، فتعالوا مستعدين للعب!»',start:23.5,end:29.5},
+  {speaker:'Andrew',text:"Maybe you'll win one!",ar:'ربما تفوزين بواحدة!',start:29.5,end:30.5},
+  {speaker:'Anna',text:"One? Maybe I'll win five!",ar:'واحدة؟ ربما أفوز بالخمس!',start:30.5,end:33.5},
+  {speaker:'Andrew',text:'Confidence helps, I guess.',ar:'الثقة بالنفس تساعد، على ما أظن.',start:33.5,end:38.75}
+ ]},
+ {id:'the-bottom-line',level:'B1',title:'Discussing last night’s game',videoId:'K9sRWHidjDk',sourceUrl:'https://learningenglish.voanews.com/a/7909060.html',kind:'conversation',sourceDuration:60,clipStart:15.5,clipEnd:41.5,duration:26,topics:['Sports','Opinions'],focus:'Hear how a speaker accepts a point, then gives the most important fact with “the bottom line is”.',task:'Talk about a team or project that is not doing well. Give one positive point, then the bottom line.',lines:[
+  {speaker:'Anna',text:'Andrew, did you watch the baseball game last night?',ar:'أندرو، هل شاهدت مباراة البيسبول البارحة؟',start:15.5,end:19.75},
+  {speaker:'Andrew',text:'Yes, I did.',ar:'نعم، شاهدتها.',start:22.5,end:25.5},
+  {speaker:'Andrew',text:'And I saw us lose, again. We need some new players.',ar:'ورأيت فريقنا يخسر مرة أخرى. نحتاج إلى لاعبين جدد.',start:25.5,end:28.5},
+  {speaker:'Anna',text:"Well, they're getting better. And they tried really hard!",ar:'حسناً، إنهم يتحسنون. وقد بذلوا جهداً كبيراً!',start:28.5,end:32.5},
+  {speaker:'Andrew',text:'Yeah, they try hard, but the bottom line is, you have to hit the ball to win.',ar:'نعم، يبذلون جهداً، لكن الأهم في النهاية أنه يجب أن تضرب الكرة لتفوز.',start:32.5,end:39.5},
+  {speaker:'Anna',text:"They weren't hitting.",ar:'لم يكونوا يضربون الكرة.',start:39.5,end:41.5}
+ ]},
+ {id:'split-the-difference',level:'B2',title:'Sharing the cost of an accident',videoId:'F7UYmA6A0Ns',sourceUrl:'https://learningenglish.voanews.com/a/7873956.html',kind:'conversation',sourceDuration:60,clipStart:15.5,clipEnd:41,duration:25.5,topics:['Money','Solving problems'],focus:'Notice how blame is disputed and then settled. Split the difference means each person pays half.',task:'Describe a small accident and suggest a fair way to share the cost. Use in that case and split the difference.',lines:[
+  {speaker:'Anna',text:"Andrew, last night at a friend's house, I broke her expensive vase.",ar:'أندرو، البارحة في بيت صديقتي كسرت مزهريتها الغالية.',start:15.5,end:19.5},
+  {speaker:'Anna',text:'Now she wants me to buy her a new one.',ar:'والآن تريدني أن أشتري لها واحدة جديدة.',start:23.5,end:26.5},
+  {speaker:'Andrew',text:'Well, it was your fault.',ar:'حسناً، كان ذلك خطأك.',start:26.5,end:28.5},
+  {speaker:'Anna',text:"No, it wasn't. It was right near where we were disco dancing!",ar:'لا، لم يكن خطئي. كانت قريبة جداً من المكان الذي كنا نرقص فيه!',start:28.5,end:33.5},
+  {speaker:'Andrew',text:'Well, in that case, split the difference. You both pay half.',ar:'حسناً، في هذه الحالة تقاسما التكلفة. كل واحدة تدفع النصف.',start:33.5,end:38.5},
+  {speaker:'Anna',text:'Yeah, I guess we both were to blame.',ar:'نعم، أظن أننا كنا مخطئتين نحن الاثنتين.',start:38.5,end:41}
+ ]},
 ];

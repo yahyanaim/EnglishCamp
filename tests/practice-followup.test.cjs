@@ -30,7 +30,7 @@ test('discourse-marker exercises hide the missing marker and explanations in sen
  assert.ok(questionWordAnswers({correct:'Who',question:'___ did you see?'}).includes('Whom'));
 });
 test('five new human conversations have verified short sources, unique videos and valid caption boundaries',()=>{
- assert.equal(added.length,5);assert.equal(SHADOW_LESSONS.length,14);assert.equal(new Set(SHADOW_LESSONS.map(s=>s.videoId)).size,14);
+ assert.equal(added.length,9);assert.equal(SHADOW_LESSONS.length,18);assert.equal(new Set(SHADOW_LESSONS.map(s=>s.videoId)).size,18);
  const verified=require('./fixtures/shadowing-everyday-sources.json');for(const lesson of added){const source=verified.find(s=>s.videoId===lesson.videoId);assert.ok(source);assert.equal(lesson.sourceDuration,source.duration);assert.ok(source.duration<=120);assert.ok(source.embeddable);assert.ok(lesson.sourceUrl.startsWith('https://learningenglish.voanews.com/'));assert.ok(new Set(lesson.lines.map(l=>l.speaker)).size>=2);for(const cue of shadowTimedCues(lesson))assert.ok(cue.end<=source.duration&&cue.end>cue.start);}
 });
 test('shadowing lines and conversation completion update existing progress once and retain earlier learning',()=>{

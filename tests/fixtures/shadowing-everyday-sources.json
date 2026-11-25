@@ -38,5 +38,37 @@
     "author": "VOA Learning English",
     "duration": 61,
     "embeddable": true
+  },
+  {
+    "id": "couch-potato",
+    "videoId": "thIDS8-XfrM",
+    "title": "English in a Minute: Couch Potato",
+    "author": "VOA Learning English",
+    "duration": 60,
+    "embeddable": true
+  },
+  {
+    "id": "up-for-grabs",
+    "videoId": "RVY1S0QdOVw",
+    "title": "English in a Minute: Up for Grabs",
+    "author": "VOA Learning English",
+    "duration": 60,
+    "embeddable": true
+  },
+  {
+    "id": "the-bottom-line",
+    "videoId": "K9sRWHidjDk",
+    "title": "English in a Minute: The Bottom Line",
+    "author": "VOA Learning English",
+    "duration": 60,
+    "embeddable": true
+  },
+  {
+    "id": "split-the-difference",
+    "videoId": "F7UYmA6A0Ns",
+    "title": "English in a Minute: Split the Difference",
+    "author": "VOA Learning English",
+    "duration": 60,
+    "embeddable": true
   }
 ]
