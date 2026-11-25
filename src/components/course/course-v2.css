@@ -344,3 +344,6 @@ html.dark .camp-frame main.camp-content .camp-archify-open { color: #e9d5ff; }
 .camp-frame main.camp-content :is(.camp-image-explain, .camp-worked-visual) details > summary::-webkit-details-marker { display: none; }
 .camp-frame main.camp-content :is(.camp-image-explain, .camp-worked-visual) details[open] > p { margin-top: 10px; padding: 12px 14px; border-radius: 12px; background: color-mix(in srgb, #059669 7%, transparent); border-inline-start: 3px solid #059669; }
 @media (max-width: 640px) { .camp-frame main.camp-content .camp-image-explain { padding: 14px; border-radius: 20px; } }
+
+/* Lesson-body tables scroll inside their own frame instead of widening the page on phones. */
+.camp-frame main.camp-content :is(.camp-reader-body, .camp-lesson-flow) > * { min-width: 0; }
