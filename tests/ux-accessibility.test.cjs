@@ -59,4 +59,9 @@ test('U08/U09: controls are named, and names contain the visible words',()=>{
  const sidebar=read('src/components/layout/Sidebar.tsx');
  assert.ok(!sidebar.includes('aria-label="EnglishCamp home"'));
  assert.match(sidebar,/<span className="sr-only">, home<\/span>/);
+ for(const f of ['src/components/course/CourseVideoLesson.tsx','src/components/shadowing/ShadowVideo.tsx']){
+  const s=read(f);assert.ok(!s.includes('Load video lesson:'),f);assert.match(s,/<strong>Load lesson video<\/strong>[\s\S]{0,200}<span className="sr-only">\. Video: \{/);
+ }
+ assert.match(read('src/app/shadowing-english/page.tsx'),/aria-label=\{video\.playing \? "Pause video, Space" : "Play video, Space"\} aria-keyshortcuts="Space"/);
+ assert.ok(!read('src/components/admin/AdminLearners.tsx').includes('className="admin-account" onClick={()=>setSelected(l.id)} aria-label='));
 });
