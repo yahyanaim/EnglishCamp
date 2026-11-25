@@ -2,7 +2,7 @@ import Image from "next/image";
 import type { InlineLessonImages } from "@/data/course-enrichment/types";
 
 export function LessonImageExplanation({ content }: { content: InlineLessonImages }) {
-  return <section id="lesson-images" aria-labelledby="lesson-images-title" className="scroll-mt-24 space-y-4 min-w-0 text-[var(--color-text-primary)]">
+  return <section id="lesson-images" aria-labelledby="lesson-images-title" className="camp-image-explain scroll-mt-24 min-w-0 text-[var(--color-text-primary)]">
     <h3 id="lesson-images-title" className="font-display text-lg font-bold">{content.title}</h3>
     <p className="font-body leading-relaxed">{content.introduction}</p>
     <div className={content.images.length > 1 ? "grid gap-6 md:grid-cols-2" : "space-y-6"}>
@@ -16,7 +16,7 @@ export function LessonImageExplanation({ content }: { content: InlineLessonImage
         </figcaption>
       </figure>)}
     </div>
-    <p className="font-body leading-relaxed"><strong>Apply the lesson:</strong> {content.prompt}</p>
-    <details><summary className="min-h-11 cursor-pointer font-bold text-[var(--color-text-link)]">Compare your explanation</summary><p className="pt-3 font-body leading-relaxed">{content.explanation}</p></details>
+    <p className="camp-image-apply font-body leading-relaxed"><strong>Apply the lesson:</strong> {content.prompt}</p>
+    <details><summary>Compare your explanation</summary><p className="font-body leading-relaxed">{content.explanation}</p></details>
   </section>;
 }

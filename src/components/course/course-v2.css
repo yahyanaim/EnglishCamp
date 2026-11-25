@@ -217,3 +217,130 @@ html.dark .camp-frame main.camp-content .camp-archify-dark { display: block !imp
 .camp-frame main.camp-content .camp-archify-open { position: absolute; top: 10px; right: 10px; padding: 5px 11px; border-radius: 999px; background: color-mix(in srgb, var(--color-surface) 88%, transparent); backdrop-filter: blur(8px); font-size: 12px; font-weight: 650; color: var(--camp-control-ink); text-decoration: none; box-shadow: var(--g-control-shadow); opacity: 0; transition: opacity .2s ease; }
 .camp-frame main.camp-content .camp-archify:hover .camp-archify-open, .camp-frame main.camp-content .camp-archify-open:focus-visible { opacity: 1; }
 html.dark .camp-frame main.camp-content .camp-archify-open { color: #e9d5ff; }
+
+/* ── Learn tab reader: outline rail + structured reading ─────────────────── */
+.camp-frame main.camp-content .camp-reader { display: grid; grid-template-columns: 216px minmax(0, 1fr); gap: 28px; align-items: start; }
+.camp-frame main.camp-content .camp-reader-body { display: grid; gap: 22px; min-width: 0; counter-reset: lesson-sec; }
+.camp-frame main.camp-content .camp-reader:not(:has(.camp-outline)) { grid-template-columns: minmax(0, 1fr); }
+.camp-frame main.camp-content .camp-reader:has(.camp-outline) .camp-lesson-onpage { display: none; }
+.camp-frame main.camp-content .camp-reader-body [id] { scroll-margin-top: 170px; }
+
+.camp-frame main.camp-content .camp-outline { position: sticky; top: 168px; display: grid; grid-template-columns: minmax(0, 1fr); min-width: 0; gap: 12px; padding: 14px; border-radius: 20px; background: var(--g-card); border: 1px solid var(--g-hair, var(--color-border-default)); box-shadow: var(--g-card-shadow, 0 1px 2px rgb(15 23 42 / .04)); max-height: calc(100vh - 190px); overflow: auto; scrollbar-width: thin; }
+.camp-frame main.camp-content .camp-outline-head { display: flex; align-items: center; gap: 10px; padding-bottom: 12px; border-bottom: 1px solid var(--g-hair, var(--color-border-default)); }
+.camp-frame main.camp-content .camp-outline-head strong { display: block; font: 700 14px/1.25 var(--font-display), Nunito, sans-serif; color: var(--color-text-primary); }
+.camp-frame main.camp-content .camp-outline-head small { display: block; font-size: 12px; color: var(--color-text-secondary); }
+.camp-frame main.camp-content .camp-outline-ring { --p: 0; flex: none; display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: conic-gradient(var(--color-primary, #7c3aed) calc(var(--p) * 1%), color-mix(in srgb, var(--color-primary, #7c3aed) 14%, transparent) 0); }
+.camp-frame main.camp-content .camp-outline-ring > span { display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; background: var(--color-surface); font: 800 10.5px/1 var(--font-display), Nunito, sans-serif; color: var(--color-text-primary); }
+.camp-frame main.camp-content .camp-outline-toggle { display: none; }
+.camp-frame main.camp-content .camp-outline-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; position: relative; }
+.camp-frame main.camp-content .camp-outline-list > li { position: relative; }
+.camp-frame main.camp-content .camp-outline-list > li:not(:last-child)::after { content: ""; position: absolute; left: 19px; top: 30px; bottom: -6px; width: 2px; border-radius: 2px; background: var(--g-hair, var(--color-border-default)); }
+.camp-frame main.camp-content .camp-outline-list > li[data-state="done"]::after { background: color-mix(in srgb, var(--color-primary, #7c3aed) 45%, transparent); }
+.camp-frame main.camp-content .camp-outline-list button { display: flex; align-items: flex-start; gap: 10px; width: 100%; padding: 7px 8px; border: 0; border-radius: 12px; background: transparent; text-align: start; cursor: pointer; color: var(--color-text-secondary); font-size: 13px; line-height: 1.35; transition: background .15s, color .15s; }
+.camp-frame main.camp-content .camp-outline-list button:hover { background: var(--g-control); color: var(--color-text-primary); }
+.camp-frame main.camp-content .camp-outline-list button:focus-visible { outline: 2px solid var(--color-primary, #7c3aed); outline-offset: 1px; }
+.camp-frame main.camp-content .camp-outline-dot { position: relative; z-index: 1; flex: none; display: grid; place-items: center; width: 22px; height: 22px; border-radius: 50%; background: var(--color-surface); border: 1.5px solid var(--g-hair, var(--color-border-default)); font: 800 10.5px/1 var(--font-display), Nunito, sans-serif; color: var(--color-text-secondary); }
+.camp-frame main.camp-content .camp-outline-label { padding-top: 2px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.camp-frame main.camp-content .camp-outline-list [data-state="done"] .camp-outline-dot { background: color-mix(in srgb, var(--color-primary, #7c3aed) 14%, var(--color-surface)); border-color: transparent; color: var(--color-primary, #7c3aed); }
+.camp-frame main.camp-content .camp-outline-list [data-state="active"] button { background: color-mix(in srgb, var(--color-primary, #7c3aed) 9%, transparent); color: var(--color-text-primary); font-weight: 650; }
+.camp-frame main.camp-content .camp-outline-list [data-state="active"] .camp-outline-dot { background: var(--g-primary, var(--color-primary)); border-color: transparent; color: #fff; box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-primary, #7c3aed) 16%, transparent); }
+.camp-frame main.camp-content .camp-outline-list [data-kind="finish"] .camp-outline-dot { border-style: dashed; }
+
+/* Numbered teaching sections */
+.camp-frame main.camp-content .camp-reader-body .camp-lesson-section { counter-increment: lesson-sec; padding: 4px 0 0; }
+.camp-frame main.camp-content .camp-reader-body .camp-lesson-section > h3 { font-size: 20px !important; gap: 12px; }
+.camp-frame main.camp-content .camp-reader-body .camp-lesson-section > h3::before { display: none; }
+.camp-frame main.camp-content .camp-lesson-section-num { flex: none; display: grid; place-items: center; width: 30px; height: 30px; border-radius: 10px; background: color-mix(in srgb, var(--color-primary, #7c3aed) 11%, transparent); color: var(--color-primary, #7c3aed); font: 800 13px/1 var(--font-display), Nunito, sans-serif; }
+.camp-frame main.camp-content .camp-lesson-section-num::before { content: counter(lesson-sec, decimal-leading-zero); }
+.camp-frame main.camp-content .camp-reader-body .camp-lesson-section > p { padding-inline-start: 42px; max-width: calc(70ch + 42px); }
+
+/* Callouts: tone-coloured, scannable */
+.camp-frame main.camp-content .camp-reader-body .camp-callout:not(#_) { --tone: var(--color-info, #0284c7); background: color-mix(in srgb, var(--tone) 5%, var(--g-card, var(--color-surface))); border: 1px solid color-mix(in srgb, var(--tone) 18%, transparent); box-shadow: none; }
+.camp-frame main.camp-content .camp-reader-body .camp-callout[data-tone="tip"]:not(#_) { --tone: #059669; }
+.camp-frame main.camp-content .camp-reader-body .camp-callout[data-tone="rule"]:not(#_) { --tone: #7c3aed; }
+.camp-frame main.camp-content .camp-reader-body .camp-callout[data-tone="note"]:not(#_) { --tone: #0284c7; }
+.camp-frame main.camp-content .camp-reader-body .camp-callout[data-tone="warning"]:not(#_) { --tone: #e11d48; }
+.camp-frame main.camp-content .camp-reader-body .camp-callout-icon { background: color-mix(in srgb, var(--tone) 13%, transparent) !important; color: var(--tone); box-shadow: none !important; }
+.camp-frame main.camp-content .camp-reader-body .camp-callout-title { color: color-mix(in srgb, var(--tone) 82%, var(--color-text-primary)) !important; text-transform: none; letter-spacing: 0 !important; font-size: 14px !important; }
+.camp-frame main.camp-content .camp-reader-body .camp-callout-text { color: var(--color-text-primary); }
+.camp-frame main.camp-content .camp-lesson-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.camp-frame main.camp-content .camp-lesson-pair > .camp-callout { height: 100%; }
+.camp-frame main.camp-content .camp-lesson-pair[data-variant="brief"] { padding: 6px; border-radius: 22px; background: linear-gradient(135deg, color-mix(in srgb, #7c3aed 9%, transparent), color-mix(in srgb, #0284c7 7%, transparent)); }
+.camp-frame main.camp-content .camp-lesson-pair[data-variant="brief"] > .camp-callout:not(#_) { background: var(--g-card, var(--color-surface)); border-color: transparent; }
+
+/* Self-check cards */
+.camp-frame main.camp-content .camp-reader-body .camp-lesson-check { border: 1px dashed color-mix(in srgb, var(--color-primary, #7c3aed) 35%, transparent); background: color-mix(in srgb, var(--color-primary, #7c3aed) 3.5%, var(--g-card, var(--color-surface))); }
+.camp-frame main.camp-content .camp-lesson-check-label { display: inline-flex !important; align-items: center; gap: 6px; }
+.camp-frame main.camp-content .camp-reader-body .camp-lesson-check > p { font-size: 16px !important; font-weight: 500; }
+.camp-frame main.camp-content .camp-reader-body .camp-lesson-check details[open] > p { padding: 12px 14px; border-radius: 12px; background: color-mix(in srgb, #059669 7%, transparent); border-inline-start: 3px solid #059669; color: var(--color-text-primary); }
+
+/* Worked example */
+.camp-frame main.camp-content .camp-worked { display: grid; gap: 16px; padding: 22px; border-radius: 24px; background: var(--g-card, var(--color-surface)); border: 1px solid var(--g-hair, var(--color-border-default)); box-shadow: var(--g-card-shadow, 0 1px 2px rgb(15 23 42 / .04)); }
+.camp-frame main.camp-content .camp-worked-head { display: grid; gap: 8px; }
+.camp-frame main.camp-content .camp-worked-kicker { justify-self: start; display: inline-flex; align-items: center; gap: 6px; padding: 4px 11px; border-radius: 999px; background: linear-gradient(135deg, #7c3aed, #db2777); color: #fff; font: 800 11px/1.3 var(--font-display), Nunito, sans-serif; letter-spacing: .06em; text-transform: uppercase; }
+.camp-frame main.camp-content .camp-worked-head > h3 { margin: 2px 0 0; font: 800 21px/1.3 var(--font-display), Nunito, sans-serif !important; color: var(--color-text-primary); }
+.camp-frame main.camp-content .camp-worked-context { margin: 0; padding: 12px 16px; border-radius: 14px; background: var(--g-control, var(--color-surface-alt)); font: italic 400 16px/1.65 var(--font-body), "DM Sans", sans-serif; color: var(--color-text-primary); }
+.camp-frame main.camp-content .camp-worked-links { display: flex; flex-wrap: wrap; gap: 8px; }
+.camp-frame main.camp-content .camp-worked-links > a { display: inline-flex; align-items: center; gap: 6px; min-height: 34px; padding: 0 12px; border-radius: 999px; background: var(--g-control); box-shadow: var(--g-control-shadow); font-size: 13px; font-weight: 650; color: var(--camp-control-ink, var(--color-text-link)); text-decoration: none; }
+.camp-frame main.camp-content .camp-compare { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); gap: 10px; align-items: stretch; }
+.camp-frame main.camp-content .camp-compare-side { --side: #e11d48; display: grid; align-content: start; gap: 8px; padding: 14px 16px; border-radius: 16px; background: color-mix(in srgb, var(--side) 6%, transparent); border: 1px solid color-mix(in srgb, var(--side) 22%, transparent); }
+.camp-frame main.camp-content .camp-compare-side[data-side="after"] { --side: #059669; }
+.camp-frame main.camp-content .camp-compare-side > p { margin: 0; font-size: 16px; line-height: 1.6; color: var(--color-text-primary); }
+.camp-frame main.camp-content .camp-compare-side[data-side="before"] > p { text-decoration: line-through; text-decoration-color: color-mix(in srgb, #e11d48 45%, transparent); text-decoration-thickness: 1.5px; }
+.camp-frame main.camp-content .camp-compare-tag { display: inline-flex; align-items: center; gap: 6px; font: 800 12px/1.3 var(--font-display), Nunito, sans-serif; color: var(--side); }
+.camp-frame main.camp-content .camp-compare-tag > svg { padding: 2px; border-radius: 50%; background: var(--side); color: #fff; box-sizing: content-box; }
+.camp-frame main.camp-content .camp-compare-arrow { align-self: center; display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; background: var(--g-card, var(--color-surface)); border: 1px solid var(--g-hair, var(--color-border-default)); color: var(--color-text-secondary); }
+.camp-frame main.camp-content .camp-worked-why { display: flex; gap: 12px; align-items: flex-start; padding: 14px 16px; border-radius: 16px; background: color-mix(in srgb, #f59e0b 8%, transparent); border: 1px solid color-mix(in srgb, #f59e0b 25%, transparent); }
+.camp-frame main.camp-content .camp-worked-why > span { flex: none; display: grid; place-items: center; width: 32px; height: 32px; border-radius: 10px; background: color-mix(in srgb, #f59e0b 18%, transparent); color: #b45309; }
+.camp-frame main.camp-content .camp-worked-why > p { margin: 0; font-size: 16px; line-height: 1.65; color: var(--color-text-primary); }
+.camp-frame main.camp-content .camp-worked-ref { display: grid; gap: 10px; }
+.camp-frame main.camp-content .camp-worked-ref > h4, .camp-frame main.camp-content .camp-worked-visual > h4 { display: flex; align-items: center; gap: 8px; margin: 0; font: 800 15px/1.3 var(--font-display), Nunito, sans-serif !important; color: var(--color-text-primary); }
+.camp-frame main.camp-content .camp-worked-ref table { font-size: 14.5px !important; }
+.camp-frame main.camp-content .camp-worked-visual { padding-top: 16px; border-top: 1px solid var(--g-hair, var(--color-border-default)); }
+.camp-frame main.camp-content .camp-worked-visual details > summary { display: inline-flex; align-items: center; min-height: 36px; padding: 0 14px; border-radius: 999px; background: var(--g-control); box-shadow: var(--g-control-shadow); font-size: 13.5px; font-weight: 650; color: var(--camp-control-ink, var(--color-text-link)); cursor: pointer; list-style: none; }
+.camp-frame main.camp-content .camp-worked-try { margin-top: 2px; }
+
+/* Finish */
+.camp-frame main.camp-content .camp-lesson-finish { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 14px; padding: 16px 18px; border-radius: 22px; background: linear-gradient(135deg, color-mix(in srgb, #7c3aed 8%, var(--g-card, var(--color-surface))), color-mix(in srgb, #059669 6%, var(--g-card, var(--color-surface)))); border: 1px solid var(--g-hair, var(--color-border-default)); }
+.camp-frame main.camp-content .camp-lesson-finish > .camp-lesson-done { padding: 0; border: 0; background: transparent; }
+.camp-frame main.camp-content .camp-lesson-finish > .camp-lesson-continue:not(#_) { justify-self: end; }
+.camp-frame main.camp-content .camp-lesson-finish .camp-lesson-done strong { font: 800 16px/1.3 var(--font-display), Nunito, sans-serif; }
+.camp-frame main.camp-content .camp-lesson-finish .camp-lesson-done p { font-size: 13px; }
+
+@media (max-width: 1180px) {
+  .camp-frame main.camp-content .camp-reader { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+  .camp-frame main.camp-content .camp-outline { top: 150px; z-index: 14; padding: 8px; gap: 0; border-radius: 16px; overflow: visible; max-height: none; background: color-mix(in srgb, var(--color-surface) 96%, transparent); backdrop-filter: blur(14px) saturate(1.4); -webkit-backdrop-filter: blur(14px) saturate(1.4); }
+  .camp-frame main.camp-content .camp-outline-head { display: none; }
+  .camp-frame main.camp-content .camp-outline-toggle { position: relative; display: flex; align-items: center; gap: 10px; width: 100%; min-width: 0; min-height: 40px; padding: 0 10px; border: 0; background: transparent; color: var(--color-text-primary); font-size: 13.5px; cursor: pointer; text-align: start; }
+  .camp-frame main.camp-content .camp-outline-bar { position: absolute; left: 10px; right: 10px; bottom: -4px; height: 3px; border-radius: 3px; background: color-mix(in srgb, var(--color-primary, #7c3aed) 12%, transparent); overflow: hidden; }
+  .camp-frame main.camp-content .camp-outline-bar > i { display: block; height: 100%; border-radius: inherit; background: var(--g-primary, var(--color-primary)); transition: width .2s; }
+  .camp-frame main.camp-content .camp-outline-now { flex: 1; min-width: 0; display: flex; gap: 8px; align-items: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-weight: 650; }
+  .camp-frame main.camp-content .camp-outline-now > b { flex: none; padding: 2px 8px; border-radius: 999px; background: color-mix(in srgb, var(--color-primary, #7c3aed) 12%, transparent); color: var(--color-primary, #7c3aed); font: 800 11.5px/1.4 var(--font-display), Nunito, sans-serif; }
+  .camp-frame main.camp-content .camp-outline-toggle > svg { flex: none; transition: transform .2s; }
+  .camp-frame main.camp-content .camp-outline-toggle[aria-expanded="true"] > svg { transform: rotate(180deg); }
+  .camp-frame main.camp-content .camp-outline-list { display: none; max-height: 55vh; overflow: auto; margin-top: 10px; padding-top: 8px; border-top: 1px solid var(--g-hair, var(--color-border-default)); }
+  .camp-frame main.camp-content .camp-outline-list[data-open="true"] { display: grid; }
+}
+@media (max-width: 640px) {
+  .camp-frame main.camp-content .camp-outline { top: 160px; }
+  .camp-frame main.camp-content .camp-lesson-pair { grid-template-columns: minmax(0, 1fr); }
+  .camp-frame main.camp-content .camp-reader-body .camp-lesson-section > p { padding-inline-start: 0; }
+  .camp-frame main.camp-content .camp-worked { padding: 16px; border-radius: 20px; }
+  .camp-frame main.camp-content .camp-compare { grid-template-columns: minmax(0, 1fr); }
+  .camp-frame main.camp-content .camp-compare-arrow { justify-self: center; transform: rotate(90deg); width: 28px; height: 28px; }
+  .camp-frame main.camp-content .camp-lesson-finish { grid-template-columns: minmax(0, 1fr); }
+  .camp-frame main.camp-content .camp-lesson-finish > .camp-lesson-continue:not(#_) { justify-self: stretch; justify-content: center; }
+}
+
+/* Illustrated example card */
+.camp-frame main.camp-content .camp-image-explain { display: grid; gap: 14px; padding: 20px; border-radius: 24px; background: var(--g-card, var(--color-surface)); border: 1px solid var(--g-hair, var(--color-border-default)); }
+.camp-frame main.camp-content .camp-image-explain > h3 { display: flex; align-items: center; gap: 10px; margin: 0; font: 800 19px/1.3 var(--font-display), Nunito, sans-serif !important; }
+.camp-frame main.camp-content .camp-image-explain > h3::before { content: "Illustrated"; padding: 3px 10px; border-radius: 999px; background: color-mix(in srgb, #0891b2 14%, transparent); color: #0e7490; font: 800 10.5px/1.4 var(--font-display), Nunito, sans-serif; letter-spacing: .06em; text-transform: uppercase; }
+.camp-frame main.camp-content .camp-image-explain > p { margin: 0; font-size: 16px; line-height: 1.65; }
+.camp-frame main.camp-content .camp-image-explain figure img { border-radius: 16px !important; max-height: 420px; object-fit: cover; }
+.camp-frame main.camp-content .camp-image-explain figcaption { font-size: 12.5px !important; }
+.camp-frame main.camp-content .camp-image-explain > .camp-image-apply { padding: 12px 14px; border-radius: 14px; border: 1px dashed color-mix(in srgb, var(--color-primary, #7c3aed) 35%, transparent); background: color-mix(in srgb, var(--color-primary, #7c3aed) 3.5%, transparent); }
+.camp-frame main.camp-content :is(.camp-image-explain, .camp-worked-visual) details > summary { display: inline-flex; align-items: center; min-height: 36px; padding: 0 14px; border-radius: 999px; background: var(--g-control); box-shadow: var(--g-control-shadow); font-size: 13.5px; font-weight: 650; color: var(--camp-control-ink, var(--color-text-link)); cursor: pointer; list-style: none; }
+.camp-frame main.camp-content :is(.camp-image-explain, .camp-worked-visual) details > summary::-webkit-details-marker { display: none; }
+.camp-frame main.camp-content :is(.camp-image-explain, .camp-worked-visual) details[open] > p { margin-top: 10px; padding: 12px 14px; border-radius: 12px; background: color-mix(in srgb, #059669 7%, transparent); border-inline-start: 3px solid #059669; }
+@media (max-width: 640px) { .camp-frame main.camp-content .camp-image-explain { padding: 14px; border-radius: 20px; } }
