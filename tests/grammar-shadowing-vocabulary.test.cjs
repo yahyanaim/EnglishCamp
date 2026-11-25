@@ -16,7 +16,7 @@ test('every grammar paragraph and standalone tip has Arabic on demand while Engl
 });
 
 test('the original source bank is preserved while the visible playlist contains only short communication',()=>{
- const expected=structuredClone(originals);expected.find(l=>l.id==='obvious-choice').lines[3].text='Well, what if David has a twin brother who lives with him?';assert.deepEqual(ORIGINAL_SHADOW_LESSONS,expected);assert.equal(SHADOW_LESSONS.length,18);
+ const expected=structuredClone(originals);expected.find(l=>l.id==='obvious-choice').lines[3].text='Well, what if David has a twin brother who lives with him?';assert.deepEqual(ORIGINAL_SHADOW_LESSONS,expected);assert.equal(SHADOW_LESSONS.length,64);
  for(const lesson of SHADOW_LESSONS){assert.match(lesson.videoId,/^[\w-]{11}$/);assert.ok(lesson.sourceDuration<120);assert.equal(lesson.kind,'conversation');assert.ok(!lesson.track);assert.ok(new Set(lesson.lines.map(l=>l.speaker)).size>=2);assert.equal(lesson.clipEnd-lesson.clipStart,lesson.duration);for(const line of lesson.lines)assert.match(line.ar,/[\u0600-\u06ff]/);}
  const source=require('fs').readFileSync(require('path').join(__dirname,'../src/app/shadowing-english/page.tsx'),'utf8');assert.ok(!source.includes('Video collection'));assert.ok(!source.includes('Exam skill'));
 });
