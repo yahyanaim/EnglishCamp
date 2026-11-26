@@ -7,7 +7,8 @@ import { GRAMMAR_MORE } from "@/data/grammar-reference-more";
 import { GRAMMAR_LIBRARY } from "@/data/grammar-reference-library";
 import { GRAMMAR_FOUNDATIONS } from "@/data/grammar-foundations";
 import { GrammarFoundationLesson } from "./GrammarFoundationLesson";
-import { ArrowLeft, Check, CheckCircle2, ChevronRight, Layers, Search, X } from "lucide-react";
+import { ArrowLeft, ArrowRight, Check, CheckCircle2, ChevronRight, Layers, Search, X } from "lucide-react";
+import { HubContinue, HubHero, LevelRail } from "./HubHero";
 import { useProgress } from "@/store/useProgress";
 import { GRAMMAR_CURRICULUM, GRAMMAR_LESSON_LEVELS, GRAMMAR_XP, grammarLessonKey, grammarLevelProgress } from "@/data/grammar-curriculum";
 
@@ -428,54 +429,79 @@ export function GrammarReference() {
   const close = () => { const id = openSection; setOpenSection(null); history.pushState(null, "", window.location.pathname + window.location.search); requestAnimationFrame(()=>document.getElementById(`grammar-card-${id}`)?.focus()); };
   const lesson = SECTIONS.find(s => s.id === openSection);
 
+  const learnedCount = SECTIONS.filter(s=>learned(s.id)).length;
+  const upNext = SECTIONS.find(s=>!learned(s.id));
+
   if (lesson) {
-    const index = SECTIONS.indexOf(lesson), next = SECTIONS[index + 1];
+    const index = SECTIONS.indexOf(lesson), next = SECTIONS[index + 1], previous = SECTIONS[index - 1];
+    const levelStep = path.find(p=>p.level===sectionLevel(lesson));
     return (
-      <article className="camp-grammar-lesson" id={lesson.id} aria-labelledby={`grammar-title-${lesson.id}`}>
-        <button type="button" className="camp-grammar-back" onClick={close}><ArrowLeft size={16} aria-hidden="true" />All grammar lessons</button>
-        <header className="camp-grammar-lesson-head">
-          <span className="camp-library-card-icon"><LearningArt name={lesson.art ?? "BookOpen"} size={26} /></span>
-          <div>
-            <p className="camp-grammar-lesson-kicker"><span className="camp-hub-level">{sectionLevel(lesson)}</span>{LEVEL_NAMES[sectionLevel(lesson)]}{learned(lesson.id) && <span className="camp-hub-done"><CheckCircle2 size={12} aria-hidden="true" />Learned</span>}</p>
-            <h2 id={`grammar-title-${lesson.id}`}>{lesson.title}</h2>
-            {lesson.summary && !lesson.parts && <p className="camp-grammar-lesson-summary">{lesson.summary}</p>}
+      <article className="camp-grammar-lesson camp-reader-v2" id={lesson.id} aria-labelledby={`grammar-title-${lesson.id}`}>
+        <header className="camp-lesson-head">
+          <div className="camp-lesson-crumbs">
+            <button type="button" className="camp-reader-back camp-grammar-back" onClick={close}><ArrowLeft size={15} aria-hidden="true" />All grammar lessons</button>
+            <span className="camp-reader-position">Lesson {index + 1} of {SECTIONS.length}</span>
           </div>
+          <div className="camp-lesson-title-row">
+            <div className="min-w-0">
+              <span className="camp-lesson-eyebrow">{sectionLevel(lesson)} · {LEVEL_NAMES[sectionLevel(lesson)]}</span>
+              <h1 id={`grammar-title-${lesson.id}`}>{lesson.title}</h1>
+              <div className="camp-reader-meta">
+                <span><Layers size={13} aria-hidden="true" />{lesson.parts ? `${lesson.parts} parts` : "Reference table"}</span>
+                <span>+{GRAMMAR_XP} XP</span>
+                {learned(lesson.id) && <span data-tone="done"><CheckCircle2 size={13} aria-hidden="true" />Learned</span>}
+              </div>
+            </div>
+            <span className="camp-hub-hero-art camp-grammar-lesson-art" aria-hidden="true"><LearningArt name={lesson.art ?? "BookOpen"} size={30} /></span>
+          </div>
+          {levelStep && <div className="camp-lesson-course-progress" role="progressbar" aria-label={`${levelStep.level} lessons learned`} aria-valuemin={0} aria-valuemax={levelStep.total} aria-valuenow={levelStep.learned}><span style={{ width: `${levelStep.total ? levelStep.learned / levelStep.total * 100 : 0}%` }} /></div>}
         </header>
-        <div id={`grammar-${lesson.id}`} className="camp-grammar-lesson-body">{translatedGrammarParagraphs(lesson.content)}</div>
-        <div className="camp-grammar-learned" role="status">
-          {learned(lesson.id)
-            ? <p className="camp-grammar-learned-done"><CheckCircle2 size={20} aria-hidden="true" /><span><strong>Learned</strong>{earned ? ` · +${earned} XP` : " · counted in your progress"}</span></p>
-            : <button type="button" className="camp-grammar-learned-button" onClick={() => setEarned(completeExercise(grammarLessonKey(lesson.id), GRAMMAR_XP))}><Check size={18} aria-hidden="true" />Mark as learned · +{GRAMMAR_XP} XP</button>}
-        </div>
-        {next && <button type="button" className="camp-grammar-next" onClick={() => open(next.id)}><span><small>Next lesson · {sectionLevel(next)}</small><strong>{next.title}</strong></span><ChevronRight size={18} aria-hidden="true" /></button>}
+        <section className="camp-reader-card camp-grammar-lesson-card">
+          <div id={`grammar-${lesson.id}`} className="camp-grammar-lesson-body">{translatedGrammarParagraphs(lesson.content)}</div>
+          <div className="camp-grammar-learned" role="status">
+            {learned(lesson.id)
+              ? <p className="camp-grammar-learned-done"><CheckCircle2 size={20} aria-hidden="true" /><span><strong>Learned</strong>{earned ? ` · +${earned} XP` : " · counted in your progress"}</span></p>
+              : <button type="button" className="camp-grammar-learned-button" onClick={() => setEarned(completeExercise(grammarLessonKey(lesson.id), GRAMMAR_XP))}><Check size={18} aria-hidden="true" />Mark as learned · +{GRAMMAR_XP} XP</button>}
+          </div>
+        </section>
+        {(previous || next) && <nav aria-label="Lesson navigation" className="camp-module-pager">
+          {previous ? <button type="button" className="camp-module-pager-link" data-dir="prev" onClick={() => open(previous.id)}><ArrowLeft size={18} aria-hidden="true" /><span><small>Previous lesson · {sectionLevel(previous)}</small><strong>{previous.title}</strong></span></button> : <span />}
+          {next && <button type="button" className="camp-module-pager-link camp-grammar-next" data-dir="next" onClick={() => open(next.id)}><span><small>Next lesson · {sectionLevel(next)}</small><strong>{next.title}</strong></span><ArrowRight size={18} aria-hidden="true" /></button>}
+        </nav>}
       </article>
     );
   }
 
   return (
-    <div className="camp-grammar-reference camp-grammar-hub">
-      <section className="camp-grammar-path" aria-label="Your grammar path">
-        {path.map(p=><button key={p.level} type="button" className="camp-grammar-path-tile" aria-pressed={level===p.level} onClick={()=>setLevel(level===p.level?"all":p.level)}>
-          <span className="camp-grammar-path-head"><span className="camp-hub-level">{p.level}</span><span className="camp-grammar-path-name">{p.name}</span>{p.complete && <CheckCircle2 size={16} aria-label="Level complete" />}</span>
-          <span className="camp-grammar-path-count"><strong>{p.learned}</strong> / {p.total} learned</span>
-          <span className="camp-grammar-path-bar" aria-hidden="true"><span style={{ width: `${p.total ? Math.round(p.learned / p.total * 100) : 0}%` }} /></span>
-        </button>)}
-      </section>
-      <section className="camp-hub-filters" aria-label="Find a grammar lesson">
-        <label className="camp-hub-search">
-          <Search size={16} aria-hidden="true" />
-          <span className="sr-only">Search grammar lessons</span>
-          <input type="search" value={query} onChange={e=>setQuery(e.target.value)} placeholder="Search grammar lessons…" />
-        </label>
-        <p className="camp-hub-count" role="status">{visible.length} {visible.length===1?"lesson":"lessons"}{level!=="all"?` · ${level} ${LEVEL_NAMES[level]}`:""}{filtering ? <> · <button type="button" onClick={clear}><X size={13} aria-hidden="true" />Clear filters</button></> : null}</p>
+    <div className="camp-grammar-reference camp-grammar-hub camp-hub-v2 space-y-6">
+      <HubHero eyebrow="Grammar reference" title="Grammar" art="BookOpen"
+        description="Clear rules, examples and tables for every CEFR level, in the order you should learn them."
+        stats={[{ label: "Lessons", value: SECTIONS.length }, { label: "Learned", value: learnedCount }, { label: "Levels complete", value: `${path.filter(p=>p.complete).length}/${path.length}` }, { label: "XP per lesson", value: `+${GRAMMAR_XP}` }]}
+        progress={{ value: learnedCount, total: SECTIONS.length, label: "Grammar lessons learned" }}
+        action={upNext && <HubContinue art={upNext.art ?? "BookOpen"} kicker={learnedCount ? "Next lesson" : "Start with"} title={upNext.title} meta={`${sectionLevel(upNext)} · ${LEVEL_NAMES[sectionLevel(upNext)]}`} onClick={() => open(upNext.id)} />} />
+      <LevelRail label="Your grammar path" value={level} onChange={value=>setLevel(value)}
+        items={path.map(p=>({ value: p.level, name: p.name, total: p.total, done: p.learned }))} />
+      <section className="camp-hub-toolbar" aria-label="Find a grammar lesson">
+        <div className="camp-hub-toolbar-row">
+          <label className="camp-hub-search">
+            <Search size={16} aria-hidden="true" />
+            <span className="sr-only">Search grammar lessons</span>
+            <input type="search" value={query} onChange={e=>setQuery(e.target.value)} placeholder="Search grammar lessons…" />
+          </label>
+          <p className="camp-hub-count" role="status">{visible.length} {visible.length===1?"lesson":"lessons"}{level!=="all"?` · ${level} ${LEVEL_NAMES[level]}`:""}{filtering ? <> · <button type="button" onClick={clear}><X size={13} aria-hidden="true" />Clear filters</button></> : null}</p>
+        </div>
       </section>
       {groups.length===0&&<p className="camp-hub-empty">No grammar lesson matches these filters. <button type="button" onClick={clear}>Clear filters</button></p>}
       {groups.map(group=>{
         const headingId=`grammar-level-${group.level}`, showAll=filtering||expanded[group.level], list=showAll?group.sections:group.sections.slice(0,PREVIEW);
+        const all=SECTIONS.filter(s=>sectionLevel(s)===group.level), finished=all.filter(s=>learned(s.id)).length;
         return <section key={group.level} className="camp-learning-library-group" aria-labelledby={headingId}>
-          <h2 id={headingId}>{group.level} · {LEVEL_NAMES[group.level]} <span className="camp-hub-section-count">{group.sections.filter(s=>learned(s.id)).length}/{group.sections.length}</span></h2>
+          <div className="camp-hub-group-head">
+            <h2 id={headingId}><span className="camp-hub-level">{group.level}</span>{LEVEL_NAMES[group.level]}</h2>
+            <span className="camp-hub-group-progress">{finished}/{all.length} learned<span className="camp-level-rail-bar" aria-hidden="true"><span style={{ width: `${all.length ? finished / all.length * 100 : 0}%` }} /></span></span>
+          </div>
           <div className="camp-trainer-grid">
-            {list.map(section=><button key={section.id} id={`grammar-card-${section.id}`} type="button" className="camp-learning-library-card" onClick={()=>open(section.id)}>
+            {list.map(section=><button key={section.id} id={`grammar-card-${section.id}`} type="button" className="camp-learning-library-card" data-done={learned(section.id)} onClick={()=>open(section.id)}>
               <span className="camp-library-card-icon"><LearningArt name={section.art ?? "BookOpen"} size={23} /></span>
               <span className="camp-library-card-copy">
                 <strong>{section.title}</strong>
@@ -491,3 +517,4 @@ export function GrammarReference() {
     </div>
   );
 }
+

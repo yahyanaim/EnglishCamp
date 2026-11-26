@@ -374,7 +374,6 @@ export default function PracticePage() {
     );
   }
 
-  const totalTrainers = CATEGORIES.reduce((sum, category) => sum + category.trainers.length, 0);
   const open = (id: string) => {
     const trainer = CATEGORIES.flatMap(category => category.trainers).find(item => item.id === id);
     if (!trainer) return;
@@ -387,13 +386,6 @@ export default function PracticePage() {
 
   return (
     <PageWrapper className="camp-practice-hub" back={false}>
-      <PageBanner>
-        <h1 className="camp-library-activity-title">
-          <LearningArt name="Brain" size={24} />
-          <span>Practice Hub</span>
-        </h1>
-        <p>{totalTrainers} trainers and games to practice your English</p>
-      </PageBanner>
       <PracticeHubHome categories={CATEGORIES} labelOf={trainer => trainerLabel(trainer as { id: TrainerId; label: string })} onOpen={open} />
     </PageWrapper>
   );

@@ -1,6 +1,10 @@
 {
   "scope": "Read & Listening restructure: Vocabulary is word-only, Read & Listen became Read (text, word lookups, comprehension questions), and Listening is a separate section below Vocabulary. Later reviewed deltas: word bank sync across devices, Listening/Reading counts on Stats, balanced grid/tab rows, and the Practice Hub home (Today strip, filters, card details). Each delta starts at the previously reviewed version.",
   "files": {
+    "src/app/grammar/page.tsx": {
+      "before": "c79a1871f65b3b32ad51a71d7876f57cc523c24bbde73f40eda69c45324ee730",
+      "after": "0528f31011d203d2efa14cdd49805d3223d87cf2348eb8f826fef1e898b5abb2"
+    },
     "cloudflare/worker.ts": {
       "before": "004c1022a1b6679c39615ae3dfe6e66d62b56e88fcbb771c4d69a65723e160c7",
       "after": "1898c1a298eb490a1265db327f99782cbb0abe893343ef46f641c2f87d304378"
@@ -95,7 +99,7 @@
     },
     "src/app/reading/page.tsx": {
       "before": "bbd8821e26af3eea3b2809f38611d1c4cf2dd885d957fb407a696dd5c898db42",
-      "after": "305b84c3d8fa2ff795731b409567934fcd11eed030c52c872a6c88f16de5db9e"
+      "after": "ea3f36cd8b0d2e005623fa7288a6fdc3f8abfdb5b811a35456dcf56628391396"
     },
     "src/app/vocabulary/page.tsx": {
       "before": "b21670abfc21b94504588e8f4466b0300b867a48a6cbb0d326b64efc788b5fcb",
@@ -151,7 +155,7 @@
     },
     "src/app/practice/page.tsx": {
       "before": "4b8deb6076323dbe529912df9e1406142c34e56632f42cf932e04979b939216d",
-      "after": "c045d41891a46a7f98db9453b8e1d754f27978228da26d0af7350771dfd6c8d5"
+      "after": "4435253efea56e6d015cdae034b6bbada14dcc79a8f6a12da4a5b9fdb59477c0"
     },
     "src/components/learn/MemoryMatchGame.tsx": {
       "before": "086a8c963c4fb1b507dc4380de9fbd5d193c2141b9f31826ba9cae273e967418",
@@ -243,7 +247,7 @@
     },
     "src/components/learn/GrammarReference.tsx": {
       "before": "f388680878861c07b535f8c3e5aff76aa9ce175c13aa051d68b288bdb9d5b661",
-      "after": "999238230916be5de797f014ecba3cef3ee4b81efa72afa6ed6aa2d92b9f8a87"
+      "after": "fae30af40d87348c4f01aa36cbfe18c9a4b86956b6da506c86cb6cb50734f102"
     },
     "src/components/learn/GrammarFoundationLesson.tsx": {
       "before": "50e2b4b9804ecd31573162f611db549c1d4804729c9a5c248f9bb3b3d65b7316",
@@ -423,7 +427,7 @@
   "grammarUi": {
     "src/components/learn/GrammarReference.tsx": {
       "reason": "Grammar Reference level filter adds search and level state and the filter buttons; accordion toggles unchanged.",
-      "handlers": "fba27d3c2b454129d6d75d9ff60b10646b8bf9d97e98847301403233a8f33b2b",
+      "handlers": "43f4a9a24f6616b7a2be1cb0ff85f9b133ac3549248da6baf72677a814192fe2",
       "initialState": "4c2ee167192406943c51be3bbfe65045405bccb703aeb7f5e81e65c80c2a9cbe"
     },
     "src/app/grammar/cheat-sheet/page.tsx": {
@@ -443,7 +447,7 @@
     },
     "src/components/learn/GrammarReference.tsx": {
       "reason": "Grammar Reference: CEFR level per section, 19 new original lessons, search and A1-B2 level filter grouped like the Practice Hub; legacy teaching text unchanged.",
-      "after": "e0f59842759525ae030c3953d33f67b748058fcffaaed80a2c155a887002972c"
+      "after": "609f569ba6f148259c5ff9a00181dbc6d84a7b366869106973979aae50ebeb3c"
     },
     "src/components/learn/SpeedMatch.tsx": {
       "reason": "Speed Match: pair-count row exposes aria-pressed and uses the shared segmented control.",
