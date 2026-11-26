@@ -10,10 +10,10 @@
 .camp-frame main.camp-content .camp-hub-hero-art { flex: none; display: grid; place-items: center; width: 56px; height: 56px; border-radius: 18px; background: linear-gradient(145deg, color-mix(in srgb, var(--camp-purple) 18%, var(--color-surface)), color-mix(in srgb, var(--camp-purple) 6%, var(--color-surface))); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--camp-purple) 18%, transparent); }
 .camp-frame main.camp-content .camp-hub-hero h1 { margin: 4px 0 0; font: 800 clamp(24px, 2.8vw, 32px)/1.2 var(--font-display), Nunito, sans-serif !important; letter-spacing: -.015em; color: var(--color-text-primary); }
 .camp-frame main.camp-content .camp-hub-hero-main p { margin: 6px 0 0; max-width: 60ch; font-size: 15.5px; line-height: 1.6; color: var(--color-text-secondary); }
-.camp-frame main.camp-content .camp-hub-stats { grid-area: stats; display: grid; grid-template-columns: repeat(auto-fit, minmax(92px, 1fr)); gap: 10px; margin: 0; }
-.camp-frame main.camp-content .camp-hub-stats > div { min-width: 0; padding: 10px 12px; border-radius: 14px; background: color-mix(in srgb, var(--camp-purple) 6%, var(--color-surface)); border: 1px solid color-mix(in srgb, var(--camp-purple) 12%, transparent); }
-.camp-frame main.camp-content .camp-hub-stats dt { font-size: 11.5px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: var(--color-text-secondary); }
-.camp-frame main.camp-content .camp-hub-stats dd { margin: 2px 0 0; font: 800 22px/1.2 var(--font-display), Nunito, sans-serif; color: var(--color-text-primary); }
+.camp-frame main.camp-content .camp-hub-stats { grid-area: stats; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin: 0; }
+.camp-frame main.camp-content .camp-hub-stats > div { min-width: 0; padding: 10px 12px; border-radius: 14px; background: color-mix(in srgb, var(--camp-purple) 6%, var(--color-surface)); border: 1px solid color-mix(in srgb, var(--camp-purple) 12%, transparent); display: flex; flex-direction: column; justify-content: space-between; gap: 6px; }
+.camp-frame main.camp-content .camp-hub-stats dt { font-size: 11px; line-height: 1.3; font-weight: 700; letter-spacing: .03em; overflow-wrap: anywhere; text-transform: uppercase; color: var(--color-text-secondary); }
+.camp-frame main.camp-content .camp-hub-stats dd { margin: 0; font: 800 22px/1.2 var(--font-display), Nunito, sans-serif; color: var(--color-text-primary); }
 .camp-frame main.camp-content .camp-hub-hero-action { grid-area: action; align-self: center; min-width: 0; }
 .camp-frame main.camp-content .camp-hub-hero-progress { grid-area: progress; display: grid; gap: 8px; }
 .camp-frame main.camp-content .camp-hub-hero-progress-label { display: flex; justify-content: space-between; gap: 12px; font-size: 13px; font-weight: 650; color: var(--color-text-secondary); }

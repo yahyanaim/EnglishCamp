@@ -488,16 +488,18 @@
 .camp-frame main.camp-content .camp-shadow-level-filter button[aria-pressed="true"] { background: var(--lv); color: #fff; border-color: transparent; box-shadow: 0 8px 18px -10px var(--lv); }
 .camp-frame main.camp-content .camp-shadow-level-filter button[aria-pressed="true"] span { background: rgba(255,255,255,.22); color: #fff; }
 .camp-frame main.camp-content .camp-shadow-level-filter button[data-level="all"][aria-pressed="true"] { background: var(--g-primary); }
-.camp-frame main.camp-content .camp-shadow-now { display: grid; grid-template-columns: auto minmax(0, 1fr) minmax(180px, 260px); gap: 14px; align-items: center; margin: 0 0 18px; padding: 14px 18px; border-radius: 18px; background: var(--g-card); border: 1px solid var(--g-rim, var(--color-border-default)); box-shadow: var(--g-sheen, none), 0 10px 26px -20px rgba(76, 29, 149, .4); }
+.camp-frame main.camp-content .camp-shadow-now { display: grid; grid-template-columns: auto minmax(0, max-content) minmax(220px, 1fr); gap: 14px 28px; align-items: center; margin: 0 0 18px; padding: 14px 18px; border-radius: 18px; background: var(--g-card); border: 1px solid var(--g-rim, var(--color-border-default)); box-shadow: var(--g-sheen, none), 0 10px 26px -20px rgba(76, 29, 149, .4); }
 .camp-frame main.camp-content .camp-shadow-now-copy { display: grid; gap: 2px; min-width: 0; }
 .camp-frame main.camp-content .camp-shadow-now-copy strong { font: 700 16px/1.3 var(--font-display), Nunito, sans-serif; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .camp-frame main.camp-content .camp-shadow-now-copy small, .camp-frame main.camp-content .camp-shadow-now-progress small { font-size: 12.5px; color: var(--color-text-secondary); }
-.camp-frame main.camp-content .camp-shadow-now-progress { display: grid; gap: 6px; }
+.camp-frame main.camp-content .camp-shadow-now-progress { display: flex; align-items: center; gap: 14px; min-width: 0; padding-inline-start: 24px; border-inline-start: 1px solid color-mix(in srgb, var(--camp-purple) 14%, transparent); }
+.camp-frame main.camp-content .camp-shadow-now-progress > span { flex: 1 1 auto; min-width: 80px; }
+.camp-frame main.camp-content .camp-shadow-now-progress small { flex: none; white-space: nowrap; font-weight: 600; color: var(--camp-control-ink, var(--color-text-primary)); }
 .camp-frame main.camp-content .camp-shadow-now-progress > span { height: 8px; border-radius: 8px; background: color-mix(in srgb, var(--camp-purple) 12%, transparent); overflow: hidden; }
 .camp-frame main.camp-content .camp-shadow-now-progress i { display: block; height: 100%; border-radius: 8px; background: var(--g-primary, var(--camp-purple)); transition: width .4s ease; }
 @container camp-main (max-width: 679px) {
   .camp-frame main.camp-content .camp-shadow-now { grid-template-columns: auto minmax(0, 1fr); }
-  .camp-frame main.camp-content .camp-shadow-now-progress { grid-column: 1 / -1; }
+  .camp-frame main.camp-content .camp-shadow-now-progress { grid-column: 1 / -1; padding-inline-start: 0; border-inline-start: 0; }
 }
 .camp-frame main.camp-content .camp-ai-allowance { display: inline-flex; align-items: center; gap: 6px; justify-self: start; margin: 0; padding: 5px 12px; border-radius: 999px; background: color-mix(in srgb, #10b981 12%, transparent); color: #047857; font-size: 12.5px !important; font-weight: 650; }
 .camp-frame main.camp-content .camp-ai-allowance::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
@@ -522,3 +524,8 @@ html.dark .camp-frame main.camp-content .camp-ai-allowance[data-empty="true"] { 
 /* Audit U12: long level names shrink instead of widening the tile on 360px phones. */
 .camp-grammar-path-tile { grid-template-columns:minmax(0,1fr); }
 .camp-grammar-path-head, .camp-grammar-path-name { min-width:0; }
+
+/* Shadowing side panel: one "More videos to practice" list with a heading (the transcript tab was removed). */
+.camp-frame main.camp-content .camp-shadow-side-head { padding: 16px; border-bottom: 1px solid var(--color-border-default); }
+.camp-frame main.camp-content .camp-shadow-side-head h2 { margin: 0; font: 700 17px/1.3 var(--font-display), Nunito, sans-serif; color: var(--color-text-primary); }
+.camp-frame main.camp-content .camp-shadow-side-head .camp-shadow-library-heading { margin: 4px 0 0; padding: 0; }

@@ -15,7 +15,7 @@
     },
     "src/app/shadowing-english/page.tsx": {
       "before": "17d9582102a274a8e5968a085a709e435cbaf580e548980f6c575b78939743ed",
-      "after": "bcba9913cca856605c8815300841851dad39b3b30c817364c6faa45b1444a5b4"
+      "after": "dedb551a7fd5918b6ca713e6094605117283e2ce5075a6cc4fdbad4e8e6326d8"
     },
     "src/components/shadowing/ShadowLessonCard.tsx": {
       "before": "1b4ebcf55f274de3677d39f95cf471e4e1a34d38f2c6f02141fa4b6ef39193f3",

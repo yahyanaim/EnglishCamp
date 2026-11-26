@@ -163,8 +163,6 @@
   .camp-shadow-sentence-meta,.camp-shadow-line-text button small { font-size:12px; }
   .camp-shadow-practice { padding:16px; }
   .camp-shadow-current { padding-block:18px; min-height:0; }
-  .camp-shadow-side-tabs { display:grid; grid-template-columns:1fr 1fr; gap:8px; padding:12px; }
-  .camp-shadow-side-tabs > button { padding-inline:8px; font-size:13px; white-space:normal; }
   .camp-shadow-video-list strong { font-size:14px; line-height:1.5; }
   .camp-shadow-topic-list .camp-shadow-topic { font-size:11px; }
   .camp-shadow-record-bar { flex-wrap:wrap; gap:10px!important; }
