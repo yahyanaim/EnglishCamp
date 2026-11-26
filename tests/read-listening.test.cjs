@@ -36,7 +36,7 @@ test('navigation places Listening directly below Vocabulary and renames Read & L
  assert.match(src('src/components/layout/TopBar.tsx'),/"\/reading": "Read"/);assert.match(src('src/components/layout/TopBar.tsx'),/"\/vocabulary": "Vocabulary",/);
  const walk=d=>fs.readdirSync(d,{withFileTypes:true}).flatMap(e=>e.isDirectory()?walk(d+'/'+e.name):[d+'/'+e.name]);
  for(const file of walk('src').filter(f=>/\.(tsx?|css)$/.test(f)))assert.ok(!/Read\s*(&|&amp;)\s*Listen/i.test(src(file)),file);
- assert.match(src('src/app/reading/page.tsx'),/<h1>Read<\/h1>/);assert.match(src('src/app/listening/page.tsx'),/<h1>Listening<\/h1>/);
+ assert.match(src('src/components/learn/ReadingSection.tsx'),/<HubHero[^>]*title="Read"/);assert.match(src('src/components/learn/HubHero.tsx'),/<h1[^>]*>\{title\}<\/h1>/);assert.match(src('src/app/listening/page.tsx'),/<h1>Listening<\/h1>/);
  assert.ok(!src('scripts/build-cloudflare.cjs').includes('ReadingRedirect'),'the static build ships the Read page');
 });
 

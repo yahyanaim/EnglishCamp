@@ -3,11 +3,11 @@
 import "./read-listening.css";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { motion } from "framer-motion";
-import { CheckCircle2, ChevronRight, Search } from "lucide-react";
+import { CheckCircle2, ChevronRight, Circle, CircleDot, Clock, Search, X } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { LearningArt } from "@/components/brand/LearningArt";
 import { ReadingIllustration } from "@/components/brand/ReadingIllustration";
-import { SelectField } from "@/components/ui/shadcn/select-field";
+import { HubContinue, HubHero, LevelRail } from "./HubHero";
 import { ReadingLessonView } from "./ReadingLessonView";
 import { LibraryPagination, pageCount, pageSlice } from "./LibraryPagination";
 import { CEFR_LABELS, CEFR_LEVELS, readingMinutes, type CefrLevel, type ReadingLesson } from "@/data/reading-lessons";
@@ -18,8 +18,6 @@ import { useProgress } from "@/store/useProgress";
 import { useSkillPractice } from "@/store/useSkillPractice";
 
 const PAGE_SIZE = 9;
-const fieldStyle = { boxShadow: "0 2px 0 var(--color-border-default)" };
-const fieldClass = "font-body text-sm bg-[var(--color-surface)] border border-[var(--color-border-default)] rounded-[var(--radius-md)] px-3 py-2.5 outline-none text-[var(--color-text-primary)] transition-all duration-150";
 const LEVEL_NOTES: Record<CefrLevel, string> = {
   A1: "Short passages about familiar, everyday situations.",
   A2: "Simple texts with everyday vocabulary and clear grammar.",
@@ -70,73 +68,103 @@ export function ReadingSection() {
   const turn = (next: number) => { setPage(next); top.current?.scrollIntoView({ block: "start", behavior: "smooth" }); };
   const selected = selectedId ? lessons.find(lesson => lesson.id === selectedId) : null;
 
-  if (selected) return <ReadingLessonView key={selected.id} lesson={selected} onBack={() => setSelectedId(null)} onOpenBank={() => router.push("/vocabulary")} />;
+  const ordered = useMemo(() => CEFR_LEVELS.flatMap(cefr => lessons.filter(lesson => lesson.level === cefr)), [lessons]);
+  if (selected) {
+    const at = ordered.findIndex(lesson => lesson.id === selected.id);
+    return <ReadingLessonView key={selected.id} lesson={selected} onBack={() => setSelectedId(null)} onOpenBank={() => router.push("/vocabulary")}
+      position={{ index: at, total: ordered.length }} previous={ordered[at - 1]} next={ordered[at + 1]} onOpen={setSelectedId} />;
+  }
 
   const visible = pageSlice(filtered, page, PAGE_SIZE);
   const groups = CEFR_LEVELS.map(cefr => ({ cefr, items: visible.filter(lesson => lesson.level === cefr) })).filter(group => group.items.length);
   const completed = lessons.filter(lesson => status(lesson) === "completed").length;
+  const started = lessons.filter(lesson => status(lesson) === "started");
+  const scored = lessons.map(lesson => practice[readingExerciseId(lesson.id)]).filter(record => record?.total);
+  const average = scored.length ? Math.round(scored.reduce((sum, record) => sum + record!.best / record!.total, 0) / scored.length * 100) : null;
+  // Next step: the passage started most recently, otherwise the first unread passage in reading order.
+  const seenAt = (lesson: ReadingLesson) => Date.parse(practice[readingExerciseId(lesson.id)]?.lastAt ?? "") || 0;
+  const resume = [...started].sort((a, b) => seenAt(b) - seenAt(a))[0];
+  const upNext = resume ?? ordered.find(lesson => status(lesson) === "new") ?? ordered[0];
+  const filtering = query.trim() !== "" || level !== "all" || category !== "all" || state !== "all";
+  const clear = () => { setQuery(""); setLevel("all"); setCategory("all"); setState("all"); };
   return (
-    <>
-      <div ref={top} className="flex flex-wrap gap-3 items-center scroll-mt-24">
-        <div className="relative flex-1 min-w-[200px]">
-          <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-[var(--color-text-secondary)]" aria-hidden="true" />
-          <input type="search" aria-label="Search reading passages" value={query} onChange={e => setQuery(e.target.value)} placeholder="Search passages..."
-            className="w-full h-12 pl-10 pr-4 bg-[var(--color-surface)] rounded-[var(--radius-md)] border border-[var(--color-border-default)] font-body text-sm font-medium text-[var(--color-text-primary)] placeholder:text-[var(--color-text-secondary)] placeholder:italic outline-none transition-all duration-150 focus:border-[var(--color-border-focus)]"
-            style={fieldStyle} />
+    <div className="camp-hub-v2 space-y-6">
+      <HubHero eyebrow="Reading library" title="Read" art="BookOpenText"
+        description="Short English passages at your level. Tap any word for its meaning, then check your understanding."
+        stats={[{ label: "Passages", value: lessons.length }, { label: "Completed", value: completed }, { label: "In progress", value: started.length }, { label: "Average score", value: average === null ? "–" : `${average}%` }]}
+        progress={{ value: completed, total: lessons.length, label: "Library completed" }}
+        action={upNext && <HubContinue art="BookOpenText" kicker={resume ? "Continue reading" : completed === lessons.length ? "Read again" : "Start reading"}
+          title={upNext.title} meta={`${CEFR_LABELS[upNext.level]} · ${readingMinutes(upNext)} min`} onClick={() => setSelectedId(upNext.id)} />} />
+      <LevelRail label="Reading level" value={level as CefrLevel | "all"} onChange={value => setLevel(value)}
+        items={CEFR_LEVELS.map(cefr => ({ value: cefr, name: CEFR_LABELS[cefr].split(" · ")[1] ?? cefr, total: lessons.filter(lesson => lesson.level === cefr).length, done: lessons.filter(lesson => lesson.level === cefr && status(lesson) === "completed").length }))} />
+      <section ref={top} className="camp-hub-toolbar scroll-mt-24" aria-label="Find a passage">
+        <div className="camp-hub-toolbar-row">
+          <label className="camp-hub-search">
+            <Search size={16} aria-hidden="true" />
+            <span className="sr-only">Search reading passages</span>
+            <input type="search" value={query} onChange={e => setQuery(e.target.value)} placeholder="Search passages…" />
+          </label>
+          <div className="camp-hub-segment" role="group" aria-label="Reading progress">
+            {([["all", "All"], ["new", "Not started"], ["started", "In progress"], ["completed", "Completed"]] as const).map(([value, name]) =>
+              <button key={value} type="button" aria-pressed={state === value} onClick={() => setState(value)}>{name}</button>)}
+          </div>
         </div>
-        <SelectField aria-label="Reading level" value={level} onValueChange={setLevel} className={fieldClass} style={fieldStyle}>
-          <option value="all">All levels</option>
-          {CEFR_LEVELS.map(l => <option key={l} value={l}>{CEFR_LABELS[l]}</option>)}
-        </SelectField>
-        <SelectField aria-label="Reading category" value={category} onValueChange={setCategory} className={fieldClass} style={fieldStyle}>
-          <option value="all">All categories</option>
-          {categories.map(c => <option key={c} value={c}>{c}</option>)}
-        </SelectField>
-        <SelectField aria-label="Reading progress" value={state} onValueChange={setState} className={fieldClass} style={fieldStyle}>
-          <option value="all">All passages</option>
-          <option value="new">Not started</option>
-          <option value="started">In progress</option>
-          <option value="completed">Completed</option>
-        </SelectField>
-        <span className="font-body text-xs text-[var(--color-text-secondary)]" role="status">{filtered.length} passages · {completed} completed</span>
-      </div>
-      {groups.map(group => (
-        <section key={group.cefr} className="space-y-3" aria-labelledby={`reading-level-${group.cefr}`}>
-          <div>
-            <h2 id={`reading-level-${group.cefr}`} className="font-display text-lg font-bold">{CEFR_LABELS[group.cefr]}</h2>
-            <p className="font-body text-xs text-[var(--color-text-secondary)]">{LEVEL_NOTES[group.cefr]}</p>
+        <div className="camp-hub-toolbar-row">
+          <div className="camp-hub-chips" role="group" aria-label="Reading category">
+            <button type="button" aria-pressed={category === "all"} onClick={() => setCategory("all")}>All topics</button>
+            {categories.map(c => <button key={c} type="button" aria-pressed={category === c} onClick={() => setCategory(c)}>{c}</button>)}
           </div>
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {group.items.map(lesson => {
-              const s = status(lesson), record = practice[readingExerciseId(lesson.id)];
-              return (
-                <motion.button key={lesson.id} type="button" onClick={() => setSelectedId(lesson.id)} className="camp-article-card" whileHover={{ y: -2 }}>
-                  <ReadingIllustration article={{ id: lesson.id, category: lesson.category as never }} />
-                  <div className="flex flex-wrap items-center gap-2 mb-2">
-                    <span className="font-body text-[10px] font-semibold text-[var(--color-text-link)] bg-[var(--color-primary-subtle)] px-2 py-0.5 rounded-[var(--radius-pill)]">{lesson.level}</span>
-                    <span className="font-body text-[10px] font-semibold text-[var(--color-text-secondary)] bg-[var(--color-surface-alt)] px-2 py-0.5 rounded-[var(--radius-pill)]">{lesson.category}</span>
-                    <span className="font-body text-[10px] font-semibold text-[var(--color-text-secondary)] bg-[var(--color-surface-alt)] px-2 py-0.5 rounded-[var(--radius-pill)]">{readingMinutes(lesson)} min</span>
-                    {s === "completed" && <span className="font-body text-[10px] font-bold text-[var(--color-success-dark)] bg-[var(--color-success-bg)] px-2 py-0.5 rounded-[var(--radius-pill)] inline-flex items-center gap-1"><CheckCircle2 className="w-3 h-3" aria-hidden="true" />{record?.total ? `${record.best}/${record.total}` : "Done"}</span>}
-                  </div>
-                  <h3 className="font-display font-bold text-sm text-[var(--color-text-primary)] leading-snug">{lesson.title}</h3>
-                  <p className="font-body text-xs text-[var(--color-text-secondary)] mt-2 line-clamp-2">{lesson.paragraphs[0]?.slice(0, 120)}...</p>
-                  <div className="flex items-center gap-1 mt-3 text-[var(--color-primary)] font-body text-xs font-bold">
-                    {s === "completed" ? "Review passage" : s === "started" ? "Continue reading" : "Start reading"} <ChevronRight className="w-3 h-3" aria-hidden="true" />
-                  </div>
-                </motion.button>
-              );
-            })}
-          </div>
-        </section>
-      ))}
+          <p className="camp-hub-count" role="status">{filtered.length} {filtered.length === 1 ? "passage" : "passages"}{filtering ? <> · <button type="button" onClick={clear}><X size={13} aria-hidden="true" />Clear filters</button></> : null}</p>
+        </div>
+      </section>
+      {groups.map(group => {
+        const all = lessons.filter(lesson => lesson.level === group.cefr), finished = all.filter(lesson => status(lesson) === "completed").length;
+        return (
+          <section key={group.cefr} className="space-y-3" aria-labelledby={`reading-level-${group.cefr}`}>
+            <div className="camp-hub-group-head">
+              <div>
+                <h2 id={`reading-level-${group.cefr}`}><span className="camp-hub-level">{group.cefr}</span>{CEFR_LABELS[group.cefr].split(" · ")[1]}</h2>
+                <p>{LEVEL_NOTES[group.cefr]}</p>
+              </div>
+              <span className="camp-hub-group-progress">{finished}/{all.length} completed<span className="camp-level-rail-bar" aria-hidden="true"><span style={{ width: `${all.length ? finished / all.length * 100 : 0}%` }} /></span></span>
+            </div>
+            <div className="camp-read-grid">
+              {group.items.map(lesson => {
+                const s = status(lesson), record = practice[readingExerciseId(lesson.id)];
+                return (
+                  <motion.button key={lesson.id} type="button" onClick={() => setSelectedId(lesson.id)} className="camp-read-card" data-status={s} whileTap={{ scale: .99 }}>
+                    <span className="camp-read-card-art"><ReadingIllustration article={{ id: lesson.id, category: lesson.category as never }} /></span>
+                    <span className="camp-read-card-body">
+                      <span className="camp-read-card-tags">
+                        <span className="camp-hub-level">{lesson.level}</span>
+                        <span>{lesson.category}</span>
+                        <span><Clock size={12} aria-hidden="true" />{readingMinutes(lesson)} min</span>
+                      </span>
+                      <h3>{lesson.title}</h3>
+                      <span className="camp-read-card-excerpt">{lesson.paragraphs[0]?.slice(0, 140)}…</span>
+                      <span className="camp-read-card-foot">
+                        <span className="camp-read-card-status">
+                          {s === "completed" ? <><CheckCircle2 size={14} aria-hidden="true" />{record?.total ? `Best ${record.best}/${record.total}` : "Completed"}</>
+                            : s === "started" ? <><CircleDot size={14} aria-hidden="true" />In progress</> : <><Circle size={14} aria-hidden="true" />Not started</>}
+                        </span>
+                        <span className="inline-flex items-center gap-1">{s === "completed" ? "Review" : s === "started" ? "Continue" : "Start"}<ChevronRight size={15} aria-hidden="true" /></span>
+                      </span>
+                    </span>
+                  </motion.button>
+                );
+              })}
+            </div>
+          </section>
+        );
+      })}
       <LibraryPagination page={page} total={filtered.length} size={PAGE_SIZE} label="Reading passages pages" onChange={turn} />
       {filtered.length === 0 && (
-        <div className="text-center py-16">
+        <div className="camp-hub-empty text-center py-12">
           <LearningArt name="BookOpenText" size={36} className="w-12 h-12 mx-auto mb-3" />
           <p className="font-display font-bold text-sm text-[var(--color-text-secondary)]">No passages found</p>
-          <p className="font-body text-xs mt-1 text-[var(--color-text-secondary)]">{level !== "all" && !lessons.some(l => l.level === level) ? `${CEFR_LABELS[level as CefrLevel]} passages are not published yet.` : "Try a different search or filter."}</p>
+          <p className="font-body text-xs mt-1 text-[var(--color-text-secondary)]">{level !== "all" && !lessons.some(l => l.level === level) ? `${CEFR_LABELS[level as CefrLevel]} passages are not published yet.` : "Try a different search or filter."} <button type="button" onClick={clear}>Clear filters</button></p>
         </div>
       )}
-    </>
+    </div>
   );
 }
