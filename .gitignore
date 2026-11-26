@@ -14,3 +14,4 @@ next-env.d.ts
 !.dev.vars.example
 __pycache__/
 *.pyc
+wrangler.staging.generated.jsonc
