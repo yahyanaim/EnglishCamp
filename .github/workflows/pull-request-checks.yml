@@ -45,8 +45,6 @@ jobs:
       - name: Check the Worker bundle
         run: npm run check:cloudflare
 
-      # Remaining advisories need Next.js 15+ (Image Optimizer, bundled PostCSS), which a
-      # static export does not run in production. Report them without blocking until that upgrade.
+      # Blocking since the Next.js 16 upgrade left no known high or critical advisories.
       - name: Audit production dependencies
-        continue-on-error: true
         run: npm audit --omit=dev --audit-level=high

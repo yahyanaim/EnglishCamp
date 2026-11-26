@@ -135,7 +135,7 @@
     },
     "src/components/session/SessionDialog.tsx": {
       "before": "f5afc93adc706ab3a84ab4c6cf39a025dc28e80633ce3c6f92a512abc81f0969",
-      "after": "500adcf1cb6097a31adb77984b348fe642d875d72ba0aeda4419060cc0be5f9f"
+      "after": "ff7b2b2b58a948d9f37eb30e2b38cbaac98cf078f90d62e4a2945bdbbbae90e7"
     },
     "src/components/session/DeviceSync.tsx": {
       "before": "26219bc9537d6308dc02976b5312f0a1598b1ef740e65f1353e057b8473a34ae",
@@ -263,7 +263,7 @@
     },
     "src/app/quiz/[levelId]/page.tsx": {
       "before": "a64a6e663f798a04c7d8bdd4171788c759350b9597215a89e3b5597d2a6e78e7",
-      "after": "a8355083f16acda78e9db207ed49b3894310c807617aeae9cfb126fce8cfb224"
+      "after": "c9529a1c2072621942e47604818c4aa2d7445202727c3b89cecf6466973eea4b"
     },
     "src/components/ui/EncouragementPanel.tsx": {
       "before": "d5c9c1c926ce09e682c5cf77b36b9420bbdca68043834db277f5280e8bfa499f",
@@ -291,7 +291,7 @@
     },
     "src/components/session/CloudNotesProvider.tsx": {
       "before": "2aff24b65ca26d1777061b422de6abfa5f4623207730da50af9d0255ad5f7658",
-      "after": "6217ec18a0ca37a557811fe7a3332b7e4edd7cc80230bae9b9b6dbc2694a9cc9"
+      "after": "6dfec5e3fb4e3a1c7821c7ada56e524f43da88e6ffd57e53d42dd02d4176c8b2"
     },
     "cloudflare/invitationAdmin.ts": {
       "before": "0e60427e35d5017839f3fb47408342035d3acfda46da3792f54626f0529e3209",
@@ -303,11 +303,11 @@
     },
     "package-lock.json": {
       "before": "c79b296bc875533b2b2dda111deebd5563c1e7a6dd94ee3154ec87da294cce17",
-      "after": "b7e5618151ab23c20681ad9a3fa68ca43fc1f5db71568ed85586ca7a4100655e"
+      "after": "40f50a5ce5e7a69ebe531acaf49534a64c02f95fd3449d108769f3edcf168e68"
     },
     "cloudflare/access.ts": {
       "before": "d8f9db5c0ecd7c89c59d0d2b67653fb1e3a25fd60d355ed0523760e1f5308f73",
-      "after": "15d06ba813df8102ac479481cc2abf955f7ea02c10fd2a3477a60de1bf604991"
+      "after": "5c6f25bc9af17ba668709a867065264d4e0210dd4dc2aa187e42ebf56fc93ff9"
     },
     "cloudflare/assetCoverage.json": {
       "before": "f94c7b2769ae7a9f0309a201a2f8a3662c754f1bd8fa0e992084d012addf7d42",
@@ -319,7 +319,7 @@
     },
     "scripts/build-cloudflare.cjs": {
       "before": "be92326b20a73f831bb8a08bf94b970ae7a90beebd3cefb70f70d7786dc3bcf8",
-      "after": "d7d3f691395537f2eee45b39738bae76895fd680cd012171dd4daeaa92aa2e04"
+      "after": "5222547c6dc98108139310917b8e8f0e873fa57649c5c28a140a6d186bf663b9"
     },
     "src/components/exercises/CourseActivity.tsx": {
       "before": "3cd55ed44a14b418c914f9c5fe9a34f7fcd28488e27285c204a9d1516377c611",
@@ -400,6 +400,30 @@
     "src/components/placement/PlacementOffer.tsx": {
       "before": "4d8025664837562a547abb18cb34a8efa9499622004a0b10e83a9f79c4bc487a",
       "after": "c2f80e2a30578555ef342256d1444dda0a6fe425017c9880ba20382f33e12d68"
+    },
+    "next.config.mjs": {
+      "before": "6ffdcfb3bd5bbae39879e23849f4e793d15d953df677fe597773063a89d089a1",
+      "after": "e97b8fe57e9d930ece60201733fe7c6d05a23dc863df8dde9057ab5a701ee323"
+    },
+    "package.json": {
+      "before": "240ed9d6bc862d1b353b2ed199f152b4324ee868e2a4817f4a801908ecf79907",
+      "after": "1f423fdce9eedb18dd0416175c2a5438ac28f19483de5f51d77368b0ff5341c8"
+    },
+    "src/app/exercises/[lessonId]/page.tsx": {
+      "before": "5ce15e1dc26e800cfe92ca7c4f59d2ee28ac991fc61b9b84c1676d17f9ada933",
+      "after": "195f5a57f196cd45d1b1a390b698d3b24a741ef3ea4048e7803cc22beb53bbd8"
+    },
+    "src/app/levels/[id]/lessons/[lessonId]/page.tsx": {
+      "before": "3e5e9b37a5f62f2908b45bbeafdd9cfaabdf2cd91eae774fec701ab4653cc0bf",
+      "after": "f5c784e2cb0decf6a4294e112eb89da8803feb72f3256f1a8e4392c4f129efc7"
+    },
+    "src/app/levels/[id]/page.tsx": {
+      "before": "b70b86a764f468b2a0fd21de2f1da4e5f62e232e147013c693c1c8605e213479",
+      "after": "6f1ac3e8467213421f861d0ab8b715365d73e37626afee3c70a755c2e6cc7cf3"
+    },
+    "src/components/session/CloudProgressProvider.tsx": {
+      "before": "dde610f001b8d8d1357d20138f037fde0ade741f11e00c760ef58106084897df",
+      "after": "a2b661c9ca22f5c89f852511de1ad62a14c7cd162c043727186ba954645c53e1"
     }
   },
   "selectors": {

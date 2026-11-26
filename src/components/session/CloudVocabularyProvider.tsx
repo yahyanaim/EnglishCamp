@@ -19,7 +19,7 @@ const local=():CloudVocabulary=>{const s=useVocabulary.getState();return cleanVo
 export function CloudVocabularyProvider({children}:{children:ReactNode}){
  const {profile,ready}=useSessionProfile(),id=profile?.cloudId;
  const [status,setStatus]=useState<Status>('local'),[message,setMessage]=useState('');
- const applying=useRef(false),flight=useRef<{id:string;work:Promise<void>}|null>(null),timer=useRef<ReturnType<typeof setTimeout>>();
+ const applying=useRef(false),flight=useRef<{id:string;work:Promise<void>}|null>(null),timer=useRef<ReturnType<typeof setTimeout>|undefined>(undefined);
  const same=(selected:string)=>readSessionProfile(sessionStorage)?.cloudId===selected;
  function apply(merged:CloudVocabulary){
   const words={...merged.words} as ReturnType<typeof useVocabulary.getState>['words'];

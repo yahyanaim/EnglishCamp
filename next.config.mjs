@@ -3,7 +3,6 @@ import englishRoutes from "./src/lib/english-routes.mjs";
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: { unoptimized: true },
-  eslint: { ignoreDuringBuilds: true },
   async redirects() {
     return Object.entries(englishRoutes).flatMap(([legacy, english]) =>
       ["", "/en", "/ar"].map(prefix => ({

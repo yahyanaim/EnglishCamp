@@ -1,4 +1,5 @@
 "use client";
+import { use } from "react";
 import { notFound } from "next/navigation";
 import { levels } from "@/data/content";
 import { QuizEngine } from "@/components/quiz/QuizEngine";
@@ -7,8 +8,11 @@ import { PracticeFrame } from "@/components/ui/PracticeFrame";
 import { PracticeBanner } from "@/components/ui/PracticeBanner";
 import { LearningArt } from "@/components/brand/LearningArt";
 
-export default function QuizPage({ params }: { params: { levelId: string } }) {
-  const level = levels.find((l) => l.id === params.levelId);
+type QuizParams = { levelId: string };
+export default function QuizPage({ params }: { params: QuizParams | Promise<QuizParams> }) {
+  // Next.js 15+ hands client pages their params as a promise; the static build passes them resolved.
+  const { levelId } = params instanceof Promise ? use(params) : params;
+  const level = levels.find((l) => l.id === levelId);
   if (!level) notFound();
 
   return (
