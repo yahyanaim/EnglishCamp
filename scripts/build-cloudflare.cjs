@@ -22,7 +22,7 @@ async function main() {
   await fs.mkdir(app);
   for (const file of ['src', 'public', 'package.json', 'package-lock.json', 'tsconfig.json', 'tailwind.config.ts', 'postcss.config.mjs']) await fs.cp(path.join(root, file), path.join(app, file), { recursive: true });
   await fs.symlink(path.join(root, 'node_modules'), path.join(app, 'node_modules'), process.platform === 'win32' ? 'junction' : 'dir');
-  await fs.writeFile(path.join(app, 'next.config.mjs'), `import base from '../../next.config.mjs';\nexport default {...base, output:'export', redirects:undefined, rewrites:undefined};\n`);
+  await fs.writeFile(path.join(app, 'next.config.mjs'), `import base from '../../next.config.mjs';\nexport default {...base, output:'export', redirects:undefined, rewrites:undefined, turbopack:{root:${JSON.stringify(root)}}};\n`);
   // Runtime POST handlers are deployed separately in cloudflare/worker.ts.
   await fs.rm(path.join(app, 'src/app/api'), { recursive: true });
   const source = await fs.readFile(path.join(root, 'src/data/course-catalogue.ts'), 'utf8');
@@ -42,7 +42,7 @@ async function main() {
   ]) await fs.appendFile(path.join(app, 'src/app', file), `\nexport const dynamicParams=false;\nexport function generateStaticParams(){return ${JSON.stringify(params)};}\n`);
   const quiz = path.join(app, 'src/app/quiz/[levelId]');
   await fs.rename(path.join(quiz, 'page.tsx'), path.join(quiz, '_quiz-client.tsx'));
-  await fs.writeFile(path.join(quiz, 'page.tsx'), `import QuizPage from './_quiz-client';\nexport const dynamicParams=false;\nexport function generateStaticParams(){return ${JSON.stringify(catalogue.map(course => ({ levelId: course.id })))};}\nexport default function Page({params}:{params:{levelId:string}}){return <QuizPage params={params}/>;}\n`);
+  await fs.writeFile(path.join(quiz, 'page.tsx'), `import QuizPage from './_quiz-client';\nexport const dynamicParams=false;\nexport function generateStaticParams(){return ${JSON.stringify(catalogue.map(course => ({ levelId: course.id })))};}\nexport default async function Page(props:{params:Promise<{levelId:string}>}){const params=await props.params;return <QuizPage params={params}/>;}\n`);
   const { default: routes } = await import(path.join(root, 'src/lib/english-routes.mjs'));
   // Generate the actual English route tree, so static HTML and client navigation agree.
   for (const [legacy, english] of Object.entries(routes)) {

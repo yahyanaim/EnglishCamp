@@ -31,8 +31,10 @@ export async function learnerApproved(id: string, db: LearnerDatabase) {
 export function publicAccessPath(path: string) {
   try { const decoded=decodeURIComponent(path);if(decoded.includes('\\')||decoded.includes('%')||/(?:^|\/)\.{1,2}(?:\/|$)/.test(decoded))return false; }
   catch { return false; }
-  const page = path.replace(/\.(?:html|txt)$/, '').replace(/\/$/, '') || '/';
-  return ['/', '/index.html', '/index.txt'].includes(path) || ['/invite', '/membership', '/admin/login', '/connect-device'].includes(page)
+  // Next.js 16 also exports per-segment RSC files (`/invite/__next._tree.txt`); they share their page's access.
+  const segment = /\/__next\.[^/]+\.txt$/.test(path);
+  const page = path.replace(/\/__next\.[^/]+\.txt$/, '').replace(/\.(?:html|txt)$/, '').replace(/\/$/, '') || '/';
+  return ['/', '/index.html', '/index.txt'].includes(path) || (segment && page === '/') || ['/invite', '/membership', '/admin/login', '/connect-device'].includes(page)
     || (path.startsWith('/_next/static/') && /\.(?:js|css|woff2?|png|webp|jpg|svg)$/.test(path))
     || /^\/media\/brand\/[A-Za-z0-9_.-]+\.(?:png|webp|svg|ico)$/.test(path)
     || ['/favicon.ico', '/robots.txt'].includes(path)

@@ -16,7 +16,7 @@ import {useCloudNotes} from './CloudNotesProvider';
 import {useCloudVocabulary} from './CloudVocabularyProvider';
 import {DeviceSync} from './DeviceSync';
 
-export function SessionDialog({ open, onOpenChange, trigger }: { open: boolean; onOpenChange: (open: boolean) => void; trigger: RefObject<HTMLButtonElement> }) {
+export function SessionDialog({ open, onOpenChange, trigger }: { open: boolean; onOpenChange: (open: boolean) => void; trigger: RefObject<HTMLButtonElement | null> }) {
   const { profile, signIn, signOut, deleteSession, storageNotice } = useSessionProfile();
   const cloud=useCloudProgress();
   const notes=useCloudNotes(),vocabulary=useCloudVocabulary();

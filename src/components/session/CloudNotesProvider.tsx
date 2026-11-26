@@ -15,7 +15,7 @@ function save(id:string,data:Metadata){try{localStorage.setItem(key(id),JSON.str
 export function CloudNotesProvider({children}:{children:ReactNode}){
  const {profile,ready}=useSessionProfile(),id=profile?.cloudId;
  const [status,setStatus]=useState<NotesContext['status']>('local'),[message,setMessage]=useState(''),[conflicts,setConflicts]=useState<Record<string,NoteConflict>>({});
- const applying=useRef(false),flight=useRef<{id:string;work:Promise<void>}|null>(null),timer=useRef<ReturnType<typeof setTimeout>>();
+ const applying=useRef(false),flight=useRef<{id:string;work:Promise<void>}|null>(null),timer=useRef<ReturnType<typeof setTimeout>|undefined>(undefined);
  const same=(selected:string)=>readSessionProfile(sessionStorage)?.cloudId===selected;
  async function sync(){
   if(!id||!same(id))return;if(flight.current?.id===id)return flight.current.work;
