@@ -24,7 +24,6 @@ import { SkipBack, SkipForward, RotateCcw, Play, Square, Loader2, Eye, Languages
 export default function ShadowingPage() {
   const [lessonId,setLessonId] = useState(SHADOW_LESSONS[0].id);
   const [mode, setMode] = useState<"read" | "spell">("read");
-  const [panel, setPanel] = useState<"transcript" | "videos">("videos");
   const [levelFilter, setLevelFilter] = useState<ShadowLevel | "all">("all");
   const doneMap = useProgress(s => s.exercisesDone);
   const [mounted, setMounted] = useState(false);
@@ -41,7 +40,6 @@ export default function ShadowingPage() {
   const lessonProgress = shadowPracticeProgress(lesson, mounted ? doneMap : {});
   const line = lesson.lines[active] || lesson.lines[0];
   const cues=shadowTimedCues(lesson),bounds={start:lesson.clipStart??shadowClipBounds(cues,lesson.duration).start,end:lesson.clipEnd??shadowClipBounds(cues,lesson.duration).end};
-  function lineTime(index:number){const time=cues.find(cue=>cue.line===index)?.start;return time===undefined?"Model":`${Math.floor(time/60)}:${String(Math.floor(time%60)).padStart(2,"0")}`;}
   const busy = speech === "playing" || speech === "loading";
   const correct = normalizeDictation(answer) === normalizeDictation(line.text);
   useEffect(() => () => stopNaturalSpeech(), [lessonId, active]);
@@ -102,11 +100,10 @@ export default function ShadowingPage() {
         <div className="camp-shadow-session-save"><ShieldCheck size={20}/><div><strong>{profile ? `Practising as ${profile.name}` : "Keep your learning under your name"}</strong><p>{profile?.cloudId ? "Your progress and badges sync across your devices." : profile ? "This device-only session keeps your level and badges in this tab." : "Create a profile to keep progress and badges across devices."}</p></div><SessionEntry/></div>
         <details className="camp-shadow-task"><summary>Try it yourself</summary><p>{lesson.task}</p></details>
       </div>
-      <aside className="camp-shadow-side" aria-label="Transcript and practice videos">
-        <div className="camp-shadow-side-tabs"><Button id="shadow-transcript-tab" aria-pressed={panel === "transcript"} aria-controls="shadow-resource-panel" variant={panel === "transcript" ? "default" : "secondary"} onClick={() => setPanel("transcript")}>Transcript</Button><Button id="shadow-videos-tab" aria-pressed={panel === "videos"} aria-controls="shadow-resource-panel" variant={panel === "videos" ? "default" : "secondary"} onClick={() => setPanel("videos")}>More videos to practice</Button></div>
-        <p className="camp-shadow-library-heading">{panel==="videos"?`${libraryLessons.length} short conversations`:`${lesson.lines.length} dialogue lines`}</p>
-        <div id="shadow-resource-panel" role="region" aria-labelledby={panel === "transcript" ? "shadow-transcript-tab" : "shadow-videos-tab"} className="camp-shadow-resource-content">
-          {panel === "transcript" ? <><div className="camp-shadow-transcript-intro"><strong>Selected lines</strong><p>Choose a timestamped line to seek the video. Model lines use the separate voice control.</p></div><ol className="camp-shadow-transcript-list">{lesson.lines.map((item, index) => <li key={index}><button type="button" aria-current={index === active ? "step" : undefined} onClick={() => chooseLine(index)}><span>{lineTime(index)}</span><span>{item.speaker&&<strong className="camp-shadow-speaker">{item.speaker}</strong>}{item.text}{arabic && <small lang="ar" dir="rtl">{item.ar}</small>}</span></button></li>)}</ol><p className="camp-shadow-transcript-note">{cues.length?"Dialogue lines follow the video. Choose a line to seek to it; Replay plays that line once. Repeat both roles, then make the conversation your own.":"This original clip has no timed caption track. These selected lines use the Microsoft model; they do not seek the video."}</p></> : <><div className="camp-shadow-level-filter" role="group" aria-label="Filter conversations by level">{(["all", ...SHADOW_LEVELS] as const).map(level => { const count = level === "all" ? SHADOW_LESSONS.length : SHADOW_LESSONS.filter(item => item.level === level).length; return count ? <button key={level} type="button" aria-pressed={levelFilter === level} data-level={level} onClick={() => setLevelFilter(level)}>{level === "all" ? "All" : level}<span>{count}</span></button> : null; })}</div><div className="camp-shadow-video-list">{libraryLessons.map(item => <ShadowLessonCard key={item.id} lesson={item} selected={item.id === lesson.id} onSelect={chooseLesson}/>)}</div></>}
+      <aside className="camp-shadow-side" aria-labelledby="shadow-videos-heading">
+        <div className="camp-shadow-side-head"><h2 id="shadow-videos-heading">More videos to practice</h2><p className="camp-shadow-library-heading">{libraryLessons.length} short conversations</p></div>
+        <div id="shadow-resource-panel" className="camp-shadow-resource-content">
+          <div className="camp-shadow-level-filter" role="group" aria-label="Filter conversations by level">{(["all", ...SHADOW_LEVELS] as const).map(level => { const count = level === "all" ? SHADOW_LESSONS.length : SHADOW_LESSONS.filter(item => item.level === level).length; return count ? <button key={level} type="button" aria-pressed={levelFilter === level} data-level={level} onClick={() => setLevelFilter(level)}>{level === "all" ? "All" : level}<span>{count}</span></button> : null; })}</div><div className="camp-shadow-video-list">{libraryLessons.map(item => <ShadowLessonCard key={item.id} lesson={item} selected={item.id === lesson.id} onSelect={chooseLesson}/>)}</div>
         </div>
         <p className="camp-shadow-focus"><LearningArt name="idea" size={20}/>{lesson.focus}</p>
       </aside>

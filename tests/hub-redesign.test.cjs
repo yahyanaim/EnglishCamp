@@ -38,3 +38,14 @@ test('redesign styles load globally, respect reduced motion and never use aria-l
  assert.match(css,/prefers-reduced-motion/);
  assert.ok(!/className="camp-read-card"[^>]*aria-label/.test(src('src/components/learn/ReadingSection.tsx')));
 });
+
+test('hub stat values share one baseline and shadowing shows only the practice video list',()=>{
+ const css=src('src/components/learn/hub-v2.css');
+ assert.match(css,/\.camp-hub-stats \{[^}]*grid-template-columns: repeat\(4, minmax\(0, 1fr\)\)/);
+ assert.match(css,/\.camp-hub-stats > div \{[^}]*flex-direction: column; justify-content: space-between/);
+ const page=src('src/app/shadowing-english/page.tsx');
+ assert.ok(!page.includes('>Transcript<')&&!page.includes('setPanel')&&!page.includes('camp-shadow-transcript-list'),'the transcript tab is gone');
+ assert.match(page,/<h2 id="shadow-videos-heading">More videos to practice<\/h2>/);
+ assert.match(page,/className="camp-shadow-now-progress"/);
+ assert.match(src('src/components/layout/page-polish.css'),/\.camp-shadow-now-progress \{ display: flex;/);
+});
