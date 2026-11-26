@@ -33,6 +33,8 @@ export function withSecurityHeaders(request: Request, response: Response): Respo
   const secured = new Response(response.body, response);
   for (const [name, value] of Object.entries(SECURITY_HEADERS)) secured.headers.set(name, value);
   // HTTPS-only rules stay off plain-http local previews so their own assets keep loading.
+  // The staging Worker (englishcamp-staging.*) must never be indexed or mistaken for the live site.
+  if (new URL(request.url).hostname.startsWith('englishcamp-staging.')) secured.headers.set('X-Robots-Tag', 'noindex, nofollow');
   if (new URL(request.url).protocol === 'https:') {
     secured.headers.set('Content-Security-Policy', `${CONTENT_SECURITY_POLICY}; upgrade-insecure-requests`);
     secured.headers.set('Strict-Transport-Security', 'max-age=31536000; includeSubDomains');
