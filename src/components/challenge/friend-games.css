@@ -1,0 +1,97 @@
+/* Play-with-a-friend games: Hangman duel and Crossword. */
+.camp-frame main.camp-content .camp-fg-create { display: grid; gap: 14px; }
+.camp-frame main.camp-content .camp-fg-create-head h2 { margin: 0; font: 700 20px/1.3 var(--font-display), Nunito, sans-serif; }
+.camp-frame main.camp-content .camp-fg-create-head p { margin: 4px 0 0; font-size: 14px; color: var(--color-text-secondary); }
+.camp-frame main.camp-content .camp-fg-create-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 16px; }
+.camp-frame main.camp-content :is(.camp-fg-game, .camp-fg-card) { display: grid; align-content: start; gap: 14px; min-width: 0; padding: 20px; border-radius: 22px; background: var(--g-card, var(--color-surface)); border: 1px solid var(--g-rim, var(--color-border-default)); box-shadow: var(--g-sheen, none); }
+.camp-frame main.camp-content .camp-fg-game header { display: flex; gap: 14px; align-items: flex-start; }
+.camp-frame main.camp-content .camp-fg-game h3 { margin: 0; font: 700 17px/1.3 var(--font-display), Nunito, sans-serif; }
+.camp-frame main.camp-content .camp-fg-game header p { margin: 4px 0 0; font-size: 14px; line-height: 1.5; color: var(--color-text-secondary); }
+.camp-frame main.camp-content .camp-fg-game-icon { display: grid; place-items: center; flex: none; width: 46px; height: 46px; border-radius: 14px; color: #fff; background: var(--g-primary, var(--camp-purple)); }
+.camp-frame main.camp-content .camp-fg-field { display: grid; gap: 6px; font-size: 13px; font-weight: 650; color: var(--color-text-primary); }
+.camp-frame main.camp-content .camp-fg-field small { font-weight: 500; color: var(--color-text-secondary); }
+.camp-frame main.camp-content :is(.camp-fg-field, .camp-fg-share label) input { width: 100%; min-height: 44px; padding: 0 14px; border-radius: 12px; border: 1px solid var(--color-border-default); background: var(--color-surface); color: var(--color-text-primary); font-size: 15px; }
+.camp-frame main.camp-content .camp-fg-field input:focus-visible, .camp-frame main.camp-content .camp-fg-share input:focus-visible { outline: 3px solid var(--camp-focus, var(--camp-purple)); outline-offset: 1px; }
+.camp-frame main.camp-content .camp-fg-error { margin: 0; font-size: 13px; color: #b91c1c; }
+.camp-frame main.camp-content .camp-fg-points { margin: 0; padding-inline-start: 18px; display: grid; gap: 4px; font-size: 14px; color: var(--color-text-secondary); }
+.camp-frame main.camp-content .camp-fg-game-actions, .camp-frame main.camp-content .camp-fg-share > div, .camp-frame main.camp-content .camp-fg-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+.camp-frame main.camp-content .camp-fg-share { display: grid; gap: 10px; padding: 14px; border-radius: 16px; background: color-mix(in srgb, #10b981 7%, transparent); border: 1px solid color-mix(in srgb, #10b981 22%, transparent); }
+.camp-frame main.camp-content .camp-fg-share label { display: grid; gap: 6px; font-size: 13px; font-weight: 700; color: #047857; }
+.camp-frame main.camp-content .camp-fg-share input { font-size: 13px; color: var(--color-text-secondary); }
+
+/* Play screen */
+.camp-frame main.camp-content .camp-fg-play-head { display: flex; gap: 16px; align-items: flex-start; padding: 20px; border-radius: 22px; background: var(--g-card, var(--color-surface)); border: 1px solid var(--g-rim, var(--color-border-default)); }
+.camp-frame main.camp-content .camp-fg-play-head .camp-fg-game-icon { width: 54px; height: 54px; border-radius: 16px; }
+.camp-frame main.camp-content .camp-fg-eyebrow { margin: 0; font-size: 12px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: var(--camp-control-ink, var(--camp-purple)); }
+.camp-frame main.camp-content .camp-fg-play-head h1 { margin: 2px 0 0; font: 800 clamp(22px, 2.6vw, 30px)/1.2 var(--font-display), Nunito, sans-serif !important; }
+.camp-frame main.camp-content .camp-fg-play-head p:not(.camp-fg-eyebrow) { margin: 6px 0 0; font-size: 15px; color: var(--color-text-secondary); }
+.camp-frame main.camp-content .camp-fg-done { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; padding: 18px 20px; border-radius: 20px; color: #fff; background: var(--g-primary, var(--camp-purple)); }
+.camp-frame main.camp-content .camp-fg-done > div { display: grid; gap: 2px; flex: 1; min-width: 180px; }
+.camp-frame main.camp-content .camp-fg-done strong { font: 800 18px/1.3 var(--font-display), Nunito, sans-serif; }
+.camp-frame main.camp-content .camp-fg-done span { font-size: 14px; opacity: .92; }
+.camp-frame main.camp-content .camp-fg-done button { background: #fff !important; color: var(--camp-control-ink, var(--camp-purple)) !important; }
+
+/* Hangman */
+.camp-frame main.camp-content .camp-fg-hangman-top { display: grid; grid-template-columns: minmax(140px, 220px) minmax(0, 1fr); gap: 20px; align-items: center; }
+.camp-frame main.camp-content .camp-fg-gallows { width: 100%; height: auto; }
+.camp-frame main.camp-content .camp-fg-gallows line, .camp-frame main.camp-content .camp-fg-gallows circle { fill: none; stroke-width: 6; stroke-linecap: round; }
+.camp-frame main.camp-content .camp-fg-frame line { stroke: color-mix(in srgb, var(--camp-purple) 35%, transparent); }
+.camp-frame main.camp-content .camp-fg-figure :is(line, circle) { stroke: var(--camp-purple); }
+.camp-frame main.camp-content .camp-fg-hangman-side { display: grid; gap: 12px; justify-items: start; }
+.camp-frame main.camp-content .camp-fg-lives { margin: 0; font-size: 15px; color: var(--color-text-secondary); }
+.camp-frame main.camp-content .camp-fg-lives strong { font: 800 28px/1 var(--font-display), Nunito, sans-serif; color: var(--color-text-primary); }
+.camp-frame main.camp-content .camp-fg-lives-bar { display: flex; gap: 6px; }
+.camp-frame main.camp-content .camp-fg-lives-bar span { width: 26px; height: 8px; border-radius: 8px; background: #10b981; }
+.camp-frame main.camp-content .camp-fg-lives-bar span[data-used="true"] { background: color-mix(in srgb, #ef4444 30%, transparent); }
+.camp-frame main.camp-content .camp-fg-hint { display: flex; gap: 8px; align-items: flex-start; margin: 0; padding: 10px 12px; border-radius: 12px; font-size: 14px; background: color-mix(in srgb, #f59e0b 12%, transparent); color: var(--color-text-primary); }
+.camp-frame main.camp-content .camp-fg-hint-none { margin: 0; font-size: 13px; color: var(--color-text-secondary); }
+.camp-frame main.camp-content .camp-fg-word { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin: 0; }
+.camp-frame main.camp-content .camp-fg-word span { display: grid; place-items: center; width: clamp(30px, 6vw, 44px); height: clamp(40px, 7vw, 54px); border-bottom: 4px solid var(--camp-purple); font: 800 clamp(20px, 3.5vw, 30px)/1 var(--font-display), Nunito, sans-serif; color: var(--color-text-primary); }
+.camp-frame main.camp-content .camp-fg-word span[data-missed="true"] { color: #dc2626; border-color: #ef4444; }
+.camp-frame main.camp-content .camp-fg-keyboard { display: grid; grid-template-columns: repeat(auto-fill, minmax(42px, 1fr)); gap: 8px; }
+.camp-frame main.camp-content .camp-fg-keyboard button { min-height: 44px; border-radius: 12px; border: 1px solid color-mix(in srgb, var(--camp-purple) 22%, transparent); background: var(--color-surface); color: var(--color-text-primary); font: 800 16px/1 var(--font-display), Nunito, sans-serif; cursor: pointer; transition: background .15s ease, transform .15s ease; }
+.camp-frame main.camp-content .camp-fg-keyboard button:hover:not(:disabled) { background: color-mix(in srgb, var(--camp-purple) 10%, transparent); transform: translateY(-1px); }
+.camp-frame main.camp-content .camp-fg-keyboard button[data-state="hit"] { background: #10b981; border-color: #10b981; color: #fff; }
+.camp-frame main.camp-content .camp-fg-keyboard button[data-state="miss"] { background: color-mix(in srgb, #ef4444 12%, transparent); border-color: transparent; color: color-mix(in srgb, var(--color-text-secondary) 70%, transparent); text-decoration: line-through; }
+.camp-frame main.camp-content .camp-fg-keyboard button:disabled { cursor: default; }
+.camp-frame main.camp-content .camp-fg-result { display: grid; justify-items: center; gap: 6px; padding: 14px; border-radius: 16px; text-align: center; background: color-mix(in srgb, #ef4444 8%, transparent); }
+.camp-frame main.camp-content .camp-fg-result[data-won="true"] { background: color-mix(in srgb, #10b981 10%, transparent); }
+.camp-frame main.camp-content .camp-fg-result strong { font: 800 20px/1.3 var(--font-display), Nunito, sans-serif; }
+.camp-frame main.camp-content .camp-fg-result span { display: inline-flex; align-items: center; gap: 8px; font-size: 15px; }
+.camp-frame main.camp-content .camp-fg-restart { justify-self: center; }
+
+/* Crossword */
+.camp-frame main.camp-content .camp-fg-crossword { --cw-cell: clamp(26px, calc((100cqw - 48px) / var(--cw-cols, 12) - 3px), 44px); }
+.camp-frame main.camp-content .camp-fg-clue-now { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 10px; margin: 0; padding: 12px 14px; border-radius: 14px; background: color-mix(in srgb, var(--camp-purple) 9%, transparent); font-size: 15px; }
+.camp-frame main.camp-content .camp-fg-clue-now b { color: var(--camp-control-ink, var(--camp-purple)); }
+.camp-frame main.camp-content .camp-fg-clue-now small { color: var(--color-text-secondary); }
+.camp-frame main.camp-content .camp-fg-grid-wrap { overflow-x: auto; padding: 4px; }
+.camp-frame main.camp-content .camp-fg-grid { display: grid; gap: 3px; width: max-content; margin-inline: auto; }
+.camp-frame main.camp-content .camp-fg-block { width: var(--cw-cell); height: var(--cw-cell); }
+.camp-frame main.camp-content .camp-fg-cell { position: relative; width: var(--cw-cell); height: var(--cw-cell); border-radius: 7px; background: var(--color-surface, #fff); box-shadow: inset 0 0 0 1.5px color-mix(in srgb, var(--camp-purple) 35%, transparent); }
+.camp-frame main.camp-content .camp-fg-cell[data-num]::before { content: attr(data-num); position: absolute; top: 2px; left: 4px; z-index: 1; font-size: 9.5px; font-weight: 800; line-height: 1; color: var(--color-text-secondary); pointer-events: none; }
+.camp-frame main.camp-content .camp-fg-cell input { width: 100%; height: 100%; padding: 6px 0 0; border: 0; border-radius: 7px; background: transparent; text-align: center; text-transform: uppercase; font: 800 calc(var(--cw-cell) * .46)/1 var(--font-display), Nunito, sans-serif; color: var(--color-text-primary); caret-color: var(--camp-purple); }
+.camp-frame main.camp-content .camp-fg-cell input:focus { outline: none; background: color-mix(in srgb, var(--camp-purple) 22%, transparent); }
+.camp-frame main.camp-content .camp-fg-cell[data-active="true"] { background: color-mix(in srgb, var(--camp-purple) 9%, var(--color-surface, #fff)); }
+.camp-frame main.camp-content .camp-fg-cell[data-state="right"] { background: color-mix(in srgb, #10b981 18%, var(--color-surface, #fff)); box-shadow: inset 0 0 0 1.5px #10b981; }
+.camp-frame main.camp-content .camp-fg-cell[data-state="wrong"] { background: color-mix(in srgb, #ef4444 14%, var(--color-surface, #fff)); box-shadow: inset 0 0 0 1.5px #ef4444; }
+.camp-frame main.camp-content .camp-fg-clues { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 16px; }
+.camp-frame main.camp-content .camp-fg-clues h2 { margin: 0 0 8px; font: 700 15px/1.3 var(--font-display), Nunito, sans-serif; }
+.camp-frame main.camp-content .camp-fg-clues ol { display: grid; gap: 4px; margin: 0; padding: 0; list-style: none; }
+.camp-frame main.camp-content .camp-fg-clues button { display: flex; gap: 8px; align-items: baseline; width: 100%; padding: 8px 10px; border-radius: 10px; border: 1px solid transparent; background: transparent; color: var(--color-text-primary); text-align: start; font-size: 14px; line-height: 1.45; cursor: pointer; }
+.camp-frame main.camp-content .camp-fg-clues button:hover { background: color-mix(in srgb, var(--camp-purple) 6%, transparent); }
+.camp-frame main.camp-content .camp-fg-clues button[aria-pressed="true"] { background: color-mix(in srgb, var(--camp-purple) 11%, transparent); border-color: color-mix(in srgb, var(--camp-purple) 28%, transparent); }
+.camp-frame main.camp-content .camp-fg-clues button[data-solved="true"] span { text-decoration: line-through; color: #047857; }
+.camp-frame main.camp-content .camp-fg-clues b { min-width: 18px; color: var(--camp-control-ink, var(--camp-purple)); }
+.camp-frame main.camp-content .camp-fg-clues small { margin-inline-start: auto; color: var(--color-text-secondary); white-space: nowrap; }
+.camp-frame main.camp-content .camp-fg-actions p { flex: 1; min-width: 160px; margin: 0; font-size: 14px; font-weight: 600; color: var(--color-text-secondary); }
+
+@container camp-main (max-width: 560px) {
+  .camp-frame main.camp-content .camp-fg-hangman-top { grid-template-columns: 120px minmax(0, 1fr); gap: 12px; }
+  .camp-frame main.camp-content :is(.camp-fg-game, .camp-fg-card, .camp-fg-play-head) { padding: 14px; }
+}
+@media (prefers-reduced-motion: reduce) { .camp-frame main.camp-content .camp-fg-keyboard button { transition: none; } .camp-frame main.camp-content .camp-fg-keyboard button:hover:not(:disabled) { transform: none; } }
+/* Global input styles paint a background over the clue numbers; keep the cell input see-through and the number on top. */
+.camp-frame main.camp-content .camp-fg-cell input { background: transparent !important; border: 0 !important; box-shadow: none !important; min-height: 0 !important; }
+.camp-frame main.camp-content .camp-fg-cell input:focus { background: color-mix(in srgb, var(--camp-purple) 22%, transparent) !important; }
+.camp-frame main.camp-content .camp-fg-cell { box-shadow: inset 0 0 0 2px color-mix(in srgb, var(--camp-purple) 45%, transparent); }

@@ -3,6 +3,8 @@ import { learnerStorage } from "@/lib/learnerStorage";
 
 import { CHALLENGE_WORDS } from "@/data/challenge-words";
 import { encodeChallenge, decodeChallenge, matchesChallengeMeaning, type PartnerChallenge } from "@/lib/challengeLink";
+import { decodeFriendGame, type FriendGame } from "@/lib/friendGames";
+import { FriendGameCreator, FriendGamePlay } from "@/components/challenge/FriendGames";
 import { PageBanner } from "@/components/ui/PageBanner";
 import { LearningArt } from "@/components/brand/LearningArt";
 import { useState, useEffect, useCallback, useRef } from "react";
@@ -53,6 +55,7 @@ export default function ChallengePage() {
   useEffect(() => () => { if (advanceRef.current) clearTimeout(advanceRef.current); }, []);
   const [copied, setCopied] = useState(false);
   const [earnedXP, setEarnedXP] = useState(0);
+  const [friendGame, setFriendGame] = useState<FriendGame | null>(null);
 
   useEffect(() => {
     const stored = learnerStorage.getItem("englishcamp-challenge-results");
@@ -61,6 +64,7 @@ export default function ChallengePage() {
     }
 
     const params = new URLSearchParams(window.location.search);
+    if (params.get("g")) { const game = decodeFriendGame(params.get("d")); if (game) setFriendGame(game); else setLinkError(true); }
     const data = params.get("c");
     if (data) {
       try {
@@ -125,6 +129,10 @@ export default function ChallengePage() {
       }
     }, 1200);
   };
+
+  if (friendGame) {
+    return <PageWrapper><FriendGamePlay key={friendGame.id} game={friendGame} onNew={() => { setFriendGame(null); window.history.replaceState(window.history.state, "", "/challenge"); window.scrollTo({ top: 0 }); }} /></PageWrapper>;
+  }
 
   if (mode === "done" && challenge) {
     return (
@@ -274,9 +282,9 @@ export default function ChallengePage() {
   return (
     <PageWrapper>
       <div className="camp-partner-challenge space-y-6">
-        <PageBanner><h1>Partner Challenges</h1><p>Create a vocabulary challenge to practise with a friend.</p></PageBanner>
+        <PageBanner><h1>Partner Challenges</h1><p>Play English games with a friend: a vocabulary race, a Hangman duel or a crossword.</p></PageBanner>
 
-        {linkError && <p role="alert" className="camp-challenge-link-note">This link is invalid or uses an older language bank. Create a new English challenge below.</p>}
+        {linkError && <p role="alert" className="camp-challenge-link-note">This link is invalid or incomplete. Create a new game below.</p>}
         <Card>
           <div className="space-y-4">
             <div className="flex items-center gap-3">
@@ -304,6 +312,8 @@ export default function ChallengePage() {
             )}
           </div>
         </Card>
+
+        <FriendGameCreator />
 
         <Card>
           <div className="space-y-4">
