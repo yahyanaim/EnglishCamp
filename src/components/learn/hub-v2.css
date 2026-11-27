@@ -185,3 +185,9 @@
   .camp-frame main.camp-content .camp-hub-hero { grid-template-columns: minmax(0, 1fr); grid-template-areas: "main" "stats" "action" "progress"; }
   .camp-frame main.camp-content .camp-hub-stats > div { min-height: 0; }
 }
+
+/* Topic chips: counts and the "More topics" toggle. */
+.camp-frame main.camp-content .camp-topic-chips button { display: inline-flex; align-items: center; gap: 6px; }
+.camp-frame main.camp-content .camp-topic-count { min-width: 20px; padding: 1px 6px; border-radius: 999px; font-size: 11px; font-weight: 800; line-height: 1.5; text-align: center; background: color-mix(in srgb, var(--camp-purple) 10%, transparent); color: var(--color-text-secondary); }
+.camp-frame main.camp-content .camp-topic-chips button[aria-pressed="true"] .camp-topic-count { background: rgba(255, 255, 255, .25); color: inherit; }
+.camp-frame main.camp-content .camp-topic-chips .camp-topic-more { border-style: dashed !important; color: var(--camp-control-ink, var(--camp-purple)) !important; font-weight: 700; }

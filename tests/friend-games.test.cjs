@@ -62,7 +62,7 @@ test('recorder shows three steps and explains what to do next before a pronuncia
 
 test('Listening uses the hub layout and the hero puts the continue card beside the four stats',()=>{
  const l=src('src/components/learn/ListeningSection.tsx');
- for(const part of ['<HubHero','title="Listening"','<HubContinue','<LevelRail label="Listening level"','className="camp-hub-toolbar"','aria-label="Listening topic"','camp-hub-group-head'])assert.ok(l.includes(part),part);
+ for(const part of ['<HubHero','title="Listening"','<HubContinue','<LevelRail label="Listening level"','className="camp-hub-toolbar"','label="Listening topic"','camp-hub-group-head'])assert.ok(l.includes(part),part);
  assert.ok(!src('src/app/listening/page.tsx').includes('PageBanner'));
  const css=src('src/components/learn/hub-v2.css');
  assert.match(css,/grid-template-areas: "main main" "stats action" "progress progress"/);

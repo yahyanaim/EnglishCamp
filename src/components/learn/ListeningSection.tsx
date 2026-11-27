@@ -8,7 +8,7 @@ import { LearningArt } from "@/components/brand/LearningArt";
 import { AddToVocabButton } from "@/components/ui/AddToVocabButton";
 import { BackButton } from "@/components/ui/BackButton";
 import { Button } from "@/components/ui/shadcn/button";
-import { HubContinue, HubHero, LevelRail } from "./HubHero";
+import { HubContinue, HubHero, LevelRail, TopicChips, topicKey } from "./HubHero";
 import { ComprehensionQuiz } from "./ComprehensionQuiz";
 import { LibraryPagination, pageCount, pageSlice } from "./LibraryPagination";
 import { CEFR_LEVELS, type CefrLevel } from "@/data/placement/cefr";
@@ -238,12 +238,11 @@ export function ListeningSection() {
     const record = practice[keyOf(lesson)];
     return { done: !!done[keyOf(lesson)], position: record?.position ?? 0, best: record?.total ? `${record.best}/${record.total}` : undefined };
   }, [done, practice]);
-  const topics = useMemo(() => Array.from(new Set(lessons.map(l => l.topic))).sort(), [lessons]);
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
     return lessons.filter(lesson => {
       const s = info(lesson), state = s.done ? "completed" : s.position > 0 ? "started" : "new";
-      return (level === "all" || lesson.level === level) && (topic === "all" || lesson.topic === topic) && (status === "all" || status === state) &&
+      return (level === "all" || lesson.level === level) && (topic === "all" || topicKey(lesson.topic) === topic) && (status === "all" || status === state) &&
         (!q || [lesson.title, lesson.topic, lesson.description, lesson.transcript ?? ""].some(text => text.toLowerCase().includes(q)));
     }).sort((a, b) => CEFR_LEVELS.indexOf(a.level) - CEFR_LEVELS.indexOf(b.level));
   }, [lessons, query, level, topic, status, info]);
@@ -286,10 +285,7 @@ export function ListeningSection() {
           </div>
         </div>
         <div className="camp-hub-toolbar-row">
-          <div className="camp-hub-chips" role="group" aria-label="Listening topic">
-            <button type="button" aria-pressed={topic === "all"} onClick={() => setTopic("all")}>All topics</button>
-            {topics.map(t => <button key={t} type="button" aria-pressed={topic === t} onClick={() => setTopic(t)}>{t}</button>)}
-          </div>
+          <TopicChips label="Listening topic" values={lessons.map(l => l.topic)} value={topic} onChange={setTopic} />
           <p className="camp-hub-count" role="status">{filtered.length} {filtered.length === 1 ? "lesson" : "lessons"} · {completed} completed{filtering ? <> · <button type="button" onClick={clear}><X size={13} aria-hidden="true" />Clear filters</button></> : null}</p>
         </div>
       </section>

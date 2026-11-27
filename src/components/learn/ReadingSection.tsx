@@ -7,7 +7,7 @@ import { CheckCircle2, ChevronRight, Circle, CircleDot, Clock, Search, X } from 
 import { useRouter } from "next/navigation";
 import { LearningArt } from "@/components/brand/LearningArt";
 import { ReadingIllustration } from "@/components/brand/ReadingIllustration";
-import { HubContinue, HubHero, LevelRail } from "./HubHero";
+import { HubContinue, HubHero, LevelRail, TopicChips, topicKey } from "./HubHero";
 import { ReadingLessonView } from "./ReadingLessonView";
 import { LibraryPagination, pageCount, pageSlice } from "./LibraryPagination";
 import { CEFR_LABELS, CEFR_LEVELS, readingMinutes, type CefrLevel, type ReadingLesson } from "@/data/reading-lessons";
@@ -54,12 +54,11 @@ export function ReadingSection() {
     if (selectedId) window.scrollTo({ top: 0 });
   }, [selectedId]);
 
-  const categories = useMemo(() => Array.from(new Set(lessons.map(l => l.category))).sort(), [lessons]);
   const status = useCallback((lesson: ReadingLesson) => done[readingExerciseId(lesson.id)] ? "completed" : practice[readingExerciseId(lesson.id)]?.startedAt ? "started" : "new", [done, practice]);
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
     return lessons.filter(lesson =>
-      (level === "all" || lesson.level === level) && (category === "all" || lesson.category === category) &&
+      (level === "all" || lesson.level === level) && (category === "all" || topicKey(lesson.category) === category) &&
       (state === "all" || status(lesson) === state) &&
       (!q || lesson.title.toLowerCase().includes(q) || lesson.category.toLowerCase().includes(q) || lesson.paragraphs.some(p => p.toLowerCase().includes(q))));
   }, [lessons, query, level, category, state, status]);
@@ -110,10 +109,7 @@ export function ReadingSection() {
           </div>
         </div>
         <div className="camp-hub-toolbar-row">
-          <div className="camp-hub-chips" role="group" aria-label="Reading category">
-            <button type="button" aria-pressed={category === "all"} onClick={() => setCategory("all")}>All topics</button>
-            {categories.map(c => <button key={c} type="button" aria-pressed={category === c} onClick={() => setCategory(c)}>{c}</button>)}
-          </div>
+          <TopicChips label="Reading category" values={lessons.map(l => l.category)} value={category} onChange={setCategory} />
           <p className="camp-hub-count" role="status">{filtered.length} {filtered.length === 1 ? "passage" : "passages"}{filtering ? <> · <button type="button" onClick={clear}><X size={13} aria-hidden="true" />Clear filters</button></> : null}</p>
         </div>
       </section>

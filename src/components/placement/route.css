@@ -1,0 +1,110 @@
+/* Six-month CEFR route on the study-plan page. */
+.camp-frame main.camp-content .camp-route { --c-language: #7c3aed; --c-reading: #0ea5e9; --c-listening: #10b981; --c-speaking: #f59e0b; --c-writing: #ec4899; display: grid; gap: 18px; margin-top: 18px; }
+.camp-frame main.camp-content .camp-route :is(h2, h3, h4) { margin: 0; font-family: var(--font-display), Nunito, sans-serif; color: var(--color-text-primary); }
+.camp-frame main.camp-content .camp-route > section, .camp-frame main.camp-content .camp-route-hero { padding: 20px; border-radius: 22px; background: var(--g-card, var(--color-surface)); border: 1px solid var(--g-rim, var(--color-border-default)); box-shadow: var(--g-sheen, none); }
+.camp-frame main.camp-content .camp-route-eyebrow { margin: 0; font-size: 12px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: var(--camp-control-ink, var(--camp-purple)); }
+.camp-frame main.camp-content .camp-route-hero { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(240px, 1fr); gap: 20px; }
+.camp-frame main.camp-content .camp-route-hero h2 { margin-top: 4px; font-size: clamp(26px, 3vw, 34px); font-weight: 800; }
+.camp-frame main.camp-content .camp-route-hero-main > p:not(.camp-route-eyebrow) { margin: 6px 0 0; font-size: 15px; color: var(--color-text-secondary); }
+.camp-frame main.camp-content .camp-route-progress { height: 10px; margin-top: 16px; border-radius: 10px; background: color-mix(in srgb, var(--camp-purple) 12%, transparent); overflow: hidden; }
+.camp-frame main.camp-content .camp-route-progress span { display: block; height: 100%; border-radius: 10px; background: var(--g-primary, var(--camp-purple)); }
+.camp-frame main.camp-content .camp-route-progress-label { font-size: 13px !important; font-weight: 600; }
+.camp-frame main.camp-content .camp-route-exam { display: grid; align-content: start; gap: 4px; padding: 16px; border-radius: 18px; color: #fff; background: var(--g-primary, var(--camp-purple)); }
+.camp-frame main.camp-content .camp-route-exam .camp-route-eyebrow { color: rgba(255, 255, 255, .85); }
+.camp-frame main.camp-content .camp-route-exam strong { font: 800 22px/1.2 var(--font-display), Nunito, sans-serif; }
+.camp-frame main.camp-content .camp-route-exam span, .camp-frame main.camp-content .camp-route-exam small { font-size: 13.5px; line-height: 1.5; opacity: .95; }
+.camp-frame main.camp-content .camp-route-exam a { display: inline-flex; align-items: center; gap: 6px; margin-top: 6px; font-weight: 700; color: #fff; text-decoration: underline; }
+
+.camp-frame main.camp-content .camp-route-hours { display: grid; gap: 10px; }
+.camp-frame main.camp-content .camp-route-hours h3, .camp-frame main.camp-content .camp-route-section-head h3, .camp-frame main.camp-content .camp-route-checks h3 { display: inline-flex; align-items: center; gap: 8px; font-size: 18px; }
+.camp-frame main.camp-content .camp-route-hours p { margin: 0; font-size: 14.5px; line-height: 1.6; }
+.camp-frame main.camp-content .camp-route-hours-bar { height: 12px; border-radius: 12px; background: color-mix(in srgb, var(--camp-purple) 10%, transparent); overflow: hidden; }
+.camp-frame main.camp-content .camp-route-hours-bar span { display: block; height: 100%; border-radius: 12px; background: linear-gradient(90deg, #10b981, #059669); }
+.camp-frame main.camp-content .camp-route-verdict { padding: 10px 12px; border-radius: 12px; background: color-mix(in srgb, #10b981 10%, transparent); }
+.camp-frame main.camp-content .camp-route-verdict[data-verdict="stretch"] { background: color-mix(in srgb, #f59e0b 12%, transparent); }
+.camp-frame main.camp-content .camp-route-verdict[data-verdict="foundation"] { background: color-mix(in srgb, #ef4444 9%, transparent); }
+
+.camp-frame main.camp-content .camp-route-phases { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 0; padding: 0; list-style: none; }
+.camp-frame main.camp-content .camp-route-phases > li { display: grid; align-content: start; gap: 6px; padding: 16px; border-radius: 18px; background: var(--g-card, var(--color-surface)); border: 1px solid var(--g-rim, var(--color-border-default)); }
+.camp-frame main.camp-content .camp-route-phases > li[data-current="true"] { border-color: var(--camp-purple); box-shadow: 0 0 0 2px color-mix(in srgb, var(--camp-purple) 30%, transparent); }
+.camp-frame main.camp-content .camp-route-phases > li[data-past="true"] { opacity: .72; }
+.camp-frame main.camp-content .camp-route-month { margin: 0; font-size: 12px; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; color: var(--camp-control-ink, var(--camp-purple)); }
+.camp-frame main.camp-content .camp-route-phases h3 { font-size: 16px; }
+.camp-frame main.camp-content .camp-route-phases p:not(.camp-route-month) { margin: 0; font-size: 13.5px; line-height: 1.5; color: var(--color-text-secondary); }
+.camp-frame main.camp-content .camp-route-mix { display: flex; height: 10px; gap: 2px; margin-top: 6px; border-radius: 10px; overflow: hidden; }
+.camp-frame main.camp-content .camp-route-mix span { flex-basis: 0; min-width: 2px; }
+.camp-frame main.camp-content [data-component="language"] { --c: var(--c-language); }
+.camp-frame main.camp-content [data-component="reading"] { --c: var(--c-reading); }
+.camp-frame main.camp-content [data-component="listening"] { --c: var(--c-listening); }
+.camp-frame main.camp-content [data-component="speaking"] { --c: var(--c-speaking); }
+.camp-frame main.camp-content [data-component="writing"] { --c: var(--c-writing); }
+.camp-frame main.camp-content .camp-route-mix span { background: var(--c); }
+.camp-frame main.camp-content .camp-route-boost { font-size: 12.5px !important; font-weight: 700; color: #b45309 !important; }
+.camp-frame main.camp-content .camp-route-legend { display: flex; flex-wrap: wrap; gap: 6px 16px; margin: -6px 0 0; padding: 0; list-style: none; font-size: 12.5px; color: var(--color-text-secondary); }
+.camp-frame main.camp-content .camp-route-legend li { display: inline-flex; align-items: center; gap: 6px; }
+.camp-frame main.camp-content .camp-route-legend li::before { content: ""; width: 10px; height: 10px; border-radius: 3px; background: var(--c); }
+
+.camp-frame main.camp-content .camp-route-section-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 12px; margin-bottom: 12px; }
+.camp-frame main.camp-content .camp-route-section-head > span { font-size: 13px; font-weight: 700; color: var(--color-text-secondary); }
+.camp-frame main.camp-content .camp-route-sessions { display: grid; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.camp-frame main.camp-content .camp-route-session { display: grid; grid-template-columns: 130px minmax(0, 1fr) auto; gap: 12px; align-items: start; padding: 12px 14px; border-radius: 14px; border-left: 4px solid var(--c, var(--camp-purple)); background: color-mix(in srgb, var(--c, var(--camp-purple)) 5%, var(--color-surface, #fff)); }
+.camp-frame main.camp-content .camp-route-session[data-kind="mock"], .camp-frame main.camp-content .camp-route-session[data-kind="retest"] { --c: #dc2626; }
+.camp-frame main.camp-content .camp-route-session[data-done="true"] { opacity: .65; }
+.camp-frame main.camp-content .camp-route-session time { display: grid; gap: 2px; font-size: 13.5px; }
+.camp-frame main.camp-content .camp-route-session time small { color: var(--color-text-secondary); }
+.camp-frame main.camp-content .camp-route-session-skill { margin: 0; font-size: 11.5px; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; color: var(--c, var(--camp-purple)); filter: brightness(.8); }
+.camp-frame main.camp-content .camp-route-session a { display: inline-flex; align-items: center; gap: 5px; font-weight: 700; color: var(--color-text-primary); }
+.camp-frame main.camp-content .camp-route-session div > p:last-child { margin: 2px 0 0; font-size: 13.5px; line-height: 1.5; color: var(--color-text-secondary); }
+.camp-frame main.camp-content .camp-route-done { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; font-size: 13px; font-weight: 600; cursor: pointer; }
+.camp-frame main.camp-content .camp-route-done input { width: 20px; height: 20px; accent-color: var(--camp-purple); }
+
+.camp-frame main.camp-content .camp-route-language dl { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin: 12px 0 8px; }
+.camp-frame main.camp-content .camp-route-language dl > div { padding: 12px 14px; border-radius: 14px; background: color-mix(in srgb, var(--camp-purple) 5%, transparent); }
+.camp-frame main.camp-content .camp-route-language dt { font-size: 12px; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; color: var(--camp-control-ink, var(--camp-purple)); }
+.camp-frame main.camp-content .camp-route-language dd { margin: 4px 0 0; font-size: 14px; line-height: 1.55; }
+
+.camp-frame main.camp-content .camp-route-checks > ol { display: grid; gap: 10px; margin: 12px 0 0; padding: 0; list-style: none; }
+.camp-frame main.camp-content .camp-route-checks > ol > li { border-radius: 16px; border: 1px solid color-mix(in srgb, var(--camp-purple) 16%, transparent); background: var(--color-surface, #fff); }
+.camp-frame main.camp-content .camp-route-checks > ol > li[data-kind="midpoint"], .camp-frame main.camp-content .camp-route-checks > ol > li[data-kind="final"] { border-color: color-mix(in srgb, #dc2626 35%, transparent); }
+.camp-frame main.camp-content .camp-route-checks summary { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; padding: 14px 16px; cursor: pointer; font-size: 14.5px; }
+.camp-frame main.camp-content .camp-route-checks summary span { font-size: 13px; color: var(--color-text-secondary); }
+.camp-frame main.camp-content .camp-route-checks summary svg { color: #10b981; }
+.camp-frame main.camp-content .camp-route-checks details > :not(summary) { margin: 0 16px 14px; }
+.camp-frame main.camp-content .camp-route-check-tasks { display: grid; gap: 6px; padding-inline-start: 18px; font-size: 14px; }
+.camp-frame main.camp-content .camp-route-check-tasks a { display: inline-flex; align-items: center; gap: 5px; font-weight: 600; color: var(--camp-control-ink, var(--camp-purple)); }
+.camp-frame main.camp-content .camp-route-cando, .camp-frame main.camp-content .camp-route-weak { display: grid; gap: 8px; padding: 12px 14px; border-radius: 12px; border: 1px solid color-mix(in srgb, var(--camp-purple) 12%, transparent); }
+.camp-frame main.camp-content .camp-route-cando legend, .camp-frame main.camp-content .camp-route-weak legend { padding: 0 4px; font-size: 13px; font-weight: 800; }
+.camp-frame main.camp-content .camp-route-cando label { display: flex; gap: 10px; align-items: flex-start; font-size: 14px; line-height: 1.5; cursor: pointer; }
+.camp-frame main.camp-content .camp-route-cando input { flex: none; width: 20px; height: 20px; margin-top: 1px; accent-color: var(--camp-purple); }
+.camp-frame main.camp-content .camp-route-weak > div { display: flex; flex-wrap: wrap; gap: 8px; }
+.camp-frame main.camp-content .camp-route-weak button { min-height: 40px; padding: 0 14px; border-radius: 999px; border: 1px solid color-mix(in srgb, var(--camp-purple) 25%, transparent); background: var(--color-surface, #fff); color: var(--color-text-primary); font-size: 13.5px; font-weight: 600; cursor: pointer; }
+.camp-frame main.camp-content .camp-route-weak button[aria-pressed="true"] { background: #f59e0b; border-color: #f59e0b; color: #1f1300; }
+
+.camp-frame main.camp-content .camp-route-phase-weeks { display: grid; gap: 6px; margin-top: 12px; }
+.camp-frame main.camp-content .camp-route-phase-weeks h4 { font-size: 15px; }
+.camp-frame main.camp-content .camp-route-phase-weeks details { border-radius: 12px; background: color-mix(in srgb, var(--camp-purple) 4%, transparent); }
+.camp-frame main.camp-content .camp-route-phase-weeks summary { display: flex; justify-content: space-between; gap: 12px; padding: 10px 14px; font-size: 14px; font-weight: 600; cursor: pointer; }
+.camp-frame main.camp-content .camp-route-phase-weeks summary span { color: var(--color-text-secondary); }
+.camp-frame main.camp-content .camp-route-phase-weeks details > ol { padding: 0 10px 10px; }
+
+@container camp-main (max-width: 900px) {
+  .camp-frame main.camp-content .camp-route-phases { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@container camp-main (max-width: 640px) {
+  .camp-frame main.camp-content .camp-route-hero { grid-template-columns: 1fr; }
+  .camp-frame main.camp-content .camp-route-phases, .camp-frame main.camp-content .camp-route-language dl { grid-template-columns: 1fr; }
+  .camp-frame main.camp-content .camp-route-session { grid-template-columns: 1fr; gap: 6px; }
+  .camp-frame main.camp-content .camp-route > section, .camp-frame main.camp-content .camp-route-hero { padding: 14px; }
+}
+html.dark .camp-frame main.camp-content .camp-route-boost { color: #fbbf24 !important; }
+/* Readable label colours (4.5:1 on light cards) and 24px+ link targets. */
+.camp-frame main.camp-content .camp-route { --ink-language: #5b21b6; --ink-reading: #075985; --ink-listening: #065f46; --ink-speaking: #92400e; --ink-writing: #9d174d; }
+.camp-frame main.camp-content .camp-route-session-skill { filter: none; color: var(--ink, var(--camp-control-ink)); }
+.camp-frame main.camp-content .camp-route-session[data-component="language"] { --ink: var(--ink-language); }
+.camp-frame main.camp-content .camp-route-session[data-component="reading"] { --ink: var(--ink-reading); }
+.camp-frame main.camp-content .camp-route-session[data-component="listening"] { --ink: var(--ink-listening); }
+.camp-frame main.camp-content .camp-route-session[data-component="speaking"] { --ink: var(--ink-speaking); }
+.camp-frame main.camp-content .camp-route-session[data-component="writing"] { --ink: var(--ink-writing); }
+.camp-frame main.camp-content .camp-route-session:is([data-kind="mock"], [data-kind="retest"]) { --ink: #991b1b; }
+html.dark .camp-frame main.camp-content .camp-route-session-skill { color: color-mix(in srgb, var(--c) 70%, #fff); }
+.camp-frame main.camp-content .camp-route-check-tasks a, .camp-frame main.camp-content .camp-route-session a { min-height: 28px; padding: 2px 0; }

@@ -1,5 +1,5 @@
 "use client";
-import type { ReactNode } from "react";
+import { useMemo, useState, type ReactNode } from "react";
 import { ChevronRight } from "lucide-react";
 import { LearningArt } from "@/components/brand/LearningArt";
 
@@ -76,3 +76,32 @@ export function LevelRail<T extends string>({ label, value, onChange, items }: {
 }
 
 const pct = (value: number, total: number) => total ? Math.round(value / total * 100) : 0;
+
+/** Groups near-duplicate topic names (Sport / Sports, case) under one key. */
+export const topicKey = (topic: string) => topic.trim().toLowerCase().replace(/s$/, "");
+
+/**
+ * Topic filter chips: the most common topics first, the rest behind "More topics".
+ * The selected topic always stays visible.
+ */
+export function TopicChips({ label, values, value, onChange, max = 8 }: { label: string; values: string[]; value: string; onChange: (key: string) => void; max?: number }) {
+  const [open, setOpen] = useState(false);
+  const groups = useMemo(() => {
+    const map = new Map<string, { key: string; label: string; count: number; labels: Map<string, number> }>();
+    for (const raw of values) {
+      const key = topicKey(raw), g = map.get(key) ?? { key, label: raw, count: 0, labels: new Map() };
+      g.count++; g.labels.set(raw, (g.labels.get(raw) ?? 0) + 1); map.set(key, g);
+    }
+    return Array.from(map.values()).map(g => ({ key: g.key, count: g.count, label: Array.from(g.labels.entries()).sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))[0][0] }))
+      .sort((a, b) => b.count - a.count || a.label.localeCompare(b.label));
+  }, [values]);
+  const top = groups.slice(0, max), rest = groups.slice(max), selectedHidden = rest.find(g => g.key === value);
+  const shown = open ? groups : selectedHidden ? [...top, selectedHidden] : top;
+  return (
+    <div className="camp-hub-chips camp-topic-chips" role="group" aria-label={label}>
+      <button type="button" aria-pressed={value === "all"} onClick={() => onChange("all")}>All topics</button>
+      {shown.map(g => <button key={g.key} type="button" aria-pressed={value === g.key} onClick={() => onChange(value === g.key ? "all" : g.key)}>{g.label}<span className="camp-topic-count">{g.count}</span></button>)}
+      {rest.length > 0 && <button type="button" className="camp-topic-more" aria-expanded={open} onClick={() => setOpen(o => !o)}>{open ? "Fewer topics" : `More topics (${rest.length})`}</button>}
+    </div>
+  );
+}
