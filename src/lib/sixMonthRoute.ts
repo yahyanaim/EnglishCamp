@@ -3,16 +3,17 @@ import type { PlacementLevel } from '@/data/placement/questions';
 import { LEVEL_STUDY_PLANS } from '@/data/level-study-plans';
 import { HOURS_PER_LEVEL, ROUTE_CHECKPOINT_WEEKS, ROUTE_COMPONENTS, ROUTE_EXAMS, ROUTE_LANGUAGE, ROUTE_PHASES, ROUTE_WEEKS, type RouteCheckpointKind, type RouteComponent, type RouteExam, type RoutePhase } from '@/lib/sixMonthRouteData';
 import { localDateKey, parseStudyDate } from './studyPlanner';
+import { routeCourseLessons, type RouteCourseLesson } from './routeCourses';
 import type { StudyAdaptation, StudyPriority, StudySchedule } from './placement';
 
 export type RouteLink = { label: string; href: string; external?: boolean };
-export type RouteSession = { id: string; week: number; phase: number; start: Date; end: Date; minutes: number; component: RouteComponent; level: PlacementLevel; kind: 'study' | 'mock' | 'retest'; title: string; task: string; href: string; external?: boolean };
+export type RouteSession = { id: string; week: number; phase: number; start: Date; end: Date; minutes: number; component: RouteComponent; level: PlacementLevel; kind: 'study' | 'mock' | 'retest'; title: string; task: string; href: string; external?: boolean; lesson?: RouteCourseLesson; /** the skill the weighted mix gave this slot, before a course lesson was placed */ allocated: RouteComponent };
 export type RouteCheckpoint = { week: number; kind: RouteCheckpointKind; title: string; date: Date; tasks: RouteLink[]; canDo: string[] };
 export type RouteReview = { week: number; weakSkills: RouteComponent[] };
 export type SixMonthRoute = {
   start: PlacementLevel; target: PlacementLevel; exam: RouteExam;
   hours: { planned: number; perWeek: number; needed: number; coverage: number; weeklyNeeded: number; verdict: 'on-track' | 'stretch' | 'foundation' | 'maintain' };
-  phases: (Omit<RoutePhase, 'weights'> & { weights: Record<RouteComponent, number>; boosted: RouteComponent[]; sessions: number })[];
+  phases: (Omit<RoutePhase, 'weights'> & { weights: Record<RouteComponent, number>; boosted: RouteComponent[]; sessions: number; lessons: RouteCourseLesson[]; scheduled: number })[];
   sessions: RouteSession[]; checkpoints: RouteCheckpoint[];
 };
 
@@ -85,7 +86,7 @@ export function buildSixMonthRoute(schedule: StudySchedule, adaptation?: StudyAd
   const phases = ROUTE_PHASES.map(phase => {
     const latest = [...sorted].reverse().find(r => r.week < phase.from);
     const boosted = Array.from(new Set([...priorities, ...(latest?.weakSkills ?? [])])).filter(c => ROUTE_COMPONENTS.includes(c));
-    return { ...phase, weights: routeWeights(phase, target, boosted), boosted, sessions: 0 };
+    return { ...phase, weights: routeWeights(phase, target, boosted), boosted, sessions: 0, lessons: routeCourseLessons(target, phase.index), scheduled: 0 };
   });
   const sessions: RouteSession[] = [], counters: Record<string, number> = {};
   const phaseSlots = new Map<number, RouteComponent[]>(), used = new Map<number, number>();
@@ -105,15 +106,28 @@ export function buildSixMonthRoute(schedule: StudySchedule, adaptation?: StudyAd
     const slot = used.get(phase) ?? 0; used.set(phase, slot + 1);
     const component = phaseSlots.get(phase)![slot], n = counters[component] = (counters[component] ?? -1) + 1;
     const base = { id: `${schedule.id}-route-${index}`, week, phase, start: startAt, end, minutes: schedule.minutes };
-    if (lastWeekDays[0]?.day === day) { sessions.push({ ...base, component: 'reading', level: target, kind: 'retest', title: 'Retake the CEFR check', task: 'Take the full CEFR check again and compare each skill with your starting profile.', href: '/placement-test' }); return; }
+    if (lastWeekDays[0]?.day === day) { sessions.push({ ...base, component: 'reading', allocated: component, level: target, kind: 'retest', title: 'Retake the CEFR check', task: 'Take the full CEFR check again and compare each skill with your starting profile.', href: '/placement-test' }); return; }
     if (mockWeekDays[0]?.day === day) {
       const inApp = target === 'B2';
-      sessions.push({ ...base, component: 'reading', level: target, kind: 'mock', title: `${exam.name} practice paper`, task: inApp ? 'Take the B2 First practice paper under exam timing. Mark it and note the parts that cost you points.' : `Do an official ${exam.name} sample paper under exam timing, then mark it with the answer key.`, href: inApp ? '/mock-exam' : exam.href, ...(inApp ? {} : { external: true }) });
+      sessions.push({ ...base, component: 'reading', allocated: component, level: target, kind: 'mock', title: `${exam.name} practice paper`, task: inApp ? 'Take the B2 First practice paper under exam timing. Mark it and note the parts that cost you points.' : `Do an official ${exam.name} sample paper under exam timing, then mark it with the answer key.`, href: inApp ? '/mock-exam' : exam.href, ...(inApp ? {} : { external: true }) });
       return;
     }
     const material = phase === 1 ? skillLevel(component) : CEFR_LEVELS[Math.max(levelIndex(skillLevel(component)), levelIndex(target))];
-    sessions.push({ ...base, component, level: material, kind: 'study', ...studySession(component, phase, material, target, n) });
+    sessions.push({ ...base, component, allocated: component, level: material, kind: 'study', ...studySession(component, phase, material, target, n) });
   });
+  // Course lessons: each month's lessons take study sessions of their own skill first, then any free study session,
+  // so every lesson gets a date when the month has enough sessions. Lesson order within the month is kept.
+  for (const phase of phases) {
+    const own = sessions.filter(x => x.phase === phase.index && x.kind === 'study'), queue = [...phase.lessons];
+    const place = (x: RouteSession, lesson: RouteCourseLesson) => {
+      const kind = lesson.kind === 'route' ? 'Route lesson' : `${lesson.course.title} module`;
+      Object.assign(x, { component: lesson.component, title: lesson.title, href: lesson.href, lesson, task: `${kind}: work through it, do the practice, then mark it complete. Finish with 5 minutes of review.` });
+      queue.splice(queue.indexOf(lesson), 1);
+    };
+    for (const x of own) { const next = queue.find(l => l.component === x.component); if (next) place(x, next); }
+    for (const x of own) { if (!x.lesson && queue.length) place(x, queue[0]); }
+    phase.scheduled = phase.lessons.length - queue.length;
+  }
   const planned = round1((sessions.length * schedule.minutes) / 60), perWeek = round1((schedule.days.length * schedule.minutes) / 60);
   const coverage = Math.round((planned / HOURS_PER_LEVEL) * 100) / 100;
   const verdict = start === 'C2' ? 'maintain' : coverage >= 1 ? 'on-track' : coverage >= 0.6 ? 'stretch' : 'foundation';

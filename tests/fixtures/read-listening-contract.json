@@ -123,7 +123,7 @@
     },
     "src/data/speech-catalogue.json": {
       "before": "3597f0ff04aaa2abc53cbf4f94728147685e1ed45b55f33d156f3057b4ab5578",
-      "after": "cf3db7eecdf46f0150d42c9a6ba85c2ccd3f7b593adf9cc425d9a9fbc5ef715b"
+      "after": "7dea20136c33edb4531d30ddb959f9dcba7b88240cb50b3e6bd8dd1b002e0f80"
     },
     "src/components/layout/LayoutShell.tsx": {
       "before": "1a03fb08cd1508dbc056b67ddf7dcf6cbff0e9bedb34e4ef2ed68e11ed8c18bd",
