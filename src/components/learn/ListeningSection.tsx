@@ -2,13 +2,13 @@
 
 import "./read-listening.css";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { CheckCircle2, ChevronRight, ExternalLink, Pause, Play, RotateCcw, Search } from "lucide-react";
+import { CheckCircle2, ChevronRight, ExternalLink, Pause, Play, RotateCcw, Search, X } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { LearningArt } from "@/components/brand/LearningArt";
 import { AddToVocabButton } from "@/components/ui/AddToVocabButton";
 import { BackButton } from "@/components/ui/BackButton";
 import { Button } from "@/components/ui/shadcn/button";
-import { SelectField } from "@/components/ui/shadcn/select-field";
+import { HubContinue, HubHero, LevelRail } from "./HubHero";
 import { ComprehensionQuiz } from "./ComprehensionQuiz";
 import { LibraryPagination, pageCount, pageSlice } from "./LibraryPagination";
 import { CEFR_LEVELS, type CefrLevel } from "@/data/placement/cefr";
@@ -26,8 +26,7 @@ const PAGE_SIZE = 8;
 const SPEEDS = [0.75, 1, 1.25] as const;
 const clock = (seconds: number) => { const s = Math.max(0, Math.floor(seconds)); return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, "0")}`; };
 const keyOf = (lesson: ListeningLesson) => listeningExerciseId(lesson.id) as `listening:${string}`;
-const fieldStyle = { boxShadow: "0 2px 0 var(--color-border-default)" };
-const fieldClass = "font-body text-sm bg-[var(--color-surface)] border border-[var(--color-border-default)] rounded-[var(--radius-md)] px-3 py-2.5 outline-none text-[var(--color-text-primary)] transition-all duration-150";
+const STATUSES = [["all", "All"], ["new", "Not started"], ["started", "In progress"], ["completed", "Completed"]] as const;
 
 /** Accessible player: play/pause, seek, replay, speed, resume point and error recovery. */
 function ListeningPlayer({ lesson, onHeard }: { lesson: ListeningLesson; onHeard: () => void }) {
@@ -200,7 +199,7 @@ function ListeningLessonView({ lesson, onBack, onOpenBank }: { lesson: Listening
 
 function LessonCard({ lesson, state, onOpen }: { lesson: ListeningLesson; state: { done: boolean; position: number; best?: string }; onOpen: () => void }) {
   return (
-    <button type="button" id={`listening-${lesson.id}`} className="camp-learning-library-card" onClick={onOpen}>
+    <button type="button" id={`listening-${lesson.id}`} className="camp-learning-library-card" data-done={state.done} onClick={onOpen}>
       <span className="camp-library-card-icon"><LearningArt name="Headphones" size={23} /></span>
       <span className="camp-library-card-copy">
         <strong>{lesson.title}</strong>
@@ -258,57 +257,61 @@ export function ListeningSection() {
 
   if (selected) return <ListeningLessonView key={selected.id} lesson={selected} onBack={() => setSelectedId(null)} onOpenBank={() => router.push("/vocabulary")} />;
   const filtering = query || level !== "all" || topic !== "all" || status !== "all";
+  const clear = () => { setQuery(""); setLevel("all"); setTopic("all"); setStatus("all"); };
+  const completed = lessons.filter(l => info(l).done).length, started = lessons.filter(l => !info(l).done && info(l).position > 0).length;
+  const scored = lessons.map(l => practice[keyOf(l)]).filter(r => r?.total), average = scored.length ? Math.round(scored.reduce((sum, r) => sum + (r!.best / r!.total) * 100, 0) / scored.length) : null;
+  const next = resume[0] ?? suggested[0];
+  const levelItems = CEFR_LEVELS.filter(l => lessons.some(lesson => lesson.level === l)).map(l => {
+    const list = lessons.filter(lesson => lesson.level === l);
+    return { value: l as string, name: CEFR_LABELS[l].split(" · ")[1] ?? l, total: list.length, done: list.filter(lesson => info(lesson).done).length };
+  });
   return (
-    <>
-      <div className="flex flex-wrap gap-3 items-center">
-        <div className="relative flex-1 min-w-[200px]">
-          <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-[var(--color-text-secondary)]" aria-hidden="true" />
-          <input type="search" aria-label="Search listening lessons" value={query} onChange={e => setQuery(e.target.value)} placeholder="Search listening lessons..."
-            className="w-full h-12 pl-10 pr-4 bg-[var(--color-surface)] rounded-[var(--radius-md)] border border-[var(--color-border-default)] font-body text-sm font-medium text-[var(--color-text-primary)] placeholder:text-[var(--color-text-secondary)] placeholder:italic outline-none transition-all duration-150 focus:border-[var(--color-border-focus)]"
-            style={fieldStyle} />
+    <div className="camp-hub-v2 camp-listening-hub space-y-6">
+      <HubHero eyebrow="Listening library" title="Listening" art="Headphones"
+        description="Real VOA Learning English recordings at your level. Listen, answer the questions, then check the transcript."
+        stats={[{ label: "Recordings", value: lessons.length }, { label: "Completed", value: completed }, { label: "In progress", value: started }, { label: "Average score", value: average === null ? "–" : `${average}%` }]}
+        progress={{ value: completed, total: lessons.length, label: "Library completed" }}
+        action={next && <HubContinue art="Headphones" kicker={resume[0] ? "Continue listening" : "Suggested for you"} title={next.title}
+          meta={`${next.level} · ${next.topic} · ${clock(next.seconds)}${info(next).position > 0 ? ` · Resume at ${clock(info(next).position)}` : ""}`} onClick={() => open(next)} />} />
+      <LevelRail label="Listening level" value={level} onChange={value => setLevel(value)} items={levelItems} />
+      <section className="camp-hub-toolbar" aria-label="Find a recording">
+        <div className="camp-hub-toolbar-row">
+          <label className="camp-hub-search">
+            <Search size={16} aria-hidden="true" />
+            <span className="sr-only">Search listening lessons</span>
+            <input type="search" aria-label="Search listening lessons" value={query} onChange={e => setQuery(e.target.value)} placeholder="Search listening lessons…" />
+          </label>
+          <div className="camp-hub-segment" role="group" aria-label="Listening progress">
+            {STATUSES.map(([value, name]) => <button key={value} type="button" aria-pressed={status === value} onClick={() => setStatus(value)}>{name}</button>)}
+          </div>
         </div>
-        <SelectField aria-label="Listening level" value={level} onValueChange={setLevel} className={fieldClass} style={fieldStyle}>
-          <option value="all">All levels</option>
-          {CEFR_LEVELS.filter(l => lessons.some(lesson => lesson.level === l)).map(l => <option key={l} value={l}>{CEFR_LABELS[l]}</option>)}
-        </SelectField>
-        <SelectField aria-label="Listening topic" value={topic} onValueChange={setTopic} className={fieldClass} style={fieldStyle}>
-          <option value="all">All topics</option>
-          {topics.map(t => <option key={t} value={t}>{t}</option>)}
-        </SelectField>
-        <SelectField aria-label="Listening progress" value={status} onValueChange={setStatus} className={fieldClass} style={fieldStyle}>
-          <option value="all">All lessons</option>
-          <option value="new">Not started</option>
-          <option value="started">In progress</option>
-          <option value="completed">Completed</option>
-        </SelectField>
-        <span className="font-body text-xs text-[var(--color-text-secondary)]" role="status">{filtered.length} lessons · {lessons.filter(l => info(l).done).length} completed</span>
-      </div>
+        <div className="camp-hub-toolbar-row">
+          <div className="camp-hub-chips" role="group" aria-label="Listening topic">
+            <button type="button" aria-pressed={topic === "all"} onClick={() => setTopic("all")}>All topics</button>
+            {topics.map(t => <button key={t} type="button" aria-pressed={topic === t} onClick={() => setTopic(t)}>{t}</button>)}
+          </div>
+          <p className="camp-hub-count" role="status">{filtered.length} {filtered.length === 1 ? "lesson" : "lessons"} · {completed} completed{filtering ? <> · <button type="button" onClick={clear}><X size={13} aria-hidden="true" />Clear filters</button></> : null}</p>
+        </div>
+      </section>
       {!filtering && resume.length > 0 && (
         <section className="camp-learning-library-group" aria-labelledby="listening-resume">
-          <h2 id="listening-resume" className="font-display text-lg font-bold">Continue listening</h2>
+          <div className="camp-hub-group-head"><h2 id="listening-resume">Continue listening</h2><span className="camp-hub-group-progress">{resume.length} in progress</span></div>
           <div className="camp-trainer-grid">{resume.map(lesson => <LessonCard key={lesson.id} lesson={lesson} state={info(lesson)} onOpen={() => open(lesson)} />)}</div>
         </section>
       )}
       {!filtering && suggested.length > 0 && (
         <section className="camp-learning-library-group" aria-labelledby="listening-suggested">
-          <h2 id="listening-suggested" className="font-display text-lg font-bold">Suggested for you</h2>
-          <p className="font-body text-xs text-[var(--color-text-secondary)]">{placementLevel ? `Based on your ${placementLevel} placement and completed lessons.` : "Based on the lessons you have completed."}</p>
+          <div className="camp-hub-group-head"><h2 id="listening-suggested">Suggested for you</h2><span className="camp-hub-group-progress">{placementLevel ? `Based on your ${placementLevel} placement` : "Based on your completed lessons"}</span></div>
           <div className="camp-trainer-grid">{suggested.map(lesson => <LessonCard key={lesson.id} lesson={lesson} state={info(lesson)} onOpen={() => open(lesson)} />)}</div>
         </section>
       )}
       <section ref={libraryTop} className="camp-learning-library-group scroll-mt-24" aria-labelledby="listening-library">
-        <h2 id="listening-library" className="font-display text-lg font-bold">Listening library</h2>
+        <div className="camp-hub-group-head"><h2 id="listening-library">Listening library</h2><span className="camp-hub-group-progress">{completed}/{lessons.length} completed<span className="camp-level-rail-bar" aria-hidden="true"><span style={{ width: `${lessons.length ? completed / lessons.length * 100 : 0}%` }} /></span></span></div>
         <div className="camp-trainer-grid">{pageSlice(filtered, page, PAGE_SIZE).map(lesson => <LessonCard key={lesson.id} lesson={lesson} state={info(lesson)} onOpen={() => open(lesson)} />)}</div>
         <LibraryPagination page={page} total={filtered.length} size={PAGE_SIZE} label="Listening lessons pages" onChange={turn} />
-        {filtered.length === 0 && (
-          <div className="text-center py-16">
-            <LearningArt name="Headphones" size={36} className="w-12 h-12 mx-auto mb-3" />
-            <p className="font-display font-bold text-sm text-[var(--color-text-secondary)]">No listening lessons found</p>
-            <p className="font-body text-xs mt-1 text-[var(--color-text-secondary)]">Try a different search or filter.</p>
-          </div>
-        )}
+        {filtered.length === 0 && <p className="camp-hub-empty">No listening lesson matches these filters. <button type="button" onClick={clear}>Clear filters</button></p>}
       </section>
       <p className="camp-source-note">Recordings from VOA Learning English, a public-domain service of Voice of America. Levels are EnglishCamp teaching estimates.</p>
-    </>
+    </div>
   );
 }

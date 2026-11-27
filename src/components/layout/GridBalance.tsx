@@ -8,6 +8,8 @@ import "./practice-design.css";
 import "../practice/practice-hub.css";
 import "../course/course-v2.css";
 import "../learn/hub-v2.css";
+import "../shadowing/recorder-v2.css";
+import "../challenge/friend-games.css";
 
 /** Balances incomplete last rows in grids inside the learner content area. */
 export function GridBalance() {

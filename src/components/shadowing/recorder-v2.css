@@ -1,0 +1,76 @@
+/* Recorder v2: three visible steps (Record → Listen back → Check pronunciation) used by Shadowing, the Pronunciation lab and the coach. */
+.camp-frame main.camp-content .camp-rec { display: grid; gap: 16px; min-width: 0; padding: 20px; border-radius: 22px; background: var(--g-card, var(--color-surface)); border: 1px solid var(--g-rim, var(--color-border-default)); box-shadow: var(--g-sheen, none); }
+
+.camp-frame main.camp-content .camp-rec-steps { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; counter-reset: none; }
+.camp-frame main.camp-content .camp-rec-steps li { display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px 6px 6px; border-radius: 999px; font-size: 13px; font-weight: 600; color: var(--color-text-secondary); background: color-mix(in srgb, var(--camp-purple) 5%, transparent); border: 1px solid color-mix(in srgb, var(--camp-purple) 10%, transparent); }
+.camp-frame main.camp-content .camp-rec-steps li > span { display: inline-grid; place-items: center; width: 24px; height: 24px; border-radius: 50%; font-size: 12px; font-weight: 800; background: color-mix(in srgb, var(--camp-purple) 10%, transparent); color: var(--color-text-secondary); }
+.camp-frame main.camp-content .camp-rec-steps li[data-state="current"] { color: var(--camp-control-ink, var(--camp-purple)); background: color-mix(in srgb, var(--camp-purple) 12%, transparent); border-color: color-mix(in srgb, var(--camp-purple) 35%, transparent); }
+.camp-frame main.camp-content .camp-rec-steps li[data-state="current"] > span { background: var(--g-primary, var(--camp-purple)); color: #fff; }
+.camp-frame main.camp-content .camp-rec-steps li[data-state="done"] { color: #047857; background: color-mix(in srgb, #10b981 10%, transparent); border-color: color-mix(in srgb, #10b981 28%, transparent); }
+.camp-frame main.camp-content .camp-rec-steps li[data-state="done"] > span { background: #10b981; color: #fff; }
+
+.camp-frame main.camp-content .camp-rec-stage { display: grid; gap: 12px; justify-items: stretch; }
+.camp-frame main.camp-content .camp-rec-button { display: flex; align-items: center; gap: 18px; width: 100%; padding: 16px 18px; border-radius: 18px; border: 1px dashed color-mix(in srgb, var(--camp-purple) 35%, transparent); background: color-mix(in srgb, var(--camp-purple) 4%, transparent); color: var(--color-text-primary); text-align: start; cursor: pointer; transition: border-color .2s ease, background .2s ease, transform .2s ease; }
+.camp-frame main.camp-content .camp-rec-button:hover:not(:disabled) { border-color: var(--camp-purple); background: color-mix(in srgb, var(--camp-purple) 8%, transparent); }
+.camp-frame main.camp-content .camp-rec-button:focus-visible { outline: 3px solid var(--camp-focus, var(--camp-purple)); outline-offset: 3px; }
+.camp-frame main.camp-content .camp-rec-button:disabled { opacity: .6; cursor: not-allowed; }
+.camp-frame main.camp-content .camp-rec-mic { position: relative; display: grid; place-items: center; flex: none; width: 64px; height: 64px; border-radius: 50%; color: #fff; background: var(--g-primary, var(--camp-purple)); box-shadow: 0 10px 24px -10px var(--camp-purple); }
+.camp-frame main.camp-content .camp-rec-button[data-phase="recording"] { border-style: solid; border-color: #ef4444; background: color-mix(in srgb, #ef4444 7%, transparent); }
+.camp-frame main.camp-content .camp-rec-button[data-phase="recording"] .camp-rec-mic { background: #dc2626; box-shadow: 0 0 0 0 rgba(220, 38, 38, .45); animation: camp-rec-pulse 1.4s ease-out infinite; }
+@keyframes camp-rec-pulse { 0% { box-shadow: 0 0 0 0 rgba(220, 38, 38, .45); } 100% { box-shadow: 0 0 0 18px rgba(220, 38, 38, 0); } }
+.camp-frame main.camp-content .camp-rec-copy { display: grid; gap: 4px; min-width: 0; }
+.camp-frame main.camp-content .camp-rec-copy strong { font: 700 18px/1.3 var(--font-display), Nunito, sans-serif; }
+.camp-frame main.camp-content .camp-rec-copy small { font-size: 14px; line-height: 1.5; color: var(--color-text-secondary); }
+
+.camp-frame main.camp-content .camp-rec-timer { display: flex; align-items: center; gap: 12px; padding: 0 4px; }
+.camp-frame main.camp-content .camp-rec-timer [role="timer"] { font: 800 18px/1 var(--font-display), Nunito, sans-serif; font-variant-numeric: tabular-nums; color: #dc2626; }
+.camp-frame main.camp-content .camp-rec-timer [role="timer"] small { font-size: 13px; font-weight: 600; color: var(--color-text-secondary); }
+.camp-frame main.camp-content .camp-rec-timer-bar { flex: 1; height: 6px; border-radius: 6px; background: color-mix(in srgb, #ef4444 14%, transparent); overflow: hidden; }
+.camp-frame main.camp-content .camp-rec-timer-bar i { display: block; height: 100%; background: #ef4444; transition: width .25s linear; }
+
+.camp-frame main.camp-content .camp-rec-error { margin: 0; padding: 10px 14px; border-radius: 12px; background: color-mix(in srgb, #ef4444 9%, transparent); color: #b91c1c; font-size: 14px; }
+.camp-frame main.camp-content .camp-rec-take { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 8px 14px; padding: 14px 16px; border-radius: 16px; background: color-mix(in srgb, #10b981 6%, transparent); border: 1px solid color-mix(in srgb, #10b981 22%, transparent); }
+.camp-frame main.camp-content .camp-rec-take-label { grid-column: 1 / -1; display: inline-flex; align-items: center; gap: 8px; margin: 0; font-weight: 700; font-size: 14px; color: #047857; }
+.camp-frame main.camp-content .camp-rec-take audio { width: 100%; min-width: 0; height: 40px; }
+.camp-frame main.camp-content .camp-rec-take a { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; color: var(--camp-control-ink, var(--camp-purple)); white-space: nowrap; }
+.camp-frame main.camp-content .camp-rec-note { display: flex; align-items: center; gap: 8px; margin: 0; font-size: 12.5px; line-height: 1.5; color: var(--color-text-secondary); }
+.camp-frame main.camp-content .camp-rec-note svg { flex: none; }
+
+/* Pronunciation feedback inside the recorder (step 3). */
+.camp-frame main.camp-content .camp-rec-feedback { display: grid; gap: 12px; margin: 0; padding: 18px; border-radius: 18px; background: color-mix(in srgb, var(--camp-purple) 4%, var(--color-surface, transparent)); border: 1px solid color-mix(in srgb, var(--camp-purple) 14%, transparent); }
+.camp-frame main.camp-content .camp-rec-feedback-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 12px; }
+.camp-frame main.camp-content .camp-rec-feedback-head h2 { margin: 0; font: 700 18px/1.3 var(--font-display), Nunito, sans-serif; }
+.camp-frame main.camp-content .camp-rec-feedback-lead { margin: 0; font-size: 14px; line-height: 1.55; color: var(--color-text-secondary); }
+.camp-frame main.camp-content .camp-rec-consent { display: flex; align-items: flex-start; gap: 12px; margin: 0; padding: 12px 14px; border-radius: 14px; background: var(--color-surface, #fff); border: 1px solid color-mix(in srgb, var(--camp-purple) 16%, transparent); cursor: pointer; }
+.camp-frame main.camp-content .camp-rec-consent[data-disabled="true"] { opacity: .65; cursor: not-allowed; }
+.camp-frame main.camp-content .camp-rec-consent input { flex: none; width: 20px; height: 20px; margin-top: 2px; accent-color: var(--camp-purple); }
+.camp-frame main.camp-content .camp-rec-consent span { display: grid; gap: 3px; }
+.camp-frame main.camp-content .camp-rec-consent strong { font-size: 15px; font-weight: 700; }
+.camp-frame main.camp-content .camp-rec-consent small { font-size: 12.5px; line-height: 1.5; color: var(--color-text-secondary); }
+.camp-frame main.camp-content .camp-rec-feedback .camp-ai-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.camp-frame main.camp-content .camp-rec-feedback .camp-ai-actions button { min-height: 44px; }
+.camp-frame main.camp-content .camp-rec-hint { margin: 0; font-size: 13px; color: var(--camp-control-ink, var(--camp-purple)); font-weight: 600; }
+.camp-frame main.camp-content .camp-rec-about summary { cursor: pointer; font-size: 13px; font-weight: 600; color: var(--color-text-secondary); }
+.camp-frame main.camp-content .camp-rec-about p { margin: 8px 0 0; font-size: 13px; line-height: 1.55; color: var(--color-text-secondary); }
+
+.camp-frame main.camp-content .camp-rec-score { display: flex; align-items: center; gap: 16px; padding: 14px; border-radius: 16px; background: var(--color-surface, #fff); border: 1px solid color-mix(in srgb, var(--camp-purple) 14%, transparent); }
+.camp-frame main.camp-content .camp-rec-ring { --tone: #10b981; display: grid; place-items: center; flex: none; width: 72px; height: 72px; border-radius: 50%; background: conic-gradient(var(--tone) calc(var(--score) * 1%), color-mix(in srgb, var(--tone) 14%, transparent) 0); }
+.camp-frame main.camp-content .camp-rec-ring b { display: grid; place-items: center; width: 56px; height: 56px; border-radius: 50%; background: var(--color-surface, #fff); font: 800 20px/1 var(--font-display), Nunito, sans-serif; }
+.camp-frame main.camp-content .camp-rec-score[data-band="mid"] .camp-rec-ring { --tone: #f59e0b; }
+.camp-frame main.camp-content .camp-rec-score[data-band="low"] .camp-rec-ring { --tone: #ef4444; }
+.camp-frame main.camp-content .camp-rec-score strong { display: block; font: 800 22px/1.2 var(--font-display), Nunito, sans-serif; }
+.camp-frame main.camp-content .camp-rec-score strong small { font-size: 14px; color: var(--color-text-secondary); }
+.camp-frame main.camp-content .camp-rec-score span { font-size: 13.5px; color: var(--color-text-secondary); }
+
+@container camp-main (max-width: 520px) {
+  .camp-frame main.camp-content .camp-rec { padding: 14px; }
+  .camp-frame main.camp-content .camp-rec-mic { width: 54px; height: 54px; }
+  .camp-frame main.camp-content .camp-rec-take { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .camp-frame main.camp-content .camp-rec-button[data-phase="recording"] .camp-rec-mic { animation: none; }
+  .camp-frame main.camp-content .camp-rec-timer-bar i { transition: none; }
+}
+html.dark .camp-frame main.camp-content .camp-rec-steps li[data-state="done"], html.dark .camp-frame main.camp-content .camp-rec-take-label { color: #6ee7b7; }
+/* The Pronunciation page had its own spacing for the old recorder; the new card already has padding. */
+.camp-frame main.camp-content .camp-pronunciation-lab .camp-rec-feedback { margin: 0 !important; }

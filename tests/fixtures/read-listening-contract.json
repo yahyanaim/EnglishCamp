@@ -55,7 +55,7 @@
     },
     "src/components/speaking/PronunciationFeedback.tsx": {
       "before": "8119b4857b3fd5e8f4858b4b81ff81678dcafc9723cbbc77ea3008e054264831",
-      "after": "033e1941b08bee367049f38007a362ac35bab4cd1d4c89c11f11db6229d6289c"
+      "after": "703fbc41ec6430b798cb5cf3d84ef93c28da00149244faa4842cfc4fa5fd5304"
     },
     "src/components/course/CourseOverview.tsx": {
       "before": "e446bfcbc4e79ddcb7751480feafe29474ce84762036ad28ebbb0d6a7178db62",
@@ -428,6 +428,14 @@
     "src/components/session/CloudProgressProvider.tsx": {
       "before": "dde610f001b8d8d1357d20138f037fde0ade741f11e00c760ef58106084897df",
       "after": "a2b661c9ca22f5c89f852511de1ad62a14c7cd162c043727186ba954645c53e1"
+    },
+    "src/app/challenge/page.tsx": {
+      "before": "7ebc339b9ca992f9f7095be564a2789fc76315785d92c7037c37cffb33ac4f52",
+      "after": "0be56a4db9ffede142c2618b00afa41eb28042339ce9c1fed7c1f735c30ab283"
+    },
+    "src/components/shadowing/ShadowRecorder.tsx": {
+      "before": "2733e6b72b22bae9c49ef296c00883648949ca27ac59a7ad60e9949d7809f321",
+      "after": "0f5904d815f819597f524d904230f0d1d53c0e8ea84d8b7dceebc2d030181cee"
     }
   },
   "selectors": {
