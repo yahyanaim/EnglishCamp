@@ -10,7 +10,7 @@ export const PLACEMENT_KEY='englishcamp-placement-v1';
 export type PlacementAnswers=Record<string,number>;
 export type PlacementResult={id:string;completedAt:string;version:typeof PLACEMENT_VERSION;answers:PlacementAnswers;communication?:CommunicationCheck};
 export type StudyGoal='everyday'|'ielts'|'toefl'|'b2-first';
-export type StudySchedule={id:string;updatedAt:string;startDate:string;time:string;days:number[];minutes:15|25|40|60;goal:StudyGoal;startingLevel:PlacementLevel;weeks?:4|8|12};
+export type StudySchedule={id:string;updatedAt:string;startDate:string;time:string;days:number[];minutes:15|25|40|60|90;goal:StudyGoal;startingLevel:PlacementLevel;weeks?:4|8|12|26};
 export type PlacementRecord={version:1;status:'new'|'skipped'|'in-progress'|'complete';answers:PlacementAnswers;startedAt:string;results:PlacementResult[];schedule:StudySchedule|null;communication?:CommunicationCheck;studyDone?:string[];studyReviews?:Record<string,StudyReview>;cefr?:CefrRecord};
 export const emptyPlacement=():PlacementRecord=>({version:1,status:'new',answers:{},startedAt:'',results:[],schedule:null});
 export function validAnswers(value:unknown):PlacementAnswers{const out:PlacementAnswers={};if(!value||typeof value!=='object')return out;for(const q of PLACEMENT_QUESTIONS){const n=(value as Record<string,unknown>)[q.id];if(Number.isInteger(n)&&Number(n)>=-1&&Number(n)<q.options.length)out[q.id]=Number(n);}return out;}
@@ -28,7 +28,7 @@ export function gradePlacement(answers:PlacementAnswers){
 const isDate=(s:unknown)=>typeof s==='string'&&Number.isFinite(Date.parse(s));
 export function validStudySchedule(value:unknown):value is StudySchedule{
  if(!value||typeof value!=='object')return false;const s=value as StudySchedule;
- return typeof s.id==='string'&&/^[\w-]{6,80}$/.test(s.id)&&isDate(s.updatedAt)&&typeof s.startDate==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(s.startDate)&&/^([01]\d|2[0-3]):[0-5]\d$/.test(s.time)&&Array.isArray(s.days)&&s.days.length>0&&s.days.length<=7&&new Set(s.days).size===s.days.length&&s.days.every(n=>Number.isInteger(n)&&n>=0&&n<=6)&&[15,25,40,60].includes(s.minutes)&&['everyday','ielts','toefl','b2-first'].includes(s.goal)&&CEFR_LEVELS.includes(s.startingLevel)&&(s.weeks===undefined||[4,8,12].includes(s.weeks));
+ return typeof s.id==='string'&&/^[\w-]{6,80}$/.test(s.id)&&isDate(s.updatedAt)&&typeof s.startDate==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(s.startDate)&&/^([01]\d|2[0-3]):[0-5]\d$/.test(s.time)&&Array.isArray(s.days)&&s.days.length>0&&s.days.length<=7&&new Set(s.days).size===s.days.length&&s.days.every(n=>Number.isInteger(n)&&n>=0&&n<=6)&&[15,25,40,60,90].includes(s.minutes)&&['everyday','ielts','toefl','b2-first'].includes(s.goal)&&CEFR_LEVELS.includes(s.startingLevel)&&(s.weeks===undefined||[4,8,12,26].includes(s.weeks));
 }
 export function readPlacement(storage:SessionStorage):PlacementRecord{
  try{const data=JSON.parse(storage.getItem(PLACEMENT_KEY)||'null');if(data?.version!==1)return emptyPlacement();const results=Array.isArray(data.results)?data.results.filter((r:PlacementResult)=>r&&typeof r.id==='string'&&/^[\w-]{6,80}$/.test(r.id)&&r.version===PLACEMENT_VERSION&&isDate(r.completedAt)&&placementComplete(validAnswers(r.answers))).map((r:PlacementResult)=>({...r,answers:validAnswers(r.answers),...(r.communication?{communication:validCommunication(r.communication)}:{})})):[];

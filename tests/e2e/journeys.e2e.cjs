@@ -12,7 +12,7 @@ const {chromium}=require(process.env.E2E_PLAYWRIGHT||'playwright');
 
 const root=path.join(__dirname,'..','..'),sha=v=>crypto.createHash('sha256').update(v).digest('hex');
 const ADMIN_KEY='e2e-'+crypto.randomBytes(12).toString('hex');
-const codes=Array.from({length:4},()=>'ECI-'+crypto.randomBytes(24).toString('base64url').slice(0,32));
+const codes=Array.from({length:5},()=>'ECI-'+crypto.randomBytes(24).toString('base64url').slice(0,32));
 let server,browser,base,state,serverLog='';
 
 const freePort=()=>new Promise(resolve=>{const s=net.createServer();s.listen(0,'127.0.0.1',()=>{const {port}=s.address();s.close(()=>resolve(port));});});
@@ -132,4 +132,38 @@ test('J5: administration stays behind the owner key',async()=>{
  await q.goto(base+'admin/dashboard',{waitUntil:'networkidle'});
  assert.equal(new URL(q.url()).pathname,'/admin/login','a learner session is not an admin session');
  await learnerOnly.close();await context.close();
+});
+
+test('J6: after the CEFR check, the study plan builds a 26-week route to the next level and keeps checkpoint answers',async()=>{
+ require(path.join(root,'tests/register.cjs'));
+ const {PLACEMENT_QUESTIONS:Q,PLACEMENT_VERSION}=require(path.join(root,'src/data/placement/questions.ts'));
+ const L=['A1','A2','B1','B2','C1'],answers=Object.fromEntries(Q.map(q=>[q.id,L.indexOf(q.level)<=L.indexOf('B1')?q.answer:-1]));
+ const record={version:1,status:'complete',answers,startedAt:'2026-11-20T10:00:00Z',results:[{id:'e2e-placement-b1',completedAt:'2026-11-20T10:30:00Z',version:PLACEMENT_VERSION,answers}],schedule:null};
+ const {context,p,errors}=await page();
+ await createAccount(p,'Route Tester',codes[4],'/dashboard');
+ // Store a B1 placement result for this learner exactly where the app keeps it.
+ await p.evaluate(rec=>{const profile=JSON.parse(sessionStorage.getItem('englishcamp-session-profile-v1'));const key=profile.cloudId?`englishcamp-cloud-learner-v1:${profile.cloudId}:englishcamp-placement-v1`:`englishcamp-learner-v1:${profile.number}:englishcamp-placement-v1`;(profile.cloudId?localStorage:sessionStorage).setItem(key,JSON.stringify(rec));},record);
+ await p.goto(base+'study-plan',{waitUntil:'networkidle'});
+ assert.match(await p.locator('button[aria-label="Planning window"]').innerText(),/6 months · CEFR route/,'learners with a CEFR result start on the 6-month route');
+ assert.match(await p.locator('button[aria-label="Plan level"]').innerText(),/B1/);
+ await p.locator('button[aria-label="Session length"]').click();await p.getByRole('option',{name:'90 minutes'}).click();
+ const saturday=p.locator('.camp-study-days label',{hasText:'Sat'}).locator('input');if(!(await saturday.isChecked()))await saturday.click();
+ await p.getByRole('button',{name:'Save my study timetable'}).click();
+ await p.locator('#route-heading').waitFor({timeout:10000});
+ assert.match(await p.locator('#route-heading').innerText(),/B1\s*→?\s*(to\s*)?B2/);
+ assert.equal(await p.locator('.camp-route-exam strong').innerText(),'B2 First');
+ assert.equal(await p.locator('.camp-route-phases > li').count(),6);
+ assert.equal(await p.locator('.camp-route-checks > ol > li').count(),6);
+ assert.equal(await p.locator('.camp-route-phase-weeks details').count(),26);
+ assert.equal(await p.locator('.camp-route-verdict').getAttribute('data-verdict'),'on-track','six 90-minute sessions reach about 200 hours');
+ await p.locator('.camp-route-week .camp-route-done input').first().check();
+ const firstCheck=p.locator('.camp-route-checks > ol > li').first();
+ if(await firstCheck.locator('details').getAttribute('open')===null)await firstCheck.locator('summary').click();
+ await firstCheck.locator('.camp-route-weak button',{hasText:'Speaking'}).click();
+ await p.reload({waitUntil:'networkidle'});
+ assert.match(await p.locator('.camp-route-progress-label').innerText(),/^1 of 156 sessions done/);
+ assert.match(await p.locator('.camp-route-phases > li').nth(1).locator('.camp-route-boost').innerText(),/speaking/,'the checkpoint answer gives speaking more time from month 2');
+ assert.equal(await p.locator('.camp-route-phases > li').first().locator('.camp-route-boost').innerText().catch(()=>''),'Extra time: grammar & vocabulary','month 1 keeps the placement priority only');
+ assert.deepEqual(errors,[]);
+ await context.close();
 });
