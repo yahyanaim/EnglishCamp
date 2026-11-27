@@ -199,7 +199,8 @@ test('J6: after the CEFR check, the study plan builds a 26-week route to the nex
  assert.match(await p.locator('.camp-route-lesson-done').innerText(),/Lesson complete · \+25 XP/);
  // A first-ever XP award opens the existing "First Steps" badge celebration; close it like a learner would.
  const badge=p.getByRole('dialog',{name:/Congratulations/});
- if(await badge.isVisible({timeout:3000}).catch(()=>false))await badge.getByRole('button',{name:'Keep learning'}).click();
+ // isVisible() does not wait, and on slower runners the dialog opens a moment after the XP award.
+ if(await badge.waitFor({state:'visible',timeout:8000}).then(()=>true,()=>false))await badge.getByRole('button',{name:'Keep learning'}).click();
  await p.getByRole('link',{name:'Back to my plan'}).click();
  await p.locator('.camp-route-step').first().waitFor();
  assert.equal(await p.locator('.camp-route-step').first().locator('li',{hasText:lesson.title}).getAttribute('data-done'),'true','the plan shows the lesson as done');
