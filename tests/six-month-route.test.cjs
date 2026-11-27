@@ -7,10 +7,17 @@ const {LEVEL_STUDY_PLANS}=require('../src/data/level-study-plans.ts');
 const {validStudySchedule,readPlacement,savePlacement,emptyPlacement}=require('../src/lib/placement.ts');
 const {readStudyReviews}=require('../src/lib/studyReadiness.ts');
 const LEVELS=['A1','A2','B1','B2','C1','C2'];
+const {courseCatalogue}=require('../src/data/course-catalogue.ts');
+const {ROUTE_LESSONS,routeLessonExerciseId}=require('../src/data/route-lessons.ts');
+const {ROUTE_COURSE_PLAN,routeCourseLessons,routeCourses}=require('../src/lib/routeCourses.ts');
 const DAYS=[[1],[2,5],[1,3,5],[1,2,4,5],[1,2,3,4,5],[1,2,3,4,5,6],[0,1,2,3,4,5,6]];
 const MINUTES=[15,25,40,60,90];
 const schedule=(c={})=>({id:'route-qa-0001',updatedAt:'2026-11-27T10:00:00Z',startDate:'2026-12-01',time:'18:30',days:[1,3,5],minutes:25,goal:'everyday',startingLevel:'B1',weeks:26,...c});
-const appRoute=href=>{const p=href.split('#')[0].split('?')[0];return p==='/'||fs.existsSync(path.join(__dirname,'..','src/app',p));};
+const appRoute=href=>{const p=href.split('#')[0].split('?')[0];
+ const course=p.match(/^\/levels\/([^/]+)\/lessons\/([^/]+)$/);if(course)return !!courseCatalogue.find(c=>c.id===course[1])?.lessons.some(l=>l.id===course[2]);
+ const lesson=p.match(/^\/study-plan\/lesson\/([^/]+)$/);if(lesson)return ROUTE_LESSONS.some(l=>l.id===lesson[1]);
+ if(/^\/levels\/[^/]+$/.test(p))return courseCatalogue.some(c=>c.id===p.split('/')[2]);
+ return p==='/'||fs.existsSync(path.join(__dirname,'..','src/app',p));};
 const phaseOf=week=>ROUTE_PHASES.find(p=>week>=p.from&&week<=p.to).index;
 const minutesOfDay=d=>d.getHours()*60+d.getMinutes();
 
@@ -51,7 +58,7 @@ test('every start level × study days × session length builds a complete, valid
    assert.equal(x.end-x.start,minutes*60000);assert.equal(x.minutes,minutes);
    assert.ok(x.week>=1&&x.week<=26);assert.equal(x.phase,phaseOf(x.week));
    assert.ok(LEVELS.indexOf(x.level)>=0);
-   if(x.kind==='study'&&x.phase>1)assert.ok(LEVELS.indexOf(x.level)>=LEVELS.indexOf(r.target),label+' months 2–6 work at the target level or above');
+   if(x.kind==='study'&&x.phase>1&&!x.lesson)assert.ok(LEVELS.indexOf(x.level)>=LEVELS.indexOf(r.target),label+' months 2–6 practice works at the target level or above');
    if(x.external)assert.equal(x.href,r.exam.href);else assert.ok(appRoute(x.href),label+' '+x.href+' exists');
    assert.ok(x.title.length>3&&x.task.length>20);
   }
@@ -70,7 +77,7 @@ test('every start level × study days × session length builds a complete, valid
   }
   assert.ok(r.checkpoints.find(c=>c.kind==='final').tasks.some(t=>t.href==='/placement-test'));
   assert.ok(r.checkpoints.find(c=>c.kind==='midpoint').tasks.some(t=>t.href==='/placement-test'));
-  if(days.length>=2)for(const p of r.phases){const comps=new Set(r.sessions.filter(x=>x.phase===p.index&&x.kind==='study').map(x=>x.component));for(const c of ROUTE_COMPONENTS)assert.ok(comps.has(c),`${label} month ${p.index} includes ${c}`);}
+  if(days.length>=2)for(const p of r.phases){const comps=new Set(r.sessions.filter(x=>x.phase===p.index&&x.kind==='study').map(x=>x.allocated));for(const c of ROUTE_COMPONENTS)assert.ok(comps.has(c),`${label} month ${p.index} includes ${c}`);}
  }
  assert.equal(routes,6*7*5);
 });
@@ -80,7 +87,7 @@ test('the skill mix of each month follows its weights within one session',()=>{
   const r=buildSixMonthRoute(schedule({days,startingLevel:level}));
   for(const p of r.phases.slice(0,5)){
    const list=r.sessions.filter(x=>x.phase===p.index);
-   for(const c of ROUTE_COMPONENTS){const n=list.filter(x=>x.component===c).length,ideal=p.weights[c]/100*list.length;assert.ok(Math.abs(n-ideal)<=1,`${days.length}d ${level} month ${p.index} ${c}: ${n} vs ${ideal.toFixed(2)}`);}
+   for(const c of ROUTE_COMPONENTS){const n=list.filter(x=>x.allocated===c).length,ideal=p.weights[c]/100*list.length;assert.ok(Math.abs(n-ideal)<=1,`${days.length}d ${level} month ${p.index} ${c}: ${n} vs ${ideal.toFixed(2)}`);}
   }
  }
  // Months 5–6 follow the target exam: equal five components for B2 First and above.
@@ -167,7 +174,7 @@ test('the study plan offers the 6-month route only after the CEFR check and show
  assert.match(t,/if\(!record\.schedule&&skillProfile\)setWeeks\(26\)/,'learners with a CEFR result start on the 6-month route');
  assert.match(t,/schedule\.weeks===26&&<SixMonthRoute /);
  const v=fs.readFileSync(path.join(__dirname,'../src/components/placement/SixMonthRoute.tsx'),'utf8');
- for(const text of ['Your 6-month CEFR route','Target exam','Official exam format','Study time','Checkpoints','Which skills felt hardest?','All 26 weeks','Add to calendar','not an official syllabus'])assert.ok(v.includes(text),text);
+ for(const text of ['Your 6-month CEFR route','Target exam','Official exam format','Study time','Checkpoints','Which skills felt hardest?','All 26 weeks','Add to calendar','not an official syllabus','Your courses'])assert.ok(v.includes(text),text);
  assert.match(fs.readFileSync(path.join(__dirname,'../src/components/layout/GridBalance.tsx'),'utf8'),/import "\.\.\/placement\/route\.css";/);
 });
 
@@ -177,4 +184,64 @@ test('topic chips merge near-duplicates and show the most common topics first',(
  const src=fs.readFileSync(path.join(__dirname,'../src/components/learn/HubHero.tsx'),'utf8');
  assert.match(src,/max = 8/);assert.match(src,/More topics \(\$\{rest\.length\}\)/);assert.match(src,/selectedHidden/);
  for(const f of ['ListeningSection','ReadingSection']){const s=fs.readFileSync(path.join(__dirname,`../src/components/learn/${f}.tsx`),'utf8');assert.match(s,/<TopicChips /);assert.match(s,/topicKey\(lesson\.(topic|category)\) ===/);}
+});
+
+test('every month of every route uses real EnglishCamp lessons; B1→B2 uses the whole B2 First course',()=>{
+ for(const target of ['A2','B1','B2','C1','C2']){
+  const keys=[];
+  for(let phase=1;phase<=6;phase++){const lessons=routeCourseLessons(target,phase);assert.ok(lessons.length>=1,`${target} month ${phase} has lessons`);for(const l of lessons){assert.ok(appRoute(l.href),l.href);assert.ok(ROUTE_COMPONENTS.includes(l.component));keys.push(l.key);}}
+  assert.equal(new Set(keys).size,keys.length,target+' no lesson twice in one route');
+ }
+ const b2=routeCourses('B2').find(c=>c.id==='band4-5');assert.equal(b2.lessons.length,25);assert.deepEqual(b2.lessons.map(l=>l.progressKey).sort(),courseCatalogue.find(c=>c.id==='band4-5').lessons.map(l=>l.id).sort());
+ assert.deepEqual(routeCourses('A2').map(c=>c.id),['route'],'A2 Key route uses the new route lessons');
+ assert.deepEqual(routeCourses('B1').map(c=>c.id),['route']);
+ for(const t of ['C1','C2'])assert.ok(routeCourses(t).some(c=>c.id==='band7-8'),t+' uses the High-Band Masterclass');
+});
+
+test('with three or more sessions a week every course lesson gets a date; lesson sessions open the lesson and keep the month order',()=>{
+ for(const level of LEVELS)for(const days of [[1,3,5],[1,2,4,5],[1,2,3,4,5,6]]){
+  const r=buildSixMonthRoute(schedule({startingLevel:level,days}));
+  for(const p of r.phases){
+   assert.equal(p.scheduled,p.lessons.length,`${level} ${days.length}d month ${p.index}`);
+   const placed=r.sessions.filter(x=>x.phase===p.index&&x.lesson);
+   assert.deepEqual(placed.map(x=>x.lesson.key).sort(),p.lessons.map(l=>l.key).sort());
+   for(const x of placed){assert.equal(x.href,x.lesson.href);assert.equal(x.title,x.lesson.title);assert.equal(x.component,x.lesson.component);assert.match(x.task,/module|Route lesson/);}
+  }
+ }
+ const sparse=buildSixMonthRoute(schedule({startingLevel:'B1',days:[2]}));
+ assert.ok(sparse.phases.some(p=>p.scheduled<p.lessons.length),'with one session a week some lessons become extra sessions');
+ for(const p of sparse.phases)assert.ok(p.scheduled<=p.lessons.length);
+});
+
+test('route lessons: 12 per exam route, two each month, five checked questions, a task with a checklist',()=>{
+ assert.equal(ROUTE_LESSONS.length,24);assert.equal(new Set(ROUTE_LESSONS.map(l=>l.id)).size,24);
+ for(const target of ['A2','B1'])for(let phase=1;phase<=6;phase++)assert.equal(ROUTE_LESSONS.filter(l=>l.target===target&&l.phase===phase).length,2,`${target} month ${phase}`);
+ for(const l of ROUTE_LESSONS){
+  assert.match(l.id,/^(a2|b1)-[a-z0-9-]+$/);assert.ok(l.title.length>10&&l.canDo.startsWith('I can'));
+  assert.ok(l.learn.length>=3&&l.examples.length>=3);assert.ok(l.minutes>=30&&l.minutes<=45);
+  assert.equal(l.practice.length,5);
+  for(const q of l.practice){assert.ok(q.options.length>=2&&q.options.length<=4);assert.equal(new Set(q.options).size,q.options.length,l.id+' distinct options');assert.ok(Number.isInteger(q.answer)&&q.answer>=0&&q.answer<q.options.length);assert.ok(q.why.length>8);}
+  assert.equal(l.task.checklist.length,3);assert.ok(l.task.prompt.length>30);
+  assert.equal(l.level,l.phase===1?(l.target==='A2'?'A1':'A2'):l.target,l.id+' month 1 strengthens the level below');
+  if(/Key|Preliminary/.test(l.title))assert.ok(l.exam&&l.exam.length>40,l.id+' exam lessons describe the exam');
+  assert.equal(routeLessonExerciseId(l.id),'route-lesson:'+l.id);
+ }
+ // Facts that must match the published Cambridge formats.
+ const text=JSON.stringify(ROUTE_LESSONS);
+ assert.match(text,/at least 25 words/);assert.match(text,/at least 35 words/);assert.match(text,/about 100 words/);
+ assert.match(text,/six parts and 32 questions in 45 minutes/);assert.match(text,/four parts and 25 questions; you hear each recording twice/);
+ const page=fs.readFileSync(path.join(__dirname,'../src/app/study-plan/lesson/[id]/page.tsx'),'utf8');
+ assert.match(page,/export const dynamicParams = false/);assert.match(page,/generateStaticParams\(\) \{ return ROUTE_LESSONS\.map/);
+ const view=fs.readFileSync(path.join(__dirname,'../src/components/placement/RouteLessonView.tsx'),'utf8');
+ assert.match(view,/disabled=\{!allAnswered\}/,'answers are checked only when all are answered');
+ assert.match(view,/disabled=\{!checked \|\| !ticks\.every\(Boolean\)\}/,'completion needs the practice and the checklist');
+ assert.match(view,/completeExercise\(key, XP\)/);
+});
+
+test('the plan page shows the courses, an AIHubTools-style roadmap and a Gantt study schedule in liquid glass',()=>{
+ const v=fs.readFileSync(path.join(__dirname,'../src/components/placement/SixMonthRoute.tsx'),'utf8');
+ for(const text of ['Your courses','Study roadmap','Study schedule','camp-route-step-num','camp-route-step-weeks','camp-route-gantt-grid','camp-route-gantt-bar','camp-route-gantt-diamond','Block the time first','Open course'])assert.ok(v.includes(text),text);
+ const css=fs.readFileSync(path.join(__dirname,'../src/components/placement/route.css'),'utf8');
+ assert.match(css,/background: var\(--g-sheen\), var\(--g-card\); border: 1px solid var\(--g-rim\); box-shadow: var\(--g-card-shadow\);/);
+ assert.match(css,/backdrop-filter: var\(--g-blur\)/);assert.ok(!/box-shadow: var\(--g-sheen/.test(css),'the sheen is a background, never a shadow');
 });

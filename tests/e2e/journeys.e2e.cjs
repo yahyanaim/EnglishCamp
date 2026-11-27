@@ -152,7 +152,11 @@ test('J6: after the CEFR check, the study plan builds a 26-week route to the nex
  await p.locator('#route-heading').waitFor({timeout:10000});
  assert.match(await p.locator('#route-heading').innerText(),/B1\s*→?\s*(to\s*)?B2/);
  assert.equal(await p.locator('.camp-route-exam strong').innerText(),'B2 First');
- assert.equal(await p.locator('.camp-route-phases > li').count(),6);
+ assert.equal(await p.locator('.camp-route-step').count(),6,'six monthly steps in the study roadmap');
+ assert.equal(await p.locator('.camp-route-gantt-bar').count(),6,'six bars in the study schedule');
+ assert.equal(await p.locator('.camp-route-gantt-diamond').count(),6,'six checkpoints in the study schedule');
+ const courses=await p.locator('.camp-route-courses li strong').allInnerTexts();
+ assert.ok(courses.includes('Foundation & B2 First Course')&&courses.includes('EnglishCamp route lessons'),'courses: '+courses.join(', '));
  assert.equal(await p.locator('.camp-route-checks > ol > li').count(),6);
  assert.equal(await p.locator('.camp-route-phase-weeks details').count(),26);
  assert.equal(await p.locator('.camp-route-verdict').getAttribute('data-verdict'),'on-track','six 90-minute sessions reach about 200 hours');
@@ -162,8 +166,27 @@ test('J6: after the CEFR check, the study plan builds a 26-week route to the nex
  await firstCheck.locator('.camp-route-weak button',{hasText:'Speaking'}).click();
  await p.reload({waitUntil:'networkidle'});
  assert.match(await p.locator('.camp-route-progress-label').innerText(),/^1 of 156 sessions done/);
- assert.match(await p.locator('.camp-route-phases > li').nth(1).locator('.camp-route-boost').innerText(),/speaking/,'the checkpoint answer gives speaking more time from month 2');
- assert.equal(await p.locator('.camp-route-phases > li').first().locator('.camp-route-boost').innerText().catch(()=>''),'Extra time: grammar & vocabulary','month 1 keeps the placement priority only');
+ assert.deepEqual(await p.locator('.camp-route-step').nth(1).locator('.camp-route-step-tags span[data-boost="true"]').allInnerTexts(),['Grammar & vocabulary +','Speaking +'],'the checkpoint answer gives speaking more time from month 2');
+ assert.deepEqual(await p.locator('.camp-route-step').first().locator('.camp-route-step-tags span[data-boost="true"]').allInnerTexts(),['Grammar & vocabulary +'],'month 1 keeps the placement priority only');
+ // Open a route lesson from month 1, answer it, complete it, and see it ticked in the plan.
+ const {ROUTE_LESSONS}=require(path.join(root,'src/data/route-lessons.ts'));
+ const lesson=ROUTE_LESSONS.find(l=>l.id==='b1-present-perfect');
+ await p.locator('.camp-route-step').first().getByRole('link',{name:lesson.title}).click();
+ await p.waitForURL(u=>new URL(u).pathname==='/study-plan/lesson/b1-present-perfect',{timeout:15000});
+ assert.equal(await p.locator('h1').first().innerText(),lesson.title);
+ const items=p.locator('.camp-route-quiz > li');
+ for(let i=0;i<lesson.practice.length;i++)await items.nth(i).getByText(lesson.practice[i].options[lesson.practice[i].answer],{exact:true}).click();
+ await p.getByRole('button',{name:'Check answers'}).click();
+ assert.match(await p.locator('.camp-route-quiz-actions').innerText(),/5 \/ 5 correct/);
+ for(const box of await p.locator('.camp-route-checklist input').all())await box.check();
+ await p.getByRole('button',{name:/Mark lesson complete/}).click();
+ assert.match(await p.locator('.camp-route-lesson-done').innerText(),/Lesson complete · \+25 XP/);
+ // A first-ever XP award opens the existing "First Steps" badge celebration; close it like a learner would.
+ const badge=p.getByRole('dialog',{name:/Congratulations/});
+ if(await badge.isVisible({timeout:3000}).catch(()=>false))await badge.getByRole('button',{name:'Keep learning'}).click();
+ await p.getByRole('link',{name:'Back to my plan'}).click();
+ await p.locator('.camp-route-step').first().waitFor();
+ assert.equal(await p.locator('.camp-route-step').first().locator('li',{hasText:lesson.title}).getAttribute('data-done'),'true','the plan shows the lesson as done');
  assert.deepEqual(errors,[]);
  await context.close();
 });
