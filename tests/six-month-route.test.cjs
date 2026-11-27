@@ -174,8 +174,24 @@ test('the study plan offers the 6-month route only after the CEFR check and show
  assert.match(t,/if\(!record\.schedule&&skillProfile\)setWeeks\(26\)/,'learners with a CEFR result start on the 6-month route');
  assert.match(t,/schedule\.weeks===26&&<SixMonthRoute /);
  const v=fs.readFileSync(path.join(__dirname,'../src/components/placement/SixMonthRoute.tsx'),'utf8');
- for(const text of ['Your 6-month CEFR route','Target exam','Official exam format','Study time','Checkpoints','Which skills felt hardest?','All 26 weeks','Add to calendar','not an official syllabus','Your courses'])assert.ok(v.includes(text),text);
+ for(const text of ['Your 6-month CEFR route','Target exam','Official exam format','Study time','Checkpoints','Which skills felt hardest?','not an official syllabus','Your courses','<RouteCalendar '])assert.ok(v.includes(text),text);
  assert.match(fs.readFileSync(path.join(__dirname,'../src/components/layout/GridBalance.tsx'),'utf8'),/import "\.\.\/placement\/route\.css";/);
+});
+
+test('the study calendar follows the AIHubTools career calendar: week, day and month views, a session drawer and calendar links',()=>{
+ const c=fs.readFileSync(path.join(__dirname,'../src/components/placement/RouteCalendar.tsx'),'utf8');
+ for(const text of ['Study calendar','"Week"','"Day"','"Month"','Add to calendar','Today','Jump to date','Mark session done','Done · undo','Google Calendar','Open lesson','What to do','Course lesson','Previous week','Next week','Colour key'])assert.ok(c.includes(text),text);
+ assert.match(c,/DialogPrimitive\.Title/);assert.match(c,/DialogPrimitive\.Description/);
+ const css=fs.readFileSync(path.join(__dirname,'../src/components/placement/route.css'),'utf8');
+ assert.match(css,/\.camp-cal-event[^{]*\{[^}]*var\(--g-sheen\)/,'session blocks are tinted glass');
+ assert.match(css,/@container camp-main \(max-width: 767px\)[^]*\.camp-cal-mobile \{ display: block; \}/,'phones get the one-day view');
+ const {googleCalendarUrl,ROUTE_COMPONENT_CODE}=require('../src/components/placement/RouteCalendar.tsx');
+ assert.deepEqual(Object.values(ROUTE_COMPONENT_CODE),['GRM','RDG','LIS','SPK','WRT']);
+ const s={id:'x',week:1,phase:1,start:new Date('2026-11-23T17:00:00Z'),end:new Date('2026-11-23T18:30:00Z'),minutes:90,component:'reading',level:'B1',kind:'study',title:'Read for the main idea',task:'Read one passage.',href:'/reading',allocated:'reading'};
+ const u=new URL(googleCalendarUrl(s,'https://englishcamp.example'));
+ assert.equal(u.origin+u.pathname,'https://calendar.google.com/calendar/render');
+ assert.equal(u.searchParams.get('dates'),'20261123T170000Z/20261123T183000Z');
+ assert.match(u.searchParams.get('details'),/https:\/\/englishcamp\.example\/reading/);
 });
 
 test('topic chips merge near-duplicates and show the most common topics first',()=>{

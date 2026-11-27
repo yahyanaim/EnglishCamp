@@ -158,9 +158,25 @@ test('J6: after the CEFR check, the study plan builds a 26-week route to the nex
  const courses=await p.locator('.camp-route-courses li strong').allInnerTexts();
  assert.ok(courses.includes('Foundation & B2 First Course')&&courses.includes('EnglishCamp route lessons'),'courses: '+courses.join(', '));
  assert.equal(await p.locator('.camp-route-checks > ol > li').count(),6);
- assert.equal(await p.locator('.camp-route-phase-weeks details').count(),26);
+
+ // Study calendar (AIHubTools career calendar): week grid, drawer, month view.
+ const cal=p.locator('.camp-cal');
+ assert.ok(await cal.locator('.camp-cal-desktop .camp-cal-event').count()>=6,'this week shows its six sessions in the hour grid');
+ assert.equal(await cal.locator('.camp-cal-phases button').count(),6);
  assert.equal(await p.locator('.camp-route-verdict').getAttribute('data-verdict'),'on-track','six 90-minute sessions reach about 200 hours');
- await p.locator('.camp-route-week .camp-route-done input').first().check();
+
+ await cal.locator('.camp-cal-event:visible').first().click();
+ const drawer=p.getByRole('dialog');
+ await drawer.getByRole('button',{name:'Mark session done'}).click();
+ assert.equal(await drawer.locator('.camp-cal-chip-state').innerText(),'Done');
+ await drawer.getByRole('button',{name:'Close'}).click();
+ assert.equal(await cal.locator('.camp-cal-event:visible').first().getAttribute('data-done'),'true');
+ await cal.getByRole('button',{name:'Next week'}).click();
+ assert.match(await cal.locator('.camp-cal-range').innerText(),/^W\d+\/26/);
+ await cal.getByRole('button',{name:'Month',exact:true}).click();
+ assert.equal(await cal.locator('.camp-cal-month-week').count(),4,'month view shows four weeks');
+ await cal.getByRole('button',{name:'Day',exact:true}).click();
+ assert.equal(await cal.locator('.camp-cal-daychips button').count(),7);
  const firstCheck=p.locator('.camp-route-checks > ol > li').first();
  if(await firstCheck.locator('details').getAttribute('open')===null)await firstCheck.locator('summary').click();
  await firstCheck.locator('.camp-route-weak button',{hasText:'Speaking'}).click();

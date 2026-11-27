@@ -2,9 +2,9 @@
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import { BookOpen, CalendarDays, CheckCircle2, Circle, ExternalLink, Flag, GraduationCap, Target } from "lucide-react";
-import { Button } from "@/components/ui/shadcn/button";
+import { RouteCalendar } from "@/components/placement/RouteCalendar";
 import { ROUTE_COMPONENTS, ROUTE_COMPONENT_LABEL, ROUTE_LANGUAGE, ROUTE_SOURCES, ROUTE_WEEKS, type RouteComponent } from "@/lib/sixMonthRouteData";
-import { buildSixMonthRoute, routeCalendar, routeReviewKey, type RouteReview, type RouteSession } from "@/lib/sixMonthRoute";
+import { buildSixMonthRoute, routeCalendar, routeReviewKey, type RouteReview } from "@/lib/sixMonthRoute";
 import { emptyStudyReview } from "@/lib/studyReadiness";
 import { localDateKey } from "@/lib/studyPlanner";
 import { downloadLocalFile } from "@/lib/localDownload";
@@ -20,19 +20,6 @@ const VERDICT = {
 } as const;
 const date = (d: Date) => d.toLocaleDateString(undefined, { weekday: "short", day: "numeric", month: "short" });
 
-function SessionItem({ session, done, onToggle }: { session: RouteSession; done: boolean; onToggle: () => void }) {
-  return (
-    <li className="camp-route-session" data-component={session.component} data-kind={session.kind} data-done={done}>
-      <time dateTime={session.start.toISOString()}><b>{date(session.start)}</b><small>{session.start.toLocaleTimeString(undefined, { hour: "2-digit", minute: "2-digit" })} · {session.minutes} min</small></time>
-      <div>
-        <p className="camp-route-session-skill">{session.kind === "study" ? (session.lesson ? `${session.lesson.course.title} · ${ROUTE_COMPONENT_LABEL[session.component]}` : `${ROUTE_COMPONENT_LABEL[session.component]} · ${session.level}`) : session.kind === "mock" ? "Practice exam" : "Re-assessment"}</p>
-        {session.external ? <a href={session.href} target="_blank" rel="noreferrer">{session.title} <ExternalLink size={13} aria-hidden="true" /></a> : <Link href={session.href}>{session.title}</Link>}
-        <p>{session.task}</p>
-      </div>
-      <label className="camp-route-done"><input type="checkbox" checked={done} onChange={onToggle} /><span>Done</span></label>
-    </li>
-  );
-}
 
 export function SixMonthRoute({ schedule, adaptation, record, update, learnerName }: { schedule: StudySchedule; adaptation?: StudyAdaptation; record: PlacementRecord; update: (change: (r: PlacementRecord) => PlacementRecord) => boolean; learnerName: string }) {
   const reviews: RouteReview[] = useMemo(() => Object.entries(record.studyReviews ?? {}).flatMap(([key, review]) => {
@@ -48,12 +35,11 @@ export function SixMonthRoute({ schedule, adaptation, record, update, learnerNam
   const today = localDateKey(new Date());
   const currentWeek = Math.min(ROUTE_WEEKS, Math.max(1, Math.floor((Date.parse(today) - Date.parse(schedule.startDate)) / (7 * 86400000)) + 1));
   const currentPhase = route.phases.find(p => currentWeek >= p.from && currentWeek <= p.to)!;
-  const [openWeek, setOpenWeek] = useState(currentWeek);
   const [notice, setNotice] = useState("");
   const toggle = (id: string) => update(r => ({ ...r, studyDone: (r.studyDone ?? []).includes(id) ? (r.studyDone ?? []).filter(x => x !== id) : [...(r.studyDone ?? []), id] }));
   const review = (week: number) => record.studyReviews?.[routeReviewKey(schedule.id, week)] ?? emptyStudyReview();
   const saveReview = (week: number, change: (r: ReturnType<typeof emptyStudyReview>) => ReturnType<typeof emptyStudyReview>) => update(r => ({ ...r, studyReviews: { ...r.studyReviews, [routeReviewKey(schedule.id, week)]: change(r.studyReviews?.[routeReviewKey(schedule.id, week)] ?? emptyStudyReview()) } }));
-  const language = ROUTE_LANGUAGE[route.target], thisWeek = route.sessions.filter(s => s.week === currentWeek);
+  const language = ROUTE_LANGUAGE[route.target];
   const exportCalendar = () => { downloadLocalFile(new Blob([routeCalendar(route, learnerName, window.location.origin)], { type: "text/calendar;charset=utf-8" }), "englishcamp-6-month-route.ics"); setNotice("Calendar file downloaded. Import it once to avoid duplicates."); };
 
   return (
@@ -82,6 +68,8 @@ export function SixMonthRoute({ schedule, adaptation, record, update, learnerNam
         <p><strong>{route.hours.planned} hours</strong> planned ({route.hours.perWeek} h a week) · Cambridge estimates about <strong>{route.hours.needed} guided hours</strong> to move up one CEFR level (about {route.hours.weeklyNeeded} h a week for 26 weeks).</p>
         <p className="camp-route-verdict" data-verdict={route.hours.verdict}>{VERDICT[route.hours.verdict]}</p>
       </section>
+
+      <RouteCalendar route={route} startDate={schedule.startDate} currentWeek={currentWeek} done={done} onToggle={toggle} onExport={exportCalendar} notice={notice} />
 
       <section className="camp-route-courses" aria-labelledby="route-courses">
         <div className="camp-route-section-head"><h3 id="route-courses"><BookOpen size={18} aria-hidden="true" />Your courses</h3><span>{courses.reduce((n, c) => n + c.lessons.length, 0)} lessons in this route</span></div>
@@ -159,11 +147,6 @@ export function SixMonthRoute({ schedule, adaptation, record, update, learnerNam
         </ol>
       </section>
 
-      <section className="camp-route-week" aria-labelledby="route-this-week">
-        <div className="camp-route-section-head"><h3 id="route-this-week"><CalendarDays size={18} aria-hidden="true" />This week · week {currentWeek}</h3><span>{currentPhase.title}</span></div>
-        {thisWeek.length ? <ol className="camp-route-sessions">{thisWeek.map(s => <SessionItem key={s.id} session={s} done={done.has(s.id)} onToggle={() => toggle(s.id)} />)}</ol> : <p>No sessions this week on your chosen days.</p>}
-      </section>
-
       <section className="camp-route-language" aria-labelledby="route-language">
         <h3 id="route-language">What you will learn for {route.target}</h3>
         <dl>
@@ -197,25 +180,6 @@ export function SixMonthRoute({ schedule, adaptation, record, update, learnerNam
             );
           })}
         </ol>
-      </section>
-
-      <section className="camp-route-all" aria-labelledby="route-all">
-        <div className="camp-route-section-head"><h3 id="route-all">All 26 weeks</h3><Button variant="outline" size="sm" onClick={exportCalendar}><CalendarDays size={15} aria-hidden="true" />Add to calendar</Button></div>
-        {route.phases.map(phase => (
-          <div key={phase.index} className="camp-route-phase-weeks">
-            <h4>Month {phase.index} · {phase.title}</h4>
-            {Array.from({ length: phase.to - phase.from + 1 }, (_, i) => phase.from + i).map(week => {
-              const list = route.sessions.filter(s => s.week === week), finished = list.filter(s => done.has(s.id)).length;
-              return (
-                <details key={week} open={week === openWeek} onToggle={e => { if ((e.target as HTMLDetailsElement).open) setOpenWeek(week); }}>
-                  <summary>Week {week}{week === currentWeek ? " · this week" : ""}<span>{finished}/{list.length}</span></summary>
-                  <ol className="camp-route-sessions">{list.map(s => <SessionItem key={s.id} session={s} done={done.has(s.id)} onToggle={() => toggle(s.id)} />)}</ol>
-                </details>
-              );
-            })}
-          </div>
-        ))}
-        {notice && <p role="status">{notice}</p>}
       </section>
 
       <details className="camp-plan-references">
